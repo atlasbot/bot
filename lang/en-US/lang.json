@@ -552,7 +552,12 @@
                     "none": "None"
                 },
                 "owners": "Owners",
-                "footer": "Approved at"
+                "footer": "Approved at",
+                "invite": "Invite Link",
+                "support": {
+                    "name": "Support Server",
+                    "none": "None"
+                }
             }
         }
     }

@@ -98,6 +98,16 @@ module.exports = class BotInfo extends Command {
 						: 'botinfo.embed.website.none',
 					inline: true,
 				}, {
+					name: 'botinfo.embed.invite',
+					value: `[Click here](${body.invite})`,
+					inline: true,
+				}, {
+					name: 'botinfo.embed.support.name',
+					value: body.support
+						? `[Click here](https://discordapp.com/invite/${body.support})`
+						: 'botinfo.embed.support.none',
+					inline: true,
+				}, {
 					name: 'botinfo.embed.owners',
 					value: owners.join(', '),
 				}],
