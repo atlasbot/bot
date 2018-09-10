@@ -1,5 +1,6 @@
 const _path = require('path');
 const fs = require('fs').promises;
+const Plugin = require('./../structures/Plugin');
 
 module.exports = class Commands {
 	static async plugins() {
@@ -55,7 +56,7 @@ module.exports = class Commands {
 	static async load(Atlas) {
 		const plugins = await this.plugins();
 		for (const plugin of plugins) {
-			Atlas.plugins.set(plugin.name, plugin);
+			Atlas.plugins.set(plugin.name.toLowerCase(), new Plugin(plugin));
 			plugin.commands.forEach(cmd => this.setup(Atlas, cmd, {
 				plugin,
 			}));

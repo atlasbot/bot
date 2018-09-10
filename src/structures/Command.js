@@ -191,21 +191,20 @@ class Command {
 
 	/**
 	 * Converts the command info to a language
-	 * @param {string} locale The locale to format with, defaults to "en-US"
+	 * @param {string} lang The locale to format with, defaults to "en-US"
 	 * @returns {Object} the converted command info
 	 */
-	getInfo(locale = 'en-US') {
-		const responder = new Responder();
+	getInfo(lang = 'en-US') {
+		const responder = new Responder(null, lang);
 
-		return { ...this.info,
+		return {
+			...this.info,
 			...responder._parseObject({
 				description: this.info.description,
 				fullDescription: this.info.fullDescription,
 				usage: this.info.usage,
-			}, locale, {
-				silent: true,
-				startsWith: 'info',
-			}) };
+			}),
+		};
 	}
 
 	/**
@@ -215,7 +214,7 @@ class Command {
 	 */
 	helpEmbed(msg) {
 		// TODO: localise properly
-		const info = this.getInfo(msg.lang || 'en');
+		const info = this.getInfo(msg.lang);
 
 		const embed = {
 			title: `${msg.displayPrefix}${this.info.master ? `${this.info.master.info.name} ${info.name}` : info.name}`,

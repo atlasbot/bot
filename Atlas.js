@@ -113,32 +113,6 @@ module.exports = class Atlas extends Base {
 		});
 		console.log(`Loaded ${this.langs.size} languages`);
 
-		// Loading commands
-		let files = lib.utils
-			.walkSync(path.join(__dirname, 'src/commands'));
-
-		// load plugins
-		files
-			.filter(m => m.includes('plugin.json'))
-			.forEach((file) => {
-				const meta = require(file);
-
-				if (meta.load === false) {
-					console.warn(`Not loading plugin "${meta.name}" as it is disabled.`);
-					files = files.filter(m => !m.includes(meta.name));
-					delete require.cache[require.resolve(file)];
-
-					return null;
-				}
-				const loc = path.parse(file);
-				const plugin = new Plugin({ ...loc, ...meta });
-
-				this.plugins.set(plugin.name.toLowerCase(), plugin);
-				delete require.cache[require.resolve(file)];
-
-				return plugin;
-			});
-
 		// set the bot status
 		this.client.editStatus('online', {
 			name: `${this.version} "Antares" | Development Version`,

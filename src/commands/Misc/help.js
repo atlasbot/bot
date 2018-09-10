@@ -21,7 +21,7 @@ module.exports = class Help extends Command {
 				description: ['help.description', msg.displayPrefix],
 				timestamp: new Date(),
 				footer: {
-					text: `${this.Atlas.commands.size} commands`,
+					text: `${this.Atlas.commands.labels.size} commands`,
 				},
 			};
 			for (const modName of this.Atlas.plugins.keys()) {
