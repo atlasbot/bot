@@ -77,7 +77,7 @@ module.exports.info = {
 	examples: [
 		'@random breaking the rulez',
 		'@random not partying hard enough',
-		'111372124383428608 being too cool',
+		`${process.env.OWNER} being too cool`,
 	],
 	requirements: {
 		permissions: {

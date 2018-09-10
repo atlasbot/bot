@@ -135,7 +135,7 @@ module.exports.info = {
 	examples: [
 		'@random 5m | being mean',
 		'@random 10h | verbal diarrhea',
-		'111372124383428608 10 hours | stop being mean',
+		`${process.env.OWNER} 10 hours | stop being mean`,
 	],
 	requirements: {
 		permissions: {

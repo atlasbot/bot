@@ -21,8 +21,7 @@ module.exports = class Eval extends Command {
 		parsedArgs,
 	}) {
 		const responder = (new this.Atlas.structs.Responder(msg)).localised(true).noDupe(false);
-
-		if (msg.author.id !== '111372124383428608') {
+		if (msg.author.id !== process.env.OWNER) {
 			return responder.error('no u').send();
 		}
 		try {

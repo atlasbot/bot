@@ -63,7 +63,7 @@ module.exports = class Ready {
 						parsedArgs[arg] = uncleanOptions[arg];
 					}
 				}
-				if (msg.author.id === '111372124383428608' && this.Atlas.env === 'development') {
+				if (msg.author.id === process.env.OWNER && this.Atlas.env === 'development') {
 					msg.addReaction('🔁').catch(() => false);
 				}
 				msg.command.execute(msg, msg.args, {

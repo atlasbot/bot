@@ -44,7 +44,7 @@ module.exports.info = {
 	description: 'info.unban.description',
 	examples: [
 		'@random cus ur being nice now',
-		'111372124383428608 ur too cool to ban',
+		`${process.env.OWNER} ur too cool to ban`,
 	],
 	requirements: {
 		permissions: {
