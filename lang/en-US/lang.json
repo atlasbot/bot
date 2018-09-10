@@ -12,6 +12,9 @@
             "description": "Gets information about almost any public bot via discordbots.org.",
             "usage": "[bot mention/query]"
         },
+        "xkcd": {
+            "description": "Gets a random XKCD comic."
+        },
         "unban": {
             "description": "Unban a user from the guild.",
             "usage": "[user] <reason>"
