@@ -157,12 +157,17 @@ class Responder {
 				key: obj,
 				language: this._data.lang,
 				noThrow: true,
+				stringOnly: true,
 			};
 		}
 
-		const val = this.Atlas.util.format(obj.language, obj.key, ...replacements);
+		const val = this.Atlas.util.format(obj.language || this._data.lang, obj.key, ...replacements);
 		if (!val && !obj.noThrow) {
 			throw new Error(`No language value matching key "${obj.key}"`);
+		}
+
+		if (obj.stringOnly && typeof val !== 'string') {
+			return;
 		}
 
 		return val;
@@ -379,10 +384,13 @@ class Responder {
 			if ({}.hasOwnProperty.call(obj, key)) {
 				let val = obj[key];
 				if (typeof val === 'string') {
-					val = this.format({
-						str: val,
-						noThrow: true,
-					}) || val;
+					if (!val.includes(' ') && val.includes('.') && !this.Atlas.lib.utils.isUri(val)) {
+						val = this.format({
+							key: val,
+							noThrow: true,
+							stringOnly: true,
+						}) || val;
+					}
 				} else if (Array.isArray(val) && typeof val[0] === 'string') {
 					const [str, ...replacements] = val;
 					console.warn(str);

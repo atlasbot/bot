@@ -8,6 +8,10 @@
         ]
     },
     "info": {
+        "botinfo": {
+            "description": "Gets information about almost any public bot via discordbots.org.",
+            "usage": "[bot mention/query]"
+        },
         "unban": {
             "description": "Unban a user from the guild.",
             "usage": "[user] <reason>"
@@ -523,6 +527,33 @@
             "noPlayer": "There is nothing playing in this server.",
             "success": "Skipped `{0}`.",
             "nothingNext": "There is nothing in the queue to skip to."
+        },
+        "botinfo": {
+            "noArgs": "Please mention a bot or include a search query.",
+            "notABot": "Beep boop? That user is not a bot.",
+            "notFound": "That bot is not listed on discordbots.org :c",
+            "embed": {
+                "library": "Library",
+                "servers": {
+                    "name": "Servers",
+                    "none": "Unknown"
+                },
+                "shards": {
+                    "name": "Shards",
+                    "none": "Unknown"
+                },
+                "prefix": "Prefix",
+                "github": {
+                    "name": "Github",
+                    "none": "None"
+                },
+                "website": {
+                    "name": "Website",
+                    "none": "None"
+                },
+                "owners": "Owners",
+                "footer": "Approved at"
+            }
         }
     }
 }

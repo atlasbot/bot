@@ -60,7 +60,7 @@ class Fuzzy {
 
 								processed.push({ item, score });
 							}
-						} else {
+						} else if (typeof prop === 'string') {
 							const score = compare(prop.toLowerCase(), query.toLowerCase());
 
 							processed.push({ item, score });

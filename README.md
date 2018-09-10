@@ -39,6 +39,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | OMDBAPI_KEY   | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key. |
 | VERBOSE       | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment. |
 | OWNER         | The bot owner, gives them access to special features like the "eval" command. |
+| DISCORDBOTS_ORG_TOKEN | A [discordbots.org](https://discordbots.org/) API Token, used to post statistics to and get information about other bots.
 
 ## Disclaimer / Warning
 
