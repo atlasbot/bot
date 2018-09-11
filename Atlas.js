@@ -1,4 +1,3 @@
-const path = require('path');
 const Raven = require('raven');
 const { Base } = require('eris-sharder');
 
@@ -9,7 +8,6 @@ const Agenda = require('./src/agenda');
 const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
 const hotReload = require('./src/hotReload');
-const Plugin = require('./src/structures/Plugin');
 const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
