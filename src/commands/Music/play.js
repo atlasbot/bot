@@ -1,4 +1,5 @@
 const superagent = require('superagent');
+const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 const lib = require('./../../../lib');
 
@@ -49,20 +50,67 @@ module.exports = class Play extends Command {
 		const player = await this.Atlas.client.voiceConnections.getPlayer(userVoiceChannel, true);
 		if (body.loadType === 'PLAYLIST_LOADED') {
 			// todo: say it's a playlist
-			if (body.selectedTrack > -1) {
-				player.index = body.selectedTrack;
+			const selected = body.playlistInfo.selectedTrack;
+			// if the player is playing we don't wanna mess with the index directly
+			if (selected > -1 && !player.isPlaying) {
+				player.index += selected;
 			}
-			for (const track of body.tracks) {
-				await player.play(track);
+			for (let i = 0; i < body.tracks.length; i++) {
+				const track = body.tracks[i];
+				// add the playlist URL to the track incase it's needed in the future
+				[track.info.playlist] = args;
+				await player.play(track, {
+					play: selected > -1 ? selected === i : true,
+					settings,
+					msg,
+				});
 			}
-			player.msg = msg;
 
-			return responder.text('wew');
+			return player.responder.embed({
+				url: args[0],
+				title: ['play.playlistEmbed.title', body.playlistInfo.name],
+				description: ['play.playlistEmbed.description', msg.author.mention, body.tracks.length],
+				timestamp: new Date(),
+			}).send();
 		}
+
+		// it's not a playlist so load it normally
+
 		const [track] = body.tracks;
-		player.play(track, {
+
+		await player.play(track, {
 			msg,
+			settings,
 		});
+
+		// if (player.isPlaying) {
+		const queueLength = player.upcoming.reduce((a, b) => a + b.info.length, 0);
+
+		// if it's playing then the player won't handle the now playing message
+		// so let's just make sure the user knows it was added
+		return player.responder.embed({
+			title: 'Song Queued',
+			description: `[${track.info.title}](${track.info.uri})`,
+			fields: [{
+				name: 'Author',
+				value: track.info.author,
+				inline: true,
+			}, {
+				// todo: hide if it's the first song being added, show something instead
+				name: 'Time Until Playing',
+				value: prettyMs(queueLength),
+				inline: true,
+			}, {
+				name: 'Duration',
+				value: prettyMs(track.info.length),
+				inline: true,
+			}],
+			timestamp: new Date(),
+			footer: {
+				text: `Added by ${msg.author.username}`,
+			},
+		}).send();
+		// }
 	}
 };
 

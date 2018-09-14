@@ -11,7 +11,6 @@ const hotReload = require('./src/hotReload');
 const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
-
 const DB = lib.structs.Database;
 
 module.exports = class Atlas extends Base {

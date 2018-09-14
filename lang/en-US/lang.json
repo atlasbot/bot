@@ -15,6 +15,9 @@
         "xkcd": {
             "description": "Gets a random XKCD comic."
         },
+        "leave": {
+            "description": "Leaves the voice channel and dumps the queue."
+        },
         "unban": {
             "description": "Unban a user from the guild.",
             "usage": "[user] <reason>"
@@ -425,7 +428,11 @@
             "noResults": "I could not find any search results matching `{0}`.",
             "noVoiceChannel": "You have to be in a voice channel to do that!",
             "busy": "I'm already playing in `{0}`",
-            "noArgs": "You have to include a search term or URL!"
+            "noArgs": "You have to include a search term or URL!",
+            "playlistEmbed": {
+                "title": "Playlist Queued - {0}",
+                "description": "{0} has queued {1} songs from a playlist."
+            }
         },
         "queue": {
             "noPlayer": "There is nothing playing in this server.",
@@ -562,6 +569,13 @@
                     "none": "None"
                 }
             }
+        },
+        "leave": {
+            "nothingPlaying": "There is nothing playing in this server!",
+            "recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
+            "sameChannel": "You must be in the same voice channel as I am to do that!",
+            "leftChannel": "I have left `{0}`!",
+            "leftNoChannel": "I have left the voice channel."
         }
     }
 }

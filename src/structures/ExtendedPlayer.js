@@ -1,4 +1,5 @@
 const { Player } = require('eris-lavalink');
+const PlayerResponder = require('./PlayerResponder');
 
 module.exports = class ExtendedPlayer extends Player {
 	constructor(id, { hostname, guildId, channelId, shard, node, manager, options }) {
@@ -9,6 +10,8 @@ module.exports = class ExtendedPlayer extends Player {
 		// The upcoming songs
 		this.queue = [];
 		this.index = 0;
+		this.lang = null;
+		this.messages = [];
 	}
 
 	get upcoming() {
@@ -17,16 +20,20 @@ module.exports = class ExtendedPlayer extends Player {
 
 	get responder() {
 		// TODO: use a custom player responder with cleanup built in that extends the default one
-		return new this.Atlas.structs.Responder(this.msg);
+		return new PlayerResponder(this, this.lang, {
+			settings: this.settings,
+		});
 	}
 
 	get isPlaying() {
-		return this.playing || this.track;
+		return !!(this.playing || this.track);
 	}
 
 	// gets super accurate positions, accounts for ms differences between last fetched too
 	get position() {
-		return this.state ? this.state.position + (new Date() - new Date(this.state.time)) : 0;
+		return this.state && this.state.position
+			? this.state.position + (new Date() - new Date(this.state.time))
+			: 0;
 	}
 
 	get timeLeft() {
@@ -49,7 +56,9 @@ module.exports = class ExtendedPlayer extends Player {
 		track,
 		{
 			msg,
+			settings,
 			ended = false,
+			play = true,
 		} = {},
 		options = {},
 	) {
@@ -58,10 +67,18 @@ module.exports = class ExtendedPlayer extends Player {
 		}
 		if (msg) {
 			this.msg = msg;
+			this.lang = msg.lang;
+		}
+
+		if (!settings && !this.settings) {
+			throw new Error('Settings must be provided to the player to work properly.');
+		} else if (settings) {
+			this.settings = settings;
 		}
 
 		this.queue.push(track);
-		if (this.isPlaying && !ended) {
+
+		if ((this.isPlaying && !ended) || !play) {
 			return;
 		}
 

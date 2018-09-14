@@ -11,11 +11,9 @@ class Responder {
 	/**
      * Creates a new responder.
      * @param {string|Object} data The channel ID, channel object or message object to pull the channel from.
-	 * @param {string} lang The lang to use when sending messages.
+	 * @param {string} lang The lang to use when sending messages. Overrides "data.lang"
      */
-	constructor(data, lang, {
-		author,
-	} = {}) {
+	constructor(data, lang) {
 		let channelID;
 		if (data) {
 			if (data.channel) {
@@ -28,7 +26,7 @@ class Responder {
 		}
 		this._data = {
 			channelID,
-			lang: lang || (data && data.lang ? data.lang : null),
+			lang: lang || data ? data.lang : null,
 			str: null,
 			embed: null,
 			ttl: 0,
@@ -45,7 +43,7 @@ class Responder {
 				getEmbed: null,
 			},
 		};
-		this.for = author || (data && data.author) ? data.author.id : null;
+
 		this.Atlas = require('./../../Atlas');
 		this.guild = this.Atlas.client.guilds.find(g => g.channels.has(this._data.channelID));
 

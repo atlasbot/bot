@@ -146,9 +146,13 @@ class Command {
 					return resolve(res);
 				})
 				.catch((e) => {
-					// todo: check if it's a superagent error, if it is give general.restError
-					responder.error('general.errorExecuting').send();
 					console.error(e);
+					if (e.status && e.response) {
+						// it's /probably/ a superagent error
+						responder.error('general.restError').send();
+					} else {
+						responder.error('general.errorExecuting').send();
+					}
 
 					return reject(e);
 				});

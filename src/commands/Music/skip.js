@@ -5,8 +5,10 @@ module.exports = class Next extends Command {
 		super(Atlas, module.exports.info);
 	}
 
+	// if button is true, it was called via player buttons and not a person typing the command
 	async action(msg, {
 		settings, // eslint-disable-line no-unused-vars
+		button = false, // eslint-disable-line no-unused-vars
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
