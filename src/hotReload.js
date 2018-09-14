@@ -67,6 +67,7 @@ module.exports = (bot) => {
 			if (eventType === 'rename' || eventType === 'delete') return;
 
 			const evtLoc = path.join(__dirname, dir, filename);
+
 			if (fs.statSync(evtLoc).isDirectory()) return;
 
 			if (!changed[filename]) {

@@ -50,4 +50,3 @@ Additionally, this is a very early version of 8.0.0 - there *will* be major brea
 ## Acknowledgements
 
 * src/util/parseTime - from [Aetheryx/remindme](https://github.com/Aetheryx/remindme/blob/master/src/utils/parseTime.js), licensed under MIT
-* src/tagengine - from [devsnek/TagScript](https://github.com/devsnek/TagScript), here with minor changes because it had some issues and limitations. This will get some big changes eventually.

@@ -1,5 +1,5 @@
 const Command = require('../../structures/Command.js');
-const tagengine = require('./../../tagengine');
+const Parser = require('./../../tagengine');
 
 module.exports = class Evaluate extends Command {
 	constructor(Atlas) {
@@ -9,15 +9,19 @@ module.exports = class Evaluate extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = (new this.Atlas.structs.Responder(msg)).noDupe(false);
+		const responder = (new this.Atlas.structs.Responder(msg)).noDupe(false).localised(true);
 
 		if (!args[0]) {
 			return responder.error('You have to include something to evaluate!').send();
 		}
 
-		const ret = await tagengine.parse(args.join(' '), {
+		// todo: add more here
+		const parser = new Parser({
 			guild: msg.guild,
+			channel: msg.channel,
+			settings,
 		});
+		const ret = await parser.parse(args.join(' '));
 
 		const output = ret.output || 'No variable output :c';
 

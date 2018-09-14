@@ -1,3 +1,2 @@
-// soon:tm: - in depth tag errors
-
+// todo
 module.exports = Error;
