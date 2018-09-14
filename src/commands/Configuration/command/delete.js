@@ -31,8 +31,6 @@ module.exports = class List extends Command {
 			},
 		});
 
-		console.log(cmd);
-
 		return responder.text('command.delete.success', cmd.trigger.content).send();
 	}
 };
