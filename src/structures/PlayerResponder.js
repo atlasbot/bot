@@ -62,8 +62,6 @@ module.exports = class PlayerResponder extends Responder {
 						}
 					})
 					.listen();
-			} else {
-				console.warn('no player messages enabled');
 			}
 
 			this.player.messages.push(res.id);

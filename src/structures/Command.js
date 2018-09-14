@@ -32,12 +32,12 @@ class Command {
 			noExamples: info.usage && !info.examples,
 			supportedArgs: [],
 			args: [],
+			subcommands: new Map(),
 		},
 		...info };
 
 		this.cooldowns = new Map();
 
-		this.subcommands = new Map();
 		this.subcommandAliases = new Map();
 
 		this.execute = this.execute.bind(this);
@@ -53,7 +53,6 @@ class Command {
 	}) {
 		return new Promise((resolve, reject) => {
 			const responder = new Responder(msg);
-
 
 			if (settings) {
 				const permCheck = this.permCheck(msg);
@@ -228,9 +227,9 @@ class Command {
 			footer: {},
 		};
 
-		if (this.subcommands && this.subcommands.size !== 0) {
+		if (this.info.subcommands && this.info.subcommands.size !== 0) {
 			embed.fields.push({
-				value: `**•** ${msg.displayPrefix}${this.info.name} ${Array.from(this.subcommands.values())
+				value: `**•** ${msg.displayPrefix}${this.info.name} ${Array.from(this.info.subcommands.values())
 					.map(sub => sub.info.name)
 					.join(`\n**•** ${msg.displayPrefix}${this.info.name} `)}`,
 				name: 'Subcommands',

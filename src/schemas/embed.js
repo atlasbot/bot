@@ -16,14 +16,14 @@ module.exports = {
 	},
 	author: {
 		name: Joi.string().max(256).optional(),
-		icon_url: Joi.string().uri(),
+		icon_url: Joi.string().optional().uri(),
 	},
 	url: Joi.string().uri(),
 	image: {
 		url: Joi.string().uri(),
 	},
 	thumbnail: {
-		url: Joi.string().uri(),
+		url: Joi.string().uri().optional(),
 	},
 	timestamp: Joi.date().timestamp(),
 };

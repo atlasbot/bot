@@ -26,7 +26,7 @@ class Responder {
 		}
 		this._data = {
 			channelID,
-			lang: lang || data ? data.lang : null,
+			lang: lang || (data && data.lang),
 			str: null,
 			embed: null,
 			ttl: 0,
@@ -40,7 +40,6 @@ class Responder {
 				current: 1,
 				total: 1,
 				user: null,
-				getEmbed: null,
 			},
 		};
 
@@ -254,7 +253,7 @@ class Responder {
 		}
 
 		if (data.page.enabled) {
-			data.embed = data.page.getEmbed(data);
+			data.embed = this._parseObject(data.page.generator(data));
 		}
 
 		if (data.embed) {
@@ -308,7 +307,7 @@ class Responder {
 			});
 			const responder = new Responder();
 			const update = () => {
-				const em = data.page.getEmbed(data);
+				const em = this._parseObject(data.page.generator(data));
 				if (em) {
 					msg.edit({
 						embed: em,
@@ -391,7 +390,6 @@ class Responder {
 					}
 				} else if (Array.isArray(val) && typeof val[0] === 'string') {
 					const [str, ...replacements] = val;
-					console.warn(str);
 					if (str && typeof str === 'string') {
 						val = this.format(str, ...replacements) || str;
 					}
