@@ -62,14 +62,19 @@ module.exports = class EmojiCollector {
 	}
 
 	listen() {
-		if (!this._msg) {
-			throw new Error('Message ID is required');
-		} else if (!this._exec) {
+		// todo: make this support generally listening for emojis
+		if (!this._exec) {
 			throw new Error('Exec func is required');
 		}
-		this._Atlas.collectors.emojis[this._msg.id] = this;
-		this.listening = true;
+		if (this._msg) {
+			this._Atlas.collectors.emojis[this._msg.id] = this;
+		} else if (this._userID) {
+			this._Atlas.collectors.emojis[this._userID] = this;
+		} else {
+			throw new Error('Either a user or message is required to listen to emojis.');
+		}
 
+		this.listening = true;
 		if (this._emojis.length !== 0 && this._add) {
 			return this._addEmojis();
 		}
@@ -89,18 +94,18 @@ module.exports = class EmojiCollector {
 		return this;
 	}
 
-	fire(msg, emoji, userID) {
+	async fire(msg, emoji, userID) {
 		if (this._remove && userID !== this._Atlas.client.user.id) {
 			msg.removeReaction(emoji.name, userID)
 				.catch(console.error);
 		}
-		if (msg.id !== this._msg.id) {
+		if (this._msg && msg.id !== this._msg.id) {
 			return;
 		}
 		if (this._userID && userID !== this._userID) {
 			return;
 		}
-		if (this._filter && !this._filter(msg, emoji, userID)) {
+		if (this._filter && await !this._filter(msg, emoji, userID)) {
 			return;
 		}
 		if (this._emojis.length !== 0) {
@@ -120,6 +125,10 @@ module.exports = class EmojiCollector {
 		if (!emojis) {
 			emojis = [...this._emojis];
 		}
+		if (!this._msg) {
+			return emojis;
+		}
+
 		for (const emoji of emojis) {
 			try {
 				await this._msg.addReaction(emoji);
@@ -134,6 +143,11 @@ module.exports = class EmojiCollector {
 	}
 
 	destroy() {
-		return delete this._Atlas.collectors.emojis[this._msg.id];
+		if (this._msg) {
+			delete this._Atlas.collectors.emojis[this._msg.id];
+		}
+		if (this._userID) {
+			delete this._Atlas.collectors.emojis[this._userID];
+		}
 	}
 };

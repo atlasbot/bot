@@ -1,6 +1,6 @@
 const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
-// const util = require('util');
+
 
 module.exports = class Wiki extends Command {
 	constructor(Atlas) {

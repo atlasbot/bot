@@ -1,5 +1,5 @@
 const Command = require('../../../structures/Command.js');
-// const util = require('util');
+
 
 module.exports = class CommandManager extends Command {
 	constructor(Atlas) {

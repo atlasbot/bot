@@ -59,8 +59,10 @@ module.exports = class Util {
 		rest = true,
 		members,
 	} = {}) {
-		if (!query.trim()) return;
-		const id = query.trim().replace(/<|@|!|>/g, '');
+		if (!query) {
+			return;
+		}
+		const id = this.cleanID(query);
 
 		let guildMembers;
 		if (members) {
@@ -97,11 +99,97 @@ module.exports = class Util {
 		return (new Fuzzy(members || Array.from(guildMembers.values()), {
 			matchPercent,
 			keys: [
-				'id',
 				'username',
 				'nickname',
 				'mention',
 			],
 		})).search(query);
+	}
+
+	/**
+	 * Finds a role or channel
+	 * @param {guild} guild The guild to search for the ID in
+	 * @param {string} query the search term. can be a mention, ID, name, etc..
+	 * @param {Object} options Options
+	 * @param {number} options.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
+	 * @param {string} options.type The type to search for, defaults to either role or channel. Must be either void, 'role' or 'channel'
+	 * @returns {Promise<Channel|Role|Void>}
+	 */
+	async findRoleOrChannel(guild, query, {
+		percent,
+		type,
+	}) {
+		if (!query) {
+			return;
+		}
+		const id = this.cleanID(query);
+		const valid = type ? guild[`${type}s`] : new Map([...guild.roles, ...guild.channels]);
+		if (id) {
+			// it's probably an ID or mention
+			if (valid.has(id)) {
+				return valid.get(id);
+			}
+		}
+
+		return (new Fuzzy(Array.from(valid.values()), {
+			percent,
+			keys: [
+				'mention',
+				'name',
+			],
+		})).search(query);
+	}
+
+	/**
+	 * Finds a message in a guild/guild channel
+	 * @param {channel} channel The channel to search in
+	 * @param {string} query the search term. can be an ID, share link, message content
+	 * @param {Object} options Options
+	 * @param {number} options.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
+	 * @param {boolean} options.searchContent whether to search the message content or not
+	 * @returns {Promise<Message|Void>}
+	 */
+	async findMessage(channel, query) {
+		if (!query) {
+			return;
+		}
+		const re = /discordapp\.com\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/g;
+		if (re.test(query)) {
+			const [,, channelID, messageID] = re.exec(query);
+			try {
+				const message = await this.Atlas.client.getMessage(channelID, messageID);
+				if (message) {
+					return message;
+				}
+			} catch (e) {} // eslint-disable-line no-empty
+		}
+		const id = this.cleanID(query);
+		if (id) {
+			try {
+				const message = await channel.getMessage(id);
+				if (message) {
+					return message;
+				}
+			} catch (e) {} // eslint-disable-line no-empty
+		}
+	}
+
+	/**
+	 * Gets an ID from a string
+	 * @param {string} id The ID to clean, can be a mention or anything really.
+	 * @returns {string|void} The ID if one was found, otherwise void
+	 */
+	cleanID(id) {
+		// im bad at regex
+		let possible = id.match(/[0-9]{12,}/g);
+
+		if (possible) {
+			// if it's a URI, chances are the last ID is the message
+			if (lib.utils.isUri(id)) {
+				possible = possible.reverse();
+			}
+
+			return possible.find(r => lib.utils.isSnowflake(r));
+		}
 	}
 };

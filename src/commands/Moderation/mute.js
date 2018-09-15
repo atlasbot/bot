@@ -1,7 +1,7 @@
 const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 const parseTime = require('./../../util/parseTime');
-// const util = require('util');
+
 
 // 30 minutes
 const defaultMs = 30 * 60 * 1000;

@@ -6,10 +6,11 @@ module.exports = class Event {
 	async execute(msg, emoji, userID) {
 		if (userID === this.Atlas.client.user.id) return;
 
-		if (this.Atlas.collectors.emojis[msg.id]) {
-			const collector = this.Atlas.collectors.emojis[msg.id];
+		const collector = this.Atlas.collectors.emojis[msg.id] || this.Atlas.collectors.emojis[userID];
+		if (collector) {
 			collector.fire(msg, emoji, userID);
 		}
+
 		// in a dev environment this will let people re-run commands
 		if (this.Atlas.env === 'development' && emoji.name === '🔁') {
 			const fetchedMsg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);

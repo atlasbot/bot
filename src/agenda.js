@@ -22,7 +22,9 @@ module.exports = class Agenda extends EventEmitter {
 		this.graceful = (async (stop) => {
 			console.info('Gracefully shutting down Agenda...');
 
-			await this.agenda.stop();
+			if (this.agenda) {
+				await this.agenda.stop();
+			}
 
 			process.removeListener('SIGTERM', this.graceful);
 			process.removeListener('SIGINT', this.graceful);

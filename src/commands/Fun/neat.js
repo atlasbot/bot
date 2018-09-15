@@ -1,6 +1,5 @@
 // const Command = require('../../structures/Command.js');
 // const Reddit = require('../../scraper/index.js');
-// // const util = require('util');
 
 // module.exports = class Neat extends Command {
 // 	constructor(Atlas) {

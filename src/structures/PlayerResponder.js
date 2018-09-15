@@ -36,7 +36,7 @@ module.exports = class PlayerResponder extends Responder {
 						'⏭',
 					])
 					.remove(true)
-					.exec(async (ignore, emoji, userID) => {
+					.exec(async (msg, emoji, userID) => {
 						const fakeMsg = new FakeMessage({
 							channelID: this.player.msg.channel.id,
 							author: this.Atlas.client.users.get(userID) || this.player.msg.author,
