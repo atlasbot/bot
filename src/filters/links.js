@@ -1,5 +1,3 @@
-const isUri = require('./../util/isUri');
-
 module.exports = class Spam {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
@@ -10,6 +8,6 @@ module.exports = class Spam {
 	}
 
 	execute(str) {
-		return isUri(str);
+		return this.Atlas.lib.utils(str);
 	}
 };

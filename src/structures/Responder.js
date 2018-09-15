@@ -24,6 +24,7 @@ class Responder {
 				channelID = data;
 			}
 		}
+
 		this._data = {
 			channelID,
 			lang: lang || (data && data.lang),
@@ -48,6 +49,12 @@ class Responder {
 
 		// break reference, cheap way but meh
 		this._defaults = JSON.parse(JSON.stringify(this._data));
+	}
+
+	file(file) {
+		this._data.file = file;
+
+		return this;
 	}
 
 	/**

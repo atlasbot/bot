@@ -1,4 +1,5 @@
 const Responder = require('./Responder');
+const cleanArgs = require('./../util/cleanArgs');
 
 const prot = [
 	'guild',
@@ -134,6 +135,9 @@ class Command {
 				settings,
 				parsedArgs,
 				...validated,
+				get cleanArgs() {
+					return cleanArgs(msg, args);
+				},
 			}))
 				.then((res) => {
 					const duration = new Date() - new Date(msg.createdAt);

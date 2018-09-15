@@ -8,6 +8,9 @@
         ]
     },
     "info": {
+        "achievement": {
+            "description": "Creates a Minecraft achievement."
+        },
         "command": {
             "base": {
                 "description": "Create, delete or edit custom commands."
@@ -563,6 +566,10 @@
                 "noMatch": "There is no custom command in this guild matching `{0}`. Make sure you typed it correctly and try again!",
                 "success": "Successfully deleted `{0}`."
             }
+        },
+        "achievement": {
+            "noArgs": "You have to include something to turn into an achievement.",
+            "header": "Achievement Get!"
         }
     }
 }
