@@ -81,7 +81,7 @@ module.exports = class Manager {
 					firstShardID,
 					entryPoint: this.entryPoint,
 					id: worker.id,
-					clientOptions: this.clientOptions,
+					clientOptions: this.options.clientOptions,
 					token: this.token,
 					lastShardID,
 					maxShards,
