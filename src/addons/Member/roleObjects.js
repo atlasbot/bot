@@ -1,7 +1,8 @@
-module.exports = Eris => {
+module.exports = (Eris) => {
 	Object.defineProperty(Eris.Member.prototype, 'roleObjects', {
-		get: function() {
+		get() {
 			return this.roles.map(roleID => this.guild.roles.get(roleID));
 		},
+		configurable: true,
 	});
 };

@@ -5,7 +5,7 @@ require('dotenv').config();
 
 /*
 	At some point, as far as I know with (limited) knowledge, this will all be
-	replaced by basically having an external service manage all clusters and have
+	replaced by basically having an external service managing all clusters and have
 	containers for each individual cluster, then let eris internal sharding cover
 	the difference between clusters
 

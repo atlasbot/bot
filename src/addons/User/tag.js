@@ -1,7 +1,8 @@
-module.exports = Eris => {
+module.exports = (Eris) => {
 	Object.defineProperty(Eris.User.prototype, 'tag', {
-		get: function() {
+		get() {
 			return `${this.username}#${this.discriminator}`;
 		},
+		configurable: true,
 	});
 };

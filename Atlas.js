@@ -7,7 +7,6 @@ const Util = require('./src/util');
 const Agenda = require('./src/agenda');
 const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
-const hotReload = require('./src/hotReload');
 const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
@@ -140,10 +139,16 @@ module.exports = class Atlas {
 		this.agenda.connect();
 		// load commands
 		cmdUtil.load(this);
-		// enable hot reload when in dev environment
-		if (process.env.NODE_ENV !== 'production') {
-			hotReload(this);
+	}
+
+	preReload() {
+		for (const key in this.eventFunctions) {
+			if ({}.propertyIsEnumerable.call(this.eventFunctions, key)) {
+				this.client.removeListener(key, this.eventFunctions[key]);
+			}
 		}
+
+		return true;
 	}
 
 	/**

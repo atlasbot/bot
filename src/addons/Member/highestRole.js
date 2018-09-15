@@ -1,9 +1,11 @@
-module.exports = Eris => {
+module.exports = (Eris) => {
 	Object.defineProperty(Eris.Member.prototype, 'highestRole', {
-		get: function() {
+		get() {
 			if (this.roles.length === 0) return this.guild.roles.get(this.guild.id);
-			else return this.roleObjects.reduce((prev, role) => !prev || role.higherThan(prev) ? role : prev);
+
+			return this.roleObjects.reduce((prev, role) => (!prev || role.higherThan(prev) ? role : prev));
 		},
+		configurable: true,
 	});
 };
 

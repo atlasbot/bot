@@ -1,7 +1,8 @@
-module.exports = Eris => {
+module.exports = (Eris) => {
 	Object.defineProperty(Eris.Message.prototype, 'guild', {
-		get: function() {
+		get() {
 			return this.channel.guild;
 		},
+		configurable: true,
 	});
 };

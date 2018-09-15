@@ -62,7 +62,7 @@ module.exports = class Manager {
 
 	start(amount, spawned = 0, options, restart = false) {
 		if (spawned === amount && !restart) {
-			return console.log('All clusters spawned.');
+			return console.log('All workers spawned.');
 		}
 
 		const worker = cluster.fork();

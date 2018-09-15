@@ -304,6 +304,7 @@ class Responder {
 				get showPages() {
 					return data.page.total === 1;
 				},
+				configurable: true,
 			});
 			const responder = new Responder();
 			const update = () => {
