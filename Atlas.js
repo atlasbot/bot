@@ -142,12 +142,14 @@ module.exports = class Atlas {
 		cmdUtil.load(this, reload);
 	}
 
-	preReload() {
+	async preReload() {
 		for (const key in this.eventFunctions) {
 			if ({}.propertyIsEnumerable.call(this.eventFunctions, key)) {
 				this.client.removeListener(key, this.eventFunctions[key]);
 			}
 		}
+
+		await this.agenda.agenda.stop();
 
 		return true;
 	}

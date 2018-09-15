@@ -41,6 +41,11 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | OWNER         | The bot owner, gives them access to special features like the "eval" command. |
 | DISCORDBOTS_ORG_TOKEN | A [discordbots.org](https://discordbots.org/) API Token, used to post statistics to and get information about other bots.
 
+## Known Issues
+
+* Autoreload doesn't properly shut down Agenda.
+* everything
+
 ## Disclaimer / Warning
 
 I don't know anything, and I can almost guarantee that there are things that could have been done significantly better or faster. I do this for fun as a hobby, so I'm not guaranteeing quality or anything really. I try to do things as best I can, but sometimes I mess up. If you find issues, point them out.

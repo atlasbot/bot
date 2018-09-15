@@ -68,9 +68,16 @@ module.exports = class Cluster {
 
 
 			if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+				this.watchDirectories = [
+					path.join(path.dirname(this.entryPoint), 'src'),
+					path.join(path.dirname(this.entryPoint), 'lang'),
+				];
+
+				this.watchFiles = [
+					this.entryPoint,
+				];
 				// start auto reload if we're (probably) in a dev environment
-				this.botDir = path.join(path.dirname(this.entryPoint), 'src');
-				console.info(`"NODE_ENV" env variable is development or unset, enabling auto-reload on "${this.botDir}" & "${this.entryPoint}".`);
+				console.info('"NODE_ENV" env variable is development or unset, enabling auto-reload for lang/*, src/* and Atlas.js');
 				this.autoReload();
 			}
 		});
@@ -79,13 +86,15 @@ module.exports = class Cluster {
 	}
 
 	autoReload() {
-		fs.watch(this.botDir, {
-			recursive: true,
-		}, this.onChange.bind(this));
+		for (const dir of this.watchDirectories) {
+			fs.watch(dir, {
+				recursive: true,
+			}, this.onChange.bind(this));
+		}
 
-		// a bit of a hack to get it to also watch the entry point
-		// i mean this is all a bit of a hack but this is especially sketchy
-		fs.watchFile(this.entryPoint, {}, () => this.onChange('change', this.entryPoint));
+		for (const file of this.watchFiles) {
+			fs.watchFile(file, {}, () => this.onChange('change', file));
+		}
 	}
 
 	async onChange(eventType, filename) {
@@ -105,20 +114,24 @@ module.exports = class Cluster {
 
 		console.info(`"${loc}" changed with event type "${eventType}", attempting reloading...`);
 
-		const readyForIt = await this.app.preReload();
+		if (this.app && this.app.preReload) {
+			const readyForIt = await this.app.preReload();
 
-		if (!readyForIt) {
-			return console.warn('Bot was not ready for a reload, cancelling...');
+			if (!readyForIt) {
+				return console.warn('Bot was not ready for a reload, cancelling...');
+			}
 		}
 
 		this.app = null;
-		delete require.cache[require.resolve(this.entryPoint)];
-
-		for (const key in require.cache) { // eslint-disable-line guard-for-in
-			const relative = path.relative(this.botDir, key);
-			const isSubdir = !!relative && !relative.startsWith('..') && !path.isAbsolute(relative);
-			if (isSubdir) {
-				delete require.cache[key];
+		// yolo
+		for (const p of [...this.watchDirectories, ...this.watchFiles]) {
+			delete require.cache[p];
+			for (const key in require.cache) { // eslint-disable-line guard-for-in
+				const relative = path.relative(p, key);
+				const isSubdir = !!relative && !relative.startsWith('..') && !path.isAbsolute(relative);
+				if (isSubdir) {
+					delete require.cache[key];
+				}
 			}
 		}
 

@@ -42,8 +42,6 @@ module.exports = class Commands {
 					for (const cmd of cmds) {
 						plugin.commands.push(_path.join(__dirname, path, cmd.base));
 					}
-				} else {
-					console.warn(`The ${plugin.name} plugin has no commands - why even have it?`);
 				}
 
 				plugins.push(plugin);
