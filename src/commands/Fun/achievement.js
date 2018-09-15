@@ -1,3 +1,4 @@
+const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 
 module.exports = class Advice extends Command {
@@ -19,12 +20,15 @@ module.exports = class Advice extends Command {
 
 		const header = responder.format('achievement.header');
 
-		return responder.embed({
-			image: {
-				url: encodeURI(`https://www.minecraftskinstealer.com/achievement/a.php?t=${cleanArgs.join('+')}&i=${item}&h=${header}`),
-			},
-			// 3553599 is the same color as discord's (on pc) background, which makes the embed harder to see
-			color: 3553599,
+		const { body } = await superagent.get(`https://www.minecraftskinstealer.com/achievement/a.php?t=${cleanArgs.join('+')}`)
+			.query({
+				i: item,
+				h: header,
+			});
+
+		return responder.file({
+			file: body,
+			name: `${new Date().getTime()}.png`,
 		}).send();
 	}
 };
