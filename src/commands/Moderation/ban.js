@@ -28,6 +28,7 @@ module.exports = class Ban extends Command {
 		}
 
 		if (target instanceof Member) {
+			// todo: member.bannable check & member.kickable for kick but it's not done yet so hopefully i see this before i make it lmao
 			if (!target.punishable(msg.member)) {
 				return responder.error('general.notPunishable');
 			} if (!target.punishable(msg.guild.me)) {

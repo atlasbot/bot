@@ -1,6 +1,6 @@
 const Raven = require('raven');
-const { Base } = require('eris-sharder');
-
+const path = require('path');
+const Eris = require('eris');
 
 const lib = require('./lib');
 const Util = require('./src/util');
@@ -12,17 +12,19 @@ const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
 const DB = lib.structs.Database;
+// load eris addons cus lazy
+lib.utils.walkSync(path.join(__dirname, 'src/addons'))
+	.filter(a => a.endsWith('.js'))
+	.forEach((a) => {
+		const Prop = require(a);
+		Prop(Eris);
+	});
 
-module.exports = class Atlas extends Base {
+module.exports = class Atlas {
 	constructor({
 		bot,
 		clusterID,
 	}) {
-		super({
-			bot,
-			clusterID,
-		});
-
 		module.exports = this;
 
 		this.util = (new Util(this));

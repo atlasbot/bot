@@ -1,11 +1,19 @@
 const path = require('path');
-const { Master } = require('eris-sharder');
+const { Manager } = require('./sharding');
 
 require('dotenv').config();
 
-new Master(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new
+/*
+	At some point, as far as I know with (limited) knowledge, this will all be
+	replaced by basically having an external service manage all clusters and have
+	containers for each individual cluster, then let eris internal sharding cover
+	the difference between clusters
+
+	or something, idk it's 5am i could be hallucinating for all i know
+*/
+
+new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new
 	guildsPerShard: 1500,
-	loadBeforeReady: false,
 	clientOptions: {
 		restMode: true,
 		disableEvents: {

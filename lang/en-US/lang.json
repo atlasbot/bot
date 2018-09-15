@@ -109,10 +109,6 @@
         "ping": {
             "description": "Check the time Atlas takes to reply to you!"
         },
-        "statistics": {
-            "description": "View statistics about Atlas",
-            "fullDescription": "View statistics about Atlas, such as the current guild count and uptime."
-        },
         "support": {
             "description": "Need help with Atlas? Join our Support server!"
         },
@@ -392,45 +388,6 @@
             }
         },
         "support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
-        "statistics": {
-            "embed": {
-                "guilds": {
-                    "name": "Servers",
-                    "value": "{0}"
-                },
-                "users": {
-                    "name": "Users",
-                    "value": "{0}"
-                },
-                "commands": {
-                    "name": "Commands Loaded",
-                    "value": "{0}"
-                },
-                "uptime": {
-                    "name": "Uptime",
-                    "value": "{0}"
-                },
-                "cpu": {
-                    "name": "CPU Usage",
-                    "value": "{0}%"
-                },
-                "shard": {
-                    "name": "Shard",
-                    "value": "{0}/{1}"
-                },
-                "cluster": {
-                    "name": "Cluster",
-                    "value": "{0}/{1}"
-                },
-                "voice": {
-                    "name": "Voice",
-                    "value": {
-                        "plural": "{0} servers",
-                        "singular": "{0} server"
-                    }
-                }
-            }
-        },
         "play": {
             "searchError": "An error occured getting information about your query.",
             "noNodes": "There are no free voice nodes to handle your request. Try wait a few minutes then try again.",
