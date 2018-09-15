@@ -11,6 +11,9 @@
         "coinflip": {
             "description": "Flips a coin that can land heads or tails."
         },
+        "dadjoke": {
+            "description": "Gets a random dadjoke."
+        },
         "achievement": {
             "description": "Creates a Minecraft achievement."
         },

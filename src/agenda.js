@@ -18,6 +18,19 @@ module.exports = class Agenda extends EventEmitter {
 		this.muteSchema = require('./schemas/mute');
 		this.Atlas = require('./../Atlas');
 		this.agenda = null;
+
+		this.graceful = (async (stop) => {
+			console.info('Gracefully shutting down Agenda...');
+
+			await this.agenda.stop();
+
+			process.removeListener('SIGTERM', this.graceful);
+			process.removeListener('SIGINT', this.graceful);
+
+			if (stop === true) {
+				return process.exit(0);
+			}
+		});
 	}
 
 	/**
@@ -85,14 +98,8 @@ module.exports = class Agenda extends EventEmitter {
 			}
 		});
 
-		const graceful = async () => {
-			console.info('Gracefully shutting down Agenda...');
-			await this.agenda.stop();
-			process.exit(0);
-		};
-
-		process.on('SIGTERM', graceful);
-		process.on('SIGINT', graceful);
+		process.on('SIGTERM', this.graceful);
+		process.on('SIGINT', this.graceful);
 	}
 
 	/**

@@ -1,4 +1,7 @@
 const superagent = require('superagent');
+const { version } = require('./../../package.json');
+
+// TODO: on a reload, make this not get the data again, and just get it on demand instead so it doesn't spam the API
 
 module.exports = class Prefetcher {
 	constructor({
@@ -15,6 +18,8 @@ module.exports = class Prefetcher {
 		this.amount = amount;
 
 		this.cache = [];
+
+		this.userAgent = `Atlas (https://github.com/get-atlas/bot, ${version})`;
 	}
 
 	/**
@@ -48,11 +53,13 @@ module.exports = class Prefetcher {
 			return superagent[this.method](this.url)
 				.query(this.query)
 				.set('Accept', 'application/json')
+				.set('User-Agent', this.userAgent)
 				.send(this.body);
 		}
 		const item = await superagent[this.method](this.url)
 			.query(this.query)
 			.set('Accept', 'application/json')
+			.set('User-Agent', this.userAgent)
 			.send(this.body);
 		this.cache.push(item);
 	}

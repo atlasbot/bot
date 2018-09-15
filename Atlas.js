@@ -149,7 +149,7 @@ module.exports = class Atlas {
 			}
 		}
 
-		await this.agenda.agenda.stop();
+		await this.agenda.graceful(false);
 
 		return true;
 	}

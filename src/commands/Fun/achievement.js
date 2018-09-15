@@ -1,7 +1,7 @@
 const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 
-module.exports = class Advice extends Command {
+module.exports = class Achievement extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -41,9 +41,10 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | OWNER         | The bot owner, gives them access to special features like the "eval" command. |
 | DISCORDBOTS_ORG_TOKEN | A [discordbots.org](https://discordbots.org/) API Token, used to post statistics to and get information about other bots.
 
-## Known Issues
+## Known Issues / To-do
 
 * Autoreload doesn't properly shut down Agenda.
+* Commands shouldn't need to define the key to their description, it should just magically know where and add it on startup.
 * everything
 
 ## Disclaimer / Warning
