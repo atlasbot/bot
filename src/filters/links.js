@@ -8,6 +8,6 @@ module.exports = class Spam {
 	}
 
 	execute(str) {
-		return this.Atlas.lib.utils(str);
+		return this.Atlas.lib.utils.isUri(str);
 	}
 };

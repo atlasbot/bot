@@ -71,6 +71,8 @@ module.exports = class Cluster {
 				this.watchDirectories = [
 					path.join(path.dirname(this.entryPoint), 'src'),
 					path.join(path.dirname(this.entryPoint), 'lang'),
+					// this breaks mongoose so meh
+					// path.join(path.dirname(this.entryPoint), 'lib'),
 				];
 
 				this.watchFiles = [

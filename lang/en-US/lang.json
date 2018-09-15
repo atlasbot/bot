@@ -8,6 +8,9 @@
         ]
     },
     "info": {
+        "coinflip": {
+            "description": "Flips a coin that can land heads or tails."
+        },
         "achievement": {
             "description": "Creates a Minecraft achievement."
         },
@@ -570,6 +573,10 @@
         "achievement": {
             "noArgs": "You have to include something to turn into an achievement.",
             "header": "Achievement Get!"
+        },
+        "coinflip": {
+            "heads": "I flipped a coin and got heads!",
+            "tails": "I flipped a coin and got tails!"
         }
     }
 }

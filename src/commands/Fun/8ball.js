@@ -1,6 +1,4 @@
 const Command = require('../../structures/Command.js');
-const lib = require('./../../../lib');
-// const util = require('util');
 
 module.exports = class EightBall extends Command {
 	constructor(Atlas) {

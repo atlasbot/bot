@@ -17,9 +17,9 @@ module.exports = class Advice extends Command {
 		}
 
 		const item = Math.floor((Math.random() * 39) + 1);
-
 		const header = responder.format('achievement.header');
 
+		// downloading because links look ugly & embeds look worse
 		const { body } = await superagent.get(`https://www.minecraftskinstealer.com/achievement/a.php?t=${cleanArgs.join('+')}`)
 			.query({
 				i: item,
