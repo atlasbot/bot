@@ -128,7 +128,7 @@ module.exports = class Cluster {
 			clusterID: this.clusterID,
 		});
 
-		await this.app.launch();
+		await this.app.launch(true);
 
 		console.info(`Reloaded bot in ${(new Date() - start)}ms`);
 	}

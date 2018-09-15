@@ -21,23 +21,23 @@ module.exports = class Commands {
 					plugin.subcommands = [];
 				}
 
-				const files = (await fs.readdir(_path.join(__dirname, path)))
+				const pluginCmds = (await fs.readdir(_path.join(__dirname, path)))
 					.map(f => _path.parse(f));
 
 				// loading bases/subs
-				const bases = files.filter(p => !p.ext);
+				const bases = pluginCmds.filter(p => !p.ext);
 				if (bases.length !== 0) {
 					for (const base of bases) {
-						const files = await fs.readdir(_path.join(__dirname, path, base.base));
+						const cmdfiles = await fs.readdir(_path.join(__dirname, path, base.base));
 						plugin.subcommands.push({
 							base: _path.join(__dirname, path, base.base, 'index.js'),
-							subs: files.filter(f => f !== 'index.js')
+							subs: cmdfiles.filter(f => f !== 'index.js')
 								.map(f => _path.join(__dirname, path, base.base, f)),
 						});
 					}
 				}
 				// loading regular commands
-				const cmds = files.filter(p => p.ext === '.js');
+				const cmds = pluginCmds.filter(p => p.ext === '.js');
 				if (cmds.length !== 0) {
 					for (const cmd of cmds) {
 						plugin.commands.push(_path.join(__dirname, path, cmd.base));
@@ -53,16 +53,18 @@ module.exports = class Commands {
 		return plugins;
 	}
 
-	static async load(Atlas) {
+	static async load(Atlas, reload = false) {
 		const plugins = await this.plugins();
 		for (const plugin of plugins) {
 			Atlas.plugins.set(plugin.name.toLowerCase(), new Plugin(plugin));
 			plugin.commands.forEach(cmd => this.setup(Atlas, cmd, {
 				plugin,
+				reload,
 			}));
 			plugin.subcommands.forEach(sub => this.setup(Atlas, sub.base, {
 				subs: sub.subs,
 				plugin,
+				reload,
 			}));
 		}
 	}
@@ -87,6 +89,7 @@ module.exports = class Commands {
 			subs.forEach(sub => this.setup(Atlas, sub, {
 				master: prop,
 				plugin,
+				reload,
 			}));
 		}
 		prop.info.workdir = path;
@@ -101,10 +104,10 @@ module.exports = class Commands {
 		if (master && !reload && Atlas.commands.labels.has(prop.info.name)) {
 			console.warn(`(WARN) Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
 		}
-		if (prop.constructor.name.toLowerCase() !== prop.info.name) {
+		if (prop.constructor.name.toLowerCase() !== prop.info.name && !reload) {
 			console.warn(`(STYLE) Class name for "${prop.info.name}" should match the command name.`);
 		}
-		if (prop.info.usage && prop.info.noExamples) {
+		if (prop.info.usage && prop.info.noExamples && !reload) {
 			console.warn(`(STYLE) Command "${prop.info.name}" has usage without any examples!`);
 		}
 		if (master) {

@@ -71,10 +71,11 @@ module.exports = class Atlas {
 	}
 
 	/**
-	 * Launch the bot
+	 * Launch the bot,
+	 * @param {boolean} reload Whether or not the bot is being reloaded
 	 * @returns {void}
 	 */
-	async launch() {
+	async launch(reload = false) {
 		// setting up sentry when possible
 		if (process.env.SENTRY_DSN) {
 			Raven.config(process.env.SENTRY_DSN, {
@@ -138,7 +139,7 @@ module.exports = class Atlas {
 		// get agenda to connect
 		this.agenda.connect();
 		// load commands
-		cmdUtil.load(this);
+		cmdUtil.load(this, reload);
 	}
 
 	preReload() {
