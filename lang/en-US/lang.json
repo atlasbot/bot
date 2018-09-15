@@ -592,7 +592,7 @@
             "notInTime": "{0}, you did not add a reaction in time.",
             "sameChannel": "That message is already in {0}.",
             "invalidType": "That message type cannot be transferred to a different channel.",
-            "waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}. If the message is too old, you might have to manually copy the share link or ID and re-run the command."
+            "waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}."
         }
     }
 }
