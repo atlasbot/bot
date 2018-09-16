@@ -28,7 +28,7 @@ module.exports = class Move extends Command {
 		let targetMsg;
 		if (args[1]) {
 			targetMsg = await this.Atlas.util.findMessage(msg.channel, args[1]);
-		} else {
+		} else if (channel.permissionsOf(msg.author.id).json.addReactions) {
 			// ask the user to react to the message to remove
 
 			try {
@@ -45,6 +45,9 @@ module.exports = class Move extends Command {
 
 				return responder.error('move.notInTime', msg.author.mention).send();
 			}
+		} else {
+			// todo: this message should probably be shorter
+			return responder.error('move.noMessageOrPerms').send();
 		}
 
 		if (!targetMsg) {
@@ -57,28 +60,30 @@ module.exports = class Move extends Command {
 			return responder.error('move.sameChannel', channel.mention).send();
 		}
 
-		// :package:
-
-		// await targetMsg.delete();
+		await targetMsg.delete();
 
 		if (msg.guild.members.get(this.Atlas.client.user.id).permission.json.manageWebhooks && !parsedArgs['no-webhooks']) {
 			const [hook] = await channel.getWebhooks();
 			if (hook) {
 				// forward the message using the webhook
-				return this.Atlas.client.executeWebhook(hook.id, hook.token, {
+				await this.Atlas.client.executeWebhook(hook.id, hook.token, {
 					content: targetMsg.content,
 					avatarURL: targetMsg.author.avatarURL || targetMsg.author.defaultAvatarURL,
 					username: targetMsg.author.username,
 					file: targetMsg.file,
 					embeds: targetMsg.embeds,
 				});
+
+				return responder.text('move.success', channel.mention).send();
 			}
 		}
 
-		return responder.channel(channel)
+		await responder.channel(channel)
 			.text(`${targetMsg.author.tag}: ${targetMsg.content.substring(0, 1950)}`)
 			.embed(targetMsg.embeds ? targetMsg.embeds[0] : null)
 			.file(targetMsg.file);
+
+		return responder.text('move.success', channel.mention).send();
 	}
 
 	awaitEmoji(guild, user) {

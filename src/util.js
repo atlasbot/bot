@@ -153,9 +153,10 @@ module.exports = class Util {
 		if (!query) {
 			return;
 		}
-		const re = /discordapp\.com\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/g;
+		const re = /\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/ig;
 		if (re.test(query)) {
-			const [,, channelID, messageID] = re.exec(query);
+			re.lastIndex = 0;
+			const [,, channelID, messageID] = /\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/ig.exec(query);
 			try {
 				const message = await this.Atlas.client.getMessage(channelID, messageID);
 				if (message) {
