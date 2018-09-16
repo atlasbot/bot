@@ -46,33 +46,50 @@ module.exports = class Parser {
 
 		for (const tag of tags) {
 			// splitting math;1+1 would mean the first arg is the variable name, everything after is arguments for it
-			const [name, ...upArgs] = tag.split(';');
+			const [name, ...unparsedArgs] = tag.split(';');
 			let output;
 
+			console.log(name, this.tags.has(name));
+
 			if (this.tags.has(name)) {
-				// clean args
-				const args = [];
-				for (const arg of upArgs) {
-					if (match(arg)) {
-						const ret = await this.parse(arg);
-						errors.push(...ret.errors);
-
-						args.push(ret.output);
-					} else {
-						args.push(arg);
-					}
-				}
-
+				// TODO: handle when tags throw and push to errors
 				// get the actual tag
-				const { execute } = this.tags.get(name);
+				const { execute, info } = this.tags.get(name);
 				if (typeof execute === 'function') {
-					output = execute(this.data, args) || '';
+					if (info.preParse !== false) {
+						// parse args
+						const args = [];
+						for (const arg of unparsedArgs) {
+							if (match(arg)) {
+								const ret = await this.parse(arg);
+								errors.push(...ret.errors);
+
+								args.push(ret.output);
+							} else {
+								args.push(arg);
+							}
+						}
+						output = await execute(this.data, args);
+					} else {
+						output = await execute({
+							info: this.data,
+							parse: e => (match(e) ? this.parse(e) : e),
+						}, unparsedArgs);
+					}
 				} else {
 					throw new Error(`Unknown tag type "${typeof execute}"`);
 				}
 			}
 
-			parsed = parsed.split(`{${tag}}`).join(output);
+			console.log(output, tag);
+
+			if (typeof output !== 'string') {
+				if (output.output) {
+					({ output } = output);
+				}
+			}
+
+			parsed = parsed.split(`{${tag}}`).join(output || '');
 		}
 
 		return {
