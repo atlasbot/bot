@@ -4,7 +4,7 @@ module.exports = class CatFact extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.prefetcher = new this.Atlas.structs.Prefetcher({
+		this.prefetcher = new this.Atlas.lib.structs.Prefetcher({
 			url: 'https://cat-fact.herokuapp.com/facts/random',
 		});
 		this.prefetcher.init();

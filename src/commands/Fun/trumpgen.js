@@ -29,8 +29,6 @@ module.exports = class trumpgen extends Command {
 				text,
 			});
 
-		console.log(body);
-
 		const embed = {
 			image: {
 				url: body.message,
@@ -39,11 +37,8 @@ module.exports = class trumpgen extends Command {
 				text: 'Powered by the nekobot.xyz API',
 			},
 		};
-		responder.embed(embed).send();
-		this.cache.set(text, embed);
-		setTimeout(() => {
-			this.cache.delete(text);
-		}, 30 * 60 * 1000);
+
+		return responder.embed(embed).send();
 	}
 };
 

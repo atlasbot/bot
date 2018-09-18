@@ -4,7 +4,7 @@ module.exports = class Advice extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.prefetcher = new this.Atlas.structs.Prefetcher({
+		this.prefetcher = new this.Atlas.lib.structs.Prefetcher({
 			url: 'http://api.adviceslip.com/advice',
 		});
 		this.prefetcher.init();

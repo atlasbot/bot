@@ -33,7 +33,6 @@ module.exports = class Atlas {
 		this.structs = structs;
 		this.clusterID = clusterID;
 
-		this.eventFunctions = {};
 		this.events = [
 			'messageCreate',
 			'messageReactionAdd',
@@ -100,8 +99,7 @@ module.exports = class Atlas {
 			const Handler = require(`./src/events/${e}.js`);
 			const handler = new Handler(this);
 
-			this.eventFunctions[e] = handler.execute.bind(handler);
-			this.client.on(e, this.eventFunctions[e]);
+			this.client.on(e, handler.execute.bind(handler));
 			console.log(`Loaded event handler "${e}"`);
 			delete require.cache[require.resolve(`./src/events/${e}.js`)];
 		});
@@ -141,19 +139,6 @@ module.exports = class Atlas {
 		this.agenda.connect();
 		// load commands
 		cmdUtil.load(this, reload);
-	}
-
-	async preReload() {
-		// remove event listeners
-		for (const key in this.eventFunctions) {
-			if ({}.propertyIsEnumerable.call(this.eventFunctions, key)) {
-				this.client.removeListener(key, this.eventFunctions[key]);
-			}
-		}
-
-		await this.agenda.graceful(false);
-
-		return true;
 	}
 
 	/**

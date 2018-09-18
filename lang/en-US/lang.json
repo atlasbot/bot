@@ -74,6 +74,9 @@
         "catfact": {
             "description": "Who doesn't like facts about cats?"
         },
+        "cat": {
+            "description": "Kittens, cats, you name it - we've got it (maybe)."
+        },
         "chucknorris": {
             "description": "Facts about the man himself"
         },

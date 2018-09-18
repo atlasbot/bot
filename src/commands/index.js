@@ -74,10 +74,13 @@ module.exports = class Commands {
 		plugin,
 	} = {}) {
 		const Prop = require(path);
+		if (!Prop.info) return;
 		let prop;
 		try {
 			prop = new Prop(Atlas);
 		} catch (e) {
+			console.error(`Error loading ${Prop.info.name}`, e);
+
 			return;
 		}
 		prop.info.subcommands = new Map();

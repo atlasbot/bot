@@ -4,10 +4,7 @@ module.exports = class CatFact extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.prefetcher = new this.Atlas.lib.structs.Prefetcher({
-			url: 'https://api.chucknorris.io/jokes/random',
-		});
-		this.prefetcher.init();
+		this.reddit = new this.Atlas.lib.structs.Reddit(['kitten', 'cats', 'catpics', 'catpictures']);
 	}
 
 	async action(msg, args, { // eslint-disable-line no-unused-vars
@@ -15,13 +12,13 @@ module.exports = class CatFact extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const res = await this.prefetcher.get();
+		const d = await this.reddit.getImage(msg.author.id);
 
-		return responder.localised(true).text(res.body.value).send();
+		return responder.embed(d.embed).send();
 	}
 };
 
 module.exports.info = {
-	name: 'catfact',
-	description: 'info.catfact.description',
+	name: 'cat',
+	description: 'info.cat.description',
 };
