@@ -1,5 +1,5 @@
 const Responder = require('./Responder');
-const cleanArgs = require('./../util/cleanArgs');
+const cleanArgs = require('./../../lib/utils/cleanArgs');
 
 const prot = [
 	'guild',

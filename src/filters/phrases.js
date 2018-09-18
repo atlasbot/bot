@@ -1,4 +1,4 @@
-const wildcardRegex = require('./../util/wildcardRegex');
+const { wildcardToRegExp } = require('./../../lib/utils/wildcard');
 
 module.exports = class Spam {
 	constructor(Atlas) {
@@ -15,7 +15,7 @@ module.exports = class Spam {
 
 	execute(str) {
 		const phrases = this.alphaPhrases.map(m => ({
-			regex: wildcardRegex.wildcardToRegExp(m),
+			regex: wildcardToRegExp(m),
 			raw: m,
 		}));
 		for (const phrase of phrases) {

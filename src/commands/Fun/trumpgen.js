@@ -9,29 +9,31 @@ module.exports = class trumpgen extends Command {
 
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
+		cleanArgs,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
-
-		const cleanArgs = msg.cleanContent.split(/ +/g);
-		cleanArgs.shift();
-		const text = cleanArgs.join(' ');
 
 		if (!args[0]) {
 			return responder.error('You have to include text to mangle!').send();
 		}
 
+		const text = cleanArgs.join(' ');
+
 		if (this.cache.has(text)) {
 			return responder.embed(text).send();
 		}
 
-		const res = await superagent.get('https://nekobot.xyz/api/imagegen')
+		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
-				type: 'trumpgen',
+				type: 'trumptweet',
 				text,
 			});
+
+		console.log(body);
+
 		const embed = {
 			image: {
-				url: res.body.message,
+				url: body.message,
 			},
 			footer: {
 				text: 'Powered by the nekobot.xyz API',

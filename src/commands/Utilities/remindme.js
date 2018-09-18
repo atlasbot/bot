@@ -1,5 +1,5 @@
 const prettyMs = require('pretty-ms');
-const parseTime = require('./../../util/parseTime');
+const parseTime = require('./../../../lib/utils/parseTime');
 const Command = require('../../structures/Command.js');
 
 module.exports = class RemindMe extends Command {

@@ -1,4 +1,5 @@
 const { matchRecursive } = require('xregexp');
+const TagError = require('./TagError');
 
 const match = str => matchRecursive(str, '{', '}', 'gmi');
 
@@ -52,36 +53,47 @@ module.exports = class Parser {
 			console.log(name, this.tags.has(name));
 
 			if (this.tags.has(name)) {
-				// TODO: handle when tags throw and push to errors
-				// get the actual tag
 				const { execute, info } = this.tags.get(name);
+				if (info.dependencies && info.dependencies.length !== 0) {
+					if (info.dependencies.find(d => !this.data[d])) {
+						// todo: handle properly
+						return;
+					}
+				}
 				if (typeof execute === 'function') {
-					if (info.preParse !== false) {
+					try {
+						if (info.preParse !== false) {
 						// parse args
-						const args = [];
-						for (const arg of unparsedArgs) {
-							if (match(arg)) {
-								const ret = await this.parse(arg);
-								errors.push(...ret.errors);
+							const args = [];
+							for (const arg of unparsedArgs) {
+								if (match(arg)) {
+									const ret = await this.parse(arg);
+									errors.push(...ret.errors);
 
-								args.push(ret.output);
-							} else {
-								args.push(arg);
+									args.push(ret.output);
+								} else {
+									args.push(arg);
+								}
 							}
+							output = await execute(this.data, args);
+						} else {
+							output = await execute({
+								info: this.data,
+								parse: e => (match(e) ? this.parse(e) : e),
+							}, unparsedArgs);
 						}
-						output = await execute(this.data, args);
-					} else {
-						output = await execute({
-							info: this.data,
-							parse: e => (match(e) ? this.parse(e) : e),
-						}, unparsedArgs);
+					} catch (e) {
+						if (e instanceof TagError) {
+							errors.push(e);
+							output = `{${tag}}`;
+						} else {
+							throw e;
+						}
 					}
 				} else {
 					throw new Error(`Unknown tag type "${typeof execute}"`);
 				}
 			}
-
-			console.log(output, tag);
 
 			if (typeof output !== 'string') {
 				if (output.output) {
