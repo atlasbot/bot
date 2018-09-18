@@ -55,4 +55,5 @@ Additionally, this is a very early version of 8.0.0 - there *will* be major brea
 
 ## Acknowledgements
 
-* src/util/parseTime - from [Aetheryx/remindme](https://github.com/Aetheryx/remindme/blob/master/src/utils/parseTime.js), licensed under MIT
+* lib/utils/parseTime - from [Aetheryx/remindme](https://github.com/Aetheryx/remindme/blob/edb8d301c633379e7fa3d4141226143cc3358906/src/utils/parseTime.js#L1), licensed under MIT.
+* lib/utils/cleanArgs - from [abalabahaha/eris](https://github.com/abalabahaha/eris/blob/e6208fa8ab49d526df5276620ac21eb351da3954/lib/structures/Message.js#L147), licensed under MIT.
