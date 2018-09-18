@@ -77,6 +77,13 @@
         "cat": {
             "description": "Kittens, cats, you name it - we've got it (maybe)."
         },
+        "texttoemoji": {
+            "description": "Converts text to emoji characters.",
+            "usage": "[text]"
+        },
+        "dog": {
+            "description": "Dogs. Just random pictures of dogs."
+        },
         "chucknorris": {
             "description": "Facts about the man himself"
         },
@@ -118,6 +125,12 @@
         "help": {
             "usage": "[command|plugin]",
             "description": "View all of Atlas' commands or get help for a specific command or plugin."
+        },
+        "meme": {
+            "description": "dank me-mes"
+        },
+        "yesno": {
+            "description": "Yes or no? Gets a random yes or no randomly."
         },
         "info": {
             "description": "General information about Atlas"
@@ -598,6 +611,9 @@
             "waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
             "success": "Message moved to {0}.",
             "noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+        },
+        "textToEmoji": {
+            "noArgs": "You have to include some text to convert."
         }
     }
 }

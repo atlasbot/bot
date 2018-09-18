@@ -4,7 +4,7 @@ module.exports = class Cat extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.reddit = new this.Atlas.lib.structs.Reddit(['kitten', 'cats', 'catpics', 'catpictures']);
+		this.reddit = new this.Atlas.lib.structs.Reddit(['wholesomememes', 'dankmemes', 'memes']);
 	}
 
 	async action(msg, args, { // eslint-disable-line no-unused-vars
@@ -19,7 +19,7 @@ module.exports = class Cat extends Command {
 };
 
 module.exports.info = {
-	name: 'cat',
-	aliases: ['cats', 'kitten', 'kittens'],
-	description: 'info.cat.description',
+	name: 'meme',
+	aliases: ['meyme', 'me-me', 'mmmlol'],
+	description: 'info.meme.description',
 };

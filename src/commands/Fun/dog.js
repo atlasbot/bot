@@ -1,10 +1,10 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class Cat extends Command {
+module.exports = class Dog extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.reddit = new this.Atlas.lib.structs.Reddit(['kitten', 'cats', 'catpics', 'catpictures']);
+		this.reddit = new this.Atlas.lib.structs.Reddit(['dogpictures', 'lookatmydog', 'doggos', 'rarepuppers']);
 	}
 
 	async action(msg, args, { // eslint-disable-line no-unused-vars
@@ -19,7 +19,7 @@ module.exports = class Cat extends Command {
 };
 
 module.exports.info = {
-	name: 'cat',
-	aliases: ['cats', 'kitten', 'kittens'],
-	description: 'info.cat.description',
+	name: 'dog',
+	aliases: ['dogs'],
+	description: 'info.dog.description',
 };
