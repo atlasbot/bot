@@ -1,5 +1,6 @@
 const Command = require('../../structures/Command.js');
 
+// todo: exclude disabled commands/modules, maybe hide commands the user doesn't have perms for too
 
 module.exports = class Help extends Command {
 	constructor(Atlas) {

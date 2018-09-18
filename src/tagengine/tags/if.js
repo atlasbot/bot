@@ -50,6 +50,8 @@ module.exports = ({
 
 module.exports.info = {
 	name: 'if',
+	// todo
+	args: 'see examples',
 	description: 'Compares values',
 	examples: [{
 		input: '{if;wew;aw yis}',

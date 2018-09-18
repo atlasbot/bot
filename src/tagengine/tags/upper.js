@@ -10,6 +10,7 @@ module.exports = (info, [str]) => {
 
 module.exports.info = {
 	name: 'upper',
+	args: '[string]',
 	description: 'Converts a string to uppercase.',
 	examples: [{
 		input: '{upper;test}',
