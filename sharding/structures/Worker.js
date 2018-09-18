@@ -17,7 +17,7 @@ module.exports = class Cluster {
 		this.maxShards = 0;
 
 		this.clientOptions = {};
-		this.bot = null;
+		this.client = null;
 
 		this.clusters = new Map();
 	}
@@ -44,27 +44,23 @@ module.exports = class Cluster {
 	}
 
 	connect() {
-		const options = {
+		const App = require(this.entryPoint);
+
+		this.client = new Eris(this.token, {
+			...this.clientOptions,
 			autoreconnect: true,
 			firstShardID: this.firstShardID,
 			lastShardID: this.lastShardID,
 			maxShards: this.maxShards,
-		};
-
-		const App = require(this.entryPoint);
-
-		this.bot = new Eris(this.token, {
-			...this.clientOptions,
-			...options,
 		});
 
-		this.bot.on('ready', () => {
+		this.client.on('ready', async () => {
 			this.app = new App({
-				bot: this.bot,
+				client: this.client,
 				clusterID: this.clusterID,
 			});
 
-			this.app.launch();
+			await this.app.launch();
 
 
 			if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -79,11 +75,12 @@ module.exports = class Cluster {
 				];
 				// start auto reload if we're (probably) in a dev environment
 				console.info('"NODE_ENV" env variable is development or unset, enabling auto-reload for lang/*, src/* and Atlas.js');
+
 				this.autoReload();
 			}
 		});
 
-		this.bot.connect();
+		this.client.connect();
 	}
 
 	autoReload() {
@@ -99,12 +96,11 @@ module.exports = class Cluster {
 	}
 
 	async onChange(eventType, filename) {
+		// should be noted this is broken as fuck & only intended for development
 		const loc = path.join('src', filename);
 		/*
-				on some platforms *cough* windows *cough* fs.watch emits two events for one change
-				because windows. so, the cooldown basically means only try to reload every x ms, any other
-				events will be ignored to prevent restarting twice for no reason
-			*/
+			cheap fix for some platforms emitting two events for one change
+		*/
 		if (cooldown) {
 			return;
 		}
@@ -116,34 +112,48 @@ module.exports = class Cluster {
 		console.info(`"${loc}" changed with event type "${eventType}", attempting reloading...`);
 
 		if (this.app && this.app.preReload) {
-			const readyForIt = await this.app.preReload();
+			try {
+				const ready = await this.app.preReload();
 
-			if (!readyForIt) {
-				return console.warn('Bot was not ready for a reload, cancelling...');
+				if (!ready) {
+					return console.warn('Bot was not ready for a reload, cancelling...');
+				}
+			} catch (e) {
+				console.warn('Could not determine that the bot was ready, reloading... ');
 			}
 		}
 
-		this.app = null;
-		// yolo
-		for (const p of [...this.watchDirectories, ...this.watchFiles]) {
-			delete require.cache[p];
-			for (const key in require.cache) { // eslint-disable-line guard-for-in
-				const relative = path.relative(p, key);
-				const isSubdir = !!relative && !relative.startsWith('..') && !path.isAbsolute(relative);
-				if (isSubdir) {
-					delete require.cache[key];
-				}
-			}
+		for (const f of [...this.watchDirectories, ...this.watchFiles]) {
+			this.unloadModule(f);
 		}
 
 		const App = require(this.entryPoint);
 		this.app = new App({
-			bot: this.bot,
+			client: this.client,
 			clusterID: this.clusterID,
 		});
 
 		await this.app.launch(true);
 
 		console.info(`Reloaded bot in ${(new Date() - start)}ms`);
+	}
+
+	unloadModule(name, depth = 0) {
+		try {
+			const resolved = require.resolve(name);
+
+			if (depth > 15) {
+				return;
+			}
+
+			const nodeModule = require.cache[resolved];
+			if (nodeModule) {
+				for (let i = 0; i < nodeModule.children.length; i++) {
+					const child = nodeModule.children[i];
+					this.unloadModule(child.filename, (depth + 1));
+				}
+				delete require.cache[resolved];
+			}
+		} catch (e) {} // eslint-disable-line no-empty
 	}
 };

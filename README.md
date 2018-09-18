@@ -45,7 +45,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 
 * Autoreload doesn't properly shut down Agenda.
 * Commands shouldn't need to define the key to their description, it should just magically know where and add it on startup.
-* everything
+* Sharder needs testing, especially handling reconnecting on disconnect.
 
 ## Disclaimer / Warning
 

@@ -11,6 +11,7 @@ const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
 const DB = lib.structs.Database;
+
 // load eris addons cus lazy
 lib.utils.walkSync(path.join(__dirname, 'src/addons'))
 	.filter(a => a.endsWith('.js'))
@@ -21,14 +22,14 @@ lib.utils.walkSync(path.join(__dirname, 'src/addons'))
 
 module.exports = class Atlas {
 	constructor({
-		bot,
+		client,
 		clusterID,
 	}) {
 		module.exports = this;
 
 		this.util = (new Util(this));
 		this.Raven = Raven;
-		this.client = bot;
+		this.client = client;
 		this.structs = structs;
 		this.clusterID = clusterID;
 
@@ -143,6 +144,7 @@ module.exports = class Atlas {
 	}
 
 	async preReload() {
+		// remove event listeners
 		for (const key in this.eventFunctions) {
 			if ({}.propertyIsEnumerable.call(this.eventFunctions, key)) {
 				this.client.removeListener(key, this.eventFunctions[key]);
