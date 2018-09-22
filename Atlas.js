@@ -85,7 +85,7 @@ module.exports = class Atlas {
 			},
 		};
 
-		this.colors = require('./src/colors');
+		this.colors = constants.colors;
 		this.version = require('./package.json').version;
 
 		this.lib = lib;
