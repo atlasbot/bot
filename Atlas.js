@@ -7,6 +7,7 @@ const Util = require('./src/util');
 const Agenda = require('./src/agenda');
 const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
+const constants = require('./src/constants');
 const EPM = require('./src/structures/ExtendedPlayerManager');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
@@ -33,6 +34,8 @@ module.exports = class Atlas {
 		this.structs = structs;
 		this.clusterID = clusterID;
 
+		this.constants = constants;
+
 		this.events = [
 			'messageCreate',
 			'messageReactionAdd',
@@ -57,10 +60,29 @@ module.exports = class Atlas {
 			pass: process.env.DB_PASS,
 			host: process.env.DB_HOST,
 		});
+
 		this.DB.init();
 
 		this.collectors = {
-			emojis: {},
+			emojis: {
+				map: {},
+				get: id => this.collectors.emojis.map[id],
+				delete: (id, collector) => {
+					if (this.collectors.emojis.map[id]) {
+						const index = this.collectors.emojis.map[id].findIndex(c => c === collector);
+						if (this.collectors.emojis.map[id][index]) {
+							return !!this.collectors.emojis.map[id].splice(index);
+						}
+					}
+				},
+				add: (id, collector) => {
+					if (this.collectors.emojis.map[id]) {
+						this.collectors.emojis.map[id].push(collector);
+					} else {
+						this.collectors.emojis.map[id] = [collector];
+					}
+				},
+			},
 		};
 
 		this.colors = require('./src/colors');

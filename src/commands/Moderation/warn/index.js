@@ -9,9 +9,11 @@ module.exports = class Warn extends Command {
 	action(msg, args, { // eslint-disable-line no-unused-vars
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const sub = this.Atlas.commands.get('warn').info.subcommands.get('add');
 
-		responder.embed(this.helpEmbed(msg)).send();
+		return sub.execute(msg, args, {
+			settings,
+		});
 	}
 };
 

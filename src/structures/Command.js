@@ -50,7 +50,7 @@ class Command {
 
 	execute(msg, args, {
 		settings,
-		parsedArgs,
+		parsedArgs = {},
 	}) {
 		return new Promise((resolve, reject) => {
 			const responder = new Responder(msg);

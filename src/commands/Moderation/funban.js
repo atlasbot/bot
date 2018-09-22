@@ -1,5 +1,4 @@
 const { Member } = require('eris');
-const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 
 
@@ -28,20 +27,22 @@ module.exports = class FunBan extends Command {
 
 		if (target instanceof Member) {
 			if (!target.punishable(msg.member)) {
-				return responder.error('general.notPunishable');
+				return responder.error('general.notPunishable').send();
 			} if (!target.punishable(msg.guild.me)) {
 				return responder.error('general.lolno').send();
 			}
 		}
 
-		const ban = await this.getBan(msg.guild.id, target.id);
-		if (ban) {
-			if (ban.reason) {
-				return responder.error('funban.tooLateReason', ban.reason, target.tag).send();
-			}
+		try {
+			const ban = await this.Atlas.client.getGuildBan(msg.guild.id, target.id);
+			if (ban) {
+				if (ban.reason) {
+					return responder.error('funban.tooLateReason', ban.reason, target.tag).send();
+				}
 
-			return responder.error('funban.tooLate', target.tag).send();
-		}
+				return responder.error('funban.tooLate', target.tag).send();
+			}
+		} catch (e) {} // eslint-disable-line no-empty
 
 		try {
 			await msg.guild.banMember(target.id, 0, args.join(' '));
@@ -58,20 +59,6 @@ module.exports = class FunBan extends Command {
 			}).send();
 		} catch (e) {
 			return responder.error('funban.error', target.tag).send();
-		}
-	}
-
-	// Eris' Client#getGuildBan() is undefined for *some reason* so this will work fine for now
-	// todo
-	async getBan(guildID, userID) {
-		try {
-			return (await superagent.get(`https://discordapp.com/api/guilds/${guildID}/bans/${userID}`)
-				.set({
-					'User-Agent': `Atlas (https://get-atlas.xyz/, v${this.Atlas.version})`,
-					Authorization: this.Atlas.client.token,
-				})).body;
-		} catch (e) {
-			return null;
 		}
 	}
 };

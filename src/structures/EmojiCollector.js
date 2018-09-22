@@ -1,3 +1,5 @@
+// todo: jsdoc
+
 module.exports = class EmojiCollector {
 	constructor() {
 		this._msg = null;
@@ -67,9 +69,9 @@ module.exports = class EmojiCollector {
 			throw new Error('Exec func is required');
 		}
 		if (this._msg) {
-			this._Atlas.collectors.emojis[this._msg.id] = this;
+			this._Atlas.collectors.emojis.add(this._msg.id, this);
 		} else if (this._userID) {
-			this._Atlas.collectors.emojis[this._userID] = this;
+			this._Atlas.collectors.emojis.add(this._userID, this);
 		} else {
 			throw new Error('Either a user or message is required to listen to emojis.');
 		}
@@ -118,7 +120,7 @@ module.exports = class EmojiCollector {
 			}
 		}
 
-		return this._exec(msg, emoji, userID);
+		return this._exec(msg, emoji, userID, this._Atlas.lib.utils.emoji(emoji.name));
 	}
 
 	async _addEmojis(emojis) {
@@ -144,10 +146,10 @@ module.exports = class EmojiCollector {
 
 	destroy() {
 		if (this._msg) {
-			delete this._Atlas.collectors.emojis[this._msg.id];
+			this._Atlas.collectors.emojis.delete(this._msg.id, this);
 		}
 		if (this._userID) {
-			delete this._Atlas.collectors.emojis[this._userID];
+			this._Atlas.collectors.emojis.delete(this._userID, this);
 		}
 	}
 };

@@ -8,7 +8,7 @@ module.exports = class List extends Command {
 	async action(msg, args, { // eslint-disable-line no-unused-vars
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Paginator(msg);
 
 		const actions = settings.plugin('actions').actions
 			.filter(a => a.trigger.type === 'label');
@@ -22,10 +22,10 @@ module.exports = class List extends Command {
 		return responder.paginate({
 			user: msg.author.id,
 			page: pageN,
-		}, (data) => {
-			const page = this.Atlas.lib.utils.paginateArray(actions, data.page.current, 4);
+		}, (paginator) => {
+			const page = this.Atlas.lib.utils.paginateArray(actions, paginator.page.current, 4);
 			// set the total page count once it's been (re)calculated
-			data.page.total = page.totalPages;
+			paginator.page.total = page.totalPages;
 
 			if (page.data.length === 0) {
 				return;
@@ -46,7 +46,7 @@ module.exports = class List extends Command {
 				description: ['command.list.embed.description', msg.guild.name],
 				timestamp: new Date(),
 				footer: {
-					text: data.showPage ? `Page ${data.page.current}/${data.page.total}` : null,
+					text: paginator.showPage ? `Page ${paginator.page.current}/${paginator.page.total}` : null,
 				},
 				fields,
 			};

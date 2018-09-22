@@ -6,9 +6,9 @@ module.exports = class Event {
 	async execute(msg, emoji, userID) {
 		if (userID === this.Atlas.client.user.id) return;
 
-		const collector = this.Atlas.collectors.emojis[msg.id] || this.Atlas.collectors.emojis[userID];
-		if (collector) {
-			collector.fire(msg, emoji, userID);
+		const collectors = this.Atlas.collectors.emojis.get(msg.id) || this.Atlas.collectors.emojis.get(userID);
+		if (collectors && collectors[0]) {
+			collectors.forEach(c => c.fire(msg, emoji, userID));
 		}
 
 		// in a dev environment this will let people re-run commands

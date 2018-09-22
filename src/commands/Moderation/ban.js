@@ -1,5 +1,4 @@
 const { Member } = require('eris');
-const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 
 
@@ -30,43 +29,33 @@ module.exports = class Ban extends Command {
 		if (target instanceof Member) {
 			// todo: member.bannable check & member.kickable for kick but it's not done yet so hopefully i see this before i make it lmao
 			if (!target.punishable(msg.member)) {
-				return responder.error('general.notPunishable');
+				return responder.error('general.notPunishable').send();
 			} if (!target.punishable(msg.guild.me)) {
 				return responder.error('general.lolno').send();
 			}
 		}
 
-		const ban = await this.getBan(msg.guild.id, target.id);
-		if (ban) {
-			if (ban.reason) {
-				return responder.error('ban.tooLateReason', ban.reason, target.tag).send();
+		try {
+			const ban = await this.Atlas.client.getGuildBan(msg.guild.id, target.id);
+			if (ban) {
+				if (ban.reason) {
+					return responder.error('ban.tooLateReason', ban.reason, target.tag).send();
+				}
+
+				return responder.error('ban.tooLate', target.tag).send();
+			}
+		} catch (e) {} // eslint-disable-line no-empty
+
+		try {
+			await msg.guild.banMember(target.id, 0, args.join(' '));
+
+			if (args[0]) {
+				return responder.text('ban.withReason', target.tag, args.join(' ')).send();
 			}
 
-			return responder.error('ban.tooLate', target.tag).send();
-		}
-
-		msg.guild.banMember(target.id, 0, args.join(' '))
-			.then(() => {
-				if (args[0]) {
-					responder.text('ban.withReason', target.tag, args.join(' ')).send();
-				} else {
-					responder.text('ban.success', target.tag).send();
-				}
-			})
-			.catch(() => responder.error('ban.error', target.tag).send());
-	}
-
-	// Eris' Client#getGuildBan() is undefined for *some reason* so this will work fine for now
-	// todo
-	async getBan(guildID, userID) {
-		try {
-			return (await superagent.get(`https://discordapp.com/api/guilds/${guildID}/bans/${userID}`)
-				.set({
-					'User-Agent': `Atlas (https://get-atlas.xyz/, v${this.Atlas.version})`,
-					Authorization: this.Atlas.client.token,
-				})).body;
+			return responder.text('ban.success', target.tag).send();
 		} catch (e) {
-			return null;
+			return responder.error('ban.error', target.tag).send();
 		}
 	}
 };

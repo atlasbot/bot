@@ -28,26 +28,20 @@ module.exports = class Move extends Command {
 		let targetMsg;
 		if (args[1]) {
 			targetMsg = await this.Atlas.util.findMessage(msg.channel, args[1]);
-		} else if (channel.permissionsOf(msg.author.id).json.addReactions) {
+		}
+		if (!targetMsg) {
+			if (channel.permissionsOf(msg.author.id).json.addReactions) {
 			// ask the user to react to the message to remove
 
-			try {
-				await responder.text('move.waiting', channel.mention).send();
-				targetMsg = await this.awaitEmoji(msg.guild.id, msg.author.id);
-
-				if (!targetMsg.content) {
-					targetMsg = await this.Atlas.util.findMessage(targetMsg.channel, targetMsg.id);
-				}
-
-				// in theory they could add the reaction in another guild but yolo
-			} catch (e) {
-				console.error(e);
-
-				return responder.error('move.notInTime', msg.author.mention).send();
+				targetMsg = await this.Atlas.util.messageQuery({
+					guild: msg.guild,
+					user: msg.author,
+					channel: msg.channel,
+					lang: msg.lang,
+				});
+			} else {
+				return responder.error('move.noMessageOrPerms').send();
 			}
-		} else {
-			// todo: this message should probably be shorter
-			return responder.error('move.noMessageOrPerms').send();
 		}
 
 		if (!targetMsg) {
@@ -59,8 +53,6 @@ module.exports = class Move extends Command {
 		if (targetMsg.channel.id === channel.id) {
 			return responder.error('move.sameChannel', channel.mention).send();
 		}
-
-		await targetMsg.delete();
 
 		if (msg.guild.members.get(this.Atlas.client.user.id).permission.json.manageWebhooks && !parsedArgs['no-webhooks']) {
 			const [hook] = await channel.getWebhooks();
@@ -83,14 +75,15 @@ module.exports = class Move extends Command {
 			.embed(targetMsg.embeds ? targetMsg.embeds[0] : null)
 			.file(targetMsg.file);
 
+
+		targetMsg.delete().catch(() => false);
+
 		return responder.text('move.success', channel.mention).send();
 	}
 
 	awaitEmoji(guild, user) {
 		return new Promise((resolve, reject) => {
 			const collector = new this.Atlas.structs.EmojiCollector();
-
-			console.log(user);
 
 			collector
 				.user(user)

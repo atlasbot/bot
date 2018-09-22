@@ -11,7 +11,7 @@ module.exports = class Queue extends Command {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
 		// todo: handle channels where the bot can't embed links
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Paginator(msg);
 
 		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
 		if (!voiceChannel) {
@@ -30,10 +30,10 @@ module.exports = class Queue extends Command {
 		responder.paginate({
 			user: msg.author.id,
 			page: pageN,
-		}, (data) => {
-			const page = lib.utils.paginateArray(queue, data.page.current, 8);
+		}, (paginator) => {
+			const page = lib.utils.paginateArray(queue, paginator.page.current, 8);
 			// reset total pages once it's been (re)calculated
-			data.page.total = page.totalPages;
+			paginator.page.total = page.totalPages;
 
 			const length = [player.track, ...queue]
 				.map(m => (m.info ? m.info.length : 0))

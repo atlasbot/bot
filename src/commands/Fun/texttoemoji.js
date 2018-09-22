@@ -1,7 +1,5 @@
 const Command = require('../../structures/Command.js');
 
-const numbers = [':zero:', ':one:', ':two:', ':three:', ':four:', ':five:', ':six:', ':seven:', ':eight:', ':nine:'];
-
 module.exports = class TextToEmoji extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -16,12 +14,14 @@ module.exports = class TextToEmoji extends Command {
 			return responder.error('texttoemoji.noArgs').send();
 		}
 
+		const { emojiNumbers } = this.Atlas.constants;
+
 		return responder
 			.localised(true)
 			.text(
 				args.join('   ')
 					.replace(/[A-z]/g, m => `:regional_indicator_${m.toLowerCase()}:`)
-					.replace(/[0-9]/g, n => numbers[n] || n)
+					.replace(/[0-9]/g, n => (emojiNumbers[n] ? `:${emojiNumbers[n]}:` : n))
 					.substring(0, 2048),
 			)
 			.send();

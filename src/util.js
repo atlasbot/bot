@@ -193,4 +193,67 @@ module.exports = class Util {
 			return possible.find(r => lib.utils.isSnowflake(r));
 		}
 	}
+
+	/**
+	 * Queries a user for a message ID.
+	 * @param {Object} opts options
+	 * @param {Guild} opts.guild The guild to query in
+	 * @param {Channel} opts.channel The channel to ask the user in
+	 * @param {User} opts.user The user to ask
+	 * @param {string} opts.emoji The emoji to ask the user to react with
+	 * @param {string} opts.message The language string to ask the user with
+	 * @param {string} opts.responder The responder to use
+	 * @returns {Promise<message|void>}
+	 */
+	async messageQuery({
+		guild,
+		channel,
+		user,
+		lang = 'en-US',
+		emoji = '📦',
+		message = 'general.messageQuery',
+		responder = new this.Atlas.structs.Responder(channel, lang),
+	}) {
+		if (!channel.permissionsOf(user.id).json.addReactions) {
+			throw new Error('User does not have permissions to add reactions in that channel.');
+		}
+		const emojiInfo = this.Atlas.lib.utils.emoji(emoji);
+		try {
+			const queryMsg = await responder.text(message, emoji, emojiInfo.names[0]).send();
+			let targetMsg = await this.awaitEmoji(emoji, guild.id, user);
+
+			queryMsg.delete().catch(() => false);
+
+			if (!targetMsg.content) {
+				// if the message was not cached, it will only have basic data
+				// so fetch more info about it
+				targetMsg = await targetMsg.channel.getMessage(targetMsg.id);
+			}
+
+			// in theory they could add the reaction in another guild but yolo\
+			return targetMsg;
+		} catch (e) {
+			await responder.error('general.messageQueryLate', user.mention).send();
+		}
+	}
+
+	awaitEmoji(emoji, guild, user) {
+		return new Promise((resolve, reject) => {
+			const collector = new this.Atlas.structs.EmojiCollector();
+
+			console.log(user);
+
+			collector
+				.user(user)
+				.emoji([emoji])
+				.exec(msg => resolve(msg))
+				.listen();
+
+			setTimeout(() => {
+				collector.destroy();
+
+				return reject();
+			}, 20 * 1000);
+		});
+	}
 };

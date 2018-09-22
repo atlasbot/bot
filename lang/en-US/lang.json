@@ -199,6 +199,8 @@
         }
     },
     "general": {
+        "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
+        "messageQueryLate": "{0}, you took too long to add the reaction.",
         "botPermError": "I am missing one or more permissions that I need to do that.",
         "noResults": "I couldn't find anything matching your query, `{0}`.",
         "webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
@@ -206,7 +208,7 @@
         "restError": "Something happened when running the command, please try again in a few minutes.",
         "errorExecuting": "An unknown error occured executing the command.",
         "noUserFound": "I couldn't find that user.",
-        "noMorePages": "There are no more pages that way.",
+        "noMorePages": "{0}, there are no more pages that way.",
         "guildOnly": "That command can only be used in servers!",
         "notPunishable": "You are lacking the permission required to punish that user.",
         "lolno": "I cannot punish that user as their permission level is above my own.",
@@ -475,9 +477,10 @@
                 "notFound": "I could not find a warning matching your query.",
                 "noWarns": "{0} does not have any warnings.",
                 "error": "An error occured when adding reactions.",
-                "removedAll": "You have removed all of {0}'s warnings.",
+                "removedAll": "{0}, you have removed all of {1}'s warnings.",
                 "missingPerms": "I need permissions to add reactions to do that. ",
-                "success": "Removed warning with reason `{0}` from {1} successfully."
+                "success": "{0}, removed warning with reason `{1}` from {2} successfully.",
+                "successNoMention": "Removed warning with reason `{0}` from {1} successfully."
             }
         },
         "8ball": {

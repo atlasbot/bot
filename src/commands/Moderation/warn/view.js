@@ -11,7 +11,7 @@ module.exports = class View extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Paginator(msg);
 
 		const query = args.shift();
 		const target = args[0] ? await this.Atlas.util.findMember(msg.guild, query) : msg.member;
@@ -34,10 +34,11 @@ module.exports = class View extends Command {
 		responder.paginate({
 			user: msg.author.id,
 			page: pageN,
-		}, (data) => {
-			const page = lib.utils.paginateArray(warnings, data.page.current, 4);
+		}, (paginator) => {
+			const page = lib.utils.paginateArray(warnings, paginator.page.current, 4);
+
 			// set the total page count once it's been (re)calculated
-			data.page.total = page.totalPages;
+			paginator.page.total = page.totalPages;
 
 			if (page.data.length === 0) {
 				return;
@@ -72,7 +73,7 @@ module.exports = class View extends Command {
 				}],
 				timestamp: new Date(),
 				footer: {
-					text: data.showPage ? `Page ${data.page.current}/${data.page.total}` : null,
+					text: paginator.showPage ? `Page ${paginator.page.current}/${paginator.page.total}` : null,
 				},
 			};
 
@@ -88,7 +89,6 @@ module.exports.info = {
 	examples: [
 		'@random',
 		'@sylver',
-		'',
 	],
 	guildOnly: true,
 };

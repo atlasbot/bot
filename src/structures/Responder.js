@@ -1,19 +1,27 @@
 const Joi = require('joi');
 const embedSchema = require('./../schemas/embed');
-const EmojiCollector = require('./EmojiCollector');
+
+let EventEmitter;
+try {
+	EventEmitter = require('eventemitter3');
+} catch (e) {
+	EventEmitter = require('events').EventEmitter; // eslint-disable-line prefer-destructuring
+}
 
 /* eslint-disable security/detect-object-injection */
 
 const sent = [];
 
 /** A responder, sends data to channels. */
-class Responder {
+
+class Responder extends EventEmitter {
 	/**
      * Creates a new responder.
      * @param {string|Object} data The channel ID, channel object or message object to pull the channel from.
 	 * @param {string} lang The lang to use when sending messages. Overrides "data.lang"
      */
 	constructor(data, lang) {
+		super();
 		let channelID;
 		if (data) {
 			if (data.channel) {
@@ -35,13 +43,6 @@ class Responder {
 			edit: null,
 			noDupe: true,
 			localised: false,
-			page: {
-				generator: null,
-				enabled: false,
-				current: 1,
-				total: 1,
-				user: null,
-			},
 		};
 
 		this.Atlas = require('./../../Atlas');
@@ -223,24 +224,6 @@ class Responder {
 		return this;
 	}
 
-	/**
-	 * Adds page buttons to the message and updates it on change.
-	 * @param {Object} opts options
-	 * @param {string} opts.user If set, only that user can change the page.
-	 * @param {function} generator The function to generate the embed, gets passed the respond
-     * @returns {Responder} The current responder instance
-	 */
-	paginate({
-		user,
-		page = 1,
-	} = {}, generator) {
-		this._data.page.generator = generator;
-		this._data.page.enabled = !!generator;
-		this._data.page.user = user;
-		this._data.page.current = page;
-
-		return this;
-	}
 
 	/**
      * Sends the message to the channel. If TTL is set the message will be resolved then deleted after being resolved.
@@ -249,6 +232,7 @@ class Responder {
 	async send() {
 		const data = this._data;
 		this._data = JSON.parse(JSON.stringify(this._defaults));
+
 		this.lang(data.lang);
 
 		if (this.guild) {
@@ -257,10 +241,6 @@ class Responder {
 			if (!sendMessages || (channel && !channel.permissionOf(this.Atlas.client.user.id).has('sendMessages'))) {
 				throw new Error('Atlas does not have permissions to send messages to that channel.');
 			}
-		}
-
-		if (data.page.enabled) {
-			data.embed = this._parseObject(data.page.generator(data));
 		}
 
 		if (data.embed) {
@@ -304,69 +284,6 @@ class Responder {
 					msg.delete().catch(() => false);
 				}
 			}, data._ttl);
-		}
-
-		if (data.page.enabled) {
-			Object.defineProperty(data, 'showPages', {
-				get showPages() {
-					return data.page.total === 1;
-				},
-				configurable: true,
-			});
-			const responder = new Responder();
-			const update = () => {
-				const em = this._parseObject(data.page.generator(data));
-				if (em) {
-					msg.edit({
-						embed: em,
-					});
-				} else {
-					return responder.error('general.noMorePages').send();
-				}
-			};
-			this.collector = new EmojiCollector();
-			this.collector
-				.msg(msg)
-				.user(data.page.user)
-				.emoji([
-					'⏮',
-					'⬅',
-					'➡',
-					'⏭',
-				])
-				.remove(true)
-				.add(data.page.total !== 1)
-				.exec((ignore, emoji) => {
-					switch (emoji.name) {
-						case '⬅':
-							data.page.current--;
-
-							return update();
-						case '➡':
-							data.page.current++;
-
-							return update();
-						case '⏮':
-							if (data.page.current === 1) {
-								return;
-							}
-							data.page.current = 1;
-
-							return update();
-						case '⏭':
-							if (data.page.current >= data.page.total) {
-								return;
-							}
-							data.page.current = data.page.total;
-
-							return update();
-						default:
-							// creating a new responder incase the current responder has moved onto something else already
-							return responder.error('general.noMorePages').send();
-					}
-				});
-
-			this.collector.listen();
 		}
 
 		return msg;
