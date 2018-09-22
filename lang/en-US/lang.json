@@ -21,6 +21,9 @@
         "achievement": {
             "description": "Creates a Minecraft achievement."
         },
+        "wouldyourather": {
+            "description": "Would you rather?"
+        },
         "command": {
             "base": {
                 "description": "Create, delete or edit custom commands."
