@@ -51,28 +51,26 @@ module.exports = class Commands {
 		return plugins;
 	}
 
-	static async load(Atlas, reload = false) {
+	static async load(Atlas) {
 		const plugins = await this.plugins();
 		for (const plugin of plugins) {
 			Atlas.plugins.set(plugin.name.toLowerCase(), new Plugin(plugin));
 			plugin.commands.forEach(cmd => this.setup(Atlas, cmd, {
 				plugin,
-				reload,
 			}));
 			plugin.subcommands.forEach(sub => this.setup(Atlas, sub.base, {
 				subs: sub.subs,
 				plugin,
-				reload,
 			}));
 		}
 	}
 
 	static setup(Atlas, path, {
-		reload = false,
 		subs,
 		master,
 		plugin,
 	} = {}) {
+		const warnings = [];
 		const Prop = require(path);
 		if (!Prop.info) return;
 		let prop;
@@ -90,49 +88,36 @@ module.exports = class Commands {
 			subs.forEach(sub => this.setup(Atlas, sub, {
 				master: prop,
 				plugin,
-				reload,
 			}));
 		}
 		prop.info.workdir = path;
 		prop.info.plugin = plugin;
 		// TODO: subcommand alias support
 		prop.info.aliases.forEach((alias) => {
-			if (!master && !reload && Atlas.commands.labels.has(alias)) {
-				console.warn(`(WARN) Alias "${alias}" already is registered by ${Atlas.commands.get(alias).info.name}! Overriding - (${path})`);
+			if (!master && Atlas.commands.labels.has(alias)) {
+				warnings.push(`(WARN) Alias "${alias}" already is registered by ${Atlas.commands.get(alias).info.name}! Overriding - (${path})`);
 			}
 			Atlas.commands.aliases.set(alias, prop.info.name);
 		});
-		if (master && !reload && Atlas.commands.labels.has(prop.info.name)) {
-			console.warn(`(WARN) Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
+		if (master && Atlas.commands.labels.has(prop.info.name)) {
+			warnings.push(`(WARN) Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
 		}
-		if (prop.constructor.name.toLowerCase() !== prop.info.name && !reload) {
-			console.warn(`(STYLE) Class name for "${prop.info.name}" should match the command name.`);
+		if (prop.constructor.name.toLowerCase() !== prop.info.name) {
+			warnings.push(`(STYLE) Class name for "${prop.info.name}" should match the command name.`);
 		}
-		if (prop.info.usage && prop.info.noExamples && !reload) {
-			console.warn(`(STYLE) Command "${prop.info.name}" has usage without any examples!`);
+		if (prop.info.usage && prop.info.noExamples) {
+			warnings.push(`(STYLE) Command "${prop.info.name}" has usage without any examples!`);
 		}
 		if (master) {
 			master.info.subcommands.set(prop.info.name, prop);
 		} else {
 			Atlas.commands.labels.set(prop.info.name, prop);
 		}
-		// fs.readFile(path, 'utf-8')
-		// 	.then((file) => {
-		// 		// temporary tests to make sure nothing gets fucky until release (maybe)
-		// 		// this is my first attempt at regex, be gentle
-		// 		const re1 = /^(?!console).+(?:error|text)\([\\]?[\\]?'([A-z0-9.]+)[\\]?[\\]?'/gm;
-		// 		const re2 = /(?:name|value): \[?[\\]?[\\]?'(.*?)[\\]?[\\]?'/gm;
-		// 		let result;
-		// 		while ((result = re1.exec(file) || re2.exec(file))) { // eslint-disable-line no-cond-assign
-		// 			if (result[1].includes('.')) {
-		// 				const key = Atlas.lib.utils.key(result[1]); // eslint-disable-line prefer-destructuring
-		// 				if (!Atlas.lib.utils.getNested(Atlas.langs.get('en-US'), key)) {
-		// 					console.warn(`(LOCALE) No key exists matching "${key}" (${prop.info.name})`);
-		// 				}
-		// 			}
-		// 		}
-		// 	});
 		delete require.cache[require.resolve(path)];
+
+		if (prop.info.ignoreStyleRules !== true) {
+			warnings.map(w => console.warn(w));
+		}
 
 		return prop;
 	}
