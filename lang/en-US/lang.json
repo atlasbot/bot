@@ -615,7 +615,7 @@
             "success": "Message moved to {0}.",
             "noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
         },
-        "textToEmoji": {
+        "texttoemoji": {
             "noArgs": "You have to include some text to convert."
         }
     }

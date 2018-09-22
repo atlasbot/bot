@@ -10,7 +10,7 @@ Object.keys(process.env).forEach((k) => {
 	}
 });
 
-module.exports = class Eval extends Command {
+module.exports = class Repeat extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -33,4 +33,9 @@ module.exports.info = {
 	aliases: ['tte'],
 	description: 'info.texttoemoji.description',
 	usage: 'info.texttoemoji.usage',
+	examples: [
+		'l33t',
+		'ayy lmao',
+		'im sure the server admins will love this',
+	],
 };

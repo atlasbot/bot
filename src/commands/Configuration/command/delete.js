@@ -1,6 +1,6 @@
 const Command = require('../../../structures/Command.js');
 
-module.exports = class List extends Command {
+module.exports = class Delete extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -40,6 +40,9 @@ module.exports.info = {
 	description: 'info.command.delete.description',
 	usage: 'info.command.delete.usage',
 	guildOnly: true,
+	examples: [
+		'my_command',
+	],
 	aliases: [
 		'rm',
 		'remove',

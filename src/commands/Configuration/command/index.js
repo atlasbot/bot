@@ -28,6 +28,7 @@ module.exports.info = {
 		'custom_command',
 		'cc',
 	],
+	ignoreStyleRules: true,
 	requirements: {
 		permissions: {
 			user: {

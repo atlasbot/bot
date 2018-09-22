@@ -81,9 +81,11 @@ module.exports = class Queue extends Command {
 
 module.exports.info = {
 	name: 'queue',
-	usage: 'info.queue.usage',
 	description: 'info.queue.description',
 	guildOnly: true,
+	examples: [
+		'1',
+	],
 	aliases: [
 		'upcoming',
 		'upnext',

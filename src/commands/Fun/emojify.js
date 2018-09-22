@@ -12,7 +12,7 @@ const aliases = {
 	lol: 'laughing',
 };
 
-module.exports = class CatFact extends Command {
+module.exports = class Emojify extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -42,4 +42,7 @@ module.exports.info = {
 	name: 'emojify',
 	description: 'info.emojify.description',
 	usage: 'info.emojify.usage',
+	examples: [
+		'tada',
+	],
 };

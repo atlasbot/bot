@@ -24,6 +24,7 @@ module.exports.info = {
 	name: '8ball',
 	description: 'info.8ball.description',
 	usage: 'info.8ball.usage',
+	ignoreStyleRules: true,
 	aliases: [
 		'eightball',
 		'ateball',
