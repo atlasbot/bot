@@ -317,13 +317,22 @@ class Command {
 			});
 		}
 
-		if (Object.keys(info.requirements.permissions.user).length !== 0) {
-			// TODO: show bot requirements
+		if (info.requirements.permissions.user && Object.keys(info.requirements.permissions.user).length !== 0) {
 			embed.fields.push({
-				name: 'Permissions',
+				name: 'Permissions (User)',
 				value: `\`${Object.keys(info.requirements.permissions.user)
 					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
-					.join('`, `')}\` (User)`,
+					.join('`, `')}\``,
+				inline: true,
+			});
+		}
+
+		if (info.requirements.permissions.bot && Object.keys(info.requirements.permissions.bot).length !== 0) {
+			embed.fields.push({
+				name: 'Permissions (Bot)',
+				value: `\`${Object.keys(info.requirements.permissions.bot)
+					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
+					.join('`, `')}\``,
 				inline: true,
 			});
 		}

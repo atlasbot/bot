@@ -25,6 +25,9 @@ module.exports.info = {
 			user: {
 				manageGuild: true,
 			},
+			bot: {
+				manageWebhooks: true,
+			},
 		},
 	},
 };
