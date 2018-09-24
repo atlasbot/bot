@@ -7,14 +7,13 @@ module.exports = class Event {
 		const settings = await this.Atlas.DB.getGuild(guild.id);
 
 		if (member.roles && oldMember.roles) {
-			const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild.id, member.id, 25);
-
 			const added = guild.roles.get(member.roles.find(r => !oldMember.roles.includes(r)));
 			const removed = guild.roles.get(oldMember.roles.find(r => !member.roles.includes(r)));
 
 			const role = added || removed;
 
 			if (role) {
+				const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild.id, member.id, 25);
 				const key = added ? 'roleAdd' : 'roleRemove';
 
 				const embed = {
