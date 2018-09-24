@@ -9,6 +9,7 @@ const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
 const EPM = require('./src/structures/ExtendedPlayerManager');
+const GuildSettingsClass = require('./src/structures/GuildSettings');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
 const DB = lib.structs.Database;
@@ -35,10 +36,12 @@ module.exports = class Atlas {
 		this.clusterID = clusterID;
 
 		this.constants = constants;
+		this.colors = constants.colors;
 
 		this.events = [
 			'messageCreate',
 			'messageReactionAdd',
+			'guildMemberUpdate',
 		];
 
 		this.commands = {
@@ -59,6 +62,7 @@ module.exports = class Atlas {
 			user: process.env.DB_USER,
 			pass: process.env.DB_PASS,
 			host: process.env.DB_HOST,
+			GuildSettingsClass,
 		});
 
 		this.DB.init();
@@ -85,11 +89,18 @@ module.exports = class Atlas {
 			},
 		};
 
-		this.colors = constants.colors;
 		this.version = require('./package.json').version;
 
 		this.lib = lib;
 		this.env = process.env.NODE_ENV || 'development';
+	}
+
+	// im lazy
+	/**
+	 * gets the bot's avatar URL
+	 */
+	get avatar() {
+		return this.client.user.avatarURL || this.client.user.defaultAvatarURL;
 	}
 
 	/**

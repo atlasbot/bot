@@ -33,7 +33,7 @@ module.exports = class Add extends Command {
 				moderator: msg.author,
 				reason: args.join(' '),
 			});
-			settings.log({
+			settings.log('mod', {
 				color: this.Atlas.colors.get('orange').decimal,
 				title: 'Member Warned',
 				description: `${target.mention} (\`${target.tag}\`) has been warned by a ${msg.author.mention} (\`${msg.author.tag}\`).`,
@@ -54,8 +54,6 @@ module.exports = class Add extends Command {
 				footer: {
 					text: `Target ${target.id} Mod ${msg.author.id}`,
 				},
-			}, {
-				type: 'mod',
 			}).catch(() => false);
 
 			return responder

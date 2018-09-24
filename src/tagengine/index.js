@@ -50,8 +50,6 @@ module.exports = class Parser {
 			const [name, ...unparsedArgs] = tag.split(';');
 			let output;
 
-			console.log(name, this.tags.has(name));
-
 			if (this.tags.has(name)) {
 				const { execute, info } = this.tags.get(name);
 				if (info.dependencies && info.dependencies.length !== 0) {

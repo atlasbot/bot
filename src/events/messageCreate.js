@@ -26,7 +26,7 @@ module.exports = class Ready {
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || prefixes[0];
 		} else {
-			msg.displayPrefix = prefixes[0]; // eslint-disable-line prefer-destructuring
+			([msg.displayPrefix] = prefixes);
 			msg.lang = 'en-US';
 		}
 
@@ -38,14 +38,6 @@ module.exports = class Ready {
 				.split(/ +/g);
 			msg.label = msg.args.shift().toLowerCase();
 			msg.command = this.Atlas.commands.get(msg.label);
-			if (!msg.command) {
-				const corrected = (new this.Atlas.structs.Fuzzy(Array.from(this.Atlas.commands.labels.values()), {
-					keys: ['info.name'],
-				})).search(msg.label);
-				if (corrected && corrected.info.autocorrect) {
-					msg.command = corrected;
-				}
-			}
 			if (msg.command) {
 				if (msg.command.info.subcommands.size !== 0 && msg.args[0]) {
 					// handle subcommands
@@ -78,14 +70,10 @@ module.exports = class Ready {
 		}
 	}
 
-	checkPrefix(msg, guild = {}) {
-		const possiblePrefixes = guild.prefix
-			? [guild.prefix, ...prefixes]
+	checkPrefix(msg, settings = {}) {
+		const possiblePrefixes = settings.prefix
+			? [settings.prefix, ...prefixes]
 			: prefixes;
-
-		// if (msg.guild && msg.guild.settings && msg.guild.settings.prefix && msg.guild.settings.prefix !== undefined) {
-		// 	if (msg.content.startsWith(msg.guild.settings.prefix)) return msg.guild.settings.prefix;
-		// }
 
 		for (let prefix of possiblePrefixes) {
 			prefix = prefix.replace(/@mention/g, this.Atlas.client.user.mention);

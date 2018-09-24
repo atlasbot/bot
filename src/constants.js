@@ -109,7 +109,7 @@ module.exports.colors = [{
 }];
 
 module.exports.colors.get = (color) => {
-	const result = module.exports.find(c => c.name.toLowerCase() === color);
+	const result = module.exports.colors.find(c => c.name.toLowerCase() === color.toLowerCase());
 	if (result) {
 		return {
 			...result,

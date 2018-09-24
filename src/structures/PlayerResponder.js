@@ -6,7 +6,6 @@ module.exports = class PlayerResponder extends Responder {
 	constructor(player, lang, {
 		settings,
 	} = {}) {
-		console.log(lang, player.msg.lang);
 		super(player.msg, lang);
 
 		this.settings = settings;

@@ -64,7 +64,6 @@ module.exports = class Paginator extends Responder {
 					emojis.push('⏭');
 				}
 				this.collector = new EmojiCollector();
-				console.log(this.showPages);
 				this.collector
 					.msg(res)
 					.user(this.page.user)
@@ -72,7 +71,6 @@ module.exports = class Paginator extends Responder {
 					.remove(true)
 					.add(this.showPages)
 					.exec((ignore, emoji) => {
-						console.log(emoji);
 						switch (emoji.name) {
 							// todo: this needs improvement
 							// fixme: has issues when going forward then back twice
@@ -81,7 +79,6 @@ module.exports = class Paginator extends Responder {
 
 								return this.updatePage();
 							case '➡':
-								console.log('wew 2');
 								this.page.current++;
 
 								return this.updatePage();

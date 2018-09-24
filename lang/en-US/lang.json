@@ -8,6 +8,15 @@
         ]
     },
     "info": {
+        "log": {
+            "base": {
+                "description": "Controls where certain messages are logged in your guild."
+            },
+            "actions": {
+                "description": "Sets where action logs are logged to. Run with no args to reset.",
+                "usage": "<channel>"
+            }
+        },
         "coinflip": {
             "description": "Flips a coin that can land heads or tails."
         },
@@ -202,6 +211,36 @@
         }
     },
     "general": {
+        "logs": {
+            "guildMemberUpdate": {
+                "roleAdd": {
+                    "title": "Member Updated - Role Added",
+                    "description": "{0} has been given the {1} role.",
+                    "moderator": {
+                        "name": "Added By",
+                        "value": "{0} (`{1}`)"
+                    },
+                    "reason": "Reason"
+                },
+                "roleRemove": {
+                    "title": "Member Updated - Role Removed",
+                    "description": "{0} has had the {1} role taken from them.",
+                    "moderator": {
+                        "name": "Removed By",
+                        "value": "{0} (`{1}`)"
+                    },
+                    "reason": "Reason"
+                },
+                "usernameChange": {
+                    "title": "Member Updated - Username Changed",
+                    "description": "{0} has changed their username from `{1}` to `{2}`."
+                },
+                "avatarChange": {
+                    "title": "Member Updated - Username Changed",
+                    "description": "{0} has changed their avatar from `{1}` to `{2}`."
+                }
+            }
+        },
         "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
         "messageQueryLate": "{0}, you took too long to add the reaction.",
         "botPermError": "I am missing one or more permissions that I need to do that.",
@@ -620,6 +659,14 @@
         },
         "texttoemoji": {
             "noArgs": "You have to include some text to convert."
+        },
+        "log": {
+            "actions": {
+                "noArgs": "You have to include a channel name, ID or mention.",
+                "noResults": "I could not find a channel matching `{0}`.",
+                "success": "Action logs will now be sent to {0}.",
+                "disabled": "Action logging has been disabled."
+            }
         }
     }
 }

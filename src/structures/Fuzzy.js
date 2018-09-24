@@ -17,6 +17,10 @@ class Fuzzy {
 		matchPercent = 0.75,
 		keys = [],
 	} = {}) {
+		if (haystack instanceof Map) {
+			haystack = Array.from(haystack.values());
+		}
+
 		if (!haystack || !(haystack instanceof Array)) {
 			throw new Error('We need an array containing the search list');
 		}

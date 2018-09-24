@@ -1,8 +1,7 @@
 const Command = require('../../../structures/Command.js');
 
-// todo: action/mod logging for all actions here
 
-module.exports = class Warn extends Command {
+module.exports = class Log extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -10,26 +9,20 @@ module.exports = class Warn extends Command {
 	action(msg, args, { // eslint-disable-line no-unused-vars
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const sub = this.Atlas.commands.get('warn').info.subcommands.get('add');
+		const responder = new this.Atlas.structs.Responder(msg);
 
-		return sub.execute(msg, args, {
-			settings,
-		});
+		responder.embed(this.helpEmbed(msg)).send();
 	}
 };
 
 module.exports.info = {
-	name: 'warn',
-	description: 'info.warn.base.description',
+	name: 'log',
+	description: 'info.log.base.description',
 	guildOnly: true,
-	aliases: [
-		'warnings',
-		'warn',
-	],
 	requirements: {
 		permissions: {
 			user: {
-				manageMessages: true,
+				manageGuild: true,
 			},
 		},
 	},

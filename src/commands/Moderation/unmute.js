@@ -65,13 +65,11 @@ module.exports = class Unmute extends Command {
 
 			// todo: log unmute
 
-			settings.log({
+			settings.log('mod', {
 				title: 'User Unmuted',
 				color: this.Atlas.colors.get('yellow').decimal,
 				description: `${target.tag} (\`${target.id}\`) was unmuted by ${msg.author.tag} (\`${msg.author.id}\`)`,
 				timestamp: new Date(),
-			}, {
-				type: 'mod',
 			});
 
 			return responder.text('unmute.success', target.tag).send();
