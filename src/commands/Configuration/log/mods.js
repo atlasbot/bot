@@ -13,10 +13,10 @@ module.exports = class Log extends Command {
 
 		if (!args[0] || this.Atlas.constants.disableTriggers.includes(args[0].toLowerCase())) {
 			await settings.update({
-				'plugins.moderation.logs.action': null,
+				'plugins.moderation.logs.mod': null,
 			});
 
-			return responder.text('log.actions.disabled').send();
+			return responder.text('log.moderation.disabled').send();
 		}
 
 		const query = args.join(' ');
@@ -30,19 +30,19 @@ module.exports = class Log extends Command {
 		}
 
 		await settings.update({
-			'plugins.moderation.logs.action': channel.id,
+			'plugins.moderation.logs.mod': channel.id,
 		});
 
-		return responder.text('log.actions.success', channel.mention).send();
+		return responder.text('log.moderation.success', channel.mention).send();
 	}
 };
 
 module.exports.info = {
-	name: 'actions',
-	usage: 'info.log.actions.usage',
-	description: 'info.log.actions.description',
+	name: 'moderation',
+	usage: 'info.log.moderation.usage',
+	description: 'info.log.moderation.description',
 	guildOnly: true,
-	aliases: ['action'],
+	aliases: ['mod', 'mods', 'moderations'],
 	requirements: {
 		permissions: {
 			user: {

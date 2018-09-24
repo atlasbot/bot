@@ -117,3 +117,9 @@ module.exports.colors.get = (color) => {
 		};
 	}
 };
+
+module.exports.disableTriggers = [
+	'disable',
+	'off',
+	'reset',
+];

@@ -661,11 +661,18 @@
             "noArgs": "You have to include some text to convert."
         },
         "log": {
+            "noResults": "I could not find a channel matching `{0}`.",
             "actions": {
-                "noArgs": "You have to include a channel name, ID or mention.",
-                "noResults": "I could not find a channel matching `{0}`.",
                 "success": "Action logs will now be sent to {0}.",
                 "disabled": "Action logging has been disabled."
+            },
+            "moderation": {
+                "success": "Moderation logs will now be sent to {0}.",
+                "disabled": "Moderation logging has been disabled."
+            },
+            "errors": {
+                "success": "Errors will now be sent to {0}.",
+                "disabled": "Error logging has been disabled."
             }
         }
     }
