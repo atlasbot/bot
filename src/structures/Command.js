@@ -94,42 +94,8 @@ class Command {
 			}
 
 			const validated = {};
-			if (this.info.args) {
-				for (let i = 0; i < this.info.args.length; i++) {
-					const test = this.info.args[i];
-					const arg = args[i];
-					if (prot.includes(test.label)) {
-						throw new Error(`${test.label} is a protected argument label.`);
-					}
-					if (!arg) {
-						if (test.prompt) {
-							// TODO: prompt the user for the shit & use if/else below
-						}
-						if (test.errorMsg) {
-							return responder.error(test.errorMsg).send();
-						}
 
-						return responder.embed(this.helpEmbed(msg)).send();
-					} if (test.typeof) {
-						if (test.typeof === 'number' || test.typeof === 'num') {
-							if (isNaN(arg)) {
-								// TODO: make more user friendly
-								return responder.error(`Argument ${i + 1} must be a number!`).send();
-							}
-							const num = Number(arg);
-							if (test.min && num < test.min) {
-								return responder.error(`Argument ${i + 1} must be lower then ${test.min}!`);
-							} if (test.max && num > test.max) {
-								return responder.error(`Argument ${i + 1} must be higher then ${test.max}!`);
-							}
-							validated[test.label] = num;
-						}
-					}
-					if (!validated[test.label]) {
-						validated[test.label] = arg;
-					}
-				}
-			}
+			// todo: validate args following info.args array
 
 			Promise.resolve(this.action(msg, args, {
 				settings,

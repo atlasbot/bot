@@ -6,6 +6,10 @@ module.exports = class Event {
 	async execute(guild, member, oldMember) {
 		const settings = await this.Atlas.DB.getGuild(guild.id);
 
+		if (!settings.actionLogChannel) {
+			return;
+		}
+
 		if (member.roles && oldMember.roles) {
 			const added = guild.roles.get(member.roles.find(r => !oldMember.roles.includes(r)));
 			const removed = guild.roles.get(oldMember.roles.find(r => !member.roles.includes(r)));
@@ -39,9 +43,6 @@ module.exports = class Event {
 							auditEntry.user.tag,
 							auditEntry.user.id,
 						],
-						thumbnail: {
-							url: member.avatarURL || member.defaultAvatarURL,
-						},
 						inline: true,
 					});
 					if (auditEntry.reason) {

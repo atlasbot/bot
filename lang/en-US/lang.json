@@ -17,6 +17,10 @@
                 "usage": "<channel>"
             }
         },
+        "slowmode": {
+            "usage": "[ratelimit in seconds/\"disable\"]",
+            "description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+        },
         "coinflip": {
             "description": "Flips a coin that can land heads or tails."
         },
@@ -238,6 +242,26 @@
                 "avatarChange": {
                     "title": "Member Updated - Username Changed",
                     "description": "{0} has changed their avatar from `{1}` to `{2}`."
+                }
+            },
+            "channelCreate": {
+                "title": "Channel Created",
+                "description": "The {0} (`{1}`) {2} channel has been created.",
+                "category": {
+                    "name": "Category"
+                },
+                "createdBy": {
+                    "name": "Created By"
+                }
+            },
+            "channelDelete": {
+                "title": "Channel Deleted",
+                "description": "The {0} channel has been deleted.",
+                "category": {
+                    "name": "Category"
+                },
+                "deletedBy": {
+                    "name": "Deleted By"
                 }
             }
         },
@@ -674,6 +698,12 @@
                 "success": "Errors will now be sent to {0}.",
                 "disabled": "Error logging has been disabled."
             }
+        },
+        "slowmode": {
+            "noArgs": "You have to include a message interval in seconds.",
+            "invalid": "The slowmode rate must be between 0 and 120.",
+            "success": "Users can now send messages every {0}.",
+            "disabled": "Disabled slowmode for {0}."
         }
     }
 }

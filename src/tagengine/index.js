@@ -85,7 +85,9 @@ module.exports = class Parser {
 							errors.push(e);
 							output = `{${tag}}`;
 						} else {
-							throw e;
+							const te = new TagError(e.message);
+							errors.push(te);
+							output = `{${tag}}`;
 						}
 					}
 				} else {

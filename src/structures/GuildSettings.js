@@ -357,9 +357,7 @@ module.exports = class GuildSettings {
 				return this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
 					username: this.guild.me.nick || this.guild.me.username,
 					avatarURL: this.Atlas.avatar,
-					disableEveryone,
 					embeds,
-					wait,
 				});
 			} catch (e) {
 				console.warn(e);
@@ -390,7 +388,7 @@ module.exports = class GuildSettings {
 			.find(w => w.channel_id === channelID && w.user.id === this.Atlas.client.user.id);
 
 		if (!hook) {
-			hook = await channel.createChannelWebhook(channelID, {
+			hook = await channel.createWebhook({
 				name: this.Atlas.client.user.username,
 			}, reason);
 		}

@@ -1,9 +1,6 @@
 const Fuzzy = require('./structures/Fuzzy');
 const lib = require('../lib');
 
-// how long in seconds to wait & let the uadit log catch up before looking an audit entry
-const AUDIT_WAIT_TIME = 1;
-
 module.exports = class Util {
 	constructor(Atlas) {
 		this.Atlas = Atlas || require('./../Atlas');
@@ -265,7 +262,7 @@ module.exports = class Util {
 		}
 		const guildID = guild.id || guild;
 		// wait a few seconds to let the audit log catch up
-		await new Promise(resolve => setTimeout(resolve, AUDIT_WAIT_TIME * 1000));
+		await new Promise(resolve => setTimeout(resolve, 1000));
 		const x = await this.Atlas.client.getGuildAuditLogs(guildID, 25, null, type);
 		if (x) {
 			const entry = x.entries.find(e => e.targetID === id);
@@ -273,8 +270,8 @@ module.exports = class Util {
 				if (checkTimestamp) {
 					const time = this.Atlas.lib.utils.isSnowflake.getTime(entry.id);
 
-					// if the entry is older then 3 seconds it's probably not the one we're after
-					if ((Date.now() - time) > 3000) {
+					// if the entry is older then 5 seconds it's probably not the one we're after
+					if ((Date.now() - time) > 5000) {
 						return;
 					}
 				}

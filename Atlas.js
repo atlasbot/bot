@@ -42,6 +42,8 @@ module.exports = class Atlas {
 			'messageCreate',
 			'messageReactionAdd',
 			'guildMemberUpdate',
+			'channelCreate',
+			'channelDelete',
 		];
 
 		this.commands = {
