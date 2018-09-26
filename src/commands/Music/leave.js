@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 
 /*
@@ -32,7 +31,7 @@ module.exports = class Leave extends Command {
 			// if atlas has restarted, sometimes there will be a "ghost" in the channel because discord
 			// hasn't updated clients yet, but to Atlas it isn't in the channel.
 			if (this.Atlas.client.uptime < (5 * 60 * 1000)) {
-				const uptime = prettyMs(this.Atlas.client.uptime, 'milliseconds', { verbose: true });
+				const uptime = this.Atlas.lib.utils.prettyMs(this.Atlas.client.uptime, 'milliseconds', { verbose: true });
 
 				return responder.error('leave.recentRestart', uptime).send();
 			}

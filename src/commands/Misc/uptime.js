@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 
 module.exports = class Uptime extends Command {
@@ -11,7 +10,7 @@ module.exports = class Uptime extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const time = prettyMs(this.Atlas.client.uptime, {
+		const time = this.Atlas.lib.utils.prettyMs(this.Atlas.client.uptime, {
 			verbose: true,
 		});
 

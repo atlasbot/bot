@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const parseTime = require('./../../../lib/utils/parseTime');
 const Command = require('../../structures/Command.js');
 
@@ -35,7 +34,7 @@ module.exports = class RemindMe extends Command {
 			user: msg.author.id,
 		})
 			.then(() => {
-				responder.text('remindme.youGotIt', prettyMs(parsed.relative, {
+				responder.text('remindme.youGotIt', this.Atlas.lib.utils.prettyMs(parsed.relative, {
 					verbose: true,
 				}));
 

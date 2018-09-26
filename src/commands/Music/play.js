@@ -1,5 +1,4 @@
 const superagent = require('superagent');
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 const lib = require('./../../../lib');
 
@@ -98,11 +97,11 @@ module.exports = class Play extends Command {
 			}, {
 				// todo: hide if it's the first song being added, show something instead
 				name: 'Time Until Playing',
-				value: prettyMs(queueLength),
+				value: this.Atlas.lib.utils.prettyMs(queueLength),
 				inline: true,
 			}, {
 				name: 'Duration',
-				value: prettyMs(track.info.length),
+				value: this.Atlas.lib.utils.prettyMs(track.info.length),
 				inline: true,
 			}],
 			timestamp: new Date(),

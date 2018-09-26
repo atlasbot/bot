@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 const parseTime = require('./../../../lib/utils/parseTime');
 
@@ -116,7 +115,7 @@ module.exports = class Mute extends Command {
 
 		// todo: log mute
 
-		responder.text('mute.success', target.tag, prettyMs(parsed.relative, {
+		responder.text('mute.success', target.tag, this.Atlas.lib.utils.prettyMs(parsed.relative, {
 			verbose: true,
 		}));
 

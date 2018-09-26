@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 const lib = require('./../../../lib');
 
@@ -39,7 +38,7 @@ module.exports = class Queue extends Command {
 				.map(m => (m.info ? m.info.length : 0))
 				.reduce((a, b) => a + b, 0) - player.position;
 
-			const formatted = prettyMs(length);
+			const formatted = this.Atlas.lib.utils.prettyMs(length);
 
 			const embed = {
 				fields: [],

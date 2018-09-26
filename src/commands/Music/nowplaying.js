@@ -1,4 +1,3 @@
-const prettyMs = require('pretty-ms');
 const Command = require('../../structures/Command.js');
 
 module.exports = class NowPlaying extends Command {
@@ -20,8 +19,8 @@ module.exports = class NowPlaying extends Command {
 			return responder.error('queue.noPlayer').send();
 		}
 
-		const duration = prettyMs(player.track.info.length);
-		const position = prettyMs(player.position);
+		const duration = this.Atlas.lib.utils.prettyMs(player.track.info.length);
+		const position = this.Atlas.lib.utils.prettyMs(player.position);
 
 		return responder.embed({
 			title: 'general.music.nowPlaying.name',
