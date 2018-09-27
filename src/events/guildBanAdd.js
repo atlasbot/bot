@@ -44,6 +44,6 @@ module.exports = class Event {
 			embed.footer.text += ` Moderator ${auditEntry.user.id}`;
 		}
 
-		return settings.log('action', embed);
+		return settings.log(['action', 'mod'], embed);
 	}
 };

@@ -93,15 +93,19 @@ module.exports = class Mute extends Command {
 			return responder.error('mute.furtherPls').send();
 		}
 
-		this.Atlas.ignoreUpdates.push(role.id);
+		this.Atlas.ignoreUpdates.push({
+			role: role.id,
+			user: target.id,
+			date: new Date(),
+		});
 
 		const data = {
 			role: role.id,
-			reason,
 			target: target.id,
 			guild: msg.guild.id,
 			moderator: msg.author.id,
 			duration: parsed.relative,
+			reason,
 		};
 
 		await this.Atlas.agenda.schedule('unmute', new Date(parsed.absolute), data);
@@ -111,7 +115,7 @@ module.exports = class Mute extends Command {
 			},
 		});
 
-		await target.addRole(role.id);
+		await target.addRole(role.id, `Muted by ${msg.author.tag} ${reason ? ` with reason "${args.join(' ')}"` : ''}`);
 
 		const logEmbed = {
 			title: 'general.logs.mute.title',
@@ -148,7 +152,7 @@ module.exports = class Mute extends Command {
 			});
 		}
 
-		settings.log('action', logEmbed);
+		settings.log(['action', 'mod'], logEmbed);
 
 		responder.text('mute.success', target.tag, this.Atlas.lib.utils.prettyMs(parsed.relative, {
 			verbose: true,

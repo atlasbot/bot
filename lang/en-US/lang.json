@@ -70,7 +70,7 @@
         },
         "unmute": {
             "description": "Unmutes a user.",
-            "usage": "[user]"
+            "usage": "[user] <reason>"
         },
         "movie": {
             "description": "Get information about a movie!",
@@ -221,7 +221,7 @@
                     "title": "Member Updated - Role Added",
                     "description": "{0} has been given the {1} role.",
                     "moderator": {
-                        "name": "Added By",
+                        "name": "Moderator",
                         "value": "{0} (`{1}`)"
                     },
                     "reason": "Reason"
@@ -230,7 +230,7 @@
                     "title": "Member Updated - Role Removed",
                     "description": "{0} has had the {1} role taken from them.",
                     "moderator": {
-                        "name": "Removed By",
+                        "name": "Moderator",
                         "value": "{0} (`{1}`)"
                     },
                     "reason": "Reason"
@@ -251,7 +251,7 @@
                     "name": "Category"
                 },
                 "createdBy": {
-                    "name": "Created By"
+                    "name": "Moderator"
                 }
             },
             "channelDelete": {
@@ -261,14 +261,14 @@
                     "name": "Category"
                 },
                 "deletedBy": {
-                    "name": "Deleted By"
+                    "name": "Moderator"
                 }
             },
             "guildBanAdd": {
                 "title": "Member Banned",
                 "description": "{0} has been banned.",
                 "bannedBy": {
-                    "name": "Banned By"
+                    "name": "Moderator"
                 },
                 "reason": {
                     "name": "Reason"
@@ -278,7 +278,7 @@
                 "title": "Member Muted",
                 "description": "{0} has been muted.",
                 "mutedBy": {
-                    "name": "Muted By"
+                    "name": "Moderator"
                 },
                 "duration": {
                     "name": "Duration"
@@ -287,6 +287,16 @@
                     "name": "Reason"
                 },
                 "footer": "Target {0} Mod {1}"
+            },
+            "unmute": {
+                "title": "Member Unmuted",
+                "description": "{0} has been unmuted.",
+                "unmutedBy": {
+                    "name": "Moderator"
+                },
+                "unmuteReason": {
+                    "name": "Reason"
+                }
             }
         },
         "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
@@ -615,7 +625,7 @@
         },
         "unmute": {
             "success": "{0} has been unmuted.",
-            "error": "That user is not muted!",
+            "notMuted": "That user is not muted!",
             "tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
         },
         "emojify": {
