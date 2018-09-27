@@ -17,6 +17,7 @@ module.exports = class FunBan extends Command {
 		if (!args[0]) {
 			return responder.error('funban.noArgs').send();
 		}
+
 		const query = args.shift();
 		const target = await settings.findMember(query);
 
@@ -46,7 +47,7 @@ module.exports = class FunBan extends Command {
 		} catch (e) {} // eslint-disable-line no-empty
 
 		try {
-			this.Atlas.client.auditOverrides.push({
+			this.Atlas.auditOverrides.push({
 				type: 22,
 				date: new Date(),
 				user: msg.author,

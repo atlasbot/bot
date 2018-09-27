@@ -30,10 +30,10 @@ module.exports = class Atlas {
 		module.exports = this;
 
 		this.client = client;
-		this.client.auditOverrides = [];
+		this.auditOverrides = [];
 		// an array of ID's for things like roles where if a member gets it the event should be ignored
 		// used for things like overriding the action log for "mute" to show more info
-		this.client.ignoreUpdates = [];
+		this.ignoreUpdates = [];
 
 		this.Raven = Raven;
 		this.structs = structs;

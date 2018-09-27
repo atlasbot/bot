@@ -48,7 +48,7 @@ module.exports = class Ban extends Command {
 		} catch (e) {} // eslint-disable-line no-empty
 
 		try {
-			this.Atlas.client.auditOverrides.push({
+			this.Atlas.auditOverrides.push({
 				type: 22,
 				date: new Date(),
 				user: msg.author,

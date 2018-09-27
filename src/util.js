@@ -278,7 +278,7 @@ module.exports = class Util {
 		if (!guild.me.permission.json.viewAuditLogs) return;
 
 		// some commands will fake their own audit log entries to show accurate data
-		const override = guild.auditOverrides.find(e => e.guild === guild.id
+		const override = this.Atlas.auditOverrides.find(e => e.guild === guild.id
 				&& e.type === type
 				&& e.targetID === id
 				&& (Date.now() - e.date) <= 15000);
