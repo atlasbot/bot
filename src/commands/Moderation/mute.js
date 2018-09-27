@@ -1,10 +1,6 @@
 const Command = require('../../structures/Command.js');
 const parseTime = require('./../../../lib/utils/parseTime');
 
-
-// 30 minutes
-const defaultMs = 30 * 60 * 1000;
-
 module.exports = class Mute extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -87,13 +83,17 @@ module.exports = class Mute extends Command {
 				.trim();
 		}
 
-		const parsed = parseTime(args.join(' '), defaultMs);
+		const parsed = parseTime(args.join(' '));
 
-		if (parsed === 'SET_FOR_PAST') {
+		if (parsed === 'INVALID') {
+			return responder.error('mute.invalid').send();
+		} if (parsed === 'SET_FOR_PAST') {
 			return responder.error('mute.setForPast');
 		} if (parsed.relative < 5000) {
 			return responder.error('mute.furtherPls').send();
 		}
+
+		this.Atlas.ignoreUpdates.push(role.id);
 
 		const data = {
 			role: role.id,
@@ -113,7 +113,42 @@ module.exports = class Mute extends Command {
 
 		await target.addRole(role.id);
 
-		// todo: log mute
+		const logEmbed = {
+			title: 'general.logs.mute.title',
+			color: this.Atlas.colors.get('indigo').decimal,
+			description: ['general.logs.mute.description', target.tag],
+			fields: [
+				{
+					name: 'general.logs.mute.mutedBy.name',
+					value: msg.author.tag,
+					inline: true,
+				},
+				{
+					name: 'general.logs.mute.duration.name',
+					value: this.Atlas.lib.utils.prettyMs(parsed.relative),
+					inline: true,
+				},
+			],
+			thumbnail: {
+				url: target.avatarURL || target.defaultAvatarURL,
+			},
+			footer: {
+				// if anyone is up to the challenge, fitting the role ID in here would be nice, but it creates two lines and looks gross.
+				// form over function :^)
+				text: ['general.logs.mute.footer', target.id, msg.author.id],
+			},
+			timestamp: new Date(),
+		};
+
+		if (reason) {
+			logEmbed.fields.push({
+				name: 'general.logs.mute.reason.name',
+				value: reason,
+				inline: true,
+			});
+		}
+
+		settings.log('action', logEmbed);
 
 		responder.text('mute.success', target.tag, this.Atlas.lib.utils.prettyMs(parsed.relative, {
 			verbose: true,

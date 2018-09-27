@@ -273,6 +273,20 @@
                 "reason": {
                     "name": "Reason"
                 }
+            },
+            "mute": {
+                "title": "Member Muted",
+                "description": "{0} has been muted.",
+                "mutedBy": {
+                    "name": "Muted By"
+                },
+                "duration": {
+                    "name": "Duration"
+                },
+                "reason": {
+                    "name": "Reason"
+                },
+                "footer": "Target {0} Mod {1}"
             }
         },
         "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
@@ -594,7 +608,7 @@
             "generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
             "generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
             "alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
-            "invalid": "That is not a valid date.",
+            "invalid": "Please include a valid mute duration.",
             "setForPast": "Please give me a date that is in the future.",
             "furtherPls": "The time must be five seconds or more in the future.",
             "tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."

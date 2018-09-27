@@ -17,7 +17,7 @@ module.exports = class Event {
 			const role = added || removed;
 
 			if (role) {
-				if (this.Atlas.client.ignoreUpdates.includes(role.id)) {
+				if (this.Atlas.ignoreUpdates.includes(role.id)) {
 					// something else is going to handle logging (probably), so ignore it
 					return;
 				}
