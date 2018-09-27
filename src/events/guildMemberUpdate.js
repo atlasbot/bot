@@ -17,7 +17,12 @@ module.exports = class Event {
 			const role = added || removed;
 
 			if (role) {
-				const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild.id, member.id, 25);
+				if (this.Atlas.client.ignoreUpdates.includes(role.id)) {
+					// something else is going to handle logging (probably), so ignore it
+					return;
+				}
+
+				const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild, member.id, 25);
 				const key = added ? 'roleAdd' : 'roleRemove';
 
 				const embed = {
@@ -58,6 +63,7 @@ module.exports = class Event {
 			}
 		}
 
+		// todo: nicknames
 		if (member.username !== oldMember.username) {
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.usernameChange.title',

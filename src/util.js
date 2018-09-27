@@ -197,7 +197,6 @@ module.exports = class Util {
 	/**
 	 * Queries a user for a message ID.
 	 * @param {Object} opts options
-	 * @param {Guild} opts.guild The guild to query in
 	 * @param {Channel} opts.channel The channel to ask the user in
 	 * @param {User} opts.user The user to ask
 	 * @param {string} opts.emoji The emoji to ask the user to react with
@@ -206,7 +205,6 @@ module.exports = class Util {
 	 * @returns {Promise<message|void>}
 	 */
 	async messageQuery({
-		guild,
 		channel,
 		user,
 		lang = 'en-US',
@@ -220,7 +218,7 @@ module.exports = class Util {
 		const emojiInfo = this.Atlas.lib.utils.emoji(emoji);
 		try {
 			const queryMsg = await responder.text(message, emoji, emojiInfo.names[0]).send();
-			let targetMsg = await this.awaitEmoji(emoji, guild.id, user);
+			let targetMsg = await this.awaitEmoji(emoji, user);
 
 			queryMsg.delete().catch(() => false);
 
@@ -237,7 +235,13 @@ module.exports = class Util {
 		}
 	}
 
-	awaitEmoji(emoji, guild, user) {
+	/**
+	 * Waits for a user to add an emoji to a message
+	 * @param {string} emoji The emoji to add
+	 * @param {string} user The ID of the user to wait for
+	 * @returns {Promise<Message>} The message, may not be cached.
+	 */
+	awaitEmoji(emoji, user) {
 		return new Promise((resolve, reject) => {
 			const collector = new this.Atlas.structs.EmojiCollector();
 
@@ -255,15 +259,36 @@ module.exports = class Util {
 		});
 	}
 
-	async getGuildAuditEntry(guild, id, type, checkTimestamp = true) {
-		if (guild.me) {
-			// if we don't have perms to view audit logs, there is no point in trying
-			if (!guild.me.permission.json.viewAuditLogs) return;
+	/**
+	 *
+	 * @param {Guild} guild The guild to get the entry from
+	 * @param {string} id The target ID to get an entry for
+	 * @param {number} type The audit log entry type - https://discordapp.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events
+	 * @param {Object} options options
+	 * @param {boolean} options.checkTimestamp Whether or not to check the snowflake created time and see if it's within an acceptable threshold
+	 */
+	async getGuildAuditEntry(guild, id, type, {
+		checkTimestamp = true,
+	} = {}) {
+		if (!guild.id || !guild.me) {
+			throw new Error('Invalid guild.');
 		}
-		const guildID = guild.id || guild;
+
+		// if we don't have perms to view audit logs, there is no point in trying
+		if (!guild.me.permission.json.viewAuditLogs) return;
+
+		// some commands will fake their own audit log entries to show accurate data
+		const override = guild.auditOverrides.find(e => e.guild === guild.id
+				&& e.type === type
+				&& e.targetID === id
+				&& (Date.now() - e.date) <= 15000);
+
+		if (override) {
+			return override;
+		}
 		// wait a few seconds to let the audit log catch up
 		await new Promise(resolve => setTimeout(resolve, 1000));
-		const x = await this.Atlas.client.getGuildAuditLogs(guildID, 25, null, type);
+		const x = await this.Atlas.client.getGuildAuditLogs(guild.id, 25, null, type);
 		if (x) {
 			const entry = x.entries.find(e => e.targetID === id);
 			if (entry) {

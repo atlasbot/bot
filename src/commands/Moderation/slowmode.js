@@ -6,7 +6,7 @@ const Command = require('../../structures/Command.js');
         At the time of writing this command, slowmode is still in beta and can't be toggled through the client or Eris
         so i've had to call it directly
 */
-module.exports = class Mute extends Command {
+module.exports = class SlowMode extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

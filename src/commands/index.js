@@ -103,10 +103,10 @@ module.exports = class Commands {
 			warnings.push(`(WARN) Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
 		}
 		if (prop.constructor.name.toLowerCase() !== prop.info.name) {
-			warnings.push(`(STYLE) Class name for "${prop.info.name}" should match the command name.`);
+			warnings.push(`[Style] Class name for "${prop.info.name}" should match the command name.`);
 		}
 		if (prop.info.usage && prop.info.noExamples) {
-			warnings.push(`(STYLE) Command "${prop.info.name}" has usage without any examples!`);
+			warnings.push(`[Style] Command "${prop.info.name}" has usage without any examples!`);
 		}
 		if (master) {
 			master.info.subcommands.set(prop.info.name, prop);

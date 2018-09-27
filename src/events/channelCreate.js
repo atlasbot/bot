@@ -3,7 +3,6 @@ module.exports = class Event {
 		this.Atlas = Atlas;
 	}
 
-	// fixme: not fetching audit log entries correctly
 	async execute(channel) {
 		const settings = channel.guild && await this.Atlas.DB.getGuild(channel.guild.id);
 
@@ -14,7 +13,7 @@ module.exports = class Event {
 		// todo: support localisation on this
 		const type = this.Atlas.lib.utils.getChannelType(channel.type);
 
-		const auditEntry = await this.Atlas.util.getGuildAuditEntry(channel.guild.id, channel.id, 10);
+		const auditEntry = await this.Atlas.util.getGuildAuditEntry(channel.guild, channel.id, 10);
 
 		const embed = {
 			title: 'general.logs.channelCreate.title',

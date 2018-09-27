@@ -263,6 +263,16 @@
                 "deletedBy": {
                     "name": "Deleted By"
                 }
+            },
+            "guildBanAdd": {
+                "title": "Member Banned",
+                "description": "{0} has been banned.",
+                "bannedBy": {
+                    "name": "Banned By"
+                },
+                "reason": {
+                    "name": "Reason"
+                }
             }
         },
         "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
@@ -365,17 +375,17 @@
         },
         "funban": {
             "noArgs": "Please include a user to ban!",
-            "success": "Banned {0}",
+            "success": "Banned {0}.",
             "error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-            "tooLateReason": "{1} has already been banned with the reason {0}.",
+            "tooLateReason": "{1} has already been banned with the reason `{0}`.",
             "tooLate": "{0} has already been banned."
         },
         "ban": {
             "noArgs": "Please include a user to ban!",
-            "success": "Banned {0}",
+            "success": "Banned {0}.",
             "withReason": "Banned {0} for `{1}`.",
             "error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-            "tooLateReason": "{1} has already been banned with the reason {0}.",
+            "tooLateReason": "{1} has already been banned with the reason `{0}`.",
             "tooLate": "{0} has already been banned."
         },
         "remindme": {
@@ -576,7 +586,7 @@
         "unban": {
             "noArgs": "Please include a user to unban!",
             "success": "{0} has been unbanned.",
-            "error": "An error occured while trying to ban {0}."
+            "error": "An error occured while trying to unban {0}."
         },
         "mute": {
             "noArgs": "Please include a user to mute!",

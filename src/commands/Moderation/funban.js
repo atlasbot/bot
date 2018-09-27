@@ -10,6 +10,7 @@ module.exports = class FunBan extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
+		// TODO: DM the user why they were banned
 		// TODO: add ban to guild event thingy in guild struct and handle logging from here instead of action log
 		const responder = new this.Atlas.structs.Responder(msg);
 
@@ -45,6 +46,17 @@ module.exports = class FunBan extends Command {
 		} catch (e) {} // eslint-disable-line no-empty
 
 		try {
+			this.Atlas.client.auditOverrides.push({
+				type: 22,
+				date: new Date(),
+				user: msg.author,
+				userID: msg.author.id,
+				targetID: target.id,
+				target,
+				reason: args.join(' '),
+				guild: msg.guild.id,
+			});
+
 			await msg.guild.banMember(target.id, 0, args.join(' '));
 
 			return responder.embed({

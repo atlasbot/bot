@@ -14,12 +14,13 @@ module.exports = class Unban extends Command {
 		if (!args[0]) {
 			return responder.error('unban.noArgs').send();
 		}
+
 		const query = args.shift();
 		let target = await settings.findMember(query);
 
-		let bans;
 		if (!target) {
-			bans = await msg.guild.getBans();
+			// fixme: this could be an issue on servers with >500 bans, apples to all occurences of it
+			const bans = await msg.guild.getBans();
 			target = await settings.findMember(query, {
 				members: bans.map(b => b.user),
 			});
@@ -33,6 +34,7 @@ module.exports = class Unban extends Command {
 
 			return responder.text('unban.success', target.tag).send();
 		} catch (e) {
+			// fixme: this is called if the user is not banned
 			return responder.error('unban.error', target.tag).send();
 		}
 	}

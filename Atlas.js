@@ -29,11 +29,17 @@ module.exports = class Atlas {
 	}) {
 		module.exports = this;
 
-		this.util = (new Util(this));
-		this.Raven = Raven;
 		this.client = client;
+		this.client.auditOverrides = [];
+		// an array of ID's for things like roles where if a member gets it the event should be ignored
+		// used for things like overriding the action log for "mute" to show more info
+		this.client.ignoreUpdates = [];
+
+		this.Raven = Raven;
 		this.structs = structs;
 		this.clusterID = clusterID;
+
+		this.util = (new Util(this));
 
 		this.constants = constants;
 		this.colors = constants.colors;
@@ -44,6 +50,7 @@ module.exports = class Atlas {
 			'guildMemberUpdate',
 			'channelCreate',
 			'channelDelete',
+			'guildBanAdd',
 		];
 
 		this.commands = {
