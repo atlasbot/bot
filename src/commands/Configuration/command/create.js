@@ -12,11 +12,12 @@ module.exports = class Create extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const name = args.shift().toLowerCase();
-		const response = args.join(' ');
-		if (!name) {
+		if (!args[0]) {
 			return responder.error('command.create.noName').send();
 		}
+
+		const name = args.shift().toLowerCase();
+		const response = args.join(' ');
 
 		if (name === 'command') {
 			return responder.error('command.create.reservedName').send();
