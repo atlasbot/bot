@@ -11,7 +11,6 @@ module.exports = class Ban extends Command {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
 		// TODO: DM the user why they were banned
-		// TODO: add ban to guild event thingy in guild struct and handle logging from here instead of action log
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {
@@ -28,7 +27,6 @@ module.exports = class Ban extends Command {
 		}
 
 		if (target instanceof Member) {
-			// todo: member.bannable check & member.kickable for kick but it's not done yet so hopefully i see this before i make it lmao
 			if (!target.punishable(msg.member)) {
 				return responder.error('general.notPunishable').send();
 			} if (!target.punishable(msg.guild.me)) {

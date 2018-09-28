@@ -4,11 +4,13 @@ module.exports = class Spam {
 		this.info = {
 			name: 'Mention Abuse',
 			settingsKey: 'mentions',
+			description: 'Triggers if a message contains too many mentions',
 		};
 	}
 
-	execute(str, msg) {
-		// TODO: make the "5" customisable
-		return msg.mentions.length > 5 || msg.roleMentions.length > 5;
+	execute(str, msg, filterConfig) {
+		if (msg) {
+			return msg.mentions.length >= filterConfig.threshold || msg.roleMentions.length >= filterConfig.threshold;
+		}
 	}
 };

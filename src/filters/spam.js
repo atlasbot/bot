@@ -5,15 +5,19 @@ module.exports = class Spam {
 			name: 'Spam',
 			settingsKey: 'spam',
 		};
+		this.triggered = [];
 	}
 
-	execute(str, msg) {
-		if (!msg.channel.messages) return;
+	execute(str, msg, filterConfig) {
 		const messages = Array.from(msg.channel.messages.values())
-			// TODO: make the "7500" time customisable
-			.filter(m => m.author.id === msg.author.id && ((new Date()) - m.timestamp) < 7500);
+			.filter(m => m.author.id === msg.author.id && ((new Date()) - m.timestamp) < filterConfig.time && !this.triggered.includes(m.id));
 
-		// TODO: make "4" customisable
-		return messages.length > 4;
+		const triggered = messages.length > filterConfig.threshold;
+
+		if (triggered) {
+			this.triggered.push(...messages.map(m => m.id));
+		}
+
+		return triggered;
 	}
 };

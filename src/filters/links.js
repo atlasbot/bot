@@ -4,6 +4,7 @@ module.exports = class Spam {
 		this.info = {
 			name: 'Links',
 			settingsKey: 'links',
+			description: 'Triggers if a message contains any valid link.',
 		};
 	}
 

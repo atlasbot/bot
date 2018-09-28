@@ -5,6 +5,7 @@ module.exports = class Spam {
 		this.info = {
 			name: 'Cursing',
 			settingsKey: 'cursing',
+			description: 'Triggers if a message contains swearing.',
 		};
 	}
 

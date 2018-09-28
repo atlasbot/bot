@@ -4,6 +4,7 @@ module.exports = class Spam {
 		this.info = {
 			name: 'Invites',
 			settingsKey: 'invites',
+			description: 'Triggers if a message contains discord invite links.',
 		};
 	}
 

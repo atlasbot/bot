@@ -11,7 +11,6 @@ module.exports = class FunBan extends Command {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
 		// TODO: DM the user why they were banned
-		// TODO: add ban to guild event thingy in guild struct and handle logging from here instead of action log
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {
