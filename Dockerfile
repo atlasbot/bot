@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # install deps that 
-RUN apk add --no-cache --virtual .gyp \
+RUN apk add --virtual .gyp \
     python \
     make \
     g++ \
