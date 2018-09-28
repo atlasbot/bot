@@ -1,3 +1,4 @@
+const url = require('url');
 const Fuzzy = require('./structures/Fuzzy');
 const lib = require('../lib');
 
@@ -153,17 +154,19 @@ module.exports = class Util {
 		if (!query) {
 			return;
 		}
-		const re = /\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/ig;
-		if (re.test(query)) {
-			re.lastIndex = 0;
-			const [,, channelID, messageID] = /\/channels\/([0-9]+)\/([0-9]+)\/([0-9]+)/ig.exec(query);
-			try {
-				const message = await this.Atlas.client.getMessage(channelID, messageID);
-				if (message) {
-					return message;
+		try {
+			const { pathname } = url.parse(query);
+			const chunks = pathname.split('/');
+			if (chunks.length === 5) {
+				const [,,, channelID, messageID] = chunks;
+				if (channelID && messageID) {
+					const message = await this.Atlas.client.getMessage(channelID, messageID);
+					if (message) {
+						return message;
+					}
 				}
-			} catch (e) {} // eslint-disable-line no-empty
-		}
+			}
+		} catch (e) {} // eslint-disable-line no-empty
 		const id = this.cleanID(query);
 		if (id) {
 			try {
@@ -182,7 +185,7 @@ module.exports = class Util {
 	 */
 	cleanID(id) {
 		// im bad at regex
-		let possible = id.match(/[0-9]{12,}/g);
+		let possible = id.match(/[0-9]{15,25}/g);
 
 		if (possible) {
 			// if it's a URI, chances are the last ID is the message
