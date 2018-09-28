@@ -1,5 +1,3 @@
-// todo: make loading asynchronous
-
 const path = require('path');
 const walkSync = require('./../../lib/utils/walkSync');
 
