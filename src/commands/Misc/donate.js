@@ -16,6 +16,4 @@ module.exports = class Donate extends Command {
 
 module.exports.info = {
 	name: 'donate',
-	description: 'info.donate.description',
-	fullDescription: 'info.donate.fullDescription',
 };

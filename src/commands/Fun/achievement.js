@@ -35,5 +35,4 @@ module.exports = class Achievement extends Command {
 
 module.exports.info = {
 	name: 'achievement',
-	description: 'info.achievement.description',
 };

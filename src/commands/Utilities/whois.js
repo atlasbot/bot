@@ -106,8 +106,6 @@ module.exports = class WhoIs extends Command {
 
 module.exports.info = {
 	name: 'whois',
-	usage: 'info.whois.usage',
-	description: 'info.whois.description',
 	aliases: ['userinfo', 'aboutuser'],
 	examples: [
 		'@Sylver',

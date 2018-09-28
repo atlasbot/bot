@@ -18,7 +18,6 @@ module.exports = class CoinFlip extends Command {
 
 module.exports.info = {
 	name: 'coinflip',
-	description: 'info.coinflip.description',
 	aliases: [
 		'flip',
 		'cflip',

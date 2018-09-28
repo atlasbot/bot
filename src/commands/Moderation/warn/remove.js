@@ -186,8 +186,6 @@ module.exports = class Remove extends Command {
 
 module.exports.info = {
 	name: 'remove',
-	usage: 'info.warn.remove.usage',
-	description: 'info.warn.remove.description',
 	examples: [
 		'@random',
 		'@sylver',

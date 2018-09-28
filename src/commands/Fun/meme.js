@@ -21,5 +21,4 @@ module.exports = class Meme extends Command {
 module.exports.info = {
 	name: 'meme',
 	aliases: ['meyme', 'me-me', 'mmmlol'],
-	description: 'info.meme.description',
 };

@@ -115,8 +115,6 @@ module.exports = class Play extends Command {
 
 module.exports.info = {
 	name: 'play',
-	usage: 'info.play.usage',
-	description: 'info.play.description',
 	examples: [
 		'lil dicky - professional rapper',
 		'https://www.youtube.com/watch?v=dQw4w9WgXcQ',

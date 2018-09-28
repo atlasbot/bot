@@ -67,8 +67,6 @@ module.exports = class Add extends Command {
 
 module.exports.info = {
 	name: 'add',
-	usage: 'info.warn.add.usage',
-	description: 'info.warn.add.description',
 	aliases: [
 		'+',
 	],

@@ -57,8 +57,6 @@ module.exports = class Create extends Command {
 
 module.exports.info = {
 	name: 'create',
-	description: 'info.command.create.description',
-	usage: 'info.command.create.usage',
 	guildOnly: true,
 	examples: [
 		'my_command Wew it works :^)',

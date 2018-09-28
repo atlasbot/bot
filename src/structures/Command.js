@@ -161,14 +161,20 @@ class Command {
 	getInfo(lang = 'en-US') {
 		const responder = new Responder(null, lang);
 
-		return {
-			...this.info,
-			...responder._parseObject({
-				description: this.info.description,
-				fullDescription: this.info.fullDescription,
-				usage: this.info.usage,
-			}),
-		};
+		let key;
+		if (this.info.master) {
+			key = `info.${this.info.master.info.name}.${this.info.name}`;
+		} else if (this.info.subcommands.size !== 0) {
+			key = `info.${this.info.name}.base`;
+		} else {
+			key = `info.${this.info.name}`;
+		}
+
+		return responder.format({
+			stringOnly: false,
+			lang,
+			key,
+		});
 	}
 
 	/**
@@ -181,7 +187,7 @@ class Command {
 		const info = this.getInfo(msg.lang);
 
 		const embed = {
-			title: `${msg.displayPrefix}${this.info.master ? `${this.info.master.info.name} ${info.name}` : info.name}`,
+			title: `${msg.displayPrefix}${this.info.master ? `${this.info.master.info.name} ${this.info.name}` : this.info.name}`,
 			description: this.info.isDefaultDesc ? info.description : info.fullDescription || info.description,
 			fields: [],
 			timestamp: new Date(),
@@ -198,7 +204,9 @@ class Command {
 			});
 			embed.footer.text = `Do ${msg.displayPrefix}help ${this.info.name} <subcommand name> to view info about subcommands.`;
 		}
-		if (info.examples && info.examples.length !== 0) {
+
+		// todo: support examples from language files
+		if (this.info.examples && this.info.examples.length !== 0) {
 			const examples = this.info.examples.map(e => e
 				.replace(/@sylver|@user/ig, msg.author.mention)
 				.replace(/@random/ig, () => {
@@ -269,25 +277,25 @@ class Command {
 		} else {
 			embed.fields.push({
 				name: 'Usage',
-				value: `${msg.displayPrefix}${info.name} ${info.usage || ''}`,
+				value: `${msg.displayPrefix}${this.info.name} ${info.usage || ''}`,
 				inline: true,
 			});
 		}
 
-		if (info.requirements.permissions.user && Object.keys(info.requirements.permissions.user).length !== 0) {
+		if (this.info.requirements.permissions.user && Object.keys(this.info.requirements.permissions.user).length !== 0) {
 			embed.fields.push({
 				name: 'Permissions (User)',
-				value: `\`${Object.keys(info.requirements.permissions.user)
+				value: `\`${Object.keys(this.info.requirements.permissions.user)
 					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
 					.join('`, `')}\``,
 				inline: true,
 			});
 		}
 
-		if (info.requirements.permissions.bot && Object.keys(info.requirements.permissions.bot).length !== 0) {
+		if (this.info.requirements.permissions.bot && Object.keys(this.info.requirements.permissions.bot).length !== 0) {
 			embed.fields.push({
 				name: 'Permissions (Bot)',
-				value: `\`${Object.keys(info.requirements.permissions.bot)
+				value: `\`${Object.keys(this.info.requirements.permissions.bot)
 					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
 					.join('`, `')}\``,
 				inline: true,

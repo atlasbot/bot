@@ -168,8 +168,6 @@ module.exports = class Mute extends Command {
 
 module.exports.info = {
 	name: 'mute',
-	usage: 'info.mute.usage',
-	description: 'info.mute.description',
 	examples: [
 		'@random 5m | being mean',
 		'@random 10h | verbal diarrhea',

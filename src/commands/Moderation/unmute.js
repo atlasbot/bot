@@ -113,8 +113,6 @@ module.exports = class Unmute extends Command {
 
 module.exports.info = {
 	name: 'unmute',
-	usage: 'info.unmute.usage',
-	description: 'info.unmute.description',
 	examples: [
 		'@random',
 	],

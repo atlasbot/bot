@@ -31,5 +31,4 @@ module.exports = class YesNo extends Command {
 
 module.exports.info = {
 	name: 'yesno',
-	description: 'info.yesno.description',
 };

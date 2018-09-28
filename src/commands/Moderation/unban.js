@@ -42,8 +42,6 @@ module.exports = class Unban extends Command {
 
 module.exports.info = {
 	name: 'unban',
-	usage: 'info.unban.usage',
-	description: 'info.unban.description',
 	examples: [
 		'@random cus ur being nice now',
 		`${process.env.OWNER} ur too cool to ban`,

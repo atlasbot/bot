@@ -50,8 +50,6 @@ module.exports = class Weather extends Command {
 
 module.exports.info = {
 	name: 'weather',
-	usage: 'info.weather.usage',
-	description: 'info.weather.description',
 	examples: [
 		'perth',
 		'america',

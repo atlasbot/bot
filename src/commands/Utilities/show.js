@@ -83,8 +83,6 @@ module.exports = class Show extends Command {
 
 module.exports.info = {
 	name: 'show',
-	usage: 'info.show.usage',
-	description: 'info.movie.description',
 	aliases: ['showinfo', 'showsearch', 'showdetails'],
 	examples: [
 		'westworld',

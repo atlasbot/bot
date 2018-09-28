@@ -54,9 +54,6 @@ module.exports = class RemindMe extends Command {
 
 module.exports.info = {
 	name: 'remindme',
-	usage: 'info.remindme.usage',
-	description: 'info.remindme.description',
-	fullDescription: 'info.remindme.fullDescription',
 	aliases: ['remind', 'rmde'],
 	examples: [
 		'to take out the trash in 5 hours',

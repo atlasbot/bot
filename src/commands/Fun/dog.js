@@ -21,5 +21,4 @@ module.exports = class Dog extends Command {
 module.exports.info = {
 	name: 'dog',
 	aliases: ['dogs'],
-	description: 'info.dog.description',
 };

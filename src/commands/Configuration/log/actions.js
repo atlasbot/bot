@@ -39,8 +39,6 @@ module.exports = class Actions extends Command {
 
 module.exports.info = {
 	name: 'actions',
-	usage: 'info.log.actions.usage',
-	description: 'info.log.actions.description',
 	guildOnly: true,
 	aliases: ['action'],
 	requirements: {

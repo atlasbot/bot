@@ -18,7 +18,6 @@ module.exports = class Log extends Command {
 module.exports.info = {
 	name: 'log',
 	aliases: ['logs'],
-	description: 'info.log.base.description',
 	guildOnly: true,
 	requirements: {
 		permissions: {

@@ -58,7 +58,6 @@ module.exports = class List extends Command {
 
 module.exports.info = {
 	name: 'list',
-	description: 'info.command.list.description',
 	guildOnly: true,
 	aliases: [
 		'view',

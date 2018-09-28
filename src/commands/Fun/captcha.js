@@ -50,11 +50,9 @@ module.exports = class Captcha extends Command {
 
 module.exports.info = {
 	name: 'captcha',
-	description: 'info.captcha.description',
 	aliases: [
 		'captchafy',
 	],
-	usage: 'info.captcha.usage',
 	examples: [
 		'@Sylver',
 	],

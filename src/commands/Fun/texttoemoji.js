@@ -31,8 +31,6 @@ module.exports = class TextToEmoji extends Command {
 module.exports.info = {
 	name: 'texttoemoji',
 	aliases: ['tte'],
-	description: 'info.texttoemoji.description',
-	usage: 'info.texttoemoji.usage',
 	examples: [
 		'l33t',
 		'ayy lmao',

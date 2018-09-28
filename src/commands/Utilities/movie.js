@@ -86,8 +86,6 @@ module.exports = class Movie extends Command {
 
 module.exports.info = {
 	name: 'movie',
-	usage: 'info.movie.usage',
-	description: 'info.movie.description',
 	aliases: ['movieinfo', 'moviesearch', 'moviedetails', 'imbdb', 'omdb'],
 	examples: [
 		'infinity war',

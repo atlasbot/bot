@@ -56,6 +56,5 @@ module.exports = class Info extends Command {
 
 module.exports.info = {
 	name: 'info',
-	description: 'info.info.description',
 	aliases: ['credits'],
 };

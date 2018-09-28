@@ -102,8 +102,6 @@ module.exports = class Move extends Command {
 
 module.exports.info = {
 	name: 'move',
-	usage: 'info.move.usage',
-	description: 'info.move.description',
 	examples: [
 		'#general',
 		'#general https://discordapp.com/channels/340583394192916492/433991387483209739/490622984256618516',

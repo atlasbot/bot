@@ -75,7 +75,6 @@ module.exports = class WouldYouRather extends Command {
 
 module.exports.info = {
 	name: 'wouldyourather',
-	description: 'info.wouldyourather.description',
 	aliases: [
 		'wyr',
 	],

@@ -37,8 +37,6 @@ module.exports = class Delete extends Command {
 
 module.exports.info = {
 	name: 'delete',
-	description: 'info.command.delete.description',
-	usage: 'info.command.delete.usage',
 	guildOnly: true,
 	examples: [
 		'my_command',

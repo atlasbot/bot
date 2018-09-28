@@ -66,8 +66,6 @@ module.exports = class Help extends Command {
 
 module.exports.info = {
 	name: 'help',
-	usage: 'info.help.usage',
-	description: 'info.help.description',
 	examples: [
 		'help',
 		'Misc',

@@ -48,8 +48,6 @@ module.exports = class Ship extends Command {
 
 module.exports.info = {
 	name: 'ship',
-	description: 'info.ship.description',
-	usage: 'info.ship.usage',
 	aliases: [
 		'shipit',
 	],

@@ -17,7 +17,6 @@ module.exports = class CommandManager extends Command {
 
 module.exports.info = {
 	name: 'command',
-	description: 'info.command.base.description',
 	guildOnly: true,
 	aliases: [
 		'cmd',

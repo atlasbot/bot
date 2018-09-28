@@ -44,7 +44,6 @@ module.exports = class NowPlaying extends Command {
 
 module.exports.info = {
 	name: 'nowplaying',
-	description: 'info.nowplaying.description',
 	guildOnly: true,
 	aliases: [
 		'np',

@@ -24,5 +24,4 @@ module.exports = class Advice extends Command {
 
 module.exports.info = {
 	name: 'advice',
-	description: 'info.advice.description',
 };

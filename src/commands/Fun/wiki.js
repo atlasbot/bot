@@ -51,8 +51,6 @@ module.exports = class Wiki extends Command {
 
 module.exports.info = {
 	name: 'wiki',
-	description: 'info.wiki.description',
-	usage: 'info.wiki.usage',
 	examples: [
 		'autism',
 		'cancer',

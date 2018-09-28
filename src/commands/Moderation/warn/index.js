@@ -20,7 +20,6 @@ module.exports = class Warn extends Command {
 
 module.exports.info = {
 	name: 'warn',
-	description: 'info.warn.base.description',
 	guildOnly: true,
 	aliases: [
 		'warnings',

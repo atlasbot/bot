@@ -80,7 +80,6 @@ module.exports = class Queue extends Command {
 
 module.exports.info = {
 	name: 'queue',
-	description: 'info.queue.description',
 	guildOnly: true,
 	examples: [
 		'1',

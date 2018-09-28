@@ -16,5 +16,4 @@ module.exports = class Support extends Command {
 
 module.exports.info = {
 	name: 'support',
-	description: 'info.support.description',
 };

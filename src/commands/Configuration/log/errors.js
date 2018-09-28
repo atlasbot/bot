@@ -39,8 +39,6 @@ module.exports = class Errors extends Command {
 
 module.exports.info = {
 	name: 'errors',
-	usage: 'info.log.errors.usage',
-	description: 'info.log.errors.description',
 	guildOnly: true,
 	aliases: ['error'],
 	requirements: {

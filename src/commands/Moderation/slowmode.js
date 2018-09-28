@@ -47,8 +47,6 @@ module.exports = class SlowMode extends Command {
 
 module.exports.info = {
 	name: 'slowmode',
-	usage: 'info.slowmode.usage',
-	description: 'info.slowmode.description',
 	examples: [
 		'120',
 		'0',

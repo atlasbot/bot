@@ -16,5 +16,4 @@ module.exports = class Invite extends Command {
 
 module.exports.info = {
 	name: 'invite',
-	description: 'info.invite.description',
 };

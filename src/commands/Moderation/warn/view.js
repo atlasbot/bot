@@ -84,8 +84,6 @@ module.exports = class View extends Command {
 
 module.exports.info = {
 	name: 'view',
-	usage: 'info.warn.view.usage',
-	description: 'info.warn.view.description',
 	examples: [
 		'@random',
 		'@sylver',

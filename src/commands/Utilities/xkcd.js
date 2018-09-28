@@ -35,5 +35,4 @@ module.exports = class XKCD extends Command {
 
 module.exports.info = {
 	name: 'xkcd',
-	description: 'info.xkcd.description',
 };

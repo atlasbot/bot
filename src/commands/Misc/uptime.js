@@ -20,5 +20,4 @@ module.exports = class Uptime extends Command {
 
 module.exports.info = {
 	name: 'uptime',
-	description: 'info.uptime.description',
 };

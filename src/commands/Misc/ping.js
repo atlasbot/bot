@@ -27,5 +27,4 @@ module.exports = class Ping extends Command {
 
 module.exports.info = {
 	name: 'ping',
-	description: 'info.ping.description',
 };

@@ -77,8 +77,6 @@ module.exports = class FunBan extends Command {
 
 module.exports.info = {
 	name: 'funban',
-	usage: 'info.funban.usage',
-	description: 'info.funban.description',
 	examples: [
 		'@random breaking the rulez',
 		'@random not partying hard enough',

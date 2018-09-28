@@ -40,8 +40,6 @@ module.exports = class Emojify extends Command {
 
 module.exports.info = {
 	name: 'emojify',
-	description: 'info.emojify.description',
-	usage: 'info.emojify.usage',
 	examples: [
 		'tada',
 	],

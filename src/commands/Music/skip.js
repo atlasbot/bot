@@ -32,7 +32,6 @@ module.exports = class Next extends Command {
 
 module.exports.info = {
 	name: 'next',
-	description: 'info.next.description',
 	guildOnly: true,
 	aliases: [
 		'skip',

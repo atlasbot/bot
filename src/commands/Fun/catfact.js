@@ -23,5 +23,4 @@ module.exports = class CatFact extends Command {
 
 module.exports.info = {
 	name: 'catfact',
-	description: 'info.catfact.description',
 };

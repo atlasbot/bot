@@ -39,8 +39,6 @@ module.exports = class Moderation extends Command {
 
 module.exports.info = {
 	name: 'moderation',
-	usage: 'info.log.moderation.usage',
-	description: 'info.log.moderation.description',
 	guildOnly: true,
 	aliases: ['mod', 'mods', 'moderations'],
 	requirements: {

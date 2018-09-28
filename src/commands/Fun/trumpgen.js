@@ -44,7 +44,6 @@ module.exports = class trumpgen extends Command {
 
 module.exports.info = {
 	name: 'trumpgen',
-	description: 'info.trumpgen.description',
 	aliases: [
 		'trumpt',
 	],
@@ -54,5 +53,4 @@ module.exports.info = {
 		'I think I am, actually humble. I think I\'m much more humble than you would understand.',
 		'All of the women on \'The Apprentice\' flirted with me—consciously or unconsciously. That\'s to be expected.',
 	],
-	usage: 'info.trumpgen.usage',
 };

@@ -24,7 +24,6 @@
 
 // module.exports.info = {
 // 	name: 'neat',
-// 	description: 'info.neat.description',
 // 	aliases: [
 // 		'interestingasfuck',
 // 		'iaf',

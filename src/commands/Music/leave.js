@@ -66,7 +66,6 @@ module.exports = class Leave extends Command {
 
 module.exports.info = {
 	name: 'leave',
-	description: 'info.leave.description',
 	aliases: ['stfu', 'gtfo'],
 	guildOnly: true,
 };
