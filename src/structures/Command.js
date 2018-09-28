@@ -1,11 +1,6 @@
 const Responder = require('./Responder');
 const cleanArgs = require('./../../lib/utils/cleanArgs');
 
-const prot = [
-	'guild',
-	'parsedArgs',
-];
-
 class Command {
 	constructor(Atlas, info) {
 		this.Atlas = Atlas;
@@ -34,15 +29,11 @@ class Command {
 			supportedArgs: [],
 			args: [],
 			subcommands: new Map(),
+			subcommandAliases: new Map(),
 		},
 		...info };
 
-		this.cooldowns = new Map();
-
-		this.subcommandAliases = new Map();
-
 		this.execute = this.execute.bind(this);
-		this.prompts = [];
 		if (this.action) {
 			this.action = this.action.bind(this);
 		}

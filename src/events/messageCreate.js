@@ -42,7 +42,9 @@ module.exports = class Ready {
 				if (msg.command.info.subcommands.size !== 0 && msg.args[0]) {
 					// handle subcommands
 					const subLabel = msg.args[0].toLowerCase();
-					const sub = msg.command.info.subcommands.get(subLabel);
+					const sub = msg.command.info.subcommands.get(subLabel)
+						|| msg.command.info.subcommands.get(msg.command.info.subcommandAliases.get(subLabel));
+
 					if (sub) {
 						msg.args.shift();
 						msg.command = sub;

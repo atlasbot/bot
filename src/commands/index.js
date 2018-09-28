@@ -71,8 +71,12 @@ module.exports = class Commands {
 		plugin,
 	} = {}) {
 		const warnings = [];
+
 		const Prop = require(path);
-		if (!Prop.info) return;
+		if (!Prop.info) {
+			return;
+		}
+
 		let prop;
 		try {
 			prop = new Prop(Atlas);
@@ -81,7 +85,10 @@ module.exports = class Commands {
 
 			return;
 		}
+
 		prop.info.subcommands = new Map();
+		prop.info.subcommandAliases = new Map();
+
 		if (master) {
 			prop.info.master = master;
 		} else if (subs) {
@@ -90,34 +97,47 @@ module.exports = class Commands {
 				plugin,
 			}));
 		}
-		prop.info.workdir = path;
+
+		// the location is basically where the command file is
+		prop.info.location = path;
+		// the plugin the command is from
 		prop.info.plugin = plugin;
+
 		// TODO: subcommand alias support
 		prop.info.aliases.forEach((alias) => {
-			if (!master && Atlas.commands.labels.has(alias)) {
-				warnings.push(`(WARN) Alias "${alias}" already is registered by ${Atlas.commands.get(alias).info.name}! Overriding - (${path})`);
+			if (master) {
+				master.info.subcommandAliases.set(alias, prop.info.name);
+			} else {
+				Atlas.commands.aliases.set(alias, prop.info.name);
 			}
-			Atlas.commands.aliases.set(alias, prop.info.name);
 		});
+
 		if (master && Atlas.commands.labels.has(prop.info.name)) {
 			warnings.push(`(WARN) Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
 		}
+
+		// style shit
 		if (prop.constructor.name.toLowerCase() !== prop.info.name) {
 			warnings.push(`[Style] Class name for "${prop.info.name}" should match the command name.`);
 		}
+
+		// more or less enforce examples for most commands
 		if (prop.info.usage && prop.info.noExamples) {
 			warnings.push(`[Style] Command "${prop.info.name}" has usage without any examples!`);
 		}
+
+		// registering the command
 		if (master) {
 			master.info.subcommands.set(prop.info.name, prop);
 		} else {
 			Atlas.commands.labels.set(prop.info.name, prop);
 		}
-		delete require.cache[require.resolve(path)];
 
 		if (prop.info.ignoreStyleRules !== true) {
 			warnings.map(w => console.warn(w));
 		}
+
+		delete require.cache[require.resolve(path)];
 
 		return prop;
 	}
