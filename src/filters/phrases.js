@@ -7,14 +7,10 @@ module.exports = class Spam {
 			name: 'Phrases',
 			settingsKey: 'phrases',
 		};
-		this.alphaPhrases = [
-			'test*phrase',
-			'stp',
-		];
 	}
 
-	execute(str) {
-		const phrases = this.alphaPhrases.map(m => ({
+	execute(str, msg, filterConfig) {
+		const phrases = filterConfig.list.map(m => ({
 			regex: wildcardToRegExp(m),
 			raw: m,
 		}));
