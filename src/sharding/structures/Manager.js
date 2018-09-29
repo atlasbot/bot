@@ -1,7 +1,7 @@
 const superagent = require('superagent');
 const cluster = require('cluster');
 const Worker = require('./Worker');
-const { version } = require('./../../package.json');
+const { version } = require('./../../../package.json');
 
 require('./../util/logger');
 
