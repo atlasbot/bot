@@ -30,7 +30,18 @@ module.exports = class Unban extends Command {
 		}
 
 		try {
-			await msg.guild.unbanMember(target.id, args.join(' '));
+			this.Atlas.auditOverrides.push({
+				type: 23,
+				date: new Date(),
+				user: msg.author,
+				userID: msg.author.id,
+				targetID: target.id,
+				reason: args.join(' '),
+				guild: msg.guild.id,
+				target,
+			});
+
+			await msg.guild.unbanMember(target.id, `Unbanned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
 			return responder.text('unban.success', target.tag).send();
 		} catch (e) {
@@ -43,8 +54,8 @@ module.exports = class Unban extends Command {
 module.exports.info = {
 	name: 'unban',
 	examples: [
-		'@random cus ur being nice now',
-		`${process.env.OWNER} ur too cool to ban`,
+		'@random because you\'re being nice now',
+		`${process.env.OWNER} too cool to ban :^)`,
 	],
 	requirements: {
 		permissions: {

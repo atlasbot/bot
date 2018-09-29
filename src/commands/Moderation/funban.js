@@ -57,7 +57,7 @@ module.exports = class FunBan extends Command {
 				guild: msg.guild.id,
 			});
 
-			await msg.guild.banMember(target.id, 0, args.join(' '));
+			await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
 			return responder.embed({
 				author: {

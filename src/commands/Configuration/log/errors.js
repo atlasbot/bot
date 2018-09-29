@@ -11,7 +11,7 @@ module.exports = class Errors extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0] || this.Atlas.constants.disableTriggers.includes(args[0].toLowerCase())) {
+		if (!args[0] || this.Atlas.lib.utils.toggleType(args.join(' '), false) === false) {
 			await settings.update({
 				'plugins.moderation.logs.error': null,
 			});

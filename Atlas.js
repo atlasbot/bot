@@ -1,6 +1,7 @@
 const Raven = require('raven');
 const path = require('path');
 const Eris = require('eris');
+const fs = require('fs').promises;
 
 const lib = require('./lib');
 const Util = require('./src/util');
@@ -43,15 +44,6 @@ module.exports = class Atlas {
 
 		this.constants = constants;
 		this.colors = constants.colors;
-
-		this.events = [
-			'messageCreate',
-			'messageReactionAdd',
-			'guildMemberUpdate',
-			'channelCreate',
-			'channelDelete',
-			'guildBanAdd',
-		];
 
 		this.commands = {
 			labels: new Map(),
@@ -136,14 +128,15 @@ module.exports = class Atlas {
 			console.log('No Sentry DSN found, error reporting will be disabled until the "SENTRY_DSN" environment variable is set.');
 		}
 
+		const events = await fs.readdir(path.join('src/events'));
 		// Loading events
-		this.events.forEach((e) => {
-			const Handler = require(`./src/events/${e}.js`);
+		events.forEach((e) => {
+			const Handler = require(`./src/events/${e}`);
 			const handler = new Handler(this);
 
-			this.client.on(e, handler.execute.bind(handler));
+			this.client.on(e.split('.')[0], handler.execute.bind(handler));
 			console.log(`Loaded event handler "${e}"`);
-			delete require.cache[require.resolve(`./src/events/${e}.js`)];
+			delete require.cache[require.resolve(`./src/events/${e}`)];
 		});
 
 		// Loading locales

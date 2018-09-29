@@ -275,6 +275,16 @@
                     "name": "Reason"
                 }
             },
+            "guildBanRemove": {
+                "title": "Member Unbanned",
+                "description": "{0} has been unbanned.",
+                "bannedBy": {
+                    "name": "Moderator"
+                },
+                "reason": {
+                    "name": "Reason"
+                }
+            },
             "mute": {
                 "title": "Member Muted",
                 "description": "{0} has been muted.",
