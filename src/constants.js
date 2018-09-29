@@ -118,8 +118,20 @@ module.exports.colors.get = (color) => {
 	}
 };
 
-module.exports.disableTriggers = [
-	'disable',
-	'off',
-	'reset',
-];
+// these are language keys that match "general.filters.actions.<human>"
+module.exports.actionTypes = [{
+	human: 'Disabled',
+	type: 0,
+}, {
+	human: 'dtm',
+	type: 1,
+}, {
+	human: 'wtu',
+	type: 3,
+}, {
+	human: 'dtm_wtu',
+	type: 2,
+}, {
+	human: 'ca',
+	type: 4,
+}];

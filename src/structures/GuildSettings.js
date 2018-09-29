@@ -99,6 +99,10 @@ module.exports = class GuildSettings {
 		return this.guild.channels.get(this.settings.plugins.moderation.logs.error);
 	}
 
+	filter(name) {
+		return this.settings.plugins.moderation.filters[name];
+	}
+
 	/**
     * Find a member in the guild
     * @param {string} query the query to use to find the member. Can be a user ID, username, nickname, mention, etc...

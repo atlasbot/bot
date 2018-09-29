@@ -10,7 +10,8 @@
     "info": {
         "log": {
             "base": {
-                "description": "Controls where certain messages are logged in your guild."
+                "description": "Controls where certain messages are logged in your guild.",
+                "usage": "<subcommand>"
             },
             "actions": {
                 "description": "Sets where action logs are logged to. Run with no args to reset.",
@@ -387,7 +388,13 @@
             "manageEmojis": "Manage Emojis"
         },
         "filters": {
-            "spam": "{0}, please don't spam."
+            "actions": {
+                "disabled": "Disabled",
+                "dtm": "Delete the Message",
+                "wtu": "Warn the User",
+                "dtm_wtu": "Delete Message & Warn User",
+                "ca": "Custom Action"
+            }
         }
     },
     "commands": {
@@ -738,6 +745,11 @@
             "invalid": "The slowmode rate must be between 0 and 120.",
             "success": "Users can now send messages every {0}.",
             "disabled": "Disabled slowmode for {0}."
+        },
+        "filters": {
+            "cursing": {
+                "title": "Cursing"
+            }
         }
     }
 }
