@@ -57,8 +57,10 @@ module.exports = class Atlas {
 		};
 
 		this.langs = new Map();
+		this.filters = new Map();
 		this.plugins = new Map();
 		this.agenda = new Agenda();
+
 		this.DB = new DB({
 			user: process.env.DB_USER,
 			pass: process.env.DB_PASS,
@@ -128,7 +130,15 @@ module.exports = class Atlas {
 			console.log('No Sentry DSN found, error reporting will be disabled until the "SENTRY_DSN" environment variable is set.');
 		}
 
-		const events = await fs.readdir(path.join('src/events'));
+		const filters = await fs.readdir('src/filters');
+		filters.forEach((f) => {
+			const Filter = require(`./src/filters/${f}`);
+			const filter = new Filter(this);
+
+			this.filters.set(f.split('.')[0], filter);
+		});
+
+		const events = await fs.readdir('src/events');
 		// Loading events
 		events.forEach((e) => {
 			const Handler = require(`./src/events/${e}`);

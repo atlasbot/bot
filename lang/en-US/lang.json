@@ -18,6 +18,52 @@
                 "usage": "<channel>"
             }
         },
+        "purge": {
+            "base": {
+                "usage": "<amount>",
+                "description": "Purge messages from a channel."
+            },
+            "any": {
+                "usage": "<amount>",
+                "description": "Purge messages from a channel."
+            },
+            "endswith": {
+                "usage": "[term] <amount>",
+                "description": "Purges messages that end with [term]. Supports wild*cards."
+            },
+            "files": {
+                "usage": "<amount>",
+                "description": "Purges messages with attachments."
+            },
+            "images": {
+                "usage": "<amount>",
+                "description": "Purges messages with images attached."
+            },
+            "invites": {
+                "usage": "<amount>",
+                "description": "Purges messages containing Discord server invite links."
+            },
+            "links": {
+                "usage": "<amount>",
+                "description": "Purges messages containing links."
+            },
+            "includes": {
+                "usage": "[term] <amount>",
+                "description": "Purges messages that includes your term  Supports wild*cards."
+            },
+            "not": {
+                "usage": "[term] <amount>",
+                "description": "Purges messages that do not include your term. Supports wild*cards."
+            },
+            "startswith": {
+                "usage": "[term] <amount>",
+                "description": "Purges messages that start with your term. Supports wild*cards."
+            },
+            "user": {
+                "usage": "[user] <amount>",
+                "description": "Purges messages that are from the user specified."
+            }
+        },
         "slowmode": {
             "usage": "[ratelimit in seconds/\"disable\"]",
             "description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
@@ -193,7 +239,7 @@
             "usage": "[text]"
         },
         "wiki": {
-            "description": "Search Wikipedia for your search term",
+            "description": "Search Wikipedia for your search.",
             "usage": "[query]"
         },
         "remindme": {
@@ -542,7 +588,7 @@
             "noResults": "I could not find any search results matching `{0}`.",
             "noVoiceChannel": "You have to be in a voice channel to do that!",
             "busy": "I'm already playing in `{0}`",
-            "noArgs": "You have to include a search term or URL!",
+            "noArgs": "You have to include a search query or URL!",
             "playlistEmbed": {
                 "title": "Playlist Queued - {0}",
                 "description": "{0} has queued {1} songs from a playlist."
@@ -759,6 +805,22 @@
         "filters": {
             "cursing": {
                 "title": "Cursing"
+            }
+        },
+        "purge": {
+            "general": {
+                "tooLow": "The number you provided is too low. It must be one or higher.",
+                "tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
+                "nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
+                "success": "{0} has purged `{1}` messages.",
+                "invalidFilter": "You have to include a valid filter."
+            },
+            "base": {
+                "nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+            },
+            "user": {
+                "noArgs": "Please include a user mention!",
+                "noUser": "I couldn't find a valid user matching your search."
             }
         }
     }

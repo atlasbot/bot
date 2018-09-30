@@ -1,10 +1,6 @@
 module.exports = class Spam {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
-		this.info = {
-			name: 'Spam',
-			settingsKey: 'spam',
-		};
 		this.triggered = [];
 	}
 
@@ -20,4 +16,9 @@ module.exports = class Spam {
 
 		return triggered;
 	}
+};
+
+module.exports.info = {
+	name: 'Spam',
+	settingsKey: 'spam',
 };

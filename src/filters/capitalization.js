@@ -1,11 +1,6 @@
 module.exports = class Spam {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
-		this.info = {
-			name: 'Excessive Caps',
-			settingsKey: 'capitalization',
-			description: 'Triggers if a message contains excessive capitalization.',
-		};
 	}
 
 	execute(str, msg, filterConfig) {
@@ -16,4 +11,10 @@ module.exports = class Spam {
 			return percent > filterConfig.threshold;
 		}
 	}
+};
+
+module.exports.info = {
+	name: 'Excessive Caps',
+	settingsKey: 'capitalization',
+	description: 'Triggers if a message contains excessive capitalization.',
 };

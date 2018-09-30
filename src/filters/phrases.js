@@ -3,10 +3,6 @@ const { wildcardToRegExp } = require('./../../lib/utils/wildcard');
 module.exports = class Spam {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
-		this.info = {
-			name: 'Phrases',
-			settingsKey: 'phrases',
-		};
 	}
 
 	execute(str, msg, filterConfig) {
@@ -18,4 +14,9 @@ module.exports = class Spam {
 			return phrase.regex.test(str);
 		}
 	}
+};
+
+module.exports.info = {
+	name: 'Phrases',
+	settingsKey: 'phrases',
 };
