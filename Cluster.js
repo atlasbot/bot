@@ -9,6 +9,9 @@ new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-d
 		restMode: true,
 		disableEvents: {
 			TYPING_START: true,
+			USER_NOTE_UPDATE: true,
+			RELATIONSHIP_ADD: true,
+			RELATIONSHIP_REMOVE: true,
 		},
 	},
 });
