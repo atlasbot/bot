@@ -312,6 +312,20 @@
                 "title": "Member Joined",
                 "description": "{0} has joined the server."
             },
+            "guildRoleCreate": {
+                "title": "Role Created",
+                "description": "The {0} role was created.",
+                "createdBy": {
+                    "name": "Moderator"
+                }
+            },
+            "guildRoleDelete": {
+                "title": "Role Deleted",
+                "description": "The {0} role was deleted.",
+                "deletedBy": {
+                    "name": "Moderator"
+                }
+            },
             "guildMemberRemove": {
                 "title": "Member Left",
                 "description": "{0} has left the server."

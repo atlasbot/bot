@@ -41,7 +41,7 @@ module.exports = class Event {
 				});
 			}
 
-			embed.footer.text += ` Moderator ${auditEntry.user.id}`;
+			embed.footer.text += ` Mod ${auditEntry.user.id}`;
 		}
 
 		return settings.log(['action', 'mod'], embed);
