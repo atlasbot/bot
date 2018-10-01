@@ -51,8 +51,6 @@ class Command {
 						if (!permList[perm]) {
 							const missing = responder.format(`general.permissions.list.${perm}`);
 
-							console.log(missing);
-
 							return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
 						}
 					}
