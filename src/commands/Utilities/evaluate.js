@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command.js');
 const Parser = require('./../../tagengine');
 
-module.exports = class Evaluate extends Command {
+module.exports = class TagEval extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -47,8 +47,13 @@ module.exports = class Evaluate extends Command {
 };
 
 module.exports.info = {
-	name: 'evaluate',
-	description: 'Evaluate tags',
+	name: 'tageval',
+	description: 'Evaluate tags like {user.mention}.',
+	aliases: [
+		'evaluate',
+		'tagevaluate',
+		'evaltag',
+	],
 	localised: true,
 	requirements: {
 		permissions: {

@@ -25,7 +25,7 @@ module.exports = class Manager {
 		this.firstShardID = 0;
 
 		this.clusterCount = require('os').cpus().length;
-		this.userAgent = `Atlas Sharder (https://github.com/get-atlas/bot, ${version})`;
+		this.userAgent = `Atlas (https://github.com/get-atlas/bot, ${version})`;
 
 		this.launch();
 		this.clusters = new Map();

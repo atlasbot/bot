@@ -13,6 +13,9 @@ const EPM = require('./src/structures/ExtendedPlayerManager');
 const GuildSettingsClass = require('./src/structures/GuildSettings');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
+const FeedHandler = require('./src/feeds');
+const { version } = require('./package.json');
+
 const DB = lib.structs.Database;
 
 // load eris addons cus lazy
@@ -30,6 +33,9 @@ module.exports = class Atlas {
 	}) {
 		module.exports = this;
 
+		this.version = version;
+		this.userAgent = `Atlas (https://github.com/get-atlas/bot, ${version})`;
+
 		this.client = client;
 		this.auditOverrides = [];
 		// an array of ID's for things like roles where if a member gets it the event should be ignored
@@ -39,6 +45,7 @@ module.exports = class Atlas {
 		this.Raven = Raven;
 		this.structs = structs;
 		this.clusterID = clusterID;
+		this.feedHandler = null;
 
 		this.util = (new Util(this));
 
@@ -184,6 +191,8 @@ module.exports = class Atlas {
 		this.agenda.connect();
 		// load commands
 		cmdUtil.load(this, reload);
+
+		this.feedHandler = new FeedHandler(this);
 	}
 
 	/**
