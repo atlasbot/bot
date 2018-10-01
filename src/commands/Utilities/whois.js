@@ -1,24 +1,4 @@
-const moment = require('moment');
 const Command = require('../../structures/Command.js');
-
-const aliases = [
-	{
-		name: 'online',
-		alias: 'Online',
-	},
-	{
-		name: 'idle',
-		alias: 'Idle',
-	},
-	{
-		name: 'dnd',
-		alias: 'Do Not Disturb',
-	},
-	{
-		name: 'offline',
-		alias: 'Offline',
-	},
-];
 
 module.exports = class WhoIs extends Command {
 	constructor(Atlas) {
@@ -35,8 +15,10 @@ module.exports = class WhoIs extends Command {
 				percent: 0.60,
 				memberOnly: true,
 			});
+
 			if (user) {
-				const [presence] = aliases.filter(a => a.name === user.status);
+				const presence = this.Atlas.lib.utils.formatStatus(user.status);
+
 				const embed = {
 					thumbnail: {
 						url: user.avatarURL || user.defaultAvatarURL,
@@ -54,7 +36,7 @@ module.exports = class WhoIs extends Command {
 						},
 						{
 							name: 'whois.embed.createdAt.name',
-							value: ['whois.embed.createdAt.value', moment(user.createdAt).fromNow()],
+							value: ['whois.embed.createdAt.value', (new Date(user.createdAt)).toLocaleDateString()],
 							inline: true,
 						},
 					],
@@ -63,36 +45,36 @@ module.exports = class WhoIs extends Command {
 				if (user.joinedAt) {
 					embed.fields.push({
 						name: 'whois.embed.joined.name',
-						value: ['whois.embed.joined.value', moment(user.joinedAt).fromNow()],
+						value: ['whois.embed.joined.value', (new Date(user.joinedAt)).toLocaleDateString()],
 						inline: true,
 					});
 				}
 
-				embed.fields.push(...[{
+				embed.fields.push({
 					name: 'whois.embed.playing.name',
 					value: user.game ? ['whois.embed.playing.value.set', user.game.name] : 'whois.embed.playing.value.null',
 					inline: true,
 				}, {
 					name: 'whois.embed.status.name',
-					value: ['whois.embed.status.value', presence.alias],
+					value: ['whois.embed.status.value', presence],
 					inline: true,
-				}, {
-					name: 'whois.embed.roles.name',
-					value: (() => {
-						const roles = user.roles || [];
-						if (roles.length !== 0) {
+				});
+
+				if (user.roles && user.roles.length !== 0) {
+					embed.fields.push({
+						name: ['whois.embed.roles.name', user.roles.length],
+						value: (() => {
+							const roles = user.roles.map(id => msg.guild.roles.get(id));
 							const mentions = roles.map(r => r.mention).join(', ');
+
 							if (mentions.length > 1024) {
-								// fixme
 								return ['whois.embed.roles.value.tooMany', roles.length];
 							}
 
 							return ['whois.embed.roles.value.set', mentions];
-						}
-
-						return 'whois.embed.roles.value.null';
-					})(),
-				}]);
+						})(),
+					});
+				}
 
 				return responder.embed(embed).send();
 			}

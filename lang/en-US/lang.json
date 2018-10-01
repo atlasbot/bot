@@ -595,7 +595,7 @@
                     "value": "{0}"
                 },
                 "roles": {
-                    "name": "Roles",
+                    "name": "Roles ({0})",
                     "value": {
                         "set": "{0}",
                         "null": "None",
