@@ -18,7 +18,7 @@ module.exports = class Ready {
 	}
 
 	async execute(msg) {
-		if (msg.type !== 0) return;
+		if (msg.type !== 0 || msg.author.bot) return;
 
 		let settings;
 		if (msg.guild) {

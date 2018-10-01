@@ -308,6 +308,14 @@
                     "description": "{0} has changed their avatar from `{1}` to `{2}`."
                 }
             },
+            "guildMemberAdd": {
+                "title": "Member Joined",
+                "description": "{0} has joined the server."
+            },
+            "guildMemberRemove": {
+                "title": "Member Left",
+                "description": "{0} has left the server."
+            },
             "channelCreate": {
                 "title": "Channel Created",
                 "description": "The {0} (`{1}`) {2} channel has been created.",
@@ -580,7 +588,7 @@
                     "value": "{0}"
                 },
                 "joined": {
-                    "name": "Joined At",
+                    "name": "Joined",
                     "value": "{0}"
                 },
                 "playing": {

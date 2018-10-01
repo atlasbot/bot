@@ -15,6 +15,7 @@ module.exports = class GuildSettings {
 		this.settings = settings;
 
 		this.Atlas = require('../../Atlas');
+
 		this.guild = this.Atlas.client.guilds.get(settings.id);
 	}
 
