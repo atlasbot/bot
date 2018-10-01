@@ -72,14 +72,12 @@ module.exports.info = {
 		'reddit #reddit-feeds funny',
 	],
 	guildOnly: true,
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
-			bot: {
-				manageWebhooks: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
+		},
+		bot: {
+			manageWebhooks: true,
 		},
 	},
 };

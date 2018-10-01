@@ -19,14 +19,12 @@ module.exports.info = {
 	name: 'log',
 	aliases: ['logs'],
 	guildOnly: true,
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
-			bot: {
-				manageWebhooks: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
+		},
+		bot: {
+			manageWebhooks: true,
 		},
 	},
 };

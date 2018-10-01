@@ -146,11 +146,9 @@ module.exports = class BotInfo extends Command {
 
 module.exports.info = {
 	name: 'botinfo',
-	requirements: {
-		permissions: {
-			bot: {
-				embedLinks: true,
-			},
+	permissions: {
+		bot: {
+			embedLinks: true,
 		},
 	},
 	examples: [

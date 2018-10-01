@@ -79,14 +79,12 @@ module.exports.info = {
 		'@random not partying hard enough',
 		`${process.env.OWNER} being too cool`,
 	],
-	requirements: {
-		permissions: {
-			user: {
-				banMembers: true,
-			},
-			bot: {
-				banMembers: true,
-			},
+	permissions: {
+		user: {
+			banMembers: true,
+		},
+		bot: {
+			banMembers: true,
 		},
 	},
 	guildOnly: true,

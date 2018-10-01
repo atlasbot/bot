@@ -17,12 +17,9 @@ class Command {
 			fullDescription: 'This command has no full description!',
 			isDefaultDesc: !info.fullDescription,
 			hidden: false,
-			requirements: {
-				userIDs: [],
-				permissions: {
-					bot: {},
-					user: {},
-				},
+			permissions: {
+				bot: {},
+				user: {},
 			},
 			examples: [],
 			noExamples: info.usage && !info.examples,
@@ -47,15 +44,20 @@ class Command {
 			const responder = new Responder(msg);
 
 			if (settings) {
-				const permCheck = this.permCheck(msg);
-				// FIXME: this is fucked
-				if (permCheck !== 2) {
-					if (permCheck === 1) {
-						return responder.error('general.botPermError').send();
-					} if (permCheck === 0) {
-						return responder.error('general.noPermission').send();
+				for (const permsKey of Object.keys(this.info.permissions || {})) {
+					const permissions = Object.keys(this.info.permissions[permsKey]);
+					for (const perm of permissions) {
+						const permList = (permsKey === 'bot' ? msg.guild.me : msg.member).permission.json;
+						if (!permList[perm]) {
+							const missing = responder.format(`general.permissions.list.${perm}`);
+
+							console.log(missing);
+
+							return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
+						}
 					}
 				}
+
 				const options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
 				if (options.disabled) {
 					return responder.error('general.disabledCommand', settings.prefix, this.info.name).send();
@@ -117,40 +119,6 @@ class Command {
 					return reject(e);
 				});
 		});
-	}
-
-	/**
-	 * Checks permissions for the command
-	 * @param {Message} msg The message with a "msg.member" key to get permissions from
-	 * @returns {Boolean} if true, the user has valid permission to run the command. If false, the user does not.
-	 */
-	// TODO: test implementation
-	permCheck(msg) {
-		if (!this.info.requirements) return;
-		if (this.info.requirements.user) {
-			const memberPerms = msg.member.permission.json;
-			const required = Object.keys(this.info.requirements.permissions.user)
-				.filter(k => this.info.requirements.permissions.user[k]);
-			if (required.length !== 0 && required.some(k => !memberPerms[k])) {
-				return 0;
-			}
-		}
-		if (this.info.requirements.bot) {
-			const botPerms = msg.guild.me.permission.json;
-			const required = Object.keys(this.info.requirements.permissions.bot)
-				.filter(k => this.info.requirements.permissions.bot[k]);
-			if (required.length !== 0 && required.some(k => !botPerms[k])) {
-				return 1;
-			}
-		}
-		if (this.info.requirements.userIDs) {
-			const ids = this.info.requirements.userIDs;
-			if (ids.length !== 0 && !ids.includes(msg.member.id)) {
-				return 0;
-			}
-		}
-
-		return 2;
 	}
 
 	/**

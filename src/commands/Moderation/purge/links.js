@@ -39,14 +39,12 @@ module.exports.info = {
 		'10',
 		'',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

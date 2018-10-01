@@ -53,14 +53,12 @@ module.exports.info = {
 		'ending',
 		'ends',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

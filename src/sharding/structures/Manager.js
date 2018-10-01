@@ -43,6 +43,8 @@ module.exports = class Manager {
 			if (this.shards.max < this.clusterCount) {
 				console.warn('Limiting cluster count to shard count instead of CPU count as there are less shards then CPUs.');
 				this.clusterCount = this.shards.max;
+			} else {
+				console.info('Limiting cluster count to shard count.');
 			}
 
 			this.start(this.clusterCount);

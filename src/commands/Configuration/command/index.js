@@ -28,11 +28,9 @@ module.exports.info = {
 		'cc',
 	],
 	ignoreStyleRules: true,
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
 		},
 	},
 };

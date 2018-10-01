@@ -191,14 +191,12 @@ module.exports.info = {
 		'@sylver',
 		'@sylver warning reason',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	cooldown: {

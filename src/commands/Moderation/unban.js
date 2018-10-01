@@ -57,14 +57,12 @@ module.exports.info = {
 		'@random because you\'re being nice now',
 		`${process.env.OWNER} too cool to ban :^)`,
 	],
-	requirements: {
-		permissions: {
-			user: {
-				banMembers: true,
-			},
-			bot: {
-				banMembers: true,
-			},
+	permissions: {
+		user: {
+			banMembers: true,
+		},
+		bot: {
+			banMembers: true,
 		},
 	},
 	guildOnly: true,

@@ -116,14 +116,12 @@ module.exports.info = {
 	examples: [
 		'@random',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageRoles: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageRoles: true,
 		},
 	},
 	guildOnly: true,

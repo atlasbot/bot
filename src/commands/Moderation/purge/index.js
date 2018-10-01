@@ -47,14 +47,12 @@ module.exports.info = {
 		'prune',
 		'clear',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

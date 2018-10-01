@@ -173,14 +173,12 @@ module.exports.info = {
 		'@random 10h | verbal diarrhea',
 		`${process.env.OWNER} 10 hours | stop being mean`,
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageRoles: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageRoles: true,
 		},
 	},
 	guildOnly: true,

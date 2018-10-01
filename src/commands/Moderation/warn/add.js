@@ -74,11 +74,9 @@ module.exports.info = {
 		'@random breaking rule 3',
 		'@random not playing nice',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

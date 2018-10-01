@@ -47,14 +47,12 @@ module.exports = class List extends Command {
 module.exports.info = {
 	name: 'list',
 	guildOnly: true,
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
-			bot: {
-				manageWebhooks: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
+		},
+		bot: {
+			manageWebhooks: true,
 		},
 	},
 };

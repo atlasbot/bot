@@ -5,6 +5,10 @@
  */
 
 // todo: some services may not support lowercasing targets
+/*
+  todo: if the bot shuts down and restarts, old posts will be resposted.
+ 		Redis/a way to keep track of posts that have been processed and sent would be great.
+*/
 
 module.exports = class FeedHandler {
 	constructor(Atlas) {
@@ -75,14 +79,20 @@ module.exports = class FeedHandler {
 
 			this.pending.delete(channelID);
 
-			const webhook = await settings.getWebhook(channelID, 'Feeds webhook');
+			try {
+				const webhook = await settings.getWebhook(channelID, 'Feeds webhook');
 
-			if (webhook) {
-				await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
-					username: settings.guild.me.nick || this.Atlas.client.user.username,
-					avatarURL: this.Atlas.avatar,
-					embeds,
-				});
+				if (webhook) {
+					await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
+						username: settings.guild.me.nick || this.Atlas.client.user.username,
+						avatarURL: this.Atlas.avatar,
+						embeds,
+					});
+				}
+			} catch (e) {
+				if (process.env.NODE_ENV !== 'production') {
+					console.warn(e.message);
+				}
 			}
 		}
 	}

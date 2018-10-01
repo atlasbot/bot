@@ -25,11 +25,9 @@ module.exports.info = {
 		'warnings',
 		'warn',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
 		},
 	},
 };

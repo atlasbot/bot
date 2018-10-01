@@ -52,14 +52,12 @@ module.exports.info = {
 		'0',
 		'off',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageChannels: true,
-			},
-			bot: {
-				manageChannels: true,
-			},
+	permissions: {
+		user: {
+			manageChannels: true,
+		},
+		bot: {
+			manageChannels: true,
 		},
 	},
 	guildOnly: true,

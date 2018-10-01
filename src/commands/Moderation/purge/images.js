@@ -42,14 +42,12 @@ module.exports.info = {
 	aliases: [
 		'img',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

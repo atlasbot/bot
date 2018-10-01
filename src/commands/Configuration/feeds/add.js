@@ -128,14 +128,12 @@ module.exports.info = {
 		'reddit #general AskReddit',
 		'reddit #reddit-feeds funny',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
-			bot: {
-				manageWebhooks: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
+		},
+		bot: {
+			manageWebhooks: true,
 		},
 	},
 };

@@ -112,14 +112,12 @@ module.exports.info = {
 		description: 'Forces Atlas to not use webhooks.',
 	}],
 	aliases: ['movemsg', 'movemessage'],
-	requirements: {
-		permissions: {
-			user: {
-				manageMessages: true,
-			},
-			bot: {
-				manageMessages: true,
-			},
+	permissions: {
+		user: {
+			manageMessages: true,
+		},
+		bot: {
+			manageMessages: true,
 		},
 	},
 	guildOnly: true,

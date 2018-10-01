@@ -70,11 +70,9 @@ module.exports.info = {
 		name: 'description',
 		description: 'The command\'s description. You should include basic information about what it does here.',
 	}],
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
 		},
 	},
 };

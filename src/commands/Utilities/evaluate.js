@@ -55,11 +55,9 @@ module.exports.info = {
 		'evaltag',
 	],
 	localised: true,
-	requirements: {
-		permissions: {
-			user: {
-				administrator: true,
-			},
+	permissions: {
+		user: {
+			administrator: true,
 		},
 	},
 };

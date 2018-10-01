@@ -21,11 +21,9 @@ module.exports.info = {
 	aliases: [
 		'feed',
 	],
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
 		},
 	},
 };

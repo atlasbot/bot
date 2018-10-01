@@ -396,7 +396,7 @@ module.exports = class GuildSettings {
 			.find(w => w.channel_id === channelID && w.user.id === this.Atlas.client.user.id);
 
 		if (!hook) {
-			hook = await channel.createWebhook({
+			hook = await this.Atlas.client.createChannelWebhook(channelID, {
 				name: this.Atlas.client.user.username,
 			}, reason);
 		}

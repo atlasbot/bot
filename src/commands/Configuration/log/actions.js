@@ -41,14 +41,12 @@ module.exports.info = {
 	name: 'actions',
 	guildOnly: true,
 	aliases: ['action'],
-	requirements: {
-		permissions: {
-			user: {
-				manageGuild: true,
-			},
-			bot: {
-				manageWebhooks: true,
-			},
+	permissions: {
+		user: {
+			manageGuild: true,
+		},
+		bot: {
+			manageWebhooks: true,
 		},
 	},
 };
