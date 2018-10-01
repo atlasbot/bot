@@ -1,5 +1,4 @@
 const superagent = require('superagent');
-const moment = require('moment');
 const Command = require('../../structures/Command.js');
 
 module.exports = class Movie extends Command {
@@ -56,7 +55,7 @@ module.exports = class Movie extends Command {
 							inline: true,
 						}, {
 							name: 'Released',
-							value: moment(new Date(body.Released)).format('MMMM Do YYYY'),
+							value: (new Date(body.Released)).toLocaleDateString(),
 							inline: true,
 						}, {
 							name: 'Runtime',

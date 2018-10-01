@@ -1,4 +1,3 @@
-const moment = require('moment');
 const Command = require('../../../structures/Command.js');
 const lib = require('./../../../../lib');
 
@@ -45,7 +44,7 @@ module.exports = class View extends Command {
 			}
 
 			const table1 = page.data.map(w => w.reason);
-			const table2 = page.data.map(w => moment(w.date).calendar());
+			const table2 = page.data.map(w => (new Date(w.date)).toLocaleDateString());
 			const table3 = page.data.map((w) => {
 				const member = msg.guild.members.get(w.moderator);
 				if (member) {
@@ -84,6 +83,7 @@ module.exports = class View extends Command {
 
 module.exports.info = {
 	name: 'view',
+	aliases: ['list'],
 	examples: [
 		'@random',
 		'@sylver',

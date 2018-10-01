@@ -1,4 +1,3 @@
-const moment = require('moment');
 const Command = require('../../../structures/Command.js');
 const EmojiCollector = require('../../../structures/EmojiCollector');
 const lib = require('./../../../../lib');
@@ -81,7 +80,7 @@ module.exports = class Remove extends Command {
 			}
 
 			const table1 = page.data.map((w, i) => `${i + 1}. ${w.reason}`);
-			const table2 = page.data.map(w => moment(w.date).calendar());
+			const table2 = page.data.map(w => (new Date(w.date)).toLocaleDateString());
 			const table3 = page.data.map((w) => {
 				const member = msg.guild.members.get(w.moderator);
 				if (member) {
