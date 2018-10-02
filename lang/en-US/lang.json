@@ -363,6 +363,29 @@
                     "value": "The role can no longer be mentioned."
                 }
             },
+            "messageDelete": {
+                "title": "Message Deleted",
+                "description": "A message by {0} has been deleted in {1}.",
+                "content": {
+                    "name": "Content"
+                },
+                "deletedBy": {
+                    "name": "Moderator"
+                },
+                "reason": {
+                    "name": "Reason"
+                }
+            },
+            "messageUpdate": {
+                "title": "Message Updated",
+                "description": "A message by {0} has been updated in {1}.",
+                "oldContent": {
+                    "name": "Before"
+                },
+                "newContent": {
+                    "name": "After"
+                }
+            },
             "guildMemberRemove": {
                 "title": "Member Left",
                 "description": "{0} has left the server."
