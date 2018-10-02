@@ -6,8 +6,11 @@ module.exports = class Links extends Filter {
 		this.Atlas = Atlas;
 	}
 
-	execute(str) {
-		return this.Atlas.lib.utils.isUri(str);
+	execute(str, msg, filterConfig) {
+		const uri = this.Atlas.lib.utils.isUri(str);
+		if (!filterConfig.exclusions.find(pattern => this.Atlas.lib.utils.wildcard.match(pattern, uri))) {
+			return uri;
+		}
 	}
 };
 

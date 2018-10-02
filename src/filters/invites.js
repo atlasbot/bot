@@ -1,5 +1,7 @@
 const Filter = require('./../structures/Filter');
 
+// todo: get the guilds invites and make sure it isn't one of the guild's own
+
 module.exports = class Invites extends Filter {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
