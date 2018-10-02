@@ -326,6 +326,43 @@
                     "name": "Moderator"
                 }
             },
+            "guildRoleUpdate": {
+                "title": "Role Updated",
+                "description": "The {0} role has been updated.",
+                "colorChange": {
+                    "name": "Color Updated"
+                },
+                "nameChange": {
+                    "name": "Name Updated"
+                },
+                "permAdded": {
+                    "name": "Permissions Added",
+                    "value": "The role now has the `{0}` permissions."
+                },
+                "permRemoved": {
+                    "name": "Permissions Revoked",
+                    "value": "The role no longer has the `{0}` permissions."
+                },
+                "updatedBy": {
+                    "name": "Moderator"
+                },
+                "hoistTrue": {
+                    "name": "Hoist Updated",
+                    "value": "The role will now display members seperately from online members."
+                },
+                "hoistFalse": {
+                    "name": "Hoist Updated",
+                    "value": "The role will no longer display members seperately from online members."
+                },
+                "mentionableTrue": {
+                    "name": "@mention Updated",
+                    "value": "The role can now be mentioned."
+                },
+                "mentionableFalse": {
+                    "name": "@mention Updated",
+                    "value": "The role can no longer be mentioned."
+                }
+            },
             "guildMemberRemove": {
                 "title": "Member Left",
                 "description": "{0} has left the server."
