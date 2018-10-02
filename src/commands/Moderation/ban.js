@@ -21,9 +21,7 @@ module.exports = class Ban extends Command {
 		const target = await settings.findMember(query);
 
 		if (!target) {
-			if (!target) {
-				return responder.error('general.noUserFound').send();
-			}
+			return responder.error('general.noUserFound').send();
 		}
 
 		if (target instanceof Member) {
