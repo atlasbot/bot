@@ -8,6 +8,10 @@
         ]
     },
     "info": {
+        "kick": {
+            "usage": "[user] <reason>",
+            "description": "Removes a member from the server."
+        },
         "filters": {
             "base": {
                 "usage": "<subcommand>",
@@ -997,6 +1001,12 @@
             "list": {
                 "title": "Filters"
             }
+        },
+        "kick": {
+            "noArgs": "Please include a user to kick!",
+            "success": "Kicked {0}.",
+            "withReason": "Kicked {0} for `{1}`.",
+            "error": "An error occured kicking {0}. This could be a temporary error, or you are lacking permissions to kick that user."
         }
     }
 }
