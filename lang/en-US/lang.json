@@ -339,14 +339,14 @@
             "guildRoleCreate": {
                 "title": "Role Created",
                 "description": "The {0} role was created.",
-                "createdBy": {
+                "moderator": {
                     "name": "Moderator"
                 }
             },
             "guildRoleDelete": {
                 "title": "Role Deleted",
                 "description": "The {0} role was deleted.",
-                "deletedBy": {
+                "moderator": {
                     "name": "Moderator"
                 }
             },
@@ -367,7 +367,7 @@
                     "name": "Permissions Revoked",
                     "value": "The role no longer has the `{0}` permissions."
                 },
-                "updatedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "hoistTrue": {
@@ -393,7 +393,7 @@
                 "content": {
                     "name": "Content"
                 },
-                "deletedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "reason": {
@@ -420,7 +420,7 @@
                 "category": {
                     "name": "Category"
                 },
-                "createdBy": {
+                "moderator": {
                     "name": "Moderator"
                 }
             },
@@ -430,14 +430,14 @@
                 "category": {
                     "name": "Category"
                 },
-                "deletedBy": {
+                "moderator": {
                     "name": "Moderator"
                 }
             },
             "guildBanAdd": {
                 "title": "Member Banned",
                 "description": "{0} has been banned.",
-                "bannedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "reason": {
@@ -447,7 +447,7 @@
             "guildBanRemove": {
                 "title": "Member Unbanned",
                 "description": "{0} has been unbanned.",
-                "bannedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "reason": {
@@ -457,7 +457,7 @@
             "mute": {
                 "title": "Member Muted",
                 "description": "{0} has been muted.",
-                "mutedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "duration": {
@@ -471,7 +471,7 @@
             "unmute": {
                 "title": "Member Unmuted",
                 "description": "{0} has been unmuted.",
-                "unmutedBy": {
+                "moderator": {
                     "name": "Moderator"
                 },
                 "unmuteReason": {

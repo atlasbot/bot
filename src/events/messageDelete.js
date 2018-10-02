@@ -34,7 +34,7 @@ module.exports = class Event {
 
 			if (auditEntry) {
 				embed.fields.push({
-					name: 'general.logs.messageDelete.deletedBy.name',
+					name: 'general.logs.messageDelete.moderator.name',
 					value: auditEntry.user.tag,
 					inline: true,
 				});

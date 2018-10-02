@@ -108,7 +108,7 @@ module.exports = class Event {
 
 			if (auditEntry) {
 				embed.fields.push({
-					name: 'general.logs.guildRoleUpdate.updatedBy.name',
+					name: 'general.logs.guildRoleUpdate.moderator.name',
 					value: auditEntry.user.tag,
 				});
 

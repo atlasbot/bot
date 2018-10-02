@@ -25,7 +25,7 @@ module.exports = class Event {
 
 		if (auditEntry) {
 			embed.fields.push({
-				name: 'general.logs.guildRoleCreate.createdBy.name',
+				name: 'general.logs.guildRoleCreate.moderator.name',
 				value: auditEntry.user.tag,
 				inline: true,
 			});

@@ -80,7 +80,7 @@ module.exports = class Unmute extends Command {
 				color: this.Atlas.colors.get('indigo').decimal,
 				description: ['general.logs.unmute.description', target.tag],
 				fields: [{
-					name: 'general.logs.unmute.unmutedBy.name',
+					name: 'general.logs.unmute.moderator.name',
 					value: msg.author.tag,
 					inline: true,
 				}],

@@ -123,7 +123,7 @@ module.exports = class Mute extends Command {
 			description: ['general.logs.mute.description', target.tag],
 			fields: [
 				{
-					name: 'general.logs.mute.mutedBy.name',
+					name: 'general.logs.mute.moderator.name',
 					value: msg.author.tag,
 					inline: true,
 				},

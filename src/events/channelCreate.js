@@ -37,7 +37,7 @@ module.exports = class Event {
 
 		if (auditEntry) {
 			embed.fields.push({
-				name: 'general.logs.channelCreate.createdBy.name',
+				name: 'general.logs.channelCreate.moderator.name',
 				value: auditEntry.user.tag,
 				inline: true,
 			});

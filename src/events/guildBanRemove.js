@@ -28,7 +28,7 @@ module.exports = class Event {
 
 		if (auditEntry) {
 			embed.fields.push({
-				name: 'general.logs.guildBanRemove.bannedBy.name',
+				name: 'general.logs.guildBanRemove.moderator.name',
 				value: auditEntry.user.tag,
 				inline: true,
 			});
