@@ -8,6 +8,19 @@
         ]
     },
     "info": {
+        "filters": {
+            "base": {
+                "usage": "<subcommand>",
+                "description": "Controls chat filters."
+            },
+            "action": {
+                "usage": "[filter] <action name>",
+                "description": "Used to enable or disable filters, and change their action."
+            },
+            "list": {
+                "description": "Lists filters and their current settings."
+            }
+        },
         "feeds": {
             "base": {
                 "usage": "<subcommand>",
@@ -555,6 +568,37 @@
                 "wtu": "Warn the User",
                 "dtm_wtu": "Delete Message & Warn User",
                 "ca": "Custom Action"
+            },
+            "messages": {
+                "capitalization": {
+                    "warning": "Excessive capitalization.",
+                    "message": "{0}, cool it with the caps."
+                },
+                "cursing": {
+                    "warning": "Cursing",
+                    "message": "{0}, please refrain from swearing here."
+                },
+                "invites": {
+                    "warning": "Sending an invite.",
+                    "message": "{0}, invite links are not allowed here."
+                },
+                "links": {
+                    "warning": "Sending a link.",
+                    "message": "{0}, please dont share links here."
+                },
+                "mentions": {
+                    "warning": "Sending too many (`{0}`) mentions.",
+                    "message": "{0}, please dont mention so many people at once."
+                },
+                "phrases": {
+                    "warning": "Message contained a blacklisted word.",
+                    "message": "{0}, please refrain from using that word.",
+                    "dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
+                },
+                "spam": {
+                    "warning": "Flooding chat.",
+                    "message": "{0}, please don't flood chat."
+                }
             }
         }
     },
@@ -613,7 +657,7 @@
         "invite": "You can get Atlas for your own server at <https://get-atlas.xyz/get>.",
         "help": {
             "title": "Need some help?",
-            "description": "This is every command Atlas has. You can do `{0}<command>` to run a command, or `{0}help <command>` for much more info about a specific command."
+            "description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
         },
         "info": {
             "embed": {
@@ -907,11 +951,6 @@
             "success": "Users can now send messages every {0}.",
             "disabled": "Disabled slowmode for {0}."
         },
-        "filters": {
-            "cursing": {
-                "title": "Cursing"
-            }
-        },
         "purge": {
             "general": {
                 "tooLow": "The number you provided is too low. It must be one or higher.",
@@ -947,6 +986,16 @@
                 "noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
                 "noEntry": "I could not find a feed for this server matching your query.",
                 "success": "Removed feed for {0} from {1}/{2}."
+            }
+        },
+        "filters": {
+            "action": {
+                "noFilter": "You have to include a valid filter name to edit.",
+                "noAction": "You have to include a valid action. Available actions: `{0}`.",
+                "success": "The {0} filter has been set to `{1}`."
+            },
+            "list": {
+                "title": "Filters"
             }
         }
     }

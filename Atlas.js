@@ -52,6 +52,9 @@ module.exports = class Atlas {
 		this.constants = constants;
 		this.colors = constants.colors;
 
+		// messages sent by the responder
+		this.sent = [];
+
 		this.commands = {
 			labels: new Map(),
 			aliases: new Map(),
@@ -141,6 +144,8 @@ module.exports = class Atlas {
 		filters.forEach((f) => {
 			const Filter = require(`./src/filters/${f}`);
 			const filter = new Filter(this);
+
+			filter.info = Filter.info;
 
 			this.filters.set(f.split('.')[0], filter);
 		});

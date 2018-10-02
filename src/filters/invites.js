@@ -1,5 +1,8 @@
-module.exports = class Spam {
+const Filter = require('./../structures/Filter');
+
+module.exports = class Invites extends Filter {
 	constructor(Atlas) {
+		super(Atlas, module.exports.info);
 		this.Atlas = Atlas;
 	}
 

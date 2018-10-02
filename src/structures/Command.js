@@ -194,7 +194,6 @@ class Command {
 				const col2 = col1.splice(0, Math.floor((col1.length / 2)));
 
 				embed.fields.push({
-					// This has a zero-width character in it
 					name: 'Examples',
 					value: col1.join('\n'),
 					inline: true,
@@ -248,21 +247,21 @@ class Command {
 			});
 		}
 
-		if (this.info.requirements.permissions.user && Object.keys(this.info.requirements.permissions.user).length !== 0) {
+		if (this.info.permissions.user && Object.keys(this.info.permissions.user).length !== 0) {
 			embed.fields.push({
 				name: 'Permissions (User)',
-				value: `\`${Object.keys(this.info.requirements.permissions.user)
-					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
+				value: `\`${Object.keys(this.info.permissions.user)
+					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
 					.join('`, `')}\``,
 				inline: true,
 			});
 		}
 
-		if (this.info.requirements.permissions.bot && Object.keys(this.info.requirements.permissions.bot).length !== 0) {
+		if (this.info.permissions.bot && Object.keys(this.info.permissions.bot).length !== 0) {
 			embed.fields.push({
 				name: 'Permissions (Bot)',
-				value: `\`${Object.keys(this.info.requirements.permissions.bot)
-					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.${p}`))
+				value: `\`${Object.keys(this.info.permissions.bot)
+					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
 					.join('`, `')}\``,
 				inline: true,
 			});

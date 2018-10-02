@@ -1,7 +1,9 @@
 const swearjar = require('swearjar');
+const Filter = require('./../structures/Filter');
 
-module.exports = class Spam {
+module.exports = class Cursing extends Filter {
 	constructor(Atlas) {
+		super(Atlas, module.exports.info);
 		this.Atlas = Atlas;
 	}
 

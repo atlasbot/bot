@@ -10,8 +10,6 @@ try {
 
 /* eslint-disable security/detect-object-injection */
 
-const sent = [];
-
 /** A responder, sends data to channels. */
 
 class Responder extends EventEmitter {
@@ -191,11 +189,11 @@ class Responder extends EventEmitter {
 
 	/**
 	 * Set the target channel
-	 * @param {string} id The ID of the channel
+	 * @param {Object|string} channel The ID of the channel
      * @returns {Responder} The current responder instance
 	 */
-	channel(id) {
-		this._data.channelID = id;
+	channel(channel) {
+		this._data.channelID = channel.id || channel;
 
 		return this;
 	}
@@ -243,17 +241,25 @@ class Responder extends EventEmitter {
 			}
 		}
 
+		if (data.noDupe && data.str) {
+			const existing = this.Atlas.sent.find(c => c.channel === data.channelID && c.str === data.str);
+			if (existing) {
+				try {
+					await existing.msg.edit(`${existing.msg.content} (x${existing.edited + 1})`);
+
+					existing.edited++;
+				} catch (e) {
+					console.warn(e);
+				}
+
+				return existing.msg;
+			}
+		}
+
 		if (data.embed) {
 			data.embed = this._parseObject(data.embed, data.lang);
 			// will throw if it doesn't work correctly
 			this.validateEmbed(data.embed);
-		}
-
-		if (data.noDupe && data.str) {
-			const existing = sent.find(c => c.channel === data.channelID && c.str === data.str);
-			if (existing) {
-				return existing.msg;
-			}
 		}
 
 		const msg = await (data.edit ? data.edit.edit({
@@ -265,20 +271,21 @@ class Responder extends EventEmitter {
 		}, data.file));
 
 		if (data.noDupe) {
-			sent.push({
+			this.Atlas.sent.push({
 				channel: data.channelID,
 				str: data.str,
+				edited: 1,
 				msg,
 			});
+
 			setTimeout(() => {
-				const index = sent.findIndex(c => c.channel === data.channelID && c.str === data.str);
-				if (index) {
-					sent.splice(index, 1);
-				}
-			});
+				this.Atlas.sent = this.Atlas.sent.filter(s => s.msg.id !== msg.id);
+			}, (data._ttl || 11000) - 1000);
 		}
 
 		if (data._ttl && data._ttl > 0) {
+			console.log(data._ttl);
+
 			setTimeout(() => {
 				if (msg) {
 					msg.delete().catch(() => false);

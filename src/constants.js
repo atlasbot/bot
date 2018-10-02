@@ -105,18 +105,15 @@ module.exports.colors.get = (color) => {
 
 // these are language keys that match "general.filters.actions.<human>"
 module.exports.actionTypes = [{
-	human: 'Disabled',
+	key: 'disabled',
 	type: 0,
 }, {
-	human: 'dtm',
+	key: 'dtm',
 	type: 1,
 }, {
-	human: 'wtu',
-	type: 3,
-}, {
-	human: 'dtm_wtu',
+	key: 'dtm_wtu',
 	type: 2,
 }, {
-	human: 'ca',
-	type: 4,
+	key: 'wtu',
+	type: 3,
 }];

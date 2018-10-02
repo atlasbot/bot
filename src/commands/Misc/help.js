@@ -29,7 +29,7 @@ module.exports = class Help extends Command {
 				const plugin = this.Atlas.plugins.get(modName);
 				embed.fields.push({
 					name: plugin.name,
-					value: `\`${plugin.commands.map(m => m.info.name).join('`, `')}\``,
+					value: plugin.commands.map(m => (m.info.subcommands.size !== 0 ? `\`${m.info.name}\`\\*` : `\`${m.info.name}\``)).join(', '),
 				});
 			}
 

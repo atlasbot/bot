@@ -7,6 +7,13 @@ module.exports = class Event {
 		if (msg.type === 0 && msg.guild && !msg.author.bot) {
 			const settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
+			for (const filter of this.Atlas.filters.values()) {
+				const output = await filter.checkMessage(settings, msg);
+				if (output === true) {
+					break;
+				}
+			}
+
 			if (!settings.actionLogChannel) {
 				return;
 			}

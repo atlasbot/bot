@@ -1,17 +1,23 @@
 const { wildcardToRegExp } = require('./../../lib/utils/wildcard');
+const Filter = require('./../structures/Filter');
 
-module.exports = class Spam {
+module.exports = class Phrases extends Filter {
 	constructor(Atlas) {
+		super(Atlas, module.exports.info);
 		this.Atlas = Atlas;
 	}
 
-	execute(str, msg, filterConfig) {
+	execute(str, msg, {
+		filterConfig,
+	}) {
 		const phrases = filterConfig.list.map(m => ({
-			regex: wildcardToRegExp(m),
+			regex: wildcardToRegExp(`*${m}*`),
 			raw: m,
 		}));
 		for (const phrase of phrases) {
-			return phrase.regex.test(str);
+			if (phrase.regex.test(str)) {
+				return phrase.raw;
+			}
 		}
 	}
 };

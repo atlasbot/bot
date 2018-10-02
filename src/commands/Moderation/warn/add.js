@@ -33,6 +33,7 @@ module.exports = class Add extends Command {
 				moderator: msg.author,
 				reason: args.join(' '),
 			});
+
 			settings.log('mod', {
 				color: this.Atlas.colors.get('orange').decimal,
 				title: 'Member Warned',

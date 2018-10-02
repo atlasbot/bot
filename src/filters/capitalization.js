@@ -1,9 +1,14 @@
-module.exports = class Spam {
+const Filter = require('./../structures/Filter');
+
+module.exports = class Capitalization extends Filter {
 	constructor(Atlas) {
+		super(Atlas, module.exports.info);
 		this.Atlas = Atlas;
 	}
 
-	execute(str, msg, filterConfig) {
+	execute(str, msg, {
+		filterConfig,
+	}) {
 		if (str.length > 3) {
 			const uppercase = str.replace(/[^A-Z]/g, '').length;
 			const percent = Math.floor((uppercase / str.length) * 100);

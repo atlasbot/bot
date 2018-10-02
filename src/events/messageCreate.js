@@ -23,14 +23,13 @@ module.exports = class Ready {
 		let settings;
 		if (msg.guild) {
 			settings = await this.Atlas.DB.getGuild(msg.guild.id);
+
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || prefixes[0];
 		} else {
 			([msg.displayPrefix] = prefixes);
 			msg.lang = 'en-US';
 		}
-
-		// TODO: filter checks, make sure it tries msg.cleanContent and msg.content
 
 		msg.prefix = this.checkPrefix(msg.content, settings);
 		if (msg.prefix) { // eslint-disable-line no-extra-parens
@@ -60,15 +59,24 @@ module.exports = class Ready {
 				if (msg.author.id === process.env.OWNER && this.Atlas.env === 'development') {
 					msg.addReaction('🔁').catch(() => false);
 				}
-				msg.command.execute(msg, msg.args, {
+
+				return msg.command.execute(msg, msg.args, {
 					settings,
 					parsedArgs,
 				});
-			} else {
-				// TODO: look for a custom command that matches the label
 			}
+			// TODO: look for a custom command that matches the label
 
 			this.Atlas.client.emit('message', msg);
+		}
+
+		if (settings) {
+			for (const filter of this.Atlas.filters.values()) {
+				const output = await filter.checkMessage(settings, msg);
+				if (output === true) {
+					break;
+				}
+			}
 		}
 	}
 
