@@ -297,6 +297,13 @@
     },
     "general": {
         "logs": {
+            "guildMemberKick": {
+                "title": "Member Kicked",
+                "description": "{0} has been kicked from the server.",
+                "moderator": {
+                    "name": "Moderator"
+                }
+            },
             "guildMemberUpdate": {
                 "roleAdd": {
                     "title": "Member Updated - Role Added",

@@ -10,7 +10,34 @@ module.exports = class Event {
 			return;
 		}
 
-		const embed = {
+		const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild, member.id, 20);
+
+		if (auditEntry) {
+			// the user has been kicked
+
+			// the user probably left of their own free will
+
+			return settings.log(['action', 'mod'], {
+				title: 'general.logs.guildMemberKick.title',
+				color: this.Atlas.colors.get('cyan').decimal,
+				description: ['general.logs.guildMemberKick.description', member.tag],
+				thumbnail: {
+					url: member.avatarURL || member.defaultAvatarURL,
+				},
+				fields: [{
+					name: 'general.logs.guildMemberKick.moderator.name',
+					value: auditEntry.user.tag,
+				}],
+				footer: {
+					text: `User ${member.id} Mod ${auditEntry.user.id}`,
+				},
+				timestamp: new Date(),
+			});
+		}
+
+		// the user probably left of their own free will
+
+		return settings.log('action', {
 			title: 'general.logs.guildMemberRemove.title',
 			color: this.Atlas.colors.get('cyan').decimal,
 			description: ['general.logs.guildMemberRemove.description', member.tag],
@@ -21,8 +48,6 @@ module.exports = class Event {
 				text: `User ${member.id}`,
 			},
 			timestamp: new Date(),
-		};
-
-		return settings.log('action', embed);
+		});
 	}
 };
