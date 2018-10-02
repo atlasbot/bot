@@ -284,8 +284,6 @@ class Responder extends EventEmitter {
 		}
 
 		if (data._ttl && data._ttl > 0) {
-			console.log(data._ttl);
-
 			setTimeout(() => {
 				if (msg) {
 					msg.delete().catch(() => false);
