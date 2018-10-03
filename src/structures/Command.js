@@ -172,7 +172,7 @@ class Command {
 		}
 
 		// todo: support examples from language files
-		if (this.info.examples && this.info.examples.length !== 0) {
+		if (this.info.examples && this.info.examples.length) {
 			const examples = this.info.examples.map(e => e
 				.replace(/@sylver|@user/ig, msg.author.mention)
 				.replace(/@random/ig, () => {
@@ -217,7 +217,7 @@ class Command {
 			}
 		}
 
-		if (this.info.aliases && this.info.aliases.length !== 0) {
+		if (this.info.aliases && this.info.aliases.length) {
 			if (this.info.master) {
 				embed.fields.push({
 					name: 'Aliases',
@@ -247,7 +247,7 @@ class Command {
 			});
 		}
 
-		if (this.info.permissions.user && Object.keys(this.info.permissions.user).length !== 0) {
+		if (this.info.permissions.user && Object.keys(this.info.permissions.user).length) {
 			embed.fields.push({
 				name: 'Permissions (User)',
 				value: `\`${Object.keys(this.info.permissions.user)
@@ -257,7 +257,7 @@ class Command {
 			});
 		}
 
-		if (this.info.permissions.bot && Object.keys(this.info.permissions.bot).length !== 0) {
+		if (this.info.permissions.bot && Object.keys(this.info.permissions.bot).length) {
 			embed.fields.push({
 				name: 'Permissions (Bot)',
 				value: `\`${Object.keys(this.info.permissions.bot)

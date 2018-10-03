@@ -76,7 +76,7 @@ module.exports = class Event {
 			}
 		}
 
-		if (added.length !== 0) {
+		if (added.length) {
 			changes.push({
 				name: 'general.logs.guildRoleUpdate.permAdded.name',
 				value: ['general.logs.guildRoleUpdate.permAdded.value', added.join('`, `')],
@@ -84,7 +84,7 @@ module.exports = class Event {
 			});
 		}
 
-		if (removed.length !== 0) {
+		if (removed.length) {
 			changes.push({
 				name: 'general.logs.guildRoleUpdate.permRemoved.name',
 				value: ['general.logs.guildRoleUpdate.permRemoved.value', removed.join('`, `')],
@@ -92,7 +92,7 @@ module.exports = class Event {
 			});
 		}
 
-		if (changes.length !== 0) {
+		if (changes.length) {
 			const auditEntry = await this.Atlas.util.getGuildAuditEntry(guild, role.id, 31);
 
 			const embed = {

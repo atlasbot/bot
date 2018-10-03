@@ -23,7 +23,7 @@ module.exports = class Images extends Command {
 		await msg.delete();
 
 		// According to API docs, 'height' is only set if it's an image.
-		const purgeCount = await msg.channel.purge(num, m => !m.pinned && m.attachments.filter(a => a.height).length !== 0);
+		const purgeCount = await msg.channel.purge(num, m => !m.pinned && m.attachments.filter(a => a.height).length);
 
 		if (purgeCount === 0) {
 			return responder.error('purge.general.nothingPurged', msg.author.mention).send();

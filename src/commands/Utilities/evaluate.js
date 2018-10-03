@@ -25,7 +25,7 @@ module.exports = class TagEval extends Command {
 
 		const output = ret.output || 'No variable output :c';
 
-		if (ret.errors.length !== 0) {
+		if (ret.errors.length) {
 			const errors = ret.errors.map(e => e.message);
 			const uniq = errors
 				.filter((elem, pos, arr) => arr.indexOf(elem) === pos);

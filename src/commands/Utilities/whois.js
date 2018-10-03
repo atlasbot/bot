@@ -60,7 +60,7 @@ module.exports = class WhoIs extends Command {
 					inline: true,
 				});
 
-				if (user.roles && user.roles.length !== 0) {
+				if (user.roles && user.roles.length) {
 					embed.fields.push({
 						name: ['whois.embed.roles.name', user.roles.length],
 						value: (() => {

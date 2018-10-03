@@ -23,7 +23,7 @@ module.exports = class Play extends Command {
 
 		// TODO: get this working, it should handle shit if it's already playing in a vc
 		// const botVoiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
-		// if (botVoiceChannel && botVoiceChannel.members && botVoiceChannel.members.filter(m => !m.bot).length !== 0) {
+		// if (botVoiceChannel && botVoiceChannel.members && botVoiceChannel.members.filter(m => !m.bot).length) {
 		// 	return responder.error('play.busy', botVoiceChannel.name).send();
 		// }
 

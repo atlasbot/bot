@@ -56,7 +56,7 @@ module.exports = class EmojiCollector {
 	 */
 	emoji(data) {
 		if (data instanceof Array) {
-			if (this._emojis.length !== 0) {
+			if (this._emojis.length) {
 				this._addEmojis(data);
 				this._emojis.push(...data);
 			} else {
@@ -109,7 +109,7 @@ module.exports = class EmojiCollector {
 		}
 
 		this.listening = true;
-		if (this._emojis.length !== 0 && this._add) {
+		if (this._emojis.length && this._add) {
 			return this._addEmojis();
 		}
 
@@ -159,7 +159,7 @@ module.exports = class EmojiCollector {
 		if (this._filter && await !this._filter(msg, emoji, userID)) {
 			return;
 		}
-		if (this._emojis.length !== 0) {
+		if (this._emojis.length) {
 			if (this._validate) {
 				if (!this._validate(msg, emoji)) {
 					return;

@@ -26,7 +26,7 @@ module.exports = class Commands {
 
 				// loading bases/subs
 				const bases = pluginCmds.filter(p => !p.ext);
-				if (bases.length !== 0) {
+				if (bases.length) {
 					for (const base of bases) {
 						const cmdfiles = await fs.readdir(_path.join(__dirname, path, base.base));
 						plugin.subcommands.push({
@@ -38,7 +38,7 @@ module.exports = class Commands {
 				}
 				// loading regular commands
 				const cmds = pluginCmds.filter(p => p.ext === '.js');
-				if (cmds.length !== 0) {
+				if (cmds.length) {
 					for (const cmd of cmds) {
 						plugin.commands.push(_path.join(__dirname, path, cmd.base));
 					}
