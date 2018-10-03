@@ -9,6 +9,6 @@ module.exports = class TagError extends Error {
 	}
 
 	tag(name) {
-		this.message = `${name }: ${this.message}`;
+		this.message = `${name}: ${this.message}`;
 	}
 };
