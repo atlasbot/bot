@@ -52,13 +52,10 @@ module.exports = class Parser {
 
 			if (this.tags.has(name)) {
 				const { execute, info } = this.tags.get(name);
-				if (info.dependencies && info.dependencies.length !== 0) {
-					if (info.dependencies.find(d => !this.data[d])) {
-						// todo: handle properly
-						return;
-					}
-				}
-				if (typeof execute === 'function') {
+				if (info.dependencies.length && info.dependencies.some(d => !this.data[d])) {
+					// we are missing something the tag relies on
+					output = `{${tag}}`;
+				} else if (typeof execute === 'function') {
 					try {
 						if (info.preParse !== false) {
 						// parse args
@@ -82,10 +79,14 @@ module.exports = class Parser {
 						}
 					} catch (e) {
 						if (e instanceof TagError) {
+							e.tag(name);
+
 							errors.push(e);
 							output = `{${tag}}`;
 						} else {
-							const te = new TagError(e.message);
+							console.error(e);
+
+							const te = new TagError(`unhandled(${name}): ${e.message}`);
 							errors.push(te);
 							output = `{${tag}}`;
 						}
@@ -95,7 +96,7 @@ module.exports = class Parser {
 				}
 			}
 
-			if (typeof output !== 'string') {
+			if (output && typeof output !== 'string') {
 				if (output.output) {
 					({ output } = output);
 				}

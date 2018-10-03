@@ -8,7 +8,6 @@ module.exports = ({
 	// todo: test
 
 	if (!args[1]) {
-		// todo: make this more in-depth but tired
 		throw new TagError('You need to provide atleast two arguments.');
 	}
 

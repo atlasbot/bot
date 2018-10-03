@@ -340,7 +340,6 @@ class Responder extends EventEmitter {
 	 * @returns {string|Void} String with errors or null if there are no errors
 	 */
 	validateEmbed(embed, throwErr = true) {
-		// todo: this should probably be removed once the majority of development is finished
 		const ret = Joi.validate(embed, embedSchema, {
 			abortEarly: false,
 		});
