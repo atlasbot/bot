@@ -1,3 +1,6 @@
+# VSCode users: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+# Atom users: https://github.com/sindresorhus/atom-editorconfig
+
 # top-most EditorConfig file
 root = true
 
