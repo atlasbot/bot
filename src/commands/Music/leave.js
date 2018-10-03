@@ -20,7 +20,7 @@ module.exports = class Leave extends Command {
 		const myVC = msg.channel.guild.channels.get(msg.guild.me.voiceState.channelID);
 
 		// if they aren't in the same VC as atlas and the VC isn't empty, then say no.
-		if (myVC && !myVC.voiceMembers.find(m => m.id === msg.author.id) && myVC.voiceMembers.filter(m => !m.bot).length) {
+		if (myVC && !myVC.voiceMembers.find(m => m.id === msg.author.id) && myVC.voiceMembers.some(m => !m.bot)) {
 			return responder.error('leave.sameChannel').send();
 		}
 
