@@ -16,14 +16,14 @@ module.exports = {
 	},
 	author: {
 		name: Joi.string().max(256).optional(),
-		icon_url: Joi.string().optional().uri({ scheme: ['http', 'https'] }),
+		icon_url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
 	url: Joi.string().uri(),
 	image: {
-		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }),
+		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
 	thumbnail: {
-		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }),
+		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
 	timestamp: Joi.date().timestamp(),
 };

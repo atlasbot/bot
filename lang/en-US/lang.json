@@ -1,1019 +1,1029 @@
 {
-    "meta": {
-        "createdBy": "Sylver",
-        "name": "en-US",
-        "aliases": [
-            "en",
-            "english"
-        ]
-    },
-    "info": {
-        "kick": {
-            "usage": "[user] <reason>",
-            "description": "Removes a member from the server."
-        },
-        "filters": {
-            "base": {
-                "usage": "<subcommand>",
-                "description": "Controls chat filters."
-            },
-            "action": {
-                "usage": "[filter] <action name>",
-                "description": "Used to enable or disable filters, and change their action."
-            },
-            "list": {
-                "description": "Lists filters and their current settings."
-            }
-        },
-        "feeds": {
-            "base": {
-                "usage": "<subcommand>",
-                "description": "Controls feeds from YouTube, Reddit, Twitch & more."
-            },
-            "add": {
-                "usage": "[type] [channel] [target]",
-                "description": "Adds a service to the feed list. "
-            },
-            "remove": {
-                "usage": "[type] [channel] [target]",
-                "description": "Removes a service to the feed list. "
-            },
-            "list": {
-                "description": "Lists all services that the server has."
-            }
-        },
-        "log": {
-            "base": {
-                "description": "Controls where certain messages are logged in your guild.",
-                "usage": "<subcommand>"
-            },
-            "actions": {
-                "description": "Sets where action logs are logged to. Run with no args to reset.",
-                "usage": "<channel>"
-            }
-        },
-        "purge": {
-            "base": {
-                "usage": "<amount>",
-                "description": "Purge messages from a channel."
-            },
-            "any": {
-                "usage": "<amount>",
-                "description": "Purge messages from a channel."
-            },
-            "endswith": {
-                "usage": "[term] <amount>",
-                "description": "Purges messages that end with [term]. Supports wild*cards."
-            },
-            "files": {
-                "usage": "<amount>",
-                "description": "Purges messages with attachments."
-            },
-            "images": {
-                "usage": "<amount>",
-                "description": "Purges messages with images attached."
-            },
-            "invites": {
-                "usage": "<amount>",
-                "description": "Purges messages containing Discord server invite links."
-            },
-            "links": {
-                "usage": "<amount>",
-                "description": "Purges messages containing links."
-            },
-            "includes": {
-                "usage": "[term] <amount>",
-                "description": "Purges messages that includes your term  Supports wild*cards."
-            },
-            "not": {
-                "usage": "[term] <amount>",
-                "description": "Purges messages that do not include your term. Supports wild*cards."
-            },
-            "startswith": {
-                "usage": "[term] <amount>",
-                "description": "Purges messages that start with your term. Supports wild*cards."
-            },
-            "user": {
-                "usage": "[user] <amount>",
-                "description": "Purges messages that are from the user specified."
-            }
-        },
-        "slowmode": {
-            "usage": "[ratelimit in seconds/\"disable\"]",
-            "description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
-        },
-        "coinflip": {
-            "description": "Flips a coin that can land heads or tails."
-        },
-        "dadjoke": {
-            "description": "Gets a random dadjoke."
-        },
-        "move": {
-            "description": "Moves a message to another channel.",
-            "usage": "[channel] <message ID or share link>"
-        },
-        "achievement": {
-            "description": "Creates a Minecraft achievement."
-        },
-        "wouldyourather": {
-            "description": "Would you rather?"
-        },
-        "command": {
-            "base": {
-                "description": "Create, delete or edit custom commands."
-            },
-            "create": {
-                "description": "Create a new command.",
-                "usage": "[name] [response]"
-            }
-        },
-        "botinfo": {
-            "description": "Gets information about almost any public bot via discordbots.org.",
-            "usage": "[bot mention/query]"
-        },
-        "xkcd": {
-            "description": "Gets a random XKCD comic."
-        },
-        "leave": {
-            "description": "Leaves the voice channel and dumps the queue."
-        },
-        "unban": {
-            "description": "Unban a user from the guild.",
-            "usage": "[user] <reason>"
-        },
-        "emojify": {
-            "description": "Converts regular sentences to awesome emojified sentences 🎉",
-            "usage": "[text]"
-        },
-        "mute": {
-            "description": "Stops a user sending messages while they're muted.",
-            "usage": "[user] <duration> | <reason>"
-        },
-        "unmute": {
-            "description": "Unmutes a user.",
-            "usage": "[user] <reason>"
-        },
-        "movie": {
-            "description": "Get information about a movie!",
-            "usage": "[movie name]"
-        },
-        "next": {
-            "description": "Goes to the next song in the queue."
-        },
-        "show": {
-            "description": "Search for information about a TV Series.",
-            "usage": "[show name]"
-        },
-        "weather": {
-            "description": "Get weather information from anywhere in the world.",
-            "usage": "[location]"
-        },
-        "catfact": {
-            "description": "Who doesn't like facts about cats?"
-        },
-        "cat": {
-            "description": "Kittens, cats, you name it - we've got it (maybe)."
-        },
-        "texttoemoji": {
-            "description": "Converts text to emoji characters.",
-            "usage": "[text]"
-        },
-        "dog": {
-            "description": "Dogs. Just random pictures of dogs."
-        },
-        "chucknorris": {
-            "description": "Facts about the man himself"
-        },
-        "advice": {
-            "description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
-        },
-        "warn": {
-            "base": {
-                "description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
-            },
-            "add": {
-                "description": "Add a warning to a user.",
-                "usage": "[user] <reason>"
-            },
-            "view": {
-                "description": "View a users warnings.",
-                "usage": "[user] <page=1>"
-            },
-            "remove": {
-                "description": "Remove a users warnings.",
-                "usage": "[user] <warn reason>"
-            }
-        },
-        "funban": {
-            "description": "Bans a user but it's fun (and slightly spammy)",
-            "usage": "[user] <reason>"
-        },
-        "ban": {
-            "description": "Bans a user, exactly what it says on the tin.",
-            "usage": "[user] <reason>"
-        },
-        "submit": {
-            "description": "Submit suggestions to the suggestion channel."
-        },
-        "donate": {
-            "description": "Donate to support Atlas and get awesome perks!",
-            "fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
-        },
-        "help": {
-            "usage": "[command|plugin]",
-            "description": "View all of Atlas' commands or get help for a specific command or plugin."
-        },
-        "meme": {
-            "description": "dank me-mes"
-        },
-        "yesno": {
-            "description": "Yes or no? Gets a random yes or no randomly."
-        },
-        "info": {
-            "description": "General information about Atlas"
-        },
-        "ping": {
-            "description": "Check the time Atlas takes to reply to you!"
-        },
-        "support": {
-            "description": "Need help with Atlas? Join our Support server!"
-        },
-        "uptime": {
-            "description": "Check how long Atlas has been online for."
-        },
-        "whois": {
-            "description": "Get information about a user.",
-            "usage": "<user>"
-        },
-        "nowplaying": {
-            "description": "Shows information about the song currently playing."
-        },
-        "play": {
-            "description": "Plays a song in your current voice channel.",
-            "usage": "[song name|url]"
-        },
-        "qplaylist": {
-            "description": "Adds songs from a YouTube playlist to the queue.",
-            "usage": "[youtube playlist url]"
-        },
-        "queue": {
-            "description": "Shows upcoming songs in the player queue.",
-            "usage": "<page number>"
-        },
-        "ship": {
-            "description": "Ship two users. ",
-            "usage": "[user1] <user2>"
-        },
-        "trapcard": {
-            "usage": "[user]",
-            "description": "You've triggered my trap card!"
-        },
-        "trumpgen": {
-            "description": "Generate an image of Trump's twitter tweeting something.",
-            "usage": "[text]"
-        },
-        "wiki": {
-            "description": "Search Wikipedia for your search.",
-            "usage": "[query]"
-        },
-        "remindme": {
-            "description": "Set reminders to get notified in the future.",
-            "fullDescription": "Set reminders to get notified in the future. Where [time] is in your sentence doesn't really matter. Atlas may round up the time it says but the actual time will be accurate.",
-            "usage": "[time] <task>"
-        },
-        "captcha": {
-            "description": "Are you a robot? I know I am.",
-            "usage": "[user]"
-        },
-        "invite": {
-            "description": "Get Atlas in your own server by inviting me!"
-        },
-        "neat": {
-            "description": "hey, that's pretty neat"
-        },
-        "8ball": {
-            "description": "Ask the magic eight-ball a question."
-        }
-    },
-    "general": {
-        "logs": {
-            "guildMemberKick": {
-                "title": "Member Kicked",
-                "description": "{0} has been kicked from the server.",
-                "moderator": {
-                    "name": "Moderator"
-                }
-            },
-            "guildMemberUpdate": {
-                "roleAdd": {
-                    "title": "Member Updated - Role Added",
-                    "description": "{0} has been given the {1} role.",
-                    "moderator": {
-                        "name": "Moderator",
-                        "value": "{0} (`{1}`)"
-                    },
-                    "reason": "Reason"
-                },
-                "roleRemove": {
-                    "title": "Member Updated - Role Removed",
-                    "description": "{0} has had the {1} role taken from them.",
-                    "moderator": {
-                        "name": "Moderator",
-                        "value": "{0} (`{1}`)"
-                    },
-                    "reason": "Reason"
-                },
-                "usernameChange": {
-                    "title": "Member Updated - Username Changed",
-                    "description": "{0} has changed their username from `{1}` to `{2}`."
-                },
-                "avatarChange": {
-                    "title": "Member Updated - Username Changed",
-                    "description": "{0} has changed their avatar from `{1}` to `{2}`."
-                }
-            },
-            "guildMemberAdd": {
-                "title": "Member Joined",
-                "description": "{0} has joined the server."
-            },
-            "guildRoleCreate": {
-                "title": "Role Created",
-                "description": "The {0} role was created.",
-                "moderator": {
-                    "name": "Moderator"
-                }
-            },
-            "guildRoleDelete": {
-                "title": "Role Deleted",
-                "description": "The {0} role was deleted.",
-                "moderator": {
-                    "name": "Moderator"
-                }
-            },
-            "guildRoleUpdate": {
-                "title": "Role Updated",
-                "description": "The {0} role has been updated.",
-                "colorChange": {
-                    "name": "Color Updated"
-                },
-                "nameChange": {
-                    "name": "Name Updated"
-                },
-                "permAdded": {
-                    "name": "Permissions Added",
-                    "value": "The role now has the `{0}` permissions."
-                },
-                "permRemoved": {
-                    "name": "Permissions Revoked",
-                    "value": "The role no longer has the `{0}` permissions."
-                },
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "hoistTrue": {
-                    "name": "Hoist Updated",
-                    "value": "The role will now display members seperately from online members."
-                },
-                "hoistFalse": {
-                    "name": "Hoist Updated",
-                    "value": "The role will no longer display members seperately from online members."
-                },
-                "mentionableTrue": {
-                    "name": "@mention Updated",
-                    "value": "The role can now be mentioned."
-                },
-                "mentionableFalse": {
-                    "name": "@mention Updated",
-                    "value": "The role can no longer be mentioned."
-                }
-            },
-            "messageDelete": {
-                "title": "Message Deleted",
-                "description": "A message by {0} has been deleted in {1}.",
-                "content": {
-                    "name": "Content"
-                },
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "reason": {
-                    "name": "Reason"
-                }
-            },
-            "messageUpdate": {
-                "title": "Message Updated",
-                "description": "A message by {0} has been updated in {1}.",
-                "oldContent": {
-                    "name": "Before"
-                },
-                "newContent": {
-                    "name": "After"
-                }
-            },
-            "guildMemberRemove": {
-                "title": "Member Left",
-                "description": "{0} has left the server."
-            },
-            "channelCreate": {
-                "title": "Channel Created",
-                "description": "The {0} (`{1}`) {2} channel has been created.",
-                "category": {
-                    "name": "Category"
-                },
-                "moderator": {
-                    "name": "Moderator"
-                }
-            },
-            "channelDelete": {
-                "title": "Channel Deleted",
-                "description": "The {0} channel has been deleted.",
-                "category": {
-                    "name": "Category"
-                },
-                "moderator": {
-                    "name": "Moderator"
-                }
-            },
-            "guildBanAdd": {
-                "title": "Member Banned",
-                "description": "{0} has been banned.",
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "reason": {
-                    "name": "Reason"
-                }
-            },
-            "guildBanRemove": {
-                "title": "Member Unbanned",
-                "description": "{0} has been unbanned.",
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "reason": {
-                    "name": "Reason"
-                }
-            },
-            "mute": {
-                "title": "Member Muted",
-                "description": "{0} has been muted.",
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "duration": {
-                    "name": "Duration"
-                },
-                "reason": {
-                    "name": "Reason"
-                },
-                "footer": "Target {0} Mod {1}"
-            },
-            "unmute": {
-                "title": "Member Unmuted",
-                "description": "{0} has been unmuted.",
-                "moderator": {
-                    "name": "Moderator"
-                },
-                "unmuteReason": {
-                    "name": "Reason"
-                }
-            }
-        },
-        "messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
-        "messageQueryLate": "{0}, you took too long to add the reaction.",
-        "botPermError": "I am missing one or more permissions that I need to do that.",
-        "noResults": "I couldn't find anything matching your query, `{0}`.",
-        "webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
-        "noPermission": "You don't have permission to access that command.",
-        "restError": "Something happened when running the command, please try again in a few minutes.",
-        "errorExecuting": "An unknown error occured executing the command.",
-        "noUserFound": "I couldn't find that user.",
-        "noMorePages": "{0}, there are no more pages that way.",
-        "guildOnly": "That command can only be used in servers!",
-        "notPunishable": "You are lacking the permission required to punish that user.",
-        "lolno": "I cannot punish that user as their permission level is above my own.",
-        "music": {
-            "position": {
-                "name": "Position",
-                "value": "{0}"
-            },
-            "nowPlaying": {
-                "name": "Now Playing",
-                "value": "[{0}]({1})"
-            },
-            "playlist": {
-                "name": "Playlist Queued",
-                "value": "{0} songs queued by {1}"
-            },
-            "description": "[{0}]({1})",
-            "duration": {
-                "name": "Duration",
-                "value": "{0}"
-            },
-            "addedBy": {
-                "name": "Added By",
-                "value": "{0}"
-            },
-            "author": {
-                "name": "Author",
-                "value": "{0}"
-            },
-            "addedTrack": "Added Track",
-            "ttp": {
-                "name": "Time Until Playing",
-                "value": "{0}"
-            },
-            "inQueue": {
-                "name": "In Queue",
-                "value": {
-                    "plural": "{0} songs",
-                    "singular": "{0} song"
-                }
-            }
-        },
-        "disabledCommand": "The `{0}{1}` command has been disabled by a server administrator.",
-        "blacklisted": {
-            "roles": {
-                "plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
-                "singular": "You have the {0} role which is blacklisted from using `{1}{2}`."
-            },
-            "channel": "This channel is blacklisted from using `{1}{2}`."
-        },
-        "permissions": {
-            "list": {
-                "createInstantInvite": "Create Invite",
-                "kickMembers": "Kick Members",
-                "banMembers": "Ban Members",
-                "administrator": "Administrator",
-                "manageChannels": "Manage Channels",
-                "manageGuild": "Manage Guild",
-                "addReactions": "Add Reactions",
-                "readMessages": "Read Messages",
-                "sendMessages": "Send Messages",
-                "SendTTSMessages": "Send TTS Messages",
-                "manageMessages": "Manage Messages",
-                "embedLinks": "Embed Links",
-                "attachFiles": "Embed Files",
-                "readMessageHistory": "Read Message History",
-                "mentionEveryone": "Mention Everyone",
-                "externalEmojis": "External Emojis",
-                "voiceConnect": "Connect to Voice",
-                "voiceSpeak": "Speak in Voice",
-                "voiceMuteMembers": "Mute Voice Members",
-                "voiceUseVAD": "Use VAD",
-                "changeNickname": "Change Nickname",
-                "manageNicknames": "Manage Nicknames",
-                "manageRoles": "Manage Roles",
-                "manageWebhooks": "Manage Webhooks",
-                "manageEmojis": "Manage Emojis"
-            },
-            "permError": {
-                "user": "You need the `{0}` permissions to do that.",
-                "bot": "I need the `{0}` permission to do that."
-            }
-        },
-        "filters": {
-            "actions": {
-                "disabled": "Disabled",
-                "dtm": "Delete the Message",
-                "wtu": "Warn the User",
-                "dtm_wtu": "Delete Message & Warn User",
-                "ca": "Custom Action"
-            },
-            "messages": {
-                "capitalization": {
-                    "warning": "Excessive capitalization.",
-                    "message": "{0}, cool it with the caps."
-                },
-                "cursing": {
-                    "warning": "Cursing",
-                    "message": "{0}, please refrain from swearing here."
-                },
-                "invites": {
-                    "warning": "Sending an invite.",
-                    "message": "{0}, invite links are not allowed here."
-                },
-                "links": {
-                    "warning": "Sending a link.",
-                    "message": "{0}, please dont share links here."
-                },
-                "mentions": {
-                    "warning": "Sending too many (`{0}`) mentions.",
-                    "message": "{0}, please dont mention so many people at once."
-                },
-                "phrases": {
-                    "warning": "Message contained a blacklisted word.",
-                    "message": "{0}, please refrain from using that word.",
-                    "dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
-                },
-                "spam": {
-                    "warning": "Flooding chat.",
-                    "message": "{0}, please don't flood chat."
-                }
-            }
-        }
-    },
-    "commands": {
-        "movie": {
-            "notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
-        },
-        "series": {
-            "notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
-        },
-        "funban": {
-            "noArgs": "Please include a user to ban!",
-            "success": "Banned {0}.",
-            "error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-            "tooLateReason": "{1} has already been banned with the reason `{0}`.",
-            "tooLate": "{0} has already been banned."
-        },
-        "ban": {
-            "noArgs": "Please include a user to ban!",
-            "success": "Banned {0}.",
-            "withReason": "Banned {0} for `{1}`.",
-            "error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-            "tooLateReason": "{1} has already been banned with the reason `{0}`.",
-            "tooLate": "{0} has already been banned."
-        },
-        "remindme": {
-            "invalid": "That is not a valid date.",
-            "setForPast": "Please give me a date that is in the future.",
-            "furtherPls": "The time must be five seconds or more in the future.",
-            "youGotIt": "You got it, I'll remind you in {0}.",
-            "relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
-        },
-        "ping": {
-            "start": "<a:typing:426097044625686528> {0}",
-            "server": "I have a `{0}ms` delay to this server.",
-            "dm": "I have a `{0}ms` delay to this dm.",
-            "randoms": [
-                "I'm hungry...",
-                "Shovelling coal into the server...",
-                "In my defense, this is still faster than you could do it...",
-                "Waiting for the stars to align...",
-                "Go ahead, hold your breath...",
-                "Enjoy the elevator music...",
-                "Hello my name is Atlas what would you like today Sir?...",
-                "You were expecting something mildly entertaining, but no...",
-                "Error: out of patience...",
-                "Are we there yet?...",
-                "Please insert quarter...",
-                "Hang on a sec, it's here somewhere...",
-                "Have you lost weight?...",
-                "brb, one sec...",
-                "Spinning up the hamster..."
-            ]
-        },
-        "donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-        "invite": "You can get Atlas for your own server at <https://get-atlas.xyz/get>.",
-        "help": {
-            "title": "Need some help?",
-            "description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
-        },
-        "info": {
-            "embed": {
-                "title": "Atlas",
-                "description": "Atlas is a multifunctional Discord bot that makes your life easier. Atlas has music, auto-moderation, tickets, auto-role, custom commands, extensive customisation options and a lot more. Atlas is using JavaScript through [Node.js](https://nodejs.org/en/) and the [Eris](https://abal.moe/Eris/) library to interact with Discord's API.\n\nYou can do `{0}help` for a list of all commands Atlas has.",
-                "author": {
-                    "name": "Author",
-                    "value": "Sylver#1058"
-                },
-                "invite": {
-                    "name": "Invite Link",
-                    "value": "[Click here](https://get-atlas.xyz/get)"
-                },
-                "support": {
-                    "name": "Support Server",
-                    "value": "[Cick here](https://get-atlas.xyz/support)"
-                },
-                "documentation": {
-                    "name": "Documentation",
-                    "value": "[Click here](https://docs.get-atlas.xyz/)"
-                },
-                "status": {
-                    "name": "Status",
-                    "value": "[Click here](https://status.get-atlas.xyz/)"
-                },
-                "website": {
-                    "name": "Website",
-                    "value": "[Click here](https://get-atlas.xyz/)"
-                }
-            }
-        },
-        "uptime": "I have been online for {0}.",
-        "whois": {
-            "noUser": "You have to tell me who to look up!",
-            "embed": {
-                "tag": {
-                    "name": "Tag",
-                    "value": "{0}"
-                },
-                "avatarURL": {
-                    "name": "Avatar URL",
-                    "value": "[Click here]({0})"
-                },
-                "createdAt": {
-                    "name": "Account Created",
-                    "value": "{0}"
-                },
-                "joined": {
-                    "name": "Joined",
-                    "value": "{0}"
-                },
-                "playing": {
-                    "name": "Playing",
-                    "value": {
-                        "set": "{0}",
-                        "null": "Nothing"
-                    }
-                },
-                "status": {
-                    "name": "Status",
-                    "value": "{0}"
-                },
-                "roles": {
-                    "name": "Roles ({0})",
-                    "value": {
-                        "set": "{0}",
-                        "null": "None",
-                        "tooMany": "{0} total."
-                    }
-                }
-            }
-        },
-        "support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
-        "play": {
-            "searchError": "An error occured getting information about your query.",
-            "noNodes": "There are no free voice nodes to handle your request. Try wait a few minutes then try again.",
-            "noResults": "I could not find any search results matching `{0}`.",
-            "noVoiceChannel": "You have to be in a voice channel to do that!",
-            "busy": "I'm already playing in `{0}`",
-            "noArgs": "You have to include a search query or URL!",
-            "playlistEmbed": {
-                "title": "Playlist Queued - {0}",
-                "description": "{0} has queued {1} songs from a playlist."
-            }
-        },
-        "queue": {
-            "noPlayer": "There is nothing playing in this server.",
-            "embed": {
-                "totalDuration": {
-                    "name": "Total Duration",
-                    "value": "{0}"
-                },
-                "inQueue": {
-                    "name": "In Queue",
-                    "value": {
-                        "plural": "{0} songs",
-                        "singular": "{0} song"
-                    }
-                },
-                "upNext": {
-                    "value": "Up Next",
-                    "format": "{0}. [{1}]({2})"
-                }
-            }
-        },
-        "qplaylist": {
-            "noArgs": "You have to include a YouTube playlist URL!",
-            "noVoiceChannel": "You have to be in a voice channel to do that!",
-            "invalidHostname": "You must enter a valid playlist URL!",
-            "youtubeOnly": "This command only works with YouTube playlists.",
-            "noQueryParam": "That link isn't apart of a playlist. "
-        },
-        "warn": {
-            "add": {
-                "noArgs": "Please include a user to warn!",
-                "error": "An error occured warning the user, please try again later.",
-                "success": {
-                    "plural": "Added warning to {0}, they now have {1} warnings.",
-                    "singular": "Added warning to {0}, they now have {1} warning."
-                },
-                "tooLong": "The reason you provided is too long, it must be at most 256 characters long."
-            },
-            "view": {
-                "noArgs": "Please include a user!",
-                "noPerms": "You only have permissions to view your own warnings!",
-                "noWarns": "{0} does not have any warnings."
-            },
-            "remove": {
-                "notFound": "I could not find a warning matching your query.",
-                "noWarns": "{0} does not have any warnings.",
-                "error": "An error occured when adding reactions.",
-                "removedAll": "{0}, you have removed all of {1}'s warnings.",
-                "missingPerms": "I need permissions to add reactions to do that. ",
-                "success": "{0}, removed warning with reason `{1}` from {2} successfully.",
-                "successNoMention": "Removed warning with reason `{0}` from {1} successfully."
-            }
-        },
-        "8ball": {
-            "responses": [
-                "It is certain.",
-                "It is decidedly so.",
-                "Without a doubt.",
-                "Yes definitely.",
-                "You may rely on it.",
-                "As I see it, yes.",
-                "Most likely.",
-                "Outlook good.",
-                "Most definitely.",
-                "Signs point to yes.",
-                "Reply hazy try again.",
-                "Ask again later.",
-                "Better not tell you now.",
-                "Cannot predict now.",
-                "Concentrate and ask again.",
-                "Don't count on it.",
-                "My reply is no.",
-                "My sources say no.",
-                "Outlook not so good.",
-                "Very doubtful."
-            ]
-        },
-        "unban": {
-            "noArgs": "Please include a user to unban!",
-            "success": "{0} has been unbanned.",
-            "error": "An error occured while trying to unban {0}."
-        },
-        "mute": {
-            "noArgs": "Please include a user to mute!",
-            "success": "{0} has been muted for {1}.",
-            "generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
-            "generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
-            "alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
-            "invalid": "Please include a valid mute duration.",
-            "setForPast": "Please give me a date that is in the future.",
-            "furtherPls": "The time must be five seconds or more in the future.",
-            "tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
-        },
-        "unmute": {
-            "success": "{0} has been unmuted.",
-            "notMuted": "That user is not muted!",
-            "tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
-        },
-        "emojify": {
-            "noArgs": "Please include a sentence to emojify!"
-        },
-        "next": {
-            "noPlayer": "There is nothing playing in this server.",
-            "success": "Skipped `{0}`.",
-            "nothingNext": "There is nothing in the queue to skip to."
-        },
-        "botinfo": {
-            "noArgs": "Please mention a bot or include a search query.",
-            "notABot": "Beep boop? That user is not a bot.",
-            "notFound": "That bot is not listed on discordbots.org :c",
-            "embed": {
-                "library": "Library",
-                "servers": {
-                    "name": "Servers",
-                    "none": "Unknown"
-                },
-                "shards": {
-                    "name": "Shards",
-                    "none": "Unknown"
-                },
-                "prefix": "Prefix",
-                "github": {
-                    "name": "Github",
-                    "none": "None"
-                },
-                "website": {
-                    "name": "Website",
-                    "none": "None"
-                },
-                "owners": "Owners",
-                "footer": "Approved at",
-                "invite": "Invite Link",
-                "support": {
-                    "name": "Support Server",
-                    "none": "None"
-                }
-            }
-        },
-        "leave": {
-            "recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
-            "sameChannel": "You must be in the same voice channel as I am to do that!",
-            "nothingPlaying": "There is nothing playing in this server!",
-            "leftNoChannel": "I have left the voice channel.",
-            "leftChannel": "I have left `{0}`!"
-        },
-        "command": {
-            "create": {
-                "reservedName": "That command name is reserved. If you want to create a command with that name, use the dashboard.",
-                "noResponse": "You have to include what the response of the command should be.",
-                "noName": "You have to include a name of the command to create.",
-                "alreadyExists": "A command with that name already exists.",
-                "success": "Successfully created `{0}`."
-            },
-            "list": {
-                "noActions": "This server has no custom commands.",
-                "embed": {
-                    "title": "Custom Commands",
-                    "description": "All custom commands available in {0}."
-                }
-            },
-            "delete": {
-                "noQuery": "You have to include a command name to delete.",
-                "noMatch": "There is no custom command in this guild matching `{0}`. Make sure you typed it correctly and try again!",
-                "success": "Successfully deleted `{0}`."
-            }
-        },
-        "achievement": {
-            "noArgs": "You have to include something to turn into an achievement.",
-            "header": "Achievement Get!"
-        },
-        "coinflip": {
-            "heads": "I flipped a coin and got heads!",
-            "tails": "I flipped a coin and got tails!"
-        },
-        "move": {
-            "noArgs": "You have to include a channel to move the message to.",
-            "noMessage": "I could not find a message matching `{0}`.",
-            "noChannel": "I could not find a channel matching `{0}`.",
-            "notInTime": "{0}, you did not add a reaction in time.",
-            "sameChannel": "That message is already in {0}.",
-            "invalidType": "That message type cannot be transferred to a different channel.",
-            "waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
-            "success": "Message moved to {0}.",
-            "noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
-        },
-        "texttoemoji": {
-            "noArgs": "You have to include some text to convert."
-        },
-        "log": {
-            "noResults": "I could not find a channel matching `{0}`.",
-            "actions": {
-                "success": "Action logs will now be sent to {0}.",
-                "disabled": "Action logging has been disabled."
-            },
-            "moderation": {
-                "success": "Moderation logs will now be sent to {0}.",
-                "disabled": "Moderation logging has been disabled."
-            },
-            "errors": {
-                "success": "Errors will now be sent to {0}.",
-                "disabled": "Error logging has been disabled."
-            }
-        },
-        "slowmode": {
-            "noArgs": "You have to include a message interval in seconds.",
-            "invalid": "The slowmode rate must be between 0 and 120.",
-            "success": "Users can now send messages every {0}.",
-            "disabled": "Disabled slowmode for {0}."
-        },
-        "purge": {
-            "general": {
-                "tooLow": "The number you provided is too low. It must be one or higher.",
-                "tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
-                "nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
-                "success": "{0} has purged `{1}` messages.",
-                "invalidFilter": "You have to include a valid filter."
-            },
-            "base": {
-                "nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
-            },
-            "user": {
-                "noArgs": "Please include a user mention!",
-                "noUser": "I couldn't find a valid user matching your search."
-            }
-        },
-        "feeds": {
-            "add": {
-                "noType": "You have to include a type, one of `{0}`.",
-                "noChannel": "You have to include a valid channel.",
-                "noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
-                "unknownType": "`{0}` is not a known feed type.",
-                "invalidSubreddit": "`{0}` is not a valid subreddit.",
-                "success": "`{0}` feeds from `{1}` will now be sent to {2}.",
-                "alreadyExists": "There is already a feed matching that target in that channel."
-            },
-            "list": {
-                "noServices": "This server has no feeds."
-            },
-            "remove": {
-                "noType": "You have to include a type, one of `{0}`.",
-                "noChannel": "You have to include a valid channel.",
-                "noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
-                "noEntry": "I could not find a feed for this server matching your query.",
-                "success": "Removed feed for {0} from {1}/{2}."
-            }
-        },
-        "filters": {
-            "action": {
-                "noFilter": "You have to include a valid filter name to edit.",
-                "noAction": "You have to include a valid action. Available actions: `{0}`.",
-                "success": "The {0} filter has been set to `{1}`."
-            },
-            "list": {
-                "title": "Filters"
-            }
-        },
-        "kick": {
-            "noArgs": "Please include a user to kick!",
-            "success": "Kicked {0}.",
-            "withReason": "Kicked {0} for `{1}`.",
-            "error": "An error occured kicking {0}. This could be a temporary error, or you are lacking permissions to kick that user."
-        }
-    }
+	"meta": {
+		"createdBy": "Sylver",
+		"name": "en-US",
+		"aliases": [
+			"en",
+			"english"
+		]
+	},
+	"info": {
+		"gotcharacter": {
+			"description": "Gets information about a random Game of Thrones character.",
+			"usage": "<character name>"
+		},
+		"gothouse": {
+			"description": "Gets information about a random Game of Thrones house."
+		},
+		"kick": {
+			"usage": "[user] <reason>",
+			"description": "Removes a member from the server."
+		},
+		"filters": {
+			"base": {
+				"usage": "<subcommand>",
+				"description": "Controls chat filters."
+			},
+			"action": {
+				"usage": "[filter] <action name>",
+				"description": "Used to enable or disable filters, and change their action."
+			},
+			"list": {
+				"description": "Lists filters and their current settings."
+			}
+		},
+		"feeds": {
+			"base": {
+				"usage": "<subcommand>",
+				"description": "Controls feeds from YouTube, Reddit, Twitch & more."
+			},
+			"add": {
+				"usage": "[type] [channel] [target]",
+				"description": "Adds a service to the feed list. "
+			},
+			"remove": {
+				"usage": "[type] [channel] [target]",
+				"description": "Removes a service to the feed list. "
+			},
+			"list": {
+				"description": "Lists all services that the server has."
+			}
+		},
+		"log": {
+			"base": {
+				"description": "Controls where certain messages are logged in your guild.",
+				"usage": "<subcommand>"
+			},
+			"actions": {
+				"description": "Sets where action logs are logged to. Run with no args to reset.",
+				"usage": "<channel>"
+			}
+		},
+		"purge": {
+			"base": {
+				"usage": "<amount>",
+				"description": "Purge messages from a channel."
+			},
+			"any": {
+				"usage": "<amount>",
+				"description": "Purge messages from a channel."
+			},
+			"endswith": {
+				"usage": "[term] <amount>",
+				"description": "Purges messages that end with [term]. Supports wild*cards."
+			},
+			"files": {
+				"usage": "<amount>",
+				"description": "Purges messages with attachments."
+			},
+			"images": {
+				"usage": "<amount>",
+				"description": "Purges messages with images attached."
+			},
+			"invites": {
+				"usage": "<amount>",
+				"description": "Purges messages containing Discord server invite links."
+			},
+			"links": {
+				"usage": "<amount>",
+				"description": "Purges messages containing links."
+			},
+			"includes": {
+				"usage": "[term] <amount>",
+				"description": "Purges messages that includes your term  Supports wild*cards."
+			},
+			"not": {
+				"usage": "[term] <amount>",
+				"description": "Purges messages that do not include your term. Supports wild*cards."
+			},
+			"startswith": {
+				"usage": "[term] <amount>",
+				"description": "Purges messages that start with your term. Supports wild*cards."
+			},
+			"user": {
+				"usage": "[user] <amount>",
+				"description": "Purges messages that are from the user specified."
+			}
+		},
+		"slowmode": {
+			"usage": "[ratelimit in seconds/\"disable\"]",
+			"description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+		},
+		"coinflip": {
+			"description": "Flips a coin that can land heads or tails."
+		},
+		"dadjoke": {
+			"description": "Gets a random dadjoke."
+		},
+		"move": {
+			"description": "Moves a message to another channel.",
+			"usage": "[channel] <message ID or share link>"
+		},
+		"achievement": {
+			"description": "Creates a Minecraft achievement."
+		},
+		"wouldyourather": {
+			"description": "Would you rather?"
+		},
+		"command": {
+			"base": {
+				"description": "Create, delete or edit custom commands."
+			},
+			"create": {
+				"description": "Create a new command.",
+				"usage": "[name] [response]"
+			}
+		},
+		"botinfo": {
+			"description": "Gets information about almost any public bot via discordbots.org.",
+			"usage": "[bot mention/query]"
+		},
+		"xkcd": {
+			"description": "Gets a random XKCD comic."
+		},
+		"leave": {
+			"description": "Leaves the voice channel and dumps the queue."
+		},
+		"unban": {
+			"description": "Unban a user from the guild.",
+			"usage": "[user] <reason>"
+		},
+		"emojify": {
+			"description": "Converts regular sentences to awesome emojified sentences 🎉",
+			"usage": "[text]"
+		},
+		"mute": {
+			"description": "Stops a user sending messages while they're muted.",
+			"usage": "[user] <duration> | <reason>"
+		},
+		"unmute": {
+			"description": "Unmutes a user.",
+			"usage": "[user] <reason>"
+		},
+		"movie": {
+			"description": "Get information about a movie!",
+			"usage": "[movie name]"
+		},
+		"next": {
+			"description": "Goes to the next song in the queue."
+		},
+		"show": {
+			"description": "Search for information about a TV Series.",
+			"usage": "[show name]"
+		},
+		"weather": {
+			"description": "Get weather information from anywhere in the world.",
+			"usage": "[location]"
+		},
+		"catfact": {
+			"description": "Who doesn't like facts about cats?"
+		},
+		"cat": {
+			"description": "Kittens, cats, you name it - we've got it (maybe)."
+		},
+		"texttoemoji": {
+			"description": "Converts text to emoji characters.",
+			"usage": "[text]"
+		},
+		"dog": {
+			"description": "Dogs. Just random pictures of dogs."
+		},
+		"chucknorris": {
+			"description": "Facts about the man himself"
+		},
+		"advice": {
+			"description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
+		},
+		"warn": {
+			"base": {
+				"description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
+			},
+			"add": {
+				"description": "Add a warning to a user.",
+				"usage": "[user] <reason>"
+			},
+			"view": {
+				"description": "View a users warnings.",
+				"usage": "[user] <page=1>"
+			},
+			"remove": {
+				"description": "Remove a users warnings.",
+				"usage": "[user] <warn reason>"
+			}
+		},
+		"funban": {
+			"description": "Bans a user but it's fun (and slightly spammy)",
+			"usage": "[user] <reason>"
+		},
+		"ban": {
+			"description": "Bans a user, exactly what it says on the tin.",
+			"usage": "[user] <reason>"
+		},
+		"submit": {
+			"description": "Submit suggestions to the suggestion channel."
+		},
+		"donate": {
+			"description": "Donate to support Atlas and get awesome perks!",
+			"fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
+		},
+		"help": {
+			"usage": "[command|plugin]",
+			"description": "View all of Atlas' commands or get help for a specific command or plugin."
+		},
+		"meme": {
+			"description": "dank me-mes"
+		},
+		"yesno": {
+			"description": "Yes or no? Gets a random yes or no randomly."
+		},
+		"info": {
+			"description": "General information about Atlas"
+		},
+		"ping": {
+			"description": "Check the time Atlas takes to reply to you!"
+		},
+		"support": {
+			"description": "Need help with Atlas? Join our Support server!"
+		},
+		"uptime": {
+			"description": "Check how long Atlas has been online for."
+		},
+		"whois": {
+			"description": "Get information about a user.",
+			"usage": "<user>"
+		},
+		"nowplaying": {
+			"description": "Shows information about the song currently playing."
+		},
+		"play": {
+			"description": "Plays a song in your current voice channel.",
+			"usage": "[song name|url]"
+		},
+		"qplaylist": {
+			"description": "Adds songs from a YouTube playlist to the queue.",
+			"usage": "[youtube playlist url]"
+		},
+		"queue": {
+			"description": "Shows upcoming songs in the player queue.",
+			"usage": "<page number>"
+		},
+		"ship": {
+			"description": "Ship two users. ",
+			"usage": "[user1] <user2>"
+		},
+		"trapcard": {
+			"usage": "[user]",
+			"description": "You've triggered my trap card!"
+		},
+		"trumpgen": {
+			"description": "Generate an image of Trump's twitter tweeting something.",
+			"usage": "[text]"
+		},
+		"wiki": {
+			"description": "Search Wikipedia for your search.",
+			"usage": "[query]"
+		},
+		"remindme": {
+			"description": "Set reminders to get notified in the future.",
+			"fullDescription": "Set reminders to get notified in the future. Where [time] is in your sentence doesn't really matter. Atlas may round up the time it says but the actual time will be accurate.",
+			"usage": "[time] <task>"
+		},
+		"captcha": {
+			"description": "Are you a robot? I know I am.",
+			"usage": "[user]"
+		},
+		"invite": {
+			"description": "Get Atlas in your own server by inviting me!"
+		},
+		"neat": {
+			"description": "hey, that's pretty neat"
+		},
+		"8ball": {
+			"description": "Ask the magic eight-ball a question."
+		}
+	},
+	"general": {
+		"logs": {
+			"guildMemberKick": {
+				"title": "Member Kicked",
+				"description": "{0} has been kicked from the server.",
+				"moderator": {
+					"name": "Moderator"
+				}
+			},
+			"guildMemberUpdate": {
+				"roleAdd": {
+					"title": "Member Updated - Role Added",
+					"description": "{0} has been given the {1} role.",
+					"moderator": {
+						"name": "Moderator",
+						"value": "{0} (`{1}`)"
+					},
+					"reason": "Reason"
+				},
+				"roleRemove": {
+					"title": "Member Updated - Role Removed",
+					"description": "{0} has had the {1} role taken from them.",
+					"moderator": {
+						"name": "Moderator",
+						"value": "{0} (`{1}`)"
+					},
+					"reason": "Reason"
+				},
+				"usernameChange": {
+					"title": "Member Updated - Username Changed",
+					"description": "{0} has changed their username from `{1}` to `{2}`."
+				},
+				"avatarChange": {
+					"title": "Member Updated - Username Changed",
+					"description": "{0} has changed their avatar from `{1}` to `{2}`."
+				}
+			},
+			"guildMemberAdd": {
+				"title": "Member Joined",
+				"description": "{0} has joined the server."
+			},
+			"guildRoleCreate": {
+				"title": "Role Created",
+				"description": "The {0} role was created.",
+				"moderator": {
+					"name": "Moderator"
+				}
+			},
+			"guildRoleDelete": {
+				"title": "Role Deleted",
+				"description": "The {0} role was deleted.",
+				"moderator": {
+					"name": "Moderator"
+				}
+			},
+			"guildRoleUpdate": {
+				"title": "Role Updated",
+				"description": "The {0} role has been updated.",
+				"colorChange": {
+					"name": "Color Updated"
+				},
+				"nameChange": {
+					"name": "Name Updated"
+				},
+				"permAdded": {
+					"name": "Permissions Added",
+					"value": "The role now has the `{0}` permissions."
+				},
+				"permRemoved": {
+					"name": "Permissions Revoked",
+					"value": "The role no longer has the `{0}` permissions."
+				},
+				"moderator": {
+					"name": "Moderator"
+				},
+				"hoistTrue": {
+					"name": "Hoist Updated",
+					"value": "The role will now display members seperately from online members."
+				},
+				"hoistFalse": {
+					"name": "Hoist Updated",
+					"value": "The role will no longer display members seperately from online members."
+				},
+				"mentionableTrue": {
+					"name": "@mention Updated",
+					"value": "The role can now be mentioned."
+				},
+				"mentionableFalse": {
+					"name": "@mention Updated",
+					"value": "The role can no longer be mentioned."
+				}
+			},
+			"messageDelete": {
+				"title": "Message Deleted",
+				"description": "A message by {0} has been deleted in {1}.",
+				"content": {
+					"name": "Content"
+				},
+				"moderator": {
+					"name": "Moderator"
+				},
+				"reason": {
+					"name": "Reason"
+				}
+			},
+			"messageUpdate": {
+				"title": "Message Updated",
+				"description": "A message by {0} has been updated in {1}.",
+				"oldContent": {
+					"name": "Before"
+				},
+				"newContent": {
+					"name": "After"
+				}
+			},
+			"guildMemberRemove": {
+				"title": "Member Left",
+				"description": "{0} has left the server."
+			},
+			"channelCreate": {
+				"title": "Channel Created",
+				"description": "The {0} (`{1}`) {2} channel has been created.",
+				"category": {
+					"name": "Category"
+				},
+				"moderator": {
+					"name": "Moderator"
+				}
+			},
+			"channelDelete": {
+				"title": "Channel Deleted",
+				"description": "The {0} channel has been deleted.",
+				"category": {
+					"name": "Category"
+				},
+				"moderator": {
+					"name": "Moderator"
+				}
+			},
+			"guildBanAdd": {
+				"title": "Member Banned",
+				"description": "{0} has been banned.",
+				"moderator": {
+					"name": "Moderator"
+				},
+				"reason": {
+					"name": "Reason"
+				}
+			},
+			"guildBanRemove": {
+				"title": "Member Unbanned",
+				"description": "{0} has been unbanned.",
+				"moderator": {
+					"name": "Moderator"
+				},
+				"reason": {
+					"name": "Reason"
+				}
+			},
+			"mute": {
+				"title": "Member Muted",
+				"description": "{0} has been muted.",
+				"moderator": {
+					"name": "Moderator"
+				},
+				"duration": {
+					"name": "Duration"
+				},
+				"reason": {
+					"name": "Reason"
+				},
+				"footer": "Target {0} Mod {1}"
+			},
+			"unmute": {
+				"title": "Member Unmuted",
+				"description": "{0} has been unmuted.",
+				"moderator": {
+					"name": "Moderator"
+				},
+				"unmuteReason": {
+					"name": "Reason"
+				}
+			}
+		},
+		"messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
+		"messageQueryLate": "{0}, you took too long to add the reaction.",
+		"botPermError": "I am missing one or more permissions that I need to do that.",
+		"noResults": "I couldn't find anything matching your query, `{0}`.",
+		"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
+		"noPermission": "You don't have permission to access that command.",
+		"restError": "Something happened when running the command, please try again in a few minutes.",
+		"errorExecuting": "An unknown error occured executing the command.",
+		"noUserFound": "I couldn't find that user.",
+		"noMorePages": "{0}, there are no more pages that way.",
+		"guildOnly": "That command can only be used in servers!",
+		"notPunishable": "You are lacking the permission required to punish that user.",
+		"lolno": "I cannot punish that user as their permission level is above my own.",
+		"music": {
+			"position": {
+				"name": "Position",
+				"value": "{0}"
+			},
+			"nowPlaying": {
+				"name": "Now Playing",
+				"value": "[{0}]({1})"
+			},
+			"playlist": {
+				"name": "Playlist Queued",
+				"value": "{0} songs queued by {1}"
+			},
+			"description": "[{0}]({1})",
+			"duration": {
+				"name": "Duration",
+				"value": "{0}"
+			},
+			"addedBy": {
+				"name": "Added By",
+				"value": "{0}"
+			},
+			"author": {
+				"name": "Author",
+				"value": "{0}"
+			},
+			"addedTrack": "Added Track",
+			"ttp": {
+				"name": "Time Until Playing",
+				"value": "{0}"
+			},
+			"inQueue": {
+				"name": "In Queue",
+				"value": {
+					"plural": "{0} songs",
+					"singular": "{0} song"
+				}
+			}
+		},
+		"disabledCommand": "The `{0}{1}` command has been disabled by a server administrator.",
+		"blacklisted": {
+			"roles": {
+				"plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
+				"singular": "You have the {0} role which is blacklisted from using `{1}{2}`."
+			},
+			"channel": "This channel is blacklisted from using `{1}{2}`."
+		},
+		"permissions": {
+			"list": {
+				"createInstantInvite": "Create Invite",
+				"kickMembers": "Kick Members",
+				"banMembers": "Ban Members",
+				"administrator": "Administrator",
+				"manageChannels": "Manage Channels",
+				"manageGuild": "Manage Guild",
+				"addReactions": "Add Reactions",
+				"readMessages": "Read Messages",
+				"sendMessages": "Send Messages",
+				"SendTTSMessages": "Send TTS Messages",
+				"manageMessages": "Manage Messages",
+				"embedLinks": "Embed Links",
+				"attachFiles": "Embed Files",
+				"readMessageHistory": "Read Message History",
+				"mentionEveryone": "Mention Everyone",
+				"externalEmojis": "External Emojis",
+				"voiceConnect": "Connect to Voice",
+				"voiceSpeak": "Speak in Voice",
+				"voiceMuteMembers": "Mute Voice Members",
+				"voiceUseVAD": "Use VAD",
+				"changeNickname": "Change Nickname",
+				"manageNicknames": "Manage Nicknames",
+				"manageRoles": "Manage Roles",
+				"manageWebhooks": "Manage Webhooks",
+				"manageEmojis": "Manage Emojis"
+			},
+			"permError": {
+				"user": "You need the `{0}` permissions to do that.",
+				"bot": "I need the `{0}` permission to do that."
+			}
+		},
+		"filters": {
+			"actions": {
+				"disabled": "Disabled",
+				"dtm": "Delete the Message",
+				"wtu": "Warn the User",
+				"dtm_wtu": "Delete Message & Warn User",
+				"ca": "Custom Action"
+			},
+			"messages": {
+				"capitalization": {
+					"warning": "Excessive capitalization.",
+					"message": "{0}, cool it with the caps."
+				},
+				"cursing": {
+					"warning": "Cursing",
+					"message": "{0}, please refrain from swearing here."
+				},
+				"invites": {
+					"warning": "Sending an invite.",
+					"message": "{0}, invite links are not allowed here."
+				},
+				"links": {
+					"warning": "Sending a link.",
+					"message": "{0}, please dont share links here."
+				},
+				"mentions": {
+					"warning": "Sending too many (`{0}`) mentions.",
+					"message": "{0}, please dont mention so many people at once."
+				},
+				"phrases": {
+					"warning": "Message contained a blacklisted word.",
+					"message": "{0}, please refrain from using that word.",
+					"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
+				},
+				"spam": {
+					"warning": "Flooding chat.",
+					"message": "{0}, please don't flood chat."
+				}
+			}
+		}
+	},
+	"commands": {
+		"movie": {
+			"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
+		},
+		"series": {
+			"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		},
+		"funban": {
+			"noArgs": "Please include a user to ban!",
+			"success": "Banned {0}.",
+			"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
+			"tooLateReason": "{1} has already been banned with the reason `{0}`.",
+			"tooLate": "{0} has already been banned."
+		},
+		"ban": {
+			"noArgs": "Please include a user to ban!",
+			"success": "Banned {0}.",
+			"withReason": "Banned {0} for `{1}`.",
+			"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
+			"tooLateReason": "{1} has already been banned with the reason `{0}`.",
+			"tooLate": "{0} has already been banned."
+		},
+		"remindme": {
+			"invalid": "That is not a valid date.",
+			"setForPast": "Please give me a date that is in the future.",
+			"furtherPls": "The time must be five seconds or more in the future.",
+			"youGotIt": "You got it, I'll remind you in {0}.",
+			"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
+		},
+		"ping": {
+			"start": "<a:typing:426097044625686528> {0}",
+			"server": "I have a `{0}ms` delay to this server.",
+			"dm": "I have a `{0}ms` delay to this dm.",
+			"randoms": [
+				"I'm hungry...",
+				"Shovelling coal into the server...",
+				"In my defense, this is still faster than you could do it...",
+				"Waiting for the stars to align...",
+				"Go ahead, hold your breath...",
+				"Enjoy the elevator music...",
+				"Hello my name is Atlas what would you like today Sir?...",
+				"You were expecting something mildly entertaining, but no...",
+				"Error: out of patience...",
+				"Are we there yet?...",
+				"Please insert quarter...",
+				"Hang on a sec, it's here somewhere...",
+				"Have you lost weight?...",
+				"brb, one sec...",
+				"Spinning up the hamster..."
+			]
+		},
+		"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+		"invite": "You can get Atlas for your own server at <https://get-atlas.xyz/get>.",
+		"help": {
+			"title": "Need some help?",
+			"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
+		},
+		"info": {
+			"embed": {
+				"title": "Atlas",
+				"description": "Atlas is a multifunctional Discord bot that makes your life easier. Atlas has music, auto-moderation, tickets, auto-role, custom commands, extensive customisation options and a lot more. Atlas is using JavaScript through [Node.js](https://nodejs.org/en/) and the [Eris](https://abal.moe/Eris/) library to interact with Discord's API.\n\nYou can do `{0}help` for a list of all commands Atlas has.",
+				"author": {
+					"name": "Author",
+					"value": "Sylver#1058"
+				},
+				"invite": {
+					"name": "Invite Link",
+					"value": "[Click here](https://get-atlas.xyz/get)"
+				},
+				"support": {
+					"name": "Support Server",
+					"value": "[Cick here](https://get-atlas.xyz/support)"
+				},
+				"documentation": {
+					"name": "Documentation",
+					"value": "[Click here](https://docs.get-atlas.xyz/)"
+				},
+				"status": {
+					"name": "Status",
+					"value": "[Click here](https://status.get-atlas.xyz/)"
+				},
+				"website": {
+					"name": "Website",
+					"value": "[Click here](https://get-atlas.xyz/)"
+				}
+			}
+		},
+		"uptime": "I have been online for {0}.",
+		"whois": {
+			"noUser": "You have to tell me who to look up!",
+			"embed": {
+				"tag": {
+					"name": "Tag",
+					"value": "{0}"
+				},
+				"avatarURL": {
+					"name": "Avatar URL",
+					"value": "[Click here]({0})"
+				},
+				"createdAt": {
+					"name": "Account Created",
+					"value": "{0}"
+				},
+				"joined": {
+					"name": "Joined",
+					"value": "{0}"
+				},
+				"playing": {
+					"name": "Playing",
+					"value": {
+						"set": "{0}",
+						"null": "Nothing"
+					}
+				},
+				"status": {
+					"name": "Status",
+					"value": "{0}"
+				},
+				"roles": {
+					"name": "Roles ({0})",
+					"value": {
+						"set": "{0}",
+						"null": "None",
+						"tooMany": "{0} total."
+					}
+				}
+			}
+		},
+		"support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
+		"play": {
+			"searchError": "An error occured getting information about your query.",
+			"noNodes": "There are no free voice nodes to handle your request. Try wait a few minutes then try again.",
+			"noResults": "I could not find any search results matching `{0}`.",
+			"noVoiceChannel": "You have to be in a voice channel to do that!",
+			"busy": "I'm already playing in `{0}`",
+			"noArgs": "You have to include a search query or URL!",
+			"playlistEmbed": {
+				"title": "Playlist Queued - {0}",
+				"description": "{0} has queued {1} songs from a playlist."
+			}
+		},
+		"queue": {
+			"noPlayer": "There is nothing playing in this server.",
+			"embed": {
+				"totalDuration": {
+					"name": "Total Duration",
+					"value": "{0}"
+				},
+				"inQueue": {
+					"name": "In Queue",
+					"value": {
+						"plural": "{0} songs",
+						"singular": "{0} song"
+					}
+				},
+				"upNext": {
+					"value": "Up Next",
+					"format": "{0}. [{1}]({2})"
+				}
+			}
+		},
+		"qplaylist": {
+			"noArgs": "You have to include a YouTube playlist URL!",
+			"noVoiceChannel": "You have to be in a voice channel to do that!",
+			"invalidHostname": "You must enter a valid playlist URL!",
+			"youtubeOnly": "This command only works with YouTube playlists.",
+			"noQueryParam": "That link isn't apart of a playlist. "
+		},
+		"warn": {
+			"add": {
+				"noArgs": "Please include a user to warn!",
+				"error": "An error occured warning the user, please try again later.",
+				"success": {
+					"plural": "Added warning to {0}, they now have {1} warnings.",
+					"singular": "Added warning to {0}, they now have {1} warning."
+				},
+				"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			},
+			"view": {
+				"noArgs": "Please include a user!",
+				"noPerms": "You only have permissions to view your own warnings!",
+				"noWarns": "{0} does not have any warnings."
+			},
+			"remove": {
+				"notFound": "I could not find a warning matching your query.",
+				"noWarns": "{0} does not have any warnings.",
+				"error": "An error occured when adding reactions.",
+				"removedAll": "{0}, you have removed all of {1}'s warnings.",
+				"missingPerms": "I need permissions to add reactions to do that. ",
+				"success": "{0}, removed warning with reason `{1}` from {2} successfully.",
+				"successNoMention": "Removed warning with reason `{0}` from {1} successfully."
+			}
+		},
+		"8ball": {
+			"responses": [
+				"It is certain.",
+				"It is decidedly so.",
+				"Without a doubt.",
+				"Yes definitely.",
+				"You may rely on it.",
+				"As I see it, yes.",
+				"Most likely.",
+				"Outlook good.",
+				"Most definitely.",
+				"Signs point to yes.",
+				"Reply hazy try again.",
+				"Ask again later.",
+				"Better not tell you now.",
+				"Cannot predict now.",
+				"Concentrate and ask again.",
+				"Don't count on it.",
+				"My reply is no.",
+				"My sources say no.",
+				"Outlook not so good.",
+				"Very doubtful."
+			]
+		},
+		"unban": {
+			"noArgs": "Please include a user to unban!",
+			"success": "{0} has been unbanned.",
+			"error": "An error occured while trying to unban {0}."
+		},
+		"mute": {
+			"noArgs": "Please include a user to mute!",
+			"success": "{0} has been muted for {1}.",
+			"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
+			"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
+			"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
+			"invalid": "Please include a valid mute duration.",
+			"setForPast": "Please give me a date that is in the future.",
+			"furtherPls": "The time must be five seconds or more in the future.",
+			"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
+		},
+		"unmute": {
+			"success": "{0} has been unmuted.",
+			"notMuted": "That user is not muted!",
+			"tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
+		},
+		"emojify": {
+			"noArgs": "Please include a sentence to emojify!"
+		},
+		"next": {
+			"noPlayer": "There is nothing playing in this server.",
+			"success": "Skipped `{0}`.",
+			"nothingNext": "There is nothing in the queue to skip to."
+		},
+		"botinfo": {
+			"noArgs": "Please mention a bot or include a search query.",
+			"notABot": "Beep boop? That user is not a bot.",
+			"notFound": "That bot is not listed on discordbots.org :c",
+			"embed": {
+				"library": "Library",
+				"servers": {
+					"name": "Servers",
+					"none": "Unknown"
+				},
+				"shards": {
+					"name": "Shards",
+					"none": "Unknown"
+				},
+				"prefix": "Prefix",
+				"github": {
+					"name": "Github",
+					"none": "None"
+				},
+				"website": {
+					"name": "Website",
+					"none": "None"
+				},
+				"owners": "Owners",
+				"footer": "Approved at",
+				"invite": "Invite Link",
+				"support": {
+					"name": "Support Server",
+					"none": "None"
+				}
+			}
+		},
+		"leave": {
+			"recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
+			"sameChannel": "You must be in the same voice channel as I am to do that!",
+			"nothingPlaying": "There is nothing playing in this server!",
+			"leftNoChannel": "I have left the voice channel.",
+			"leftChannel": "I have left `{0}`!"
+		},
+		"command": {
+			"create": {
+				"reservedName": "That command name is reserved. If you want to create a command with that name, use the dashboard.",
+				"noResponse": "You have to include what the response of the command should be.",
+				"noName": "You have to include a name of the command to create.",
+				"alreadyExists": "A command with that name already exists.",
+				"success": "Successfully created `{0}`."
+			},
+			"list": {
+				"noActions": "This server has no custom commands.",
+				"embed": {
+					"title": "Custom Commands",
+					"description": "All custom commands available in {0}."
+				}
+			},
+			"delete": {
+				"noQuery": "You have to include a command name to delete.",
+				"noMatch": "There is no custom command in this guild matching `{0}`. Make sure you typed it correctly and try again!",
+				"success": "Successfully deleted `{0}`."
+			}
+		},
+		"achievement": {
+			"noArgs": "You have to include something to turn into an achievement.",
+			"header": "Achievement Get!"
+		},
+		"coinflip": {
+			"heads": "I flipped a coin and got heads!",
+			"tails": "I flipped a coin and got tails!"
+		},
+		"move": {
+			"noArgs": "You have to include a channel to move the message to.",
+			"noMessage": "I could not find a message matching `{0}`.",
+			"noChannel": "I could not find a channel matching `{0}`.",
+			"notInTime": "{0}, you did not add a reaction in time.",
+			"sameChannel": "That message is already in {0}.",
+			"invalidType": "That message type cannot be transferred to a different channel.",
+			"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
+			"success": "Message moved to {0}.",
+			"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+		},
+		"texttoemoji": {
+			"noArgs": "You have to include some text to convert."
+		},
+		"log": {
+			"noResults": "I could not find a channel matching `{0}`.",
+			"actions": {
+				"success": "Action logs will now be sent to {0}.",
+				"disabled": "Action logging has been disabled."
+			},
+			"moderation": {
+				"success": "Moderation logs will now be sent to {0}.",
+				"disabled": "Moderation logging has been disabled."
+			},
+			"errors": {
+				"success": "Errors will now be sent to {0}.",
+				"disabled": "Error logging has been disabled."
+			}
+		},
+		"slowmode": {
+			"noArgs": "You have to include a message interval in seconds.",
+			"invalid": "The slowmode rate must be between 0 and 120.",
+			"success": "Users can now send messages every {0}.",
+			"disabled": "Disabled slowmode for {0}."
+		},
+		"purge": {
+			"general": {
+				"tooLow": "The number you provided is too low. It must be one or higher.",
+				"tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
+				"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
+				"success": "{0} has purged `{1}` messages.",
+				"invalidFilter": "You have to include a valid filter."
+			},
+			"base": {
+				"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+			},
+			"user": {
+				"noArgs": "Please include a user mention!",
+				"noUser": "I couldn't find a valid user matching your search."
+			}
+		},
+		"feeds": {
+			"add": {
+				"noType": "You have to include a type, one of `{0}`.",
+				"noChannel": "You have to include a valid channel.",
+				"noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
+				"unknownType": "`{0}` is not a known feed type.",
+				"invalidSubreddit": "`{0}` is not a valid subreddit.",
+				"success": "`{0}` feeds from `{1}` will now be sent to {2}.",
+				"alreadyExists": "There is already a feed matching that target in that channel."
+			},
+			"list": {
+				"noServices": "This server has no feeds."
+			},
+			"remove": {
+				"noType": "You have to include a type, one of `{0}`.",
+				"noChannel": "You have to include a valid channel.",
+				"noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
+				"noEntry": "I could not find a feed for this server matching your query.",
+				"success": "Removed feed for {0} from {1}/{2}."
+			}
+		},
+		"filters": {
+			"action": {
+				"noFilter": "You have to include a valid filter name to edit.",
+				"noAction": "You have to include a valid action. Available actions: `{0}`.",
+				"success": "The {0} filter has been set to `{1}`."
+			},
+			"list": {
+				"title": "Filters"
+			}
+		},
+		"kick": {
+			"noArgs": "Please include a user to kick!",
+			"success": "Kicked {0}.",
+			"withReason": "Kicked {0} for `{1}`.",
+			"error": "An error occured kicking {0}. This could be a temporary error, or you are lacking permissions to kick that user."
+		},
+		"gotcharacter": {
+			"notFound": "I could not find a Game of Thrones character matching `{0}`."
+		}
+	}
 }
