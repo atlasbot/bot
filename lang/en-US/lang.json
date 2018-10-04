@@ -9,11 +9,12 @@
 	},
 	"info": {
 		"gotcharacter": {
-			"description": "Gets information about a random Game of Thrones character.",
+			"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
 			"usage": "<character name>"
 		},
 		"gothouse": {
-			"description": "Gets information about a random Game of Thrones house."
+			"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
+			"usage": "<house name>"
 		},
 		"kick": {
 			"usage": "[user] <reason>",

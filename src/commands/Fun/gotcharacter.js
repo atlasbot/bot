@@ -51,6 +51,10 @@ module.exports = class GotCharacter extends Command {
 				url: null,
 			},
 			fields: [],
+			footer: {
+				text: `Character ${char.id}`,
+			},
+			timestamp: new Date(),
 		};
 
 		if (char.titles && char.titles.length) {
