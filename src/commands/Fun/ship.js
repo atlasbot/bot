@@ -35,7 +35,7 @@ module.exports = class Ship extends Command {
 				url: res.body.message,
 			},
 			footer: {
-				text: 'Powered by the nekobot.xyz API',
+				text: 'general.poweredBy.nekobot',
 			},
 		};
 		responder.embed(embed).send();

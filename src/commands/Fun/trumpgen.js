@@ -34,7 +34,7 @@ module.exports = class trumpgen extends Command {
 				url: body.message,
 			},
 			footer: {
-				text: 'Powered by the nekobot.xyz API',
+				text: 'general.poweredBy.nekobot',
 			},
 		};
 

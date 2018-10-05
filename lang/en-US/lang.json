@@ -320,6 +320,9 @@
 		}
 	},
 	"general": {
+		"poweredBy": {
+			"nekobot": "Via nekobot.xyz"
+		},
 		"logs": {
 			"guildMemberKick": {
 				"title": "Member Kicked",
