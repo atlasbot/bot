@@ -4,7 +4,7 @@ module.exports = class Neat extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
-		this.reddit = new this.Atlas.lib.structs.Reddit(['interestingasfuck']);
+		this.reddit = new this.Atlas.lib.structs.Reddit(['starterpacks']);
 	}
 
 	async action(msg, args, { // eslint-disable-line no-unused-vars
@@ -14,14 +14,11 @@ module.exports = class Neat extends Command {
 
 		const d = await this.reddit.getImage(msg.author.id);
 
-		// people got triggered over the sub name being called "interestingasfuck"
-		d.embed.footer.text = null;
-
 		return responder.embed(d.embed).send();
 	}
 };
 
 module.exports.info = {
-	name: 'neat',
-	aliases: ['iaf'],
+	name: 'starterpack',
+	aliases: ['sp'],
 };
