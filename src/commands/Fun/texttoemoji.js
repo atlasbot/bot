@@ -22,6 +22,10 @@ module.exports = class TextToEmoji extends Command {
 				args.join('   ')
 					.replace(/[A-z]/g, m => `:regional_indicator_${m.toLowerCase()}:`)
 					.replace(/[0-9]/g, n => (emojiNumbers[n] ? `:${emojiNumbers[n]}:` : n))
+					.split('!')
+					.join('❕')
+					.split('?')
+					.join('❔')
 					.substring(0, 2048),
 			)
 			.send();
