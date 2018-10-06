@@ -8,6 +8,19 @@
 		]
 	},
 	"info": {
+		"avatar": {
+			"base": {
+				"description": "Gets (the servers)/(a users) avatar.",
+				"usage": "<mention>"
+			},
+			"user": {
+				"description": "Gets the avatar of a user.",
+				"usage": "<mention>"
+			},
+			"server": {
+				"description": "Gets the avatar of the server."
+			}
+		},
 		"trump": {
 			"description": "Gets something stupid Donald Trump has said."
 		},
@@ -1059,6 +1072,15 @@
 				"name": "Author"
 			},
 			"votes": "{0} upvotes, {1} downvotes"
+		},
+		"avatar": {
+			"base": {
+				"cannotFind": "I could not find a user matching `{0}`.",
+				"title": "Here you go!"
+			},
+			"server": {
+				"noIcon": "This server has no icon."
+			}
 		}
 	}
 }
