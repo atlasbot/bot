@@ -100,6 +100,7 @@ module.exports = class Commands {
 
 		// the location is basically where the command file is
 		prop.info.location = path;
+		prop.info.relative = _path.relative(process.cwd(), path);
 		// the plugin the command is from
 		prop.info.plugin = plugin;
 
@@ -113,17 +114,17 @@ module.exports = class Commands {
 		});
 
 		if (master && Atlas.commands.labels.has(prop.info.name)) {
-			warnings.push(`Name ${prop.info.name} is already registered by ${Atlas.commands.get(prop.info.name).info.name}`);
+			warnings.push(`Name ${prop.info.relative} is already registered by ${Atlas.commands.get(prop.info.name).info.relative}`);
 		}
 
 		// style shit
 		if (prop.constructor.name.toLowerCase() !== prop.info.name) {
-			warnings.push(`Class name for "${prop.info.name}" should match the command name.`);
+			warnings.push(`Class name for "${prop.info.relative}" should match the command name.`);
 		}
 
 		// more or less enforce examples for most commands
 		if (prop.info.usage && prop.info.noExamples) {
-			warnings.push(`Command "${prop.info.name}" has usage without any examples!`);
+			warnings.push(`Command "${prop.info.relative}" has usage without any examples!`);
 		}
 
 		// registering the command

@@ -3,7 +3,7 @@ const Command = require('../../structures/Command.js');
 
 /* eslint-disable camelcase */
 
-module.exports = class Urban extends Command {
+module.exports = class RandomUrban extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

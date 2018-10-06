@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"advancedembed": {
+			"description": "Embeds a message with advanced options.",
+			"usage": "[options]"
+		},
 		"avatar": {
 			"base": {
 				"description": "Gets (the servers)/(a users) avatar.",
@@ -1081,6 +1085,10 @@
 			"server": {
 				"noIcon": "This server has no icon."
 			}
+		},
+		"advancedembed": {
+			"unsupportedColor": "`{0}` is not a supported color format.",
+			"error": "Error validating embed: `{0}`."
 		}
 	}
 }

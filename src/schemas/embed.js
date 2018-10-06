@@ -1,29 +1,27 @@
 const Joi = require('joi');
 
 module.exports = {
-	color: Joi.number().optional(),
-	title: Joi.string().max(256).optional(),
-	description: Joi.string().max(2048).optional(),
+	color: Joi.number(),
+	title: Joi.string().max(256),
+	description: Joi.string().max(2048),
 	fields: Joi.array().items({
-		name: Joi.string().max(256).optional(),
+		name: Joi.string().max(256),
 		value: Joi.string().max(1024).required(),
-		inline: Joi.boolean().optional(),
-	}).max(25)
-		.unique()
-		.optional(),
+		inline: Joi.boolean(),
+	}).max(25).unique(),
 	footer: {
-		text: Joi.string().max(2048).allow(null).optional(),
+		text: Joi.string().max(2048).allow(null),
 	},
 	author: {
-		name: Joi.string().max(256).optional(),
-		icon_url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
+		name: Joi.string().max(256),
+		icon_url: Joi.string().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
 	url: Joi.string().uri(),
 	image: {
-		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
+		url: Joi.string().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
 	thumbnail: {
-		url: Joi.string().optional().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
+		url: Joi.string().uri({ scheme: ['http', 'https'] }).allow([true, false, null]),
 	},
-	timestamp: Joi.date().timestamp(),
+	timestamp: Joi.date().timestamp().allow([true, false, null]),
 };

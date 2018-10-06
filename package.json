@@ -35,6 +35,7 @@
     "expr-eval": "^1.2.2",
     "joi": "^13.6.0",
     "mongoose": "^5.2.17",
+    "parse-color": "^1.0.0",
     "parse-ms": "^2.0.0",
     "raven": "^2.6.4",
     "string-similarity": "^1.2.1",

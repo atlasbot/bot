@@ -267,6 +267,37 @@ class Command {
 			});
 		}
 
+		if (this.info.supportedFlags && this.info.supportedFlags[0]) {
+			let supported = this.info.supportedFlags;
+
+			if (msg.author.id !== process.env.OWNER) {
+				supported = this.info.supportedFlags.filter(arg => !arg.dev);
+			}
+
+			const flags = supported.map((m) => {
+				let str = `**•** \`--${m.name}\``;
+
+				if (m.placeholder) {
+					str += `\`--${m.name}="${m.placeholder}"\` `;
+				} else {
+					str += `\`--${m.name}\` `;
+				}
+
+				if (m.desc) {
+					str += `- ${m.desc}`;
+				}
+
+				return str;
+			});
+
+			flags.sort((a, b) => b.length - a.length);
+
+			embed.fields.push({
+				name: 'Supported Flags',
+				value: flags.join('\n'),
+			});
+		}
+
 		embed.fields.forEach((f) => {
 			f.name = f.name.replace(/@sylver/ig, msg.author.mention).replace(/@user/ig, msg.author.mention);
 		});

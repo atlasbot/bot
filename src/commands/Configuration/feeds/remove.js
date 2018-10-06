@@ -1,6 +1,6 @@
 const Command = require('../../../structures/Command.js');
 
-module.exports = class List extends Command {
+module.exports = class Remove extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

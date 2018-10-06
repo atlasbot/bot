@@ -343,6 +343,7 @@ class Responder extends EventEmitter {
 		const ret = Joi.validate(embed, embedSchema, {
 			abortEarly: false,
 		});
+
 		if (throwErr && ret.error) {
 			throw new Error(ret.error);
 		} else {

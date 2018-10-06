@@ -52,7 +52,7 @@ module.exports = class Ready {
 				const uncleanOptions = parseArgs(msg.content);
 				const parsedArgs = {};
 				for (const arg of Object.keys(uncleanOptions)) {
-					if (msg.command.info.supportedArgs.includes(arg.toLowerCase())) {
+					if (msg.command.info.supportedFlags && msg.command.info.supportedFlags.map(a => a.name).includes(arg.toLowerCase())) {
 						parsedArgs[arg] = uncleanOptions[arg];
 					}
 				}
