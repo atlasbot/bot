@@ -1,11 +1,17 @@
-const events = require('events');
 const superagent = require('superagent');
 
 const LIMIT = 100;
 const POLL_INTERVAL = 10000;
 const BACKTRACK_POLL_INTERVAL = 2000;
 
-module.exports = class RedditStream extends events.EventEmitter {
+let EventEmitter;
+try {
+	EventEmitter = require('eventemitter3');
+} catch (e) {
+	EventEmitter = require('events').EventEmitter; // eslint-disable-line prefer-destructuring
+}
+
+module.exports = class RedditStream extends EventEmitter {
 	constructor(userAgent) {
 		super();
 		this.userAgent = userAgent;
