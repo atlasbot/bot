@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -8,16 +8,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-# install deps that 
-RUN apk add --virtual .gyp \
-    python \
-    make \
-    g++ \
-    git \
-    && npm install \
-    # todo: install git submodules somewhere around here
-    # someone smarter then me might have to do that
-    && apk del .gyp
+RUN npm install
 
 # Bundle app source
 COPY . .
