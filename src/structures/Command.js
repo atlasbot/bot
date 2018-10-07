@@ -48,8 +48,8 @@ class Command {
 				for (const permsKey of Object.keys(this.info.permissions || {})) {
 					const permissions = Object.keys(this.info.permissions[permsKey]);
 					for (const perm of permissions) {
-						const permList = (permsKey === 'bot' ? msg.guild.me : msg.member).permission.json;
-						if (!permList[perm]) {
+						const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
+						if (perms.has(perm) === false) {
 							const missing = responder.format(`general.permissions.list.${perm}`);
 
 							return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
