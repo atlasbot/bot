@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"embed": {
+			"description": "Embeds a message. You can use \"advancedembed\" for more options.",
+			"usage": "<text>"
+		},
 		"advancedembed": {
 			"description": "Embeds a message with advanced options.",
 			"usage": "[options]"

@@ -327,6 +327,7 @@ class Responder extends EventEmitter {
 				} else if (val === Object(val)) {
 					val = this._parseObject(val, lang);
 				}
+
 				obj[key] = val;
 			}
 		}
