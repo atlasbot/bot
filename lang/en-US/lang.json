@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"google": {
+			"description": "Searches Google for stuffs.",
+			"usage": "<search>"
+		},
 		"embed": {
 			"description": "Embeds a message. You can use \"advancedembed\" for more options.",
 			"usage": "<text>"
@@ -1102,6 +1106,10 @@
 			"title": "Users with a #{0} Discriminator",
 			"invalid": "`{0}` is not a valid discriminator.",
 			"none": "There are no users in this server with that discriminator."
+		},
+		"google": {
+			"noArgs": "Please include something to search for.",
+			"noResults": "I couldn't find anything when searching for that."
 		}
 	}
 }

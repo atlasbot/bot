@@ -109,6 +109,7 @@ module.exports = class EmojiCollector {
 		}
 
 		this.listening = true;
+
 		if (this._emojis.length && this._add) {
 			return this._addEmojis();
 		}
@@ -178,6 +179,7 @@ module.exports = class EmojiCollector {
 	 * @private
 	 */
 	async _addEmojis(emojis) {
+		// todo: check if we have perms to add emojis before trying to
 		if (!emojis) {
 			emojis = this._emojis;
 		}

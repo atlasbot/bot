@@ -1,25 +1,15 @@
 const Joi = require('joi');
 const embedSchema = require('./../schemas/embed');
 
-let EventEmitter;
-try {
-	EventEmitter = require('eventemitter3');
-} catch (e) {
-	EventEmitter = require('events').EventEmitter; // eslint-disable-line prefer-destructuring
-}
-
-/* eslint-disable security/detect-object-injection */
-
 /** A responder, sends data to channels. */
 
-class Responder extends EventEmitter {
+class Responder {
 	/**
      * Creates a new responder.
      * @param {string|Object} data The channel ID, channel object or message object to pull the channel from.
 	 * @param {string} lang The lang to use when sending messages. Overrides "data.lang"
      */
 	constructor(data, lang) {
-		super();
 		let channelID;
 		if (data) {
 			if (data.channel) {

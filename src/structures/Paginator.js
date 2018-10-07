@@ -37,6 +37,7 @@ module.exports = class Paginator extends Responder {
 		page = 1,
 		listen = true,
 		startAndEndSkip = true,
+		total,
 	} = {}, generator) {
 		this.page.generator = generator;
 		this.page.enabled = !!generator;
@@ -44,6 +45,10 @@ module.exports = class Paginator extends Responder {
 		this.page.current = page;
 		this.page.listen = listen;
 		this.page.startAndEndSkip = startAndEndSkip;
+
+		if (total) {
+			this.page.total = total;
+		}
 
 		return this;
 	}
@@ -56,13 +61,14 @@ module.exports = class Paginator extends Responder {
 		const res = await super.send();
 
 		try {
-			this.embedMsg = res;
-
 			if (this.page.enabled && !this.embedMsg && this.showPages) {
+				this.embedMsg = res;
+
 				const emojis = [
 					'⬅',
 					'➡',
 				];
+
 				if (this.page.startAndEndSkip) {
 					emojis.unshift('⏮');
 					emojis.push('⏭');
@@ -125,8 +131,6 @@ module.exports = class Paginator extends Responder {
 	async updatePage() {
 		const em = this._parseObject(await this.page.generator(this));
 		if (em) {
-			this.emit('update', em);
-
 			return this.embedMsg.edit({
 				embed: em,
 			});

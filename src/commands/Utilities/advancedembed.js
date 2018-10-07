@@ -22,8 +22,6 @@ module.exports = class AdvancedEmbed extends Command {
 
 			color = this.Atlas.colors.get(unparsedColor.trim().toLowerCase()) || parse(unparsedColor);
 
-			console.log(color);
-
 			if (!color.hex) {
 				return responder.error('advancedembed.unsupportedColor', unparsedColor).send();
 			}
