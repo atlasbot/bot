@@ -10,8 +10,12 @@ module.exports = class EightBall extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const responses = responder.format('8ball.responses');
-		const response = responses[Math.floor(Math.random() * responses.length)];
+		const responses = responder.format({
+			stringOnly: false,
+			key: '8ball.responses',
+		});
+
+		const response = this.Atlas.lib.utils.pickOne(responses);
 
 		return responder
 			.localised(true)

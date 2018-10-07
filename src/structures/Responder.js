@@ -165,6 +165,7 @@ class Responder extends EventEmitter {
 		}
 
 		const val = this.Atlas.util.format(obj.language || this._data.lang, obj.key, ...replacements);
+
 		if (!val && !obj.noThrow) {
 			throw new Error(`No language value matching key "${obj.key}"`);
 		}

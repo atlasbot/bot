@@ -82,7 +82,7 @@ module.exports = class Show extends Command {
 
 module.exports.info = {
 	name: 'show',
-	aliases: ['showinfo', 'showsearch', 'showdetails'],
+	aliases: ['showinfo', 'showsearch', 'showdetails', 'tvshow', 'tv'],
 	examples: [
 		'westworld',
 		'game of thrones',
