@@ -72,7 +72,7 @@ module.exports = class View extends Command {
 				}],
 				timestamp: new Date(),
 				footer: {
-					text: paginator.showPage ? `Page ${paginator.page.current}/${paginator.page.total}` : null,
+					text: paginator.footer,
 				},
 			};
 

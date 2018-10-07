@@ -12,6 +12,10 @@
 			"description": "Embeds a message with advanced options.",
 			"usage": "[options]"
 		},
+		"discrim": {
+			"description": "Gets users with a discriminator that matches yours.",
+			"usage": "<discriminator>"
+		},
 		"avatar": {
 			"base": {
 				"description": "Gets (the servers)/(a users) avatar.",
@@ -1089,6 +1093,11 @@
 		"advancedembed": {
 			"unsupportedColor": "`{0}` is not a supported color format.",
 			"error": "Error validating embed: `{0}`."
+		},
+		"discrim": {
+			"title": "Users with a #{0} Discriminator",
+			"invalid": "`{0}` is not a valid discriminator.",
+			"none": "There are no users in this server with that discriminator."
 		}
 	}
 }

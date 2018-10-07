@@ -21,6 +21,10 @@ module.exports = class Paginator extends Responder {
 		return this.page.enabled && this.page.total !== 1;
 	}
 
+	get footer() {
+		return this.showPages ? `Page ${this.page.current}/${this.page.total}` : null;
+	}
+
 	/**
 	 * Adds page buttons to the message and updates it on change.
 	 * @param {Object} opts options

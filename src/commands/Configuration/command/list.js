@@ -46,7 +46,7 @@ module.exports = class List extends Command {
 				description: ['command.list.embed.description', msg.guild.name],
 				timestamp: new Date(),
 				footer: {
-					text: paginator.showPage ? `Page ${paginator.page.current}/${paginator.page.total}` : null,
+					text: paginator.footer,
 				},
 				fields,
 			};
