@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"inrole": {
+			"description": "Lists users in a role.",
+			"usage": "[role]"
+		},
 		"google": {
 			"description": "Searches Google for stuffs.",
 			"usage": "<search>"
@@ -1110,6 +1114,12 @@
 		"google": {
 			"noArgs": "Please include something to search for.",
 			"noResults": "I couldn't find anything when searching for that."
+		},
+		"inrole": {
+			"noArgs": "You have to provide a role name/mention to lookup.",
+			"noRole": "I could not find a role matching `{0}`.",
+			"noOne": "That role does not have any members.",
+			"title": "Members in the {0} Role"
 		}
 	}
 }

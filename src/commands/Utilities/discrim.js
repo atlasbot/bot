@@ -25,7 +25,7 @@ module.exports = class Discrim extends Command {
 		return responder.paginate({
 			user: msg.author.id,
 		}, (paginator) => {
-			const page = this.Atlas.lib.utils.paginateArray(matching, paginator.page.current, 4);
+			const page = this.Atlas.lib.utils.paginateArray(matching, paginator.page.current, 6);
 			// set the total page count once it's been (re)calculated
 			paginator.page.total = page.totalPages;
 
