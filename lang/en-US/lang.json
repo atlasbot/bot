@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"inviteinfo": {
+			"description": "Gets information about an invite.",
+			"usage": "<invite code/link>"
+		},
 		"inrole": {
 			"description": "Lists users in a role.",
 			"usage": "[role]"
@@ -1120,6 +1124,27 @@
 			"noRole": "I could not find a role matching `{0}`.",
 			"noOne": "That role does not have any members.",
 			"title": "Members in the {0} Role"
+		},
+		"inviteinfo": {
+			"invalid": "`{0}` is not a valid invite link or code.",
+			"title": "Invite Info for {0}",
+			"guild": {
+				"name": "Server Name"
+			},
+			"inviter": {
+				"name": "Inviter"
+			},
+			"channel": {
+				"name": "Channel",
+				"value": "{0} ({1})"
+			},
+			"owner": {
+				"name": "Owner"
+			},
+			"memberCount": {
+				"name": "Member Count",
+				"value": "{0} ({1} online)"
+			}
 		}
 	}
 }

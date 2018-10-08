@@ -10,9 +10,8 @@ module.exports = class Invites extends Filter {
 
 	execute(str) {
 		// remove spaces, incase people thing putting spaces in the invite will work :^)
-		str = str.split(' ').join('');
-		const inviteRegex = /discord(?:app\.com\/invite|\.gg)\/([\w-]{2,255})/i;
-		const match = inviteRegex.exec(str);
+		const match = this.Atlas.constants.inviteRegex.exec(str.split(/ +/g).join(''));
+
 		if (match && match[1]) {
 			return !!match[1];
 		}

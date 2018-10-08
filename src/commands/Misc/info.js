@@ -49,7 +49,6 @@ module.exports = class Info extends Command {
 				},
 			],
 			timestamp: new Date(),
-			urlFallback: (text, url) => url,
 		}).send();
 	}
 };
