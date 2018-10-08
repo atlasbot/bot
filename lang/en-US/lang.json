@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"minecraft": {
+			"description": "Checks the status of a Minecraft server.",
+			"usage": "<server ip>"
+		},
 		"memberCount": {
 			"description": "Shows information about the servers member count."
 		},
@@ -1164,6 +1168,24 @@
 			"dnd": "Do not Disturb",
 			"offline": "Offline",
 			"bots": "Bots"
+		},
+		"minecraft": {
+			"noArgs": "Please include a server IP.",
+			"invalidIP": "`{0}` is not a valid Minecraft IP.",
+			"uptime": {
+				"name": "Uptime"
+			},
+			"players": {
+				"name": "Players",
+				"value": "{0}/{1}"
+			},
+			"software": {
+				"name": "Software"
+			},
+			"lastChecked": "Via mcapi.us  •  last checked",
+			"status": "Status",
+			"online": "Online",
+			"offline": "Offline"
 		}
 	}
 }
