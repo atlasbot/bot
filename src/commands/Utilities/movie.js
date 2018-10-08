@@ -91,4 +91,9 @@ module.exports.info = {
 		'the avengers',
 		'justice league',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

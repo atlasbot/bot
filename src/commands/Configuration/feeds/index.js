@@ -22,6 +22,9 @@ module.exports.info = {
 		'feed',
 	],
 	permissions: {
+		bot: {
+			embedLinks: true,
+		},
 		user: {
 			manageGuild: true,
 		},

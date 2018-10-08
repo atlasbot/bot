@@ -73,4 +73,9 @@ module.exports.info = {
 		'whois',
 		'remindme',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

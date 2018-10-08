@@ -21,4 +21,9 @@ module.exports = class StarterPack extends Command {
 module.exports.info = {
 	name: 'starterpack',
 	aliases: ['sp'],
+	pemrissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

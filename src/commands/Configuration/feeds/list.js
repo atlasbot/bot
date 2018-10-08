@@ -52,6 +52,7 @@ module.exports.info = {
 			manageGuild: true,
 		},
 		bot: {
+			embedLinks: true,
 			manageWebhooks: true,
 		},
 	},

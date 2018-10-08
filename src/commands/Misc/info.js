@@ -56,4 +56,9 @@ module.exports = class Info extends Command {
 module.exports.info = {
 	name: 'info',
 	aliases: ['credits'],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

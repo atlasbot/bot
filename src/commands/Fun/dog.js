@@ -21,4 +21,9 @@ module.exports = class Dog extends Command {
 module.exports.info = {
 	name: 'dog',
 	aliases: ['dogs'],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

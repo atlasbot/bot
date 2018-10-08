@@ -64,4 +64,9 @@ module.exports.info = {
 		'5 minutes',
 		'2 minutes 30 seconds',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

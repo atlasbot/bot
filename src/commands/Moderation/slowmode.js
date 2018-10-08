@@ -57,6 +57,7 @@ module.exports.info = {
 			manageChannels: true,
 		},
 		bot: {
+			embedLinks: true,
 			manageChannels: true,
 		},
 	},

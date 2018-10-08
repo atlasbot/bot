@@ -55,4 +55,9 @@ module.exports.info = {
 		'america',
 		'new york',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

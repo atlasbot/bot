@@ -40,11 +40,14 @@ module.exports = class Captcha extends Command {
 				text: 'general.poweredBy.nekobot',
 			},
 		};
-		responder.embed(embed).send();
+
 		this.cache.set(user.id, embed);
+
 		setTimeout(() => {
 			this.cache.delete(user.id);
 		}, 30 * 60 * 1000);
+
+		return responder.embed(embed).send();
 	}
 };
 
@@ -57,4 +60,9 @@ module.exports.info = {
 		'@Sylver',
 	],
 	guildOnly: true,
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

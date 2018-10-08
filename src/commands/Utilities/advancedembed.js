@@ -106,4 +106,12 @@ module.exports.info = {
 		name: 'timestamp',
 		desc: 'Whether or not to add a timestamp to the embed.',
 	}],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+		user: {
+			embedLinks: true,
+		},
+	},
 };

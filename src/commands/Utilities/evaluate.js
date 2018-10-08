@@ -59,5 +59,8 @@ module.exports.info = {
 		user: {
 			administrator: true,
 		},
+		bot: {
+			embedLinks: true,
+		},
 	},
 };

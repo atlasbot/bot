@@ -56,4 +56,9 @@ module.exports.info = {
 		'@Random',
 	],
 	guildOnly: true,
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

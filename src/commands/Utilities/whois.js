@@ -92,4 +92,9 @@ module.exports.info = {
 	examples: [
 		'@Sylver',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

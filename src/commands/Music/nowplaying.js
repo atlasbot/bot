@@ -49,4 +49,9 @@ module.exports.info = {
 		'np',
 		'track',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

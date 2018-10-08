@@ -24,4 +24,9 @@ module.exports = class Neat extends Command {
 module.exports.info = {
 	name: 'neat',
 	aliases: ['iaf'],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

@@ -31,4 +31,12 @@ module.exports.info = {
 		'wew',
 		'hey this looks pretty neato',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+		user: {
+			embedLinks: true,
+		},
+	},
 };

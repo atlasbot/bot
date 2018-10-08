@@ -57,4 +57,9 @@ module.exports.info = {
 		'trump',
 		'bad jokes',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

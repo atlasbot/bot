@@ -121,4 +121,9 @@ module.exports.info = {
 	],
 	aliases: ['add', 'qplaylist', 'qp', 'queueplaylist', 'queuep'],
 	guildOnly: true,
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

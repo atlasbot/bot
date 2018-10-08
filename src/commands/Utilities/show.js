@@ -87,4 +87,9 @@ module.exports.info = {
 		'westworld',
 		'game of thrones',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

@@ -29,6 +29,9 @@ module.exports.info = {
 	],
 	ignoreStyleRules: true,
 	permissions: {
+		bot: {
+			embedLinks: true,
+		},
 		user: {
 			manageGuild: true,
 		},

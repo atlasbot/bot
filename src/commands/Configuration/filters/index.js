@@ -26,6 +26,7 @@ module.exports.info = {
 			manageMessages: true,
 		},
 		bot: {
+			embedLinks: true,
 			manageMessages: true,
 		},
 	},

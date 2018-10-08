@@ -85,6 +85,7 @@ module.exports.info = {
 			banMembers: true,
 		},
 		bot: {
+			embedLinks: true,
 			banMembers: true,
 		},
 	},

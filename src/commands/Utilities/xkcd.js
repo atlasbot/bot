@@ -35,4 +35,9 @@ module.exports = class XKCD extends Command {
 
 module.exports.info = {
 	name: 'xkcd',
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

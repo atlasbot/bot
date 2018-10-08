@@ -21,4 +21,9 @@ module.exports = class Cat extends Command {
 module.exports.info = {
 	name: 'cat',
 	aliases: ['cats', 'kitten', 'kittens'],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

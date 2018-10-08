@@ -55,4 +55,9 @@ module.exports.info = {
 	aliases: [
 		'show',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };
