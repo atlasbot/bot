@@ -8,6 +8,9 @@
 		]
 	},
 	"info": {
+		"randomcolor": {
+			"description": "Generates a random color."
+		},
 		"quote": {
 			"description": "Quote a message by a user.",
 			"usage": "<message id / message share link>"
@@ -1196,6 +1199,7 @@
 			"noMessage": "I could not find any message matching that :c",
 			"invalidType": "This command only supports text messages.",
 			"invalidMsg": "That message does not have any contents or an image attached."
-		}
+		},
+		"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})"
 	}
 }
