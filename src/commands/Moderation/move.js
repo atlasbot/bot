@@ -35,7 +35,7 @@ module.exports = class Move extends Command {
 					guild: msg.guild,
 					user: msg.author,
 					channel: msg.channel,
-					lang: msg.lang,
+					responder,
 				});
 			} else {
 				return responder.error('move.noMessageOrPerms').send();
@@ -77,26 +77,6 @@ module.exports = class Move extends Command {
 		targetMsg.delete().catch(() => false);
 
 		return responder.text('move.success', channel.mention).send();
-	}
-
-	awaitEmoji(guild, user) {
-		return new Promise((resolve, reject) => {
-			const collector = new this.Atlas.structs.EmojiCollector();
-
-			collector
-				.user(user)
-				.emoji([
-					'📦',
-				])
-				.exec(msg => resolve(msg))
-				.listen();
-
-			setTimeout(() => {
-				collector.destroy();
-
-				return reject();
-			}, 20 * 1000);
-		});
 	}
 };
 

@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"quote": {
+			"description": "Quote a message by a user.",
+			"usage": "<message id / message share link>"
+		},
 		"minecraft": {
 			"description": "Checks the status of a Minecraft server.",
 			"usage": "<server ip>"
@@ -1186,6 +1190,12 @@
 			"status": "Status",
 			"online": "Online",
 			"offline": "Offline"
+		},
+		"quote": {
+			"noArgs": "Please include a message ID or share link.",
+			"noMessage": "I could not find any message matching that :c",
+			"invalidType": "This command only supports text messages.",
+			"invalidMsg": "That message does not have any contents or an image attached."
 		}
 	}
 }

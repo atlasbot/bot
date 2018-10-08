@@ -215,9 +215,6 @@ module.exports = class Util {
 		message = 'general.messageQuery',
 		responder = new this.Atlas.structs.Responder(channel, lang),
 	}) {
-		if (!channel.permissionsOf(user.id).json.addReactions) {
-			throw new Error('User does not have permissions to add reactions in that channel.');
-		}
 		const emojiInfo = this.Atlas.lib.utils.emoji(emoji);
 		try {
 			const queryMsg = await responder.text(message, emoji, emojiInfo.names[0]).send();
