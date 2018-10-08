@@ -8,6 +8,9 @@
 		]
 	},
 	"info": {
+		"memberCount": {
+			"description": "Shows information about the servers member count."
+		},
 		"joined": {
 			"description": "Find out when a user joined the server."
 		},
@@ -1153,6 +1156,14 @@
 			"noArgs": "Please include a user to check.",
 			"noUser": "I could not find a user matching `{0}`.",
 			"message": "{0} joined {1} at {2}."
+		},
+		"membercount": {
+			"total": "Total",
+			"online": "Online",
+			"idle": "Idle",
+			"dnd": "Do not Disturb",
+			"offline": "Offline",
+			"bots": "Bots"
 		}
 	}
 }
