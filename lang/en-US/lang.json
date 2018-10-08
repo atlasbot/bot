@@ -8,6 +8,9 @@
 		]
 	},
 	"info": {
+		"joined": {
+			"description": "Find out when a user joined the server."
+		},
 		"inviteinfo": {
 			"description": "Gets information about an invite.",
 			"usage": "<invite code/link>"
@@ -1145,6 +1148,11 @@
 				"name": "Member Count",
 				"value": "{0} ({1} online)"
 			}
+		},
+		"joined": {
+			"noArgs": "Please include a user to check.",
+			"noUser": "I could not find a user matching `{0}`.",
+			"message": "{0} joined {1} at {2}."
 		}
 	}
 }
