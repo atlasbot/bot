@@ -21,7 +21,7 @@ module.exports = class Show extends Command {
 				detail: 'full',
 				apiKey: process.env.OMDBAPI_KEY,
 			});
-			
+
 		if (body.Error) {
 			throw new Error(body.Error);
 		}

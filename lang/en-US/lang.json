@@ -8,6 +8,9 @@
 		]
 	},
 	"info": {
+		"someone": {
+			"description": "Mentions a random user."
+		},
 		"randomcolor": {
 			"description": "Generates a random color."
 		},
