@@ -54,75 +54,82 @@ module.exports = class Paginator extends Responder {
 	}
 
 	async send() {
-		if (this.page.enabled) {
-			this._data.embed = this._parseObject(await this.page.generator(this));
+		if (!this.page.enabled || this.embedMsg) {
+			return super.send();
+		}
+
+		this._data.embed = this._parseObject(await this.page.generator(this));
+
+		if (!this.showPages) {
+			return super.send();
 		}
 
 		const res = await super.send();
 
-		try {
-			if (this.page.enabled && !this.embedMsg && this.showPages) {
-				this.embedMsg = res;
+		this.embedMsg = res;
 
-				const emojis = [
-					'⬅',
-					'➡',
-				];
+		const emojis = [
+			'⬅',
+			'➡',
+		];
 
-				if (this.page.startAndEndSkip) {
-					emojis.unshift('⏮');
-					emojis.push('⏭');
-				}
-				this.collector = new EmojiCollector();
-				this.collector
-					.msg(res)
-					.user(this.page.user)
-					.emoji(emojis)
-					.remove(true)
-					.add(this.showPages)
-					.exec((ignore, emoji) => {
-						switch (emoji.name) {
-							// todo: this needs improvement
-							// fixme: has issues when going forward then back twice
-							case '⬅':
-								this.page.current--;
-
-								return this.updatePage();
-							case '➡':
-								this.page.current++;
-
-								return this.updatePage();
-							case '⏮':
-								if (this.page.startAndEndSkip) {
-									if (this.page.current === 1) {
-										return this.error('general.noMorePages', `<@${this.page.user}>`).send();
-									}
-									this.page.current = 1;
-
-									return this.updatePage();
-								}
-								break;
-							case '⏭':
-								if (this.page.startAndEndSkip) {
-									if (this.page.current >= this.page.total) {
-										return this.error('general.noMorePages', `<@${this.page.user}>`).send();
-									}
-									this.page.current = this.page.total;
-
-									return this.updatePage();
-								}
-								break;
-							default:
-								return this.error('general.noMorePages', `<@${this.page.user}>`).send();
+		if (this.page.startAndEndSkip) {
+			emojis.unshift('⏮');
+			emojis.push('⏭');
+		}
+		this.collector = new EmojiCollector();
+		this.collector
+			.msg(res)
+			.user(this.page.user)
+			.emoji(emojis)
+			.remove(true)
+			.add(this.showPages)
+			.exec((ignore, emoji) => {
+				switch (emoji.name) {
+					// todo: this needs improvement
+					// fixme: has issues when going forward then back twice
+					case '⬅':
+						if (this.page.current <= 1) {
+							return this.error('general.noMorePages', `<@${this.page.user}>`).send();
 						}
-					});
 
-				if (this.page.listen) {
-					await this.collector.listen();
+						this.page.current--;
+
+						return this.updatePage();
+					case '➡':
+						if (this.page.current >= this.page.total) {
+							return this.error('general.noMorePages', `<@${this.page.user}>`).send();
+						}
+						this.page.current++;
+
+						return this.updatePage();
+					case '⏮':
+						if (this.page.startAndEndSkip) {
+							if (this.page.current === 1) {
+								return this.error('general.noMorePages', `<@${this.page.user}>`).send();
+							}
+							this.page.current = 1;
+
+							return this.updatePage();
+						}
+						break;
+					case '⏭':
+						if (this.page.startAndEndSkip) {
+							if (this.page.current >= this.page.total) {
+								return this.error('general.noMorePages', `<@${this.page.user}>`).send();
+							}
+							this.page.current = this.page.total;
+
+							return this.updatePage();
+						}
+						break;
+					default:
+						return this.error('general.noMorePages', `<@${this.page.user}>`).send();
 				}
-			}
-		} catch (e) {
-			console.error(e);
+			});
+
+		if (this.page.listen) {
+			await this.collector.listen();
 		}
 
 		return res;

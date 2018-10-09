@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"reddit": {
+			"description": "Gets information about a subreddit.",
+			"usage": "<subreddit>"
+		},
 		"someone": {
 			"description": "Mentions a random user."
 		},
@@ -1203,6 +1207,11 @@
 			"invalidType": "This command only supports text messages.",
 			"invalidMsg": "That message does not have any contents or an image attached."
 		},
-		"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})"
+		"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
+		"reddit": {
+			"noArgs": "Please include a subreddit name.",
+			"over18": "That subreddit is NSFW. Please use an NSFW channel.",
+			"invalid": "I could not find a subreddit with the name `{0}`."
+		}
 	}
 }

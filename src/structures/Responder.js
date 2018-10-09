@@ -236,7 +236,11 @@ class Responder {
 			const existing = this.Atlas.sent.find(c => c.channel === data.channelID && c.str === data.str);
 			if (existing) {
 				try {
-					await existing.msg.edit(`${existing.msg.content} (x${existing.edited + 1})`);
+					if (existing.edited < 4) {
+						await existing.msg.edit(`${existing.msg.content} (x${existing.edited + 1})`);
+					} else if (existing.edited === 4) {
+						await existing.msg.edit(`${existing.msg.content} (its time to stop)`);
+					}
 
 					existing.edited++;
 				} catch (e) {
@@ -271,7 +275,7 @@ class Responder {
 
 			setTimeout(() => {
 				this.Atlas.sent = this.Atlas.sent.filter(s => s.msg.id !== msg.id);
-			}, (data._ttl || 11000) - 1000);
+			}, (data._ttl || 16000) - 1000);
 		}
 
 		if (data._ttl && data._ttl > 0) {
