@@ -44,7 +44,7 @@ module.exports = class InRole extends Command {
 				timestamp: new Date(),
 				fields: [],
 				footer: {
-					text: paginator.footer,
+					text: paginator.showPages ? `${members.length} total • ${paginator.footer.toLowerCase()}` : `${members.length} total`,
 				},
 			};
 
@@ -53,7 +53,6 @@ module.exports = class InRole extends Command {
 				const col2 = col1.splice(0, Math.floor(page.data.length / 2));
 
 				embed.fields.push({
-					// This has a zero-width character in it
 					name: ['inrole.title', role.name],
 					value: col1.map(({ tag }) => `• ${tag}`).join('\n'),
 					inline: true,
@@ -81,6 +80,7 @@ module.exports.info = {
 	examples: [
 		'@role',
 	],
+	aliases: ['rolecount'],
 	guildOnly: true,
 	permissions: {
 		bot: {
