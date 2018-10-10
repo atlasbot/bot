@@ -1,7 +1,7 @@
 const { Role, Channel } = require('eris');
 const Command = require('../../structures/Command.js');
 
-module.exports = class InRole extends Command {
+module.exports = class ID extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -13,13 +13,9 @@ module.exports = class Event {
 		const changes = [];
 
 		if (role.color !== oldRole.color) {
-			const newColor = role.color
-				? role.color.toString(16)
-				: this.Atlas.colors.get('ROLE DEFAULT').decimal.toString(16);
+			const newColor = this.Atlas.lib.utils.roleColor(role.color);
 
-			const oldColor = oldRole.color
-				? oldRole.color.toString(16)
-				: this.Atlas.colors.get('ROLE DEFAULT').decimal.toString(16);
+			const oldColor = this.Atlas.lib.utils.roleColor(oldRole.color);
 
 			changes.push({
 				name: 'general.logs.guildRoleUpdate.colorChange.name',

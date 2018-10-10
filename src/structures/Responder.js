@@ -7,9 +7,10 @@ class Responder {
 	/**
      * Creates a new responder.
      * @param {string|Object} data The channel ID, channel object or message object to pull the channel from.
-	 * @param {string} lang The lang to use when sending messages. Overrides "data.lang"
+		 * @param {string} lang The lang to use when sending messages. Overrides "data.lang"
+		 * @param {string} keyPrefix A prefix to add before any keys.
      */
-	constructor(data, lang) {
+	constructor(data, lang, keyPrefix) {
 		let channelID;
 		if (data) {
 			if (data.channel) {
@@ -21,6 +22,8 @@ class Responder {
 			}
 		}
 
+		this.keyPrefix = keyPrefix;
+
 		this._data = {
 			channelID,
 			lang: lang || (data && data.lang),
@@ -31,6 +34,7 @@ class Responder {
 			edit: null,
 			noDupe: true,
 			localised: false,
+			validateEmbed: true,
 		};
 
 		this.Atlas = require('./../../Atlas');
@@ -154,10 +158,16 @@ class Responder {
 			};
 		}
 
-		const val = this.Atlas.util.format(obj.language || this._data.lang, obj.key, ...replacements);
+		let val;
+		if (this.keyPrefix) {
+			val = this.Atlas.util.format(obj.language || this._data.lang, `${this.keyPrefix}.${obj.key}`, ...replacements);
+		}
 
-		if (!val && !obj.noThrow) {
-			throw new Error(`No language value matching key "${obj.key}"`);
+		if (!val) {
+			val = this.Atlas.util.format(obj.language || this._data.lang, obj.key, ...replacements);
+			if (!val && !obj.noThrow) {
+				throw new Error(`No language value matching key "${obj.key}"`);
+			}
 		}
 
 		if (obj.stringOnly && typeof val !== 'string') {
@@ -205,10 +215,12 @@ class Responder {
 	/**
      * Adds an embed to the message.
      * @param {Object} embed The embed to send.
+		 * @param {boolean} validate Whether or not to validate the embed
      * @returns {Responder} The current responder instance
      */
-	embed(embed) {
+	embed(embed, validate = true) {
 		this._data.embed = embed;
+		this._data.validateEmbed = validate;
 
 		return this;
 	}
@@ -253,8 +265,11 @@ class Responder {
 
 		if (data.embed) {
 			data.embed = this._parseObject(data.embed, data.lang);
-			// will throw if it doesn't work correctly
-			this.validateEmbed(data.embed);
+
+			if (data.validateEmbed) {
+				// will throw if it doesn't work correctly
+				this.validateEmbed(data.embed);
+			}
 		}
 
 		const msg = await (data.edit ? data.edit.edit({
@@ -306,7 +321,7 @@ class Responder {
 			if ({}.hasOwnProperty.call(obj, key)) {
 				let val = obj[key];
 				if (typeof val === 'string') {
-					if (!val.includes(' ') && val.includes('.') && !this.Atlas.lib.utils.isUri(val)) {
+					if (!val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
 						val = this.format({
 							key: val,
 							noThrow: true,
