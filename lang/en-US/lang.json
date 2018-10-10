@@ -8,6 +8,9 @@
 		]
 	},
 	"info": {
+		"serverinfo": {
+			"description": "Gets information about the server."
+		},
 		"say": {
 			"description": "Makes Atlas say whatever you want.",
 			"usage": "[text]"
@@ -1265,6 +1268,33 @@
 		},
 		"say": {
 			"noArgs": "You have to include something for me to say."
+		},
+		"serverinfo": {
+			"name": {
+				"name": "Name"
+			},
+			"textChannels": {
+				"name": "Text Channels"
+			},
+			"voiceChannels": {
+				"name": "Voice Channels"
+			},
+			"verificationLevel": {
+				"name": "Verification Level"
+			},
+			"region": {
+				"name": "Region"
+			},
+			"roles": {
+				"name": "Roles"
+			},
+			"members": {
+				"name": "Members"
+			},
+			"owner": {
+				"name": "Owner"
+			},
+			"footer": "Created"
 		}
 	}
 }

@@ -108,6 +108,28 @@ module.exports = {
 		key: 'wtu',
 		type: 3,
 	}],
+	verificationLevels: [
+		{
+			level: 0,
+			text: 'None',
+		},
+		{
+			level: 1,
+			text: 'Low',
+		},
+		{
+			level: 2,
+			text: 'Medium',
+		},
+		{
+			level: 3,
+			text: '(╯°□°）╯︵ ┻━┻',
+		},
+		{
+			level: 4,
+			text: '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻',
+		},
+	],
 };
 
 module.exports.colors.get = (color) => {
