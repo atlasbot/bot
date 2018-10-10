@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"shorten": {
+			"description": "Shortens a URL via is.gd.",
+			"usage": "[url]"
+		},
 		"serverinfo": {
 			"description": "Gets information about the server."
 		},
@@ -1295,6 +1299,10 @@
 				"name": "Owner"
 			},
 			"footer": "Created"
+		},
+		"shorten": {
+			"noArgs": "Please include a URL.",
+			"invalidURI": "`{0}` is not a valid URL."
 		}
 	}
 }
