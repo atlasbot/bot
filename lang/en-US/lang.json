@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"time": {
+			"description": "Gets the time for a timezone.",
+			"usage": "[location]"
+		},
 		"shorten": {
 			"description": "Shortens a URL via is.gd.",
 			"usage": "[url]"
@@ -1303,6 +1307,11 @@
 		"shorten": {
 			"noArgs": "Please include a URL.",
 			"invalidURI": "`{0}` is not a valid URL."
+		},
+		"time": {
+			"noArgs": "Please include a location to get the time for.",
+			"noTimezone": "I could not find a town or city matching `{0}`.",
+			"success": "It is currently {0} in {1}."
 		}
 	}
 }
