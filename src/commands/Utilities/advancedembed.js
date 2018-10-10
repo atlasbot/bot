@@ -60,7 +60,7 @@ module.exports = class AdvancedEmbed extends Command {
 			return responder.error('advancedembed.error', error.message).send();
 		}
 
-		return responder.localised(true).embed(embed).send();
+		return responder.localised().embed(embed).send();
 	}
 };
 

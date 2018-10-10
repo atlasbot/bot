@@ -25,6 +25,8 @@ module.exports = class Say extends Command {
 			responder.channel(channel);
 		}
 
+		responder.localised();
+
 		let text = args.join(' ');
 
 		if (msg.member && !msg.member.permission.has('manageMessages')) {

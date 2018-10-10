@@ -20,7 +20,7 @@ module.exports = class Eval extends Command {
 		settings, // eslint-disable-line no-unused-vars
 		parsedArgs,
 	}) {
-		const responder = (new this.Atlas.structs.Responder(msg)).localised(true).noDupe(false);
+		const responder = (new this.Atlas.structs.Responder(msg)).localised().noDupe(false);
 		if (msg.author.id !== process.env.OWNER) {
 			return responder.error('no u').send();
 		}

@@ -18,7 +18,7 @@ module.exports = class EightBall extends Command {
 		const response = this.Atlas.lib.utils.pickOne(responses);
 
 		return responder
-			.localised(true)
+			.localised()
 			.text(response)
 			.send();
 	}

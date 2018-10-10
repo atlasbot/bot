@@ -24,7 +24,7 @@ module.exports = class WouldYouRather extends Command {
 
 		const { sentence } = await this.get(msg.channel.nsfw);
 
-		const reactionMsg = await responder.localised(true).text(`Would you rather - ${sentence}`).send();
+		const reactionMsg = await responder.localised().text(`Would you rather - ${sentence}`).send();
 
 		if ((msg.guild && msg.guild.me.permission.json.addReactions)) {
 			try {

@@ -16,7 +16,7 @@ module.exports = class YesNo extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 		const { body } = await this.prefetcher.get();
 
-		return responder.localised(true).embed({
+		return responder.localised().embed({
 			title: this.Atlas.lib.utils.capitalize(body.answer),
 			image: {
 				url: body.image,

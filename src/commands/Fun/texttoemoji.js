@@ -17,7 +17,7 @@ module.exports = class TextToEmoji extends Command {
 		const { emojiNumbers } = this.Atlas.constants;
 
 		return responder
-			.localised(true)
+			.localised()
 			.text(
 				args.join('   ')
 					.replace(/[A-z]/g, m => `:regional_indicator_${m.toLowerCase()}:`)

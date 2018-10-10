@@ -9,7 +9,7 @@ module.exports = class TagEval extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = (new this.Atlas.structs.Responder(msg)).noDupe(false).localised(true);
+		const responder = (new this.Atlas.structs.Responder(msg)).noDupe(false).localised();
 
 		if (!args[0]) {
 			return responder.error('You have to include something to evaluate!').send();
@@ -42,7 +42,7 @@ module.exports = class TagEval extends Command {
 				.send();
 		}
 
-		return responder.text(`\`\`\`${output}\`\`\``).localised(true).send();
+		return responder.text(`\`\`\`${output}\`\`\``).localised().send();
 	}
 };
 

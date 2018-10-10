@@ -18,7 +18,7 @@ module.exports = class Advice extends Command {
 		const res = await this.prefetcher.get();
 		const body = JSON.parse(res.body);
 
-		return responder.localised(true).text(body.slip.advice).send();
+		return responder.localised().text(body.slip.advice).send();
 	}
 };
 

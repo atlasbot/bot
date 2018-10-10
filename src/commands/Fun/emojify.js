@@ -34,7 +34,7 @@ module.exports = class Emojify extends Command {
 		}
 		const str = converted.join(' ');
 
-		return responder.localised(true).text(str).send();
+		return responder.localised().text(str).send();
 	}
 };
 

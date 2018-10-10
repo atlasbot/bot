@@ -10,7 +10,7 @@ module.exports = class Someone extends Command {
 
 		const member = this.Atlas.lib.utils.pickOne(Array.from(msg.guild.members.values()));
 
-		return responder.localised(true).text(member.mention).send();
+		return responder.localised().text(member.mention).send();
 	}
 };
 

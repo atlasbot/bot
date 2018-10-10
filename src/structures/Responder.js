@@ -55,7 +55,7 @@ class Responder {
 	 * @param {boolean} bool whether or not to localise new textw one when possible
      * @returns {Responder} The current responder instance
 	 */
-	localised(bool) {
+	localised(bool = true) {
 		this._data.localised = bool;
 
 		return this;

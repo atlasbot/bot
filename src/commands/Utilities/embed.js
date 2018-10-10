@@ -14,7 +14,7 @@ module.exports = class Embed extends Command {
 			return responder.error('embed.noArgs').send();
 		}
 
-		return responder.localised(true).embed({
+		return responder.localised().embed({
 			description: args.join(' '),
 			timestamp: new Date(),
 			footer: {

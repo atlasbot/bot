@@ -17,7 +17,7 @@ module.exports = class CatFact extends Command {
 
 		const res = await this.prefetcher.get();
 
-		return responder.localised(true).text(res.body.text).send();
+		return responder.localised().text(res.body.text).send();
 	}
 };
 
