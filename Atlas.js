@@ -172,10 +172,12 @@ module.exports = class Atlas {
 		console.log(`Loaded ${this.langs.size} languages`);
 
 		// set the bot status
-		this.client.editStatus('online', {
-			name: `${this.version} "Antares" | Development Version`,
-			type: 0,
-		});
+		if (process.env.STATUS) {
+			this.client.editStatus('online', {
+				name: process.env.STATUS.split('{version}').join(this.version),
+				type: 0,
+			});
+		}
 
 		// setup the player
 		if (!(this.client.voiceConnections instanceof EPM)) {
