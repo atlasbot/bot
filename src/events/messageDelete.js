@@ -7,6 +7,12 @@ module.exports = class Event {
 		this.Atlas.sent = this.Atlas.sent.filter(s => s.msg.id !== msg.id);
 
 		if (msg.type === 0 && msg.guild && !msg.author.bot) {
+			if (this.Atlas.deleteAliases.has(msg.id)) {
+				const x = this.Atlas.deleteAliases.get(msg.id);
+
+				this.Atlas.client.deleteMessage(x.channel, x.msg).catch(console.error);
+			}
+
 			const settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
 			if (!settings.actionLogChannel) {

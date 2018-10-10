@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"say": {
+			"description": "Makes Atlas say whatever you want.",
+			"usage": "[text]"
+		},
 		"roleinfo": {
 			"description": "Gets information about a server role.",
 			"usage": "[role]"
@@ -1258,6 +1262,9 @@
 			"yes": "Yes",
 			"no": "No",
 			"footer": "Created At"
+		},
+		"say": {
+			"noArgs": "You have to include something for me to say."
 		}
 	}
 }

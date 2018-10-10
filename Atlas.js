@@ -102,6 +102,9 @@ module.exports = class Atlas {
 			},
 		};
 
+		// when a message ID matching the key is deleted, delete the map value (another ID)
+		this.deleteAliases = new Map();
+
 		this.version = require('./package.json').version;
 
 		this.lib = lib;
