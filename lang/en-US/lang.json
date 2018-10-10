@@ -8,6 +8,10 @@
 		]
 	},
 	"info": {
+		"id": {
+			"description": "Gets the ID of a channel, role, user, guild, etc...",
+			"usage": "[channel/role/user/\"guild\"]"
+		},
 		"reddit": {
 			"description": "Gets information about a subreddit.",
 			"usage": "<subreddit>"
@@ -1212,6 +1216,13 @@
 			"noArgs": "Please include a subreddit name.",
 			"over18": "That subreddit is NSFW. Please use an NSFW channel.",
 			"invalid": "I could not find a subreddit with the name `{0}`."
+		},
+		"id": {
+			"noArgs": "Please include a role, user or channel.",
+			"noTarget": "I could not resolve `{0}` to a channel, role or user.",
+			"role": "The ID for the `@{0}` role is `{1}`.",
+			"channel": "{0}'s ID is `{1}`.",
+			"memberOrGuild": "{0}'s ID is `{1}`."
 		}
 	}
 }
