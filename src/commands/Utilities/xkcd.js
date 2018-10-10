@@ -12,11 +12,13 @@ module.exports = class XKCD extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const { num } = (await superagent.get('https://xkcd.com/info.0.json')).body;
+		const { num } = (await superagent.get('https://xkcd.com/info.0.json')
+			.set('User-Agent', this.Atlas.userAgent)).body;
 
 		const comicNum = (Math.floor(Math.random() * num) + 1);
 
-		const { body } = await superagent.get(`https://xkcd.com/${comicNum}/info.0.json`);
+		const { body } = await superagent.get(`https://xkcd.com/${comicNum}/info.0.json`)
+			.set('User-Agent', this.Atlas.userAgent);
 
 		return responder.embed({
 			title: body.safe_title,

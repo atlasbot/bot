@@ -26,15 +26,17 @@ module.exports = class Captcha extends Command {
 			return responder.embed(this.cache.get(user.id)).send();
 		}
 
-		const res = await superagent.get('https://nekobot.xyz/api/imagegen')
+		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
 				type: 'captcha',
 				url: user.avatarURL || user.defaultAvatarURL,
 				username: user.nick || user.username,
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
+
 		const embed = {
 			image: {
-				url: res.body.message,
+				url: body.message,
 			},
 			footer: {
 				text: 'general.poweredBy.nekobot',

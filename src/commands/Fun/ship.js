@@ -28,7 +28,9 @@ module.exports = class Ship extends Command {
 				type: 'ship',
 				user1: user1.avatarURL || user1.defaultAvatarURL,
 				user2: user2.avatarURL || user2.defaultAvatarURL,
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
+
 		const embed = {
 			title: `${user1.tag} x ${user2.tag}`,
 			image: {

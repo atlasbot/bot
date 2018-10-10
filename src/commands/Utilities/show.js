@@ -20,7 +20,8 @@ module.exports = class Show extends Command {
 				t: args.join(' '),
 				detail: 'full',
 				apiKey: process.env.OMDBAPI_KEY,
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		if (body.Error) {
 			throw new Error(body.Error);

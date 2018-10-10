@@ -24,7 +24,8 @@ module.exports = class Achievement extends Command {
 			.query({
 				i: item,
 				h: header,
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		return responder.file({
 			file: body,

@@ -17,7 +17,8 @@ module.exports = class Time extends Command {
 			.query({
 				q: `select * from geo.places(1) where text="${args.join(' ')}"`,
 				format: 'json',
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		if (!body.query.results || !body.query.results.place.timezone) {
 			return responder.error('noTimezone', args.join(' ')).send();

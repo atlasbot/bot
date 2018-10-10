@@ -40,7 +40,9 @@ module.exports = class Play extends Command {
 				identifier: `${!url ? 'ytsearch:' : ''}${query}`,
 			})
 			.set('Authorization', node.password)
-			.set('Accept', 'application/json');
+			.set('Accept', 'application/json')
+			// not really needed but meh
+			.set('User-Agent', this.Atlas.userAgent);
 
 		if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED') {
 			responder.error('play.noResults', query).send();

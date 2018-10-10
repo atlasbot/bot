@@ -27,7 +27,8 @@ module.exports = class trumpgen extends Command {
 			.query({
 				type: 'trumptweet',
 				text,
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		const embed = {
 			image: {

@@ -18,6 +18,7 @@ module.exports = class Weather extends Command {
 		const unit = 'c';
 
 		superagent.get('https://query.yahooapis.com/v1/public/yql?')
+			.set('User-Agent', this.Atlas.userAgent)
 			.query({
 				q: `select * from weather.forecast where u='${unit}' AND woeid in (select woeid from geo.places(1) where text="${args.join(' ')}")`,
 				format: 'json',

@@ -17,7 +17,8 @@ module.exports = class RandomUrban extends Command {
 		const { body } = await superagent.get('http://api.urbandictionary.com/v0/random')
 			.query({
 				term: args.join(' '),
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		const filter = this.Atlas.filters.get('cursing');
 

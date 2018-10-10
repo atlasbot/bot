@@ -32,6 +32,7 @@ module.exports = class BotInfo extends Command {
 				// try and search DBL for the query
 				const res = await superagent.get('https://discordbots.org/api/bots')
 					.set('Authorization', process.env.DISCORDBOTS_ORG_TOKEN)
+					.set('User-Agent', this.Atlas.userAgent)
 					.query({
 						search: args.join(' '),
 						limit: 10,
@@ -42,7 +43,8 @@ module.exports = class BotInfo extends Command {
 				target = await settings.findMember(body.id);
 			} else {
 				({ body } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
-					.set('Authorization', process.env.DISCORDBOTS_ORG_TOKEN));
+					.set('Authorization', process.env.DISCORDBOTS_ORG_TOKEN)
+					.set('User-Agent', this.Atlas.userAgent));
 			}
 
 			if (!target.bot) {

@@ -20,7 +20,8 @@ module.exports = class Google extends Command {
 				key: process.env.GOOGLE_KEY,
 				cx: process.env.GOOGLE_CX,
 				q: args.join(' '),
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		if (!body.items) {
 			return responder.error('google.noResults').send();

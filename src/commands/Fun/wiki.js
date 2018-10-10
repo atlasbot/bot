@@ -29,6 +29,7 @@ module.exports = class Wiki extends Command {
 				limit: '1',
 				suggest: true,
 			})
+			.set('User-Agent', this.Atlas.userAgent)
 			.then((res) => {
 				const [query, [title], [description], [url]] = res.body;
 				if (!title) {

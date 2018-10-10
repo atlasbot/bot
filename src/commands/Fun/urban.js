@@ -26,7 +26,8 @@ module.exports = class Urban extends Command {
 		const { body } = await superagent.get('http://api.urbandictionary.com/v0/define')
 			.query({
 				term: args.join(' '),
-			});
+			})
+			.set('User-Agent', this.Atlas.userAgent);
 
 		if (body.result_type === 'no_results') {
 			return responder.error('urban.noResults', args.join(' '));
