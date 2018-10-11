@@ -3,7 +3,9 @@ const cluster = require('cluster');
 const Worker = require('./Worker');
 const { version } = require('./../../../package.json');
 
-require('./../util/logger');
+const Logger = require('./../../../lib/Logger');
+
+const logger = new Logger(true); // eslint-disable-line no-unused-vars
 
 module.exports = class Manager {
 	constructor(token, entryPoint, {

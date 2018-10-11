@@ -1,6 +1,8 @@
 const Eris = require('eris');
 
-require('./../util/logger');
+const Logger = require('./../../../lib/Logger');
+
+const logger = new Logger(true); // eslint-disable-line no-unused-vars
 
 module.exports = class Cluster {
 	constructor() {

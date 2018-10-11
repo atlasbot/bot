@@ -140,7 +140,7 @@ module.exports = class Atlas {
 				}
 			});
 		} else {
-			console.log('No Sentry DSN found, error reporting will be disabled until the "SENTRY_DSN" environment variable is set.');
+			console.log('"SENTRY_DSN" env not found, error reporting disabled.');
 		}
 
 		const filters = await fs.readdir('src/filters');
