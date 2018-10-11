@@ -22,7 +22,7 @@ module.exports = class Queue extends Command {
 		}
 
 		const pageN = isNaN(args[0]) ? 1 : Number(args[0]);
-		const queue = player.upcoming;
+		const { queue } = player;
 		const np = player.track;
 
 		// fixme: this has random issues when going to certain pages

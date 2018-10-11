@@ -16,15 +16,18 @@ module.exports = class Next extends Command {
 		if (!voiceChannel) {
 			return responder.error('next.noPlayer').send();
 		}
+
 		const player = await this.Atlas.client.voiceConnections.getPlayer(voiceChannel, false);
 		if (!player || !player.isPlaying || !player.track) {
 			return responder.error('next.noPlayer').send();
-		} if (!player.queue[player.index + 1]) {
-			return responder.error('next.nothingNext');
+		}
+
+		if (!player.queue.length) {
+			return responder.error('next.nothingNext').send();
 		}
 
 		const { title } = player.track.info;
-		player.stop();
+		await player.stop();
 
 		return responder.text('next.success', title).send();
 	}

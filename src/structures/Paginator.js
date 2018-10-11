@@ -36,8 +36,8 @@ module.exports = class Paginator extends Responder {
 		user,
 		page = 1,
 		listen = true,
-		startAndEndSkip = true,
-		total,
+		total = this.page.total,
+		startAndEndSkip = total > 2,
 	} = {}, generator) {
 		this.page.generator = generator;
 		this.page.enabled = !!generator;

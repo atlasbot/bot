@@ -21,11 +21,10 @@ module.exports = class Play extends Command {
 			return responder.error('play.noVoiceChannel').send();
 		}
 
-		// TODO: get this working, it should handle shit if it's already playing in a vc
-		// const botVoiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
-		// if (botVoiceChannel && botVoiceChannel.members && botVoiceChannel.members.filter(m => !m.bot).length) {
-		// 	return responder.error('play.busy', botVoiceChannel.name).send();
-		// }
+		const botVoiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
+		if (botVoiceChannel && botVoiceChannel.members && botVoiceChannel.members.some(m => !m.bot)) {
+			return responder.error('play.busy', botVoiceChannel.name).send();
+		}
 
 		const node = await this.Atlas.client.voiceConnections.findIdealNode(msg.guild.region);
 		if (!node) {
@@ -60,8 +59,10 @@ module.exports = class Play extends Command {
 				const track = body.tracks[i];
 				// add the playlist URL to the track incase it's needed in the future
 				[track.info.playlist] = args;
+
 				await player.play(track, {
 					play: selected > -1 ? selected === i : true,
+					notify: false,
 					settings,
 					msg,
 				});
@@ -83,35 +84,6 @@ module.exports = class Play extends Command {
 			msg,
 			settings,
 		});
-
-		// if (player.isPlaying) {
-		const queueLength = player.upcoming.reduce((a, b) => a + b.info.length, 0);
-
-		// if it's playing then the player won't handle the now playing message
-		// so let's just make sure the user knows it was added
-		return player.responder.embed({
-			title: 'Song Queued',
-			description: `[${track.info.title}](${track.info.uri})`,
-			fields: [{
-				name: 'Author',
-				value: track.info.author,
-				inline: true,
-			}, {
-				// todo: hide if it's the first song being added, show something instead
-				name: 'Time Until Playing',
-				value: this.Atlas.lib.utils.prettyMs(queueLength),
-				inline: true,
-			}, {
-				name: 'Duration',
-				value: this.Atlas.lib.utils.prettyMs(track.info.length),
-				inline: true,
-			}],
-			timestamp: new Date(),
-			footer: {
-				text: `Added by ${msg.author.username}`,
-			},
-		}).send();
-		// }
 	}
 };
 

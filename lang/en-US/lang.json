@@ -404,6 +404,17 @@
 		}
 	},
 	"general": {
+		"player": {
+			"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+			"npEmbed": {
+				"ttp": "Time Until Playing",
+				"addedBy": "Added By",
+				"author": "Author",
+				"duration": "Duration",
+				"footerMulti": "Added by {0} • {1} in queue",
+				"footerSingle": "{0} in queue"
+			}
+		},
 		"poweredBy": {
 			"nekobot": "Via nekobot.xyz"
 		},
@@ -854,11 +865,10 @@
 		},
 		"support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
 		"play": {
-			"searchError": "An error occured getting information about your query.",
 			"noNodes": "There are no free voice nodes to handle your request. Try wait a few minutes then try again.",
 			"noResults": "I could not find any search results matching `{0}`.",
 			"noVoiceChannel": "You have to be in a voice channel to do that!",
-			"busy": "I'm already playing in `{0}`",
+			"busy": "I'm already playing in `{0}`.",
 			"noArgs": "You have to include a search query or URL!",
 			"playlistEmbed": {
 				"title": "Playlist Queued - {0}",

@@ -2,34 +2,27 @@ const { Player } = require('eris-lavalink');
 const PlayerResponder = require('./PlayerResponder');
 
 module.exports = class ExtendedPlayer extends Player {
-	constructor(id, { hostname, guildId, channelId, shard, node, manager, options }) {
-		super(id, { hostname, guildId, channelId, shard, node, manager, options });
+	constructor(...forward) {
+		super(...forward);
 
 		this.Atlas = require('./../../Atlas');
-		this.msg = null;
-		// The upcoming songs
 		this.queue = [];
-		this.index = 0;
-		this.lang = null;
 		this.messages = [];
 	}
 
-	get upcoming() {
-		return this.queue.slice(this.index);
-	}
-
 	get responder() {
-		// TODO: use a custom player responder with cleanup built in that extends the default one
-		return new PlayerResponder(this, this.lang, {
-			settings: this.settings,
-		});
+		if (!this.player) {
+			this.player = new PlayerResponder(this, this.lang, {
+				settings: this.settings,
+			});
+		}
+
+		return this.player.channel(this.msg.channel);
 	}
 
-	get isPlaying() {
-		return !!(this.playing || this.track);
-	}
-
-	// gets super accurate positions, accounts for ms differences between last fetched too
+	/**
+	 * Gets a somewhat accurate position player position.
+	 */
 	get position() {
 		return this.state && this.state.position
 			? this.state.position + (new Date() - new Date(this.state.time))
@@ -44,47 +37,59 @@ module.exports = class ExtendedPlayer extends Player {
 		return 0;
 	}
 
+	get isPlaying() {
+		return !!(this.playing || this.track);
+	}
+
+	get ttp() {
+		return this.queue.reduce((a, b) => a + b.info.length, 0) + this.timeLeft;
+	}
+
 	/**
-	 * Plays a track
-	 * @param {Object} track The track to play
-	 * @param {Object} playerOpts Options
-	 * @param {Message} playerOpts.msg The message to grab a text channel from
-	 * @param {Object} options options to pass onto queueEvent
-	 * @returns {boolean|Void} True if the song is playing, void if it was only queued.
-	 */
-	play(
-		track,
-		{
-			msg,
-			settings,
-			ended = false,
-			play = true,
-		} = {},
-		options = {},
-	) {
-		if (!track) {
-			throw new Error('ExtendedPlayer#play() requires a track');
-		}
-		if (msg) {
-			this.msg = msg;
-			this.lang = msg.lang;
+    * Play a Lavalink track
+    * @param {string} track The track to play
+  	* @returns {void}
+  */
+	play(track, {
+		force = false,
+		notify = true,
+		settings,
+		msg,
+	}) {
+		if ((!settings && !this.settings) || (!msg && !this.msg)) {
+			throw new Error('"data.settings" and "data.msg" are required for the player to function.');
 		}
 
-		if (!settings && !this.settings) {
-			throw new Error('Settings must be provided to the player to work properly.');
-		} else if (settings) {
-			this.settings = settings;
-		}
+		this.settings = settings;
+		this.lang = msg.lang || settings.lang;
+		this.msg = msg;
 
-		this.queue.push(track);
+		if (this.playing && !force) {
+			const { ttp } = this;
 
-		if ((this.isPlaying && !ended) || !play) {
+			this.queue.push({
+				addedBy: track.addedBy || msg.author,
+				...track,
+			});
+
+			if (notify) {
+				return this.responder
+					.text('general.player.trackQueued', track.info.title, this.Atlas.lib.utils.prettyMs(ttp))
+					.buttons(false)
+					.send();
+			}
+
 			return;
 		}
 
+		if (!track.addedBy) {
+			track.addedBy = msg.author;
+		}
+
+		const trackId = track.track;
+
 		this.lastTrack = this.track;
 		this.track = track;
-		this.playOptions = options;
 
 		if (this.node.draining) {
 			this.state.position = 0;
@@ -92,42 +97,76 @@ module.exports = class ExtendedPlayer extends Player {
 			return this.manager.switchNode(this);
 		}
 
-		this.queueEvent({
-			...{
-				op: 'play',
-				guildId: this.guildId,
-				track: track.track || track,
-			},
-			...options,
-		});
+		const payload = {
+			op: 'play',
+			guildId: this.guildId,
+			track: trackId,
+		};
 
+		this.queueEvent(payload);
 		this.playing = !this.paused;
 		this.timestamp = Date.now();
 
-		return true;
+		if (notify) {
+			let third;
+
+			if (this.queue.length) {
+				third = {
+				// todo: hide if it's the first song being added, show something instead
+					name: 'general.player.npEmbed.ttp',
+					value: this.Atlas.lib.utils.prettyMs(this.ttp),
+					inline: true,
+				};
+			} else {
+				third = {
+					name: 'general.player.npEmbed.addedBy',
+					value: msg.author.username,
+					inline: true,
+				};
+			}
+
+			return this.responder.embed({
+				description: `[${track.info.title}](${track.info.uri})`,
+				fields: [{
+					name: 'general.player.npEmbed.author',
+					value: track.info.author,
+					inline: true,
+				},
+				third,
+				{
+					name: 'general.player.npEmbed.duration',
+					value: this.Atlas.lib.utils.prettyMs(track.info.length),
+					inline: true,
+				}],
+				timestamp: new Date(),
+				footer: {
+					text: this.queue.length
+						? ['general.player.npEmbed.footerMulti', track.addedby.username, this.queue.length]
+						: ['general.player.npEmbed.footerSingle', this.queue.length],
+				},
+			}).send();
+		}
 	}
 
 	/**
-     * Called on track end
-     * @param {Object} message The end reason
+   * Called on track end
+   * @param {Object} message The end reason
 	 * @returns {void}
-     * @private
-     */
+   * @private
+  */
 	onTrackEnd(message = {}) {
 		if (message.reason !== 'REPLACED') {
-			if (this.queue[this.index + 1]) {
-				this.index = (this.index + 1);
-				this.emit('play', this.queue[this.index]);
+			if (this.queue.length) {
+				const next = this.queue.shift();
 
-				return this.play(this.queue[this.index], {
-					ended: true,
+				return this.play(next, {
+					force: true,
 				});
 			}
+
 			this.playing = false;
 			this.lastTrack = this.track;
 			this.track = null;
-
-			this.emit('stop');
 			// todo: handle leave
 		}
 		this.emit('end', message);

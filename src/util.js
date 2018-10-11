@@ -30,10 +30,10 @@ module.exports = class Util {
 			return val;
 		}
 
-		if (replacements[0]) {
+		if (replacements.length) {
 			return val.replace(/\{([0-9]+)\}/ig, (match, p1) => {
 				const i = Number(p1);
-				if (replacements[i]) {
+				if (replacements[i] != undefined) { // eslint-disable-line eqeqeq
 					return replacements[i];
 				}
 

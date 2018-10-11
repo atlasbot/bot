@@ -2,6 +2,8 @@ const Responder = require('./Responder');
 const EmojiCollector = require('./EmojiCollector');
 const FakeMessage = require('./FakeMessage');
 
+// todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to)
+
 module.exports = class PlayerResponder extends Responder {
 	constructor(player, lang, {
 		settings,
@@ -13,8 +15,15 @@ module.exports = class PlayerResponder extends Responder {
 		this._buttons = false;
 	}
 
+	/**
+	 * Controls whether or not player buttons are added.
+	 * @param {boolean} bool If true, buttons will be added to the message to control the player.
+	 * @returns {PlayerResponder} the current responder
+	 */
 	buttons(bool) {
 		this._buttons = bool;
+
+		return this;
 	}
 
 	async send() {
@@ -41,6 +50,7 @@ module.exports = class PlayerResponder extends Responder {
 							author: this.Atlas.client.users.get(userID) || this.player.msg.author,
 							lang: this._data.lang,
 						});
+
 						switch (emoji.name) {
 							case '⏭':
 								fakeMsg.content = `${this.settings.prefix}skip`;
