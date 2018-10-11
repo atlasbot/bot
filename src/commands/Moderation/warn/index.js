@@ -1,6 +1,7 @@
 const Command = require('../../../structures/Command.js');
 
 // todo: action/mod logging for all actions here
+// todo: warning lists have issues with long warn messages
 
 module.exports = class Warn extends Command {
 	constructor(Atlas) {
