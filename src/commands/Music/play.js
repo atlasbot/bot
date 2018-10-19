@@ -60,7 +60,10 @@ module.exports = class Play extends Command {
 				// add the playlist URL to the track incase it's needed in the future
 				[track.info.playlist] = args;
 
-				await player.play(track, {
+				await player.play({
+					addedBy: msg.author,
+					...track,
+				}, {
 					play: selected > -1 ? selected === i : true,
 					notify: false,
 					settings,
@@ -80,7 +83,10 @@ module.exports = class Play extends Command {
 
 		const [track] = body.tracks;
 
-		await player.play(track, {
+		await player.play({
+			addedBy: msg.author,
+			...track,
+		}, {
 			msg,
 			settings,
 		});

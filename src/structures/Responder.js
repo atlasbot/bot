@@ -227,9 +227,9 @@ class Responder {
 
 
 	/**
-     * Sends the message to the channel. If TTL is set the message will be resolved then deleted after being resolved.
-     * @returns {Promise<Message>} The message being sent
-     */
+    * Sends the message to the channel. If TTL is set the message will be resolved then deleted after being resolved.
+  	* @returns {Promise<Message>} The message being sent
+  */
 	async send() {
 		const data = this._data;
 		this._data = JSON.parse(JSON.stringify(this._defaults));

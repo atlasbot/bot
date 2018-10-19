@@ -7,17 +7,16 @@ module.exports = class ExtendedPlayer extends Player {
 
 		this.Atlas = require('./../../Atlas');
 		this.queue = [];
-		this.messages = [];
 	}
 
 	get responder() {
-		if (!this.player) {
-			this.player = new PlayerResponder(this, this.lang, {
+		if (!this._responder) {
+			this._responder = new PlayerResponder(this, this.lang, {
 				settings: this.settings,
 			});
 		}
 
-		return this.player.channel(this.msg.channel);
+		return this._responder.channel(this.msg.channel);
 	}
 
 	/**
@@ -68,7 +67,7 @@ module.exports = class ExtendedPlayer extends Player {
 
 		if (!track.addedBy) {
 			// it may be possible for this to be false, probably needs to be double-checked
-			track.addedBy = track.addedBy || (msg && msg.author);
+			track.addedBy = msg && msg.author;
 		}
 
 		if (this.playing && !force) {
@@ -110,7 +109,7 @@ module.exports = class ExtendedPlayer extends Player {
 		if (notify) {
 			let third;
 
-			if (this.queue.length) {
+			if (this.queue.length || !track.addedBy) {
 				third = {
 				// todo: hide if it's the first song being added, show something instead
 					name: 'general.player.npEmbed.ttp',
@@ -140,9 +139,8 @@ module.exports = class ExtendedPlayer extends Player {
 				}],
 				timestamp: new Date(),
 				footer: {
-					text: this.queue.length
-						? ['general.player.npEmbed.footerMulti', track.addedby.username, this.queue.length]
-						: ['general.player.npEmbed.footerSingle', this.queue.length],
+					text: (this.queue.length && track.addedBy)
+						? ['general.player.npEmbed.footer', track.addedby.username, this.queue.length] : null,
 				},
 			}).send();
 		}

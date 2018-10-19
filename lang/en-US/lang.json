@@ -411,8 +411,7 @@
 				"addedBy": "Added By",
 				"author": "Author",
 				"duration": "Duration",
-				"footerMulti": "Added by {0} • {1} in queue",
-				"footerSingle": "{0} in queue"
+				"footer": "Added by {0} • {1} in queue"
 			}
 		},
 		"poweredBy": {
