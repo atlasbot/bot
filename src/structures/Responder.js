@@ -308,37 +308,42 @@ class Responder {
 	 * Replaces an objects locale strings with the actual string.
 	 * @param {Object} obj the object to parse
 	 * @param {string} lang the language to use
+	 * @param {number} iterations the amount of times it's already been looped over
 	 * @returns {Object} the object with strings replaced
 	 * @private
 	 */
-	_parseObject(obj, lang) {
+	_parseObject(obj, lang, iterations = 0) {
 		// here be dragons
 		if (!obj) {
 			return;
 		}
 
-		for (const key in obj) {
-			if ({}.hasOwnProperty.call(obj, key)) {
-				let val = obj[key];
-				if (typeof val === 'string') {
-					if (!val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
-						val = this.format({
-							key: val,
-							noThrow: true,
-							stringOnly: true,
-						}) || val;
-					}
-				} else if (Array.isArray(val) && typeof val[0] === 'string') {
-					const [str, ...replacements] = val;
-					if (str && typeof str === 'string') {
-						val = this.format(str, ...replacements) || str;
-					}
-				} else if (val === Object(val)) {
-					val = this._parseObject(val, lang);
+		for (const key of Object.keys(obj)) {
+			let val = obj[key];
+			if (typeof val === 'string' && !val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
+				// replacing a regular key
+				val = this.format({
+					key: val,
+					noThrow: true,
+					stringOnly: true,
+				}) || val;
+			} else if (Array.isArray(val) && typeof val[0] === 'string') {
+				// handling arrays where the first item is the key, everything else is a replacer arg (probably)
+				const [str, ...replacements] = val;
+
+				if (str && typeof str === 'string') {
+					val = this.format(str, ...replacements) || str;
+				}
+			} else if (val === Object(val)) {
+				// replacing objects (e.g, thumbnail values and shit)
+				if (iterations > 5) {
+					throw new Error(`Possible parser error, ${iterations} iterations over `, obj);
 				}
 
-				obj[key] = val;
+				val = this._parseObject(val, lang, iterations++);
 			}
+
+			obj[key] = val;
 		}
 
 		return obj;

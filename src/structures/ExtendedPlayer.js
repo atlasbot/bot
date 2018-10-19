@@ -61,16 +61,20 @@ module.exports = class ExtendedPlayer extends Player {
 		}
 
 		this.settings = settings;
-		this.lang = msg.lang || settings.lang;
-		this.msg = msg;
+		if (msg) {
+			this.lang = settings.lang;
+			this.msg = msg;
+		}
+
+		if (!track.addedBy) {
+			// it may be possible for this to be false, probably needs to be double-checked
+			track.addedBy = track.addedBy || (msg && msg.author);
+		}
 
 		if (this.playing && !force) {
 			const { ttp } = this;
 
-			this.queue.push({
-				addedBy: track.addedBy || msg.author,
-				...track,
-			});
+			this.queue.push(track);
 
 			if (notify) {
 				return this.responder
@@ -80,10 +84,6 @@ module.exports = class ExtendedPlayer extends Player {
 			}
 
 			return;
-		}
-
-		if (!track.addedBy) {
-			track.addedBy = msg.author;
 		}
 
 		const trackId = track.track;
@@ -120,7 +120,7 @@ module.exports = class ExtendedPlayer extends Player {
 			} else {
 				third = {
 					name: 'general.player.npEmbed.addedBy',
-					value: msg.author.username,
+					value: track.addedBy.tag || '???',
 					inline: true,
 				};
 			}

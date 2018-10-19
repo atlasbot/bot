@@ -2,7 +2,7 @@ const Responder = require('./Responder');
 const EmojiCollector = require('./EmojiCollector');
 const FakeMessage = require('./FakeMessage');
 
-// todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to)
+// todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to or if it's disabled)
 
 module.exports = class PlayerResponder extends Responder {
 	constructor(player, lang, {
