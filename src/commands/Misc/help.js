@@ -12,7 +12,7 @@ module.exports = class Help extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			const embed = {
 				author: {
 					name: 'help.title',
@@ -25,8 +25,10 @@ module.exports = class Help extends Command {
 					text: `${this.Atlas.commands.labels.size} commands`,
 				},
 			};
+
 			for (const modName of this.Atlas.plugins.keys()) {
 				const plugin = this.Atlas.plugins.get(modName);
+
 				embed.fields.push({
 					name: plugin.name,
 					value: plugin.commands.map(m => (m.info.subcommands.size !== 0 ? `\`${m.info.name}\`\\*` : `\`${m.info.name}\``)).join(', '),
@@ -35,6 +37,7 @@ module.exports = class Help extends Command {
 
 			return responder.embed(embed).send();
 		}
+
 		const query = args[0].replace(/[\W_]+/g, '');
 
 		const cmds = Array.from(this.Atlas.commands.labels.values()).filter(c => !c.info.hidden);

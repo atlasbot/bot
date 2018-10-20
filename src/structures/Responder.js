@@ -336,8 +336,8 @@ class Responder {
 				}
 			} else if (val === Object(val)) {
 				// replacing objects (e.g, thumbnail values and shit)
-				if (iterations > 5) {
-					throw new Error(`Possible parser error, ${iterations} iterations over `, obj);
+				if (iterations >= 10) {
+					throw new Error(`Possible parser error, ${iterations} iterations over ${key}`);
 				}
 
 				val = this._parseObject(val, lang, iterations++);
