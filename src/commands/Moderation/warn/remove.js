@@ -2,13 +2,13 @@ const Command = require('../../../structures/Command.js');
 const EmojiCollector = require('../../../structures/EmojiCollector');
 const lib = require('./../../../../lib');
 
-const PER_PAGE = 2;
+const PER_PAGE = 4;
 
 const emojis = [
 	lib.utils.emoji.fromName('one'),
 	lib.utils.emoji.fromName('two'),
-	// lib.utils.emoji.fromName('three'),
-	// lib.utils.emoji.fromName('four'),
+	lib.utils.emoji.fromName('three'),
+	lib.utils.emoji.fromName('four'),
 ];
 
 // fixme: doesn't handle if custom reactions are added to the embed
@@ -23,19 +23,15 @@ module.exports = class Remove extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('general.noUserFound').send();
-		}
-
-		if (!msg.guild.me.permission.json.addReactions) {
-			return responder.error('warn.remove.missingPerms').send();
 		}
 
 		const user = args.shift();
 		const query = args.join(' ');
 		const target = await this.Atlas.util.findMember(msg.guild, user);
 
-		if (args[1]) {
+		if (args.length) {
 			// remove the warning without doing shitty embed stuff
 
 			const warn = (new this.Atlas.structs.Fuzzy(settings.settings.plugins.moderation.infractions, {
@@ -58,7 +54,6 @@ module.exports = class Remove extends Command {
 
 		const pageN = isNaN(args[1]) ? 1 : Number(args[1]);
 
-		const has = [];
 		let currPageWarns;
 
 		const pageMsg = await responder.paginate({
@@ -66,77 +61,39 @@ module.exports = class Remove extends Command {
 			page: pageN,
 			startAndEndSkip: false,
 		}, async (paginator) => {
-			/*
-				Pagination handler
-			*/
 			const page = lib.utils.paginateArray(warnings, paginator.page.current, PER_PAGE);
 			// set the total page count once it's been (re)calculated
 			paginator.page.total = page.totalPages;
 
 			currPageWarns = page.data;
 
-			if (page.data.length === 0) {
+			if (!page.data.length) {
 				return;
 			}
 
-			const table1 = page.data.map((w, i) => `${i + 1}. ${w.reason}`);
-			const table2 = page.data.map(w => (new Date(w.date)).toLocaleDateString());
-			const table3 = page.data.map((w) => {
-				const member = msg.guild.members.get(w.moderator);
-				if (member) {
-					return member.tag;
-				}
-
-				return w.moderator;
-			});
-
 			const embed = {
-				title: `${target.tag}'s Warnings`,
-				description: `${target.nick || target.username} has ${warnings.length} warnings.`,
-				fields: [{
-					name: 'Reason',
-					value: table1.join('\n'),
-					inline: true,
-				}, {
-					name: 'Date',
-					value: table2.join('\n'),
-					inline: true,
-				}, {
-					name: 'Moderator',
-					value: table3.join('\n'),
-					inline: true,
-				}],
+				author: {
+					name: `${target.username}'s Warnings`,
+					icon_url: target.avatarURL || target.defaultAvatarURL,
+				},
+				description: `React with a number corresponding to a warning number to remove it from ${target.tag}.`,
+				fields: page.data.map((w, i) => {
+					const moderator = msg.guild.members.get(w.moderator);
+					const name = `${i + 1} • ${moderator ? `${moderator.tag} (${w.moderator})` : w.moderator}`;
+					const value = `${w.reason} • ${new Date(w.date).toLocaleDateString()}`;
+
+					return {
+						name,
+						value,
+					};
+				}),
 				timestamp: new Date(),
 				footer: {
-					text: paginator.footer,
+					text: paginator.showPages
+						? `Page ${paginator.page.current}/${paginator.page.total} • ${warnings.length} total warns`
+						: `${warnings.length} total warns`,
 				},
 			};
-
-			// make sure there are proper emojis to warn counts
-			if (responder.embedMsg) {
-				if (has.length > page.data.length) {
-					const removing = has.slice(-(PER_PAGE - page.data.length));
-					for (const em of removing) {
-						try {
-							await responder.embedMsg.removeReaction(em);
-							has.pop();
-						} catch (e) {
-							console.error(e);
-						}
-					}
-				}
-				if (has.length < page.data.length && responder.embedMsg) {
-					const adding = emojis.slice((page.data.length - has.length)).map(c => c.surrogates);
-					for (const em of adding) {
-						try {
-							await responder.embedMsg.addReaction(em);
-							has.push(em);
-						} catch (e) {
-							console.error(e);
-						}
-					}
-				}
-			}
 
 			return embed;
 		}).send();
@@ -146,8 +103,6 @@ module.exports = class Remove extends Command {
 		const { emojiNumbers } = this.Atlas.constants;
 		const toAdd = (warnings.length <= PER_PAGE ? emojis.slice(0, warnings.length) : emojis).map(e => e.surrogates);
 
-		has.push(...toAdd);
-
 		await collector
 			.msg(pageMsg)
 			.user(msg.author.id)
@@ -156,6 +111,7 @@ module.exports = class Remove extends Command {
 			.validate((m, emoji) => emoji.name && toAdd.includes(emoji.name))
 			.exec(async (m, emoji, userID, info) => {
 				const num = emojiNumbers.findIndex(e => e === info.name);
+
 				if (!isNaN(num) && currPageWarns) {
 					const warn = currPageWarns[num - 1];
 					if (warn) {
@@ -163,9 +119,11 @@ module.exports = class Remove extends Command {
 
 						warnings = settings.getWarnings(target);
 
-						if (warnings.length === 0) {
+						if (!warnings.length) {
 							pageMsg.delete().catch(() => false);
+
 							collector.destroy();
+
 							if (responder.collector) {
 								responder.collector.destroy();
 							}
@@ -175,7 +133,12 @@ module.exports = class Remove extends Command {
 
 						await responder.updatePage();
 
-						return responder.text('warn.remove.success', msg.author.tag, warn.reason, target.tag);
+						if (toAdd.length > warnings.length) {
+							const toRemove = toAdd.pop();
+							pageMsg.removeReaction(toRemove).catch(console.warn);
+						}
+
+						return responder.ttl(5).text('warn.remove.success', msg.author.mention, warn.reason, target.tag).send();
 					}
 				}
 			})
@@ -196,6 +159,7 @@ module.exports.info = {
 		},
 		bot: {
 			manageMessages: true,
+			addReactions: true,
 		},
 	},
 	cooldown: {

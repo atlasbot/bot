@@ -922,8 +922,8 @@
 				"error": "An error occured when adding reactions.",
 				"removedAll": "{0}, you have removed all of {1}'s warnings.",
 				"missingPerms": "I need permissions to add reactions to do that. ",
-				"success": "{0}, removed warning with reason `{1}` from {2} successfully.",
-				"successNoMention": "Removed warning with reason `{0}` from {1} successfully."
+				"success": "{0}, removed warning `{1}` from {2}.",
+				"successNoMention": "Removed warning `{0}` from {1}."
 			}
 		},
 		"8ball": {

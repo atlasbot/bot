@@ -21,7 +21,9 @@ module.exports = class Add extends Command {
 			return responder.error('general.noUserFound').send();
 		}
 
-		if (args[0] && args.join(' ').length > 256) {
+		const reason = args.join(' ');
+
+		if (args[0] && reason.length > 48) {
 			return responder.error('warn.add.tooLong').send();
 		}
 
@@ -31,7 +33,7 @@ module.exports = class Add extends Command {
 			const d = await settings.addWarning({
 				target: target.user || target,
 				moderator: msg.author,
-				reason: args.join(' '),
+				reason,
 			});
 
 			settings.log('mod', {
@@ -48,7 +50,7 @@ module.exports = class Add extends Command {
 					inline: true,
 				}, {
 					name: 'Reason',
-					value: args[0] ? args.join(' ') : 'No reason specified',
+					value: args.length ? reason : 'No reason specified',
 					inline: true,
 				}],
 				timestamp: new Date(),

@@ -4,7 +4,8 @@
 	"description": "A Discord bot that does the things",
 	"main": "Cluster.js",
 	"scripts": {
-		"start": "node Cluster.js"
+		"start": "node Cluster.js",
+		"dev": "nodemon Cluster.js"
 	},
 	"engines": {
 		"node": ">=10.0.0"

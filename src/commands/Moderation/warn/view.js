@@ -24,7 +24,7 @@ module.exports = class View extends Command {
 		}
 
 		const warnings = settings.getWarnings(target);
-		if (warnings.length === 0) {
+		if (!warnings.length) {
 			return responder.text('warn.view.noWarns', target.mention).send();
 		}
 
@@ -43,40 +43,28 @@ module.exports = class View extends Command {
 				return;
 			}
 
-			const table1 = page.data.map(w => w.reason);
-			const table2 = page.data.map(w => (new Date(w.date)).toLocaleDateString());
-			const table3 = page.data.map((w) => {
-				const member = msg.guild.members.get(w.moderator);
-				if (member) {
-					return member.tag;
-				}
+			return {
+				author: {
+					name: `${target.username}'s Warnings`,
+					icon_url: target.avatarURL || target.defaultAvatarURL,
+				},
+				fields: page.data.map((w) => {
+					const moderator = msg.guild.members.get(w.moderator);
+					const name = `${moderator ? `${moderator.tag} (${w.moderator})` : w.moderator}`;
+					const value = `${w.reason} • ${new Date(w.date).toLocaleDateString()}`;
 
-				return w.moderator;
-			});
-
-			const embed = {
-				title: `${target.tag}'s Warnings`,
-				description: `${target.nick || target.username} has ${warnings.length} warnings.`,
-				fields: [{
-					name: 'Reason',
-					value: table1.join('\n'),
-					inline: true,
-				}, {
-					name: 'Date',
-					value: table2.join('\n'),
-					inline: true,
-				}, {
-					name: 'Moderator',
-					value: table3.join('\n'),
-					inline: true,
-				}],
+					return {
+						name,
+						value,
+					};
+				}),
 				timestamp: new Date(),
 				footer: {
-					text: paginator.footer,
+					text: paginator.showPages
+						? `Page ${paginator.page.current}/${paginator.page.total} • ${warnings.length} total warns`
+						: `${warnings.length} total warns`,
 				},
 			};
-
-			return embed;
 		}).send();
 	}
 };

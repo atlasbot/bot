@@ -11,6 +11,8 @@ module.exports = class EmojiCollector {
 		this._exec = () => {}; // eslint-disable-line no-empty-function
 
 		this.listening = false;
+
+		this.currEmojis = [];
 	}
 
 	/**
@@ -149,7 +151,7 @@ module.exports = class EmojiCollector {
 	async fire(msg, emoji, userID) {
 		if (this._remove && userID !== this._Atlas.client.user.id) {
 			msg.removeReaction(emoji.name, userID)
-				.catch(console.error);
+				.catch(() => false);
 		}
 		if (this._msg && msg.id !== this._msg.id) {
 			return;
@@ -183,6 +185,7 @@ module.exports = class EmojiCollector {
 		if (!emojis) {
 			emojis = this._emojis;
 		}
+
 		if (!this._msg) {
 			return emojis;
 		}
@@ -190,6 +193,8 @@ module.exports = class EmojiCollector {
 		for (const emoji of emojis) {
 			try {
 				await this._msg.addReaction(emoji);
+
+				this.currEmojis.push(emoji);
 			} catch (e) {
 				console.error(e);
 
@@ -198,6 +203,25 @@ module.exports = class EmojiCollector {
 		}
 
 		return emojis;
+	}
+
+	/**
+	 * Purges reactions that have been added to the message.
+	 * @param {boolean} [careful=false] Whether to wipe all emojis or just the ones we know we added.
+	 * @returns {Promise}
+	 */
+	async purgeReactions(careful = false) {
+		if (this.currEmojis.length) {
+			if (!careful) {
+				return this._msg.removeReactions();
+			}
+
+			for (const emoji of this.currEmojis) {
+				await this._msg.removeReaction(emoji);
+			}
+
+			this.currEmojis = [];
+		}
 	}
 
 	/**

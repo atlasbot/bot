@@ -13,8 +13,8 @@ module.exports = class Paginator extends Responder {
 			listen: true,
 			startAndEndSkip: true,
 		};
+
 		this.embedMsg = null;
-		this.defaults = JSON.parse(JSON.stringify(this.page));
 	}
 
 	get showPages() {
@@ -60,13 +60,13 @@ module.exports = class Paginator extends Responder {
 
 		this._data.embed = this._parseObject(await this.page.generator(this));
 
-		if (!this.showPages) {
-			return super.send();
-		}
-
 		const res = await super.send();
 
 		this.embedMsg = res;
+
+		if (!this.showPages) {
+			return res;
+		}
 
 		const emojis = [
 			'⬅',
@@ -85,9 +85,7 @@ module.exports = class Paginator extends Responder {
 			.remove(true)
 			.add(this.showPages)
 			.exec((ignore, emoji) => {
-				switch (emoji.name) {
-					// todo: this needs improvement
-					// fixme: has issues when going forward then back twice
+				switch (emoji.name) { // eslint-disable-line default-case
 					case '⬅':
 						if (this.page.current <= 1) {
 							return this.error('general.noMorePages', `<@${this.page.user}>`).send();
@@ -123,8 +121,6 @@ module.exports = class Paginator extends Responder {
 							return this.updatePage();
 						}
 						break;
-					default:
-						return this.error('general.noMorePages', `<@${this.page.user}>`).send();
 				}
 			});
 
@@ -137,6 +133,11 @@ module.exports = class Paginator extends Responder {
 
 	async updatePage() {
 		const em = this._parseObject(await this.page.generator(this));
+
+		if (!this.showPages && this.collector.currEmojis.length) {
+			this.collector.purgeReactions(true).catch(console.warn);
+		}
+
 		if (em) {
 			return this.embedMsg.edit({
 				embed: em,

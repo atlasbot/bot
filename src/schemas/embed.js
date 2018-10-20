@@ -8,7 +8,7 @@ module.exports = {
 		name: Joi.string().max(256),
 		value: Joi.string().max(1024).required(),
 		inline: Joi.boolean(),
-	}).max(25).unique(),
+	}).max(25),
 	footer: {
 		text: Joi.string().max(2048).allow(null),
 	},

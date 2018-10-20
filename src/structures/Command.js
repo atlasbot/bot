@@ -180,7 +180,7 @@ class Command {
 					if (msg.guild) {
 						const members = Array.from(msg.guild.members);
 
-						return members[Math.floor(Math.random() * members.length)][1].mention;
+						return `@${members[Math.floor(Math.random() * members.length)][1].tag}`;
 					}
 
 					return msg.author.mention;
@@ -237,7 +237,7 @@ class Command {
 		if (this.info.master) {
 			embed.fields.push({
 				name: 'Usage',
-				value: `${msg.displayPrefix}${this.info.master.info.name} ${info.name} ${info.usage || ''}`,
+				value: `${msg.displayPrefix}${this.info.master.info.name} ${this.info.name} ${info.usage || ''}`,
 				inline: true,
 			});
 		} else {
@@ -250,7 +250,7 @@ class Command {
 
 		if (this.info.permissions.user && Object.keys(this.info.permissions.user).length) {
 			embed.fields.push({
-				name: 'Permissions (User)',
+				name: 'User Permissions',
 				value: `\`${Object.keys(this.info.permissions.user)
 					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
 					.join('`, `')}\``,
@@ -260,7 +260,7 @@ class Command {
 
 		if (this.info.permissions.bot && Object.keys(this.info.permissions.bot).length) {
 			embed.fields.push({
-				name: 'Permissions (Bot)',
+				name: 'Bot Permissions',
 				value: `\`${Object.keys(this.info.permissions.bot)
 					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
 					.join('`, `')}\``,
