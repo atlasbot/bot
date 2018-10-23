@@ -10,6 +10,8 @@ const aliases = {
 	haha: 'laughing',
 	hah: 'laughing',
 	lol: 'laughing',
+	xd: 'laughing',
+	ecksdee: '<:hyperecksdee:447440569174589453>',
 };
 
 module.exports = class Emojify extends Command {
