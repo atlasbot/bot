@@ -40,16 +40,17 @@ module.exports = class Quote extends Command {
 			return responder.error('quote.invalidMsg');
 		}
 
+		const src = ` - [link](https://discordapp.com/channels/${targetMsg.guild.id}/${targetMsg.channel.id}/${targetMsg.id})`;
 
 		return responder.embed({
-			title: targetMsg.author.tag,
+			author: {
+				name: targetMsg.author.tag,
+				icon_url: targetMsg.author.avatarURL || targetMsg.author.defaultAvatarURL,
+			},
 			image: {
 				url: img && img.proxy_url,
 			},
-			description: targetMsg.content,
-			footer: {
-				text: `User ${targetMsg.author.id}`,
-			},
+			description: `"${targetMsg.content.substring(0, 2048 - (src.length + 2))}" ${src}`,
 			timestamp: new Date(),
 		}).send();
 	}
