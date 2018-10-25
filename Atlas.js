@@ -13,7 +13,6 @@ const EPM = require('./src/structures/ExtendedPlayerManager');
 const GuildSettingsClass = require('./src/structures/GuildSettings');
 const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
 
-const FeedHandler = require('./src/feeds');
 const { version } = require('./package.json');
 
 const DB = lib.structs.Database;
@@ -196,8 +195,6 @@ module.exports = class Atlas {
 		this.agenda.connect();
 		// load commands
 		cmdUtil.load(this, reload);
-
-		this.feedHandler = new FeedHandler(this);
 	}
 
 	/**

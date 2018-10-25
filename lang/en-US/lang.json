@@ -133,23 +133,6 @@
 				"description": "Lists filters and their current settings."
 			}
 		},
-		"feeds": {
-			"base": {
-				"usage": "<subcommand>",
-				"description": "Controls feeds from YouTube, Reddit, Twitch & more."
-			},
-			"add": {
-				"usage": "[type] [channel] [target]",
-				"description": "Adds a service to the feed list. "
-			},
-			"remove": {
-				"usage": "[type] [channel] [target]",
-				"description": "Removes a service to the feed list. "
-			},
-			"list": {
-				"description": "Lists all services that the server has."
-			}
-		},
 		"log": {
 			"base": {
 				"description": "Controls where certain messages are logged in your guild.",
@@ -1096,27 +1079,6 @@
 			"user": {
 				"noArgs": "Please include a user mention!",
 				"noUser": "I couldn't find a valid user matching your search."
-			}
-		},
-		"feeds": {
-			"add": {
-				"noType": "You have to include a type, one of `{0}`.",
-				"noChannel": "You have to include a valid channel.",
-				"noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
-				"unknownType": "`{0}` is not a known feed type.",
-				"invalidSubreddit": "`{0}` is not a valid subreddit.",
-				"success": "`{0}` feeds from `{1}` will now be sent to {2}.",
-				"alreadyExists": "There is already a feed matching that target in that channel."
-			},
-			"list": {
-				"noServices": "This server has no feeds."
-			},
-			"remove": {
-				"noType": "You have to include a type, one of `{0}`.",
-				"noChannel": "You have to include a valid channel.",
-				"noTarget": "You have to include a valid Twitter handle, subreddit name or YouTube username / ID.",
-				"noEntry": "I could not find a feed for this server matching your query.",
-				"success": "Removed feed for {0} from {1}/{2}."
 			}
 		},
 		"filters": {
