@@ -72,9 +72,6 @@ module.exports = class Atlas {
 		this.agenda = new Agenda();
 
 		this.DB = new DB({
-			user: process.env.DB_USER,
-			pass: process.env.DB_PASS,
-			host: process.env.DB_HOST,
 			GuildSettingsClass,
 		});
 
@@ -180,22 +177,20 @@ module.exports = class Atlas {
 		}
 
 		// setup the player
-		if (!(this.client.voiceConnections instanceof EPM)) {
-			this.client.voiceConnections = new EPM(this.client, [
-				{
-					host: process.env.LAVALINK_HOST,
-					port: Number(process.env.LAVALINK_PORT),
-					region: 'us',
-					password: process.env.LAVALINK_PASS,
-				},
-			], {
-				numShards: this.client.options.maxShards,
-				userId: this.client.user.id,
-				regions: [],
-				defaultRegion: 'us',
-				player: ExtendedPlayer,
-			});
-		}
+		this.client.voiceConnections = new EPM(this.client, [
+			{
+				host: process.env.LAVALINK_HOST,
+				port: Number(process.env.LAVALINK_PORT),
+				region: 'us',
+				password: process.env.LAVALINK_PASS,
+			},
+		], {
+			numShards: this.client.options.maxShards,
+			userId: this.client.user.id,
+			regions: [],
+			defaultRegion: 'us',
+			player: ExtendedPlayer,
+		});
 
 		// get agenda to connect
 		this.agenda.connect();

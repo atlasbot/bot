@@ -864,7 +864,7 @@
 		},
 		"support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
 		"play": {
-			"noNodes": "There are no free voice nodes to handle your request. Try wait a few minutes then try again.",
+			"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 			"noResults": "I could not find any search results matching `{0}`.",
 			"noVoiceChannel": "You have to be in a voice channel to do that!",
 			"busy": "I'm already playing in `{0}`.",

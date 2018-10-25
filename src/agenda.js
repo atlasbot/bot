@@ -11,7 +11,7 @@ try {
 module.exports = class Agenda extends EventEmitter {
 	constructor(connectUri) {
 		super();
-		this.connect_uri = connectUri || `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`;
+		this.connect_uri = connectUri || process.env.MONGO_URI;
 		this.ready = false;
 
 		this.reminderSchema = require('./schemas/reminder');

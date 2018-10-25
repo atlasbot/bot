@@ -30,9 +30,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | PREFIXES      | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention. |
 | NODE_ENV      | The environment the bot is in, should be "production" or "development". |
 | TOKEN         | The bot token to login with. |
-| DB_USER       | The username of the MongoDB user |
-| DB_PASS       | the password for the database. |
-| DB_HOST       | The host of the database, something like `127.0.0.1/antares?authSource=admin` |
+| MONGO_URI     | A MongoDB Connection URI. |
 | LAVALINK_HOST | The IP of the lavalink server to use. |
 | LAVALINK_PORT | The WebSocket port for the lavalink server. |
 | LAVALINK_PASS | The password for the lavalink server. |
