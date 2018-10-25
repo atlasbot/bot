@@ -769,7 +769,7 @@
 			]
 		},
 		"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-		"invite": "You can get Atlas for your own server at <https://get-atlas.xyz/get>.",
+		"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 		"help": {
 			"title": "Need some help?",
 			"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
@@ -784,23 +784,23 @@
 				},
 				"invite": {
 					"name": "Invite Link",
-					"value": "[Click here](https://get-atlas.xyz/get)"
+					"value": "[Click here](https://atlasbot.xyz/get)"
 				},
 				"support": {
 					"name": "Support Server",
-					"value": "[Cick here](https://get-atlas.xyz/support)"
+					"value": "[Cick here](https://atlasbot.xyz/support)"
 				},
 				"documentation": {
 					"name": "Documentation",
-					"value": "[Click here](https://docs.get-atlas.xyz/)"
+					"value": "[Click here](https://docs.atlasbot.xyz/)"
 				},
 				"status": {
 					"name": "Status",
-					"value": "[Click here](https://status.get-atlas.xyz/)"
+					"value": "[Click here](https://status.atlasbot.xyz/)"
 				},
 				"website": {
 					"name": "Website",
-					"value": "[Click here](https://get-atlas.xyz/)"
+					"value": "[Click here](https://atlasbot.xyz/)"
 				}
 			}
 		},
@@ -845,7 +845,7 @@
 				}
 			}
 		},
-		"support": "Need help? Join our server at <https://get-atlas.xyz/support>.",
+		"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
 		"play": {
 			"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 			"noResults": "I could not find any search results matching `{0}`.",
