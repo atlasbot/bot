@@ -7,8 +7,8 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 ## Prerequisites
 
 * Node.js >v10
-* MongoDB
-* [Lavalink](https://github.com/Frederikam/Lavalink) - not strictly needed but music-related commands won't work at all without it.
+* MongoDB 
+* [Lavalink](https://github.com/Frederikam/Lavalink) 
 
 ## Installation
 
@@ -28,7 +28,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | Name          | Description   |
 | ------------- | ------------- |
 | PREFIXES      | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention. |
-| NODE_ENV      | The environment the bot is in, in production some development features will be disabled. |
+| NODE_ENV      | The environment the bot is in, should be "production" or "development". |
 | TOKEN         | The bot token to login with. |
 | DB_USER       | The username of the MongoDB user |
 | DB_PASS       | the password for the database. |
@@ -38,7 +38,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 | LAVALINK_PASS | The password for the lavalink server. |
 | OMDBAPI_KEY   | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key. |
 | VERBOSE       | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment. |
-| OWNER         | The bot owner, gives them access to special features like the "eval" command. |
+| OWNER         | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**|
 | DISCORDBOTS_ORG_TOKEN | A [discordbots.org](https://discordbots.org/) API Token, used to post statistics to and get information about other bots. |
 | GOOGLE_CX | A Google CX key for custom searches. Google is your friend. |
 | GOOGLE_KEY | A Google key for custom searches. See above.
@@ -47,7 +47,7 @@ A Discord bot that does ~~all~~ most of the things - [get-atlas.xyz](https://get
 
 I don't know anything, and I can almost guarantee that there are things that could have been done significantly better or faster. I do this for fun as a hobby, so I'm not guaranteeing quality or anything really. I try to do things as best I can, but sometimes I mess up. If you find issues, point them out.
 
-Additionally, this is a very early version of 8.0.0 - there *will* be major breaking changes between now and the release. Be warned!
+Additionally, this is a very early version of 8.0 - there *will* be major breaking changes between now and the release. Be warned!
 
 ## Acknowledgements
 
