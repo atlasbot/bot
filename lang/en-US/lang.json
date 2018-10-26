@@ -775,33 +775,15 @@
 			"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 		},
 		"info": {
-			"embed": {
-				"title": "Atlas",
-				"description": "Atlas is a multifunctional Discord bot that makes your life easier. Atlas has music, auto-moderation, tickets, auto-role, custom commands, extensive customisation options and a lot more. Atlas is using JavaScript through [Node.js](https://nodejs.org/en/) and the [Eris](https://abal.moe/Eris/) library to interact with Discord's API.\n\nYou can do `{0}help` for a list of all commands Atlas has.",
-				"author": {
-					"name": "Author",
-					"value": "Sylver#1058"
-				},
-				"invite": {
-					"name": "Invite Link",
-					"value": "[Click here](https://atlasbot.xyz/get)"
-				},
-				"support": {
-					"name": "Support Server",
-					"value": "[Cick here](https://atlasbot.xyz/support)"
-				},
-				"documentation": {
-					"name": "Documentation",
-					"value": "[Click here](https://docs.atlasbot.xyz/)"
-				},
-				"status": {
-					"name": "Status",
-					"value": "[Click here](https://status.atlasbot.xyz/)"
-				},
-				"website": {
-					"name": "Website",
-					"value": "[Click here](https://atlasbot.xyz/)"
-				}
+			"title": "Atlas",
+			"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
+			"support": {
+				"name": "Support",
+				"value": "[Cick here](https://atlasbot.xyz/support)"
+			},
+			"website": {
+				"name": "Website",
+				"value": "[Click here](https://atlasbot.xyz/)"
 			}
 		},
 		"uptime": "I have been online for {0}.",
