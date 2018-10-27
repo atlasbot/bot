@@ -209,15 +209,6 @@
 		"wouldyourather": {
 			"description": "Would you rather?"
 		},
-		"command": {
-			"base": {
-				"description": "Create, delete or edit custom commands."
-			},
-			"create": {
-				"description": "Create a new command.",
-				"usage": "[name] [response]"
-			}
-		},
 		"botinfo": {
 			"description": "Gets information about almost any public bot via discordbots.org.",
 			"usage": "[bot mention/query]"
@@ -982,27 +973,6 @@
 			"nothingPlaying": "There is nothing playing in this server!",
 			"leftNoChannel": "I have left the voice channel.",
 			"leftChannel": "I have left `{0}`!"
-		},
-		"command": {
-			"create": {
-				"reservedName": "That command name is reserved. If you want to create a command with that name, use the dashboard.",
-				"noResponse": "You have to include what the response of the command should be.",
-				"noName": "You have to include a name of the command to create.",
-				"alreadyExists": "A command with that name already exists.",
-				"success": "Successfully created `{0}`."
-			},
-			"list": {
-				"noActions": "This server has no custom commands.",
-				"embed": {
-					"title": "Custom Commands",
-					"description": "All custom commands available in {0}."
-				}
-			},
-			"delete": {
-				"noQuery": "You have to include a command name to delete.",
-				"noMatch": "There is no custom command in this guild matching `{0}`. Make sure you typed it correctly and try again!",
-				"success": "Successfully deleted `{0}`."
-			}
 		},
 		"achievement": {
 			"noArgs": "You have to include something to turn into an achievement.",
