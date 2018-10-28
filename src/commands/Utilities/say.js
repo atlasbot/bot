@@ -15,6 +15,7 @@ module.exports = class Say extends Command {
 			return responder.error('noArgs').send();
 		}
 
+		// todo: only match if it's a mention or ID, no fuzzy matching
 		const channel = await settings.findRoleOrChannel(args[0], {
 			type: 'channel',
 		});
