@@ -1,4 +1,8 @@
 {
+	"locale": {
+		"description": "Changes what language Atlas uses in your server.",
+		"usage": "<language>"
+	},
 	"time": {
 		"description": "Gets the time for a timezone.",
 		"usage": "[location]"
