@@ -43,9 +43,7 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 
 ## Disclaimer / Warning
 
-I don't know anything, and I can almost guarantee that there are things that could have been done significantly better or faster. I do this for fun as a hobby, so I'm not guaranteeing quality or anything really. I try to do things as best I can, but sometimes I mess up. If you find issues, point them out.
-
-Additionally, this is a very early version of 8.0 - there *will* be major breaking changes between now and the release. Be warned!
+This is a very early version of 8.0, which means many features from 7.x are missing. Some features are still being ported over, be patient. Additionally, if you find any issues, tell us or submit a PR to get it fixed. 
 
 ## Acknowledgements
 
