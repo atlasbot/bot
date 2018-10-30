@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class CatFact extends Command {
+module.exports = class ChuckNorris extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 
@@ -22,5 +22,5 @@ module.exports = class CatFact extends Command {
 };
 
 module.exports.info = {
-	name: 'catfact',
+	name: 'chucknorris',
 };
