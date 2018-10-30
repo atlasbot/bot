@@ -156,15 +156,18 @@ module.exports = class Atlas {
 			const handler = new Handler(this);
 
 			this.client.on(e.split('.')[0], handler.execute.bind(handler));
+
 			console.log(`Loaded event handler "${e}"`);
+
 			delete require.cache[require.resolve(`./src/events/${e}`)];
 		});
 
 		// Loading locales
-		const locales = require('./lang.js');
-		(await locales.load()).forEach((l) => {
-			this.langs.set(l.base.meta.name, l.base);
+		const locales = await fs.readdir('./lang');
+		locales.forEach((lang) => {
+			this.langs.set(lang.split('.')[0], require(`./lang/${lang}`));
 		});
+
 		console.log(`Loaded ${this.langs.size} languages`);
 
 		// set the bot status

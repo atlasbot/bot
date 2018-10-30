@@ -56,12 +56,12 @@ module.exports = class GuildSettings {
 	}
 
 	/**
-    * The server lang, defaults to en-US
+    * The server lang, defaults to DEFAULT_LANG
     * @readonly
     * @memberof Guild
     */
 	get lang() {
-		return this.settings.lang || 'en-US';
+		return this.settings.lang || process.env.DEFAULT_LANG;
 	}
 
 	/**

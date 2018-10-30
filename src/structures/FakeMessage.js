@@ -7,7 +7,7 @@ module.exports = class FakeMessage {
 		channelID,
 		content,
 		author,
-		lang = 'en-US',
+		lang = process.env.DEFAULT_LANG,
 		mentions = [],
 		type = 0,
 		timestamp = new Date(),

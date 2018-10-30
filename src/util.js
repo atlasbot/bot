@@ -21,7 +21,7 @@ module.exports = class Util {
 		}
 
 		// merge english and the language it wants incase there are keys that haven't been localised yet
-		const lang = { ...this.Atlas.langs.get('en-US'), ...this.Atlas.langs.get(identifier) };
+		const lang = { ...this.Atlas.langs.get(process.env.DEFAULT_LANG), ...this.Atlas.langs.get(identifier) };
 		const val = lib.utils.getNested(lang, key);
 
 		if (!val) {
@@ -210,7 +210,7 @@ module.exports = class Util {
 	async messageQuery({
 		channel,
 		user,
-		lang = 'en-US',
+		lang = process.env.DEFAULT_LANG,
 		emoji = '📦',
 		message = 'general.messageQuery',
 		responder = new this.Atlas.structs.Responder(channel, lang),
