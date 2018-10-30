@@ -30,7 +30,7 @@
 		"description": "Mentions a random user."
 	},
 	"randomcolor": {
-		"description": "Generates a random colour."
+		"description": "Generates a random color."
 	},
 	"quote": {
 		"description": "Quote a message by a user.",
