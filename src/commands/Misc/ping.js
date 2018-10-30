@@ -11,7 +11,7 @@ module.exports = class Ping extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		// todo: why is this doing this weird shit
-		const locale = { ...this.Atlas.langs.get(process.env.DEFAULT_LANG), ...this.Atlas.langs.get(msg.lang) };
+		const locale = { ...this.Atlas.locales.get(process.env.DEFAULT_LANG), ...this.Atlas.locales.get(msg.lang) };
 
 		const valid = locale.commands.ping.randoms;
 		const rand = locale.commands.ping.randoms[Math.floor(Math.random() * valid.length)];

@@ -65,7 +65,7 @@ module.exports = class Atlas {
 			},
 		};
 
-		this.langs = new Map();
+		this.locales = new Map();
 		this.filters = new Map();
 		this.plugins = new Map();
 		this.agenda = new Agenda();
@@ -163,12 +163,20 @@ module.exports = class Atlas {
 		});
 
 		// Loading locales
-		const locales = await fs.readdir('./lang');
-		locales.forEach((lang) => {
-			this.langs.set(lang.split('.')[0], require(`./lang/${lang}`));
-		});
+		const locales = await fs.readdir('./locales');
+		for (const locale of locales) {
+			const files = await fs.readdir(path.join('./locales', locale));
+			console.log(files);
 
-		console.log(`Loaded ${this.langs.size} languages`);
+			const data = {};
+			files.forEach((f) => {
+				data[f.split('.')[0]] = require(`./locales/${locale}/${f}`);
+			});
+
+			this.locales.set(locale, data);
+		}
+
+		console.log(`Loaded ${this.locales.size} languages`);
 
 		// set the bot status
 		if (process.env.STATUS) {

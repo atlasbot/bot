@@ -10,7 +10,7 @@ module.exports = class Util {
 	format(identifier, path, ...replacements) {
 		const key = lib.utils.key(path);
 
-		if (!this.Atlas.langs.has(identifier)) {
+		if (!this.Atlas.locales.has(identifier)) {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
 
@@ -21,7 +21,7 @@ module.exports = class Util {
 		}
 
 		// merge english and the language it wants incase there are keys that haven't been localised yet
-		const lang = { ...this.Atlas.langs.get(process.env.DEFAULT_LANG), ...this.Atlas.langs.get(identifier) };
+		const lang = { ...this.Atlas.locales.get(process.env.DEFAULT_LANG), ...this.Atlas.locales.get(identifier) };
 		const val = lib.utils.getNested(lang, key);
 
 		if (!val) {
