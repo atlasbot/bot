@@ -39,11 +39,12 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 | OWNER         | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**|
 | DISCORDBOTS_ORG_TOKEN | A [discordbots.org](https://discordbots.org/) API Token, used to post statistics to and get information about other bots. |
 | GOOGLE_CX | A Google CX key for custom searches. Google is your friend. |
-| GOOGLE_KEY | A Google key for custom searches. See above.
+| GOOGLE_KEY | A Google key for custom searches. See above. |
+| DEFAULT_LANG | The default language to use for everything. Valid languages are in [/lang](/lang)
 
 ## Disclaimer / Warning
 
-This is a very early version of 8.0, which means many features from 7.x are missing. Some features are still being ported over, be patient. Additionally, if you find any issues, tell us or submit a PR to get it fixed. 
+This is a very early version of 8.0, which means many features from 7.x are missing. Some features are still being ported over, be patient. Additionally, if you find any issues, tell us or submit a PR to get it fixed.
 
 ## Acknowledgements
 
