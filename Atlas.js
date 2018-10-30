@@ -166,7 +166,6 @@ module.exports = class Atlas {
 		const locales = await fs.readdir('./locales');
 		for (const locale of locales) {
 			const files = await fs.readdir(path.join('./locales', locale));
-			console.log(files);
 
 			const data = {};
 			files.forEach((f) => {

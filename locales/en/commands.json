@@ -525,5 +525,11 @@
 		"noArgs": "Please include a location to get the time for.",
 		"noTimezone": "I could not find a town or city matching `{0}`.",
 		"success": "It is currently {0} in {1}."
+	},
+	"locale": {
+		"success": "The servers language has been set to {0}.",
+		"notFound": "I could not find a locale matching `{0}` :c",
+		"title": "Supported Languages",
+		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
 	}
 }

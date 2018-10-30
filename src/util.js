@@ -21,8 +21,16 @@ module.exports = class Util {
 		}
 
 		// merge english and the language it wants incase there are keys that haven't been localised yet
-		const lang = { ...this.Atlas.locales.get(process.env.DEFAULT_LANG), ...this.Atlas.locales.get(identifier) };
+		const lang = this.Atlas.locales.get(identifier);
 		const val = lib.utils.getNested(lang, key);
+
+		if (identifier !== process.env.DEFAULT_LANG) {
+			const defaultVal = this.format(process.env.DEFAULT_LANG, path, ...replacements);
+
+			if (typeof defaultVal !== typeof val) {
+				return defaultVal;
+			}
+		}
 
 		if (!val) {
 			return;

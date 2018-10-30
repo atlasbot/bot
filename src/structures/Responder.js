@@ -326,13 +326,13 @@ class Responder {
 					key: val,
 					noThrow: true,
 					stringOnly: true,
-				}) || val;
+				}) || this.Atlas.lib.utils.key(val);
 			} else if (Array.isArray(val) && typeof val[0] === 'string') {
 				// handling arrays where the first item is the key, everything else is a replacer arg (probably)
 				const [str, ...replacements] = val;
 
 				if (str && typeof str === 'string') {
-					val = this.format(str, ...replacements) || str;
+					val = this.format(str, ...replacements) || this.Atlas.lib.utils.key(str);
 				}
 			} else if (val === Object(val)) {
 				// replacing objects (e.g, thumbnail values and shit)
