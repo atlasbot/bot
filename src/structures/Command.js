@@ -122,10 +122,10 @@ class Command {
 
 	/**
 	 * Converts the command info to a language
-	 * @param {string} lang The locale to format with, defaults to "en-US"
+	 * @param {string} lang The locale to format with, defaults to "DEFAULT_LANG"
 	 * @returns {Object} the converted command info
 	 */
-	getInfo(lang = 'en-US') {
+	getInfo(lang = process.env.DEFAULT_LANG) {
 		const responder = new Responder(null, lang);
 
 		let key;

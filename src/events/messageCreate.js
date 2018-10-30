@@ -28,7 +28,8 @@ module.exports = class Ready {
 			msg.displayPrefix = settings.prefix || prefixes[0];
 		} else {
 			([msg.displayPrefix] = prefixes);
-			msg.lang = 'en-US';
+			// temporary
+			msg.lang = process.env.DEFAULT_LANG;
 		}
 
 		msg.prefix = this.checkPrefix(msg.content, settings);

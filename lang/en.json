@@ -1,12 +1,4 @@
 {
-	"meta": {
-		"createdBy": "Sylver",
-		"name": "en-US",
-		"aliases": [
-			"en",
-			"english"
-		]
-	},
 	"info": {
 		"time": {
 			"description": "Gets the time for a timezone.",
