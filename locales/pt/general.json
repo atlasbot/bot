@@ -1,16 +1,16 @@
 {
 	"player": {
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"trackQueued": "'{0}' foi adicionado à fila. Irá tocar em cerca de {1}.",
 		"npEmbed": {
-			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
+			"ttp": "Tempo até tocar",
+			"addedBy": "Adicionado por",
 			"author": "Author",
-			"duration": "Duration",
-			"footer": "Added by {0} • {1} in queue"
+			"duration": "Duração",
+			"footer": "Adicionado por {0} • {1} na fila"
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Via nekobot.xyz"
+		"nekobot": "Por nekobot.xyz"
 	},
 	"logs": {
 		"guildMemberKick": {
@@ -177,7 +177,7 @@
 				"name": "Moderator"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "Duração"
 			},
 			"reason": {
 				"name": "Reason"
@@ -223,11 +223,11 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "Duração",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Adicionado por",
 			"value": "{0}"
 		},
 		"author": {
@@ -236,7 +236,7 @@
 		},
 		"addedTrack": "Added Track",
 		"ttp": {
-			"name": "Time Until Playing",
+			"name": "Tempo até tocar",
 			"value": "{0}"
 		},
 		"inQueue": {
