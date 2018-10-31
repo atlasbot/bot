@@ -1,6 +1,6 @@
 {
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
+		"description": "Muda a linguagem que Atlas irá usar no seu servidor.",
 		"usage": "<language>"
 	},
 	"time": {
