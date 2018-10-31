@@ -14,18 +14,18 @@
 	},
 	"logs": {
 		"guildMemberKick": {
-			"title": "Member Kicked",
-			"description": "{0} has been kicked from the server.",
+			"title": "Membro expulso",
+			"description": "{0} foi expulso do servidor.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Member Updated - Role Added",
+				"title": "Membro atualizado - Grupo adicionado",
 				"description": "{0} has been given the {1} role.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
 				"reason": "Reason"
@@ -34,7 +34,7 @@
 				"title": "Member Updated - Role Removed",
 				"description": "{0} has had the {1} role taken from them.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
 				"reason": "Reason"
@@ -56,14 +56,14 @@
 			"title": "Role Created",
 			"description": "The {0} role was created.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildRoleDelete": {
 			"title": "Role Deleted",
 			"description": "The {0} role was deleted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildRoleUpdate": {
@@ -84,7 +84,7 @@
 				"value": "The role no longer has the `{0}` permissions."
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"hoistTrue": {
 				"name": "Hoist Updated",
@@ -110,7 +110,7 @@
 				"name": "Content"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
@@ -137,7 +137,7 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"channelDelete": {
@@ -147,14 +147,14 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildBanAdd": {
 			"title": "Member Banned",
 			"description": "{0} has been banned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
@@ -164,7 +164,7 @@
 			"title": "Member Unbanned",
 			"description": "{0} has been unbanned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
@@ -174,7 +174,7 @@
 			"title": "Member Muted",
 			"description": "{0} has been muted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"duration": {
 				"name": "Duração"
@@ -188,7 +188,7 @@
 			"title": "Member Unmuted",
 			"description": "{0} has been unmuted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"unmuteReason": {
 				"name": "Reason"
