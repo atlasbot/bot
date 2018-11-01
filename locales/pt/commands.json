@@ -50,10 +50,10 @@
 		]
 	},
 	"donate": "Ajuda o Atlas e obtém vantagens fantásticas por doar em <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"invite": "Podes ter o Atlas no teu servidor em <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some help?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
+		"title": "Precisas de ajuda?",
+		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
 	},
 	"info": {
 		"title": "Atlas",
