@@ -25,20 +25,20 @@
 		"setForPast": "Dê-me uma data que seja no futuro.",
 		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
 		"youGotIt": "Entendido, irei te relembrar em {0}.",
-		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
+		"relative": " Além disso, no futuro devias usar tempos relativos, como `em 1 hora` ou `em 2 dias` em vez de um tempo específico como `às 5 da tarde de hoje` ou `21/08/2018` por causa de fusos horários que não consigo resolver"
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "Tenho uma latência de `{0}ms` para este servidor.",
+		"dm": "Tenho uma latência de `{0}ms` para esta dm.",
 		"randoms": [
-			"I'm hungry...",
-			"Shovelling coal into the server...",
-			"In my defense, this is still faster than you could do it...",
-			"Waiting for the stars to align...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
+			"Tenho fome...",
+			"Empurrando carvão para dentro do servidor...",
+			"Em minha defesa, isto ainda é mais rápido do que o que tu conseguirias fazer...",
+			"À espera que as estrelas se alinhem...",
+			"Vai, segura a tua respiração...",
+			"Aprecia a música de elevador...",
+			"Olá, o meu nome é Atlas, o que gostarias hoje, senhor?...",
 			"You were expecting something mildly entertaining, but no...",
 			"Error: out of patience...",
 			"Are we there yet?...",
@@ -49,7 +49,7 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"donate": "Ajuda o Atlas e obtém vantagens fantásticas por doar em <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"title": "Need some help?",
