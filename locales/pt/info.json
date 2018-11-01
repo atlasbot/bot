@@ -121,50 +121,50 @@
 			"description": "Controla filtros do chat."
 		},
 		"action": {
-			"usage": "[filter] <action name>",
-			"description": "Used to enable or disable filters, and change their action."
+			"usage": "[filtro] <nome da ação>",
+			"description": "Usado para habilitar ou desabilitar filtros e mudar suas ações."
 		},
 		"list": {
-			"description": "Lists filters and their current settings."
+			"description": "Lista filtros e suas configurações atuais."
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controls where certain messages are logged in your guild.",
+			"description": "Controla onde determinadas mensagens são registradas em seu servidor.",
 			"usage": "<subcommand>"
 		},
 		"actions": {
-			"description": "Sets where action logs are logged to. Run with no args to reset.",
-			"usage": "<channel>"
+			"description": "Define onde os registros de ação são registrados. Execute com nenhum args para resetar.",
+			"usage": "<canal>"
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
 		},
 		"any": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
 		},
 		"endswith": {
 			"usage": "[term] <amount>",
 			"description": "Purges messages that end with [term]. Supports wild*cards."
 		},
 		"files": {
-			"usage": "<amount>",
+			"usage": "<quantidade>",
 			"description": "Purges messages with attachments."
 		},
 		"images": {
-			"usage": "<amount>",
+			"usage": "<quantidade>",
 			"description": "Purges messages with images attached."
 		},
 		"invites": {
-			"usage": "<amount>",
+			"usage": "<quantidade>",
 			"description": "Purges messages containing Discord server invite links."
 		},
 		"links": {
-			"usage": "<amount>",
+			"usage": "<quantidade>",
 			"description": "Purges messages containing links."
 		},
 		"includes": {
