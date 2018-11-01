@@ -3,28 +3,28 @@
 		"notAMovie": "Isso não é um filme! Tenta `{0}show {1}`."
 	},
 	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notASeries": "Isso não é um programa de TV! Tenta `{0}movie {1}`."
 	},
 	"funban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"noArgs": "Inclua um usuário para banir!",
+		"success": "Banido {0}.",
+		"error": "Ocorreu um erro ao banir {0}. Isto pode ser um erro temporário, ou podes não ter as permissões necessárias para banir este usuário.",
+		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
+		"tooLate": "{0} já foi banido."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"noArgs": "Inclua um usuário para banir!",
+		"success": "Banido {0}.",
+		"withReason": "Baniste {0} por `{1}`.",
+		"error": "Ocorreu um erro ao banir {0}. Isto pode ser um erro temporário, ou podes não ter as permissões necessárias para banir este usuário.",
+		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
+		"tooLate": "{0} já foi banido."
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"youGotIt": "You got it, I'll remind you in {0}.",
+		"invalid": "Essa data não é válida.",
+		"setForPast": "Dê-me uma data que seja no futuro.",
+		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
+		"youGotIt": "Entendido, irei te relembrar em {0}.",
 		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
 	},
 	"ping": {
@@ -208,8 +208,8 @@
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
+		"setForPast": "Dê-me uma data que seja no futuro.",
+		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
