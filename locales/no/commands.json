@@ -1,9 +1,9 @@
 {
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
+		"notAMovie": "Det er ikke en film! Kanskje prøv `{0}vis {1}` i stedet."
 	},
 	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notASeries": "Det er ikke et TV show! Kanskje prøv `{0}vis {1}` i stedet."
 	},
 	"funban": {
 		"noArgs": "Please include a user to ban!",
