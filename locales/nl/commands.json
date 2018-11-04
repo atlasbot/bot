@@ -6,33 +6,33 @@
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"noArgs": "Voer aub een gebruiker in om te verbannen!",
+		"success": "{0} is verbannen.",
+		"error": "Er is een fout opgetreden tijdens het verbannen van {0}. Dit kan een tijdelijk probleem zijn of je hebt geen toestemming deze persoon te verbannen.",
+		"tooLateReason": "{1} is al verbannen met als reden `{0}`.",
+		"tooLate": "{0} is al verbannen."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"noArgs": "Voer aub een gebruiker in om te verbannen!",
+		"success": "{0} is verbannen.",
+		"withReason": "{0} is verbannen voor `{1}`.",
+		"error": "Er is een fout opgetreden tijdens het verbannen van {0}. Dit kan een tijdelijk probleem zijn of je hebt geen toestemming deze persoon te verbannen.",
+		"tooLateReason": "{1} is al verbannen met als reden `{0}`.",
+		"tooLate": "{0} is al verbannen."
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"youGotIt": "You got it, I'll remind you in {0}.",
+		"invalid": "Dat is geen geldige datum.",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
+		"youGotIt": "Is goed, ik zal het je herinneren in {0}.",
 		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "Ik heb een `{0}ms` vertraging naar deze server.",
+		"dm": "Ik heb een `{0}ms` vertraging naar deze dm.",
 		"randoms": [
-			"I'm hungry...",
+			"Ik heb honger...",
 			"Shovelling coal into the server...",
 			"In my defense, this is still faster than you could do it...",
 			"Waiting for the stars to align...",
@@ -40,19 +40,19 @@
 			"Enjoy the elevator music...",
 			"Hello my name is Atlas what would you like today Sir?...",
 			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
+			"Error: geduld is op...",
+			"Zijn we er al?...",
 			"Please insert quarter...",
 			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
+			"Ben je afgevallen?...",
+			"brb, 1 seconde...",
 			"Spinning up the hamster..."
 		]
 	},
 	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some help?",
+		"title": "Hulp nodig?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
@@ -208,8 +208,8 @@
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
