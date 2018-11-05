@@ -29,9 +29,9 @@ module.exports = class AdvancedEmbed extends Command {
 
 		const embed = {
 			color: color && parseInt(color.hex.replace(/#/g, ''), 16),
-			title: !parsedArgs.icon && parsedArgs.title,
+			title: !(parsedArgs.icon && !parsedArgs.name) && parsedArgs.title,
 			author: {
-				name: parsedArgs.icon ? parsedArgs.title : parsedArgs.name,
+				name: parsedArgs.icon && !parsedArgs.name ? parsedArgs.title : parsedArgs.name,
 				icon_url: parsedArgs.icon,
 			},
 			description: parsedArgs.description && parsedArgs.description.replace(/\\n/g, '\n'),
@@ -49,15 +49,24 @@ module.exports = class AdvancedEmbed extends Command {
 			url: parsedArgs.url,
 		};
 
-		// const fields = [];
-		// for (const val of Object.values(preFields)) {
-		// 	fields.push(val);
-		// }
+		for (const [name, value] of Object.entries(parsedArgs)) {
+			// todo: revisit this, regex is probably overkill here
+			const match = /field([0-9])value/.exec(name);
+			if (match) {
+				const [, number] = match;
+
+				embed.fields.push({
+					name: parsedArgs[`field${number}name`],
+					value: value.toString(),
+					inline: parsedArgs[`field${number}inline`],
+				});
+			}
+		}
 
 		const error = responder.validateEmbed(embed, false);
 
 		if (error) {
-			return responder.error('advancedembed.error', error.message).send();
+			return responder.error('advancedembed.error', this.Atlas.lib.utils.parseJoiError(error).map(e => e.message).join(', ')).send();
 		}
 
 		return responder.localised().embed(embed).send();
@@ -105,7 +114,11 @@ module.exports.info = {
 	}, {
 		name: 'timestamp',
 		desc: 'Whether or not to add a timestamp to the embed.',
+	}, {
+		name: 'name',
+		desc: 'The author name. This or "title" are required for "icon" to work.',
 	}],
+	allowAllFlags: true,
 	permissions: {
 		bot: {
 			embedLinks: true,

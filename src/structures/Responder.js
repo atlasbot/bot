@@ -263,7 +263,7 @@ class Responder {
 			}
 		}
 
-		if (data.embed) {
+		if (data.embed && !data.localised) {
 			data.embed = this._parseObject(data.embed, data.lang);
 
 			if (data.validateEmbed) {
