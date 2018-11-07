@@ -1,12 +1,12 @@
 const TagError = require('./../TagError');
 const safeCompare = require('./../../../lib/utils/safeCompare');
 
+// TODO: DISABLED: current tag engine doesn't support tags like this yet
+
 /* eslint-disable no-case-declarations */
 module.exports = ({
 	parse,
 }, args) => {
-	// todo: test
-
 	if (!args[1]) {
 		throw new TagError('You need to provide atleast two arguments.');
 	}

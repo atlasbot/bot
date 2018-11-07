@@ -273,10 +273,10 @@ class Responder {
 		}
 
 		const msg = await (data.edit ? data.edit.edit({
-			content: data.str ? data.str.trim() : undefined,
+			content: data.str ? data.str.toString().trim() : undefined,
 			embed: data.embed,
 		}, data.file) : this.Atlas.client.createMessage(data.channelID, {
-			content: data.str ? data.str.trim() : undefined,
+			content: data.str ? data.str.toString().trim() : undefined,
 			embed: data.embed,
 		}, data.file));
 

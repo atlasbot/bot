@@ -32,6 +32,7 @@ module.exports = class RemindMe extends Command {
 			requested: new Date(),
 			channel: msg.channel.id,
 			user: msg.author.id,
+			lang: msg.lang,
 		})
 			.then(() => {
 				responder.text('remindme.youGotIt', this.Atlas.lib.utils.prettyMs(parsed.relative, {

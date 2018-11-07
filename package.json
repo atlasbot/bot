@@ -44,7 +44,6 @@
 		"swearjar": "^0.2.0",
 		"time-parser": "^0.2.10",
 		"valid-url": "^1.0.9",
-		"xregexp": "^4.2.0",
 		"yargs-parser": "^10.1.0"
 	},
 	"devDependencies": {

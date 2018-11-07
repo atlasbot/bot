@@ -5,4 +5,5 @@ module.exports = {
 	requested: Joi.date().required(),
 	channel: Joi.string().required(),
 	user: Joi.string().required(),
+	lang: Joi.string().required(),
 };

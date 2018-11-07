@@ -3,6 +3,7 @@ const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
 const hookCache = new Map();
+const Action = require('./Action');
 
 // TODO: this shouldn't be created every time data is fetched from the DB (aka, cache it and reuse it)
 
@@ -12,6 +13,8 @@ module.exports = class GuildSettings {
         * @param {Object} settings The guilds settings from a DB
         */
 	constructor(settings) {
+		this.actions = settings.plugins.actions.actions.map(a => new Action(settings, a));
+
 		this.settings = settings;
 
 		this.Atlas = require('../../Atlas');

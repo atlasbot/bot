@@ -327,5 +327,17 @@
 				"message": "{0}, please don't flood chat."
 			}
 		}
+	},
+	"action": {
+		"disabled": "That action is disabled.",
+		"noSubActions": "That action has no sub-actions to run.",
+		"banned": {
+			"channel": "This channel is not allowed to use that action.",
+			"role": "You have a role which has been blocked from using this action."
+		},
+		"whitelist": {
+			"role": "Only whitelisted roles are allowed to use that action.",
+			"channel": "Only whitelisted channels are allowed to use that action."
+		}
 	}
 }

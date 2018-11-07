@@ -33,11 +33,13 @@ module.exports = class Ready {
 		}
 
 		msg.prefix = this.checkPrefix(msg.content, settings);
+
 		if (msg.prefix) { // eslint-disable-line no-extra-parens
 			msg.args = msg.content.replace(/<@!/g, '<@').substring(msg.prefix.length).trim()
 				.split(/ +/g);
 			msg.label = msg.args.shift().toLowerCase();
 			msg.command = this.Atlas.commands.get(msg.label);
+
 			if (msg.command) {
 				if (msg.command.info.subcommands.size !== 0 && msg.args[0]) {
 					// handle subcommands
@@ -68,16 +70,44 @@ module.exports = class Ready {
 					parsedArgs,
 				});
 			}
-			// TODO: look for a custom command that matches the label
 
 			this.Atlas.client.emit('message', msg);
 		}
 
-		if (settings) {
+		if (msg.guild && settings) {
 			for (const filter of this.Atlas.filters.values()) {
 				const output = await filter.checkMessage(settings, msg);
 				if (output === true) {
 					break;
+				}
+			}
+
+			// todo: make actions  take priority over default commands
+			const actions = settings.actions.filter((a) => {
+				if (a.trigger.type === 'label' && msg.label === a.trigger.content) {
+					return true;
+				}
+
+				// i'm not sorry honestly
+				if (
+					a.trigger.type === 'keyword'
+					&& (
+						msg.content.toLowerCase().includes(a.trigger.content.toLowerCase())
+						|| msg.cleanContent.toLowerCase().includes(a.trigger.content.toLowerCase())
+					)
+				) {
+					return true;
+				}
+
+				return false;
+			});
+
+			for (const action of actions) {
+				try {
+					await action.execute(msg);
+				} catch (e) {
+					// todo: log to guild
+					console.error(e);
 				}
 			}
 		}
