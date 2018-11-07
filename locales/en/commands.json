@@ -1,6 +1,6 @@
 {
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show{1}` instead."
+		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
 	},
 	"series": {
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
@@ -8,7 +8,7 @@
 	"funban": {
 		"noArgs": "Please include a user to ban!",
 		"success": "Banned {0}.",
-		"error": "An error occurred banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
+		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
@@ -16,7 +16,7 @@
 		"noArgs": "Please include a user to ban!",
 		"success": "Banned {0}.",
 		"withReason": "Banned {0} for `{1}`.",
-		"error": "An error occurred banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
+		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
