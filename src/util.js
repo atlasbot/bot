@@ -87,13 +87,18 @@ module.exports = class Util {
 		if (id && lib.utils.isSnowflake(id)) {
 			const result = guildMembers.get(id) || this.Atlas.client.users.get(id);
 			if (memberOnly || result) {
+				this.updateUser(result).catch(() => false);
+
 				return result;
 			}
+
 			if (rest) {
 				try {
 					try {
 						const user = await this.Atlas.client.getRESTUser(id);
 						if (user) {
+							this.updateUser(user).catch(() => false);
+
 							return user;
 						}
 					} catch (e) {
@@ -105,7 +110,7 @@ module.exports = class Util {
 			}
 		}
 
-		return (new Fuzzy(members || Array.from(guildMembers.values()), {
+		const member = (new Fuzzy(members || Array.from(guildMembers.values()), {
 			matchPercent,
 			keys: [
 				'username',
@@ -113,6 +118,10 @@ module.exports = class Util {
 				'mention',
 			],
 		})).search(query);
+
+		this.updateUser(member).catch(() => false);
+
+		return member;
 	}
 
 	/**
@@ -311,6 +320,23 @@ module.exports = class Util {
 
 				return entry;
 			}
+		}
+	}
+
+	async updateUser(author) {
+		const schema = d => ({
+			avatar: d.avatar,
+			username: d.username,
+			discriminator: d.discriminator,
+			id: d.id,
+		});
+
+		// find an existing one and cache it for an hour (which means it should hit redis for most messages)
+		const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);
+
+		// if the saved schema isn't the same as one that would be saved, then replace it
+		if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(schema(author))) {
+			await this.Atlas.DB.User.updateOneOrCreate({ id: author.id }, schema(author));
 		}
 	}
 };
