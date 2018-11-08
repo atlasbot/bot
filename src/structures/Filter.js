@@ -44,7 +44,7 @@ module.exports = class Filter {
 
 				if (filterConfig.action_type === 2 || filterConfig.action_type === 3) {
 					// warn the user
-					await settings.addWarning({
+					await settings.addInfraction({
 						target: msg.author,
 						moderator: settings.guild.me,
 						reason: responder.format(`general.filters.messages.${this.info.settingsKey}.warning`),

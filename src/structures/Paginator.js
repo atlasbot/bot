@@ -134,7 +134,7 @@ module.exports = class Paginator extends Responder {
 	async updatePage() {
 		const em = this._parseObject(await this.page.generator(this));
 
-		if (!this.showPages && this.collector.currEmojis.length) {
+		if (this.collector && !this.showPages && this.collector.currEmojis.length) {
 			this.collector.purgeReactions(true).catch(console.warn);
 		}
 

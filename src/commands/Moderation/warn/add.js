@@ -14,6 +14,7 @@ module.exports = class Add extends Command {
 		if (!args[0]) {
 			return responder.error('warn.add.noArgs').send();
 		}
+
 		const query = args.shift();
 		const target = await this.Atlas.util.findMember(msg.guild, query);
 
@@ -27,15 +28,16 @@ module.exports = class Add extends Command {
 			return responder.error('warn.add.tooLong').send();
 		}
 
-		const warnings = settings.getWarnings(target);
-
 		try {
-			const d = await settings.addWarning({
+			const { notified } = await settings.addInfraction({
 				target: target.user || target,
 				moderator: msg.author,
 				reason,
 			});
 
+			const warnings = await settings.getInfractions(target);
+
+			// todo: localise
 			settings.log('mod', {
 				color: this.Atlas.colors.get('orange').decimal,
 				title: 'Member Warned',
@@ -46,7 +48,7 @@ module.exports = class Add extends Command {
 					inline: true,
 				}, {
 					name: 'Direct Messaged',
-					value: d.notified ? 'The user was direct-messaged.' : 'The user was not direct-messaged.',
+					value: notified ? 'The user was direct-messaged.' : 'The user was not direct-messaged.',
 					inline: true,
 				}, {
 					name: 'Reason',
@@ -60,7 +62,7 @@ module.exports = class Add extends Command {
 			}).catch(() => false);
 
 			return responder
-				.text(`warn.add.success.${warnings.length === 1 ? 'singular' : 'plural'}`, target.mention, warnings.length + 1)
+				.text(`warn.add.success.${warnings.length === 1 ? 'singular' : 'plural'}`, target.mention, warnings.length)
 				.send();
 		} catch (e) {
 			responder.error('warn.add.error').send();

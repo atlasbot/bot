@@ -23,7 +23,7 @@ module.exports = class View extends Command {
 			return responder.error('warn.view.noPerms').send();
 		}
 
-		const warnings = settings.getWarnings(target);
+		const warnings = await settings.getInfractions(target);
 		if (!warnings.length) {
 			return responder.text('warn.view.noWarns', target.mention).send();
 		}

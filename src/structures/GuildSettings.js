@@ -224,17 +224,14 @@ module.exports = class GuildSettings {
     * @param {boolean} data.notify Whether the target should be notified that they were warned
     * @returns {Promise} The data, data.notify is whether or not the user was notified, data.info is from mongodb.
      */
-	async addWarning({ target, moderator, reason }) {
-		const d = await this.update({
-			$push: {
-				'plugins.moderation.infractions': {
-					reason,
-					target: target.id,
-					moderator: moderator.id,
-					guild: this.id,
-				},
-			},
+	async addInfraction({ target, moderator, reason }) {
+		const d = await this.Atlas.DB.Infraction.create({
+			reason,
+			target: target.id,
+			moderator: moderator.id,
+			guild: this.id,
 		});
+
 		if (target.id && this.guild && this.guild.members.has(target.id)) {
 			try {
 				const channel = await target.getDMChannel();
@@ -282,24 +279,19 @@ module.exports = class GuildSettings {
 
 	/**
     * Does what it says on a tin, removes a warning by ID
-    * @param {Object|ObjectId} id The ID or Object of the warn, if an object is provided it must have an _id key
+    * @param {Object|ObjectId} _id The ID or Object of the warn, if an object is provided it must have an _id key
     * @returns {Promise} the update
     */
-	removeWarning(id) {
-		const warning = id._id ? id : this.settings.plugins.moderation.infractions.find(inf => inf._id === id);
-		if (warning) {
-			const payload = {
-				$pull: {
-					'plugins.moderation.infractions': {
-						_id: warning._id,
-					},
-				},
-			};
+	async removeInfraction(_id) {
+		const id = _id._id || _id;
 
-			return this.update(payload);
+		const removed = await this.Atlas.DB.Infraction.remove({ _id: id });
+
+		if (removed.nModified !== 0) {
+			return removed;
 		}
 
-		throw new Error('Invalid warning ID!');
+		throw new Error('Invaild warning ID');
 	}
 
 	/**
@@ -309,11 +301,14 @@ module.exports = class GuildSettings {
     * @param {boolean} opts.all whether or not to return all infractions, including ones that were deleted
     * @returns {Array} An array of objects with infraction info
     */
-	getWarnings(user, {
+	async getInfractions(user, {
 		all = false,
 	} = {}) {
-		const warnings = this.settings.plugins.moderation.infractions
-			.filter(inf => inf.target === (user.id || user) && (!all || inf.active));
+		const warnings = await this.Atlas.DB.Infraction.find({
+			guild: this.id,
+			target: (user.id || user),
+			all: all ? true : undefined,
+		});
 
 		warnings.sort((a, b) => b.date - a.date);
 

@@ -34,20 +34,20 @@ module.exports = class Remove extends Command {
 		if (args.length) {
 			// remove the warning without doing shitty embed stuff
 
-			const warn = (new this.Atlas.structs.Fuzzy(settings.settings.plugins.moderation.infractions, {
-				keys: ['reason'],
-			})).search(query);
+			const warn = await this.Atlas.DB.Infraction.findOne({
+				reason: new RegExp(`^${this.Atlas.lib.utils.escapeRegex(query)}$`, 'i'),
+			});
 
 			if (!warn) {
 				return responder.error('warn.remove.notFound').send();
 			}
 
-			await settings.removeWarning(warn._id);
+			await settings.removeInfraction(warn._id);
 
 			return responder.text('warn.remove.successNoMention', warn.reason, target.tag).send();
 		}
 
-		let warnings = settings.getWarnings(target);
+		let warnings = await settings.getInfractions(target);
 		if (warnings.length === 0) {
 			return responder.text('warn.remove.noWarns', target.mention).send();
 		}
@@ -115,9 +115,9 @@ module.exports = class Remove extends Command {
 				if (!isNaN(num) && currPageWarns) {
 					const warn = currPageWarns[num - 1];
 					if (warn) {
-						await settings.removeWarning(warn._id);
+						await settings.removeInfraction(warn._id);
 
-						warnings = settings.getWarnings(target);
+						warnings = await settings.getInfractions(target);
 
 						if (!warnings.length) {
 							pageMsg.delete().catch(() => false);
