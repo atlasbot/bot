@@ -339,7 +339,6 @@ module.exports = class Util {
 			discriminator: user.discriminator,
 		});
 
-
 		try {
 			// find an existing one and cache it for an hour (which means it should hit redis for most messages)
 			const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);

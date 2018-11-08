@@ -134,7 +134,7 @@ module.exports = class Mute extends Command {
 				},
 			],
 			thumbnail: {
-				url: target.avatarURL || target.defaultAvatarURL,
+				url: target.avatarURL,
 			},
 			footer: {
 				// if anyone is up to the challenge, fitting the role ID in here would be nice, but it creates two lines and looks gross.

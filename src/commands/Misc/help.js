@@ -16,7 +16,7 @@ module.exports = class Help extends Command {
 			const embed = {
 				author: {
 					name: 'help.title',
-					icon_url: this.Atlas.client.avatarURL || this.Atlas.client.defaultAvatarURL,
+					icon_url: this.Atlas.client.avatarURL,
 				},
 				fields: [],
 				description: ['help.description', msg.displayPrefix],

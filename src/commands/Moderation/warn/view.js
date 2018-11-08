@@ -45,7 +45,7 @@ module.exports = class View extends Command {
 			return {
 				author: {
 					name: `${target.username}'s Warnings`,
-					icon_url: target.avatarURL || target.defaultAvatarURL,
+					icon_url: target.avatarURL,
 				},
 				fields: page.data.map((w) => {
 					const moderator = msg.guild.members.get(w.moderator);

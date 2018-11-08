@@ -18,7 +18,7 @@ module.exports = class Event {
 			description: ['general.logs.guildBanRemove.description', member.tag],
 			fields: [],
 			thumbnail: {
-				url: member.avatarURL || member.defaultAvatarURL,
+				url: member.avatarURL,
 			},
 			footer: {
 				text: `Target ${member.id}`,

@@ -19,7 +19,7 @@ module.exports = class Event {
 				value: (new Date(member.createdAt)).toLocaleDateString(),
 			}],
 			thumbnail: {
-				url: member.avatarURL || member.defaultAvatarURL,
+				url: member.avatarURL,
 			},
 			footer: {
 				text: `User ${member.id}`,

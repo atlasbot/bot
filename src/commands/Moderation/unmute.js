@@ -85,7 +85,7 @@ module.exports = class Unmute extends Command {
 					inline: true,
 				}],
 				thumbnail: {
-					url: target.avatarURL || target.defaultAvatarURL,
+					url: target.avatarURL,
 				},
 				timestamp: new Date(),
 				footer: {

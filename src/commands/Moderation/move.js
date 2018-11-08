@@ -58,7 +58,7 @@ module.exports = class Move extends Command {
 				// forward the message using the webhook
 				await this.Atlas.client.executeWebhook(hook.id, hook.token, {
 					content: targetMsg.content,
-					avatarURL: targetMsg.author.avatarURL || targetMsg.author.defaultAvatarURL,
+					avatarURL: targetMsg.author.avatarURL,
 					username: targetMsg.author.username,
 					file: targetMsg.file,
 					embeds: targetMsg.embeds,

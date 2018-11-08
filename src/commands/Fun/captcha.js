@@ -29,7 +29,7 @@ module.exports = class Captcha extends Command {
 		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
 				type: 'captcha',
-				url: user.avatarURL || user.defaultAvatarURL,
+				url: user.avatarURL,
 				username: user.nick || user.username,
 			})
 			.set('User-Agent', this.Atlas.userAgent);

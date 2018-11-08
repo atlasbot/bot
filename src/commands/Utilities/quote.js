@@ -45,7 +45,7 @@ module.exports = class Quote extends Command {
 		return responder.embed({
 			author: {
 				name: targetMsg.author.tag,
-				icon_url: targetMsg.author.avatarURL || targetMsg.author.defaultAvatarURL,
+				icon_url: targetMsg.author.avatarURL,
 			},
 			image: {
 				url: img && img.proxy_url,

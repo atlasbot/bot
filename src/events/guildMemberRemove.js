@@ -22,7 +22,7 @@ module.exports = class Event {
 				color: this.Atlas.colors.get('cyan').decimal,
 				description: ['general.logs.guildMemberKick.description', member.tag],
 				thumbnail: {
-					url: member.avatarURL || member.defaultAvatarURL,
+					url: member.avatarURL,
 				},
 				fields: [{
 					name: 'general.logs.guildMemberKick.moderator.name',
@@ -42,7 +42,7 @@ module.exports = class Event {
 			color: this.Atlas.colors.get('cyan').decimal,
 			description: ['general.logs.guildMemberRemove.description', member.tag],
 			thumbnail: {
-				url: member.avatarURL || member.defaultAvatarURL,
+				url: member.avatarURL,
 			},
 			footer: {
 				text: `User ${member.id}`,

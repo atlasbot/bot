@@ -66,7 +66,7 @@ module.exports = class BotInfo extends Command {
 
 			const embed = {
 				thumbnail: {
-					url: target.avatarURL || target.defaultAvatarURL,
+					url: target.avatarURL,
 				},
 				url: `https://discordbots.org/bot/${body.vanity || target.id}`,
 				title: target.username,

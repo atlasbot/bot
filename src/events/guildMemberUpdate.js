@@ -32,7 +32,7 @@ module.exports = class Event {
 					description: [`general.logs.guildMemberUpdate.${key}.description`, member.tag, role.mention],
 					fields: [],
 					thumbnail: {
-						url: member.avatarURL || member.defaultAvatarURL,
+						url: member.avatarURL,
 					},
 					footer: {
 						text: `User ${member.id} Role ${role.id}`,
@@ -84,13 +84,13 @@ module.exports = class Event {
 				title: 'general.logs.guildMemberUpdate.avatarChange',
 				thumbnail: {
 					// might change this to use the old avatar at some point
-					url: member.avatarURL || member.defaultAvatarURL,
+					url: member.avatarURL,
 				},
 				description: [
 					'general.logs.guildMemberUpdate.avatarChange',
 					member.tag,
-					member.avatarURL || member.defaultAVatarURL,
-					oldMember.avatarURL || oldMember.defaultAvatarURL,
+					member.avatarURL,
+					oldMember.avatarURL,
 				],
 				footer: {
 					text: `User ${member.id}`,

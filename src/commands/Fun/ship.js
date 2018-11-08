@@ -26,8 +26,8 @@ module.exports = class Ship extends Command {
 		const res = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
 				type: 'ship',
-				user1: user1.avatarURL || user1.defaultAvatarURL,
-				user2: user2.avatarURL || user2.defaultAvatarURL,
+				user1: user1.avatarURL,
+				user2: user2.avatarURL,
 			})
 			.set('User-Agent', this.Atlas.userAgent);
 

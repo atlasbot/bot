@@ -112,7 +112,7 @@ module.exports = class Atlas {
 	 * gets the bot's avatar URL
 	 */
 	get avatar() {
-		return this.client.user.avatarURL || this.client.user.defaultAvatarURL;
+		return this.client.user.avatarURL;
 	}
 
 	/**

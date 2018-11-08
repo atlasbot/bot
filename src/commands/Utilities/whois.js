@@ -21,7 +21,7 @@ module.exports = class WhoIs extends Command {
 
 				const embed = {
 					thumbnail: {
-						url: user.avatarURL || user.defaultAvatarURL,
+						url: user.avatarURL,
 					},
 					fields: [
 						{
@@ -31,7 +31,7 @@ module.exports = class WhoIs extends Command {
 						},
 						{
 							name: 'whois.embed.avatarURL.name',
-							value: ['whois.embed.avatarURL.value', user.avatarURL || user.defaultAvatarURL],
+							value: ['whois.embed.avatarURL.value', user.avatarURL],
 							inline: true,
 						},
 						{

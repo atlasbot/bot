@@ -30,7 +30,7 @@ module.exports = class Event {
 					value: msg.content.substring(0, 1024),
 				}],
 				thumbnail: {
-					url: msg.author.avatarURL || msg.author.defaultAvatarURL,
+					url: msg.author.avatarURL,
 				},
 				footer: {
 					text: `User ${msg.author.id}`,

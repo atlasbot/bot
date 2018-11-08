@@ -58,7 +58,7 @@ module.exports = class FunBan extends Command {
 
 		return responder.embed({
 			author: {
-				icon_url: target.avatarURL || target.defaultAvatarURL,
+				icon_url: target.avatarURL,
 				name: ['funban.success', target.tag],
 			},
 			image: {

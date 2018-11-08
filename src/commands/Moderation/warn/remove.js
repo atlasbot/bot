@@ -74,7 +74,7 @@ module.exports = class Remove extends Command {
 			const embed = {
 				author: {
 					name: `${target.username}'s Warnings`,
-					icon_url: target.avatarURL || target.defaultAvatarURL,
+					icon_url: target.avatarURL,
 				},
 				description: `React with a number corresponding to a warning number to remove it from ${target.tag}.`,
 				fields: page.data.map((w, i) => {
