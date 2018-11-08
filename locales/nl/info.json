@@ -281,6 +281,10 @@
 			"usage": "[user] <warn reason>"
 		}
 	},
+	"warnings": {
+		"description": "Views your/another users warnings.",
+		"args": "<user>"
+	},
 	"funban": {
 		"description": "Bans a user but it's fun (and slightly spammy)",
 		"usage": "[user] <reason>"
