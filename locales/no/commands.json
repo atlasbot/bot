@@ -8,7 +8,6 @@
 	"funban": {
 		"noArgs": "Please include a user to ban!",
 		"success": "Banned {0}.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
@@ -16,7 +15,6 @@
 		"noArgs": "Please include a user to ban!",
 		"success": "Banned {0}.",
 		"withReason": "Banned {0} for `{1}`.",
-		"error": "An error occured banning {0}. This could be a temporary error, or you are lacking permissions to ban that user.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
@@ -149,8 +147,8 @@
 	},
 	"warn": {
 		"add": {
+			"noReason": "You have to include a reason.",
 			"noArgs": "Please include a user to warn!",
-			"error": "An error occured warning the user, please try again later.",
 			"success": {
 				"plural": "Added warning to {0}, they now have {1} warnings.",
 				"singular": "Added warning to {0}, they now have {1} warning."
@@ -198,8 +196,7 @@
 	},
 	"unban": {
 		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned.",
-		"error": "An error occured while trying to unban {0}."
+		"success": "{0} has been unbanned."
 	},
 	"mute": {
 		"noArgs": "Please include a user to mute!",
@@ -336,8 +333,7 @@
 	"kick": {
 		"noArgs": "Please include a user to kick!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`.",
-		"error": "An error occured kicking {0}. This could be a temporary error, or you are lacking permissions to kick that user."
+		"withReason": "Kicked {0} for `{1}`."
 	},
 	"gotcharacter": {
 		"notFound": "I could not find a Game of Thrones character matching `{0}`."
