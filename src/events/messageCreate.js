@@ -32,6 +32,11 @@ module.exports = class Ready {
 			msg.lang = process.env.DEFAULT_LANG;
 		}
 
+		// user profile, currently does nothing but store avatars and usernames for dashboard things (see /lib/schemas/User)
+		// no reason to do this as it's more or less just for usernames and avatars
+		this.updateUser(msg.author).catch(() => false);
+
+
 		msg.prefix = this.checkPrefix(msg.content, settings);
 
 		if (msg.prefix) { // eslint-disable-line no-extra-parens
@@ -52,6 +57,7 @@ module.exports = class Ready {
 						msg.command = sub;
 					}
 				}
+
 				const uncleanOptions = parseArgs(msg.content);
 				const parsedArgs = {};
 				for (const arg of Object.keys(uncleanOptions)) {
@@ -123,6 +129,23 @@ module.exports = class Ready {
 			if (msg.startsWith(prefix)) {
 				return prefix;
 			}
+		}
+	}
+
+	async updateUser(author) {
+		const schema = d => ({
+			avatar: d.avatar,
+			username: d.username,
+			discriminator: d.discriminator,
+			id: d.id,
+		});
+
+		// find an existing one and cache it for an hour (which means it should hit redis for most messages)
+		const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);
+
+		// if the saved schema isn't the same as one that would be saved, then replace it
+		if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(schema(author))) {
+			await this.Atlas.DB.User.updateOneOrCreate({ id: author.id }, schema(author));
 		}
 	}
 };

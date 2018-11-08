@@ -42,6 +42,9 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 | GOOGLE_CX             | A Google CX key for custom searches. Google is your friend.                                                                     |
 | GOOGLE_KEY            | A Google key for custom searches. See above.                                                                                    |
 | DEFAULT_LANG          | The default language to use for everything. Valid languages are in [/lang](/lang)                                               |
+| REDIS_HOST            | The host for Redis. Redis is optional entirely optional.                                                                        |
+| REDIS_PASS            | The password for the Redis server                                                                                               |
+| REDIS_POYT            | The port for the Redis server                                                                                                   |
 
 ## Disclaimer / Warning
 
