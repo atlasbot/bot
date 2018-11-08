@@ -24,16 +24,13 @@ class Command {
 			examples: [],
 			noExamples: info.usage && !info.examples,
 			supportedArgs: [],
-			args: [],
 			subcommands: new Map(),
 			subcommandAliases: new Map(),
 		},
 		...info };
 
 		this.execute = this.execute.bind(this);
-		if (this.action) {
-			this.action = this.action.bind(this);
-		}
+		this.action = this.action.bind(this);
 	}
 
 	execute(msg, args, {
@@ -81,18 +78,17 @@ class Command {
 						)
 						.send();
 				}
-			} else if (this.info.guildOnly === true && !msg.guild) {
-				return responder.error('general.guildOnly').send();
 			}
 
-			const validated = {};
+			if (this.info.guildOnly === true && !msg.guild) {
+				return responder.error('general.guildOnly').send();
+			}
 
 			// todo: validate args following info.args array
 
 			Promise.resolve(this.action(msg, args, {
 				settings,
 				parsedArgs,
-				...validated,
 				get cleanArgs() {
 					return cleanArgs(msg, args);
 				},

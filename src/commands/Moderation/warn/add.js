@@ -24,49 +24,49 @@ module.exports = class Add extends Command {
 
 		const reason = args.join(' ');
 
+		if (!reason) {
+			return responder.error('warn.add.noReason').send();
+		}
+
 		if (args[0] && reason.length > 48) {
 			return responder.error('warn.add.tooLong').send();
 		}
 
-		try {
-			const { notified } = await settings.addInfraction({
-				target: target.user || target,
-				moderator: msg.author,
-				reason,
-			});
+		const { notified } = await settings.addInfraction({
+			target: target.user || target,
+			moderator: msg.author,
+			reason,
+		});
 
-			const warnings = await settings.getInfractions(target);
+		const warnings = await settings.getInfractions(target);
 
-			// todo: localise
-			settings.log('mod', {
-				color: this.Atlas.colors.get('orange').decimal,
-				title: 'Member Warned',
-				description: `${target.mention} (\`${target.tag}\`) has been warned by a ${msg.author.mention} (\`${msg.author.tag}\`).`,
-				fields: [{
-					name: 'Total Warnings',
-					value: `${target.tag} now has ${warnings.length + 1} total warning(s).`,
-					inline: true,
-				}, {
-					name: 'Direct Messaged',
-					value: notified ? 'The user was direct-messaged.' : 'The user was not direct-messaged.',
-					inline: true,
-				}, {
-					name: 'Reason',
-					value: args.length ? reason : 'No reason specified',
-					inline: true,
-				}],
-				timestamp: new Date(),
-				footer: {
-					text: `Target ${target.id} Mod ${msg.author.id}`,
-				},
-			}).catch(() => false);
+		// todo: localise
+		settings.log('mod', {
+			color: this.Atlas.colors.get('orange').decimal,
+			title: 'Member Warned',
+			description: `${target.mention} (\`${target.tag}\`) has been warned by a ${msg.author.mention} (\`${msg.author.tag}\`).`,
+			fields: [{
+				name: 'Total Warnings',
+				value: `${target.tag} now has ${warnings.length + 1} total warning(s).`,
+				inline: true,
+			}, {
+				name: 'Direct Messaged',
+				value: notified ? 'The user was direct-messaged.' : 'The user was not direct-messaged.',
+				inline: true,
+			}, {
+				name: 'Reason',
+				value: args.length ? reason : 'No reason specified',
+				inline: true,
+			}],
+			timestamp: new Date(),
+			footer: {
+				text: `Target ${target.id} Mod ${msg.author.id}`,
+			},
+		}).catch(() => false);
 
-			return responder
-				.text(`warn.add.success.${warnings.length === 1 ? 'singular' : 'plural'}`, target.mention, warnings.length)
-				.send();
-		} catch (e) {
-			responder.error('warn.add.error').send();
-		}
+		return responder
+			.text(`warn.add.success.${warnings.length === 1 ? 'singular' : 'plural'}`, target.mention, warnings.length)
+			.send();
 	}
 };
 

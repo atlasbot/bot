@@ -87,7 +87,9 @@ module.exports = class Util {
 		if (id && lib.utils.isSnowflake(id)) {
 			const result = guildMembers.get(id) || this.Atlas.client.users.get(id);
 			if (memberOnly || result) {
-				this.updateUser(result).catch(() => false);
+				if (result) {
+					await this.updateUser(result);
+				}
 
 				return result;
 			}
@@ -97,7 +99,7 @@ module.exports = class Util {
 					try {
 						const user = await this.Atlas.client.getRESTUser(id);
 						if (user) {
-							this.updateUser(user).catch(() => false);
+							await this.updateUser(user);
 
 							return user;
 						}
@@ -119,7 +121,9 @@ module.exports = class Util {
 			],
 		})).search(query);
 
-		this.updateUser(member).catch(() => false);
+		if (member) {
+			await this.updateUser(member);
+		}
 
 		return member;
 	}
@@ -324,19 +328,29 @@ module.exports = class Util {
 	}
 
 	async updateUser(author) {
-		const schema = d => ({
-			avatar: d.avatar,
-			username: d.username,
-			discriminator: d.discriminator,
-			id: d.id,
+		if (author.user) {
+			author = author.user;
+		}
+
+		const schema = user => ({
+			id: user.id,
+			avatar: user.avatar,
+			username: user.username,
+			discriminator: user.discriminator,
 		});
 
-		// find an existing one and cache it for an hour (which means it should hit redis for most messages)
-		const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);
 
-		// if the saved schema isn't the same as one that would be saved, then replace it
-		if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(schema(author))) {
-			await this.Atlas.DB.User.updateOneOrCreate({ id: author.id }, schema(author));
+		try {
+			// find an existing one and cache it for an hour (which means it should hit redis for most messages)
+			const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);
+			const toSave = schema(author);
+
+			// updates the user if the saved data doesn't exist or doesn't equal what it would be if we update it
+			if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
+				await this.Atlas.DB.User.updateOneOrCreate({ id: toSave.id }, toSave);
+			}
+		} catch (e) {
+			console.warn(e);
 		}
 	}
 };

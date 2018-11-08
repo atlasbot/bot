@@ -7,14 +7,10 @@ module.exports = class User extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	action(...args) {
 		const sub = this.Atlas.commands.get('avatar');
 
-		return sub.execute(msg, args, {
-			settings,
-		});
+		return sub.execute(...args);
 	}
 };
 

@@ -8,14 +8,10 @@ module.exports = class Warn extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	action(...args) {
 		const sub = this.Atlas.commands.get('warn').info.subcommands.get('add');
 
-		return sub.execute(msg, args, {
-			settings,
-		});
+		return sub.execute(...args);
 	}
 };
 
@@ -23,7 +19,6 @@ module.exports.info = {
 	name: 'warn',
 	guildOnly: true,
 	aliases: [
-		'warnings',
 		'warn',
 	],
 	permissions: {

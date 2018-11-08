@@ -43,30 +43,24 @@ module.exports = class Ban extends Command {
 			}
 		} catch (e) {} // eslint-disable-line no-empty
 
-		try {
-			this.Atlas.auditOverrides.push({
-				type: 22,
-				date: new Date(),
-				user: msg.author,
-				userID: msg.author.id,
-				targetID: target.id,
-				target,
-				reason: args.join(' '),
-				guild: msg.guild.id,
-			});
+		this.Atlas.auditOverrides.push({
+			type: 22,
+			date: new Date(),
+			user: msg.author,
+			userID: msg.author.id,
+			targetID: target.id,
+			target,
+			reason: args.join(' '),
+			guild: msg.guild.id,
+		});
 
-			await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
+		await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
-			if (args[0]) {
-				return responder.text('ban.withReason', target.tag, args.join(' ')).send();
-			}
-
-			return responder.text('ban.success', target.tag).send();
-		} catch (e) {
-			console.error(e);
-
-			return responder.error('ban.error', target.tag).send();
+		if (args[0]) {
+			return responder.text('ban.withReason', target.tag, args.join(' ')).send();
 		}
+
+		return responder.text('ban.success', target.tag).send();
 	}
 };
 

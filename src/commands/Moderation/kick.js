@@ -32,30 +32,24 @@ module.exports = class Kick extends Command {
 			return responder.error('general.lolno').send();
 		}
 
-		try {
-			this.Atlas.auditOverrides.push({
-				type: 20,
-				date: new Date(),
-				reason: args.join(' '),
-				user: msg.author,
-				userID: msg.author.id,
-				guild: msg.guild.id,
-				targetID: target.id,
-				target,
-			});
+		this.Atlas.auditOverrides.push({
+			type: 20,
+			date: new Date(),
+			reason: args.join(' '),
+			user: msg.author,
+			userID: msg.author.id,
+			guild: msg.guild.id,
+			targetID: target.id,
+			target,
+		});
 
-			await msg.guild.kickMember(target.id, `Kicked by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
+		await msg.guild.kickMember(target.id, `Kicked by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
-			if (args[0]) {
-				return responder.text('kick.withReason', target.tag, args.join(' ')).send();
-			}
-
-			return responder.text('kick.success', target.tag).send();
-		} catch (e) {
-			console.error(e);
-
-			return responder.error('kick.error', target.tag).send();
+		if (args[0]) {
+			return responder.text('kick.withReason', target.tag, args.join(' ')).send();
 		}
+
+		return responder.text('kick.success', target.tag).send();
 	}
 };
 

@@ -29,25 +29,20 @@ module.exports = class Unban extends Command {
 			}
 		}
 
-		try {
-			this.Atlas.auditOverrides.push({
-				type: 23,
-				date: new Date(),
-				user: msg.author,
-				userID: msg.author.id,
-				targetID: target.id,
-				reason: args.join(' '),
-				guild: msg.guild.id,
-				target,
-			});
+		this.Atlas.auditOverrides.push({
+			type: 23,
+			date: new Date(),
+			user: msg.author,
+			userID: msg.author.id,
+			targetID: target.id,
+			reason: args.join(' '),
+			guild: msg.guild.id,
+			target,
+		});
 
-			await msg.guild.unbanMember(target.id, `Unbanned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
+		await msg.guild.unbanMember(target.id, `Unbanned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
-			return responder.text('unban.success', target.tag).send();
-		} catch (e) {
-			// fixme: this is called if the user is not banned
-			return responder.error('unban.error', target.tag).send();
-		}
+		return responder.text('unban.success', target.tag).send();
 	}
 };
 

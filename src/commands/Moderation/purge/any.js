@@ -5,15 +5,11 @@ module.exports = class Any extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(...args) {
 		// redirects to the base
 		const purge = this.Atlas.commands.get('purge');
 
-		return purge.execute(msg, args, {
-			settings,
-		});
+		return purge.execute(...args);
 	}
 };
 
