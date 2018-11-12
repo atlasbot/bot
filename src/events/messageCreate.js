@@ -25,7 +25,7 @@ module.exports = class Ready {
 			settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
 			msg.lang = settings.lang;
-			msg.displayPrefix = settings.prefix || prefixes[0];
+			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;
 		} else {
 			([msg.displayPrefix] = prefixes);
 			// temporary

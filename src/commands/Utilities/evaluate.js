@@ -17,6 +17,7 @@ module.exports = class TagEval extends Command {
 
 		// todo: add more here
 		const parser = new Parser({
+			msg,
 			guild: msg.guild,
 			channel: msg.channel,
 			settings,

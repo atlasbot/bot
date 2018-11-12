@@ -25,7 +25,7 @@ const interp = async (tokens, info, functions) => {
 				continue;
 			}
 
-			output.push('Invalid tag name');
+			output.push(`{${thisToken.value}-INVALID}`);
 
 			continue;
 		}

@@ -106,7 +106,7 @@ module.exports = class Action {
 		const responder = (new this.Atlas.structs.Responder(msg.channel, this.settings.lang)).localised(true);
 
 		const parser = new Parser({
-			channel: msg.channel,
+			msg,
 			settings: this.settings,
 			action: this,
 			guild: this.guild,

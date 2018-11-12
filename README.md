@@ -29,6 +29,7 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 | Name                  | Description                                                                                                                     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | PREFIXES              | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention.   |
+| DEFAULT_PREFIX        | The default prefix for Atlas to use. By default, this is "a!"                                                                   |
 | NODE_ENV              | The environment the bot is in, should be "production" or "development".                                                         |
 | TOKEN                 | The bot token to login with.                                                                                                    |
 | MONGO_URI             | A MongoDB Connection URI.                                                                                                       |

@@ -13,15 +13,17 @@ module.exports = class {
      * @param {Object} data.command The command that is being processed
      */
 	constructor({
+		msg,
 		// todo: try and get ticket ourselves if it's not present
-		ticket,
 		guild,
 		// todo: try and get channel ourselves if it's not present
-		channel,
+		ticket,
+		channel = msg.channel,
 		settings,
 		action,
 	}) {
 		this.data = {
+			msg,
 			ticket,
 			guild,
 			channel,
