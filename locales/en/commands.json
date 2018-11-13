@@ -1,25 +1,25 @@
 {
 	"movie": {
-		"notAMovie": "That there ain't a movie! Ye should try `{0}show {1}` instead."
+		"notAMovie": "That there ain't a movie! Ye' should try `{0}show {1}` instead."
 	},
 	"series": {
-		"notASeries": "That there ain't a TV show! Ye should try `{0}movie {1}` instead."
+		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Ye needa include a user to ban!",
+		"noArgs": "Ye' needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
 		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"ban": {
-		"noArgs": "Ye needa include a user to ban!",
+		"noArgs": "Ye' needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
 		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"remindme": {
-		"invalid": "That aint a valid date.",
+		"invalid": "That ain't a valid date.",
 		"setForPast": "Please give me a date that is in the future.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"youGotIt": "You got it, I'll remind you in {0}.",
@@ -27,8 +27,8 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I've a `{0}ms` delay to this here server.",
-		"dm": "I've a `{0}ms` delay to this here DM.",
+		"server": "I've a `{0}ms` delay to this 'ere server.",
+		"dm": "I've a `{0}ms` delay to this 'ere DM.",
 		"randoms": [
 			"Hoistin' the topsails...",
 			"Gatherin' all hands on deck...",
@@ -47,8 +47,8 @@
 			"Weighin' the anchor..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"donate": "Bribe the portmaster and get some trinkets in return by donating at <https://www.patreon.com/NotSylver>.",
+	"invite": "Ye' can get Atlas fer yore own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"title": "Need some help?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
@@ -65,7 +65,7 @@
 			"value": "[Click 'ere](https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "I've been onlinet fer {0}.",
 	"whois": {
 		"noUser": "You have to tell me who to look up!",
 		"embed": {
