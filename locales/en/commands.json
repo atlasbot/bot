@@ -1,20 +1,20 @@
 {
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show{1}` instead."
+		"notAMovie": "That there ain't a movie! Ye should try `{0}show {1}` instead."
 	},
 	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notASeries": "That there ain't a TV show! Ye should try `{0}movie {1}` instead."
 	},
 	"funban": {
 		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
+		"success": "Sent {0} to Davy Jones' Locker.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
 	"ban": {
 		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
+		"success": "Sent {0} to Davy Jones' Locker.",
+		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
