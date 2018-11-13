@@ -48,9 +48,9 @@
 		]
 	},
 	"donate": "Bribe the portmaster and get some trinkets in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "Ye' can get Atlas fer yore own server at <https://atlasbot.xyz/get>.",
+	"invite": "Ye' can get Atlas fer' yore own server at <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some help?",
+		"title": "Need some 'elp?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
@@ -65,9 +65,9 @@
 			"value": "[Click 'ere](https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I've been onlinet fer {0}.",
+	"uptime": "I've been online fer' {0}.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "You've gotta tell me whom to look up!",
 		"embed": {
 			"tag": {
 				"name": "Tag",
@@ -106,11 +106,11 @@
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Need 'elp? Join our crew at <https://atlasbot.xyz/support>.",
 	"play": {
 		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
+		"noVoiceChannel": "You mus' be inna voice channel to do that!",
 		"busy": "I'm already playing in `{0}`.",
 		"noArgs": "You have to include a search query or URL!",
 		"playlistEmbed": {
@@ -140,7 +140,7 @@
 	},
 	"qplaylist": {
 		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
+		"noVoiceChannel": "You mus' be inna voice channel to do that!",
 		"invalidHostname": "You must enter a valid playlist URL!",
 		"youtubeOnly": "This command only works with YouTube playlists.",
 		"noQueryParam": "That link isn't apart of a playlist. "
@@ -153,11 +153,11 @@
 				"plural": "Added warning to {0}, they now have {1} warnings.",
 				"singular": "Added warning to {0}, they now have {1} warning."
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "Ye' blabber-mouth! The reason ye' provided is too long, it mus' be at most 256 characters long."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
+			"noArgs": "Ye' must include a user!",
+			"noPerms": "Ye' only have permissions to view yore own warnings!",
 			"noWarns": "{0} does not have any warnings."
 		},
 		"remove": {
