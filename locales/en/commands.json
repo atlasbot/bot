@@ -6,13 +6,13 @@
 		"notASeries": "That there ain't a TV show! Ye should try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Please include a user to ban!",
+		"noArgs": "Ye needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
+		"noArgs": "Ye needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
@@ -35,7 +35,7 @@
 			"Haulin' the pennant line...",
 			"Slackin' th' windward brace...",
 			"Steadyin' th' cargo...",
-			"Enjoy the elevator music...",
+			"Readyin' th' cannons...",
 			"Hello my name is Atlas what would you like today Sir?...",
 			"You were expecting something mildly entertaining, but no...",
 			"Error: out of patience...",
