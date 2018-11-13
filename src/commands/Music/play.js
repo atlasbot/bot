@@ -48,48 +48,37 @@ module.exports = class Play extends Command {
 		}
 
 		const player = await this.Atlas.client.voiceConnections.getPlayer(userVoiceChannel, true);
+
+		player.config(msg, settings);
+
+		// load playlists
 		if (body.loadType === 'PLAYLIST_LOADED') {
-			// todo: say it's a playlist
-			const selected = body.playlistInfo.selectedTrack;
-			// if the player is playing we don't wanna mess with the index directly
-			if (selected > -1 && !player.isPlaying) {
-				player.index += selected;
-			}
-			for (let i = 0; i < body.tracks.length; i++) {
-				const track = body.tracks[i];
-				// add the playlist URL to the track incase it's needed in the future
-				[track.info.playlist] = args;
+			const { selectedTrack } = body.playlistInfo;
 
-				await player.play({
-					addedBy: msg.author,
-					...track,
-				}, {
-					play: selected > -1 ? selected === i : true,
-					notify: false,
-					settings,
-					msg,
-				});
-			}
-
-			return player.responder.embed({
+			// gotta do it before so the "Now playing" message is sent after the playlist loaded message or else it looks fucky
+			// also disabling buttons so the "now playing" message has the controls, it just looks nicer + no reason to have double-up
+			await player.responder.embed({
 				url: args[0],
 				title: ['play.playlistEmbed.title', body.playlistInfo.name],
 				description: ['play.playlistEmbed.description', msg.author.mention, body.tracks.length],
 				timestamp: new Date(),
-			}).send();
+			}).buttons(false).send();
+
+			for (let i = 0; i < body.tracks.length; i++) {
+				const track = body.tracks[i];
+
+				await player.play(track, {
+					play: (selectedTrack > -1 && !player.isPlaying) ? selectedTrack === i : true,
+					notify: i === 0,
+					addedBy: msg.author,
+				});
+			}
+		} else {
+			// regular, boring old song. play it normally
+			await player.play(body.tracks.shift(), {
+				addedBy: msg.author,
+			});
 		}
-
-		// it's not a playlist so load it normally
-
-		const [track] = body.tracks;
-
-		await player.play({
-			addedBy: msg.author,
-			...track,
-		}, {
-			msg,
-			settings,
-		});
 	}
 };
 
@@ -98,8 +87,15 @@ module.exports.info = {
 	examples: [
 		'lil dicky - professional rapper',
 		'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+		'https://www.youtube.com/watch?v=W4ocPPhtglU&list=PLoXL8KeHXDAvYjd8SNhPkT7ob3LvbqTEz',
 	],
-	aliases: ['add', 'qplaylist', 'qp', 'queueplaylist', 'queuep'],
+	aliases: [
+		'add',
+		// pre-v8 had a "qplaylist" command because lavalink wouldn't handle it properly, this is legacy support
+		'qplaylist',
+		'qp',
+		'queueplaylist', 'queuep',
+	],
 	guildOnly: true,
 	permissions: {
 		bot: {

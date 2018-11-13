@@ -1,6 +1,6 @@
 const { PlayerManager } = require('eris-lavalink');
 
-module.exports = class ExtendedPlayerManager extends PlayerManager {
+module.exports = class extends PlayerManager {
 	constructor(client, nodes, options) {
 		super(client, nodes, options);
 		this.Atlas = require('../../Atlas');

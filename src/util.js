@@ -7,35 +7,18 @@ module.exports = class Util {
 		this.Atlas = Atlas || require('./../Atlas');
 	}
 
-	format(identifier, path, ...replacements) {
-		const key = lib.utils.key(path);
-
+	format(identifier, key, ...replacements) {
 		if (!this.Atlas.locales.has(identifier)) {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
 
-		if (Array.isArray(replacements[0]) && !replacements[1]) {
-			// if the first replacement is an array, chances are the array contains actual replacements.
-			// some legacy code still uses this way, so replace replacements with the first array
-			[replacements] = replacements;
-		}
+		const locale = this.Atlas.locales.get(identifier);
 
-		// merge english and the language it wants incase there are keys that haven't been localised yet
-		const lang = this.Atlas.locales.get(identifier);
-		const val = lib.utils.getNested(lang, key);
-
-		if (identifier !== process.env.DEFAULT_LANG) {
-			const defaultVal = this.format(process.env.DEFAULT_LANG, path, ...replacements);
-
-			if (typeof defaultVal !== typeof val) {
-				return defaultVal;
-			}
-		}
+		// utils has a getNested util but it's 3am and idk why i have to explain myself to you
+		const val = this.getNested(locale, key) || this.getNested(locale, `commands.${key}`);
 
 		if (!val) {
 			return;
-		} if (typeof val !== 'string') {
-			return val;
 		}
 
 		if (replacements.length) {
@@ -50,6 +33,26 @@ module.exports = class Util {
 		}
 
 		return val;
+	}
+
+	/**
+	 * Gets a nested value from an object. Keys split at "."
+	 * @param {Object} obj The object to grab the value from
+	 * @param {string} key The key the value is at, e.g "foo.bar" for { foo: { bar: 'ayy' }}
+	 * @returns {string|void}
+	 */
+	getNested(obj, key) {
+		let val = obj;
+
+		const keys = key.split('.');
+
+		do {
+			val = val[keys.shift()];
+		} while (val && keys.length);
+
+		if (typeof val === 'string') {
+			return val;
+		}
 	}
 
 	/**

@@ -1,17 +1,19 @@
 const { Player } = require('eris-lavalink');
 const PlayerResponder = require('./PlayerResponder');
 
-module.exports = class ExtendedPlayer extends Player {
+module.exports = class extends Player {
 	constructor(...forward) {
 		super(...forward);
 
 		this.Atlas = require('./../../Atlas');
 		this.queue = [];
+		this.settings = null;
+		this.msg = null;
 	}
 
 	get responder() {
 		if (!this._responder) {
-			this._responder = new PlayerResponder(this, this.lang, {
+			this._responder = new PlayerResponder(this, this.settings.lang, {
 				settings: this.settings,
 			});
 		}
@@ -45,6 +47,16 @@ module.exports = class ExtendedPlayer extends Player {
 	}
 
 	/**
+	 * Configures the player with settings and someone to blame
+	 * @param {Message} msg a message with guild/channel info
+	 * @param {GuildSettings} settings guild settings
+	 */
+	config(msg, settings) {
+		this.msg = msg;
+		this.settings = settings;
+	}
+
+	/**
     * Play a Lavalink track
     * @param {string} track The track to play
   	* @returns {void}
@@ -52,22 +64,11 @@ module.exports = class ExtendedPlayer extends Player {
 	play(track, {
 		force = false,
 		notify = true,
-		settings,
-		msg,
+		addedBy,
 	}) {
-		if ((!settings && !this.settings) || (!msg && !this.msg)) {
-			throw new Error('"data.settings" and "data.msg" are required for the player to function.');
-		}
-
-		this.settings = settings;
-		if (msg) {
-			this.lang = settings.lang;
-			this.msg = msg;
-		}
-
 		if (!track.addedBy) {
 			// it may be possible for this to be false, probably needs to be double-checked
-			track.addedBy = msg && msg.author;
+			track.addedBy = addedBy;
 		}
 
 		if (this.playing && !force) {
@@ -103,6 +104,7 @@ module.exports = class ExtendedPlayer extends Player {
 		};
 
 		this.queueEvent(payload);
+
 		this.playing = !this.paused;
 		this.timestamp = Date.now();
 
@@ -140,7 +142,7 @@ module.exports = class ExtendedPlayer extends Player {
 				timestamp: new Date(),
 				footer: {
 					text: (this.queue.length && track.addedBy)
-						? ['general.player.npEmbed.footer', track.addedby.username, this.queue.length] : null,
+						? ['general.player.npEmbed.footer', track.addedBy.username, this.queue.length] : null,
 				},
 			}).send();
 		}

@@ -125,5 +125,9 @@ module.exports = class PlayerResponder extends Responder {
 
 			return res;
 		}
+
+		this._buttons = true;
+
+		return res;
 	}
 };

@@ -9,9 +9,9 @@ const Agenda = require('./src/agenda');
 const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
-const EPM = require('./src/structures/ExtendedPlayerManager');
+const PlayerManager = require('./src/structures/PlayerManager');
 const GuildSettingsClass = require('./src/structures/GuildSettings');
-const ExtendedPlayer = require('./src/structures/ExtendedPlayer');
+const Player = require('./src/structures/Player');
 
 const { version } = require('./package.json');
 
@@ -186,19 +186,18 @@ module.exports = class Atlas {
 		}
 
 		// setup the player
-		this.client.voiceConnections = new EPM(this.client, [
+		this.client.voiceConnections = new PlayerManager(this.client, [
 			{
-				host: process.env.LAVALINK_HOST,
-				port: Number(process.env.LAVALINK_PORT),
 				region: 'us',
+				host: process.env.LAVALINK_HOST,
 				password: process.env.LAVALINK_PASS,
+				port: Number(process.env.LAVALINK_PORT),
 			},
 		], {
 			numShards: this.client.options.maxShards,
 			userId: this.client.user.id,
-			regions: [],
 			defaultRegion: 'us',
-			player: ExtendedPlayer,
+			player: Player,
 		});
 
 		// get agenda to connect
