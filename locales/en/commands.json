@@ -8,18 +8,18 @@
 	"funban": {
 		"noArgs": "Ye needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
+		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"ban": {
 		"noArgs": "Ye needa include a user to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
+		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
+		"invalid": "That aint a valid date.",
 		"setForPast": "Please give me a date that is in the future.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"youGotIt": "You got it, I'll remind you in {0}.",
@@ -27,21 +27,21 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "I've a `{0}ms` delay to this here server.",
+		"dm": "I've a `{0}ms` delay to this here DM.",
 		"randoms": [
 			"Hoistin' the topsails...",
-			"Gatherin' all hands on th' deck...",
+			"Gatherin' all hands on deck...",
 			"Haulin' the pennant line...",
-			"Slackin' th' windward brace...",
-			"Steadyin' th' cargo...",
+			"Slackin' the windward brace...",
+			"Steadyin' the cargo...",
 			"Readyin' th' cannons...",
-			"Hello my name is Atlas what would you like today Sir?...",
-			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
-			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
+			"Wakin' the cap'n...",
+			"Dumpin' the cargo overboard...",
+			"Preparin' the riggin'...",
+			"Unfurlin' the sails...",
+			"Waitin' fer the seas to calm...",
+			"Takin' control of the helm...",
 			"Have you lost weight?...",
 			"brb, one sec...",
 			"Spinning up the hamster..."
