@@ -6,13 +6,13 @@
 		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Ye' needa include a user to ban!",
+		"noArgs": "Ye' needa include a sea-slug to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
 		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"ban": {
-		"noArgs": "Ye' needa include a user to ban!",
+		"noArgs": "Ye' needa include a sea-slug to ban!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
@@ -156,7 +156,7 @@
 			"tooLong": "Ye' blabber-mouth! The reason ye' provided is too long, it mus' be at most 256 characters long."
 		},
 		"view": {
-			"noArgs": "Ye' must include a user!",
+			"noArgs": "Ye' mus' include a sea-slug's name!",
 			"noPerms": "Ye' only have permissions to view yore own warnings!",
 			"noWarns": "{0} does not have any warnings."
 		},
@@ -195,7 +195,7 @@
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
+		"noArgs": "Ye' mus' include a soul to bring back from Davy Jones' Locker!",
 		"success": "{0} has been unbanned."
 	},
 	"mute": {
@@ -351,11 +351,11 @@
 		"author": {
 			"name": "Author"
 		},
-		"votes": "{0} upvotes, {1} downvotes"
+		"votes": "{0} popular votes, {1} unpopular votes"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
+			"cannotFind": "There innit a lad matching `{0}`.",
 			"title": "Here you go!"
 		},
 		"server": {
@@ -367,7 +367,7 @@
 		"error": "Error validating embed: `{0}`."
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
+		"title": "Lads with a #{0} Discriminator",
 		"invalid": "`{0}` is not a valid discriminator.",
 		"none": "There are no users in this server with that discriminator."
 	},
@@ -404,7 +404,7 @@
 	},
 	"joined": {
 		"noArgs": "Please include a user to check.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "There innit a lad matching `{0}`.",
 		"message": "{0} joined {1} at {2}."
 	},
 	"membercount": {
