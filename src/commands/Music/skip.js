@@ -5,14 +5,24 @@ module.exports = class Next extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	// if button is true, it was called via player buttons and not a person typing the command
-	async action(msg, {
-		settings, // eslint-disable-line no-unused-vars
-		button = false, // eslint-disable-line no-unused-vars
+	async action({
+		// only guaranteed arguments
+		channel,
+		author,
+		guild,
+		lang,
+	}, args, {
+		settings,
+		// when true, the command was called via a reaction/player button
+		button = false,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang));
 
-		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
+		if (button) {
+			responder.mention(author.mention);
+		}
+
+		const voiceChannel = guild.channels.get(guild.me.voiceState.channelID);
 		if (!voiceChannel) {
 			return responder.error('next.noPlayer').send();
 		}

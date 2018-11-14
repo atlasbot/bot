@@ -1,3 +1,4 @@
+const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 
 // there's some weird shit on there man
@@ -10,11 +11,6 @@ const FILTERED_TAGS = [
 module.exports = class WouldYouRather extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
-
-		this.prefetcher = new this.Atlas.lib.structs.Prefetcher({
-			url: 'http://www.rrrather.com/botapi',
-		});
-		this.prefetcher.init();
 	}
 
 	async action(msg, args, { // eslint-disable-line no-unused-vars
@@ -26,7 +22,7 @@ module.exports = class WouldYouRather extends Command {
 
 		const reactionMsg = await responder.localised().text(`Would you rather - ${sentence}`).send();
 
-		if ((msg.guild && msg.guild.me.permission.json.addReactions)) {
+		if (msg.channel.permissionsOf(this.Atlas.client.user.id).has('addReactions')) {
 			try {
 				await reactionMsg.addReaction(this.Atlas.lib.utils.emoji.fromName('one').surrogates);
 				await reactionMsg.addReaction(this.Atlas.lib.utils.emoji.fromName('two').surrogates);
@@ -41,7 +37,7 @@ module.exports = class WouldYouRather extends Command {
 			throw new Error('nope');
 		}
 
-		const { body } = await this.prefetcher.get();
+		const { body } = await superagent.get('http://www.rrrather.com/botapi');
 
 		let isNsfw = body.nsfw;
 		let tags = [];

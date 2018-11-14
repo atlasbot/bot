@@ -54,6 +54,7 @@ module.exports = class Move extends Command {
 
 		if (msg.guild.members.get(this.Atlas.client.user.id).permission.json.manageWebhooks && !parsedArgs['no-webhooks']) {
 			const [hook] = await channel.getWebhooks();
+
 			if (hook) {
 				// forward the message using the webhook
 				await this.Atlas.client.executeWebhook(hook.id, hook.token, {

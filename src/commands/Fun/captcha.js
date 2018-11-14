@@ -1,10 +1,12 @@
 const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
+const Cache = require('../../../lib/structures/Cache');
+
+const cache = new Cache('cmd-captcha');
 
 module.exports = class Captcha extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
-		this.cache = new Map();
 	}
 
 	async action(msg, args, {
@@ -22,8 +24,8 @@ module.exports = class Captcha extends Command {
 			user = msg.member;
 		}
 
-		if (this.cache.has(user.id)) {
-			return responder.embed(this.cache.get(user.id)).send();
+		if (await cache.has(user.id)) {
+			return responder.embed(await cache.get(user.id)).send();
 		}
 
 		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
@@ -43,11 +45,7 @@ module.exports = class Captcha extends Command {
 			},
 		};
 
-		this.cache.set(user.id, embed);
-
-		setTimeout(() => {
-			this.cache.delete(user.id);
-		}, 30 * 60 * 1000);
+		await this.cache.set(user.id, embed, 60);
 
 		return responder.embed(embed).send();
 	}

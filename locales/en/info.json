@@ -1,7 +1,24 @@
 {
+	"feed": {
+		"base": {
+			"description": "Get notified of new posts from your favourite services.",
+			"usage": "[subcommand]"
+		},
+		"add": {
+			"description": "Create a new feed. Run with missing arguments to get valid options.",
+			"usage": "<type> <channel> <target>"
+		},
+		"remove": {
+			"description": "Remove a existing feed from a channel.",
+			"usage": "[channel] <feed>"
+		},
+		"list": {
+			"description": "List all feeds and their channels."
+		}
+	},
 	"locale": {
 		"description": "Changes what language Atlas uses in your server.",
-		"usage": "<language>"
+		"usage": "[language]"
 	},
 	"time": {
 		"description": "Gets the time for a timezone.",

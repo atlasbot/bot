@@ -23,10 +23,10 @@ class Responder {
 		}
 
 		this.keyPrefix = keyPrefix;
+		this._lang = lang || (data && data.lang);
 
 		this._data = {
 			channelID,
-			lang: lang || (data && data.lang),
 			str: null,
 			embed: null,
 			ttl: 0,
@@ -42,6 +42,17 @@ class Responder {
 
 		// break reference, cheap way but meh
 		this._defaults = JSON.parse(JSON.stringify(this._data));
+	}
+
+	mention(mention) {
+		// if a user object is provided
+		if (mention.mention) {
+			({ mention } = mention);
+		}
+
+		this._data.mention = mention;
+
+		return this;
 	}
 
 	file(file) {
@@ -114,7 +125,7 @@ class Responder {
 			}
 
 			return this;
-		} else if (!this._data.lang) {
+		} else if (!this._lang) {
 			throw new Error('No lang provided to Responder#text()');
 		}
 
@@ -152,7 +163,7 @@ class Responder {
 		if (typeof obj === 'string') {
 			obj = {
 				key: obj,
-				language: this._data.lang,
+				language: this._lang,
 				noThrow: true,
 				stringOnly: true,
 			};
@@ -160,18 +171,21 @@ class Responder {
 
 		let val;
 		if (this.keyPrefix) {
-			val = this.Atlas.util.format(obj.language || this._data.lang, `${this.keyPrefix}.${obj.key}`, ...replacements);
+			val = this.Atlas.util.format(obj.language || this._lang, {
+				key: `${this.keyPrefix}.${obj.key}`,
+				stringOnly: obj.stringOnly,
+			}, ...replacements);
 		}
 
 		if (!val) {
-			val = this.Atlas.util.format(obj.language || this._data.lang, obj.key, ...replacements);
+			val = this.Atlas.util.format(obj.language || this._lang, {
+				key: obj.key,
+				stringOnly: obj.stringOnly,
+			}, ...replacements);
+
 			if (!val && !obj.noThrow) {
 				throw new Error(`No language value matching key "${obj.key}"`);
 			}
-		}
-
-		if (obj.stringOnly && typeof val !== 'string') {
-			return;
 		}
 
 		return val;
@@ -183,7 +197,7 @@ class Responder {
      * @returns {Responder} The current responder instance
 	 */
 	lang(str) {
-		this._data.lang = str;
+		this._lang = str;
 
 		return this;
 	}
@@ -234,14 +248,8 @@ class Responder {
 		const data = this._data;
 		this._data = JSON.parse(JSON.stringify(this._defaults));
 
-		this.lang(data.lang);
-
-		if (this.guild) {
-			const channel = this.guild.channels.get(this.channelID);
-			const { sendMessages } = this.guild.me.permission.json;
-			if (!sendMessages || (channel && !channel.permissionOf(this.Atlas.client.user.id).has('sendMessages'))) {
-				throw new Error('Atlas does not have permissions to send messages to that channel.');
-			}
+		if (this.guild && !this.guild.me.permission.has('sendMessages')) {
+			throw new Error('Atlas does not have permissions to send messages to that channel.');
 		}
 
 		if (data.noDupe && data.str) {
@@ -272,13 +280,29 @@ class Responder {
 			}
 		}
 
-		const msg = await (data.edit ? data.edit.edit({
-			content: data.str ? data.str.toString().trim() : undefined,
-			embed: data.embed,
-		}, data.file) : this.Atlas.client.createMessage(data.channelID, {
-			content: data.str ? data.str.toString().trim() : undefined,
-			embed: data.embed,
-		}, data.file));
+		const { embed } = data;
+
+		let content;
+		if (data.str) {
+			content = data.str.toString().trim();
+
+			if (data.mention) {
+				// append the @mention and lowercase the first char (because grammar 95% of the time)
+				content = `${data.mention}, ${content.charAt(0).toLowerCase() + content.slice(1)}`;
+			}
+		}
+
+		const payload = {
+			content,
+			embed,
+		};
+
+		let msg;
+		if (data.edit) {
+			msg = await data.edit.edit(payload, data.file);
+		} else {
+			msg = await this.Atlas.client.createMessage(data.channelID, payload, data.file);
+		}
 
 		if (data.noDupe) {
 			this.Atlas.sent.push({
@@ -312,7 +336,7 @@ class Responder {
 	 * @returns {Object} the object with strings replaced
 	 * @private
 	 */
-	_parseObject(obj, lang, iterations = 0) {
+	_parseObject(obj, lang = this._lang, iterations = 0) {
 		// here be dragons
 		if (!obj) {
 			return;

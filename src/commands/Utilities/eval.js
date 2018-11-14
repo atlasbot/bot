@@ -40,7 +40,7 @@ module.exports = class Eval extends Command {
 			}
 
 			// Any errors here are my fault
-			responder.error(`Error: ${this.clean(util.inspect(e))}`, 5).send();
+			responder.error(`Error: ${this.clean(util.inspect(e)).substring(0, 1850)}`, 5).send();
 		}
 	}
 

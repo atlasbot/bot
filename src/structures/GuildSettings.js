@@ -2,16 +2,16 @@
 const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
-const hookCache = new Map();
+
 const Action = require('./Action');
 
 // TODO: this shouldn't be created every time data is fetched from the DB (aka, cache it and reuse it)
 
 module.exports = class GuildSettings {
-/**
-        * Create a new instance of a guild
-        * @param {Object} settings The guilds settings from a DB
-        */
+	/**
+    * Create a new instance of a guild
+    * @param {Object} settings The guilds settings from a DB
+  	*/
 	constructor(settings) {
 		this.actions = settings.plugins.actions.actions.map(a => new Action(settings, a));
 
@@ -343,7 +343,7 @@ module.exports = class GuildSettings {
 
 		if (channel) {
 			try {
-				const webhook = await this.getWebhook(channel, 'Atlas Action Logging');
+				const webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging');
 
 				// using & abusing the responder to format the embed(s)
 				const responder = new this.Atlas.structs.Responder(null, this.lang);
@@ -370,40 +370,5 @@ module.exports = class GuildSettings {
 				console.warn(e);
 			}
 		}
-	}
-
-	/**
-    * Get a webhook for the guild
-    * @param {Object|string} channel the channel to get the webhook for
-    * @param {string} reason The reason to show in the modlog for the webhook
-    * @param {boolean} useCache whether or not to use the webhook cache
-    * @returns {Promise} the webhook
-    * @memberof Guild
-    */
-	async getWebhook(channel, reason) {
-		const channelID = channel.id || channel;
-
-		if (hookCache.has(channelID)) {
-			return hookCache.get(channelID);
-		}
-
-		if (!this.guild.me.permission.json.manageWebhooks) {
-			throw new Error('No permissions to manage webhooks.');
-		}
-
-		let hook = (await this.Atlas.client.getChannelWebhooks(channelID))
-			.find(w => w.channel_id === channelID && w.user.id === this.Atlas.client.user.id);
-
-		if (!hook) {
-			hook = await this.Atlas.client.createChannelWebhook(channelID, {
-				name: this.Atlas.client.user.username,
-			}, reason);
-		}
-
-		hookCache.set(channelID, hook);
-		// keep it for 60 seconds
-		setTimeout(() => hookCache.delete(channelID), 60 * 1000);
-
-		return hook;
 	}
 };

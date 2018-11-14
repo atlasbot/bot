@@ -1,13 +1,50 @@
 const url = require('url');
+const superagent = require('superagent');
+
 const Fuzzy = require('./structures/Fuzzy');
 const lib = require('../lib');
+const Cache = require('../lib/structures/Cache');
+
+const cache = new Cache('webhooks');
 
 module.exports = class Util {
 	constructor(Atlas) {
 		this.Atlas = Atlas || require('./../Atlas');
+
+		this._avatar64 = null;
 	}
 
-	format(identifier, key, ...replacements) {
+	/**
+	 * Gets the bot's avatar in base64 format.
+	 * @returns {Promise<string>} The base64 string with the avatar
+	 */
+	async avatar64() {
+		if (this._avatar64) {
+			return this._avatar64;
+		}
+		const { id, avatar } = this.Atlas.client.user;
+		const { body } = await superagent.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=128`);
+
+		this._avatar64 = `data:image/png;base64,${body.toString('base64')}`;
+
+		return this._avatar64;
+	}
+
+	/**
+	 * Formats a locale ID and key to a string, with replacements replaced (if any)
+	 * @param {string} identifier The locale identifier. Tl;dr, must have a folder in /locales to be valid.
+	 * @param {string|Object} options The key or an object with options, 'commands.' prefix not required for command keys. E.g, 'ping.start' would be converted to 'commands.ping.start'
+	 * @param {boolean} x.stringOnly Whether the return value must be a string (if it's not, will return undefined)
+	 * @param {string} x.key The key to use, only required of X is not a string itself.
+	 * @param  {...string} replacements Replacements to replace things with.
+	 * @returns {string|void} The formatted string.
+	 */
+	format(identifier, options, ...replacements) {
+		if (typeof options === 'string') {
+			options = {
+				key: options,
+			};
+		}
 		if (!this.Atlas.locales.has(identifier)) {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
@@ -15,7 +52,7 @@ module.exports = class Util {
 		const locale = this.Atlas.locales.get(identifier);
 
 		// utils has a getNested util but it's 3am and idk why i have to explain myself to you
-		const val = this.getNested(locale, key) || this.getNested(locale, `commands.${key}`);
+		const val = this.getNested(locale, options.key, options.stringOnly) || this.getNested(locale, `commands.${options.key}`, options.stringOnly);
 
 		if (!val) {
 			return;
@@ -39,9 +76,10 @@ module.exports = class Util {
 	 * Gets a nested value from an object. Keys split at "."
 	 * @param {Object} obj The object to grab the value from
 	 * @param {string} key The key the value is at, e.g "foo.bar" for { foo: { bar: 'ayy' }}
+	 * @param {boolean} [stringOnly=true] Whether returning a string is required
 	 * @returns {string|void}
 	 */
-	getNested(obj, key) {
+	getNested(obj, key, stringOnly = true) {
 		let val = obj;
 
 		const keys = key.split('.');
@@ -50,7 +88,7 @@ module.exports = class Util {
 			val = val[keys.shift()];
 		} while (val && keys.length);
 
-		if (typeof val === 'string') {
+		if (typeof val === 'string' || stringOnly === false) {
 			return val;
 		}
 	}
@@ -61,12 +99,12 @@ module.exports = class Util {
 	 * @param {string} query the query to use to find the member. Can be a user ID, username, nickname, mention, etc...
 	 * @param {Object} opts options
 	 * @param {Array} opts.members An optional members list to use
-	 * @param {boolean} opts.memberOnly If false, the return value could be a member or a user object
-	 * @param {number} opts.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
+	 * @param {boolean} [opts.memberOnly=false] If false, the return value could be a member or a user object
+	 * @param {number} [opts.percent=0.75] the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
 	 * @returns {Promise<Object|Null>} the member or nothing if nothing was found
 	 */
 	async findMember(guild, query, {
-		matchPercent = 0.75,
+		percent = 0.75,
 		memberOnly = false,
 		rest = true,
 		members,
@@ -116,7 +154,7 @@ module.exports = class Util {
 		}
 
 		const member = (new Fuzzy(members || Array.from(guildMembers.values()), {
-			matchPercent,
+			matchPercent: percent,
 			keys: [
 				'username',
 				'nickname',
@@ -354,5 +392,46 @@ module.exports = class Util {
 		} catch (e) {
 			console.warn(e);
 		}
+	}
+
+	/**
+    * Get a webhook for the guild
+    * @param {Object|string} c the channel to get the webhook for
+    * @param {string} reason The reason to show in the modlog for the webhook
+    * @param {boolean} fromCache whether or not to use the webhook cache
+    * @returns {Promise} the webhook
+    * @memberof Guild
+    */
+	async getWebhook(c, reason, fromCache = true) {
+		const channelID = c.id || c;
+
+		if (fromCache) {
+			const existing = await cache.get(channelID);
+			if (existing) {
+				return existing;
+			}
+		}
+
+		const channel = this.Atlas.client.getChannel(channelID);
+		if (channel && !channel.permissionsOf(this.Atlas.client.user.id).has('manageWebhooks')) {
+			throw new Error('No permissions to manage webhooks.');
+		}
+
+		let hook = (await this.Atlas.client.getChannelWebhooks(channelID))
+			.find(w => w.channel_id === channelID && w.user.id === this.Atlas.client.user.id);
+
+		const avatar = await this.avatar64();
+
+		if (!hook) {
+			hook = await this.Atlas.client.createChannelWebhook(channelID, {
+				name: this.Atlas.client.user.username,
+				avatar,
+			}, reason);
+		}
+
+		// cache for 10 minutes
+		await cache.set(channelID, hook, 600);
+
+		return hook;
 	}
 };

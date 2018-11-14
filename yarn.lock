@@ -191,6 +191,13 @@ cacheman-redis@^1.1.2:
     parse-redis-url "0.0.2"
     redis ">= 2.4.x"
 
+cacheman-redis@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cacheman-redis/-/cacheman-redis-2.0.0.tgz#3fc0fba20c14fd0aa7bd207528caa3a0ef3f927e"
+  integrity sha512-QTcVLBprPh/E4VrrVpCpbuZ5cb29UrGHFrJgqS60059PkzhqqMc5uXakQADY0HChtMMK3GInZ+wM9ra1WECZAQ==
+  dependencies:
+    parse-redis-url "0.0.2"
+
 cacheman@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/cacheman/-/cacheman-2.2.1.tgz#3510c0def12429d61b780128ff18f9d284bb02b8"

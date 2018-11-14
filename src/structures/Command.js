@@ -36,6 +36,7 @@ class Command {
 	execute(msg, args, {
 		settings,
 		parsedArgs = {},
+		...passthrough
 	}) {
 		return new Promise((resolve, reject) => {
 			const responder = new Responder(msg);
@@ -89,6 +90,7 @@ class Command {
 			Promise.resolve(this.action(msg, args, {
 				settings,
 				parsedArgs,
+				...passthrough,
 				get cleanArgs() {
 					return cleanArgs(msg, args);
 				},

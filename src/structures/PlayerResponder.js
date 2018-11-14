@@ -1,9 +1,15 @@
 const Responder = require('./Responder');
 const EmojiCollector = require('./EmojiCollector');
-const FakeMessage = require('./FakeMessage');
 
 const sent = new Map();
 
+// '⏸',
+// '▶',
+// '🔁',
+const commandMap = [{
+	emoji: '⏭',
+	name: 'skip',
+}];
 // todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to or if it's disabled)
 
 module.exports = class PlayerResponder extends Responder {
@@ -14,6 +20,7 @@ module.exports = class PlayerResponder extends Responder {
 
 		this.settings = settings;
 		this.player = player;
+
 		this._buttons = true;
 	}
 
@@ -45,6 +52,7 @@ module.exports = class PlayerResponder extends Responder {
 
 	async clean(channel) {
 		const channelID = channel.id || channel;
+
 		if (sent.has(channelID)) {
 			const msgID = sent.get(channelID);
 
@@ -78,37 +86,22 @@ module.exports = class PlayerResponder extends Responder {
 
 				await res.collector
 					.msg(res)
-					.emoji([
-						// '⏸',
-						// '▶',
-						// '🔁',
-						'⏭',
-					])
+					.emoji(commandMap.map(c => c.emoji))
 					.remove(true)
 					.exec(async (msg, emoji, userID) => {
-						const fakeMsg = new FakeMessage({
-							channelID: this.player.msg.channel.id,
-							author: this.Atlas.client.users.get(userID) || this.player.msg.author,
-							lang: this._data.lang,
-						});
+						const command = commandMap.find(c => c.emoji === emoji.name);
 
-						switch (emoji.name) {
-							case '⏭':
-								fakeMsg.content = `${this.settings.prefix}skip`;
+						if (command) {
+							const args = [];
 
-								try {
-									await this.Atlas.commands.get('skip').execute(fakeMsg.get(), [], {
-										settings: this.settings,
-										parsedArgs: {},
-									});
-								} catch (e) {
-									// this should probably be handled better
-									console.error(e);
-								}
-
-								break;
-							default:
-								break;
+							return this.Atlas.commands.get(command.name).execute({
+								channel: this.player.msg.channel,
+								author: this.Atlas.client.users.get(userID) || this.player.msg.author,
+								guild: this.settings.guild,
+							}, args, {
+								settings: this.settings,
+								button: true,
+							});
 						}
 					})
 					.listen();
