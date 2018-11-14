@@ -330,7 +330,7 @@
 		"description": "Shows information about the song currently playing."
 	},
 	"play": {
-		"description": "Plays a song in your current voice channel, now with built-in playlist support!",
+		"description": "Plays a song in your current voice channel, now with built in playlist support!",
 		"usage": "[song name|url]"
 	},
 	"qplaylist": {
