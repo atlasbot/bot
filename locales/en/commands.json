@@ -372,8 +372,8 @@
 		"none": "There are no users in this server with that discriminator."
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "Ye' mus' include something to search fer'.",
+		"noResults": "I couldn't find anythin' when lookin' fer' that."
 	},
 	"inrole": {
 		"noArgs": "You have to provide a role name/mention to lookup.",
@@ -530,7 +530,7 @@
 	},
 	"feed": {
 		"base": {
-			"noArgs": "You have to include a subcommand."
+			"noArgs": "Ye' needa include a subcommand."
 		}
 	}
 }
