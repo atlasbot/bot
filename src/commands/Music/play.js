@@ -13,7 +13,7 @@ module.exports = class Play extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {
-			return responder.error('play.noArgs');
+			return responder.error('play.noArgs').send();
 		}
 
 		const userVoiceChannel = msg.guild.channels.get(msg.member.voiceState.channelID);

@@ -114,8 +114,8 @@ module.exports = class PlayerResponder extends Responder {
 					.listen();
 
 				if (sent.has(res.channel.id)) {
-				// delete previous player messages to keep the channel clean
-					this.clean(res.channel);
+					// delete previous player messages to keep the channel clean
+					await this.clean(res.channel);
 				}
 
 				sent.set(res.channel.id, res.id);

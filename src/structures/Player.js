@@ -72,13 +72,12 @@ module.exports = class extends Player {
 		}
 
 		if (this.playing && !force) {
-			const { ttp } = this;
-
+			// queue it, notify the user and do nothing
 			this.queue.push(track);
 
 			if (notify) {
 				return this.responder
-					.text('general.player.trackQueued', track.info.title, this.Atlas.lib.utils.prettyMs(ttp))
+					.text('general.player.trackQueued', track.info.title, this.Atlas.lib.utils.prettyMs(this.ttp - track.info.length))
 					.buttons(false)
 					.send();
 			}
@@ -109,23 +108,6 @@ module.exports = class extends Player {
 		this.timestamp = Date.now();
 
 		if (notify) {
-			let third;
-
-			if (this.queue.length || !track.addedBy) {
-				third = {
-				// todo: hide if it's the first song being added, show something instead
-					name: 'general.player.npEmbed.ttp',
-					value: this.Atlas.lib.utils.prettyMs(this.ttp),
-					inline: true,
-				};
-			} else {
-				third = {
-					name: 'general.player.npEmbed.addedBy',
-					value: track.addedBy.tag || '???',
-					inline: true,
-				};
-			}
-
 			return this.responder.embed({
 				description: `[${track.info.title}](${track.info.uri})`,
 				fields: [{
@@ -133,7 +115,11 @@ module.exports = class extends Player {
 					value: track.info.author,
 					inline: true,
 				},
-				third,
+				{
+					name: 'general.player.npEmbed.addedBy',
+					value: track.addedBy.tag || '???',
+					inline: true,
+				},
 				{
 					name: 'general.player.npEmbed.duration',
 					value: this.Atlas.lib.utils.prettyMs(track.info.length),
@@ -141,8 +127,7 @@ module.exports = class extends Player {
 				}],
 				timestamp: new Date(),
 				footer: {
-					text: (this.queue.length && track.addedBy)
-						? ['general.player.npEmbed.footer', track.addedBy.username, this.queue.length] : null,
+					text: this.queue.length ? ['general.player.npEmbed.footer', this.queue.length] : null,
 				},
 			}).send();
 		}
