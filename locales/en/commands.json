@@ -527,5 +527,10 @@
 		"notFound": "There innit a locale matching `{0}`.",
 		"title": "Supported Tongues",
 		"description": "To change this 'ere server's locale, ye' mus' do `{0}locale <name>`. Ye' can find a list of names below. Some tongues may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages ['ere](https://translate.atlasbot.xyz).\n\n{1}"
+	},
+	"feed": {
+		"base": {
+			"noArgs": "You have to include a subcommand."
+		}
 	}
 }
