@@ -6,15 +6,15 @@
 		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Ye' needa include a sea-slug to ban!",
+		"noArgs": "Ye' needa include a sea-slug to send to Davy Jones' Locker!",
 		"success": "Sent {0} to Davy Jones' Locker.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
 		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
 	"ban": {
-		"noArgs": "Ye' needa include a sea-slug to ban!",
+		"noArgs": "Ye' needa include a sea-slug to send to Davy Jones' Locker!",
 		"success": "Sent {0} to Davy Jones' Locker.",
-		"withReason": "Sent {0} to Davy Jones' Locker for `{1}`.",
+		"withReason": "Sent {0} to Davy Jones' Locker fer' `{1}`.",
 		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
 		"tooLate": "{0} has already been sent to Davy Jones' Locker."
 	},
@@ -35,7 +35,7 @@
 			"Haulin' the pennant line...",
 			"Slackin' the windward brace...",
 			"Steadyin' the cargo...",
-			"Readyin' th' cannons...",
+			"Readyin' the cannons...",
 			"Wakin' the cap'n...",
 			"Dumpin' the cargo overboard...",
 			"Preparin' the riggin'...",
@@ -484,7 +484,7 @@
 		"footer": "Created At"
 	},
 	"say": {
-		"noArgs": "Ye' have to include something for me to say."
+		"noArgs": "Ye' have to include something fer' me to say."
 	},
 	"serverinfo": {
 		"name": {
@@ -518,7 +518,7 @@
 		"invalidURI": "`{0}` ain't a valid URL."
 	},
 	"time": {
-		"noArgs": "Ye' mus' include a spot on the map to get the time for.",
+		"noArgs": "Ye' mus' include a spot on the map to get the time fer'.",
 		"noTimezone": "I could not find a port by the name of `{0}`.",
 		"success": "'Tis currently {0} in {1}."
 	},
