@@ -112,7 +112,7 @@
 		"usage": "[search]"
 	},
 	"randomurban": {
-		"description": "Gets a random definition from Urban Dictionary."
+		"description": "Gets a random meanin' from Urban Dictionary."
 	},
 	"starterpack": {
 		"description": "Gets a random starterpack."
@@ -240,7 +240,7 @@
 		"usage": "[text]"
 	},
 	"mute": {
-		"description": "Stops a user sending messages while they're muted.",
+		"description": "Shuts a lad up while they're muted.",
 		"usage": "[user] <duration> | <reason>"
 	},
 	"unmute": {
