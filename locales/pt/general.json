@@ -6,7 +6,7 @@
 			"addedBy": "Adicionado por",
 			"author": "Author",
 			"duration": "Duração",
-			"footer": "Adicionado por {0} • {1} na fila"
+			"footer": "{0} in queue"
 		}
 	},
 	"poweredBy": {
