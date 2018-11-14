@@ -17,7 +17,7 @@
 		}
 	},
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
+		"description": "Changes what tongue Atlas uses in yore server.",
 		"usage": "[language]"
 	},
 	"time": {
@@ -88,7 +88,7 @@
 		"usage": "[options]"
 	},
 	"discrim": {
-		"description": "Gets users with a discriminator that matches yours.",
+		"description": "Gets users wit' a discriminator that matches yores.",
 		"usage": "<discriminator>"
 	},
 	"avatar": {
@@ -105,10 +105,10 @@
 		}
 	},
 	"trump": {
-		"description": "Gets something stupid Donald Trump has said."
+		"description": "Gets somethin' stupid the Bilge Rat has said."
 	},
 	"urban": {
-		"description": "Gets the definition for a word.",
+		"description": "Gets the meanin' fer' a word.",
 		"usage": "[search]"
 	},
 	"randomurban": {
