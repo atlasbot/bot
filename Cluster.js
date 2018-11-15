@@ -4,7 +4,7 @@ const { Manager } = require('./src/sharding');
 require('dotenv').config();
 
 new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new
-	guildsPerShard: 2000,
+	guildsPerShard: 1500,
 	clientOptions: {
 		// atlas uses rest mode for fetching users from ID's, among other things
 		restMode: true,
