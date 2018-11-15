@@ -5,7 +5,8 @@ const Fuzzy = require('./structures/Fuzzy');
 const lib = require('../lib');
 const Cache = require('../lib/structures/Cache');
 
-const cache = new Cache('webhooks');
+const webhookCache = new Cache('webhooks');
+const musicCache = new Cache('music');
 
 module.exports = class Util {
 	constructor(Atlas) {
@@ -406,7 +407,7 @@ module.exports = class Util {
 		const channelID = c.id || c;
 
 		if (fromCache) {
-			const existing = await cache.get(channelID);
+			const existing = await webhookCache.get(channelID);
 			if (existing) {
 				return existing;
 			}
@@ -430,8 +431,64 @@ module.exports = class Util {
 		}
 
 		// cache for 10 minutes
-		await cache.set(channelID, hook, 600);
+		await webhookCache.set(channelID, hook, 600);
 
 		return hook;
+	}
+
+	/**
+	 * Gets related tracks to a lavalink track.
+	 * @param {Object} player A player to get a node from
+	 * @param {Object} player.node The node to use when searching for tracks.
+	 * @param {Object} track A track to use
+	 */
+	async relatedTrack({ node }, { info }) {
+		let { identifier } = info;
+		const { uri } = info;
+
+		if (!url.parse(uri).hostname.includes('youtube.com')) {
+			// because this relies on youtube, basically just searching for the same song on youtube.
+			// 70% of the time every time this works
+			identifier = (await superagent.get('https://www.googleapis.com/youtube/v3/search')
+				.query({
+					part: 'id',
+					q: info.title,
+					type: 'video',
+					key: process.env.YOUTUBE_KEY,
+					maxResults: 1,
+					chart: 'mostPopular',
+				})
+				.set('User-Agent', this.Atlas.userAgent)).body.items[0].id.videoId;
+		}
+
+		const existing = await musicCache.get(identifier);
+		if (existing) {
+			return existing;
+		}
+
+		const { body } = await superagent.get('https://www.googleapis.com/youtube/v3/search')
+			.query({
+				part: 'id',
+				relatedToVideoId: identifier,
+				type: 'video',
+				key: process.env.YOUTUBE_KEY,
+				maxResults: 1,
+				chart: 'mostPopular',
+			})
+			.set('User-Agent', this.Atlas.userAgent);
+
+		if (body.items.length) {
+			const { videoId } = body.items[0].id;
+
+			const [track] = (await superagent.get(`http://${node.host}:2333/loadtracks`)
+				.query({
+					identifier: videoId,
+				})
+				.set('Authorization', node.password)).body.tracks;
+
+			await musicCache.set(identifier, track);
+
+			return track;
+		}
 	}
 };

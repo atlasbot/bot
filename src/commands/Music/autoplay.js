@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class Next extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -15,6 +15,7 @@ module.exports = class Next extends Command {
 		settings,
 		// when true, the command was called via a reaction/player button
 		button = false,
+		// todo: patron checks
 	}) {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang));
 
@@ -32,25 +33,19 @@ module.exports = class Next extends Command {
 			return responder.error('general.player.none').send();
 		}
 
-		if (!player.queue.length && !player.autoplay) {
-			return responder.error('next.nothingNext').send();
+		player.autoplay = !player.autoplay;
+
+		if (player.autoplay) {
+			responder.text('autoplay.enabled');
+		} else {
+			responder.text('autoplay.disabled');
 		}
 
-		const { title } = player.track.info;
-		await player.stop();
-
-		return responder.text('next.success', title).send();
-	}
-
-	showButton(player) {
-		return player.queue.length;
+		return responder.send();
 	}
 };
 
 module.exports.info = {
-	name: 'next',
+	name: 'autoplay',
 	guildOnly: true,
-	aliases: [
-		'skip',
-	],
 };

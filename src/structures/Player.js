@@ -9,6 +9,7 @@ module.exports = class extends Player {
 		this.queue = [];
 		this.settings = null;
 		this.msg = null;
+		this.autoplay = false;
 	}
 
 	get responder() {
@@ -68,7 +69,7 @@ module.exports = class extends Player {
 	}) {
 		if (!track.addedBy) {
 			// it may be possible for this to be false, probably needs to be double-checked
-			track.addedBy = addedBy;
+			track.addedBy = addedBy.tag || addedBy;
 		}
 
 		if (this.playing && !force) {
@@ -117,7 +118,7 @@ module.exports = class extends Player {
 				},
 				{
 					name: 'general.player.npEmbed.addedBy',
-					value: track.addedBy.tag || '???',
+					value: track.addedBy || '???',
 					inline: true,
 				},
 				{
@@ -139,7 +140,7 @@ module.exports = class extends Player {
 	 * @returns {void}
    * @private
   */
-	onTrackEnd(message = {}) {
+	async onTrackEnd(message = {}) {
 		if (message.reason !== 'REPLACED') {
 			if (this.queue.length) {
 				const next = this.queue.shift();
@@ -147,12 +148,31 @@ module.exports = class extends Player {
 				return this.play(next, {
 					force: true,
 				});
+			} if (this.autoplay) {
+				try {
+					const next = await this.Atlas.util.relatedTrack(this, this.track || this.lastTrack);
+
+					if (next) {
+						return this.play(next, {
+							force: true,
+							addedBy: this.responder.format('general.player.autoplay.addedBy'),
+						});
+					}
+				} catch (e) {
+					// todo: send to sentry (including other places where i did this for some reason)
+					console.warn(e);
+				}
 			}
 
-			this.playing = false;
-			this.lastTrack = this.track;
-			this.track = null;
-			// todo: handle leave
+			if (this.autoplay) {
+				// autoplay can fail sometimes at finding related/suggested songs, and i feel like this is the best way to handle it
+				await this.responder.buttons(false).text('general.player.autoplay.failed').send();
+			} else {
+				await this.responder.buttons(false).text('general.player.leaving').send();
+
+
+				await this.Atlas.client.leaveVoiceChannel(this.channelId);
+			}
 		}
 		this.emit('end', message);
 	}

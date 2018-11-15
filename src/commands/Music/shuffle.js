@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class Next extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -32,14 +32,13 @@ module.exports = class Next extends Command {
 			return responder.error('general.player.none').send();
 		}
 
-		if (!player.queue.length && !player.autoplay) {
-			return responder.error('next.nothingNext').send();
+		if (!player.queue.length) {
+			return responder.error('shuffle.tooFew').send();
 		}
 
-		const { title } = player.track.info;
-		await player.stop();
+		player.queue = this.Atlas.lib.utils.shuffle(player.queue);
 
-		return responder.text('next.success', title).send();
+		return responder.text('shuffle.success', player.queue.length).send();
 	}
 
 	showButton(player) {
@@ -48,9 +47,6 @@ module.exports = class Next extends Command {
 };
 
 module.exports.info = {
-	name: 'next',
+	name: 'shuffle',
 	guildOnly: true,
-	aliases: [
-		'skip',
-	],
 };

@@ -12,11 +12,11 @@ module.exports = class NowPlaying extends Command {
 
 		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
 		if (!voiceChannel) {
-			return responder.error('queue.noPlayer').send();
+			return responder.error('general.player.none').send();
 		}
 		const player = await this.Atlas.client.voiceConnections.getPlayer(voiceChannel, false);
 		if (!player || !player.isPlaying || !player.track) {
-			return responder.error('queue.noPlayer').send();
+			return responder.error('general.player.none').send();
 		}
 
 		const duration = this.Atlas.lib.utils.prettyMs(player.track.info.length);

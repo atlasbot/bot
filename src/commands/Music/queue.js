@@ -14,11 +14,11 @@ module.exports = class Queue extends Command {
 
 		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
 		if (!voiceChannel) {
-			return responder.error('queue.noPlayer').send();
+			return responder.error('general.player.none').send();
 		}
 		const player = await this.Atlas.client.voiceConnections.getPlayer(voiceChannel, false);
 		if (!player || !player.isPlaying) {
-			return responder.error('queue.noPlayer').send();
+			return responder.error('general.player.none').send();
 		}
 
 		const pageN = isNaN(args[0]) ? 1 : Number(args[0]);

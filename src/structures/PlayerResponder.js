@@ -9,6 +9,12 @@ const sent = new Map();
 const commandMap = [{
 	emoji: '⏭',
 	name: 'skip',
+}, {
+	emoji: '🔀',
+	name: 'shuffle',
+}, {
+	emoji: '🇦',
+	name: 'autoplay',
 }];
 // todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to or if it's disabled)
 
@@ -82,36 +88,48 @@ module.exports = class PlayerResponder extends Responder {
 
 		try {
 			if (this.shouldAdd) {
-				res.collector = new EmojiCollector();
+				const emojis = commandMap.filter((c) => {
+					const command = this.Atlas.commands.get(c.name);
 
-				await res.collector
-					.msg(res)
-					.emoji(commandMap.map(c => c.emoji))
-					.remove(true)
-					.exec(async (msg, emoji, userID) => {
-						const command = commandMap.find(c => c.emoji === emoji.name);
+					if (!command.showButton) {
+						return true;
+					}
 
-						if (command) {
-							const args = [];
+					return command.showButton(this.player);
+				}).map(c => c.emoji);
 
-							return this.Atlas.commands.get(command.name).execute({
-								channel: this.player.msg.channel,
-								author: this.Atlas.client.users.get(userID) || this.player.msg.author,
-								guild: this.settings.guild,
-							}, args, {
-								settings: this.settings,
-								button: true,
-							});
-						}
-					})
-					.listen();
+				if (emojis.length) {
+					res.collector = new EmojiCollector();
 
-				if (sent.has(res.channel.id)) {
+					await res.collector
+						.msg(res)
+						.emoji(emojis)
+						.remove(true)
+						.exec(async (msg, emoji, userID) => {
+							const command = commandMap.find(c => c.emoji === emoji.name);
+
+							if (command) {
+								const args = [];
+
+								return this.Atlas.commands.get(command.name).execute({
+									channel: this.player.msg.channel,
+									author: this.Atlas.client.users.get(userID) || this.player.msg.author,
+									guild: this.settings.guild,
+								}, args, {
+									settings: this.settings,
+									button: true,
+								});
+							}
+						})
+						.listen();
+
+					if (sent.has(res.channel.id)) {
 					// delete previous player messages to keep the channel clean
-					await this.clean(res.channel);
-				}
+						await this.clean(res.channel);
+					}
 
-				sent.set(res.channel.id, res.id);
+					sent.set(res.channel.id, res.id);
+				}
 			}
 		} catch (e) {
 			console.error(e);

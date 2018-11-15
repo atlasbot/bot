@@ -252,8 +252,18 @@ class Responder {
 			throw new Error('Atlas does not have permissions to send messages to that channel.');
 		}
 
-		if (data.noDupe && data.str) {
-			const existing = this.Atlas.sent.find(c => c.channel === data.channelID && c.str === data.str);
+		let content;
+		if (data.str) {
+			content = data.str.toString().trim();
+
+			if (data.mention) {
+				// append the @mention and lowercase the first char (because grammar 95% of the time)
+				content = `${data.mention}, ${content.charAt(0).toLowerCase() + content.slice(1)}`;
+			}
+		}
+
+		if (data.noDupe && content) {
+			const existing = this.Atlas.sent.find(c => c.channel === data.channelID && c.str === content);
 			if (existing) {
 				try {
 					if (existing.edited < 4) {
@@ -282,16 +292,6 @@ class Responder {
 
 		const { embed } = data;
 
-		let content;
-		if (data.str) {
-			content = data.str.toString().trim();
-
-			if (data.mention) {
-				// append the @mention and lowercase the first char (because grammar 95% of the time)
-				content = `${data.mention}, ${content.charAt(0).toLowerCase() + content.slice(1)}`;
-			}
-		}
-
 		const payload = {
 			content,
 			embed,
@@ -307,7 +307,7 @@ class Responder {
 		if (data.noDupe) {
 			this.Atlas.sent.push({
 				channel: data.channelID,
-				str: data.str,
+				str: content,
 				edited: 1,
 				msg,
 			});

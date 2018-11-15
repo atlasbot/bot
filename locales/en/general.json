@@ -1,5 +1,6 @@
 {
 	"player": {
+		"none": "There is nothing playing in this server.",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
@@ -7,6 +8,11 @@
 			"author": "Author",
 			"duration": "Duration",
 			"footer": "{0} in queue"
+		},
+		"leaving": "There is nothing left to play, leaving channel...",
+		"autoplay": {
+			"failed": "I couldn't find anything to play next :c. Try queue something else.",
+			"addedBy": "Autoplay"
 		}
 	},
 	"poweredBy": {
