@@ -1,4 +1,12 @@
 {
+	"autoplay": {
+		"enabled": "Autoplay has been enabled.",
+		"disabled": "Autoplay has been disabled."
+	},
+	"shuffle": {
+		"tooFew": "There is not enough items in the queue to shuffle.",
+		"success": "Shuffled `{0}` queue items."
+	},
 	"movie": {
 		"notAMovie": "That there ain't a movie! Ye' should try `{0}show {1}` instead."
 	},
@@ -119,7 +127,6 @@
 		}
 	},
 	"queue": {
-		"noPlayer": "There is nothing playing in this server.",
 		"embed": {
 			"totalDuration": {
 				"name": "Total Duration",
@@ -218,7 +225,6 @@
 		"noArgs": "Please include a sentence to emojify!"
 	},
 	"next": {
-		"noPlayer": "There is nothing playing in this server.",
 		"success": "Skipped `{0}`.",
 		"nothingNext": "There is nothing in the queue to skip to."
 	},
