@@ -13,7 +13,7 @@ module.exports = class Reddit extends Command {
 			return responder.error('reddit.noArgs').send();
 		}
 
-		const subname = this.Atlas.lib.utils.cleanSubName(args[0]);
+		const subname = this.Atlas.lib.utils.cleanSubreddit(args[0]);
 
 		try {
 			const subReq = await superagent.get(`https://www.reddit.com/r/${subname}/about.json`)

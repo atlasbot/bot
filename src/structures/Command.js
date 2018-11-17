@@ -172,23 +172,12 @@ class Command {
 
 		// todo: support examples from language files
 		if (this.info.examples && this.info.examples.length) {
-			const examples = this.info.examples.map(e => e
-				.replace(/@sylver|@user/ig, msg.author.mention)
-				.replace(/@random/ig, () => {
-					if (msg.guild) {
-						const members = Array.from(msg.guild.members);
-
-						return `@${members[Math.floor(Math.random() * members.length)][1].tag}`;
-					}
-
-					return msg.author.mention;
-				}));
-			if (examples.length > 5) {
+			if (this.info.examples.length > 5) {
 				let col1;
 				if (this.info.master) {
-					col1 = examples.map(e => `${msg.displayPrefix + this.info.master} ${this.info.name} ${e}`);
+					col1 = this.info.examples.map(e => `${msg.displayPrefix + this.info.master.info.name} ${this.info.name} ${e}`);
 				} else {
-					col1 = examples.map(e => `${msg.displayPrefix + this.info.name} ${e}`);
+					col1 = this.info.examples.map(e => `${msg.displayPrefix + this.info.name} ${e}`);
 				}
 				const col2 = col1.splice(0, Math.floor((col1.length / 2)));
 
@@ -205,13 +194,13 @@ class Command {
 			} else if (this.info.master) {
 				embed.fields.push({
 					name: 'Examples',
-					value: `${msg.displayPrefix + this.info.master.info.name} ${this.info.name} ${examples
+					value: `${msg.displayPrefix + this.info.master.info.name} ${this.info.name} ${this.info.examples
 						.join(`\n${msg.displayPrefix + this.info.master.info.name} ${this.info.name} `)}`,
 				});
 			} else {
 				embed.fields.push({
 					name: 'Examples',
-					value: `${msg.displayPrefix + this.info.name} ${examples.join(`\n${msg.displayPrefix + this.info.name} `)}`,
+					value: `${msg.displayPrefix + this.info.name} ${this.info.examples.join(`\n${msg.displayPrefix + this.info.name} `)}`,
 				});
 			}
 		}
@@ -298,7 +287,28 @@ class Command {
 		}
 
 		embed.fields.forEach((f) => {
-			f.name = f.name.replace(/@sylver/ig, msg.author.mention).replace(/@user/ig, msg.author.mention);
+			// using random names doesn't work anymore because discord won't resolve id's in embeds :c
+			f.value = f.value.replace(/(@sylver|@random|@user)/ig, msg.author.mention);
+
+			if (msg.guild) {
+				// names without numbers look better in embeds, also wipes out tickets because they include the users discrim
+				const options = [...msg.guild.channels.values()].filter(c => c.type === 0 && !/[0-9]/.exec(c.name) && c.permissionsOf(msg.author.id).has('readMessages'));
+
+				if (options.length) {
+					f.value = f.value
+						.replace(/#([A-z-]+)/ig, (ignore, match1) => {
+							const channel = msg.guild.channels.find(c => c.name === match1);
+
+							if (channel) {
+								return channel.mention;
+							}
+
+							const option = this.Atlas.lib.utils.pickOne(options);
+
+							return option.mention;
+						});
+				}
+			}
 		});
 
 		return embed;

@@ -169,23 +169,14 @@ class Responder {
 			};
 		}
 
-		let val;
-		if (this.keyPrefix) {
-			val = this.Atlas.util.format(obj.language || this._lang, {
-				key: `${this.keyPrefix}.${obj.key}`,
-				stringOnly: obj.stringOnly,
-			}, ...replacements);
-		}
+		const val = this.Atlas.util.format(obj.language || this._lang, {
+			key: this.keyPrefix ? `${this.keyPrefix}.${obj.key}` : obj.key,
+			stringOnly: obj.stringOnly,
+			replacements,
+		}, ...replacements);
 
-		if (!val) {
-			val = this.Atlas.util.format(obj.language || this._lang, {
-				key: obj.key,
-				stringOnly: obj.stringOnly,
-			}, ...replacements);
-
-			if (!val && !obj.noThrow) {
-				throw new Error(`No language value matching key "${obj.key}"`);
-			}
+		if (!val && !obj.noThrow) {
+			throw new Error(`No language value matching key "${obj.key}"`);
 		}
 
 		return val;
@@ -356,7 +347,7 @@ class Responder {
 				const [str, ...replacements] = val;
 
 				if (str && typeof str === 'string') {
-					val = this.format(str, ...replacements) || str;
+					val = (this.format(str, ...replacements) || str);
 				}
 			} else if (val === Object(val)) {
 				// replacing objects (e.g, thumbnail values and shit)

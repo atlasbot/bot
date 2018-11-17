@@ -23,7 +23,7 @@ module.exports.info = {
 	],
 	permissions: {
 		user: {
-			manageMessages: true,
+			manageGuild: true,
 		},
 		bot: {
 			manageWebhooks: true,

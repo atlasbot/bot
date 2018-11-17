@@ -26,11 +26,16 @@ module.exports = class Help extends Command {
 				},
 			};
 
-			for (const modName of this.Atlas.plugins.keys()) {
+			const keys = Array.from(this.Atlas.plugins.keys());
+
+			// idk about this fo sho but i think it looks kinda nice
+			keys.sort((a, b) => (a.length > b.length ? 1 : -1));
+
+			for (const modName of keys) {
 				const plugin = this.Atlas.plugins.get(modName);
 
 				embed.fields.push({
-					name: plugin.name,
+					name: `${plugin.name} • ${plugin.commands.length}`,
 					value: plugin.commands.map(m => (m.info.subcommands.size !== 0 ? `\`${m.info.name}\`\\*` : `\`${m.info.name}\``)).join(', '),
 				});
 			}
