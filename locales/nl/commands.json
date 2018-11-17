@@ -14,17 +14,18 @@
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"noArgs": "Voer aub een gebruiker in om te verbannen!",
-		"success": "{0} is verbannen.",
-		"tooLateReason": "{1} is al verbannen met als reden `{0}`.",
-		"tooLate": "{0} is al verbannen."
+		"success": "{0} is verbannen."
 	},
 	"ban": {
 		"noArgs": "Voer aub een gebruiker in om te verbannen!",
 		"success": "{0} is verbannen.",
 		"withReason": "{0} is verbannen voor `{1}`.",
 		"tooLateReason": "{1} is al verbannen met als reden `{0}`.",
-		"tooLate": "{0} is al verbannen."
+		"tooLate": "{0} is al verbannen.",
+		"feelsGoodMan": {
+			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been banned from {0} by {1} ({2})."
+		}
 	},
 	"remindme": {
 		"invalid": "Dat is geen geldige datum.",
@@ -339,7 +340,11 @@
 	"kick": {
 		"noArgs": "Please include a user to kick!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`."
+		"withReason": "Kicked {0} for `{1}`.",
+		"feelsGoodMan": {
+			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been kicked from {0} by {1} ({2})."
+		}
 	},
 	"gotcharacter": {
 		"notFound": "I could not find a Game of Thrones character matching `{0}`."
