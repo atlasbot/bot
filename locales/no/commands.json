@@ -14,17 +14,18 @@
 		"notASeries": "Det er ikke et TV show! Kanskje prøv `{0}vis {1}` i stedet."
 	},
 	"funban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"success": "Banned {0}."
 	},
 	"ban": {
 		"noArgs": "Please include a user to ban!",
 		"success": "Banned {0}.",
 		"withReason": "Banned {0} for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned."
+		"tooLate": "{0} has already been banned.",
+		"feelsGoodMan": {
+			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been banned from {0} by {1} ({2})."
+		}
 	},
 	"remindme": {
 		"invalid": "That is not a valid date.",
@@ -339,7 +340,11 @@
 	"kick": {
 		"noArgs": "Please include a user to kick!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`."
+		"withReason": "Kicked {0} for `{1}`.",
+		"feelsGoodMan": {
+			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been kicked from {0} by {1} ({2})."
+		}
 	},
 	"gotcharacter": {
 		"notFound": "I could not find a Game of Thrones character matching `{0}`."
