@@ -13,7 +13,7 @@
 		},
 		"remove": {
 			"description": "Remove a existing feed from a channel.",
-			"usage": "[channel] <feed>"
+			"usage": "[type] <target>"
 		},
 		"list": {
 			"description": "List all feeds and their channels."
