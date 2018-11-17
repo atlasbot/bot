@@ -1,4 +1,3 @@
-const { Member } = require('eris');
 const Command = require('../../structures/Command.js');
 
 
@@ -10,62 +9,12 @@ module.exports = class FunBan extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		// TODO: DM the user why they were banned
-		const responder = new this.Atlas.structs.Responder(msg);
+		const baseBan = this.Atlas.commands.get('ban');
 
-		if (!args[0]) {
-			return responder.error('funban.noArgs').send();
-		}
-
-		const query = args.shift();
-		const target = await settings.findMember(query);
-
-		if (!target) {
-			return responder.error('general.noUserFound').send();
-		}
-
-		if (target instanceof Member) {
-			if (!target.punishable(msg.member)) {
-				return responder.error('general.notPunishable').send();
-			} if (!target.punishable(msg.guild.me)) {
-				return responder.error('general.lolno').send();
-			}
-		}
-
-		try {
-			const ban = await this.Atlas.client.getGuildBan(msg.guild.id, target.id);
-			if (ban) {
-				if (ban.reason) {
-					return responder.error('funban.tooLateReason', ban.reason, target.tag).send();
-				}
-
-				return responder.error('funban.tooLate', target.tag).send();
-			}
-		} catch (e) {} // eslint-disable-line no-empty
-
-		this.Atlas.auditOverrides.push({
-			type: 22,
-			date: new Date(),
-			user: msg.author,
-			userID: msg.author.id,
-			targetID: target.id,
-			target,
-			reason: args.join(' '),
-			guild: msg.guild.id,
+		return baseBan.execute(msg, args, {
+			settings,
+			fun: true,
 		});
-
-		await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
-
-		return responder.embed({
-			author: {
-				icon_url: target.avatarURL,
-				name: ['funban.success', target.tag],
-			},
-			image: {
-				url: 'https://thumbs.gfycat.com/TidyBonyAlligatorgar-small.gif',
-			},
-			timestamp: new Date(),
-		}).send();
 	}
 };
 

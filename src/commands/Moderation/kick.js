@@ -28,9 +28,24 @@ module.exports = class Kick extends Command {
 		// todo: all occures of this mess should be replaced with proper checks
 		if (!target.punishable(msg.member)) {
 			return responder.error('general.notPunishable').send();
-		} if (!target.punishable(msg.guild.me)) {
+		} if (!target.kickable) {
 			return responder.error('general.lolno').send();
 		}
+
+		try {
+			// try to tell the user who banned them, why and that they're a bad person
+			const channel = await (target.user || target).getDMChannel();
+
+			responder.channel(channel);
+
+			if (args[0]) {
+				responder.text('kick.feelsGoodMan.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
+			} else {
+				responder.text('kick.feelsGoodMan.noReason', msg.guild.name, msg.author.tag, msg.author.id);
+			}
+
+			await responder.send();
+		} catch (e) {} // eslint-disable-line no-empty
 
 		this.Atlas.auditOverrides.push({
 			type: 20,

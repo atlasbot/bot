@@ -9,6 +9,7 @@ module.exports = class Ban extends Command {
 
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
+		fun = false,
 	}) {
 		// TODO: DM the user why they were banned
 		const responder = new this.Atlas.structs.Responder(msg);
@@ -27,7 +28,7 @@ module.exports = class Ban extends Command {
 		if (target instanceof Member) {
 			if (!target.punishable(msg.member)) {
 				return responder.error('general.notPunishable').send();
-			} if (!target.punishable(msg.guild.me)) {
+			} if (!target.bannable) {
 				return responder.error('general.lolno').send();
 			}
 		}
@@ -43,6 +44,21 @@ module.exports = class Ban extends Command {
 			}
 		} catch (e) {} // eslint-disable-line no-empty
 
+		try {
+			// try to tell the user who banned them, why and that they're a bad person
+			const channel = await (target.user || target).getDMChannel();
+
+			responder.channel(channel);
+
+			if (args[0]) {
+				responder.text('ban.feelsGoodMan.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
+			} else {
+				responder.text('ban.feelsGoodMan.noReason', msg.guild.name, msg.author.tag, msg.author.id);
+			}
+
+			await responder.send();
+		} catch (e) {} // eslint-disable-line no-empty
+
 		this.Atlas.auditOverrides.push({
 			type: 22,
 			date: new Date(),
@@ -55,6 +71,19 @@ module.exports = class Ban extends Command {
 		});
 
 		await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
+
+		if (fun) {
+			return responder.embed({
+				author: {
+					icon_url: target.avatarURL,
+					name: ['funban.success', target.tag],
+				},
+				image: {
+					url: 'https://thumbs.gfycat.com/TidyBonyAlligatorgar-small.gif',
+				},
+				timestamp: new Date(),
+			}).send();
+		}
 
 		if (args[0]) {
 			return responder.text('ban.withReason', target.tag, args.join(' ')).send();
