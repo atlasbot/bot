@@ -26,9 +26,9 @@ module.exports = class Locale extends Command {
 
 				const key = s.locale.split('-').pop().toLowerCase();
 
-				const emoji = this.Atlas.lib.utils.emoji.fromName(`flag_${overrides[key] || key}`);
+				const emoji = this.Atlas.lib.emoji.get(`flag_${overrides[key] || key}`);
 				if (emoji) {
-					name = `${emoji.surrogates} ${name}`;
+					name = `${emoji.char} ${name}`;
 				}
 
 				return name;
@@ -57,7 +57,7 @@ module.exports = class Locale extends Command {
 			}).send();
 		}
 
-		const language = (new this.Atlas.structs.Fuzzy(supported, {
+		const language = (new this.Atlas.lib.structs.Fuzzy(supported, {
 			keys: ['name', 'locale'],
 		})).search(args.join(' '));
 

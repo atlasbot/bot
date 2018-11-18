@@ -172,7 +172,7 @@ module.exports = class EmojiCollector {
 			}
 		}
 
-		return this._exec(msg, emoji, userID, this._Atlas.lib.utils.emoji(emoji.name));
+		return this._exec(msg, emoji, userID, this._Atlas.lib.emoji.get(emoji.name));
 	}
 
 	/**

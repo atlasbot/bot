@@ -15,8 +15,13 @@ module.exports = class GotHouse extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const h = args[0] ? (new this.Atlas.structs.Fuzzy(houses, {
-			keys: ['name', 'id', 'coatOfArms'],
+		const h = args[0] ? (new this.Atlas.lib.structs.Fuzzy(houses.map((house) => {
+			// House Stark of Winterfell > Stark, makes fuzzy search work better-er
+			house.cleanerName = house.name.replace(/of [A-z ]+/g, '').split('House').join(' ');
+
+			return house;
+		}), {
+			keys: ['cleanerName', 'name', 'id', 'coatOfArms'],
 		})).search(args.join(' ')) : this.Atlas.lib.utils.pickOne(houses);
 
 		if (!h) {

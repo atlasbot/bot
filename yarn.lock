@@ -443,6 +443,11 @@ emoji-regex@^6.5.1:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
   integrity sha512-PAHp6TxrCy7MGMFidro8uikr+zlJJKJ/Q6mm2ExZ7HwkyR9lSVFfE3kt36qcwa24BQL7y0G9axycGjK1A/0uNQ==
 
+emojilib@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/emojilib/-/emojilib-2.3.0.tgz#1e6f922c4881bf56c915b9a1d97397e8d4ac7094"
+  integrity sha512-gDrDiITC7W5lvXTtUmk0k9soizsjfY9Wqr2GWsEMX7+cKChoxLt3RnT8zW32BvN1SFDQbi7+D5/+HNu/R+qvKA==
+
 eris-lavalink@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/eris-lavalink/-/eris-lavalink-1.0.2.tgz#31acd7863663da1ca5bae82035ef71ed8d007b8d"

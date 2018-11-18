@@ -16,7 +16,7 @@ module.exports = class GotCharacter extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const c = args[0] ? (new this.Atlas.structs.Fuzzy(characters, {
+		const c = args[0] ? (new this.Atlas.lib.structs.Fuzzy(characters, {
 			keys: ['name', 'id', 'aliases', 'titles', 'playedBy'],
 		})).search(args.join(' ')) : this.Atlas.lib.utils.pickOne(characters);
 

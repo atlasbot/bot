@@ -1,18 +1,4 @@
 const Command = require('../../structures/Command.js');
-const unformatted = require('./../../../lib/emojis.json');
-
-const emojis = Object.values(unformatted).reduce((a, b) => a.concat(b), []);
-
-const aliases = {
-	gay: 'gay_pride_flag',
-	safety: 'helmet_with_cross',
-	laugh: 'laughing',
-	haha: 'laughing',
-	hah: 'laughing',
-	lol: 'laughing',
-	xd: 'laughing',
-	ecksdee: '<:hyperecksdee:447440569174589453>',
-};
 
 module.exports = class Emojify extends Command {
 	constructor(Atlas) {
@@ -29,11 +15,16 @@ module.exports = class Emojify extends Command {
 		}
 
 		const converted = [];
-		for (let arg of args) {
-			arg = arg.toLowerCase();
-			const replacement = emojis.find(e => e.names.includes(aliases[arg] || arg));
-			converted.push(replacement ? replacement.surrogates : arg);
+		for (const x of args) {
+			const arg = x.replace().replace(/\W/g, '').toLowerCase();
+			const emoji = this.Atlas.lib.emoji.get(arg);
+			if (emoji) {
+				converted.push(emoji.char);
+			} else {
+				converted.push(x);
+			}
 		}
+
 		const str = converted.join(' ');
 
 		return responder.localised().text(str).send();

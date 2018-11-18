@@ -21,7 +21,7 @@ module.exports = class Actions extends Command {
 
 		const query = args.join(' ');
 
-		const channel = (new this.Atlas.structs.Fuzzy(msg.guild.channels, {
+		const channel = (new this.Atlas.lib.structs.Fuzzy(msg.guild.channels, {
 			keys: ['name', 'id', 'mention'],
 		})).search(query);
 

@@ -5,10 +5,10 @@ const lib = require('./../../../../lib');
 const PER_PAGE = 4;
 
 const emojis = [
-	lib.utils.emoji.fromName('one'),
-	lib.utils.emoji.fromName('two'),
-	lib.utils.emoji.fromName('three'),
-	lib.utils.emoji.fromName('four'),
+	lib.emoji.get('one'),
+	lib.emoji.get('two'),
+	lib.emoji.get('three'),
+	lib.emoji.get('four'),
 ];
 
 // fixme: doesn't handle if custom reactions are added to the embed
@@ -101,7 +101,7 @@ module.exports = class Remove extends Command {
 		const collector = new EmojiCollector();
 
 		const { emojiNumbers } = this.Atlas.constants;
-		const toAdd = (warnings.length <= PER_PAGE ? emojis.slice(0, warnings.length) : emojis).map(e => e.surrogates);
+		const toAdd = (warnings.length <= PER_PAGE ? emojis.slice(0, warnings.length) : emojis).map(e => e.char);
 
 		await collector
 			.msg(pageMsg)

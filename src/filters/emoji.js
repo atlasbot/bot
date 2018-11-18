@@ -13,7 +13,7 @@ module.exports = class Mentions extends Filter {
 	}) {
 		const { threshold } = filterConfig;
 
-		const defaultEmojis = (str.match(this.Atlas.lib.utils.emoji.regex()) || '').length;
+		const defaultEmojis = (str.match(this.Atlas.lib.emoji.regex()) || '').length;
 		// checking to makes sure the emojis are valid may be worth while
 		const customEmojis = (str.match(CUSTOM_EMOJI_REGEX) || '').length;
 

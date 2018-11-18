@@ -31,7 +31,7 @@ module.exports = class ID extends Command {
 			}
 
 			if (!target) {
-				target = (new this.Atlas.structs.Fuzzy([
+				target = (new this.Atlas.lib.structs.Fuzzy([
 					...msg.guild.channels.values(),
 					...msg.guild.roles.values(),
 					...msg.guild.members.values(),

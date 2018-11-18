@@ -12,12 +12,12 @@ module.exports = class Neat extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const d = await this.reddit.getImage(msg.author.id);
+		const { embed } = await this.reddit.getImage(msg.author.id);
 
 		// people got triggered over the sub name being called "interestingasfuck"
-		d.embed.footer.text = null;
+		embed.footer.text = null;
 
-		return responder.embed(d.embed).send();
+		return responder.embed(embed).send();
 	}
 };
 

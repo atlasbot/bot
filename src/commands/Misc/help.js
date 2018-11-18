@@ -46,13 +46,13 @@ module.exports = class Help extends Command {
 		const query = args[0].replace(/[\W_]+/g, '');
 
 		const cmds = Array.from(this.Atlas.commands.labels.values()).filter(c => !c.info.hidden);
-		const command = (new this.Atlas.structs.Fuzzy(cmds, {
+		const command = (new this.Atlas.lib.structs.Fuzzy(cmds, {
 			keys: ['info.name', 'info.aliases'],
 		})).search(query);
 
 		if (command) {
 			if (command.info.subcommands && args[1]) {
-				const sub = (new this.Atlas.structs.Fuzzy(Array.from(command.info.subcommands.values()), {
+				const sub = (new this.Atlas.lib.structs.Fuzzy(Array.from(command.info.subcommands.values()), {
 					keys: ['info.name', 'info.aliases'],
 				})).search(args[1].replace(/[\W_]+/g, ''));
 

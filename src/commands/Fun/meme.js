@@ -12,9 +12,9 @@ module.exports = class Meme extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const d = await this.reddit.getImage(msg.author.id);
+		const { embed } = await this.reddit.getImage(msg.author.id);
 
-		return responder.embed(d.embed).send();
+		return responder.embed(embed).send();
 	}
 };
 

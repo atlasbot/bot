@@ -1,7 +1,7 @@
 const url = require('url');
 const superagent = require('superagent');
 
-const Fuzzy = require('./structures/Fuzzy');
+const Fuzzy = require('../lib/structures/Fuzzy');
 const lib = require('../lib');
 const Cache = require('../lib/structures/Cache');
 

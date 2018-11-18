@@ -7,19 +7,18 @@ module.exports = class Wiki extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, {
+	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'wiki');
 
 		if (!args[0]) {
-			return responder.error('You have to include a search term!').send();
-		} if (args.join(' ').length > 200) {
-			return responder.error('Your search term must be under 200 characters!').send();
+			return responder.error('noArgs').send();
+		} if (args.join(' ').length > 64) {
+			return responder.error('tooLong').send();
 		}
 
-		// this api isn't really meant to be used for this
-		superagent.get('https://en.wikipedia.org/w/api.php')
+		const { body } = await superagent.get('https://en.wikipedia.org/w/api.php')
 			.query({
 				action: 'opensearch',
 				format: 'json',
@@ -29,24 +28,22 @@ module.exports = class Wiki extends Command {
 				limit: '1',
 				suggest: true,
 			})
-			.set('User-Agent', this.Atlas.userAgent)
-			.then((res) => {
-				const [query, [title], [description], [url]] = res.body;
-				if (!title) {
-					return responder.error('I could not find any wiki article matching your search term!').send();
-				}
+			.set('User-Agent', this.Atlas.userAgent);
 
-				return responder.embed({
-					title,
-					url,
-					description: `${description.replace(/\((.*)\)/, '').trim()} [Wiki Page](${url})`,
-					timestamp: new Date(),
-					footer: {
-						text: `You searched for "${query}"`,
-					},
-				}).send();
-			})
-			.catch(() => responder.error('general.restError').send());
+		const [query, [title], [description], [url]] = body;
+		if (!title) {
+			return responder.error('noResults').send();
+		}
+
+		return responder.embed({
+			title,
+			url,
+			description: ['description', description.replace(/\((.*)\)/, '').trim(), url],
+			timestamp: new Date(),
+			footer: {
+				text: ['footer', query],
+			},
+		}).send();
 	}
 };
 

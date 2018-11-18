@@ -24,8 +24,8 @@ module.exports = class WouldYouRather extends Command {
 
 		if (msg.channel.permissionsOf(this.Atlas.client.user.id).has('addReactions')) {
 			try {
-				await reactionMsg.addReaction(this.Atlas.lib.utils.emoji.fromName('one').surrogates);
-				await reactionMsg.addReaction(this.Atlas.lib.utils.emoji.fromName('two').surrogates);
+				await reactionMsg.addReaction(this.Atlas.lib.emoji.get('one').char);
+				await reactionMsg.addReaction(this.Atlas.lib.emoji.get('two').char);
 			} catch (e) {
 				console.error(e);
 			}

@@ -18,7 +18,7 @@ module.exports = class Action extends Command {
 		}
 
 		// grabbing and validating the channel
-		const filter = (new this.Atlas.structs.Fuzzy(this.Atlas.filters, {
+		const filter = (new this.Atlas.lib.structs.Fuzzy(this.Atlas.filters, {
 			keys: ['info.name', 'info.settingsKey'],
 		})).search(filterName);
 
@@ -39,7 +39,7 @@ module.exports = class Action extends Command {
 			return noAction();
 		}
 
-		const newType = (new this.Atlas.structs.Fuzzy(possible, {
+		const newType = (new this.Atlas.lib.structs.Fuzzy(possible, {
 			keys: ['human', 'type', 'key'],
 		})).search(action.join(' '));
 

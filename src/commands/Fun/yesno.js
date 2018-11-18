@@ -10,6 +10,7 @@ module.exports = class YesNo extends Command {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
+
 		const { body } = await superagent.get('https://yesno.wtf/api');
 
 		return responder.localised().embed({
