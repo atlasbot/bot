@@ -567,5 +567,12 @@
 			},
 			"footer": "{0} total"
 		}
+	},
+	"wiki": {
+		"noArgs": "You have to include a search term!",
+		"tooLong": "Your search term must be under 64 characters!",
+		"noResults": "I could not find any wiki article matching your search term!",
+		"description": "{0} [Wiki Page]({1})",
+		"footer": "Results for \"{0}\""
 	}
 }
