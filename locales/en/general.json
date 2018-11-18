@@ -307,6 +307,10 @@
 				"warning": "Excessive capitalization.",
 				"message": "{0}, cool it with the caps."
 			},
+			"emoji": {
+				"warning": "Excessive emojis.",
+				"message": "{0}, please dont use so many emojis."
+			},
 			"cursing": {
 				"warning": "Cursing",
 				"message": "{0}, please refrain from swearing here."
