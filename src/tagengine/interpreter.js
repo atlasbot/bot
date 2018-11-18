@@ -1,26 +1,56 @@
+const TagError = require('./TagError');
+
 const interp = async (tokens, info, functions) => {
 	const output = [];
+	const errors = [];
+
 	for (const token of tokens) {
 		if (token.type === 'BRACKETGROUP') {
 			const thisToken = token.value.shift();
 
-			// this fucking mess parses subtags
-			const args = [];
-			for (const [arg] of token.value) {
-				if (arg.type !== 'WORD') {
-					const out = await interp([arg], info, functions);
+			const func = functions.get(thisToken.value);
 
-					args.push(out);
-				} else {
-					args.push(arg.value);
+			const parseArgs = async (args) => {
+				// this fucking mess parses subtags
+				const parsed = [];
+
+				for (const arg of args) {
+					if (arg.type !== 'WORD') {
+						const childOutput = await interp([arg], info, functions);
+
+						parsed.push(childOutput.output);
+						errors.push(...childOutput.errors);
+					} else {
+						parsed.push(arg.value);
+					}
 				}
+
+				return parsed;
+			};
+
+			let args = token.value.map(a => a[0]);
+			if (!func.info.dontParse) {
+				args = await parseArgs(args);
 			}
 
-			if (functions.has(thisToken.value)) {
+			if (func) {
 				// todo: handle tag errors, etc...
-				const out = await functions.get(thisToken.value).execute(info, args);
+				try {
+					const out = await func.execute(info, args, {
+						output,
+						errors,
+					});
 
-				output.push(out);
+					output.push(out);
+				} catch (e) {
+					if (e instanceof TagError) {
+						errors.push(e);
+					} else {
+						errors.push(new TagError(e.message));
+					}
+
+					output.push(`{${thisToken.value}-ERROR${errors.length}}`);
+				}
 
 				continue;
 			}
@@ -33,7 +63,10 @@ const interp = async (tokens, info, functions) => {
 		output.push(token.value);
 	}
 
-	return output.join('');
+	return {
+		output: output.join(''),
+		errors,
+	};
 };
 
 module.exports = interp;

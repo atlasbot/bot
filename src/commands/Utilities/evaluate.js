@@ -18,8 +18,6 @@ module.exports = class TagEval extends Command {
 		// todo: add more here
 		const parser = new Parser({
 			msg,
-			guild: msg.guild,
-			channel: msg.channel,
 			settings,
 		});
 		const ret = await parser.parse(args.join(' '));
@@ -27,20 +25,16 @@ module.exports = class TagEval extends Command {
 		const output = ret.output || 'No variable output :c';
 
 		if (ret.errors.length) {
-			const errors = ret.errors.map(e => e.message);
-			const uniq = errors
-				.filter((elem, pos, arr) => arr.indexOf(elem) === pos);
-
 			return responder.embed({
 				color: this.Atlas.colors.get('red').decimal,
 				title: 'Errors',
-				description: `• ${uniq.join('\n• ').substring(0, 2048)}`,
 				fields: [{
 					name: 'Output',
-					value: output.substring(0, 1024),
+					value: output.substring(0, 1024).replace(/ERROR[0-9]+/g, match => `**${match}**`),
 				}],
-			})
-				.send();
+				description: ret.errors
+					.map((e, i) => `${i + 1}. ${e.message}`).join('\n').substring(0, 2048),
+			}).send();
 		}
 
 		return responder.text(`\`\`\`${output}\`\`\``).localised().send();

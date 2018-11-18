@@ -10,7 +10,7 @@ module.exports = () => {
 
 	const tags = new Map();
 
-	for (const file of files.filter(f => !f.startsWith('-'))) {
+	for (const file of files.filter(f => !f.startsWith('-') && !f.endsWith('middleware.js'))) {
 		const tag = require(file);
 
 		tags.set(tag.info.name, {

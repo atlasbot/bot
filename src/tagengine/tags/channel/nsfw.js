@@ -1,4 +1,6 @@
-module.exports = ({ channel }) => channel.nsfw;
+const middleware = require('./middleware');
+
+module.exports = middleware(({ channel }) => channel.nsfw);
 
 module.exports.info = {
 	name: 'channel.nsfw',

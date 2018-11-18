@@ -1,4 +1,6 @@
-module.exports = ({ channel }) => channel.topic;
+const middleware = require('./middleware');
+
+module.exports = middleware(({ channel }) => channel.topic);
 
 module.exports.info = {
 	name: 'channel.topic',

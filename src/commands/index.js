@@ -55,14 +55,23 @@ module.exports = class Commands {
 		const plugins = await this.plugins();
 		for (const plugin of plugins) {
 			Atlas.plugins.set(plugin.name.toLowerCase(), new Plugin(plugin));
+
 			plugin.commands.forEach(cmd => this.setup(Atlas, cmd, {
 				plugin,
 			}));
+
 			plugin.subcommands.forEach(sub => this.setup(Atlas, sub.base, {
 				subs: sub.subs,
 				plugin,
 			}));
+
+			console.log(`Loaded plugin: "${plugin.name}"`);
 		}
+
+		console.log(`Loaded ${plugins.length} plugins`);
+
+		console.log(`Loaded ${plugins.map(p => p.commands.length).reduce((a, b) => a + b, 0)} commands`);
+		console.log(`Loaded ${plugins.map(p => p.subcommands.length).reduce((a, b) => a + b, 0)} subcommands`);
 	}
 
 	static setup(Atlas, path, {

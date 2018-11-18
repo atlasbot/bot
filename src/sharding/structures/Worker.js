@@ -42,6 +42,8 @@ module.exports = class Cluster {
 	}
 
 	connect() {
+		const start = new Date();
+
 		const App = require(this.entryPoint);
 
 		this.client = new Eris(this.token, {
@@ -53,6 +55,10 @@ module.exports = class Cluster {
 		});
 
 		this.client.on('ready', async () => {
+			const end = new Date();
+
+			console.info(`Logged in as ${this.client.user.tag} in ${end - start}ms`);
+
 			this.app = new App({
 				client: this.client,
 				clusterID: this.clusterID,

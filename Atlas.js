@@ -18,12 +18,15 @@ const { version } = require('./package.json');
 const DB = lib.structs.Database;
 
 // load eris addons cus lazy
-lib.utils.walkSync(path.join(__dirname, 'src/addons'))
-	.filter(a => a.endsWith('.js'))
+const addons = lib.utils.walkSync(path.join(__dirname, 'src/addons'));
+
+addons.filter(a => a.endsWith('.js'))
 	.forEach((a) => {
 		const Prop = require(a);
 		Prop(Eris);
 	});
+
+console.log(`Loaded ${addons.length} eris addons`);
 
 module.exports = class Atlas {
 	constructor({
@@ -136,7 +139,7 @@ module.exports = class Atlas {
 				}
 			});
 		} else {
-			console.log('"SENTRY_DSN" env not found, error reporting disabled.');
+			console.warn('"SENTRY_DSN" env not found, error reporting disabled.');
 		}
 
 		const filters = await fs.readdir('src/filters');
@@ -147,7 +150,11 @@ module.exports = class Atlas {
 			filter.info = Filter.info;
 
 			this.filters.set(f.split('.')[0], filter);
+
+			console.log(`Loaded chat filter: "${f}"`);
 		});
+
+		console.log(`Loaded ${filters.length} filters`);
 
 		const events = await fs.readdir('src/events');
 		// Loading events
@@ -157,14 +164,17 @@ module.exports = class Atlas {
 
 			this.client.on(e.split('.')[0], handler.execute.bind(handler));
 
-			console.log(`Loaded event handler "${e}"`);
-
 			delete require.cache[require.resolve(`./src/events/${e}`)];
+
+			console.log(`Loaded event handler :"${e}"`);
 		});
+
+		console.log(`Loaded ${events.length} events`);
 
 		// Loading locales
 		const locales = await fs.readdir('./locales');
 		for (const locale of locales) {
+			console.log(`Loading locale "${locale}"`);
 			const files = await fs.readdir(path.join('./locales', locale));
 
 			const data = {};
