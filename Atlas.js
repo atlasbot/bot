@@ -80,6 +80,7 @@ module.exports = class Atlas {
 		this.DB.init();
 
 		this.collectors = {
+			messages: [],
 			emojis: {
 				map: {},
 				get: id => this.collectors.emojis.map[id],

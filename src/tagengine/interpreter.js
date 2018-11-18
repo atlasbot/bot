@@ -43,6 +43,10 @@ const interp = async (tokens, info, functions) => {
 
 					output.push(out);
 				} catch (e) {
+					if (process.env.NODE_ENV === 'development') {
+						console.warn(e);
+					}
+
 					if (e instanceof TagError) {
 						errors.push(e);
 					} else {
