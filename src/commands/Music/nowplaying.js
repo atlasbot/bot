@@ -19,26 +19,8 @@ module.exports = class NowPlaying extends Command {
 			return responder.error('general.player.none').send();
 		}
 
-		const duration = this.Atlas.lib.utils.prettyMs(player.track.info.length);
-		const position = this.Atlas.lib.utils.prettyMs(player.position);
-
-		return responder.embed({
-			title: 'general.music.nowPlaying.name',
-			description: ['general.music.description', player.track.info.title, player.track.info.uri],
-			fields: [{
-				name: 'general.music.duration.name',
-				value: ['general.music.duration.value', duration],
-				inline: true,
-			}, {
-				name: 'general.music.addedBy.name',
-				value: ['general.music.addedBy.value', player.track.addedBy.mention],
-				inline: true,
-			}, {
-				name: 'general.music.position.name',
-				value: ['general.music.position.value', position],
-				inline: true,
-			}],
-		}).send();
+		// using the player responder so it adds buttons
+		return player.responder.embed(player.npEmbed(player.track)).send();
 	}
 };
 

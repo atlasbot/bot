@@ -109,29 +109,33 @@ module.exports = class extends Player {
 		this.timestamp = Date.now();
 
 		if (notify) {
-			return this.responder.embed({
-				description: `[${track.info.title}](${track.info.uri})`,
-				fields: [{
-					name: 'general.player.npEmbed.author',
-					value: track.info.author,
-					inline: true,
-				},
-				{
-					name: 'general.player.npEmbed.addedBy',
-					value: track.addedBy || '???',
-					inline: true,
-				},
-				{
-					name: 'general.player.npEmbed.duration',
-					value: this.Atlas.lib.utils.prettyMs(track.info.length),
-					inline: true,
-				}],
-				timestamp: new Date(),
-				footer: {
-					text: this.queue.length ? ['general.player.npEmbed.footer', this.queue.length] : null,
-				},
-			}).send();
+			return this.responder.embed(this.npEmbed(track)).send();
 		}
+	}
+
+	npEmbed(track) {
+		return {
+			description: `[${track.info.title}](${track.info.uri})`,
+			fields: [{
+				name: 'general.player.npEmbed.author',
+				value: track.info.author,
+				inline: true,
+			},
+			{
+				name: 'general.player.npEmbed.addedBy',
+				value: track.addedBy || '???',
+				inline: true,
+			},
+			{
+				name: 'general.player.npEmbed.duration',
+				value: this.Atlas.lib.utils.prettyMs(track.info.length),
+				inline: true,
+			}],
+			timestamp: new Date(),
+			footer: {
+				text: this.queue.length ? ['general.player.npEmbed.footer', this.queue.length] : null,
+			},
+		};
 	}
 
 	/**
