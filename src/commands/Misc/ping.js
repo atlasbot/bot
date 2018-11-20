@@ -5,7 +5,7 @@ module.exports = class Ping extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, { // eslint-disable-line no-unused-vars
+	async action(msg, args, { // eslint-disable-line no-unused-vars
 		settings, // eslint-disable-line no-unused-vars
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
@@ -16,13 +16,12 @@ module.exports = class Ping extends Command {
 		const valid = locale.commands.ping.randoms;
 		const rand = locale.commands.ping.randoms[Math.floor(Math.random() * valid.length)];
 
-		responder.text('ping.start', rand).noDupe(true).send()
-			.then((botMsg) => {
-				responder
-					.edit(botMsg)
-					.text(msg.guild ? 'ping.server' : 'ping.dm', botMsg.timestamp - msg.timestamp)
-					.send();
-			});
+		const botMsg = await responder.text('ping.start', rand).noDupe(true).send();
+
+		return responder
+			.edit(botMsg)
+			.text(msg.guild ? 'ping.server' : 'ping.dm', botMsg.timestamp - msg.timestamp)
+			.send();
 	}
 };
 

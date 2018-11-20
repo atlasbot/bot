@@ -29,11 +29,12 @@ const interp = async (tokens, info, functions) => {
 			};
 
 			let args = token.value.map(a => a[0]);
-			if (!func.info.dontParse) {
-				args = await parseArgs(args);
-			}
 
 			if (func) {
+				if (!func.info.dontParse) {
+					args = await parseArgs(args);
+				}
+
 				// todo: handle tag errors, etc...
 				try {
 					const out = await func.execute(info, args, {

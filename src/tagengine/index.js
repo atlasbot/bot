@@ -3,6 +3,8 @@ const interpreter = require('./interpreter');
 const Parser = require('./Parser');
 const Lexer = require('./lexer');
 
+const CommandTag = require('./CommandTag');
+
 module.exports = class {
 	/**
      *
@@ -35,6 +37,26 @@ module.exports = class {
 
 		this.tags = tags;
 		this.Atlas = require('./../../Atlas');
+
+		// janky "temporary" way for tag aliases that will probably never be replaced :^)
+		this.tags.get = (key) => {
+			// in dev environments prefix is different, but i want compat so 'a!',
+			//  also pre-v8 used 'a!' no matter what so more compat
+			const prefix = ['a!', process.env.DEFAULT_PREFIX, settings.prefix].find(p => key.startsWith(p));
+
+			if (prefix) {
+				const label = key.substring(prefix.length);
+				const command = this.Atlas.commands.get(label);
+
+				if (command) {
+					return new CommandTag(command, settings);
+				}
+			}
+
+			const val = Map.prototype.get.call(this.tags, key);
+
+			return val;
+		};
 	}
 
 	async parse(source) {
