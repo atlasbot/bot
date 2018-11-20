@@ -11,7 +11,6 @@ module.exports = (func, argIndex = 0) => async ({
 
 		// try and resolve the user cus why not
 		channel = await util.findRoleOrChannel(guild, args[argIndex], {
-			// why the fuck is it called findMember if it doesn't always return a member? past sylver, explain pls
 			type: 'channel',
 		});
 
