@@ -4,6 +4,10 @@ module.exports = class Event {
 	}
 
 	async execute(msg, oldMsg) {
+		if (!msg.author) {
+			msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
+		}
+
 		if (msg.type === 0 && msg.guild && !msg.author.bot) {
 			const settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
