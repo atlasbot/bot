@@ -11,7 +11,7 @@ module.exports = class Action {
 			content: action.trigger.content,
 		};
 
-		this.actions = action.actions.filter(sa => !sa.channel).map(sa => ({
+		this.content = action.content.filter(sa => !sa.channel).map(sa => ({
 			type: sa.type,
 			message: sa.message,
 			channel: sa.channel,
@@ -83,14 +83,14 @@ module.exports = class Action {
 
 		// the dashboard prevents users from removing the last subaction but the api doesn't (which is intentional for future use)
 		// this is more of a "oh shit they did something they can't do at the time of writing this" message
-		if (!this.actions.length) {
+		if (!this.content.length) {
 			return responder.error('noSubActions').send();
 		}
 
 		// todo: maybe timeouts between uses? or something to stop abuse
-		for (const action of this.actions) {
+		for (const subaction of this.content) {
 			try {
-				await this.runSubAction(msg, action);
+				await this.runSubAction(msg, subaction);
 			} catch (e) {
 				console.error(e);
 			}
