@@ -89,33 +89,33 @@ module.exports = class Ready {
 			}
 
 			// todo: make actions  take priority over default commands
-			const actions = settings.actions.filter((a) => {
-				if (a.trigger.type === 'label' && msg.label === a.trigger.content) {
-					return true;
-				}
+			// const actions = settings.actions.filter((a) => {
+			// 	if (a.trigger.type === 'label' && msg.label === a.trigger.content) {
+			// 		return true;
+			// 	}
 
-				// i'm not sorry honestly
-				if (
-					a.trigger.type === 'keyword'
-					&& (
-						msg.content.toLowerCase().includes(a.trigger.content.toLowerCase())
-						|| msg.cleanContent.toLowerCase().includes(a.trigger.content.toLowerCase())
-					)
-				) {
-					return true;
-				}
+			// 	// i'm not sorry honestly
+			// 	if (
+			// 		a.trigger.type === 'keyword'
+			// 		&& (
+			// 			msg.content.toLowerCase().includes(a.trigger.content.toLowerCase())
+			// 			|| msg.cleanContent.toLowerCase().includes(a.trigger.content.toLowerCase())
+			// 		)
+			// 	) {
+			// 		return true;
+			// 	}
 
-				return false;
-			});
+			// 	return false;
+			// });
 
-			for (const action of actions) {
-				try {
-					await action.execute(msg);
-				} catch (e) {
-					// todo: log to guild
-					console.error(e);
-				}
-			}
+			// for (const action of actions) {
+			// 	try {
+			// 		await action.execute(msg);
+			// 	} catch (e) {
+			// 		// todo: log to guild
+			// 		console.error(e);
+			// 	}
+			// }
 		}
 	}
 
