@@ -1,7 +1,7 @@
 {
 	"autoplay": {
 		"enabled": "Autoplay a été activé.",
-		"disabled": "Autoplay has been disabled."
+		"disabled": "Autoplay a été désactivé."
 	},
 	"shuffle": {
 		"tooFew": "There is not enough items in the queue to shuffle.",
