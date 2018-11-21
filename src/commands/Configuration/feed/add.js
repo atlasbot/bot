@@ -13,9 +13,17 @@ module.exports = class Feed extends Command {
 	async action(msg, args, { // eslint-disable-line no-unused-vars
 		settings, // eslint-disable-line no-unused-vars
 	}) {
+		// todo: non-patrons only get 10 feeds. checking those things isn't ez ok
+
 		const responder = new this.Atlas.structs.Responder(msg, null, 'feed');
 
-		const [, channelQuery, targetQuery] = args;
+		let [, channelQuery, targetQuery] = args;
+
+		if (!targetQuery) {
+			targetQuery = channelQuery;
+
+			channelQuery = msg.channel.id;
+		}
 
 		const types = await this.kraken.getTypes();
 

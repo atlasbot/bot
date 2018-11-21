@@ -16,4 +16,9 @@ module.exports = class Donate extends Command {
 
 module.exports.info = {
 	name: 'donate',
+	aliases: [
+		'patreon',
+		'patron',
+		'pledge',
+	],
 };

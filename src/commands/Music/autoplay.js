@@ -48,4 +48,5 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'autoplay',
 	guildOnly: true,
+	patronOnly: true,
 };

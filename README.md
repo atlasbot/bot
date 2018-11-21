@@ -50,7 +50,8 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 | KRAKEN_HOST \*           | See "What is Kraken" below. TL;DR, don't worry about it.                                                                        |
 | KRAKEN_AUTH \*           | See "What is Kraken" below. TL;DR, don't worry about it.                                                                        |
 | TWITCH_CLIENT_ID \*      | Used to validate feed targets.                                                                                                  |
-| DISCORDBOTS_ORG_TOKEN \* | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵️.                          |
+| DISCORDBOTS_ORG_TOKEN \* | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵️                           |
+| PATREON_TOKEN \*         | Used to tell who is a patreon and who isn't.                                                                                    |
 
 _\* Optional, but some features may not work without them._
 

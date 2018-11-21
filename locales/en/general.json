@@ -212,6 +212,8 @@
 	"noUserFound": "I couldn't find that user.",
 	"noMorePages": "{0}, there are no more pages that way.",
 	"guildOnly": "That command can only be used in servers!",
+	"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
+	"premiumOnly": "Only premium servers can use that command. ",
 	"notPunishable": "You are lacking the permission required to punish that user.",
 	"lolno": "I cannot punish that user as their permission level is above my own.",
 	"music": {

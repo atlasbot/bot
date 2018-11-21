@@ -33,89 +33,100 @@ class Command {
 		this.action = this.action.bind(this);
 	}
 
-	execute(msg, args, {
+	async execute(msg, args, {
 		settings,
 		parsedArgs = {},
 		...passthrough
 	}) {
-		return new Promise((resolve, reject) => {
-			const responder = new Responder(msg);
+		const responder = new Responder(msg);
 
-			if (settings) {
-				// todo: check permission overwrites for the channel (maybe?)
-				for (const permsKey of Object.keys(this.info.permissions || {})) {
-					const permissions = Object.keys(this.info.permissions[permsKey]);
-					for (const perm of permissions) {
-						const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
-						if (perms.has(perm) === false) {
-							const missing = responder.format(`general.permissions.list.${perm}`);
+		if (settings) {
+			// todo: check permission overwrites for the channel (maybe?)
+			for (const permsKey of Object.keys(this.info.permissions || {})) {
+				const permissions = Object.keys(this.info.permissions[permsKey]);
+				for (const perm of permissions) {
+					const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
+					if (perms.has(perm) === false) {
+						const missing = responder.format(`general.permissions.list.${perm}`);
 
-							return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
-						}
+						return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
 					}
 				}
-
-				const options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
-				if (options.disabled) {
-					return responder.error('general.disabledCommand', settings.prefix, this.info.name).send();
-				}
-				if (options.blacklist.channels.includes(msg.channel.id)) {
-					return responder.error('general.blacklisted.channel', settings.prefix, this.info.name).send();
-				}
-				if (
-					options.blacklist.roles
-						.some(id => msg.member.roles && msg.member.roles.includes(id))
-				) {
-					// one of their roles is blacklisted
-					const roles = options.blacklist.roles.filter(id => msg.member.roles.includes(id));
-					const names = roles.map(id => msg.guild.roles.get(id).name);
-
-					return responder
-						.error(
-							`general.blacklisted.roles.${names.length !== 1 ? 'plural' : 'singular'}`,
-							`\`@${names.join('`, `@')}\``,
-							settings.prefix,
-							this.info.name,
-						)
-						.send();
-				}
 			}
 
-			if (this.info.guildOnly === true && !msg.guild) {
-				return responder.error('general.guildOnly').send();
+			const options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
+			if (options.disabled) {
+				return responder.error('general.disabledCommand', settings.prefix, this.info.name).send();
 			}
+			if (options.blacklist.channels.includes(msg.channel.id)) {
+				return responder.error('general.blacklisted.channel', settings.prefix, this.info.name).send();
+			}
+			if (
+				options.blacklist.roles
+					.some(id => msg.member.roles && msg.member.roles.includes(id))
+			) {
+				// one of their roles is blacklisted
+				const roles = options.blacklist.roles.filter(id => msg.member.roles.includes(id));
+				const names = roles.map(id => msg.guild.roles.get(id).name);
 
-			// todo: validate args following info.args array
+				return responder
+					.error(
+						`general.blacklisted.roles.${names.length !== 1 ? 'plural' : 'singular'}`,
+						`\`@${names.join('`, `@')}\``,
+						settings.prefix,
+						this.info.name,
+					)
+					.send();
+			}
+		}
 
-			Promise.resolve(this.action(msg, args, {
+		if ((this.info.guildOnly === true || this.info.premiumOnly) && !msg.guild) {
+			return responder.error('general.guildOnly').send();
+		}
+
+		if (this.info.premiumOnly) {
+			const patron = await this.Atlas.lib.utils.isPatron(msg.guild.ownerID);
+
+			if (!patron || patron.amount_cents < 500) {
+				return responder.error('general.premiumOnly').send();
+			}
+		}
+
+		if (this.info.patronOnly) {
+			const patron = !!await this.Atlas.lib.utils.isPatron(msg.author.id);
+
+			if (!patron) {
+				return responder.error('general.patronOnly', msg.prefix).send();
+			}
+		}
+
+		try {
+			await this.action(msg, args, {
 				settings,
 				parsedArgs,
 				...passthrough,
 				get cleanArgs() {
 					return cleanArgs(msg, args);
 				},
-			}))
-				.then((res) => {
-					const duration = new Date() - new Date(msg.createdAt);
+			});
 
-					if (process.env.VERBOSE === 'true') {
-						console.log(`${this.info.name} - ${msg.author.username} ${msg.author.id} ${duration}ms`);
-					}
+			const duration = new Date() - new Date(msg.createdAt);
 
-					return resolve(res);
-				})
-				.catch((e) => {
-					console.error(e);
-					if (e.status && e.response) {
-						// it's /probably/ a superagent error
-						responder.error('general.restError').send();
-					} else {
-						responder.error('general.errorExecuting').send();
-					}
+			if (process.env.VERBOSE === 'true') {
+				console.log(`${this.info.name} - ${msg.author.username} ${msg.author.id} ${duration}ms`);
+			}
+		} catch (e) {
+			console.error(e);
 
-					return reject(e);
-				});
-		});
+			if (e.status && e.response) {
+				// it's /probably/ a superagent error
+				responder.error('general.restError').send();
+			} else {
+				responder.error('general.errorExecuting').send();
+			}
+
+			throw e;
+		}
 	}
 
 	/**
