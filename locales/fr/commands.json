@@ -4,7 +4,7 @@
 		"disabled": "Autoplay a été désactivé."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
+		"tooFew": "Il n'y a pas suffisamment d'éléments dans la file d'attente pour la lecture aléatoire.",
 		"success": "Shuffled `{0}` queue items."
 	},
 	"movie": {
