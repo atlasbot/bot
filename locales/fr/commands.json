@@ -42,49 +42,49 @@
 			"J'ai faim...",
 			"Pelleter du charbon dans le serveur...",
 			"Pour ma défense, c'est encore plus rapide que vous pourriez le faire...",
-			"Waiting for the stars to align...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
-			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
-			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
-			"Spinning up the hamster..."
+			"En attendant que les étoiles s'alignent...",
+			"Allez-y, retenez votre souffle...",
+			"Profitez de la musique d’ascenseur...",
+			"Bonjour mon nom est Atlas ce que vous voulez aujourd'hui ?...",
+			"Vous vous attendiez à quelque chose de légèrement divertissant, mais non...",
+			"Erreur : hors de la patience...",
+			"Nous y sommes encore ?...",
+			"Veuillez insérer un quart...",
+			"Attendez une seconde, c’est ici quelque part...",
+			"Avez vous perdu du poids ?...",
+			"brb, une seconde...",
+			"En train de faire tourner le hamster ..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"donate": "Soutenez Atlas et obtenez des avantages impressionnants en faisant un don à <https://www.patreon.com/NotSylver>.",
+	"invite": "Vous pouvez obtenir Atlas pour votre propre serveur sur <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some help?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
+		"title": "Besoin d'aide?",
+		"description": "Vous pouvez faire `{0}<command>` pour exécuter une commande, ou `{0}help <command>` pour plus d’informations sur une commande spécifique. Vous pouvez faire `{0}help <command> <subcommand>` pour plus d’informations sur les sous-commandes. \n\nLes commandes marquées avec un \\* astérisque ont les sous-commandes."
 	},
 	"info": {
 		"title": "Atlas",
-		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
+		"description": "Atlas est un bot Discord polyvalent qui peut faire tout ce dont vous avez besoin. Il y a des tonnes de plugins utiles, sur {0} commandes de haute qualité et bien plus encore.",
 		"support": {
-			"name": "Support",
-			"value": "[Cick here](https://atlasbot.xyz/support)"
+			"name": "Assistance",
+			"value": "[Cliquez ici] (https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
-			"value": "[Click here](https://atlasbot.xyz/)"
+			"name": "Site Web",
+			"value": "[Cliquez ici] (https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "J’ai été en ligne pour {0}.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "Vous avez à me dire qui à chercher !",
 		"embed": {
 			"tag": {
-				"name": "Tag",
+				"name": "Mot clé",
 				"value": "{0}"
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "URL de l’avatar",
+				"value": "[Cliquez ici] ({0})"
 			},
 			"createdAt": {
 				"name": "Account Created",
@@ -190,26 +190,26 @@
 			"Outlook good.",
 			"Most definitely.",
 			"Signs point to yes.",
-			"Reply hazy try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again.",
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Réponse floue, essayez encore.",
+			"Réessayez plus tard.",
+			"Mieux vaut ne rien dire pour le moment.",
+			"Je ne peux rien prédire pour le moment.",
+			"Concentrez vous et posez la question à nouveau.",
+			"Ne comptez pas dessus.",
+			"Ma réponse est non.",
+			"Mes sources me disent non.",
+			"Ça s'annonce plutôt mal.",
+			"J'en doute fort."
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned."
+		"noArgs": "Veuillez inclure un utilisateur débannir!",
+		"success": "{0} a été débanni."
 	},
 	"mute": {
-		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
-		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
+		"noArgs": "Veuillez inclure un utilisateur à mute!",
+		"success": "{0} a été mute pour {1}.",
+		"generated": " J’ai également généré automatiquement un rôle muet pour ce serveur, ce qui peut nécessiter des modifications mineures à faire fonctionner correctement.",
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
@@ -249,7 +249,7 @@
 				"none": "None"
 			},
 			"website": {
-				"name": "Website",
+				"name": "Site Web",
 				"none": "None"
 			},
 			"owners": "Owners",
