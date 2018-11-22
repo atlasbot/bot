@@ -5,31 +5,31 @@
 	},
 	"shuffle": {
 		"tooFew": "Il n'y a pas suffisamment d'éléments dans la file d'attente pour la lecture aléatoire.",
-		"success": "Shuffled `{0}` queue items."
+		"success": "Lecture aléatoire de `{0}` éléments."
 	},
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
+		"notAMovie": "Ce n'est pas un film! Essayez peut-être {0}show {1} à la place,."
 	},
 	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notASeries": "Ce n'est pas une émission de télé! Essayez peut-être `{0}movie {1}` à la place."
 	},
 	"funban": {
-		"success": "Banned {0}."
+		"success": "Banni {0}."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned.",
+		"noArgs": "Veuillez inclure un utilisateur à bannir!",
+		"success": "Banni {0}.",
+		"withReason": "Banni {0} pour `{1}`.",
+		"tooLateReason": "{1} a déjà été banni avec la raison `{0}`.",
+		"tooLate": "{0} a déjà été banni.",
 		"feelsGoodMan": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "Vous avez été banni de {0} pour `{1}` par {2} ({3}).",
+			"noReason": "Vous avez été banni de {0} par {1} ({2})."
 		}
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
-		"setForPast": "Please give me a date that is in the future.",
+		"invalid": "Ce n'est pas une date valide.",
+		"setForPast": "S'il vous plaît donnez moi une date qui est plus tard.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"youGotIt": "You got it, I'll remind you in {0}.",
 		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
@@ -213,7 +213,7 @@
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Please give me a date that is in the future.",
+		"setForPast": "S'il vous plaît donnez moi une date qui est plus tard.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
