@@ -30,18 +30,18 @@
 	"remindme": {
 		"invalid": "Ce n'est pas une date valide.",
 		"setForPast": "S'il vous plaît donnez moi une date qui est plus tard.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"youGotIt": "You got it, I'll remind you in {0}.",
-		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
+		"furtherPls": "Le temps doit être de cinq secondes ou plus à l'avenir.",
+		"youGotIt": "Vous l'avez deviné, je vous vous rappeler à {0}.",
+		"relative": " Aussi, à l’avenir vous devez utiliser heure relative, par exemple « en 1 heure » ou « en 2 jours » au lieu d’un spécifique en temps comme « à 17h aujourd'hui » ou 21 août 2018 en raison des fuseaux horaires que je ne peux pas gérer"
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "J’ai un ping de `{0}ms` vers ce serveur.",
+		"dm": "J'ai un ping de `{0}ms`pour ce dm.",
 		"randoms": [
-			"I'm hungry...",
-			"Shovelling coal into the server...",
-			"In my defense, this is still faster than you could do it...",
+			"J'ai faim...",
+			"Pelleter du charbon dans le serveur...",
+			"Pour ma défense, c'est encore plus rapide que vous pourriez le faire...",
 			"Waiting for the stars to align...",
 			"Go ahead, hold your breath...",
 			"Enjoy the elevator music...",
@@ -214,7 +214,7 @@
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
 		"setForPast": "S'il vous plaît donnez moi une date qui est plus tard.",
-		"furtherPls": "The time must be five seconds or more in the future.",
+		"furtherPls": "Le temps doit être de cinq secondes ou plus à l'avenir.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
