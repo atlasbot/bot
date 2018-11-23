@@ -559,20 +559,20 @@
 			"doesntExist": "Il n’y a aucun flux correspondant à ces arguments."
 		},
 		"list": {
-			"none": "This server has no feeds. Add one with `{0}feed add`!",
+			"none": "Ce serveur n'a pas de flux. Ajoutez-en un avec `{0}feed add` !",
 			"fields": {
 				"channel": "Canal",
 				"type": "Type",
-				"target": "Target"
+				"target": "Cible"
 			},
 			"footer": "{0} total"
 		}
 	},
 	"wiki": {
-		"noArgs": "You have to include a search term!",
-		"tooLong": "Your search term must be under 64 characters!",
-		"noResults": "I could not find any wiki article matching your search term!",
-		"description": "{0} [Wiki Page]({1})",
-		"footer": "Results for \"{0}\""
+		"noArgs": "Vous devez inclure un terme de recherche !",
+		"tooLong": "Votre terme de recherche doit faire moins de 64 caractères !",
+		"noResults": "Je ne pouvais pas trouver n’importe quel article de wiki correspondant à votre terme de recherche !",
+		"description": "{0} [Page Wiki] ({1})",
+		"footer": "Résultats pour \"{0}\""
 	}
 }
