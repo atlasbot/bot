@@ -370,57 +370,57 @@
 			"title": "Allons-y!"
 		},
 		"server": {
-			"noIcon": "This server has no icon."
+			"noIcon": "Ce serveur n'a pas d'icône."
 		}
 	},
 	"advancedembed": {
-		"unsupportedColor": "`{0}` is not a supported color format.",
-		"error": "Error validating embed: `{0}`."
+		"unsupportedColor": "«{0}» n’est pas un format de couleurs pris en charge.",
+		"error": "Erreur de validation d'incorporation : `{0}`."
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
-		"invalid": "`{0}` is not a valid discriminator.",
-		"none": "There are no users in this server with that discriminator."
+		"title": "Utilisateurs ayant un discriminateur de #{0}",
+		"invalid": "`{0}` n’est pas un discriminateur valide.",
+		"none": "Il n’y a aucun utilisateur dans ce serveur avec ce discriminateur."
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "S’il vous plaît incluez quelque chose à chercher.",
+		"noResults": "Je n'ai rien trouvé en cherchant ça."
 	},
 	"inrole": {
-		"noArgs": "You have to provide a role name/mention to lookup.",
-		"noRole": "I could not find a role matching `{0}`.",
-		"noOne": "That role does not have any members.",
-		"title": "Members in the {0} Role"
+		"noArgs": "Vous devez fournir un nom/mention de rôle pour effectuer la recherche.",
+		"noRole": "Je n'ai pas trouvé de rôle correspondant à `{0}`.",
+		"noOne": "Ce rôle n'a pas de membres.",
+		"title": "Membres dans le {0} Rôle"
 	},
 	"inviteinfo": {
-		"invalid": "`{0}` is not a valid invite link or code.",
-		"title": "Invite Info for {0}",
+		"invalid": "`{0}` n’est pas un lien d’invitation valide ou un code.",
+		"title": "Inviter des infos pour {0}",
 		"guild": {
-			"name": "Server Name"
+			"name": "Nom du serveur"
 		},
 		"inviter": {
 			"name": "Inviter"
 		},
 		"channel": {
-			"name": "Channel",
+			"name": "Canal",
 			"value": "{0} ({1})"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Propriétaire"
 		},
 		"memberCount": {
-			"name": "Member Count",
-			"value": "{0} ({1} online)"
+			"name": "Nombre de membres",
+			"value": "{0} ({1} en ligne)"
 		}
 	},
 	"joined": {
-		"noArgs": "Please include a user to check.",
+		"noArgs": "Veuillez inclure un utilisateur à vérifier.",
 		"noUser": "Je n'ai pas trouvé d'utilisateur correspondant à `{0}`.",
-		"message": "{0} joined {1} at {2}."
+		"message": "{0} rejoint {1} à {2}."
 	},
 	"membercount": {
 		"total": "Total",
-		"online": "Online",
+		"online": "En ligne",
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
@@ -441,7 +441,7 @@
 		},
 		"lastChecked": "Via mcapi.us  •  last checked",
 		"status": "Statut",
-		"online": "Online",
+		"online": "En ligne",
 		"offline": "Offline"
 	},
 	"quote": {
@@ -465,7 +465,7 @@
 	},
 	"roleinfo": {
 		"noArgs": "Please include a role.",
-		"invalidRole": "I could not find a role matching `{0}`.",
+		"invalidRole": "Je n'ai pas trouvé de rôle correspondant à `{0}`.",
 		"id": {
 			"name": "ID"
 		},
@@ -520,7 +520,7 @@
 			"name": "Membre"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Propriétaire"
 		},
 		"footer": "Crée"
 	},
@@ -561,7 +561,7 @@
 		"list": {
 			"none": "This server has no feeds. Add one with `{0}feed add`!",
 			"fields": {
-				"channel": "Channel",
+				"channel": "Canal",
 				"type": "Type",
 				"target": "Target"
 			},
