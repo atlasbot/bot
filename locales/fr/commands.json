@@ -174,22 +174,22 @@
 			"error": "Une erreur s’est produite lors de l’ajout des réactions.",
 			"removedAll": "{0}, vous avez supprimé tous les avertissements de {1}.",
 			"missingPerms": "J'ai besoin de permissions pour ajouter des réactions et faire ceci. ",
-			"success": "{0}, a enlevé un avertissement «{1}» de {2}.",
-			"successNoMention": "Removed warning `{0}` from {1}."
+			"success": "{0}, Suppression de l'avertissement `{1}` de {2}.",
+			"successNoMention": "Suppression de l'avertissement `{0}`de {1}."
 		}
 	},
 	"8ball": {
 		"responses": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Most definitely.",
-			"Signs point to yes.",
+			"C'est certain.",
+			"C'est décidément le cas.",
+			"Sans aucun doute.",
+			"Oui absolument.",
+			"Vous pouvez vous y fier.",
+			"De mon point de vue, oui.",
+			"Très probablement.",
+			"Ça semble correct.",
+			"Très certainement.",
+			"Les signes portent à croire que oui.",
 			"Réponse floue, essayez encore.",
 			"Réessayez plus tard.",
 			"Mieux vaut ne rien dire pour le moment.",
@@ -280,65 +280,65 @@
 		"noArgs": "Vous devez inclure un salon pour déplacer le message.",
 		"noMessage": "Je n'ai pas trouvé de message correspondant à `{0}`.",
 		"noChannel": "Je n'ai pas trouvé de canal correspondant à `{0}`.",
-		"notInTime": "{0}, you did not add a reaction in time.",
-		"sameChannel": "That message is already in {0}.",
-		"invalidType": "That message type cannot be transferred to a different channel.",
-		"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
-		"success": "Message moved to {0}.",
-		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+		"notInTime": "{0}, vous n’avez pas ajouté une réaction dans le temps.",
+		"sameChannel": "Ce message est déjà dans {0}.",
+		"invalidType": "Ce type de message ne peut pas être transféré sur un autre canal.",
+		"waiting": "Veuillez ajouter un emoji :package: `:package:` sur le message que vous souhaitez déplacer vers {0}.",
+		"success": "Message déplacé dans {0}.",
+		"noMessageOrPerms": "Vous devez fournir un ID de message ou partager le lien pour déplacer un message sauf si vous avez les autorisations requises pour ajouter des réactions."
 	},
 	"texttoemoji": {
-		"noArgs": "You have to include some text to convert."
+		"noArgs": "Vous devez inclure du texte à traduire."
 	},
 	"log": {
 		"noResults": "Je n'ai pas trouvé de canal correspondant à `{0}`.",
 		"actions": {
-			"success": "Action logs will now be sent to {0}.",
-			"disabled": "Action logging has been disabled."
+			"success": "Les logs d'actions vont maintenant être envoyé à {0}.",
+			"disabled": "Le log des actions à été désactivé."
 		},
 		"moderation": {
-			"success": "Moderation logs will now be sent to {0}.",
-			"disabled": "Moderation logging has been disabled."
+			"success": "Les logs de modération vont maintenant être envoyé à {0}.",
+			"disabled": "Les logs de modérations ont été désactivé."
 		},
 		"errors": {
-			"success": "Errors will now be sent to {0}.",
-			"disabled": "Error logging has been disabled."
+			"success": "Les erreurs vont maintenant être transmis à {0}.",
+			"disabled": "Les logs d'erreurs ont été désactivé."
 		}
 	},
 	"slowmode": {
-		"noArgs": "You have to include a message interval in seconds.",
-		"invalid": "The slowmode rate must be between 0 and 120.",
-		"success": "Users can now send messages every {0}.",
-		"disabled": "Disabled slowmode for {0}."
+		"noArgs": "Vous devez inclure un intervalle de messages en secondes.",
+		"invalid": "Le slowmode doit être comprit entre 0 et 120.",
+		"success": "Les utilisateurs peuvent maintenant envoyer des messages tous les {0}.",
+		"disabled": "Slowmode désactivé pour {0}."
 	},
 	"purge": {
 		"general": {
-			"tooLow": "The number you provided is too low. It must be one or higher.",
-			"tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
-			"success": "{0} has purged `{1}` messages.",
-			"invalidFilter": "You have to include a valid filter."
+			"tooLow": "Le nombre que vous avez fourni est trop faible. Il doit être d'un de plus, ou plus grand.",
+			"tooHigh": "Le nombre que vous avez fourni est trop élevé. Atlas peut seulement supprimer 100 messages à la fois.",
+			"nothingPurged": "{0}, hmmm - rien n'a été purgé. Cela signifie qu'il n'y a rien à purger, qu'il n'y a aucun message qui correspond à votre filtre ou que les messages datent de plus de 2 semaines.",
+			"success": "{0} a supprimé les messages de `{1}`.",
+			"invalidFilter": "Vous devez inclure une filtre valide."
 		},
 		"base": {
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+			"nothingPurged": "{0}, hmmm - rien n'a été purgé. Cela signifie qu'il n'y a rien à purger, ou que les messages datent de plus de 2 semaines."
 		},
 		"user": {
-			"noArgs": "Please include a user mention!",
-			"noUser": "I couldn't find a valid user matching your search."
+			"noArgs": "Veuillez inclure une mention d'un utilisateur!",
+			"noUser": "Je n'ai pas trouvé un utilisateur valide correspondant à votre recherche."
 		}
 	},
 	"filters": {
 		"action": {
-			"noFilter": "You have to include a valid filter name to edit.",
-			"noAction": "You have to include a valid action. Available actions: `{0}`.",
-			"success": "The {0} filter has been set to `{1}`."
+			"noFilter": "Vous devez inclure un nom de filtre valide pour le modifier.",
+			"noAction": "Vous devez inclure une action valide. Actions disponibles : `{0}`.",
+			"success": "Le filtre {0} a été défini sur `{1}`."
 		},
 		"list": {
-			"title": "Filters"
+			"title": "Filtres"
 		}
 	},
 	"kick": {
-		"noArgs": "Please include a user to kick!",
+		"noArgs": "Veuillez inclure un utilisateur à kick!",
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"feelsGoodMan": {
