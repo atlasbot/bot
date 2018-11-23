@@ -544,19 +544,19 @@
 			"noType": "Vous devez inclure un type de flux valide, l'un de `{0}`.",
 			"invalidType": "Type de flux invalide. `{0}` doit être l'un des `{1}`.",
 			"noTarget": "Veuillez inclure une cible. Un nom de canal, un subreddit, etc... ça suffira.",
-			"invalidTarget": "`{0}` is not a valid {1} target."
+			"invalidTarget": "`{0}` n'est pas une cible valide {1}."
 		},
 		"base": {
-			"noArgs": "You have to include a subcommand."
+			"noArgs": "Vous devez inclure une sous-commande."
 		},
 		"add": {
-			"invalidChannel": "Please include a valid channel name, ID or mention.",
-			"success": "New content from {0} ({1}) will be sent to {2}. \n\nKeep in mind NSFW posts from Reddit or mature streams will be hidden from the feed unless the channel was marked as NSFW when the feed was created.",
-			"alreadyExists": "You already have a feed for `{0}` in {1}. You can only have one channel per target."
+			"invalidChannel": "S’il vous plaît inclure un nom de canal valide, ID ou mention.",
+			"success": "Le nouveau contenu de {0} ({1}) sera envoyé à {2}. \n\nGardez à l'esprit que les messages NSFW de Reddit ou les flux matures seront cachés du flux à moins que le canal n'ait été marqué comme NSFW lorsque le flux a été créé.",
+			"alreadyExists": "Vous avez déjà un flux pour `{0}` dans {1}. Vous ne pouvez avoir qu'un seul canal par cible."
 		},
 		"remove": {
-			"success": "Deleted updates from `{0}`.",
-			"doesntExist": "There is no feed matching those arguments."
+			"success": "Suppression des mises à jours de `{0}`.",
+			"doesntExist": "Il n’y a aucun flux correspondant à ces arguments."
 		},
 		"list": {
 			"none": "This server has no feeds. Add one with `{0}feed add`!",
