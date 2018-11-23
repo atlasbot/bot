@@ -87,39 +87,39 @@
 				"value": "[Cliquez ici] ({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
+				"name": "Compte crée",
 				"value": "{0}"
 			},
 			"joined": {
-				"name": "Joined",
+				"name": "Rejoint",
 				"value": "{0}"
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "Joue",
 				"value": {
 					"set": "{0}",
-					"null": "Nothing"
+					"null": "Rien"
 				}
 			},
 			"status": {
-				"name": "Status",
+				"name": "Statut",
 				"value": "{0}"
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "Rôles ({0})",
 				"value": {
 					"set": "{0}",
-					"null": "None",
+					"null": "Aucun",
 					"tooMany": "{0} total."
 				}
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Besoin d’aide ? Rejoignez notre serveur sur <https://atlasbot.xyz/support>.",
 	"play": {
-		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
-		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
+		"noNodes": "Il n'y a pas de serveurs vocaux libres pour traiter votre demande. Veuillez attendre quelques minutes et réessayez.",
+		"noResults": "Je n’ai trouvé aucun résultat de recherche correspondant à `{0}`.",
+		"noVoiceChannel": "Vous devez être dans un salon vocal pour le faire!",
 		"busy": "I'm already playing in `{0}`.",
 		"noArgs": "You have to include a search term or song URL!",
 		"playlistEmbed": {
@@ -148,7 +148,7 @@
 	},
 	"qplaylist": {
 		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
+		"noVoiceChannel": "Vous devez être dans un salon vocal pour le faire!",
 		"invalidHostname": "You must enter a valid playlist URL!",
 		"youtubeOnly": "This command only works with YouTube playlists.",
 		"noQueryParam": "That link isn't apart of a playlist. "
@@ -246,18 +246,18 @@
 			"prefix": "Préfixe",
 			"github": {
 				"name": "GitHub",
-				"none": "None"
+				"none": "Aucun"
 			},
 			"website": {
 				"name": "Site Web",
-				"none": "None"
+				"none": "Aucun"
 			},
 			"owners": "Propriétaire",
 			"footer": "Approuvé",
 			"invite": "Lien d'invitation",
 			"support": {
 				"name": "Serveur de Support",
-				"none": "None"
+				"none": "Aucun"
 			}
 		}
 	},
@@ -440,7 +440,7 @@
 			"name": "Software"
 		},
 		"lastChecked": "Via mcapi.us  •  last checked",
-		"status": "Status",
+		"status": "Statut",
 		"online": "Online",
 		"offline": "Offline"
 	},
