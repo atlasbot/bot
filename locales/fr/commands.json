@@ -421,50 +421,50 @@
 	"membercount": {
 		"total": "Total",
 		"online": "En ligne",
-		"idle": "Idle",
-		"dnd": "Do not Disturb",
-		"offline": "Offline",
+		"idle": "Inactif",
+		"dnd": "Ne pas déranger",
+		"offline": "Déconnecté",
 		"bots": "Bots"
 	},
 	"minecraft": {
-		"noArgs": "Please include a server IP.",
-		"invalidIP": "`{0}` is not a valid Minecraft IP.",
+		"noArgs": "Veuillez inclure l'IP d'un serveur.",
+		"invalidIP": "«{0}» n’est pas une IP Minecraft valide.",
 		"uptime": {
-			"name": "Uptime"
+			"name": "Temps de fonctionnement"
 		},
 		"players": {
-			"name": "Players",
+			"name": "Joueurs",
 			"value": "{0}/{1}"
 		},
 		"software": {
-			"name": "Software"
+			"name": "Logiciel"
 		},
-		"lastChecked": "Via mcapi.us  •  last checked",
+		"lastChecked": "Par mcapi.us  •  dernière vérification",
 		"status": "Statut",
 		"online": "En ligne",
-		"offline": "Offline"
+		"offline": "Déconnecté"
 	},
 	"quote": {
-		"noArgs": "Please include a message ID or share link.",
-		"noMessage": "I could not find any message matching that :c",
-		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"noArgs": "Incluez un ID de message ou un lien de partage.",
+		"noMessage": "Je n'ai pas trouvé de message correspondant à ceci :c",
+		"invalidType": "Cette commande prend uniquement en charge les messages textuels.",
+		"invalidMsg": "Ce message n'a pas de contenu ou d'image en pièce jointe."
 	},
-	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
+	"randomcolor": "Votre hex aléatoire est [#{0}] (http://www.color-hex.com/color/{0})",
 	"reddit": {
-		"noArgs": "Please include a subreddit name.",
-		"over18": "That subreddit is NSFW. Please use an NSFW channel.",
-		"invalid": "I could not find a subreddit with the name `{0}`."
+		"noArgs": "Veuillez inclure un nom de subreddit.",
+		"over18": "Ce subreddit est NSFW. S'il vous plaît utilisez un canal NSFW.",
+		"invalid": "Je n'ai pas trouvé de subreddit portant le nom `{0}`."
 	},
 	"id": {
-		"noArgs": "Please include a role, user or channel.",
-		"noTarget": "I could not resolve `{0}` to a channel, role or user.",
-		"role": "The ID for the `@{0}` role is `{1}`.",
-		"channel": "{0}'s ID is `{1}`.",
-		"memberOrGuild": "{0}'s ID is `{1}`."
+		"noArgs": "Veuillez inclure un rôle, un utilisateur ou un canal.",
+		"noTarget": "Je n'ai pas pu résoudre `{0}' à un canal, un rôle ou un utilisateur.",
+		"role": "L'ID pour le rôle `@{0}` est `{1}`.",
+		"channel": "l'ID de {0} est `{1}`.",
+		"memberOrGuild": "l'ID de {0} est `{1}`."
 	},
 	"roleinfo": {
-		"noArgs": "Please include a role.",
+		"noArgs": "Veuillez inclure un rôle.",
 		"invalidRole": "Je n'ai pas trouvé de rôle correspondant à `{0}`.",
 		"id": {
 			"name": "ID"
@@ -535,15 +535,15 @@
 	},
 	"locale": {
 		"success": "Le langue du serveur a été définie sur {0}.",
-		"notFound": "I could not find a locale matching `{0}` :c",
-		"title": "Supported Languages",
-		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
+		"notFound": "Je n'ai pas trouvé de locale correspondant à `{0}` :c",
+		"title": "Langues supportées",
+		"description": "Pour changer la localisation de ce serveur, faites `{0}locale <name>`. Vous trouverez une liste de noms ci-dessous. Certaines langues peuvent avoir peu ou pas de support, auquel cas Atlas remplira les pièces manquantes avec l'anglais. \n\nAider à traduire l'Atlas dans d'autres langues[here] (https://translate.atlasbot.xyz).\n\n{1}"
 	},
 	"feed": {
 		"general": {
-			"noType": "You have to include a valid feed type, one of `{0}`.",
-			"invalidType": "Invalid feed type. `{0}` must be one of `{1}`.",
-			"noTarget": "Please include a target. A channel name, a subreddit, etc... will do.",
+			"noType": "Vous devez inclure un type de flux valide, l'un de `{0}`.",
+			"invalidType": "Type de flux invalide. `{0}` doit être l'un des `{1}`.",
+			"noTarget": "Veuillez inclure une cible. Un nom de canal, un subreddit, etc... ça suffira.",
 			"invalidTarget": "`{0}` is not a valid {1} target."
 		},
 		"base": {
