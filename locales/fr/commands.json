@@ -130,48 +130,48 @@
 	"queue": {
 		"embed": {
 			"totalDuration": {
-				"name": "Total Duration",
+				"name": "Durée totale",
 				"value": "{0}"
 			},
 			"inQueue": {
-				"name": "In Queue",
+				"name": "Dans la file d'attente",
 				"value": {
-					"plural": "{0} songs",
-					"singular": "{0} song"
+					"plural": "{0} chansons",
+					"singular": "{0} chanson"
 				}
 			},
 			"upNext": {
-				"value": "Up Next",
-				"format": "{0}. [{1}]({2})"
+				"value": "Suivant",
+				"format": "{0}. [{1}] ({2})"
 			}
 		}
 	},
 	"qplaylist": {
-		"noArgs": "You have to include a YouTube playlist URL!",
+		"noArgs": "Vous devez inclure une URL de playlist YouTube!",
 		"noVoiceChannel": "Vous devez être dans un salon vocal pour le faire!",
-		"invalidHostname": "You must enter a valid playlist URL!",
-		"youtubeOnly": "This command only works with YouTube playlists.",
-		"noQueryParam": "That link isn't apart of a playlist. "
+		"invalidHostname": "Vous devez entrer une playlist avec une URL valide!",
+		"youtubeOnly": "Cette commande ne fonctionne qu’avec les playlists YouTube.",
+		"noQueryParam": "Ce lien ne fait pas partie d'une playlist. "
 	},
 	"warn": {
 		"add": {
-			"noReason": "You have to include a reason.",
-			"noArgs": "Please include a user to warn!",
+			"noReason": "Vous devez inclure une raison.",
+			"noArgs": "Veuillez inclure un utilisateur à avertir!",
 			"success": {
-				"plural": "Added warning to {0}, they now have {1} warnings.",
-				"singular": "Added warning to {0}, they now have {1} warning."
+				"plural": "Un avertissement à été ajouté à {0}, cet personne à maintenant {1} avertissements.",
+				"singular": "Un avertissement à été ajouté à {0}, cet personne à maintenant {1} avertissement."
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "La raison que vous avez donné est trop longue, elle ne doit pas dépasser 256 caractères."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
-			"noWarns": "{0} does not have any warnings."
+			"noArgs": "Veuillez inclure un utilisateur!",
+			"noPerms": "Vous avez uniquement l'autorisation de voir vos propres avertissements!",
+			"noWarns": "{0} n’a aucun avertissement."
 		},
 		"remove": {
-			"notFound": "I could not find a warning matching your query.",
-			"noWarns": "{0} does not have any warnings.",
-			"error": "An error occured when adding reactions.",
+			"notFound": "Je n'ai pas trouvé d'avertissement correspondant à votre requête.",
+			"noWarns": "{0} n’a aucun avertissement.",
+			"error": "Une erreur s’est produite lors de l’ajout des réactions.",
 			"removedAll": "{0}, you have removed all of {1}'s warnings.",
 			"missingPerms": "I need permissions to add reactions to do that. ",
 			"success": "{0}, removed warning `{1}` from {2}.",
