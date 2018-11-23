@@ -3,20 +3,20 @@
 		"none": "Il n'y a rien de joué sur ce serveur.",
 		"trackQueued": "Ajout de `{0}` à la file d'attente. Il jouera dans environ {1}.",
 		"npEmbed": {
-			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
+			"ttp": "Temps avant de jouer",
+			"addedBy": "Ajouté par",
 			"author": "Auteur",
-			"duration": "Duration",
-			"footer": "{0} in queue"
+			"duration": "Durée",
+			"footer": "{0} dans la file d’attente"
 		},
-		"leaving": "There is nothing left to play, leaving channel...",
+		"leaving": "Il n'y a plus rien à jouer, je quitte le salon vocal...",
 		"autoplay": {
-			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"failed": "Je n'ai rien trouvé à jouer :c. Essayez de faire la queue pour autre chose.",
+			"addedBy": "Lecture automatique"
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Via nekobot.xyz"
+		"nekobot": "Avec nekoboz.xyz"
 	},
 	"logs": {
 		"guildMemberKick": {
@@ -183,7 +183,7 @@
 				"name": "Moderator"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "Durée"
 			},
 			"reason": {
 				"name": "Reason"
@@ -231,11 +231,11 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "Durée",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Ajouté par",
 			"value": "{0}"
 		},
 		"author": {
@@ -244,7 +244,7 @@
 		},
 		"addedTrack": "Added Track",
 		"ttp": {
-			"name": "Time Until Playing",
+			"name": "Temps avant de jouer",
 			"value": "{0}"
 		},
 		"inQueue": {
