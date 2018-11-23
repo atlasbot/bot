@@ -120,11 +120,11 @@
 		"noNodes": "Il n'y a pas de serveurs vocaux libres pour traiter votre demande. Veuillez attendre quelques minutes et réessayez.",
 		"noResults": "Je n’ai trouvé aucun résultat de recherche correspondant à `{0}`.",
 		"noVoiceChannel": "Vous devez être dans un salon vocal pour le faire!",
-		"busy": "I'm already playing in `{0}`.",
-		"noArgs": "You have to include a search term or song URL!",
+		"busy": "Je joue actuellement à `{0}`.",
+		"noArgs": "Vous devez inclure un terme ou l'URL de la musique!",
 		"playlistEmbed": {
-			"title": "Playlist Queued - {0}",
-			"description": "{0} has queued {1} songs from a playlist."
+			"title": "Playlist mise file d’attente - {0}",
+			"description": "{0} a mis en liste d'attente {1} chansons d’une playlist."
 		}
 	},
 	"queue": {
