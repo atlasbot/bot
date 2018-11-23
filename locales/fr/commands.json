@@ -340,34 +340,34 @@
 	"kick": {
 		"noArgs": "Veuillez inclure un utilisateur à kick!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`.",
+		"withReason": "Kicked {0} pour `{1}`.",
 		"feelsGoodMan": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "Vous avez été kick de {0} avec la raison: `{1}` par {2} ({3}).",
+			"noReason": "Vous avez été kick de {0} par {1} ({2})."
 		}
 	},
 	"gotcharacter": {
-		"notFound": "I could not find a Game of Thrones character matching `{0}`."
+		"notFound": "Je n'ai pas pu trouver un personnage de Game of Thrones correspondant à `{0}`."
 	},
 	"genavatar": {
-		"title": "Here you go!",
-		"description": "[Click here]({0}) for a higher quality version.",
-		"footer": "Via adorable.io"
+		"title": "Allons-y!",
+		"description": "[Cliquez ici] ({0}) pour une version de qualité supérieure.",
+		"footer": "Avec adorable.io"
 	},
 	"urban": {
-		"noArgs": "You have to provide a search!",
-		"noResults": "I couldn't find any definition for `{0}`.",
-		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
-		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
+		"noArgs": "Vous devez fournir une recherche !",
+		"noResults": "Je n'ai pas trouvé de définition pour `{0}`.",
+		"nsfwDef": "La définition de ce mot est NSFW. Veuillez utiliser un canal NSFW.",
+		"nsfwWord": "Ce mot est NSFW. Veuillez utiliser un canal NSFW.",
 		"author": {
-			"name": "Author"
+			"name": "Auteur"
 		},
-		"votes": "{0} upvotes, {1} downvotes"
+		"votes": "{0} votes positifs, {1} votes négatifs"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
-			"title": "Here you go!"
+			"cannotFind": "Je n'ai pas trouvé d'utilisateur correspondant à `{0}`.",
+			"title": "Allons-y!"
 		},
 		"server": {
 			"noIcon": "This server has no icon."
@@ -415,7 +415,7 @@
 	},
 	"joined": {
 		"noArgs": "Please include a user to check.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "Je n'ai pas trouvé d'utilisateur correspondant à `{0}`.",
 		"message": "{0} joined {1} at {2}."
 	},
 	"membercount": {
@@ -470,71 +470,71 @@
 			"name": "ID"
 		},
 		"name": {
-			"name": "Name"
+			"name": "Nom"
 		},
 		"color": {
-			"name": "Color"
+			"name": "Couleur"
 		},
 		"mention": {
 			"name": "Mention"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membre"
 		},
 		"position": {
 			"name": "Position"
 		},
 		"mentionable": {
-			"name": "Mentionable"
+			"name": "Mentionnable"
 		},
 		"hoisted": {
-			"name": "Hoisted"
+			"name": "Hissé"
 		},
-		"yes": "Yes",
-		"no": "No",
-		"footer": "Created At"
+		"yes": "Oui",
+		"no": "Non",
+		"footer": "Crée le"
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Tu dois inclure quelque chose pour que je puisse dire quelque chose."
 	},
 	"serverinfo": {
 		"name": {
-			"name": "Name"
+			"name": "Nom"
 		},
 		"textChannels": {
-			"name": "Text Channels"
+			"name": "Salons textuels"
 		},
 		"voiceChannels": {
-			"name": "Voice Channels"
+			"name": "Salons vocaux"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Niveau de vérification"
 		},
 		"region": {
-			"name": "Region"
+			"name": "Région"
 		},
 		"roles": {
-			"name": "Roles"
+			"name": "Rôles"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membre"
 		},
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Created"
+		"footer": "Crée"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Veuillez saisir une URL.",
+		"invalidURI": "'{0}' n'est pas un URL valide."
 	},
 	"time": {
-		"noArgs": "Please include a location to get the time for.",
-		"noTimezone": "I could not find a town or city matching `{0}`.",
-		"success": "It is currently {0} in {1}."
+		"noArgs": "Veuillez indiquer un emplacement pour obtenir l'heure dans celle-ci.",
+		"noTimezone": "Je n'ai pas trouvé ville correspondant à `{0}`.",
+		"success": "Il est actuellement {0} dans {1}."
 	},
 	"locale": {
-		"success": "The servers language has been set to {0}.",
+		"success": "Le langue du serveur a été définie sur {0}.",
 		"notFound": "I could not find a locale matching `{0}` :c",
 		"title": "Supported Languages",
 		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
