@@ -1,11 +1,11 @@
 {
 	"player": {
-		"none": "There is nothing playing in this server.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"none": "Il n'y a rien de joué sur ce serveur.",
+		"trackQueued": "Ajout de `{0}` à la file d'attente. Il jouera dans environ {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
 			"addedBy": "Added By",
-			"author": "Author",
+			"author": "Auteur",
 			"duration": "Duration",
 			"footer": "{0} in queue"
 		},
@@ -168,7 +168,7 @@
 		},
 		"guildBanRemove": {
 			"title": "Member Unbanned",
-			"description": "{0} has been unbanned.",
+			"description": "{0} a été débanni.",
 			"moderator": {
 				"name": "Moderator"
 			},
@@ -192,7 +192,7 @@
 		},
 		"unmute": {
 			"title": "Member Unmuted",
-			"description": "{0} has been unmuted.",
+			"description": "{0} a été démute.",
 			"moderator": {
 				"name": "Moderator"
 			},
@@ -239,7 +239,7 @@
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Author",
+			"name": "Auteur",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
@@ -248,10 +248,10 @@
 			"value": "{0}"
 		},
 		"inQueue": {
-			"name": "In Queue",
+			"name": "Dans la file d'attente",
 			"value": {
-				"plural": "{0} songs",
-				"singular": "{0} song"
+				"plural": "{0} chansons",
+				"singular": "{0} chanson"
 			}
 		}
 	},
