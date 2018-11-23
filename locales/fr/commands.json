@@ -172,9 +172,9 @@
 			"notFound": "Je n'ai pas trouvé d'avertissement correspondant à votre requête.",
 			"noWarns": "{0} n’a aucun avertissement.",
 			"error": "Une erreur s’est produite lors de l’ajout des réactions.",
-			"removedAll": "{0}, you have removed all of {1}'s warnings.",
-			"missingPerms": "I need permissions to add reactions to do that. ",
-			"success": "{0}, removed warning `{1}` from {2}.",
+			"removedAll": "{0}, vous avez supprimé tous les avertissements de {1}.",
+			"missingPerms": "J'ai besoin de permissions pour ajouter des réactions et faire ceci. ",
+			"success": "{0}, a enlevé un avertissement «{1}» de {2}.",
 			"successNoMention": "Removed warning `{0}` from {1}."
 		}
 	},
