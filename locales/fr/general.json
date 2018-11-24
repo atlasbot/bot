@@ -177,7 +177,7 @@
 			}
 		},
 		"mute": {
-			"title": "Membre mis en sourdine",
+			"title": "Membre mute",
 			"description": "{0} a été mute.",
 			"moderator": {
 				"name": "Modérateur"
@@ -191,7 +191,7 @@
 			"footer": "Cible {0} Mod {1}"
 		},
 		"unmute": {
-			"title": "Member Unmuted",
+			"title": "Membre démute",
 			"description": "{0} a été démute.",
 			"moderator": {
 				"name": "Modérateur"
@@ -201,17 +201,17 @@
 			}
 		}
 	},
-	"messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
-	"messageQueryLate": "{0}, you took too long to add the reaction.",
-	"botPermError": "I am missing one or more permissions that I need to do that.",
-	"noResults": "I couldn't find anything matching your query, `{0}`.",
-	"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
-	"noPermission": "You don't have permission to access that command.",
-	"restError": "<:sadpanda:497907940225843220> Something went wrong when running the command, please try again in a few minutes.",
-	"errorExecuting": "An unknown error occured executing the command.",
-	"noUserFound": "I couldn't find that user.",
-	"noMorePages": "{0}, there are no more pages that way.",
-	"guildOnly": "That command can only be used in servers!",
+	"messageQuery": "Veuillez réagir avec {0} `:{1}:` au message que vous voulez utiliser.",
+	"messageQueryLate": "{0}, vous avez pris trop de temps à ajouter la réaction.",
+	"botPermError": "Il me manque une ou plusieurs autorisations dont j'ai besoin pour le faire.",
+	"noResults": "Je n'ai rien trouvé qui corresponde à votre requête, `{0}`.",
+	"webhookPermError": "ERREUR : Atlas a besoin de permissions pour gérer les webhooks pour que la connexion fonctionne. Veuillez attendre jusqu'à 5 minutes après la mise à jour des permissions pour que le changement prenne effet.",
+	"noPermission": "Vous n'avez pas la permission d'accéder à cette commande.",
+	"restError": "<:sadpanda:497907940225843220> quelque chose a mal tourné lorsque l’exécution de la commande, Veuillez réessayer dans quelques minutes.",
+	"errorExecuting": "Une erreur inconnue s'est produite lors de l'exécution de la commande.",
+	"noUserFound": "Je n'ai pas trouvé cet utilisateur.",
+	"noMorePages": "{0}, il n'y a plus de pages comme ça.",
+	"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
 	"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
 	"premiumOnly": "Only premium servers can use that command. ",
 	"notPunishable": "You are lacking the permission required to punish that user.",
