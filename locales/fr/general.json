@@ -134,13 +134,13 @@
 		},
 		"guildMemberRemove": {
 			"title": "Le membre est parti",
-			"description": "{0} has left the server."
+			"description": "{0} a quitté le serveur."
 		},
 		"channelCreate": {
-			"title": "Channel Created",
-			"description": "The {0} (`{1}`) {2} channel has been created.",
+			"title": "Canal crée",
+			"description": "Le canal {0} (`{1}`) {2} a été créé.",
 			"category": {
-				"name": "Category"
+				"name": "Catégorie"
 			},
 			"moderator": {
 				"name": "Modérateur"
@@ -150,7 +150,7 @@
 			"title": "Channel Deleted",
 			"description": "The {0} channel has been deleted.",
 			"category": {
-				"name": "Category"
+				"name": "Catégorie"
 			},
 			"moderator": {
 				"name": "Modérateur"
@@ -332,24 +332,24 @@
 			"phrases": {
 				"warning": "Ce message contenait un mot interdit.",
 				"message": "{0}, évitez d'utiliser ce mot.",
-				"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
+				"dm": "Vous avez envoyé un message contenant `{0}` dans `{1}`. Ce mot va à l'encontre des mots interdits dans les mots du serveur, alors veuillez éviter de l'utiliser."
 			},
 			"spam": {
-				"warning": "Flooding chat.",
-				"message": "{0}, please don't flood chat."
+				"warning": "Flood du chat.",
+				"message": "{0}, évitez de flood le chat."
 			}
 		}
 	},
 	"action": {
-		"disabled": "That action is disabled.",
-		"noSubActions": "That action has no sub-actions to run.",
+		"disabled": "Cet action est désactivé.",
+		"noSubActions": "Cet action n'a pas de sous-action à exécuter.",
 		"banned": {
-			"channel": "This channel is not allowed to use that action.",
-			"role": "You have a role which has been blocked from using this action."
+			"channel": "Ce canal n'est pas autorisé à utiliser cette action.",
+			"role": "Vous avez un rôle qui a été bloqué pour ne pas utiliser cette action."
 		},
 		"whitelist": {
-			"role": "Only whitelisted roles are allowed to use that action.",
-			"channel": "Only whitelisted channels are allowed to use that action."
+			"role": "Seul les rôles dans la whitelist sont autorisés à utiliser cette action.",
+			"channel": "Seul les canaux dans la whitelist sont autorisés à utiliser cette action."
 		}
 	}
 }
