@@ -212,22 +212,22 @@
 	"noUserFound": "Je n'ai pas trouvé cet utilisateur.",
 	"noMorePages": "{0}, il n'y a plus de pages comme ça.",
 	"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
-	"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-	"premiumOnly": "Only premium servers can use that command. ",
-	"notPunishable": "You are lacking the permission required to punish that user.",
-	"lolno": "I cannot punish that user as their permission level is above my own.",
+	"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
+	"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
+	"notPunishable": "Vous n'avez pas la permission requise pour punir cet utilisateur.",
+	"lolno": "Je ne peux pas punir cet utilisateur car son niveau de permission est supérieur au mien.",
 	"music": {
 		"position": {
 			"name": "Position",
 			"value": "{0}"
 		},
 		"nowPlaying": {
-			"name": "Now Playing",
+			"name": "Lecture en cours",
 			"value": "[{0}]({1})"
 		},
 		"playlist": {
-			"name": "Playlist Queued",
-			"value": "{0} songs queued by {1}"
+			"name": "Playlist mise file d’attente",
+			"value": "{0} chansons mises en file d'attente par {1}"
 		},
 		"description": "[{0}]({1})",
 		"duration": {
@@ -242,7 +242,7 @@
 			"name": "Auteur",
 			"value": "{0}"
 		},
-		"addedTrack": "Added Track",
+		"addedTrack": "Ajout d'une piste",
 		"ttp": {
 			"name": "Temps avant de jouer",
 			"value": "{0}"
@@ -255,11 +255,11 @@
 			}
 		}
 	},
-	"disabledCommand": "The `{0}{1}` command has been disabled by a server administrator.",
+	"disabledCommand": "La commande `{0}` a été désactivée par un administrateur du serveur.",
 	"blacklisted": {
 		"roles": {
-			"plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
-			"singular": "You have the {0} role which is blacklisted from using `{1}{2}`."
+			"plural": "Vous avez les rôles {0} qui sont interdit d'utiliser `{1}{2}`.",
+			"singular": "Vous avez le rôle {0} qui est interdit d'utiliser`{1}{2}`."
 		},
 		"channel": "This channel is blacklisted from using `{1}{2}`."
 	},
