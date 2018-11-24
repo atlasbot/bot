@@ -1,4 +1,8 @@
 {
+	"channelspaces": {
+		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
+		"usage": "<channel>"
+	},
 	"autoplay": {
 		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
 	},
