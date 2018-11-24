@@ -1,11 +1,11 @@
 {
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
@@ -508,7 +508,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": "Region"
