@@ -29,7 +29,7 @@ module.exports = class Feed extends Command {
 
 		const formattedTypes = types.join('`, `');
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('general.noType', formattedTypes).send();
 		}
 
