@@ -147,8 +147,8 @@
 			}
 		},
 		"channelDelete": {
-			"title": "Channel Deleted",
-			"description": "The {0} channel has been deleted.",
+			"title": "Canal supprimé",
+			"description": "Le canal {0} a été supprimé.",
 			"category": {
 				"name": "Catégorie"
 			},
@@ -157,8 +157,8 @@
 			}
 		},
 		"guildBanAdd": {
-			"title": "Member Banned",
-			"description": "{0} has been banned.",
+			"title": "Membre banni",
+			"description": "{0} a été banni.",
 			"moderator": {
 				"name": "Modérateur"
 			},
@@ -167,7 +167,7 @@
 			}
 		},
 		"guildBanRemove": {
-			"title": "Member Unbanned",
+			"title": "Membre débanni",
 			"description": "{0} a été débanni.",
 			"moderator": {
 				"name": "Modérateur"
@@ -177,8 +177,8 @@
 			}
 		},
 		"mute": {
-			"title": "Member Muted",
-			"description": "{0} has been muted.",
+			"title": "Membre mis en sourdine",
+			"description": "{0} a été mute.",
 			"moderator": {
 				"name": "Modérateur"
 			},
@@ -188,7 +188,7 @@
 			"reason": {
 				"name": "Raison"
 			},
-			"footer": "Target {0} Mod {1}"
+			"footer": "Cible {0} Mod {1}"
 		},
 		"unmute": {
 			"title": "Member Unmuted",
