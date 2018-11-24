@@ -326,12 +326,12 @@
 				"message": "{0}, veuillez ne pas partager de liens ici."
 			},
 			"mentions": {
-				"warning": "Sending too many (`{0}`) mentions.",
-				"message": "{0}, please dont mention so many people at once."
+				"warning": "Envoi excessif de mentions (`{0}`).",
+				"message": "{0}, veuillez ne pas mentionner autant de gens à la fois."
 			},
 			"phrases": {
-				"warning": "Message contained a blacklisted word.",
-				"message": "{0}, please refrain from using that word.",
+				"warning": "Ce message contenait un mot interdit.",
+				"message": "{0}, évitez d'utiliser ce mot.",
 				"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
 			},
 			"spam": {
