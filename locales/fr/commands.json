@@ -574,5 +574,10 @@
 		"noResults": "Je ne pouvais pas trouver n’importe quel article de wiki correspondant à votre terme de recherche !",
 		"description": "{0} [Page Wiki] ({1})",
 		"footer": "Résultats pour \"{0}\""
+	},
+	"channelspaces": {
+		"success": "Hyphens in {0} have been replaced with spaces.",
+		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
+		"noChannel": "I couldn't find a channel matching `{0}`."
 	}
 }
