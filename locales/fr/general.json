@@ -20,30 +20,30 @@
 	},
 	"logs": {
 		"guildMemberKick": {
-			"title": "Member Kicked",
-			"description": "{0} has been kicked from the server.",
+			"title": "Membre expulsé",
+			"description": "{0} a été expulsé du serveur.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Member Updated - Role Added",
-				"description": "{0} has been given the {1} role.",
+				"title": "Mise à jour des membres - Rôle ajouté",
+				"description": "{0} a reçu le rôle {1}.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Modérateur",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Raison"
 			},
 			"roleRemove": {
-				"title": "Member Updated - Role Removed",
+				"title": "Mise à jour des membres - Rôle supprimé",
 				"description": "{0} has had the {1} role taken from them.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Modérateur",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Raison"
 			},
 			"usernameChange": {
 				"title": "Member Updated - Username Changed",
@@ -62,14 +62,14 @@
 			"title": "Role Created",
 			"description": "The {0} role was created.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			}
 		},
 		"guildRoleDelete": {
 			"title": "Role Deleted",
 			"description": "The {0} role was deleted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			}
 		},
 		"guildRoleUpdate": {
@@ -90,7 +90,7 @@
 				"value": "The role no longer has the `{0}` permissions."
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"hoistTrue": {
 				"name": "Hoist Updated",
@@ -116,10 +116,10 @@
 				"name": "Content"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Raison"
 			}
 		},
 		"messageUpdate": {
@@ -143,7 +143,7 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			}
 		},
 		"channelDelete": {
@@ -153,40 +153,40 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			}
 		},
 		"guildBanAdd": {
 			"title": "Member Banned",
 			"description": "{0} has been banned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Raison"
 			}
 		},
 		"guildBanRemove": {
 			"title": "Member Unbanned",
 			"description": "{0} a été débanni.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Raison"
 			}
 		},
 		"mute": {
 			"title": "Member Muted",
 			"description": "{0} has been muted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"duration": {
 				"name": "Durée"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Raison"
 			},
 			"footer": "Target {0} Mod {1}"
 		},
@@ -194,10 +194,10 @@
 			"title": "Member Unmuted",
 			"description": "{0} a été démute.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Modérateur"
 			},
 			"unmuteReason": {
-				"name": "Reason"
+				"name": "Raison"
 			}
 		}
 	},
