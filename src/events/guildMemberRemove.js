@@ -1,3 +1,6 @@
+const Parser = require('../tagengine');
+const Responder = require('../structures/Responder');
+
 module.exports = class Event {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
@@ -5,6 +8,30 @@ module.exports = class Event {
 
 	async execute(guild, member) {
 		const settings = await this.Atlas.DB.getGuild(member.guild.id);
+
+		const gatekeeper = settings.plugin('gatekeeper');
+
+		if (gatekeeper.state === 'enabled') {
+			const responder = new Responder(null, settings.lang);
+
+
+			if (gatekeeper.leave.enabled) {
+				const channel = guild.channels.get(gatekeeper.leave.channel);
+
+				if (channel) {
+					const parser = new Parser({
+						channel,
+						settings,
+						user: member,
+						guild,
+					}, true);
+
+					const { output } = await parser.parse(gatekeeper.leave.content);
+
+					await responder.channel(channel).localised(true).text(output).send();
+				}
+			}
+		}
 
 		if (!settings.actionLogChannel) {
 			return;

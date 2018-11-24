@@ -14,17 +14,18 @@ module.exports = class {
      * @param {Channel} data.channel The channel to get info from
      * @param {Object} data.action The action that is being processed
      * @param {Object} data.user The user in context or something idk
+		 * @param {boolean} managed Whether to manage errors and other things.
      */
 	constructor({
 		msg,
-		guild = msg.guild,
+		guild = msg ? msg.channel : undefined,
 		// todo: try and get channel ourselves if it's not present
 		ticket,
-		channel = msg.channel,
+		channel = msg ? msg.channel : undefined,
 		settings,
 		action,
 		user = msg.author,
-	}) {
+	}, managed = true) {
 		this.data = {
 			msg,
 			ticket,
@@ -34,6 +35,9 @@ module.exports = class {
 			action,
 			user,
 		};
+
+		// coming soon to a parser near you
+		this.managed = managed;
 
 		this.tags = tags;
 		this.Atlas = require('./../../Atlas');
