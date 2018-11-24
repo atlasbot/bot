@@ -38,7 +38,7 @@
 			},
 			"roleRemove": {
 				"title": "Mise à jour des membres - Rôle supprimé",
-				"description": "{0} has had the {1} role taken from them.",
+				"description": "{0} s'est fait retirer le rôle {1}.",
 				"moderator": {
 					"name": "Modérateur",
 					"value": "{0} (`{1}`)"
@@ -46,48 +46,48 @@
 				"reason": "Raison"
 			},
 			"usernameChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their username from `{1}` to `{2}`."
+				"title": "Mise à jour des membres - Changement de pseudonyme",
+				"description": "{0} a changé son nom d'utilisateur qui était `{1}`à `{2}`."
 			},
 			"avatarChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their avatar from `{1}` to `{2}`."
+				"title": "Mise à jour des membres - Changement de pseudonyme",
+				"description": "{0} a changé son nom avatar qui était `{1}`à `{2}`."
 			}
 		},
 		"guildMemberAdd": {
-			"title": "Member Joined",
-			"description": "{0} has joined the server."
+			"title": "Un membre à rejoint",
+			"description": "{0} a rejoint le serveur."
 		},
 		"guildRoleCreate": {
-			"title": "Role Created",
-			"description": "The {0} role was created.",
+			"title": "Rôle créé",
+			"description": "Le rôle {0} a été créé.",
 			"moderator": {
 				"name": "Modérateur"
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Role Deleted",
-			"description": "The {0} role was deleted.",
+			"title": "Rôle supprimé",
+			"description": "Le rôle {0} a été supprimé.",
 			"moderator": {
 				"name": "Modérateur"
 			}
 		},
 		"guildRoleUpdate": {
-			"title": "Role Updated",
-			"description": "The {0} role has been updated.",
+			"title": "Rôle mis à jour",
+			"description": "Le rôle {0} a été mis à jour.",
 			"colorChange": {
-				"name": "Color Updated"
+				"name": "Couleur mis à jour"
 			},
 			"nameChange": {
-				"name": "Name Updated"
+				"name": "Nom mis à jour"
 			},
 			"permAdded": {
-				"name": "Permissions Added",
-				"value": "The role now has the `{0}` permissions."
+				"name": "Permissions ajoutées",
+				"value": "Le rôle a maintenant les permissions `{0}`."
 			},
 			"permRemoved": {
-				"name": "Permissions Revoked",
-				"value": "The role no longer has the `{0}` permissions."
+				"name": "Révocation des permissions",
+				"value": "Le rôle n’a plus les permissions de `{0}`."
 			},
 			"moderator": {
 				"name": "Modérateur"
