@@ -576,8 +576,8 @@
 		"footer": "Résultats pour \"{0}\""
 	},
 	"channelspaces": {
-		"success": "Hyphens in {0} have been replaced with spaces.",
-		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
-		"noChannel": "I couldn't find a channel matching `{0}`."
+		"success": "Les traits d'union dans {0} ont été remplacés par des espaces.",
+		"error": "Quelque chose s'est mal passé en mettant à jour le nom du canal. Discord a probablement fixé les \"espaces\" que nous utilisons, ou quelque chose est peut être temporairement cassé.",
+		"noChannel": "Je n'ai pas trouvé de canal correspondant à `{0}`."
 	}
 }
