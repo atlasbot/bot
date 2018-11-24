@@ -93,27 +93,27 @@
 				"name": "Modérateur"
 			},
 			"hoistTrue": {
-				"name": "Hoist Updated",
-				"value": "The role will now display members seperately from online members."
+				"name": "Mise à jour de l'hôte",
+				"value": "Le rôle affiche désormais les membres séparément des membres en ligne."
 			},
 			"hoistFalse": {
-				"name": "Hoist Updated",
-				"value": "The role will no longer display members seperately from online members."
+				"name": "Mise à jour de l'hôte",
+				"value": "Le rôle n'affichera plus les membres séparément des membres en ligne."
 			},
 			"mentionableTrue": {
-				"name": "@mention Updated",
-				"value": "The role can now be mentioned."
+				"name": "@mention mis à jour",
+				"value": "Le rôle peut maintenant être mentionné."
 			},
 			"mentionableFalse": {
-				"name": "@mention Updated",
-				"value": "The role can no longer be mentioned."
+				"name": "@mention mis à jour",
+				"value": "Le rôle ne peut plus être mentionné."
 			}
 		},
 		"messageDelete": {
-			"title": "Message Deleted",
-			"description": "A message by {0} has been deleted in {1}.",
+			"title": "Message supprimé",
+			"description": "Le message de {0} a été supprimé dans {1}.",
 			"content": {
-				"name": "Content"
+				"name": "Contenu"
 			},
 			"moderator": {
 				"name": "Modérateur"
@@ -123,17 +123,17 @@
 			}
 		},
 		"messageUpdate": {
-			"title": "Message Updated",
-			"description": "A message by {0} has been updated in {1}.",
+			"title": "Message modifié",
+			"description": "Le message de {0} a été modifié dans {1}.",
 			"oldContent": {
-				"name": "Before"
+				"name": "Avant"
 			},
 			"newContent": {
-				"name": "After"
+				"name": "Après"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Member Left",
+			"title": "Le membre est parti",
 			"description": "{0} has left the server."
 		},
 		"channelCreate": {
@@ -278,52 +278,52 @@
 			"manageMessages": "Manage Messages",
 			"embedLinks": "Embed Links",
 			"attachFiles": "Embed Files",
-			"readMessageHistory": "Read Message History",
-			"mentionEveryone": "Mention Everyone",
-			"externalEmojis": "External Emojis",
-			"voiceConnect": "Connect to Voice",
-			"voiceSpeak": "Speak in Voice",
-			"voiceMuteMembers": "Mute Voice Members",
-			"voiceUseVAD": "Use VAD",
-			"changeNickname": "Change Nickname",
-			"manageNicknames": "Manage Nicknames",
-			"manageRoles": "Manage Roles",
-			"manageWebhooks": "Manage Webhooks",
-			"manageEmojis": "Manage Emojis"
+			"readMessageHistory": "Lire l'historique des messages",
+			"mentionEveryone": "Mentionner everyone",
+			"externalEmojis": "Émojis externes",
+			"voiceConnect": "Se connecter à un salon vocal",
+			"voiceSpeak": "Parler dans un salon vocal",
+			"voiceMuteMembers": "Rendre muet les membres des salons vocaux",
+			"voiceUseVAD": "Utiliser VAD",
+			"changeNickname": "Changer le nom d'utilisateur",
+			"manageNicknames": "Gérer les pseudos",
+			"manageRoles": "Gérer les rôles",
+			"manageWebhooks": "Gérer les webhooks",
+			"manageEmojis": "Gérer les émojis"
 		},
 		"permError": {
-			"user": "You need the `{0}` permissions to do that.",
-			"bot": "I need the `{0}` permission to do that."
+			"user": "Vous avez besoin de la permission {0} pour cela.",
+			"bot": "J’ai besoin de la permission {0} pour faire ceci."
 		}
 	},
 	"filters": {
 		"actions": {
-			"disabled": "Disabled",
-			"dtm": "Delete the Message",
-			"wtu": "Warn the User",
-			"dtm_wtu": "Delete Message & Warn User",
-			"ca": "Custom Action"
+			"disabled": "Désactivé",
+			"dtm": "Supprimer le message",
+			"wtu": "Avertir l'utilisateur",
+			"dtm_wtu": "Supprimer le message & avertir l'utilisateur",
+			"ca": "Action personnalisée"
 		},
 		"messages": {
 			"capitalization": {
-				"warning": "Excessive capitalization.",
-				"message": "{0}, cool it with the caps."
+				"warning": "Trop de majuscules.",
+				"message": "{0}, soit cool avec les majuscules."
 			},
 			"emoji": {
-				"warning": "Excessive emojis.",
-				"message": "{0}, please dont use so many emojis."
+				"warning": "Abus d'émojis.",
+				"message": "{0}, veuillez ne pas utiliser autant d'émojis."
 			},
 			"cursing": {
-				"warning": "Cursing",
-				"message": "{0}, please refrain from swearing here."
+				"warning": "Insulte",
+				"message": "{0}, veuillez vous abstenir de jurer ici."
 			},
 			"invites": {
-				"warning": "Sending an invite.",
-				"message": "{0}, invite links are not allowed here."
+				"warning": "Envoi d’une invitation.",
+				"message": "{0}, les liens d'invitations ne sont pas autorisés ici."
 			},
 			"links": {
-				"warning": "Sending a link.",
-				"message": "{0}, please dont share links here."
+				"warning": "Envoi d'un lien.",
+				"message": "{0}, veuillez ne pas partager de liens ici."
 			},
 			"mentions": {
 				"warning": "Sending too many (`{0}`) mentions.",
