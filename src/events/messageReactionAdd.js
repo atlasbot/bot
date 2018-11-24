@@ -1,3 +1,8 @@
+const mongoose = require('mongoose');
+
+const emojiUtil = require('../../lib/emoji');
+const Action = require('../structures/Action');
+
 module.exports = class Event {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
@@ -37,40 +42,36 @@ module.exports = class Event {
 			}
 		}
 
-		// if (msg.guild && user) {
-		// 	const settings = await this.Atlas.DB.getGuild(msg.guild.id);
+		if (msg.guild && user) {
+			// this mess will get the guilds settings and check to see if there are any triggers for it
 
-		// 	const actions = settings.actions.filter((a) => { // eslint-disable-line array-callback-return
-		// 		if (a.trigger.type === 'reaction') {
-		// 			const isCustom = this.Atlas.lib.utils.isSnowflake(a.trigger.content);
-		// 			if (isCustom) {
-		// 				return a.trigger.content === emoji.id;
-		// 			}
+			// emoji.id is only set if it's a custom emoji, which is what is stored as 'trigger.content' for custom emojis.
+			const query = emoji.id || emojiUtil.get(emoji.name).name;
 
-		// 			const data = this.Atlas.lib.emoji.get(a.trigger.content);
+			const actions = (await mongoose.model('Action').find({
+				guild: msg.guild.id,
+				'trigger.content': query,
+			}));
 
-		// 			// todo: there is a pretty high chance that this won't work for some emojis.
-		// 			if (data && data.char === emoji.name) {
-		// 				return true;
-		// 			}
-		// 		}
-		// 	});
+			if (actions.length) {
+				const settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
-		// 	for (const action of actions) {
-		// 		try {
-		// 			// basically immitating a message with the user that added the reaction as the author
-		// 			await action.execute({
-		// 				author: user,
-		// 				guild: msg.guild,
-		// 				member: msg.guild.members.get(user.id),
-		// 				channel: msg.channel,
-		// 				lang: settings.lang,
-		// 			});
-		// 		} catch (e) {
-		// 			// todo: log to guild
-		// 			console.error(e);
-		// 		}
-		// 	}
-		// }
+				for (const action of actions.map(a => new Action(settings, a))) {
+					try {
+					// basically immitating a message with the user that added the reaction as the author
+						await action.execute({
+							author: user,
+							guild: msg.guild,
+							member: msg.guild.members.get(user.id),
+							channel: msg.channel,
+							lang: settings.lang,
+						});
+					} catch (e) {
+					// todo: log to guild
+						console.error(e);
+					}
+				}
+			}
+		}
 	}
 };

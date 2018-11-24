@@ -3,6 +3,8 @@ const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
 
+const mongoose = require('mongoose');
+
 const Action = require('./Action');
 
 // TODO: this shouldn't be created every time data is fetched from the DB (aka, cache it and reuse it)
@@ -13,8 +15,6 @@ module.exports = class GuildSettings {
     * @param {Object} settings The guilds settings from a DB
   	*/
 	constructor(settings) {
-		this.actions = settings.plugins.actions.actions.map(a => new Action(settings, a));
-
 		this.settings = settings;
 
 		this.Atlas = require('../../Atlas');
@@ -370,5 +370,60 @@ module.exports = class GuildSettings {
 				console.warn(e);
 			}
 		}
+	}
+
+	async getTriggers() {
+		return (await mongoose.model('Action').find({
+			guild: this.id,
+		}, {
+			trigger: 1,
+		})).map(o => o.toObject());
+	}
+
+	async getAction(id) {
+		const action = await mongoose.model('Action').findOne({
+			_id: id,
+			guild: this.id,
+		});
+
+		if (action) {
+			return new Action(this, action);
+		}
+	}
+
+	async findActions(msg) {
+		const triggers = (await this.getTriggers()).filter(({ trigger }) => {
+			if (trigger.type === 'label' && msg.label === trigger.content) {
+				return true;
+			}
+
+			// i'm not sorry honestly
+			if (
+				trigger.type === 'keyword'
+					&& (
+						msg.content.toLowerCase().includes(trigger.content.toLowerCase())
+						|| msg.cleanContent.toLowerCase().includes(trigger.content.toLowerCase())
+					)
+			) {
+				return true;
+			}
+
+			return false;
+		});
+
+		if (triggers.length) {
+			return this.getActions(triggers.map(t => t._id));
+		}
+
+		return [];
+	}
+
+	async getActions(ids) {
+		return (await mongoose.model('Action').find({
+			_id: {
+				$in: ids,
+			},
+			guild: this.id,
+		})).map(a => new Action(this, a));
 	}
 };

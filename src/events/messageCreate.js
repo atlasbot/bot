@@ -39,10 +39,31 @@ module.exports = class Ready {
 
 		msg.prefix = this.checkPrefix(msg.content, settings);
 
-		if (msg.prefix) { // eslint-disable-line no-extra-parens
+		if (msg.prefix) {
 			msg.args = msg.content.replace(/<@!/g, '<@').substring(msg.prefix.length).trim()
 				.split(/ +/g);
 			msg.label = msg.args.shift().toLowerCase();
+		}
+
+		// try and find an action, if one exists it'll run it then do nothing.
+		if (msg.guild && settings) {
+			const actions = await settings.findActions(msg);
+
+			if (actions.length) {
+				for (const action of actions) {
+					try {
+						await action.execute(msg);
+					} catch (e) {
+						// todo: log to guild
+						console.error(e);
+					}
+				}
+
+				return;
+			}
+		}
+
+		if (msg.prefix) { // eslint-disable-line no-extra-parens
 			msg.command = this.Atlas.commands.get(msg.label);
 
 			if (msg.command) {
@@ -87,35 +108,6 @@ module.exports = class Ready {
 					break;
 				}
 			}
-
-			// todo: make actions  take priority over default commands
-			// const actions = settings.actions.filter((a) => {
-			// 	if (a.trigger.type === 'label' && msg.label === a.trigger.content) {
-			// 		return true;
-			// 	}
-
-			// 	// i'm not sorry honestly
-			// 	if (
-			// 		a.trigger.type === 'keyword'
-			// 		&& (
-			// 			msg.content.toLowerCase().includes(a.trigger.content.toLowerCase())
-			// 			|| msg.cleanContent.toLowerCase().includes(a.trigger.content.toLowerCase())
-			// 		)
-			// 	) {
-			// 		return true;
-			// 	}
-
-			// 	return false;
-			// });
-
-			// for (const action of actions) {
-			// 	try {
-			// 		await action.execute(msg);
-			// 	} catch (e) {
-			// 		// todo: log to guild
-			// 		console.error(e);
-			// 	}
-			// }
 		}
 	}
 

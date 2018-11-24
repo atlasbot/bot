@@ -11,31 +11,37 @@ module.exports = class Action {
 			content: action.trigger.content,
 		};
 
-		this.content = action.content.filter(sa => !sa.channel).map(sa => ({
-			type: sa.type,
-			message: sa.message,
-			channel: sa.channel,
-			fallback: sa.fallback,
-		}));
+		if (action.content) {
+			this.content = action.content.filter(sa => !sa.channel).map(sa => ({
+				type: sa.type,
+				message: sa.message,
+				channel: sa.channel,
+				fallback: sa.fallback,
+			}));
 
-		this.flags = {
-			ttl: action.flags.ttl,
-			cooldown: action.flags.cooldown,
-			enabled: action.flags.enabled,
-			silent: action.flags.silent,
-			delete: action.flags.delete,
-			quiet: action.flags.quiet,
-		};
+			this.flags = {
+				ttl: action.flags.ttl,
+				cooldown: action.flags.cooldown,
+				enabled: action.flags.enabled,
+				silent: action.flags.silent,
+				delete: action.flags.delete,
+				quiet: action.flags.quiet,
+			};
 
-		this.banned = {
-			roles: action.banned.roles.filter(r => this.guild.roles.has(r)),
-			channels: action.banned.channels.filter(c => this.guild.channels.has(c)),
-		};
+			this.banned = {
+				roles: action.banned.roles.filter(r => this.guild.roles.has(r)),
+				channels: action.banned.channels.filter(c => this.guild.channels.has(c)),
+			};
 
-		this.allowed = {
-			roles: action.allowed.roles.filter(r => this.guild.roles.has(r)),
-			channels: action.allowed.channels.filter(c => this.guild.channels.has(c)),
-		};
+			this.allowed = {
+				roles: action.allowed.roles.filter(r => this.guild.roles.has(r)),
+				channels: action.allowed.channels.filter(c => this.guild.channels.has(c)),
+			};
+		}
+	}
+
+	get emoji() {
+		return this.Atlas.lib.utils.getActionEmoji(this, this.guild);
 	}
 
 	/**

@@ -3,7 +3,7 @@ const Command = require('../../structures/Command.js');
 
 const tokens = [];
 Object.keys(process.env).forEach((k) => {
-	if (k.toLowerCase().includes('token') && process.env[k].length > 5) {
+	if (['mongo_uri', 'token', 'key', 'client_id', 'pass', 'host'].some(x => k.toLowerCase().includes(x)) && process.env[k].length > 5) {
 		tokens.push({
 			name: k,
 			value: process.env[k],
@@ -46,7 +46,7 @@ module.exports = class Eval extends Command {
 
 	clean(str) {
 		for (const d of tokens) {
-			str = str.replace(new RegExp(d.value, 'g'), `<${d.name}>`);
+			str = str.split(d.value).join(`<${d.name}>`);
 		}
 
 		return str;
