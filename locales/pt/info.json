@@ -58,7 +58,7 @@
 		"usage": "[subreddit]"
 	},
 	"someone": {
-		"description": "Mentions a random user."
+		"description": "Menciona um usuário aleatório."
 	},
 	"randomcolor": {
 		"description": "Generates a random colour."
