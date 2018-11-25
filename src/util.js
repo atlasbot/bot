@@ -383,7 +383,8 @@ module.exports = class Util {
 
 		try {
 			// find an existing one and cache it for an hour (which means it should hit redis for most messages)
-			const saved = await this.Atlas.DB.User.findOne({ id: author.id }).cache(3600);
+			const saved = await this.Atlas.DB.User.findOne({ id: author.id });
+
 			const toSave = schema(author);
 
 			// updates the user if the saved data doesn't exist or doesn't equal what it would be if we update it
