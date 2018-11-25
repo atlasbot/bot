@@ -1,60 +1,60 @@
 {
 	"channelspaces": {
-		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
+		"description": "Remplace les tirets dans les noms de canaux par de faux espaces ! Sérieusement, il s'agit plutôt d'un hack et peut être corrigé à tout moment.",
 		"usage": "<channel>"
 	},
 	"autoplay": {
-		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
+		"description": "Activer ou désactiver la lecture automatique. Lorsqu'il est activé, une fois à la fin d'une file d'attente, Atlas met automatiquement en file d'attente les chansons associées."
 	},
 	"feed": {
 		"base": {
-			"description": "Get notified of new posts from your favourite services.",
+			"description": "Soyez informé des nouveaux messages de vos services préférés.",
 			"usage": "[subcommand]"
 		},
 		"add": {
-			"description": "Create a new feed. Run with missing arguments to get valid options.",
+			"description": "Créer un nouveau flux. Créez un nouveau flux. Exécutez ceci avec les arguments manquants pour obtenir des options valides.",
 			"usage": "<type> <channel> <target>"
 		},
 		"remove": {
-			"description": "Remove a existing feed from a channel.",
+			"description": "Supprimer un flux existant d'un canal.",
 			"usage": "[type] <target>"
 		},
 		"list": {
-			"description": "List all feeds and their channels."
+			"description": "Lister tous les flux et leurs canaux."
 		}
 	},
 	"shuffle": {
-		"description": "Shuffles the player queue."
+		"description": "Mélange la file d'attente."
 	},
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
+		"description": "Modifie la langue qu'Atlas utilise sur votre serveur.",
 		"usage": "[language]"
 	},
 	"time": {
-		"description": "Gets the time for a timezone.",
+		"description": "Obtient l'heure d'un fuseau horaire.",
 		"usage": "[location]"
 	},
 	"shorten": {
-		"description": "Shortens a URL via is.gd.",
+		"description": "Raccourcit une URL via is.gd.",
 		"usage": "[url]"
 	},
 	"serverinfo": {
-		"description": "Gets information about the server."
+		"description": "Obtenir des informations à propos du serveur."
 	},
 	"say": {
-		"description": "Makes Atlas say whatever you want.",
+		"description": "Ça fait dire à Atlas ce que tu veux.",
 		"usage": "[text]"
 	},
 	"roleinfo": {
-		"description": "Gets information about a server role.",
+		"description": "Obtenir des informations à propos d'un rôle.",
 		"usage": "[role]"
 	},
 	"id": {
-		"description": "Gets the ID of a channel, role, user, guild, etc...",
-		"usage": "[channel/role/user/\"guild\"]"
+		"description": "Avoir l'ID d'un channel, d'un rôle, utilisateur, guilde, etc...",
+		"usage": "[channel/rôle/user/\"guild\"]"
 	},
 	"reddit": {
-		"description": "Gets information about a subreddit.",
+		"description": "Obtenir des informations à propos d'un subreddit.",
 		"usage": "[subreddit]"
 	},
 	"someone": {
