@@ -539,35 +539,6 @@
 		"title": "Langues supportées",
 		"description": "Pour changer la localisation de ce serveur, faites `{0}locale <name>`. Vous trouverez une liste de noms ci-dessous. Certaines langues peuvent avoir peu ou pas de support, auquel cas Atlas remplira les pièces manquantes avec l'anglais. \n\nAider à traduire l'Atlas dans d'autres langues[here] (https://translate.atlasbot.xyz).\n\n{1}"
 	},
-	"feed": {
-		"general": {
-			"noType": "Vous devez inclure un type de flux valide, l'un de `{0}`.",
-			"invalidType": "Type de flux invalide. `{0}` doit être l'un des `{1}`.",
-			"noTarget": "Veuillez inclure une cible. Un nom de canal, un subreddit, etc... ça suffira.",
-			"invalidTarget": "`{0}` n'est pas une cible valide {1}."
-		},
-		"base": {
-			"noArgs": "Vous devez inclure une sous-commande."
-		},
-		"add": {
-			"invalidChannel": "S’il vous plaît inclure un nom de canal valide, ID ou mention.",
-			"success": "Le nouveau contenu de {0} ({1}) sera envoyé à {2}. \n\nGardez à l'esprit que les messages NSFW de Reddit ou les flux matures seront cachés du flux à moins que le canal n'ait été marqué comme NSFW lorsque le flux a été créé.",
-			"alreadyExists": "Vous avez déjà un flux pour `{0}` dans {1}. Vous ne pouvez avoir qu'un seul canal par cible."
-		},
-		"remove": {
-			"success": "Suppression des mises à jours de `{0}`.",
-			"doesntExist": "Il n’y a aucun flux correspondant à ces arguments."
-		},
-		"list": {
-			"none": "Ce serveur n'a pas de flux. Ajoutez-en un avec `{0}feed add` !",
-			"fields": {
-				"channel": "Canal",
-				"type": "Type",
-				"target": "Cible"
-			},
-			"footer": "{0} total"
-		}
-	},
 	"wiki": {
 		"noArgs": "Vous devez inclure un terme de recherche !",
 		"tooLong": "Votre terme de recherche doit faire moins de 64 caractères !",
