@@ -58,71 +58,71 @@
 		"usage": "[subreddit]"
 	},
 	"someone": {
-		"description": "Mentions a random user."
+		"description": "Mentionne un utilisateur au hasard."
 	},
 	"randomcolor": {
-		"description": "Generates a random colour."
+		"description": "Génère une couleur au hasard."
 	},
 	"quote": {
-		"description": "Quote a message by a user.",
+		"description": "Citer un message d'un utilisateur.",
 		"usage": "[message id / message share link]"
 	},
 	"minecraft": {
-		"description": "Checks the status of a Minecraft server.",
+		"description": "Voir le statut d'un serveur Minecraft.",
 		"usage": "[server ip]"
 	},
 	"memberCount": {
-		"description": "Shows information about the servers member count."
+		"description": "Voir les informations à propos du nombre de membres dans le serveur."
 	},
 	"joined": {
-		"description": "Find out when a user joined the server."
+		"description": "Découvrez quand un utilisateur a rejoint le serveur."
 	},
 	"inviteinfo": {
-		"description": "Gets information about an invite.",
+		"description": "Avoir des informations à propos d'une invitation.",
 		"usage": "[invite code/link>]"
 	},
 	"inrole": {
-		"description": "Lists users in a role.",
+		"description": "Liste les utilisateurs dans un rôle.",
 		"usage": "[role]"
 	},
 	"google": {
-		"description": "Searches Google for stuffs.",
+		"description": "Cherche des trucs sur Google.",
 		"usage": "[search]"
 	},
 	"embed": {
-		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
+		"description": "Intègre un message. Vous pouvez utiliser \"advancedembed\" pour plus d'options.",
 		"usage": "[text]"
 	},
 	"advancedembed": {
-		"description": "Embeds a message with advanced options.",
+		"description": "Intègre un message avec des options avancées.",
 		"usage": "[options]"
 	},
 	"discrim": {
-		"description": "Gets users with a discriminator that matches yours.",
+		"description": "Trouver les utilisateurs avec un discriminateur correspondant à la vôtre.",
 		"usage": "<discriminator>"
 	},
 	"avatar": {
 		"base": {
-			"description": "Gets (the servers)/(a users) avatar.",
+			"description": "Avoir (the servers)/(a users) avatar.",
 			"usage": "<mention>"
 		},
 		"user": {
-			"description": "Gets the avatar of a user.",
+			"description": "Affiche l'avatar d'un utilisateur.",
 			"usage": "<mention>"
 		},
 		"server": {
-			"description": "Gets the avatar of the server."
+			"description": "Affiche l'avatar d'un serveur."
 		}
 	},
 	"trump": {
-		"description": "Gets something stupid Donald Trump has said."
+		"description": "Recevoir quelque chose de stupide que Donald Trump a dit."
 	},
 	"urban": {
-		"description": "Gets the definition for a word.",
+		"description": "Recevoir la définition d'un mot.",
 		"usage": "[search]"
 	},
 	"randomurban": {
-		"description": "Gets a random definition from Urban Dictionary."
+		"description": "Avoir une définition aléatoire du Urban Dictionary."
 	},
 	"starterpack": {
 		"description": "Gets a random starterpack."
@@ -269,47 +269,47 @@
 		"usage": "[show name]"
 	},
 	"weather": {
-		"description": "Get weather information from anywhere in the world.",
+		"description": "Obtenez des informations météorologiques de partout dans le monde.",
 		"usage": "[location]"
 	},
 	"catfact": {
-		"description": "Who doesn't like facts about cats?"
+		"description": "Qui n'aime pas les histoires sur les chats ?"
 	},
 	"cat": {
-		"description": "Kittens, cats, you name it - we've got it (maybe)."
+		"description": "Chatons, chats, etc. - nous l'avons (peut-être)."
 	},
 	"texttoemoji": {
-		"description": "Converts text to emoji characters.",
+		"description": "Convertir le texte en caractère d'emojis.",
 		"usage": "[text]"
 	},
 	"dog": {
-		"description": "Dogs. Just random pictures of dogs."
+		"description": "Chiens. Juste des photos de chiens au hasard."
 	},
 	"chucknorris": {
-		"description": "Facts about the man himself"
+		"description": "Faits concernant l'homme lui-même"
 	},
 	"advice": {
-		"description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
+		"description": "Vous avez besoin de conseils de qualité de vie d'une source digne de confiance ? Alors ce n'est pas la commande qu'il vous faut."
 	},
 	"warn": {
 		"base": {
-			"description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
+			"description": "Gérer les avertissements. Avertir les utilisateurs d'un mauvais comportement, éditer les avertissements précédents d'un utilisateur et plus encore."
 		},
 		"add": {
-			"description": "Add a warning to a user.",
+			"description": "Ajouter un avertissment à un utilisateur.",
 			"usage": "[user] <reason>"
 		},
 		"view": {
-			"description": "View a users warnings.",
+			"description": "Voir les avertissements d'un utilisateur.",
 			"usage": "[user] <page=1>"
 		},
 		"remove": {
-			"description": "Remove a users warnings.",
+			"description": "Retirer les avertissmeents d'un utilisateur.",
 			"usage": "[user] <warn reason>"
 		}
 	},
 	"warnings": {
-		"description": "Views your/another users warnings.",
+		"description": "Affiche vos/autres avertissements d'utilisateurs.",
 		"args": "<user>"
 	},
 	"funban": {
