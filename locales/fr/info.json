@@ -313,75 +313,75 @@
 		"args": "<user>"
 	},
 	"funban": {
-		"description": "Bans a user but it's fun (and slightly spammy)",
+		"description": "Bannir un utilisateur mais c'est amusant (et légèrement spammé)",
 		"usage": "[user] <reason>"
 	},
 	"ban": {
-		"description": "Bans a user, exactly what it says on the tin.",
+		"description": "Banir un utilisateur, exactement ce qui est écrit sur la boîte.",
 		"usage": "[user] <reason>"
 	},
 	"submit": {
-		"description": "Submit suggestions to the suggestion channel."
+		"description": "Soumettez vos suggestions au canal de suggestions."
 	},
 	"donate": {
-		"description": "Donate to support Atlas and get awesome perks!",
-		"fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
+		"description": "Faites un don pour soutenir Atlas et bénéficiez d'avantages incroyables !",
+		"fullDescription": "Soutenez Atlas en devenant un Patreon et obtenez d'incroyables avantages en retour !"
 	},
 	"help": {
 		"usage": "[command|plugin]",
-		"description": "View all of Atlas' commands or get help for a specific command or plugin."
+		"description": "Voir toutes les commandes d'Atlas ou obtenir de l'aide pour une commande ou un plugin spécifique."
 	},
 	"meme": {
 		"description": "dank me-mes"
 	},
 	"yesno": {
-		"description": "Yes or no? Gets a random yes or no randomly."
+		"description": "Oui ou non? Avoir un oui ou non au hasard."
 	},
 	"info": {
-		"description": "General information about Atlas"
+		"description": "Informations générales concernant Atlas"
 	},
 	"ping": {
-		"description": "Check the time Atlas takes to reply to you!"
+		"description": "Vérifiez le temps qu'Atlas prend pour vous répondre !"
 	},
 	"support": {
-		"description": "Need help with Atlas? Join our Support server!"
+		"description": "Besoin d'aide avec Atlas? Rejoignez notre servuer de support!"
 	},
 	"uptime": {
-		"description": "Check how long Atlas has been online for."
+		"description": "Vérifiez depuis combien de temps Atlas est en ligne."
 	},
 	"whois": {
-		"description": "Get information about a user.",
+		"description": "Obtenir des renseignements sur un utilisateur.",
 		"usage": "<user>"
 	},
 	"nowplaying": {
-		"description": "Shows information about the song currently playing."
+		"description": "Affiche des informations sur la chanson en cours de lecture."
 	},
 	"play": {
-		"description": "Plays a song in your current voice channel, now with built in playlist support!",
+		"description": "Lecture d'une chanson sur votre canal vocal actuel, maintenant avec prise en charge intégrée des listes de lecture !",
 		"usage": "[song name|url]"
 	},
 	"qplaylist": {
-		"description": "Adds songs from a YouTube playlist to the queue.",
+		"description": "Ajout de chansons d'une playlist YouTube dans la file d'attente.",
 		"usage": "[youtube playlist url]"
 	},
 	"queue": {
-		"description": "Shows upcoming songs in the player queue.",
+		"description": "Affiche les chansons à venir dans la file d'attente du lecteur.",
 		"usage": "<page number>"
 	},
 	"ship": {
-		"description": "Ship two users. ",
+		"description": "Envoyez deux utilisateurs. ",
 		"usage": "[user1] <user2>"
 	},
 	"trapcard": {
 		"usage": "[user]",
-		"description": "You've triggered my trap card!"
+		"description": "Vous avez déclenché ma carte piège !"
 	},
 	"trumpgen": {
-		"description": "Generate an image of Trump's twitter tweeting something.",
+		"description": "Générer une image de Trump sur twitter tweetant quelque chose.",
 		"usage": "[text]"
 	},
 	"wiki": {
-		"description": "Search Wikipedia for your search.",
+		"description": "Recherchez Wikipedia pour votre recherche.",
 		"usage": "[query]"
 	},
 	"remindme": {
