@@ -1,51 +1,51 @@
 {
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
-		"notAMovie": "Isso não é um filme! Tenta `{0}show {1}`."
+		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
 	},
 	"series": {
-		"notASeries": "Isso não é um programa de TV! Tenta `{0}movie {1}`."
+		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"success": "Banido {0}."
+		"success": "Banned {0}."
 	},
 	"ban": {
-		"noArgs": "Inclua um usuário para banir!",
-		"success": "Banido {0}.",
-		"withReason": "Baniste {0} por `{1}`.",
-		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
-		"tooLate": "{0} já foi banido.",
+		"noArgs": "Please include a user to ban!",
+		"success": "Banned {0}.",
+		"withReason": "Banned {0} for `{1}`.",
+		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
+		"tooLate": "{0} has already been banned.",
 		"feelsGoodMan": {
 			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
 			"noReason": "You have been banned from {0} by {1} ({2})."
 		}
 	},
 	"remindme": {
-		"invalid": "Essa data não é válida.",
-		"setForPast": "Dê-me uma data que seja no futuro.",
-		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
-		"youGotIt": "Entendido, irei te relembrar em {0}.",
-		"relative": " Além disso, no futuro devias usar tempos relativos, como `em 1 hora` ou `em 2 dias` em vez de um tempo específico como `às 5 da tarde de hoje` ou `21/08/2018` por causa de fusos horários que não consigo resolver"
+		"invalid": "That is not a valid date.",
+		"setForPast": "Please give me a date that is in the future.",
+		"furtherPls": "The time must be five seconds or more in the future.",
+		"youGotIt": "You got it, I'll remind you in {0}.",
+		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "Tenho uma latência de `{0}ms` para este servidor.",
-		"dm": "Tenho uma latência de `{0}ms` para esta dm.",
+		"server": "I have a `{0}ms` delay to this server.",
+		"dm": "I have a `{0}ms` delay to this dm.",
 		"randoms": [
-			"Tenho fome...",
-			"Empurrando carvão para dentro do servidor...",
-			"Em minha defesa, isto ainda é mais rápido do que o que tu conseguirias fazer...",
-			"À espera que as estrelas se alinhem...",
-			"Vai, segura a tua respiração...",
-			"Aprecia a música de elevador...",
-			"Olá, o meu nome é Atlas, o que gostarias hoje, senhor?...",
+			"I'm hungry...",
+			"Shovelling coal into the server...",
+			"In my defense, this is still faster than you could do it...",
+			"Waiting for the stars to align...",
+			"Go ahead, hold your breath...",
+			"Enjoy the elevator music...",
+			"Hello my name is Atlas what would you like today Sir?...",
 			"You were expecting something mildly entertaining, but no...",
 			"Error: out of patience...",
 			"Are we there yet?...",
@@ -56,11 +56,11 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"donate": "Ajuda o Atlas e obtém vantagens fantásticas por doar em <https://www.patreon.com/NotSylver>.",
-	"invite": "Podes ter o Atlas no teu servidor em <https://atlasbot.xyz/get>.",
+	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Precisas de ajuda?",
-		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
+		"title": "Need some help?",
+		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
 		"title": "Atlas",
@@ -213,8 +213,8 @@
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Dê-me uma data que seja no futuro.",
-		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
+		"setForPast": "Please give me a date that is in the future.",
+		"furtherPls": "The time must be five seconds or more in the future.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
@@ -508,7 +508,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": "Region"
