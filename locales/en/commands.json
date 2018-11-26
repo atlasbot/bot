@@ -539,35 +539,6 @@
 		"title": "Supported Tongues",
 		"description": "To change this 'ere server's locale, ye' mus' do `{0}locale <name>`. Ye' can find a list of names below. Some tongues may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages ['ere](https://translate.atlasbot.xyz).\n\n{1}"
 	},
-	"feed": {
-		"general": {
-			"noType": "You have to include a valid feed type, one of `{0}`.",
-			"invalidType": "Invalid feed type. `{0}` must be one of `{1}`.",
-			"noTarget": "Please include a target. A channel name, a subreddit, etc... will do.",
-			"invalidTarget": "`{0}` is not a valid {1} target."
-		},
-		"base": {
-			"noArgs": "Ye' needa include a subcommand."
-		},
-		"add": {
-			"invalidChannel": "Please include a valid channel name, ID or mention.",
-			"success": "New content from {0} ({1}) will be sent to {2}. \n\nKeep in mind NSFW posts from Reddit or mature streams will be hidden from the feed unless the channel was marked as NSFW when the feed was created.",
-			"alreadyExists": "You already have a feed for `{0}` in {1}. You can only have one channel per target."
-		},
-		"remove": {
-			"success": "Deleted updates from `{0}`.",
-			"doesntExist": "There is no feed matching those arguments."
-		},
-		"list": {
-			"none": "This server has no feeds. Add one with `{0}feed add`!",
-			"fields": {
-				"channel": "Channel",
-				"type": "Type",
-				"target": "Target"
-			},
-			"footer": "{0} total"
-		}
-	},
 	"wiki": {
 		"noArgs": "You have to include a search term!",
 		"tooLong": "Your search term must be under 64 characters!",
