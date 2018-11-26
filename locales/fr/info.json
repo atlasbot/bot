@@ -6,23 +6,6 @@
 	"autoplay": {
 		"description": "Activer ou désactiver la lecture automatique. Lorsqu'il est activé, une fois à la fin d'une file d'attente, Atlas met automatiquement en file d'attente les chansons associées."
 	},
-	"feed": {
-		"base": {
-			"description": "Soyez informé des nouveaux messages de vos services préférés.",
-			"usage": "[subcommand]"
-		},
-		"add": {
-			"description": "Créer un nouveau flux. Créez un nouveau flux. Exécutez ceci avec les arguments manquants pour obtenir des options valides.",
-			"usage": "<type> <channel> <target>"
-		},
-		"remove": {
-			"description": "Supprimer un flux existant d'un canal.",
-			"usage": "[type] <target>"
-		},
-		"list": {
-			"description": "Lister tous les flux et leurs canaux."
-		}
-	},
 	"shuffle": {
 		"description": "Mélange la file d'attente."
 	},
