@@ -125,54 +125,54 @@
 		"description": "Avoir une définition aléatoire du Urban Dictionary."
 	},
 	"starterpack": {
-		"description": "Gets a random starterpack."
+		"description": "Générer un pack de démarrage aléatoire."
 	},
 	"genavatar": {
-		"description": "Generates a random avatar."
+		"description": "Générer un avatar au hasard."
 	},
 	"gotcharacter": {
-		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
+		"description": "Obtenir des informations sur un personnage de Games of Thrones. Exécutez sans args pour obtenir un caractère aléatoire.",
 		"usage": "<character name>"
 	},
 	"gothouse": {
-		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
+		"description": "Obtenir des informations sur la maison de Games of Thrones. Exécutez sans args pour avoir une maison au hasard.",
 		"usage": "<house name>"
 	},
 	"kick": {
 		"usage": "[user] <reason>",
-		"description": "Removes a member from the server."
+		"description": "Membre retiré du serveur."
 	},
 	"filters": {
 		"base": {
 			"usage": "<subcommand>",
-			"description": "Controls chat filters."
+			"description": "Contrôle les filtres de chat."
 		},
 		"action": {
 			"usage": "[filter] <action name>",
-			"description": "Used to enable or disable filters, and change their action."
+			"description": "Permet d'activer ou de désactiver les filtres et de modifier leur action."
 		},
 		"list": {
-			"description": "Lists filters and their current settings."
+			"description": "Liste les filtres et leurs paramètres actuels."
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controls where certain messages are logged in your guild.",
+			"description": "Contrôle l'endroit où certains messages sont enregistrés dans votre guilde.",
 			"usage": "<subcommand>"
 		},
 		"actions": {
-			"description": "Sets where action logs are logged to. Run with no args to reset.",
+			"description": "Définit l'endroit où les journaux d'actions sont enregistrés. Fonctionne sans args à réinitialiser.",
 			"usage": "<channel>"
 		}
 	},
 	"purge": {
 		"base": {
 			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"description": "Supprimer les messages d'un canal."
 		},
 		"any": {
 			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"description": "Supprimer les messages d'un canal."
 		},
 		"endswith": {
 			"usage": "[term] <amount>",
@@ -385,19 +385,19 @@
 		"usage": "[query]"
 	},
 	"remindme": {
-		"description": "Set reminders to get notified in the future.",
-		"fullDescription": "Set reminders to get notified in the future. Where [time] is in your sentence doesn't really matter. Atlas may round up the time it says but the actual time will be accurate.",
+		"description": "Définissez des rappels pour être averti à l'avenir.",
+		"fullDescription": "Définissez des rappels pour être averti à l'avenir. L'endroit où se trouve le [time] dans votre phrase n'a pas vraiment d'importance. L'Atlas peut arrondir l'heure qu'il indique, mais l'heure réelle sera exacte.",
 		"usage": "[time] <task>"
 	},
 	"captcha": {
-		"description": "Are you a robot? I know I am.",
+		"description": "Vous êtes un robot ? Je sais que je le suis.",
 		"usage": "[user]"
 	},
 	"invite": {
-		"description": "Get Atlas in your own server by inviting me!"
+		"description": "Obtenez Atlas sur votre propr serveur en m'invitant!"
 	},
 	"neat": {
-		"description": "hey, that's pretty neat"
+		"description": "hé, c'est plutôt chouette"
 	},
 	"8ball": {
 		"description": "Ask the magic eight-ball a question."
