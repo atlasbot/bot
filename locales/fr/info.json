@@ -176,96 +176,96 @@
 		},
 		"endswith": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that end with [term]. Supports wild*cards."
+			"description": "Purge les messages qui se terminent par [term]. Supporte les caractères joker*."
 		},
 		"files": {
 			"usage": "<amount>",
-			"description": "Purges messages with attachments."
+			"description": "Purge les messages avec des pièces jointes."
 		},
 		"images": {
 			"usage": "<amount>",
-			"description": "Purges messages with images attached."
+			"description": "Purge les messages avec des images."
 		},
 		"invites": {
 			"usage": "<amount>",
-			"description": "Purges messages containing Discord server invite links."
+			"description": "Purge les messages avec des invitations de serveur Discord."
 		},
 		"links": {
 			"usage": "<amount>",
-			"description": "Purges messages containing links."
+			"description": "Purge les messages contenant des liens."
 		},
 		"includes": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that includes your term  Supports wild*cards."
+			"description": "Purge les messages qui incluent votre terme Supporte les caractères joker*."
 		},
 		"not": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that do not include your term. Supports wild*cards."
+			"description": "Purge les messages qui n'incluent pas votre terme. Supporte les caractères joker*."
 		},
 		"startswith": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that start with your term. Supports wild*cards."
+			"description": "Purge les messages qui commencent par votre terme. Supporte les caractères joker*."
 		},
 		"user": {
 			"usage": "[user] <amount>",
-			"description": "Purges messages that are from the user specified."
+			"description": "Purge les messages provenant de l'utilisateur spécifié."
 		}
 	},
 	"slowmode": {
 		"usage": "[ratelimit in seconds/\"disable\"]",
-		"description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+		"description": "Active la limitation du débit de messages pour le canal. Réglez à 0 ou entrez \"disable\" pour désactiver complètement le mode lent."
 	},
 	"coinflip": {
-		"description": "Flips a coin that can land heads or tails."
+		"description": "Tire à pile ou face une pièce de monnaie qui peut faire tomber des têtes ou des queues."
 	},
 	"dadjoke": {
-		"description": "Gets a random dadjoke."
+		"description": "Avoir un random dadjoke."
 	},
 	"move": {
-		"description": "Moves a message to another channel.",
+		"description": "Déplacer un message dans un autre canal.",
 		"usage": "[channel] <message ID or share link>"
 	},
 	"achievement": {
-		"description": "Creates a Minecraft achievement."
+		"description": "Créer un succès Minecraft."
 	},
 	"wouldyourather": {
-		"description": "Would you rather?"
+		"description": "Tu préfèrerais ?"
 	},
 	"botinfo": {
-		"description": "Gets information about almost any public bot via discordbots.org.",
+		"description": "Obtient des informations sur presque tous les robots publics via discordbots.org.",
 		"usage": "[bot mention/query]"
 	},
 	"xkcd": {
-		"description": "Gets a random XKCD comic."
+		"description": "Obtient une bande dessinée XKCD au hasard."
 	},
 	"leave": {
-		"description": "Leaves the voice channel and dumps the queue."
+		"description": "Quitte le canal vocal et décharge la file d'attente."
 	},
 	"unban": {
-		"description": "Unban a user from the guild.",
+		"description": "Débannir un utilisateur d'une guilde.",
 		"usage": "[user] <reason>"
 	},
 	"emojify": {
-		"description": "Converts regular sentences to awesome emojified sentences 🎉",
+		"description": "Convertit des phrases régulières en phrases émojifiées impressionnantes 🎉",
 		"usage": "[text]"
 	},
 	"mute": {
-		"description": "Stops a user sending messages while they're muted.",
+		"description": "Arrête l'envoi de messages à un utilisateur pendant qu'il est en sourdine.",
 		"usage": "[user] <duration> | <reason>"
 	},
 	"unmute": {
-		"description": "Unmutes a user.",
+		"description": "Dé-mute un utilisateur.",
 		"usage": "[user] <reason>"
 	},
 	"movie": {
-		"description": "Get information about a movie!",
+		"description": "Avoir des informations à propos d'un film!",
 		"usage": "[movie name]"
 	},
 	"next": {
-		"description": "Goes to the next song in the queue."
+		"description": "Passe à la chanson suivante dans la file d'attente."
 	},
 	"show": {
-		"description": "Search for information about a TV Series.",
+		"description": "Recherche d'information à propos d'une série TV.",
 		"usage": "[show name]"
 	},
 	"weather": {
@@ -400,6 +400,6 @@
 		"description": "hé, c'est plutôt chouette"
 	},
 	"8ball": {
-		"description": "Ask the magic eight-ball a question."
+		"description": "Posez une question à la boule magique."
 	}
 }
