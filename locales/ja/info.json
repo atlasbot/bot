@@ -6,23 +6,6 @@
 	"autoplay": {
 		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
 	},
-	"feed": {
-		"base": {
-			"description": "Get notified of new posts from your favourite services.",
-			"usage": "[subcommand]"
-		},
-		"add": {
-			"description": "Create a new feed. Run with missing arguments to get valid options.",
-			"usage": "<type> <channel> <target>"
-		},
-		"remove": {
-			"description": "Remove a existing feed from a channel.",
-			"usage": "[type] <target>"
-		},
-		"list": {
-			"description": "List all feeds and their channels."
-		}
-	},
 	"shuffle": {
 		"description": "Shuffles the player queue."
 	},
