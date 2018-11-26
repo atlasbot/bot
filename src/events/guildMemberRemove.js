@@ -11,7 +11,9 @@ module.exports = class Event {
 
 		const gatekeeper = settings.plugin('gatekeeper');
 
-		if (gatekeeper.state === 'enabled') {
+		// regex stops people joining with invites/other links in their name and immediately leaving to advertise things.
+		// idk why i decided to use regex but it's gud enuf
+		if (gatekeeper.state === 'enabled' && !/[A-z]{2,}\.(?:com|gg|io|net|org|tv|me)/.test(member.username)) {
 			const responder = new Responder(null, settings.lang);
 
 
