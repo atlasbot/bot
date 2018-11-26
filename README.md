@@ -46,20 +46,10 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 | REDIS_PASS \*            | The password for the Redis server                                                                                               |
 | REDIS_PORT \*            | The port for the Redis server                                                                                                   |
 | YOUTUBE_KEY \*           | A YouTube Data API key. Currently only used for autoplay.                                                                       |
-| KRAKEN_PORT \*           | See "What is Kraken" below. TL;DR, don't worry about it.                                                                        |
-| KRAKEN_HOST \*           | See "What is Kraken" below. TL;DR, don't worry about it.                                                                        |
-| KRAKEN_AUTH \*           | See "What is Kraken" below. TL;DR, don't worry about it.                                                                        |
-| TWITCH_CLIENT_ID \*      | Used to validate feed targets.                                                                                                  |
 | DISCORDBOTS_ORG_TOKEN \* | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵️                           |
 | PATREON_TOKEN \*         | Used to tell who is a patreon and who isn't.                                                                                    |
 
 _\* Optional, but some features may not work without them._
-
-## What is Kraken
-
-Kraken handles Atlas' feeds. It's what forwards Reddit posts, YouTube videos, Twitch streams and RSS feeds to webhooks. **Kraken is not open-source or public**, you can't host your own Kraken server. In the future Kraken might be open-sourced, but currently it's unstable and needs quite a bit of work before it's at a point where I'd be comfortable sharing it.
-
-If you're self hosting Atlas, then you'll have to live without. If you're looking to add something that depends on Kraken, tag a developer in our [Discord server](https://atlasbot.xyz/support) and if you're lucky you'll get credentials to our hosted instance.
 
 ## A minor note on tags
 

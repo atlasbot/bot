@@ -47,7 +47,6 @@ module.exports = class Atlas {
 		this.Raven = Raven;
 		this.structs = structs;
 		this.clusterID = clusterID;
-		this.feedHandler = null;
 
 		this.util = (new Util(this));
 
