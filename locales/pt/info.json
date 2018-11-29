@@ -5,7 +5,7 @@
 	},
 	"channelspaces": {
 		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
-		"usage": "<canal>"
+		"usage": "<channel>"
 	},
 	"autoplay": {
 		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
@@ -14,171 +14,171 @@
 		"description": "Shuffles the player queue."
 	},
 	"locale": {
-		"description": "Muda a linguagem que Atlas irá usar no seu servidor.",
+		"description": "Changes what language Atlas uses in your server.",
 		"usage": "[language]"
 	},
 	"time": {
-		"description": "Obtém a hora para um fuso horário.",
+		"description": "Gets the time for a timezone.",
 		"usage": "[location]"
 	},
 	"shorten": {
-		"description": "Encurta uma URL via is.gd.",
+		"description": "Shortens a URL via is.gd.",
 		"usage": "[url]"
 	},
 	"serverinfo": {
-		"description": "Obtém informações sobre o servidor."
+		"description": "Gets information about the server."
 	},
 	"say": {
-		"description": "Faz Atlas dizer o que você quiser.",
+		"description": "Makes Atlas say whatever you want.",
 		"usage": "[text]"
 	},
 	"roleinfo": {
-		"description": "Obtém informações sobre um grupo do servidor.",
+		"description": "Gets information about a server role.",
 		"usage": "[role]"
 	},
 	"id": {
-		"description": "Obtém o ID de um canal, grupo, usuário, servidor, etc...",
+		"description": "Gets the ID of a channel, role, user, guild, etc...",
 		"usage": "[channel/role/user/\"guild\"]"
 	},
 	"reddit": {
-		"description": "Obtém informações sobre um subreddit.",
+		"description": "Gets information about a subreddit.",
 		"usage": "[subreddit]"
 	},
 	"someone": {
 		"description": "Menciona um usuário aleatório."
 	},
 	"randomcolor": {
-		"description": "Gera uma cor aleatória."
+		"description": "Generates a random colour."
 	},
 	"quote": {
-		"description": "Cite uma mensagem de um usuário.",
+		"description": "Quote a message by a user.",
 		"usage": "[message id / message share link]"
 	},
 	"minecraft": {
-		"description": "Verifica o status de um servidor de Minecraft.",
+		"description": "Checks the status of a Minecraft server.",
 		"usage": "[server ip]"
 	},
 	"memberCount": {
-		"description": "Mostra informações sobre a contagem de membros do servidor."
+		"description": "Shows information about the servers member count."
 	},
 	"joined": {
-		"description": "Descobre quando um usuário entrou no servidor."
+		"description": "Find out when a user joined the server."
 	},
 	"inviteinfo": {
-		"description": "Obtém informações sobre um convite.",
+		"description": "Gets information about an invite.",
 		"usage": "[invite code/link>]"
 	},
 	"inrole": {
-		"description": "Lista usuários em um grupo.",
+		"description": "Lists users in a role.",
 		"usage": "[role]"
 	},
 	"google": {
-		"description": "Pesquisa coisas no Google.",
+		"description": "Searches Google for stuffs.",
 		"usage": "[search]"
 	},
 	"embed": {
-		"description": "Incorpora uma mensagem. Você pode usar o \"advancedembed\" para mais opções.",
+		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
 		"usage": "[text]"
 	},
 	"advancedembed": {
-		"description": "Incorpora uma mensagem com opções avançadas.",
+		"description": "Embeds a message with advanced options.",
 		"usage": "[options]"
 	},
 	"discrim": {
-		"description": "Obtém uma lista de usuários com um discriminador que coincide com o seu.",
+		"description": "Gets users with a discriminator that matches yours.",
 		"usage": "<discriminator>"
 	},
 	"avatar": {
 		"base": {
-			"description": "Obtém o avatar do (servidor)/(usuário).",
+			"description": "Gets (the servers)/(a users) avatar.",
 			"usage": "<mention>"
 		},
 		"user": {
-			"description": "Obtém o avatar de um usuário.",
+			"description": "Gets the avatar of a user.",
 			"usage": "<mention>"
 		},
 		"server": {
-			"description": "Obtém o avatar do servidor."
+			"description": "Gets the avatar of the server."
 		}
 	},
 	"trump": {
-		"description": "Obtém algo estúpido que Donald Trump falou."
+		"description": "Gets something stupid Donald Trump has said."
 	},
 	"urban": {
-		"description": "Obtém a definição de uma palavra.",
+		"description": "Gets the definition for a word.",
 		"usage": "[search]"
 	},
 	"randomurban": {
-		"description": "Obtém uma definição aleatória do Urban Dictionary."
+		"description": "Gets a random definition from Urban Dictionary."
 	},
 	"starterpack": {
-		"description": "Obtém um starterpack aleatório."
+		"description": "Gets a random starterpack."
 	},
 	"genavatar": {
-		"description": "Gera um avatar aleatório."
+		"description": "Generates a random avatar."
 	},
 	"gotcharacter": {
-		"description": "Obtém informações sobre um personagem de Game of Thrones. Execute sem args para obter um personagem aleatório.",
+		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
 		"usage": "<character name>"
 	},
 	"gothouse": {
-		"description": "Obtém informações sobre uma casa de Game of Thrones. Execute sem args para obter uma casa aleatória.",
+		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
 		"usage": "<house name>"
 	},
 	"kick": {
 		"usage": "[user] <reason>",
-		"description": "Remove um membro do servidor."
+		"description": "Removes a member from the server."
 	},
 	"filters": {
 		"base": {
 			"usage": "<subcommand>",
-			"description": "Controla filtros do chat."
+			"description": "Controls chat filters."
 		},
 		"action": {
-			"usage": "[filtro] <nome da ação>",
-			"description": "Usado para habilitar ou desabilitar filtros e mudar suas ações."
+			"usage": "[filter] <action name>",
+			"description": "Used to enable or disable filters, and change their action."
 		},
 		"list": {
-			"description": "Lista filtros e suas configurações atuais."
+			"description": "Lists filters and their current settings."
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controla onde determinadas mensagens são registradas em seu servidor.",
+			"description": "Controls where certain messages are logged in your guild.",
 			"usage": "<subcommand>"
 		},
 		"actions": {
-			"description": "Define onde os registros de ação são registrados. Execute com nenhum args para resetar.",
-			"usage": "<canal>"
+			"description": "Sets where action logs are logged to. Run with no args to reset.",
+			"usage": "<channel>"
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<quantidade>",
-			"description": "Limpar mensagens de um canal."
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
 		},
 		"any": {
-			"usage": "<quantidade>",
-			"description": "Limpar mensagens de um canal."
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
 		},
 		"endswith": {
 			"usage": "[term] <amount>",
 			"description": "Purges messages that end with [term]. Supports wild*cards."
 		},
 		"files": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages with attachments."
 		},
 		"images": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages with images attached."
 		},
 		"invites": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages containing Discord server invite links."
 		},
 		"links": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages containing links."
 		},
 		"includes": {
