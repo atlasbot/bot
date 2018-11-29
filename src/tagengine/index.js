@@ -18,7 +18,7 @@ module.exports = class {
      */
 	constructor({
 		msg,
-		guild = msg ? msg.channel : undefined,
+		guild = msg ? msg.guild : undefined,
 		// todo: try and get channel ourselves if it's not present
 		ticket,
 		channel = msg ? msg.channel : undefined,
