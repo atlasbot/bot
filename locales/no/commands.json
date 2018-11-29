@@ -1,4 +1,7 @@
 {
+	"vaporwave": {
+		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+	},
 	"autoplay": {
 		"enabled": "Autoplay has been enabled.",
 		"disabled": "Autoplay has been disabled."
