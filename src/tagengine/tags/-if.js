@@ -56,7 +56,7 @@ module.exports.info = {
 		input: '{if;wew;aw yis}',
 		output: 'aw yis',
 	}, {
-		input: '{if;;true;false}',
+		input: '{if;true;false}',
 		output: 'false',
 	}, {
 		input: '{if;false;yay;nay}',
