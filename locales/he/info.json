@@ -1,4 +1,8 @@
 {
+	"vaporwave": {
+		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"usage": "[text]"
+	},
 	"channelspaces": {
 		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
 		"usage": "<channel>"
