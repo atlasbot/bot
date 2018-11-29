@@ -76,7 +76,7 @@ module.exports.info = {
 	name: 'help',
 	examples: [
 		'help',
-		'Misc',
+		'Info',
 		'ping',
 		'whois',
 		'remindme',
