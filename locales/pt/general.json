@@ -1,12 +1,12 @@
 {
 	"player": {
 		"none": "There is nothing playing in this server.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"trackQueued": "'{0}' foi adicionado à fila. Irá tocar em cerca de {1}.",
 		"npEmbed": {
-			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
-			"author": "Autor",
-			"duration": "Duration",
+			"ttp": "Tempo até tocar",
+			"addedBy": "Adicionado por",
+			"author": "Author",
+			"duration": "Duração",
 			"footer": "{0} in queue"
 		},
 		"leaving": "There is nothing left to play, leaving channel...",
@@ -16,22 +16,22 @@
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Via nekobot.xyz"
+		"nekobot": "Por nekobot.xyz"
 	},
 	"logs": {
 		"guildMemberKick": {
-			"title": "Member Kicked",
-			"description": "{0} has been kicked from the server.",
+			"title": "Membro expulso",
+			"description": "{0} foi expulso do servidor.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Member Updated - Role Added",
+				"title": "Membro atualizado - Grupo adicionado",
 				"description": "{0} has been given the {1} role.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
 				"reason": "Reason"
@@ -40,7 +40,7 @@
 				"title": "Member Updated - Role Removed",
 				"description": "{0} has had the {1} role taken from them.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
 				"reason": "Reason"
@@ -56,20 +56,20 @@
 		},
 		"guildMemberAdd": {
 			"title": "Member Joined",
-			"description": "{0} juntou-se ao servidor."
+			"description": "{0} has joined the server."
 		},
 		"guildRoleCreate": {
-			"title": "Cargo Criado",
-			"description": "O cargo {0} foi criado.",
+			"title": "Role Created",
+			"description": "The {0} role was created.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Cargo Deletado",
+			"title": "Role Deleted",
 			"description": "The {0} role was deleted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildRoleUpdate": {
@@ -82,7 +82,7 @@
 				"name": "Name Updated"
 			},
 			"permAdded": {
-				"name": "Permissões Adicionadas",
+				"name": "Permissions Added",
 				"value": "The role now has the `{0}` permissions."
 			},
 			"permRemoved": {
@@ -90,7 +90,7 @@
 				"value": "The role no longer has the `{0}` permissions."
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"hoistTrue": {
 				"name": "Hoist Updated",
@@ -110,30 +110,30 @@
 			}
 		},
 		"messageDelete": {
-			"title": "Mensagem Excluída",
+			"title": "Message Deleted",
 			"description": "A message by {0} has been deleted in {1}.",
 			"content": {
-				"name": "Conteúdo"
+				"name": "Content"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
 			}
 		},
 		"messageUpdate": {
-			"title": "Mensagem Atualizada",
+			"title": "Message Updated",
 			"description": "A message by {0} has been updated in {1}.",
 			"oldContent": {
-				"name": "Antes"
+				"name": "Before"
 			},
 			"newContent": {
-				"name": "Depois"
+				"name": "After"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Membro Saiu",
+			"title": "Member Left",
 			"description": "{0} has left the server."
 		},
 		"channelCreate": {
@@ -143,7 +143,7 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"channelDelete": {
@@ -153,14 +153,14 @@
 				"name": "Category"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			}
 		},
 		"guildBanAdd": {
 			"title": "Member Banned",
 			"description": "{0} has been banned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
@@ -170,7 +170,7 @@
 			"title": "Member Unbanned",
 			"description": "{0} has been unbanned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"reason": {
 				"name": "Reason"
@@ -180,10 +180,10 @@
 			"title": "Member Muted",
 			"description": "{0} has been muted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "Duração"
 			},
 			"reason": {
 				"name": "Reason"
@@ -194,7 +194,7 @@
 			"title": "Member Unmuted",
 			"description": "{0} has been unmuted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderador"
 			},
 			"unmuteReason": {
 				"name": "Reason"
@@ -231,20 +231,20 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "Duração",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Adicionado por",
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Autor",
+			"name": "Author",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
 		"ttp": {
-			"name": "Time Until Playing",
+			"name": "Tempo até tocar",
 			"value": "{0}"
 		},
 		"inQueue": {
