@@ -165,7 +165,7 @@ module.exports = class Atlas {
 
 			delete require.cache[require.resolve(`./src/events/${e}`)];
 
-			console.log(`Loaded event handler :"${e}"`);
+			console.log(`Loaded event handler: "${e}"`);
 		});
 
 		console.log(`Loaded ${events.length} events`);

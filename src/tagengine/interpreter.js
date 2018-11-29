@@ -51,7 +51,7 @@ const interp = async (tokens, info, functions) => {
 					if (e instanceof TagError) {
 						errors.push(e);
 					} else {
-						errors.push(new TagError(e.message));
+						errors.push(new TagError(e));
 					}
 
 					output.push(`{${thisToken.value}-ERROR${errors.length}}`);

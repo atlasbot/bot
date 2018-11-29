@@ -32,8 +32,7 @@ module.exports = class TagEval extends Command {
 					name: 'Output',
 					value: output.substring(0, 1024).replace(/ERROR[0-9]+/g, match => `**${match}**`).trim() || 'No output :c',
 				}],
-				description: ret.errors
-					.map((e, i) => `${i + 1}. ${e.message}`).join('\n').substring(0, 2048),
+				description: ret.errors.map((e, i) => `${i + 1}. ${e.message}`).join('\n').substring(0, 2048),
 			}).send();
 		}
 
