@@ -1,4 +1,7 @@
 {
+	"vaporwave": {
+		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+	},
 	"autoplay": {
 		"enabled": "Döngü etkinleştirildi",
 		"disabled": "Döngü devre dışı bırakıldı."
