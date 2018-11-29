@@ -24,7 +24,7 @@ module.exports = class VaporWave extends Command {
 			text = text.split(char).join(wide[i]);
 		}
 
-		return responder.text(text).send();
+		return responder.localised(true).text(text).send();
 	}
 };
 
