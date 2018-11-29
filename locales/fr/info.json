@@ -1,4 +1,8 @@
 {
+	"vaporwave": {
+		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"usage": "[text]"
+	},
 	"channelspaces": {
 		"description": "Remplace les tirets dans les noms de canaux par de faux espaces ! Sérieusement, il s'agit plutôt d'un hack et peut être corrigé à tout moment.",
 		"usage": "<channel>"
