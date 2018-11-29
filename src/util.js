@@ -400,21 +400,24 @@ module.exports = class Util {
     * Get a webhook for the guild
     * @param {Object|string} c the channel to get the webhook for
     * @param {string} reason The reason to show in the modlog for the webhook
-    * @param {boolean} fromCache whether or not to use the webhook cache
+    * @param {boolean} clearHookCache whether or not to use the webhook cache
     * @returns {Promise} the webhook
     * @memberof Guild
     */
-	async getWebhook(c, reason, fromCache = true) {
+	async getWebhook(c, reason, clearHookCache = false) {
 		const channelID = c.id || c;
 
-		if (fromCache) {
-			const existing = await webhookCache.get(channelID);
-			if (existing) {
+		const existing = await webhookCache.get(channelID);
+		if (existing) {
+			if (clearHookCache) {
+				await webhookCache.del(channelID);
+			} else {
 				return existing;
 			}
 		}
 
 		const channel = this.Atlas.client.getChannel(channelID);
+
 		if (channel && !channel.permissionsOf(this.Atlas.client.user.id).has('manageWebhooks')) {
 			throw new Error('No permissions to manage webhooks.');
 		}

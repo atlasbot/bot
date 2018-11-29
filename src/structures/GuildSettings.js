@@ -82,7 +82,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get actionLogChannel() {
-		return this.guild.channels.get(this.settings.plugins.moderation.logs.action);
+		return this.guild.channels.get(this.plugin('moderation').logs.action);
 	}
 
 	/**
@@ -91,7 +91,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get modLogChannel() {
-		return this.guild.channels.get(this.settings.plugins.moderation.logs.mod);
+		return this.guild.channels.get(this.plugin('moderation').logs.mod);
 	}
 
 	/**
@@ -100,7 +100,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get errorLogChannel() {
-		return this.guild.channels.get(this.settings.plugins.moderation.logs.error);
+		return this.guild.channels.get(this.plugin('moderation').logs.error);
 	}
 
 	filter(name) {
@@ -319,31 +319,19 @@ module.exports = class GuildSettings {
     * Logs a message into the appropriate channel in the guild if enabled
     * @param {string|array} type The type of log it is, "action", "error" or "mod"
     * @param {Object} embed the embed to send to the channel
+		* @param {boolean} retry If a previous log failed, this will force the bot to fetch new webhooks
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
     */
-	async log(type, embed) {
+	async log(type, embed, retry = false) {
 		if (Array.isArray(type)) {
 			return type.forEach(t => this.log(t, embed));
 		}
 
-		let channel;
-		switch (type) {
-			case 'action':
-				channel = this.actionLogChannel;
-				break;
-			case 'error':
-				channel = this.errorLogChannel;
-				break;
-			case 'mod':
-				channel = this.modLogChannel;
-				break;
-			default:
-				throw new Error(`Unknown type "${type}"`);
-		}
+		const channel = this[`${type}LogChannel`];
 
 		if (channel) {
 			try {
-				const webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging');
+				const webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
 
 				// using & abusing the responder to format the embed(s)
 				const responder = new this.Atlas.structs.Responder(null, this.lang);
@@ -361,11 +349,23 @@ module.exports = class GuildSettings {
 					throw new Error('Maximum of 25 embeds allowed.');
 				}
 
-				return this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
-					username: this.guild.me.nick || this.guild.me.username,
-					avatarURL: this.Atlas.avatar,
-					embeds,
-				});
+				try {
+					return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
+						username: this.guild.me.nick || this.guild.me.username,
+						avatarURL: this.Atlas.avatar,
+						embeds,
+					});
+				} catch (e) {
+					if (!retry) {
+						if (e.code === 10015) {
+							console.log('unknown webhook');
+
+							return this.log(type, embed, true);
+						}
+					}
+
+					throw e;
+				}
 			} catch (e) {
 				console.warn(e);
 			}

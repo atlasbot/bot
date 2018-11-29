@@ -20,11 +20,14 @@ module.exports = class Mute extends Command {
 		if (!settings.muteRole) {
 			// try create a mute role
 			role = msg.guild.roles.find(r => r.name.toLowerCase().includes('muted'));
+
 			if (!role) {
 				if (!msg.guild.me.permission.json.manageChannels) {
 					return responder.error('mute.generatePermError').send();
 				}
+
 				generated = true;
+
 				role = await msg.guild.createRole({
 					name: 'Muted',
 					color: 6316128,
