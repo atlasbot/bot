@@ -1,4 +1,7 @@
 {
+	"nodes": {
+		"description": "Gets information/statuses about available voice nodes."
+	},
 	"vaporwave": {
 		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
 		"usage": "[text]"

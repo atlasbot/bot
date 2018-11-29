@@ -1,4 +1,11 @@
 {
+	"nodes": {
+		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
+		"node": "Node",
+		"players": "Players",
+		"events": "Events",
+		"footer": "Atlas' Voice Nodes"
+	},
 	"vaporwave": {
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
