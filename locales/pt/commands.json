@@ -14,11 +14,11 @@
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"success": "Banned {0}."
+		"success": "{0} banido."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
+		"noArgs": "Por favor, coloque um usuário para banir!",
+		"success": "{0} banido.",
 		"withReason": "Banned {0} for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
@@ -360,7 +360,7 @@
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
 		"author": {
-			"name": "Author"
+			"name": "Autor"
 		},
 		"votes": "{0} upvotes, {1} downvotes"
 	},
@@ -424,7 +424,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Bots"
+		"bots": "Robôs"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -522,10 +522,10 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Created"
+		"footer": "Criado"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
+		"noArgs": "Por favor, inclua uma URL.",
 		"invalidURI": "`{0}` is not a valid URL."
 	},
 	"time": {
