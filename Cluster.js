@@ -3,6 +3,8 @@ const { Manager } = require('./src/sharding');
 
 if (!process.env.TOKEN) {
 	require('dotenv').config();
+} else {
+	console.warn('"token" environment variable already set - not loading .env file.');
 }
 
 new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new

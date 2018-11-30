@@ -14,17 +14,22 @@ services:
       - lavalink
       - mongo
     environment:
-      - LAVALINK_NODES=[{"host":"lavalink","port":80,"restPort":2333,"region":"us","password":"youshallnotpass"}]
+      - LAVALINK_NODES=[{"host":"lavalink","port":80,"region":"us","password":"youshallnotpass"}]
       - REDIS_HOST=redis
       - MONGO_URI=mongodb://mongo:27017/antares
   lavalink:
     image: fredboat/lavalink:v3
     env_file:
       - lavalink.env
+    ports:
+      - 80:80
+      - 2333:2333
   redis:
     image: "redis"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
   mongo:
     image: mongo:latest
     env_file:
