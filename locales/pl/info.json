@@ -17,7 +17,7 @@
 		"description": "Shuffles the player queue."
 	},
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
+		"description": "Changes what tongue Atlas uses in yore server.",
 		"usage": "[language]"
 	},
 	"time": {
@@ -88,7 +88,7 @@
 		"usage": "[options]"
 	},
 	"discrim": {
-		"description": "Gets users with a discriminator that matches yours.",
+		"description": "Gets users wit' a discriminator that matches yores.",
 		"usage": "<discriminator>"
 	},
 	"avatar": {
@@ -105,14 +105,14 @@
 		}
 	},
 	"trump": {
-		"description": "Gets something stupid Donald Trump has said."
+		"description": "Gets somethin' stupid the Bilge Rat has said."
 	},
 	"urban": {
-		"description": "Gets the definition for a word.",
+		"description": "Gets the meanin' fer' a word.",
 		"usage": "[search]"
 	},
 	"randomurban": {
-		"description": "Gets a random definition from Urban Dictionary."
+		"description": "Gets a random meanin' from Urban Dictionary."
 	},
 	"starterpack": {
 		"description": "Gets a random starterpack."
@@ -240,7 +240,7 @@
 		"usage": "[text]"
 	},
 	"mute": {
-		"description": "Stops a user sending messages while they're muted.",
+		"description": "Shuts a lad up while they're muted.",
 		"usage": "[user] <duration> | <reason>"
 	},
 	"unmute": {
