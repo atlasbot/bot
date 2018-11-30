@@ -10,52 +10,52 @@
 		"noArgs": ""
 	},
 	"autoplay": {
-		"enabled": "",
-		"disabled": ""
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "",
-		"success": ""
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
-		"notAMovie": "Isso não é um filme! Tenta `{0}show {1}`."
+		"notAMovie": ""
 	},
 	"series": {
-		"notASeries": "Isso não é um programa de TV! Tenta `{0}movie {1}`."
+		"notASeries": ""
 	},
 	"funban": {
-		"success": "Banido {0}."
+		"success": "{0} banido."
 	},
 	"ban": {
-		"noArgs": "Inclua um usuário para banir!",
-		"success": "Banido {0}.",
-		"withReason": "Baniste {0} por `{1}`.",
-		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
-		"tooLate": "{0} já foi banido.",
+		"noArgs": "Por favor, coloque um usuário para banir!",
+		"success": "{0} banido.",
+		"withReason": "",
+		"tooLateReason": "",
+		"tooLate": "",
 		"feelsGoodMan": {
 			"reason": "",
 			"noReason": ""
 		}
 	},
 	"remindme": {
-		"invalid": "Essa data não é válida.",
-		"setForPast": "Dê-me uma data que seja no futuro.",
-		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
-		"youGotIt": "Entendido, irei te relembrar em {0}.",
-		"relative": " Além disso, no futuro devias usar tempos relativos, como `em 1 hora` ou `em 2 dias` em vez de um tempo específico como `às 5 da tarde de hoje` ou `21/08/2018` por causa de fusos horários que não consigo resolver"
+		"invalid": "",
+		"setForPast": "",
+		"furtherPls": "",
+		"youGotIt": "",
+		"relative": ""
 	},
 	"ping": {
-		"start": "<a:typing:426097044625686528> {0}",
-		"server": "Tenho uma latência de `{0}ms` para este servidor.",
-		"dm": "Tenho uma latência de `{0}ms` para esta dm.",
+		"start": "",
+		"server": "",
+		"dm": "",
 		"randoms": [
-			"Tenho fome...",
-			"Empurrando carvão para dentro do servidor...",
-			"Em minha defesa, isto ainda é mais rápido do que o que tu conseguirias fazer...",
-			"À espera que as estrelas se alinhem...",
-			"Vai, segura a tua respiração...",
-			"Aprecia a música de elevador...",
-			"Olá, o meu nome é Atlas, o que gostarias hoje, senhor?...",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
 			"",
 			"",
 			"",
@@ -66,14 +66,14 @@
 			""
 		]
 	},
-	"donate": "Ajuda o Atlas e obtém vantagens fantásticas por doar em <https://www.patreon.com/NotSylver>.",
-	"invite": "Podes ter o Atlas no teu servidor em <https://atlasbot.xyz/get>.",
+	"donate": "",
+	"invite": "",
 	"help": {
-		"title": "Precisas de ajuda?",
-		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
+		"title": "",
+		"description": ""
 	},
 	"info": {
-		"title": "Atlas",
+		"title": "",
 		"description": "",
 		"support": {
 			"name": "",
@@ -223,8 +223,8 @@
 		"generatePermError": "",
 		"alreadyMuted": "",
 		"invalid": "",
-		"setForPast": "Dê-me uma data que seja no futuro.",
-		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
+		"setForPast": "",
+		"furtherPls": "",
 		"tooHigh": ""
 	},
 	"unmute": {
@@ -370,7 +370,7 @@
 		"nsfwDef": "",
 		"nsfwWord": "",
 		"author": {
-			"name": ""
+			"name": "Autor"
 		},
 		"votes": ""
 	},
@@ -429,12 +429,12 @@
 		"message": ""
 	},
 	"membercount": {
-		"total": "",
-		"online": "",
+		"total": "Total",
+		"online": "Online",
 		"idle": "",
 		"dnd": "",
-		"offline": "",
-		"bots": ""
+		"offline": "Offline",
+		"bots": "Robôs"
 	},
 	"minecraft": {
 		"noArgs": "",
@@ -451,8 +451,8 @@
 		},
 		"lastChecked": "",
 		"status": "",
-		"online": "",
-		"offline": ""
+		"online": "Online",
+		"offline": "Offline"
 	},
 	"quote": {
 		"noArgs": "",
@@ -518,7 +518,7 @@
 			"name": ""
 		},
 		"verificationLevel": {
-			"name": ""
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": ""
@@ -532,10 +532,10 @@
 		"owner": {
 			"name": ""
 		},
-		"footer": ""
+		"footer": "Criado"
 	},
 	"shorten": {
-		"noArgs": "",
+		"noArgs": "Por favor, inclua uma URL.",
 		"invalidURI": ""
 	},
 	"time": {
