@@ -17,7 +17,7 @@
 		"description": "Mélange la file d'attente."
 	},
 	"locale": {
-		"description": "Changes what tongue Atlas uses in yore server.",
+		"description": "Changes what language Atlas uses in your server.",
 		"usage": "[language]"
 	},
 	"time": {
@@ -88,7 +88,7 @@
 		"usage": "[options]"
 	},
 	"discrim": {
-		"description": "Gets users wit' a discriminator that matches yores.",
+		"description": "Gets users with a discriminator that matches yours.",
 		"usage": "<discriminator>"
 	},
 	"avatar": {
@@ -105,14 +105,14 @@
 		}
 	},
 	"trump": {
-		"description": "Gets somethin' stupid the Bilge Rat has said."
+		"description": "Gets something stupid Donald Trump has said."
 	},
 	"urban": {
-		"description": "Gets the meanin' fer' a word.",
+		"description": "Gets the definition for a word.",
 		"usage": "[search]"
 	},
 	"randomurban": {
-		"description": "Gets a random meanin' from Urban Dictionary."
+		"description": "Gets a random definition from Urban Dictionary."
 	},
 	"starterpack": {
 		"description": "Générer un pack de démarrage aléatoire."
@@ -240,7 +240,7 @@
 		"usage": "[text]"
 	},
 	"mute": {
-		"description": "Shuts a lad up while they're muted.",
+		"description": "Stops a user sending messages while they're muted.",
 		"usage": "[user] <duration> | <reason>"
 	},
 	"unmute": {
