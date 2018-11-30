@@ -51,12 +51,18 @@ module.exports = class Util {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
 
-		const locale = this.Atlas.locales.get(identifier);
+		const locale = {
+			...this.Atlas.locales.get(process.env.DEFAULT_LANG).data,
+			...this.Atlas.locales.get(identifier).data,
+		};
 
-		// utils has a getNested util but it's 3am and idk why i have to explain myself to you
-		const val = this.getNested(locale, options.key, options.stringOnly) || this.getNested(locale, `commands.${options.key}`, options.stringOnly);
+		const val = locale[options.key] || locale[`commands.${options.key}`];
 
 		if (!val) {
+			return;
+		}
+
+		if (options.stringOnly && typeof val !== 'string') {
 			return;
 		}
 

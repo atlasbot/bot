@@ -10,11 +10,9 @@ module.exports = class Ping extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		// todo: why is this doing this weird shit
-		const locale = { ...this.Atlas.locales.get(process.env.DEFAULT_LANG), ...this.Atlas.locales.get(msg.lang) };
+		const valid = this.Atlas.util.format(msg.lang, 'commands.ping.randoms');
 
-		const valid = locale.commands.ping.randoms;
-		const rand = locale.commands.ping.randoms[Math.floor(Math.random() * valid.length)];
+		const rand = valid[Math.floor(Math.random() * valid.length)];
 
 		const botMsg = await responder.text('ping.start', rand).noDupe(true).send();
 

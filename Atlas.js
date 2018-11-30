@@ -216,24 +216,31 @@ module.exports = class Atlas {
 
 		const english = await this.loadLocale('en');
 
+		this.locales.set('en', {
+			data: english,
+			code: 'en',
+			translated: 1,
+			total: 2,
+		});
+
 		for (const locale of locales.filter(l => l !== 'en')) {
-			const flat = this.loadLocale(locale);
+			const flat = await this.loadLocale(locale);
 
 			const keys = Object.keys(flat);
-			let translated = keys.length;
+			const total = keys.length;
 
-			console.log(translated);
-
-			keys.forEach((key) => {
-				if (english[key] === flat[key]) {
-					translated--;
+			let translated = 0;
+			keys.forEach((k) => {
+				if (english[k] !== flat[k]) {
+					translated++;
 				}
 			});
 
-			console.log(locale, translated);
-
 			this.locales.set(locale, {
 				data: flat,
+				total,
+				translated,
+				code: locale,
 			});
 		}
 	}
@@ -251,6 +258,8 @@ module.exports = class Atlas {
 				data[f.split('.').shift()] = require(`./locales/${filename}/${f}`);
 			});
 
-		return flatten(data);
+		return flatten(data, {
+			safe: true,
+		});
 	}
 };

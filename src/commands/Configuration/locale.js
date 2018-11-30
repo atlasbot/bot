@@ -1,11 +1,10 @@
-const superagent = require('superagent');
-const emoji = require('../../../lib/emoji');
+const emutil = require('../../../lib/emoji');
 const Command = require('../../structures/Command.js');
+const languageCodes = require('../../../lib/languageCodes.json');
 
-const emojis = Object.entries(emoji).map(([name, data]) => ({
-	name,
-	...data,
-})).filter(e => e.category === 'flags');
+const overrides = {
+	en: 'uk',
+};
 
 module.exports = class Locale extends Command {
 	constructor(Atlas) {
@@ -17,33 +16,27 @@ module.exports = class Locale extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg, null, 'locale');
 
-		// fetching it from here so we can also get the names of languages
-		const { body } = await superagent.post(`https://api.crowdin.com/api/project/${process.env.CROWDIN_PROJECT}/status`)
-			.query({
-				key: process.env.CROWDIN_KEY,
-				json: true,
-			});
-
-		console.log(body.length);
-
-		const supported = [...body.filter(l => this.Atlas.locales.has(l.code)), {
-			name: 'English',
-			code: 'gb',
-		}];
+		const locales = Array.from(this.Atlas.locales.values()).map(l => ({
+			...l,
+			name: languageCodes[l.code],
+		}));
 
 		if (!args.length) {
-			const formatted = supported.map(({ name, code, translated_progress: translated }) => {
-				const key = code.split('-').pop().toLowerCase();
+			const formatted = locales.map(({ code, translated, total, name }) => {
+				if (overrides[code]) {
+					code = overrides[code];
+				}
 
-				const keys = [`flag_${key}`, key, name];
-				const e = emojis.find(x => keys.includes(x.name) || x.keywords.some(k => keys.includes(k)));
+				const emoji = [`flag_${code}`, code, name].map(e => emutil.get(e.toLowerCase())).find(e => e && e.category === 'flags');
 
-				if (e) {
-					name = `${e.char} ${name}`;
+				if (emoji) {
+					name = `${emoji.char} ${name}`;
 				}
 
 				if (translated != undefined) { // eslint-disable-line eqeqeq
-					name = `${name} • [${translated}% translated](https://translate.atlasbot.xyz/project/getatlas/${code})`;
+					const percent = (translated / total) * 100;
+
+					name += ` ${percent}%`;
 				}
 
 				return name;
@@ -72,8 +65,8 @@ module.exports = class Locale extends Command {
 			}).send();
 		}
 
-		const language = (new this.Atlas.lib.structs.Fuzzy(supported, {
-			keys: ['name', 'locale'],
+		const language = (new this.Atlas.lib.structs.Fuzzy(locales, {
+			keys: ['name', 'code'],
 		})).search(args.join(' '));
 
 		if (!language) {
