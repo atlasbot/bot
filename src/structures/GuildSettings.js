@@ -358,8 +358,6 @@ module.exports = class GuildSettings {
 				} catch (e) {
 					if (!retry) {
 						if (e.code === 10015) {
-							console.log('unknown webhook');
-
 							return this.log(type, embed, true);
 						}
 					}
