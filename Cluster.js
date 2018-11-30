@@ -1,7 +1,9 @@
 const path = require('path');
 const { Manager } = require('./src/sharding');
 
-require('dotenv').config();
+if (!process.env.TOKEN) {
+	require('dotenv').config();
+}
 
 new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new
 	guildsPerShard: 1500,

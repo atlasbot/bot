@@ -195,14 +195,7 @@ module.exports = class Atlas {
 		}
 
 		// setup the player
-		this.client.voiceConnections = new PlayerManager(this.client, [
-			{
-				region: 'us',
-				host: process.env.LAVALINK_HOST,
-				password: process.env.LAVALINK_PASS,
-				port: Number(process.env.LAVALINK_PORT),
-			},
-		], {
+		this.client.voiceConnections = new PlayerManager(this.client, JSON.parse(process.env.LAVALINK_NODES), {
 			numShards: this.client.options.maxShards,
 			userId: this.client.user.id,
 			defaultRegion: 'us',
