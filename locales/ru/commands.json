@@ -18,27 +18,27 @@
 		"success": "Shuffled `{0}` queue items."
 	},
 	"movie": {
-		"notAMovie": "That there ain't a movie! Ye' should try `{0}show {1}` instead."
+		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
 	},
 	"series": {
-		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead."
+		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"success": "Sent {0} to Davy Jones' Locker."
+		"success": "Banned {0}."
 	},
 	"ban": {
-		"noArgs": "Ye' needa include a sea-slug to send to Davy Jones' Locker!",
-		"success": "Sent {0} to Davy Jones' Locker.",
-		"withReason": "Sent {0} to Davy Jones' Locker fer' `{1}`.",
-		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
-		"tooLate": "{0} has already been sent to Davy Jones' Locker.",
+		"noArgs": "Please include a user to ban!",
+		"success": "Banned {0}.",
+		"withReason": "Banned {0} for `{1}`.",
+		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
+		"tooLate": "{0} has already been banned.",
 		"feelsGoodMan": {
 			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
 			"noReason": "You have been banned from {0} by {1} ({2})."
 		}
 	},
 	"remindme": {
-		"invalid": "That ain't a valid date.",
+		"invalid": "That is not a valid date.",
 		"setForPast": "Please give me a date that is in the future.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"youGotIt": "You got it, I'll remind you in {0}.",
@@ -46,30 +46,30 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I've a `{0}ms` delay to this 'ere server.",
-		"dm": "I've a `{0}ms` delay to this 'ere DM.",
+		"server": "I have a `{0}ms` delay to this server.",
+		"dm": "I have a `{0}ms` delay to this dm.",
 		"randoms": [
-			"Hoistin' the topsails...",
-			"Gatherin' all hands on deck...",
-			"Haulin' the pennant line...",
-			"Slackin' the windward brace...",
-			"Steadyin' the cargo...",
-			"Readyin' the cannons...",
-			"Wakin' the cap'n...",
-			"Dumpin' the cargo overboard...",
-			"Preparin' the riggin'...",
-			"Unfurlin' the sails...",
-			"Waitin' fer the seas to calm...",
-			"Takin' control of the helm...",
-			"Requestin' a parley...",
-			"Battlin' the high seas...",
-			"Weighin' the anchor..."
+			"I'm hungry...",
+			"Shovelling coal into the server...",
+			"In my defense, this is still faster than you could do it...",
+			"Waiting for the stars to align...",
+			"Go ahead, hold your breath...",
+			"Enjoy the elevator music...",
+			"Hello my name is Atlas what would you like today Sir?...",
+			"You were expecting something mildly entertaining, but no...",
+			"Error: out of patience...",
+			"Are we there yet?...",
+			"Please insert quarter...",
+			"Hang on a sec, it's here somewhere...",
+			"Have you lost weight?...",
+			"brb, one sec...",
+			"Spinning up the hamster..."
 		]
 	},
-	"donate": "Bribe the portmaster and get some trinkets in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "Ye' can get Atlas fer' yore own server at <https://atlasbot.xyz/get>.",
+	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some 'elp?",
+		"title": "Need some help?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
@@ -77,16 +77,16 @@
 		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
 		"support": {
 			"name": "Support",
-			"value": "[Cick 'ere](https://atlasbot.xyz/support)"
+			"value": "[Cick here](https://atlasbot.xyz/support)"
 		},
 		"website": {
 			"name": "Website",
-			"value": "[Click 'ere](https://atlasbot.xyz/)"
+			"value": "[Click here](https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I've been online fer' {0}.",
+	"uptime": "I have been online for {0}.",
 	"whois": {
-		"noUser": "You've gotta tell me whom to look up!",
+		"noUser": "You have to tell me who to look up!",
 		"embed": {
 			"tag": {
 				"name": "Tag",
@@ -94,7 +94,7 @@
 			},
 			"avatarURL": {
 				"name": "Avatar URL",
-				"value": "[Click 'ere]({0})"
+				"value": "[Click here]({0})"
 			},
 			"createdAt": {
 				"name": "Account Created",
@@ -125,11 +125,11 @@
 			}
 		}
 	},
-	"support": "Need 'elp? Join our crew at <https://atlasbot.xyz/support>.",
+	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
 	"play": {
 		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You mus' be inna voice channel to do that!",
+		"noVoiceChannel": "You have to be in a voice channel to do that!",
 		"busy": "I'm already playing in `{0}`.",
 		"noArgs": "You have to include a search term or song URL!",
 		"playlistEmbed": {
@@ -158,7 +158,7 @@
 	},
 	"qplaylist": {
 		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You mus' be inna voice channel to do that!",
+		"noVoiceChannel": "You have to be in a voice channel to do that!",
 		"invalidHostname": "You must enter a valid playlist URL!",
 		"youtubeOnly": "This command only works with YouTube playlists.",
 		"noQueryParam": "That link isn't apart of a playlist. "
@@ -171,11 +171,11 @@
 				"plural": "Added warning to {0}, they now have {1} warnings.",
 				"singular": "Added warning to {0}, they now have {1} warning."
 			},
-			"tooLong": "Ye' blabber-mouth! The reason ye' provided is too long, it mus' be at most 256 characters long."
+			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
 		},
 		"view": {
-			"noArgs": "Ye' mus' include a sea-slug's name!",
-			"noPerms": "Ye' only have permissions to view yore own warnings!",
+			"noArgs": "Please include a user!",
+			"noPerms": "You only have permissions to view your own warnings!",
 			"noWarns": "{0} does not have any warnings."
 		},
 		"remove": {
@@ -213,7 +213,7 @@
 		]
 	},
 	"unban": {
-		"noArgs": "Ye' mus' include a soul to bring back from Davy Jones' Locker!",
+		"noArgs": "Please include a user to unban!",
 		"success": "{0} has been unbanned."
 	},
 	"mute": {
@@ -372,11 +372,11 @@
 		"author": {
 			"name": "Author"
 		},
-		"votes": "{0} popular votes, {1} unpopular votes"
+		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "There innit a lad matching `{0}`.",
+			"cannotFind": "I could not find a user matching `{0}`.",
 			"title": "Here you go!"
 		},
 		"server": {
@@ -388,13 +388,13 @@
 		"error": "Error validating embed: `{0}`."
 	},
 	"discrim": {
-		"title": "Lads with a #{0} Discriminator",
+		"title": "Users with a #{0} Discriminator",
 		"invalid": "`{0}` is not a valid discriminator.",
 		"none": "There are no users in this server with that discriminator."
 	},
 	"google": {
-		"noArgs": "Ye' mus' include something to search fer'.",
-		"noResults": "I couldn't find anythin' when lookin' fer' that."
+		"noArgs": "Please include something to search for.",
+		"noResults": "I couldn't find anything when searching for that."
 	},
 	"inrole": {
 		"noArgs": "You have to provide a role name/mention to lookup.",
@@ -425,7 +425,7 @@
 	},
 	"joined": {
 		"noArgs": "Please include a user to check.",
-		"noUser": "There innit a lad matching `{0}`.",
+		"noUser": "I could not find a user matching `{0}`.",
 		"message": "{0} joined {1} at {2}."
 	},
 	"membercount": {
@@ -474,7 +474,7 @@
 		"memberOrGuild": "{0}'s ID is `{1}`."
 	},
 	"roleinfo": {
-		"noArgs": "Ye' mus' include a role.",
+		"noArgs": "Please include a role.",
 		"invalidRole": "I could not find a role matching `{0}`.",
 		"id": {
 			"name": "ID"
@@ -505,7 +505,7 @@
 		"footer": "Created At"
 	},
 	"say": {
-		"noArgs": "Ye' have to include something fer' me to say."
+		"noArgs": "You have to include something for me to say."
 	},
 	"serverinfo": {
 		"name": {
@@ -535,19 +535,19 @@
 		"footer": "Created"
 	},
 	"shorten": {
-		"noArgs": "Ye' mus' include a URL.",
-		"invalidURI": "`{0}` ain't a valid URL."
+		"noArgs": "Please include a URL.",
+		"invalidURI": "`{0}` is not a valid URL."
 	},
 	"time": {
-		"noArgs": "Ye' mus' include a spot on the map to get the time fer'.",
-		"noTimezone": "I could not find a port by the name of `{0}`.",
-		"success": "'Tis currently {0} in {1}."
+		"noArgs": "Please include a location to get the time for.",
+		"noTimezone": "I could not find a town or city matching `{0}`.",
+		"success": "It is currently {0} in {1}."
 	},
 	"locale": {
-		"success": "The servers tongue has been set to {0}.",
-		"notFound": "There innit a locale matching `{0}`.",
-		"title": "Supported Tongues",
-		"description": "To change this 'ere server's locale, ye' mus' do `{0}locale <name>`. Ye' can find a list of names below. Some tongues may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages ['ere](https://translate.atlasbot.xyz).\n\n{1}"
+		"success": "The servers language has been set to {0}.",
+		"notFound": "I could not find a locale matching `{0}` :c",
+		"title": "Supported Languages",
+		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
 	},
 	"wiki": {
 		"noArgs": "You have to include a search term!",
