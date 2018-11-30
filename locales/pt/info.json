@@ -1,0 +1,395 @@
+{
+	"nodes": {
+		"description": ""
+	},
+	"vaporwave": {
+		"description": "",
+		"usage": "[text]"
+	},
+	"channelspaces": {
+		"description": "",
+		"usage": "<canal>"
+	},
+	"autoplay": {
+		"description": ""
+	},
+	"shuffle": {
+		"description": ""
+	},
+	"locale": {
+		"description": "Muda a linguagem que Atlas irá usar no seu servidor.",
+		"usage": ""
+	},
+	"time": {
+		"description": "Obtém a hora para um fuso horário.",
+		"usage": "[location]"
+	},
+	"shorten": {
+		"description": "Encurta uma URL via is.gd.",
+		"usage": "[url]"
+	},
+	"serverinfo": {
+		"description": "Obtém informações sobre o servidor."
+	},
+	"say": {
+		"description": "Faz Atlas dizer o que você quiser.",
+		"usage": "[text]"
+	},
+	"roleinfo": {
+		"description": "Obtém informações sobre um grupo do servidor.",
+		"usage": "[role]"
+	},
+	"id": {
+		"description": "Obtém o ID de um canal, grupo, usuário, servidor, etc...",
+		"usage": "[channel/role/user/\"guild\"]"
+	},
+	"reddit": {
+		"description": "Obtém informações sobre um subreddit.",
+		"usage": "[subreddit]"
+	},
+	"someone": {
+		"description": "Menciona um usuário aleatório."
+	},
+	"randomcolor": {
+		"description": "Gera uma cor aleatória."
+	},
+	"quote": {
+		"description": "Cite uma mensagem de um usuário.",
+		"usage": "[message id / message share link]"
+	},
+	"minecraft": {
+		"description": "Verifica o status de um servidor de Minecraft.",
+		"usage": "[server ip]"
+	},
+	"memberCount": {
+		"description": "Mostra informações sobre a contagem de membros do servidor."
+	},
+	"joined": {
+		"description": "Descobre quando um usuário entrou no servidor."
+	},
+	"inviteinfo": {
+		"description": "Obtém informações sobre um convite.",
+		"usage": "[invite code/link>]"
+	},
+	"inrole": {
+		"description": "Lista usuários em um grupo.",
+		"usage": "[role]"
+	},
+	"google": {
+		"description": "Pesquisa coisas no Google.",
+		"usage": "[search]"
+	},
+	"embed": {
+		"description": "Incorpora uma mensagem. Você pode usar o \"advancedembed\" para mais opções.",
+		"usage": "[text]"
+	},
+	"advancedembed": {
+		"description": "Incorpora uma mensagem com opções avançadas.",
+		"usage": "[options]"
+	},
+	"discrim": {
+		"description": "Obtém uma lista de usuários com um discriminador que coincide com o seu.",
+		"usage": "<discriminator>"
+	},
+	"avatar": {
+		"base": {
+			"description": "Obtém o avatar do (servidor)/(usuário).",
+			"usage": "<mention>"
+		},
+		"user": {
+			"description": "Obtém o avatar de um usuário.",
+			"usage": "<mention>"
+		},
+		"server": {
+			"description": "Obtém o avatar do servidor."
+		}
+	},
+	"trump": {
+		"description": "Obtém algo estúpido que Donald Trump falou."
+	},
+	"urban": {
+		"description": "Obtém a definição de uma palavra.",
+		"usage": "[search]"
+	},
+	"randomurban": {
+		"description": "Obtém uma definição aleatória do Urban Dictionary."
+	},
+	"starterpack": {
+		"description": "Obtém um starterpack aleatório."
+	},
+	"genavatar": {
+		"description": "Gera um avatar aleatório."
+	},
+	"gotcharacter": {
+		"description": "Obtém informações sobre um personagem de Game of Thrones. Execute sem args para obter um personagem aleatório.",
+		"usage": "<character name>"
+	},
+	"gothouse": {
+		"description": "Obtém informações sobre uma casa de Game of Thrones. Execute sem args para obter uma casa aleatória.",
+		"usage": "<house name>"
+	},
+	"kick": {
+		"usage": "[user] <reason>",
+		"description": "Remove um membro do servidor."
+	},
+	"filters": {
+		"base": {
+			"usage": "<subcommand>",
+			"description": "Controla filtros do chat."
+		},
+		"action": {
+			"usage": "[filtro] <nome da ação>",
+			"description": "Usado para habilitar ou desabilitar filtros e mudar suas ações."
+		},
+		"list": {
+			"description": "Lista filtros e suas configurações atuais."
+		}
+	},
+	"log": {
+		"base": {
+			"description": "Controla onde determinadas mensagens são registradas em seu servidor.",
+			"usage": "<subcommand>"
+		},
+		"actions": {
+			"description": "Define onde os registros de ação são registrados. Execute com nenhum args para resetar.",
+			"usage": "<canal>"
+		}
+	},
+	"purge": {
+		"base": {
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
+		},
+		"any": {
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
+		},
+		"endswith": {
+			"usage": "",
+			"description": ""
+		},
+		"files": {
+			"usage": "<quantidade>",
+			"description": ""
+		},
+		"images": {
+			"usage": "<quantidade>",
+			"description": ""
+		},
+		"invites": {
+			"usage": "<quantidade>",
+			"description": ""
+		},
+		"links": {
+			"usage": "<quantidade>",
+			"description": ""
+		},
+		"includes": {
+			"usage": "",
+			"description": ""
+		},
+		"not": {
+			"usage": "",
+			"description": ""
+		},
+		"startswith": {
+			"usage": "",
+			"description": ""
+		},
+		"user": {
+			"usage": "",
+			"description": ""
+		}
+	},
+	"slowmode": {
+		"usage": "",
+		"description": ""
+	},
+	"coinflip": {
+		"description": ""
+	},
+	"dadjoke": {
+		"description": ""
+	},
+	"move": {
+		"description": "",
+		"usage": ""
+	},
+	"achievement": {
+		"description": ""
+	},
+	"wouldyourather": {
+		"description": ""
+	},
+	"botinfo": {
+		"description": "",
+		"usage": ""
+	},
+	"xkcd": {
+		"description": ""
+	},
+	"leave": {
+		"description": ""
+	},
+	"unban": {
+		"description": "",
+		"usage": "[user] <reason>"
+	},
+	"emojify": {
+		"description": "",
+		"usage": "[text]"
+	},
+	"mute": {
+		"description": "",
+		"usage": ""
+	},
+	"unmute": {
+		"description": "",
+		"usage": "[user] <reason>"
+	},
+	"movie": {
+		"description": "",
+		"usage": ""
+	},
+	"next": {
+		"description": ""
+	},
+	"show": {
+		"description": "",
+		"usage": ""
+	},
+	"weather": {
+		"description": "",
+		"usage": "[location]"
+	},
+	"catfact": {
+		"description": ""
+	},
+	"cat": {
+		"description": ""
+	},
+	"texttoemoji": {
+		"description": "",
+		"usage": "[text]"
+	},
+	"dog": {
+		"description": ""
+	},
+	"chucknorris": {
+		"description": ""
+	},
+	"advice": {
+		"description": ""
+	},
+	"warn": {
+		"base": {
+			"description": ""
+		},
+		"add": {
+			"description": "",
+			"usage": "[user] <reason>"
+		},
+		"view": {
+			"description": "",
+			"usage": ""
+		},
+		"remove": {
+			"description": "",
+			"usage": ""
+		}
+	},
+	"warnings": {
+		"description": "",
+		"args": ""
+	},
+	"funban": {
+		"description": "",
+		"usage": "[user] <reason>"
+	},
+	"ban": {
+		"description": "",
+		"usage": "[user] <reason>"
+	},
+	"submit": {
+		"description": ""
+	},
+	"donate": {
+		"description": "",
+		"fullDescription": ""
+	},
+	"help": {
+		"usage": "",
+		"description": ""
+	},
+	"meme": {
+		"description": ""
+	},
+	"yesno": {
+		"description": ""
+	},
+	"info": {
+		"description": ""
+	},
+	"ping": {
+		"description": ""
+	},
+	"support": {
+		"description": ""
+	},
+	"uptime": {
+		"description": ""
+	},
+	"whois": {
+		"description": "",
+		"usage": ""
+	},
+	"nowplaying": {
+		"description": ""
+	},
+	"play": {
+		"description": "",
+		"usage": ""
+	},
+	"qplaylist": {
+		"description": "",
+		"usage": ""
+	},
+	"queue": {
+		"description": "",
+		"usage": ""
+	},
+	"ship": {
+		"description": "",
+		"usage": ""
+	},
+	"trapcard": {
+		"usage": "",
+		"description": ""
+	},
+	"trumpgen": {
+		"description": "",
+		"usage": "[text]"
+	},
+	"wiki": {
+		"description": "",
+		"usage": ""
+	},
+	"remindme": {
+		"description": "",
+		"fullDescription": "",
+		"usage": ""
+	},
+	"captcha": {
+		"description": "",
+		"usage": ""
+	},
+	"invite": {
+		"description": ""
+	},
+	"neat": {
+		"description": ""
+	},
+	"8ball": {
+		"description": ""
+	}
+}
