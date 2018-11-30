@@ -1,395 +1,395 @@
 {
 	"nodes": {
-		"description": "Gets information/statuses about available voice nodes."
+		"description": ""
 	},
 	"vaporwave": {
-		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"channelspaces": {
-		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
-		"usage": "<channel>"
+		"description": "",
+		"usage": ""
 	},
 	"autoplay": {
-		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
+		"description": ""
 	},
 	"shuffle": {
-		"description": "Shuffles the player queue."
+		"description": ""
 	},
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
-		"usage": "[language]"
+		"description": "Changes what tongue Atlas uses in yore server.",
+		"usage": ""
 	},
 	"time": {
-		"description": "Gets the time for a timezone.",
-		"usage": "[location]"
+		"description": "",
+		"usage": ""
 	},
 	"shorten": {
-		"description": "Shortens a URL via is.gd.",
-		"usage": "[url]"
+		"description": "",
+		"usage": ""
 	},
 	"serverinfo": {
-		"description": "Gets information about the server."
+		"description": ""
 	},
 	"say": {
-		"description": "Makes Atlas say whatever you want.",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"roleinfo": {
-		"description": "Gets information about a server role.",
-		"usage": "[role]"
+		"description": "",
+		"usage": ""
 	},
 	"id": {
-		"description": "Gets the ID of a channel, role, user, guild, etc...",
-		"usage": "[channel/role/user/\"guild\"]"
+		"description": "",
+		"usage": ""
 	},
 	"reddit": {
-		"description": "Gets information about a subreddit.",
-		"usage": "[subreddit]"
+		"description": "",
+		"usage": ""
 	},
 	"someone": {
-		"description": "Mentions a random user."
+		"description": ""
 	},
 	"randomcolor": {
-		"description": "Generates a random colour."
+		"description": ""
 	},
 	"quote": {
-		"description": "Quote a message by a user.",
-		"usage": "[message id / message share link]"
+		"description": "",
+		"usage": ""
 	},
 	"minecraft": {
-		"description": "Checks the status of a Minecraft server.",
-		"usage": "[server ip]"
+		"description": "",
+		"usage": ""
 	},
 	"memberCount": {
-		"description": "Shows information about the servers member count."
+		"description": ""
 	},
 	"joined": {
-		"description": "Find out when a user joined the server."
+		"description": ""
 	},
 	"inviteinfo": {
-		"description": "Gets information about an invite.",
-		"usage": "[invite code/link>]"
+		"description": "",
+		"usage": ""
 	},
 	"inrole": {
-		"description": "Lists users in a role.",
-		"usage": "[role]"
+		"description": "",
+		"usage": ""
 	},
 	"google": {
-		"description": "Searches Google for stuffs.",
-		"usage": "[search]"
+		"description": "",
+		"usage": ""
 	},
 	"embed": {
-		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"advancedembed": {
-		"description": "Embeds a message with advanced options.",
-		"usage": "[options]"
+		"description": "",
+		"usage": ""
 	},
 	"discrim": {
-		"description": "Gets users with a discriminator that matches yours.",
-		"usage": "<discriminator>"
+		"description": "Gets users wit' a discriminator that matches yores.",
+		"usage": ""
 	},
 	"avatar": {
 		"base": {
-			"description": "Gets (the servers)/(a users) avatar.",
-			"usage": "<mention>"
+			"description": "",
+			"usage": ""
 		},
 		"user": {
-			"description": "Gets the avatar of a user.",
-			"usage": "<mention>"
+			"description": "",
+			"usage": ""
 		},
 		"server": {
-			"description": "Gets the avatar of the server."
+			"description": ""
 		}
 	},
 	"trump": {
-		"description": "Gets something stupid Donald Trump has said."
+		"description": "Gets somethin' stupid the Bilge Rat has said."
 	},
 	"urban": {
-		"description": "Gets the definition for a word.",
-		"usage": "[search]"
+		"description": "Gets the meanin' fer' a word.",
+		"usage": ""
 	},
 	"randomurban": {
-		"description": "Gets a random definition from Urban Dictionary."
+		"description": "Gets a random meanin' from Urban Dictionary."
 	},
 	"starterpack": {
-		"description": "Gets a random starterpack."
+		"description": ""
 	},
 	"genavatar": {
-		"description": "Generates a random avatar."
+		"description": ""
 	},
 	"gotcharacter": {
-		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
-		"usage": "<character name>"
+		"description": "",
+		"usage": ""
 	},
 	"gothouse": {
-		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
-		"usage": "<house name>"
+		"description": "",
+		"usage": ""
 	},
 	"kick": {
-		"usage": "[user] <reason>",
-		"description": "Removes a member from the server."
+		"usage": "",
+		"description": ""
 	},
 	"filters": {
 		"base": {
-			"usage": "<subcommand>",
-			"description": "Controls chat filters."
+			"usage": "",
+			"description": ""
 		},
 		"action": {
-			"usage": "[filter] <action name>",
-			"description": "Used to enable or disable filters, and change their action."
+			"usage": "",
+			"description": ""
 		},
 		"list": {
-			"description": "Lists filters and their current settings."
+			"description": ""
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controls where certain messages are logged in your guild.",
-			"usage": "<subcommand>"
+			"description": "",
+			"usage": ""
 		},
 		"actions": {
-			"description": "Sets where action logs are logged to. Run with no args to reset.",
-			"usage": "<channel>"
+			"description": "",
+			"usage": ""
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "",
+			"description": ""
 		},
 		"any": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "",
+			"description": ""
 		},
 		"endswith": {
-			"usage": "[term] <amount>",
-			"description": "Purges messages that end with [term]. Supports wild*cards."
+			"usage": "",
+			"description": ""
 		},
 		"files": {
-			"usage": "<amount>",
-			"description": "Purges messages with attachments."
+			"usage": "",
+			"description": ""
 		},
 		"images": {
-			"usage": "<amount>",
-			"description": "Purges messages with images attached."
+			"usage": "",
+			"description": ""
 		},
 		"invites": {
-			"usage": "<amount>",
-			"description": "Purges messages containing Discord server invite links."
+			"usage": "",
+			"description": ""
 		},
 		"links": {
-			"usage": "<amount>",
-			"description": "Purges messages containing links."
+			"usage": "",
+			"description": ""
 		},
 		"includes": {
-			"usage": "[term] <amount>",
-			"description": "Purges messages that includes your term  Supports wild*cards."
+			"usage": "",
+			"description": ""
 		},
 		"not": {
-			"usage": "[term] <amount>",
-			"description": "Purges messages that do not include your term. Supports wild*cards."
+			"usage": "",
+			"description": ""
 		},
 		"startswith": {
-			"usage": "[term] <amount>",
-			"description": "Purges messages that start with your term. Supports wild*cards."
+			"usage": "",
+			"description": ""
 		},
 		"user": {
-			"usage": "[user] <amount>",
-			"description": "Purges messages that are from the user specified."
+			"usage": "",
+			"description": ""
 		}
 	},
 	"slowmode": {
-		"usage": "[ratelimit in seconds/\"disable\"]",
-		"description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+		"usage": "",
+		"description": ""
 	},
 	"coinflip": {
-		"description": "Flips a coin that can land heads or tails."
+		"description": ""
 	},
 	"dadjoke": {
-		"description": "Gets a random dadjoke."
+		"description": ""
 	},
 	"move": {
-		"description": "Moves a message to another channel.",
-		"usage": "[channel] <message ID or share link>"
+		"description": "",
+		"usage": ""
 	},
 	"achievement": {
-		"description": "Creates a Minecraft achievement."
+		"description": ""
 	},
 	"wouldyourather": {
-		"description": "Would you rather?"
+		"description": ""
 	},
 	"botinfo": {
-		"description": "Gets information about almost any public bot via discordbots.org.",
-		"usage": "[bot mention/query]"
+		"description": "",
+		"usage": ""
 	},
 	"xkcd": {
-		"description": "Gets a random XKCD comic."
+		"description": ""
 	},
 	"leave": {
-		"description": "Leaves the voice channel and dumps the queue."
+		"description": ""
 	},
 	"unban": {
-		"description": "Unban a user from the guild.",
-		"usage": "[user] <reason>"
+		"description": "",
+		"usage": ""
 	},
 	"emojify": {
-		"description": "Converts regular sentences to awesome emojified sentences 🎉",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"mute": {
-		"description": "Stops a user sending messages while they're muted.",
-		"usage": "[user] <duration> | <reason>"
+		"description": "Shuts a lad up while they're muted.",
+		"usage": ""
 	},
 	"unmute": {
-		"description": "Unmutes a user.",
-		"usage": "[user] <reason>"
+		"description": "",
+		"usage": ""
 	},
 	"movie": {
-		"description": "Get information about a movie!",
-		"usage": "[movie name]"
+		"description": "",
+		"usage": ""
 	},
 	"next": {
-		"description": "Goes to the next song in the queue."
+		"description": ""
 	},
 	"show": {
-		"description": "Search for information about a TV Series.",
-		"usage": "[show name]"
+		"description": "",
+		"usage": ""
 	},
 	"weather": {
-		"description": "Get weather information from anywhere in the world.",
-		"usage": "[location]"
+		"description": "",
+		"usage": ""
 	},
 	"catfact": {
-		"description": "Who doesn't like facts about cats?"
+		"description": ""
 	},
 	"cat": {
-		"description": "Kittens, cats, you name it - we've got it (maybe)."
+		"description": ""
 	},
 	"texttoemoji": {
-		"description": "Converts text to emoji characters.",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"dog": {
-		"description": "Dogs. Just random pictures of dogs."
+		"description": ""
 	},
 	"chucknorris": {
-		"description": "Facts about the man himself"
+		"description": ""
 	},
 	"advice": {
-		"description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
+		"description": ""
 	},
 	"warn": {
 		"base": {
-			"description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
+			"description": ""
 		},
 		"add": {
-			"description": "Add a warning to a user.",
-			"usage": "[user] <reason>"
+			"description": "",
+			"usage": ""
 		},
 		"view": {
-			"description": "View a users warnings.",
-			"usage": "[user] <page=1>"
+			"description": "",
+			"usage": ""
 		},
 		"remove": {
-			"description": "Remove a users warnings.",
-			"usage": "[user] <warn reason>"
+			"description": "",
+			"usage": ""
 		}
 	},
 	"warnings": {
-		"description": "Views your/another users warnings.",
-		"args": "<user>"
+		"description": "",
+		"args": ""
 	},
 	"funban": {
-		"description": "Bans a user but it's fun (and slightly spammy)",
-		"usage": "[user] <reason>"
+		"description": "",
+		"usage": ""
 	},
 	"ban": {
-		"description": "Bans a user, exactly what it says on the tin.",
-		"usage": "[user] <reason>"
+		"description": "",
+		"usage": ""
 	},
 	"submit": {
-		"description": "Submit suggestions to the suggestion channel."
+		"description": ""
 	},
 	"donate": {
-		"description": "Donate to support Atlas and get awesome perks!",
-		"fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
+		"description": "",
+		"fullDescription": ""
 	},
 	"help": {
-		"usage": "[command|plugin]",
-		"description": "View all of Atlas' commands or get help for a specific command or plugin."
+		"usage": "",
+		"description": ""
 	},
 	"meme": {
-		"description": "dank me-mes"
+		"description": ""
 	},
 	"yesno": {
-		"description": "Yes or no? Gets a random yes or no randomly."
+		"description": ""
 	},
 	"info": {
-		"description": "General information about Atlas"
+		"description": ""
 	},
 	"ping": {
-		"description": "Check the time Atlas takes to reply to you!"
+		"description": ""
 	},
 	"support": {
-		"description": "Need help with Atlas? Join our Support server!"
+		"description": ""
 	},
 	"uptime": {
-		"description": "Check how long Atlas has been online for."
+		"description": ""
 	},
 	"whois": {
-		"description": "Get information about a user.",
-		"usage": "<user>"
+		"description": "",
+		"usage": ""
 	},
 	"nowplaying": {
-		"description": "Shows information about the song currently playing."
+		"description": ""
 	},
 	"play": {
-		"description": "Plays a song in your current voice channel, now with built in playlist support!",
-		"usage": "[song name|url]"
+		"description": "",
+		"usage": ""
 	},
 	"qplaylist": {
-		"description": "Adds songs from a YouTube playlist to the queue.",
-		"usage": "[youtube playlist url]"
+		"description": "",
+		"usage": ""
 	},
 	"queue": {
-		"description": "Shows upcoming songs in the player queue.",
-		"usage": "<page number>"
+		"description": "",
+		"usage": ""
 	},
 	"ship": {
-		"description": "Ship two users. ",
-		"usage": "[user1] <user2>"
+		"description": "",
+		"usage": ""
 	},
 	"trapcard": {
-		"usage": "[user]",
-		"description": "You've triggered my trap card!"
+		"usage": "",
+		"description": ""
 	},
 	"trumpgen": {
-		"description": "Generate an image of Trump's twitter tweeting something.",
-		"usage": "[text]"
+		"description": "",
+		"usage": ""
 	},
 	"wiki": {
-		"description": "Search Wikipedia for your search.",
-		"usage": "[query]"
+		"description": "",
+		"usage": ""
 	},
 	"remindme": {
-		"description": "Set reminders to get notified in the future.",
-		"fullDescription": "Set reminders to get notified in the future. Where [time] is in your sentence doesn't really matter. Atlas may round up the time it says but the actual time will be accurate.",
-		"usage": "[time] <task>"
+		"description": "",
+		"fullDescription": "",
+		"usage": ""
 	},
 	"captcha": {
-		"description": "Are you a robot? I know I am.",
-		"usage": "[user]"
+		"description": "",
+		"usage": ""
 	},
 	"invite": {
-		"description": "Get Atlas in your own server by inviting me!"
+		"description": ""
 	},
 	"neat": {
-		"description": "hey, that's pretty neat"
+		"description": ""
 	},
 	"8ball": {
-		"description": "Ask the magic eight-ball a question."
+		"description": ""
 	}
 }
