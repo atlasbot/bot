@@ -1,5 +1,22 @@
 # Atlas
 
+<div>
+		<img src="https://img.shields.io/github/license/get-atlas/bot.svg" alt="License">
+		<img src="https://img.shields.io/github/package-json/v/get-atlas/bot.svg?maxAge=300&label=version" alt="Version">
+</div>
+
+<div>
+    <a href="https://translate.atlasbot.xyz/">
+			<img src="https://d322cqt584bo4o.cloudfront.net/getatlas/localized.svg?maxAge=300" alt="Crowdin Translations">
+		</a>
+    <a href="https://get-atlas.xyz/support">
+			<img src="https://img.shields.io/discord/345177567541723137.svg?maxAge=300" alt="Discord">
+		</a>
+    <a href="https://get-atlas.xyz/support">
+			<img src="https://img.shields.io/docker/pulls/sylver/bot.svg?maxAge=300" alt="Docker">
+		</a>
+</div>
+
 A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atlasbot.xyz)
 
 **This is Atlas 8.0, an unfinished version of Atlas**. Source code for pre-8.0 versions will not be made public. The code here isn't finished, and while it should work fine, it's missing a lot of the features the live version has. Slowly they'll be ported over. Contributions are welcome.
