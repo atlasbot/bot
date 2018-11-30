@@ -1,0 +1,395 @@
+{
+	"nodes": {
+		"description": "Gets information/statuses about available voice nodes."
+	},
+	"vaporwave": {
+		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"usage": "[text]"
+	},
+	"channelspaces": {
+		"description": "Remplace les tirets dans les noms de canaux par de faux espaces ! Sérieusement, il s'agit plutôt d'un hack et peut être corrigé à tout moment.",
+		"usage": "<channel>"
+	},
+	"autoplay": {
+		"description": "Activer ou désactiver la lecture automatique. Lorsqu'il est activé, une fois à la fin d'une file d'attente, Atlas met automatiquement en file d'attente les chansons associées."
+	},
+	"shuffle": {
+		"description": "Mélange la file d'attente."
+	},
+	"locale": {
+		"description": "Changes what language Atlas uses in your server.",
+		"usage": "[language]"
+	},
+	"time": {
+		"description": "Obtient l'heure d'un fuseau horaire.",
+		"usage": "[location]"
+	},
+	"shorten": {
+		"description": "Raccourcit une URL via is.gd.",
+		"usage": "[url]"
+	},
+	"serverinfo": {
+		"description": "Obtenir des informations à propos du serveur."
+	},
+	"say": {
+		"description": "Ça fait dire à Atlas ce que tu veux.",
+		"usage": "[text]"
+	},
+	"roleinfo": {
+		"description": "Obtenir des informations à propos d'un rôle.",
+		"usage": "[role]"
+	},
+	"id": {
+		"description": "Avoir l'ID d'un channel, d'un rôle, utilisateur, guilde, etc...",
+		"usage": "[channel/rôle/user/\"guild\"]"
+	},
+	"reddit": {
+		"description": "Obtenir des informations à propos d'un subreddit.",
+		"usage": "[subreddit]"
+	},
+	"someone": {
+		"description": "Mentionne un utilisateur au hasard."
+	},
+	"randomcolor": {
+		"description": "Génère une couleur au hasard."
+	},
+	"quote": {
+		"description": "Citer un message d'un utilisateur.",
+		"usage": "[message id / message share link]"
+	},
+	"minecraft": {
+		"description": "Voir le statut d'un serveur Minecraft.",
+		"usage": "[server ip]"
+	},
+	"memberCount": {
+		"description": "Voir les informations à propos du nombre de membres dans le serveur."
+	},
+	"joined": {
+		"description": "Découvrez quand un utilisateur a rejoint le serveur."
+	},
+	"inviteinfo": {
+		"description": "Avoir des informations à propos d'une invitation.",
+		"usage": "[invite code/link>]"
+	},
+	"inrole": {
+		"description": "Liste les utilisateurs dans un rôle.",
+		"usage": "[role]"
+	},
+	"google": {
+		"description": "Cherche des trucs sur Google.",
+		"usage": "[search]"
+	},
+	"embed": {
+		"description": "Intègre un message. Vous pouvez utiliser \"advancedembed\" pour plus d'options.",
+		"usage": "[text]"
+	},
+	"advancedembed": {
+		"description": "Intègre un message avec des options avancées.",
+		"usage": "[options]"
+	},
+	"discrim": {
+		"description": "Gets users with a discriminator that matches yours.",
+		"usage": "<discriminator>"
+	},
+	"avatar": {
+		"base": {
+			"description": "Avoir (the servers)/(a users) avatar.",
+			"usage": "<mention>"
+		},
+		"user": {
+			"description": "Affiche l'avatar d'un utilisateur.",
+			"usage": "<mention>"
+		},
+		"server": {
+			"description": "Affiche l'avatar d'un serveur."
+		}
+	},
+	"trump": {
+		"description": "Gets something stupid Donald Trump has said."
+	},
+	"urban": {
+		"description": "Gets the definition for a word.",
+		"usage": "[search]"
+	},
+	"randomurban": {
+		"description": "Gets a random definition from Urban Dictionary."
+	},
+	"starterpack": {
+		"description": "Générer un pack de démarrage aléatoire."
+	},
+	"genavatar": {
+		"description": "Générer un avatar au hasard."
+	},
+	"gotcharacter": {
+		"description": "Obtenir des informations sur un personnage de Games of Thrones. Exécutez sans args pour obtenir un caractère aléatoire.",
+		"usage": "<character name>"
+	},
+	"gothouse": {
+		"description": "Obtenir des informations sur la maison de Games of Thrones. Exécutez sans args pour avoir une maison au hasard.",
+		"usage": "<house name>"
+	},
+	"kick": {
+		"usage": "[user] <reason>",
+		"description": "Membre retiré du serveur."
+	},
+	"filters": {
+		"base": {
+			"usage": "<subcommand>",
+			"description": "Contrôle les filtres de chat."
+		},
+		"action": {
+			"usage": "[filter] <action name>",
+			"description": "Permet d'activer ou de désactiver les filtres et de modifier leur action."
+		},
+		"list": {
+			"description": "Liste les filtres et leurs paramètres actuels."
+		}
+	},
+	"log": {
+		"base": {
+			"description": "Contrôle l'endroit où certains messages sont enregistrés dans votre guilde.",
+			"usage": "<subcommand>"
+		},
+		"actions": {
+			"description": "Définit l'endroit où les journaux d'actions sont enregistrés. Fonctionne sans args à réinitialiser.",
+			"usage": "<channel>"
+		}
+	},
+	"purge": {
+		"base": {
+			"usage": "<amount>",
+			"description": "Supprimer les messages d'un canal."
+		},
+		"any": {
+			"usage": "<amount>",
+			"description": "Supprimer les messages d'un canal."
+		},
+		"endswith": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui se terminent par [term]. Supporte les caractères joker*."
+		},
+		"files": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des pièces jointes."
+		},
+		"images": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des images."
+		},
+		"invites": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des invitations de serveur Discord."
+		},
+		"links": {
+			"usage": "<amount>",
+			"description": "Purge les messages contenant des liens."
+		},
+		"includes": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui incluent votre terme Supporte les caractères joker*."
+		},
+		"not": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui n'incluent pas votre terme. Supporte les caractères joker*."
+		},
+		"startswith": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui commencent par votre terme. Supporte les caractères joker*."
+		},
+		"user": {
+			"usage": "[user] <amount>",
+			"description": "Purge les messages provenant de l'utilisateur spécifié."
+		}
+	},
+	"slowmode": {
+		"usage": "[ratelimit in seconds/\"disable\"]",
+		"description": "Active la limitation du débit de messages pour le canal. Réglez à 0 ou entrez \"disable\" pour désactiver complètement le mode lent."
+	},
+	"coinflip": {
+		"description": "Tire à pile ou face une pièce de monnaie qui peut faire tomber des têtes ou des queues."
+	},
+	"dadjoke": {
+		"description": "Avoir un random dadjoke."
+	},
+	"move": {
+		"description": "Déplacer un message dans un autre canal.",
+		"usage": "[channel] <message ID or share link>"
+	},
+	"achievement": {
+		"description": "Créer un succès Minecraft."
+	},
+	"wouldyourather": {
+		"description": "Tu préfèrerais ?"
+	},
+	"botinfo": {
+		"description": "Obtient des informations sur presque tous les robots publics via discordbots.org.",
+		"usage": "[bot mention/query]"
+	},
+	"xkcd": {
+		"description": "Obtient une bande dessinée XKCD au hasard."
+	},
+	"leave": {
+		"description": "Quitte le canal vocal et décharge la file d'attente."
+	},
+	"unban": {
+		"description": "Débannir un utilisateur d'une guilde.",
+		"usage": "[user] <reason>"
+	},
+	"emojify": {
+		"description": "Convertit des phrases régulières en phrases émojifiées impressionnantes 🎉",
+		"usage": "[text]"
+	},
+	"mute": {
+		"description": "Stops a user sending messages while they're muted.",
+		"usage": "[user] <duration> | <reason>"
+	},
+	"unmute": {
+		"description": "Dé-mute un utilisateur.",
+		"usage": "[user] <reason>"
+	},
+	"movie": {
+		"description": "Avoir des informations à propos d'un film!",
+		"usage": "[movie name]"
+	},
+	"next": {
+		"description": "Passe à la chanson suivante dans la file d'attente."
+	},
+	"show": {
+		"description": "Recherche d'information à propos d'une série TV.",
+		"usage": "[show name]"
+	},
+	"weather": {
+		"description": "Obtenez des informations météorologiques de partout dans le monde.",
+		"usage": "[location]"
+	},
+	"catfact": {
+		"description": "Qui n'aime pas les histoires sur les chats ?"
+	},
+	"cat": {
+		"description": "Chatons, chats, etc. - nous l'avons (peut-être)."
+	},
+	"texttoemoji": {
+		"description": "Convertir le texte en caractère d'emojis.",
+		"usage": "[text]"
+	},
+	"dog": {
+		"description": "Chiens. Juste des photos de chiens au hasard."
+	},
+	"chucknorris": {
+		"description": "Faits concernant l'homme lui-même"
+	},
+	"advice": {
+		"description": "Vous avez besoin de conseils de qualité de vie d'une source digne de confiance ? Alors ce n'est pas la commande qu'il vous faut."
+	},
+	"warn": {
+		"base": {
+			"description": "Gérer les avertissements. Avertir les utilisateurs d'un mauvais comportement, éditer les avertissements précédents d'un utilisateur et plus encore."
+		},
+		"add": {
+			"description": "Ajouter un avertissment à un utilisateur.",
+			"usage": "[user] <reason>"
+		},
+		"view": {
+			"description": "Voir les avertissements d'un utilisateur.",
+			"usage": "[user] <page=1>"
+		},
+		"remove": {
+			"description": "Retirer les avertissmeents d'un utilisateur.",
+			"usage": "[user] <warn reason>"
+		}
+	},
+	"warnings": {
+		"description": "Affiche vos/autres avertissements d'utilisateurs.",
+		"args": "<user>"
+	},
+	"funban": {
+		"description": "Bannir un utilisateur mais c'est amusant (et légèrement spammé)",
+		"usage": "[user] <reason>"
+	},
+	"ban": {
+		"description": "Banir un utilisateur, exactement ce qui est écrit sur la boîte.",
+		"usage": "[user] <reason>"
+	},
+	"submit": {
+		"description": "Soumettez vos suggestions au canal de suggestions."
+	},
+	"donate": {
+		"description": "Faites un don pour soutenir Atlas et bénéficiez d'avantages incroyables !",
+		"fullDescription": "Soutenez Atlas en devenant un Patreon et obtenez d'incroyables avantages en retour !"
+	},
+	"help": {
+		"usage": "[command|plugin]",
+		"description": "Voir toutes les commandes d'Atlas ou obtenir de l'aide pour une commande ou un plugin spécifique."
+	},
+	"meme": {
+		"description": "dank me-mes"
+	},
+	"yesno": {
+		"description": "Oui ou non? Avoir un oui ou non au hasard."
+	},
+	"info": {
+		"description": "Informations générales concernant Atlas"
+	},
+	"ping": {
+		"description": "Vérifiez le temps qu'Atlas prend pour vous répondre !"
+	},
+	"support": {
+		"description": "Besoin d'aide avec Atlas? Rejoignez notre servuer de support!"
+	},
+	"uptime": {
+		"description": "Vérifiez depuis combien de temps Atlas est en ligne."
+	},
+	"whois": {
+		"description": "Obtenir des renseignements sur un utilisateur.",
+		"usage": "<user>"
+	},
+	"nowplaying": {
+		"description": "Affiche des informations sur la chanson en cours de lecture."
+	},
+	"play": {
+		"description": "Lecture d'une chanson sur votre canal vocal actuel, maintenant avec prise en charge intégrée des listes de lecture !",
+		"usage": "[song name|url]"
+	},
+	"qplaylist": {
+		"description": "Ajout de chansons d'une playlist YouTube dans la file d'attente.",
+		"usage": "[youtube playlist url]"
+	},
+	"queue": {
+		"description": "Affiche les chansons à venir dans la file d'attente du lecteur.",
+		"usage": "<page number>"
+	},
+	"ship": {
+		"description": "Envoyez deux utilisateurs. ",
+		"usage": "[user1] <user2>"
+	},
+	"trapcard": {
+		"usage": "[user]",
+		"description": "Vous avez déclenché ma carte piège !"
+	},
+	"trumpgen": {
+		"description": "Générer une image de Trump sur twitter tweetant quelque chose.",
+		"usage": "[text]"
+	},
+	"wiki": {
+		"description": "Recherchez Wikipedia pour votre recherche.",
+		"usage": "[query]"
+	},
+	"remindme": {
+		"description": "Définissez des rappels pour être averti à l'avenir.",
+		"fullDescription": "Définissez des rappels pour être averti à l'avenir. L'endroit où se trouve le [time] dans votre phrase n'a pas vraiment d'importance. L'Atlas peut arrondir l'heure qu'il indique, mais l'heure réelle sera exacte.",
+		"usage": "[time] <task>"
+	},
+	"captcha": {
+		"description": "Vous êtes un robot ? Je sais que je le suis.",
+		"usage": "[user]"
+	},
+	"invite": {
+		"description": "Obtenez Atlas sur votre propr serveur en m'invitant!"
+	},
+	"neat": {
+		"description": "hé, c'est plutôt chouette"
+	},
+	"8ball": {
+		"description": "Posez une question à la boule magique."
+	}
+}
