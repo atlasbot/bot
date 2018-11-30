@@ -1,12 +1,12 @@
 {
 	"player": {
 		"none": "",
-		"trackQueued": "'{0}' foi adicionado à fila. Irá tocar em cerca de {1}.",
+		"trackQueued": "",
 		"npEmbed": {
-			"ttp": "Tempo até tocar",
-			"addedBy": "Adicionado por",
-			"author": "",
-			"duration": "Duração",
+			"ttp": "",
+			"addedBy": "",
+			"author": "Autor",
+			"duration": "",
 			"footer": ""
 		},
 		"leaving": "",
@@ -16,22 +16,22 @@
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Por nekobot.xyz"
+		"nekobot": ""
 	},
 	"logs": {
 		"guildMemberKick": {
-			"title": "Membro expulso",
-			"description": "{0} foi expulso do servidor.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Membro atualizado - Grupo adicionado",
+				"title": "",
 				"description": "",
 				"moderator": {
-					"name": "Moderador",
+					"name": "",
 					"value": ""
 				},
 				"reason": ""
@@ -40,7 +40,7 @@
 				"title": "",
 				"description": "",
 				"moderator": {
-					"name": "Moderador",
+					"name": "",
 					"value": ""
 				},
 				"reason": ""
@@ -56,20 +56,20 @@
 		},
 		"guildMemberAdd": {
 			"title": "",
-			"description": ""
+			"description": "{0} juntou-se ao servidor."
 		},
 		"guildRoleCreate": {
-			"title": "",
-			"description": "",
+			"title": "Cargo Criado",
+			"description": "O cargo {0} foi criado.",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			}
 		},
 		"guildRoleDelete": {
-			"title": "",
+			"title": "Cargo Deletado",
 			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			}
 		},
 		"guildRoleUpdate": {
@@ -82,7 +82,7 @@
 				"name": ""
 			},
 			"permAdded": {
-				"name": "",
+				"name": "Permissões Adicionadas",
 				"value": ""
 			},
 			"permRemoved": {
@@ -90,7 +90,7 @@
 				"value": ""
 			},
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"hoistTrue": {
 				"name": "",
@@ -110,30 +110,30 @@
 			}
 		},
 		"messageDelete": {
-			"title": "",
+			"title": "Mensagem Excluída",
 			"description": "",
 			"content": {
-				"name": ""
+				"name": "Conteúdo"
 			},
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"reason": {
 				"name": ""
 			}
 		},
 		"messageUpdate": {
-			"title": "",
+			"title": "Mensagem Atualizada",
 			"description": "",
 			"oldContent": {
-				"name": ""
+				"name": "Antes"
 			},
 			"newContent": {
-				"name": ""
+				"name": "Depois"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "",
+			"title": "Membro Saiu",
 			"description": ""
 		},
 		"channelCreate": {
@@ -143,7 +143,7 @@
 				"name": ""
 			},
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			}
 		},
 		"channelDelete": {
@@ -153,14 +153,14 @@
 				"name": ""
 			},
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			}
 		},
 		"guildBanAdd": {
 			"title": "",
 			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"reason": {
 				"name": ""
@@ -170,7 +170,7 @@
 			"title": "",
 			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"reason": {
 				"name": ""
@@ -180,10 +180,10 @@
 			"title": "",
 			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"duration": {
-				"name": "Duração"
+				"name": ""
 			},
 			"reason": {
 				"name": ""
@@ -194,7 +194,7 @@
 			"title": "",
 			"description": "",
 			"moderator": {
-				"name": "Moderador"
+				"name": ""
 			},
 			"unmuteReason": {
 				"name": ""
@@ -231,20 +231,20 @@
 		},
 		"description": "",
 		"duration": {
-			"name": "Duração",
+			"name": "",
 			"value": ""
 		},
 		"addedBy": {
-			"name": "Adicionado por",
+			"name": "",
 			"value": ""
 		},
 		"author": {
-			"name": "",
+			"name": "Autor",
 			"value": ""
 		},
 		"addedTrack": "",
 		"ttp": {
-			"name": "Tempo até tocar",
+			"name": "",
 			"value": ""
 		},
 		"inQueue": {
