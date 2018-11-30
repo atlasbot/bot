@@ -1,0 +1,395 @@
+{
+	"nodes": {
+		"description": ""
+	},
+	"vaporwave": {
+		"description": "",
+		"usage": ""
+	},
+	"channelspaces": {
+		"description": "",
+		"usage": ""
+	},
+	"autoplay": {
+		"description": ""
+	},
+	"shuffle": {
+		"description": ""
+	},
+	"locale": {
+		"description": "",
+		"usage": ""
+	},
+	"time": {
+		"description": "",
+		"usage": ""
+	},
+	"shorten": {
+		"description": "",
+		"usage": ""
+	},
+	"serverinfo": {
+		"description": ""
+	},
+	"say": {
+		"description": "",
+		"usage": ""
+	},
+	"roleinfo": {
+		"description": "",
+		"usage": ""
+	},
+	"id": {
+		"description": "",
+		"usage": ""
+	},
+	"reddit": {
+		"description": "",
+		"usage": ""
+	},
+	"someone": {
+		"description": ""
+	},
+	"randomcolor": {
+		"description": ""
+	},
+	"quote": {
+		"description": "",
+		"usage": ""
+	},
+	"minecraft": {
+		"description": "",
+		"usage": ""
+	},
+	"memberCount": {
+		"description": ""
+	},
+	"joined": {
+		"description": ""
+	},
+	"inviteinfo": {
+		"description": "",
+		"usage": ""
+	},
+	"inrole": {
+		"description": "",
+		"usage": ""
+	},
+	"google": {
+		"description": "",
+		"usage": ""
+	},
+	"embed": {
+		"description": "",
+		"usage": ""
+	},
+	"advancedembed": {
+		"description": "",
+		"usage": ""
+	},
+	"discrim": {
+		"description": "",
+		"usage": ""
+	},
+	"avatar": {
+		"base": {
+			"description": "",
+			"usage": ""
+		},
+		"user": {
+			"description": "",
+			"usage": ""
+		},
+		"server": {
+			"description": ""
+		}
+	},
+	"trump": {
+		"description": ""
+	},
+	"urban": {
+		"description": "",
+		"usage": ""
+	},
+	"randomurban": {
+		"description": ""
+	},
+	"starterpack": {
+		"description": ""
+	},
+	"genavatar": {
+		"description": ""
+	},
+	"gotcharacter": {
+		"description": "",
+		"usage": ""
+	},
+	"gothouse": {
+		"description": "",
+		"usage": ""
+	},
+	"kick": {
+		"usage": "",
+		"description": ""
+	},
+	"filters": {
+		"base": {
+			"usage": "",
+			"description": ""
+		},
+		"action": {
+			"usage": "",
+			"description": ""
+		},
+		"list": {
+			"description": ""
+		}
+	},
+	"log": {
+		"base": {
+			"description": "",
+			"usage": ""
+		},
+		"actions": {
+			"description": "",
+			"usage": ""
+		}
+	},
+	"purge": {
+		"base": {
+			"usage": "",
+			"description": ""
+		},
+		"any": {
+			"usage": "",
+			"description": ""
+		},
+		"endswith": {
+			"usage": "",
+			"description": ""
+		},
+		"files": {
+			"usage": "",
+			"description": ""
+		},
+		"images": {
+			"usage": "",
+			"description": ""
+		},
+		"invites": {
+			"usage": "",
+			"description": ""
+		},
+		"links": {
+			"usage": "",
+			"description": ""
+		},
+		"includes": {
+			"usage": "",
+			"description": ""
+		},
+		"not": {
+			"usage": "",
+			"description": ""
+		},
+		"startswith": {
+			"usage": "",
+			"description": ""
+		},
+		"user": {
+			"usage": "",
+			"description": ""
+		}
+	},
+	"slowmode": {
+		"usage": "",
+		"description": ""
+	},
+	"coinflip": {
+		"description": ""
+	},
+	"dadjoke": {
+		"description": ""
+	},
+	"move": {
+		"description": "",
+		"usage": ""
+	},
+	"achievement": {
+		"description": ""
+	},
+	"wouldyourather": {
+		"description": ""
+	},
+	"botinfo": {
+		"description": "",
+		"usage": ""
+	},
+	"xkcd": {
+		"description": ""
+	},
+	"leave": {
+		"description": ""
+	},
+	"unban": {
+		"description": "",
+		"usage": ""
+	},
+	"emojify": {
+		"description": "",
+		"usage": ""
+	},
+	"mute": {
+		"description": "",
+		"usage": ""
+	},
+	"unmute": {
+		"description": "",
+		"usage": ""
+	},
+	"movie": {
+		"description": "",
+		"usage": ""
+	},
+	"next": {
+		"description": ""
+	},
+	"show": {
+		"description": "",
+		"usage": ""
+	},
+	"weather": {
+		"description": "",
+		"usage": ""
+	},
+	"catfact": {
+		"description": ""
+	},
+	"cat": {
+		"description": ""
+	},
+	"texttoemoji": {
+		"description": "",
+		"usage": ""
+	},
+	"dog": {
+		"description": ""
+	},
+	"chucknorris": {
+		"description": ""
+	},
+	"advice": {
+		"description": ""
+	},
+	"warn": {
+		"base": {
+			"description": ""
+		},
+		"add": {
+			"description": "",
+			"usage": ""
+		},
+		"view": {
+			"description": "",
+			"usage": ""
+		},
+		"remove": {
+			"description": "",
+			"usage": ""
+		}
+	},
+	"warnings": {
+		"description": "",
+		"args": ""
+	},
+	"funban": {
+		"description": "",
+		"usage": ""
+	},
+	"ban": {
+		"description": "",
+		"usage": ""
+	},
+	"submit": {
+		"description": ""
+	},
+	"donate": {
+		"description": "",
+		"fullDescription": ""
+	},
+	"help": {
+		"usage": "",
+		"description": ""
+	},
+	"meme": {
+		"description": ""
+	},
+	"yesno": {
+		"description": ""
+	},
+	"info": {
+		"description": ""
+	},
+	"ping": {
+		"description": ""
+	},
+	"support": {
+		"description": ""
+	},
+	"uptime": {
+		"description": ""
+	},
+	"whois": {
+		"description": "",
+		"usage": ""
+	},
+	"nowplaying": {
+		"description": ""
+	},
+	"play": {
+		"description": "",
+		"usage": ""
+	},
+	"qplaylist": {
+		"description": "",
+		"usage": ""
+	},
+	"queue": {
+		"description": "",
+		"usage": ""
+	},
+	"ship": {
+		"description": "",
+		"usage": ""
+	},
+	"trapcard": {
+		"usage": "",
+		"description": ""
+	},
+	"trumpgen": {
+		"description": "",
+		"usage": ""
+	},
+	"wiki": {
+		"description": "",
+		"usage": ""
+	},
+	"remindme": {
+		"description": "",
+		"fullDescription": "",
+		"usage": ""
+	},
+	"captcha": {
+		"description": "",
+		"usage": ""
+	},
+	"invite": {
+		"description": ""
+	},
+	"neat": {
+		"description": ""
+	},
+	"8ball": {
+		"description": ""
+	}
+}
