@@ -1,10 +1,10 @@
 {
 	"player": {
 		"none": "There is nothing playing in this server.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"trackQueued": "Arr. I added {0} to the queue. Ye betcha it'll play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
+			"addedBy": "Add By",
 			"author": "Autor",
 			"duration": "Duration",
 			"footer": "{0} in queue"
@@ -235,7 +235,7 @@
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Add By",
 			"value": "{0}"
 		},
 		"author": {
