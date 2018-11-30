@@ -1,0 +1,564 @@
+{
+	"nodes": {
+		"noNodes": "",
+		"node": "",
+		"players": "",
+		"events": "",
+		"footer": ""
+	},
+	"vaporwave": {
+		"noArgs": ""
+	},
+	"autoplay": {
+		"enabled": "",
+		"disabled": ""
+	},
+	"shuffle": {
+		"tooFew": "",
+		"success": ""
+	},
+	"movie": {
+		"notAMovie": ""
+	},
+	"series": {
+		"notASeries": ""
+	},
+	"funban": {
+		"success": "{0} is verbannen."
+	},
+	"ban": {
+		"noArgs": "Voer aub een gebruiker in om te verbannen!",
+		"success": "{0} is verbannen.",
+		"withReason": "{0} is verbannen voor `{1}`.",
+		"tooLateReason": "{1} is al verbannen met als reden `{0}`.",
+		"tooLate": "{0} is al verbannen.",
+		"feelsGoodMan": {
+			"reason": "",
+			"noReason": ""
+		}
+	},
+	"remindme": {
+		"invalid": "Dat is geen geldige datum.",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
+		"youGotIt": "Is goed, ik zal het je herinneren in {0}.",
+		"relative": ""
+	},
+	"ping": {
+		"start": "<a:typing:426097044625686528> {0}",
+		"server": "Ik heb een `{0}ms` vertraging naar deze server.",
+		"dm": "Ik heb een `{0}ms` vertraging naar deze dm.",
+		"randoms": [
+			"Ik heb honger...",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"Error: geduld is op...",
+			"Zijn we er al?...",
+			"",
+			"",
+			"Ben je afgevallen?...",
+			"brb, 1 seconde...",
+			""
+		]
+	},
+	"donate": "",
+	"invite": "",
+	"help": {
+		"title": "Hulp nodig?",
+		"description": ""
+	},
+	"info": {
+		"title": "",
+		"description": "",
+		"support": {
+			"name": "",
+			"value": ""
+		},
+		"website": {
+			"name": "",
+			"value": ""
+		}
+	},
+	"uptime": "",
+	"whois": {
+		"noUser": "",
+		"embed": {
+			"tag": {
+				"name": "",
+				"value": ""
+			},
+			"avatarURL": {
+				"name": "",
+				"value": ""
+			},
+			"createdAt": {
+				"name": "",
+				"value": ""
+			},
+			"joined": {
+				"name": "",
+				"value": ""
+			},
+			"playing": {
+				"name": "",
+				"value": {
+					"set": "",
+					"null": ""
+				}
+			},
+			"status": {
+				"name": "",
+				"value": ""
+			},
+			"roles": {
+				"name": "",
+				"value": {
+					"set": "",
+					"null": "",
+					"tooMany": ""
+				}
+			}
+		}
+	},
+	"support": "",
+	"play": {
+		"noNodes": "",
+		"noResults": "",
+		"noVoiceChannel": "",
+		"busy": "",
+		"noArgs": "",
+		"playlistEmbed": {
+			"title": "",
+			"description": ""
+		}
+	},
+	"queue": {
+		"embed": {
+			"totalDuration": {
+				"name": "",
+				"value": ""
+			},
+			"inQueue": {
+				"name": "",
+				"value": {
+					"plural": "",
+					"singular": ""
+				}
+			},
+			"upNext": {
+				"value": "",
+				"format": ""
+			}
+		}
+	},
+	"qplaylist": {
+		"noArgs": "",
+		"noVoiceChannel": "",
+		"invalidHostname": "",
+		"youtubeOnly": "",
+		"noQueryParam": ""
+	},
+	"warn": {
+		"add": {
+			"noReason": "",
+			"noArgs": "",
+			"success": {
+				"plural": "",
+				"singular": ""
+			},
+			"tooLong": ""
+		},
+		"view": {
+			"noArgs": "",
+			"noPerms": "",
+			"noWarns": ""
+		},
+		"remove": {
+			"notFound": "",
+			"noWarns": "",
+			"error": "",
+			"removedAll": "",
+			"missingPerms": "",
+			"success": "",
+			"successNoMention": ""
+		}
+	},
+	"8ball": {
+		"responses": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"unban": {
+		"noArgs": "",
+		"success": ""
+	},
+	"mute": {
+		"noArgs": "",
+		"success": "",
+		"generated": "",
+		"generatePermError": "",
+		"alreadyMuted": "",
+		"invalid": "",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
+		"tooHigh": ""
+	},
+	"unmute": {
+		"success": "",
+		"notMuted": "",
+		"tooHigh": ""
+	},
+	"emojify": {
+		"noArgs": ""
+	},
+	"next": {
+		"success": "",
+		"nothingNext": ""
+	},
+	"botinfo": {
+		"noArgs": "",
+		"notABot": "",
+		"notFound": "",
+		"embed": {
+			"library": "",
+			"servers": {
+				"name": "",
+				"none": ""
+			},
+			"shards": {
+				"name": "",
+				"none": ""
+			},
+			"prefix": "",
+			"github": {
+				"name": "",
+				"none": ""
+			},
+			"website": {
+				"name": "",
+				"none": ""
+			},
+			"owners": "",
+			"footer": "",
+			"invite": "",
+			"support": {
+				"name": "",
+				"none": ""
+			}
+		}
+	},
+	"leave": {
+		"recentRestart": "",
+		"sameChannel": "",
+		"nothingPlaying": "",
+		"leftNoChannel": "",
+		"leftChannel": ""
+	},
+	"achievement": {
+		"noArgs": "",
+		"header": ""
+	},
+	"coinflip": {
+		"heads": "",
+		"tails": ""
+	},
+	"move": {
+		"noArgs": "",
+		"noMessage": "",
+		"noChannel": "",
+		"notInTime": "",
+		"sameChannel": "",
+		"invalidType": "",
+		"waiting": "",
+		"success": "",
+		"noMessageOrPerms": ""
+	},
+	"texttoemoji": {
+		"noArgs": ""
+	},
+	"log": {
+		"noResults": "",
+		"actions": {
+			"success": "",
+			"disabled": ""
+		},
+		"moderation": {
+			"success": "",
+			"disabled": ""
+		},
+		"errors": {
+			"success": "",
+			"disabled": ""
+		}
+	},
+	"slowmode": {
+		"noArgs": "",
+		"invalid": "",
+		"success": "",
+		"disabled": ""
+	},
+	"purge": {
+		"general": {
+			"tooLow": "",
+			"tooHigh": "",
+			"nothingPurged": "",
+			"success": "",
+			"invalidFilter": ""
+		},
+		"base": {
+			"nothingPurged": ""
+		},
+		"user": {
+			"noArgs": "",
+			"noUser": ""
+		}
+	},
+	"filters": {
+		"action": {
+			"noFilter": "",
+			"noAction": "",
+			"success": ""
+		},
+		"list": {
+			"title": ""
+		}
+	},
+	"kick": {
+		"noArgs": "",
+		"success": "",
+		"withReason": "",
+		"feelsGoodMan": {
+			"reason": "",
+			"noReason": ""
+		}
+	},
+	"gotcharacter": {
+		"notFound": ""
+	},
+	"genavatar": {
+		"title": "",
+		"description": "",
+		"footer": ""
+	},
+	"urban": {
+		"noArgs": "",
+		"noResults": "",
+		"nsfwDef": "",
+		"nsfwWord": "",
+		"author": {
+			"name": ""
+		},
+		"votes": ""
+	},
+	"avatar": {
+		"base": {
+			"cannotFind": "",
+			"title": ""
+		},
+		"server": {
+			"noIcon": ""
+		}
+	},
+	"advancedembed": {
+		"unsupportedColor": "",
+		"error": ""
+	},
+	"discrim": {
+		"title": "",
+		"invalid": "",
+		"none": ""
+	},
+	"google": {
+		"noArgs": "",
+		"noResults": ""
+	},
+	"inrole": {
+		"noArgs": "",
+		"noRole": "",
+		"noOne": "",
+		"title": ""
+	},
+	"inviteinfo": {
+		"invalid": "",
+		"title": "",
+		"guild": {
+			"name": ""
+		},
+		"inviter": {
+			"name": ""
+		},
+		"channel": {
+			"name": "",
+			"value": ""
+		},
+		"owner": {
+			"name": ""
+		},
+		"memberCount": {
+			"name": "",
+			"value": ""
+		}
+	},
+	"joined": {
+		"noArgs": "",
+		"noUser": "",
+		"message": ""
+	},
+	"membercount": {
+		"total": "",
+		"online": "",
+		"idle": "",
+		"dnd": "",
+		"offline": "",
+		"bots": ""
+	},
+	"minecraft": {
+		"noArgs": "",
+		"invalidIP": "",
+		"uptime": {
+			"name": ""
+		},
+		"players": {
+			"name": "",
+			"value": ""
+		},
+		"software": {
+			"name": ""
+		},
+		"lastChecked": "",
+		"status": "",
+		"online": "",
+		"offline": ""
+	},
+	"quote": {
+		"noArgs": "",
+		"noMessage": "",
+		"invalidType": "",
+		"invalidMsg": ""
+	},
+	"randomcolor": "",
+	"reddit": {
+		"noArgs": "",
+		"over18": "",
+		"invalid": ""
+	},
+	"id": {
+		"noArgs": "",
+		"noTarget": "",
+		"role": "",
+		"channel": "",
+		"memberOrGuild": ""
+	},
+	"roleinfo": {
+		"noArgs": "",
+		"invalidRole": "",
+		"id": {
+			"name": ""
+		},
+		"name": {
+			"name": ""
+		},
+		"color": {
+			"name": ""
+		},
+		"mention": {
+			"name": ""
+		},
+		"members": {
+			"name": ""
+		},
+		"position": {
+			"name": ""
+		},
+		"mentionable": {
+			"name": ""
+		},
+		"hoisted": {
+			"name": ""
+		},
+		"yes": "",
+		"no": "",
+		"footer": ""
+	},
+	"say": {
+		"noArgs": ""
+	},
+	"serverinfo": {
+		"name": {
+			"name": ""
+		},
+		"textChannels": {
+			"name": ""
+		},
+		"voiceChannels": {
+			"name": ""
+		},
+		"verificationLevel": {
+			"name": ""
+		},
+		"region": {
+			"name": ""
+		},
+		"roles": {
+			"name": ""
+		},
+		"members": {
+			"name": ""
+		},
+		"owner": {
+			"name": ""
+		},
+		"footer": ""
+	},
+	"shorten": {
+		"noArgs": "",
+		"invalidURI": ""
+	},
+	"time": {
+		"noArgs": "",
+		"noTimezone": "",
+		"success": ""
+	},
+	"locale": {
+		"success": "",
+		"notFound": "",
+		"title": "",
+		"description": ""
+	},
+	"wiki": {
+		"noArgs": "",
+		"tooLong": "",
+		"noResults": "",
+		"description": "",
+		"footer": ""
+	},
+	"channelspaces": {
+		"success": "",
+		"error": "",
+		"noChannel": ""
+	}
+}
