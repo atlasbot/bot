@@ -1,564 +1,564 @@
 {
 	"nodes": {
-		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
-		"node": "Node",
-		"players": "Players",
-		"events": "Events",
-		"footer": "Atlas' Voice Nodes"
+		"noNodes": "",
+		"node": "",
+		"players": "",
+		"events": "",
+		"footer": ""
 	},
 	"vaporwave": {
-		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+		"noArgs": ""
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "",
+		"disabled": ""
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "",
+		"success": ""
 	},
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
+		"notAMovie": "That there ain't a movie! Ye' should try `{0}show {1}` instead."
 	},
 	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead."
 	},
 	"funban": {
-		"success": "Banned {0}."
+		"success": "Sent {0} to Davy Jones' Locker."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned.",
+		"noArgs": "Ye' needa include a sea-slug to send to Davy Jones' Locker!",
+		"success": "Sent {0} to Davy Jones' Locker.",
+		"withReason": "Sent {0} to Davy Jones' Locker fer' `{1}`.",
+		"tooLateReason": "{1} has already been sent to Davy Jones' Locker wit' the reason `{0}`.",
+		"tooLate": "{0} has already been sent to Davy Jones' Locker.",
 		"feelsGoodMan": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "",
+			"noReason": ""
 		}
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"youGotIt": "You got it, I'll remind you in {0}.",
-		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
+		"invalid": "That ain't a valid date.",
+		"setForPast": "",
+		"furtherPls": "",
+		"youGotIt": "",
+		"relative": ""
 	},
 	"ping": {
-		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"start": "",
+		"server": "I've a `{0}ms` delay to this 'ere server.",
+		"dm": "I've a `{0}ms` delay to this 'ere DM.",
 		"randoms": [
-			"I'm hungry...",
-			"Shovelling coal into the server...",
-			"In my defense, this is still faster than you could do it...",
-			"Waiting for the stars to align...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
-			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
-			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
-			"Spinning up the hamster..."
+			"Hoistin' the topsails...",
+			"Gatherin' all hands on deck...",
+			"Haulin' the pennant line...",
+			"Slackin' the windward brace...",
+			"Steadyin' the cargo...",
+			"Readyin' the cannons...",
+			"Wakin' the cap'n...",
+			"Dumpin' the cargo overboard...",
+			"Preparin' the riggin'...",
+			"Unfurlin' the sails...",
+			"Waitin' fer the seas to calm...",
+			"Takin' control of the helm...",
+			"Requestin' a parley...",
+			"Battlin' the high seas...",
+			"Weighin' the anchor..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"donate": "Bribe the portmaster and get some trinkets in return by donating at <https://www.patreon.com/NotSylver>.",
+	"invite": "Ye' can get Atlas fer' yore own server at <https://atlasbot.xyz/get>.",
 	"help": {
-		"title": "Need some help?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
+		"title": "Need some 'elp?",
+		"description": ""
 	},
 	"info": {
-		"title": "Atlas",
-		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
+		"title": "",
+		"description": "",
 		"support": {
-			"name": "Support",
-			"value": "[Cick here](https://atlasbot.xyz/support)"
+			"name": "",
+			"value": "[Cick 'ere](https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
-			"value": "[Click here](https://atlasbot.xyz/)"
+			"name": "",
+			"value": "[Click 'ere](https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "I've been online fer' {0}.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "You've gotta tell me whom to look up!",
 		"embed": {
 			"tag": {
-				"name": "Tag",
-				"value": "{0}"
+				"name": "",
+				"value": ""
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "",
+				"value": "[Click 'ere]({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
-				"value": "{0}"
+				"name": "",
+				"value": ""
 			},
 			"joined": {
-				"name": "Joined",
-				"value": "{0}"
+				"name": "",
+				"value": ""
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "",
 				"value": {
-					"set": "{0}",
-					"null": "Nothing"
+					"set": "",
+					"null": ""
 				}
 			},
 			"status": {
-				"name": "Status",
-				"value": "{0}"
+				"name": "",
+				"value": ""
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "",
 				"value": {
-					"set": "{0}",
-					"null": "None",
-					"tooMany": "{0} total."
+					"set": "",
+					"null": "",
+					"tooMany": ""
 				}
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Need 'elp? Join our crew at <https://atlasbot.xyz/support>.",
 	"play": {
-		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
-		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"busy": "I'm already playing in `{0}`.",
-		"noArgs": "You have to include a search term or song URL!",
+		"noNodes": "",
+		"noResults": "",
+		"noVoiceChannel": "You mus' be inna voice channel to do that!",
+		"busy": "",
+		"noArgs": "",
 		"playlistEmbed": {
-			"title": "Playlist Queued - {0}",
-			"description": "{0} has queued {1} songs from a playlist."
+			"title": "",
+			"description": ""
 		}
 	},
 	"queue": {
 		"embed": {
 			"totalDuration": {
-				"name": "Total Duration",
-				"value": "{0}"
+				"name": "",
+				"value": ""
 			},
 			"inQueue": {
-				"name": "In Queue",
+				"name": "",
 				"value": {
-					"plural": "{0} songs",
-					"singular": "{0} song"
+					"plural": "",
+					"singular": ""
 				}
 			},
 			"upNext": {
-				"value": "Up Next",
-				"format": "{0}. [{1}]({2})"
+				"value": "",
+				"format": ""
 			}
 		}
 	},
 	"qplaylist": {
-		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"invalidHostname": "You must enter a valid playlist URL!",
-		"youtubeOnly": "This command only works with YouTube playlists.",
-		"noQueryParam": "That link isn't apart of a playlist. "
+		"noArgs": "",
+		"noVoiceChannel": "You mus' be inna voice channel to do that!",
+		"invalidHostname": "",
+		"youtubeOnly": "",
+		"noQueryParam": ""
 	},
 	"warn": {
 		"add": {
-			"noReason": "You have to include a reason.",
-			"noArgs": "Please include a user to warn!",
+			"noReason": "",
+			"noArgs": "",
 			"success": {
-				"plural": "Added warning to {0}, they now have {1} warnings.",
-				"singular": "Added warning to {0}, they now have {1} warning."
+				"plural": "",
+				"singular": ""
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "Ye' blabber-mouth! The reason ye' provided is too long, it mus' be at most 256 characters long."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
-			"noWarns": "{0} does not have any warnings."
+			"noArgs": "Ye' mus' include a sea-slug's name!",
+			"noPerms": "Ye' only have permissions to view yore own warnings!",
+			"noWarns": ""
 		},
 		"remove": {
-			"notFound": "I could not find a warning matching your query.",
-			"noWarns": "{0} does not have any warnings.",
-			"error": "An error occured when adding reactions.",
-			"removedAll": "{0}, you have removed all of {1}'s warnings.",
-			"missingPerms": "I need permissions to add reactions to do that. ",
-			"success": "{0}, removed warning `{1}` from {2}.",
-			"successNoMention": "Removed warning `{0}` from {1}."
+			"notFound": "",
+			"noWarns": "",
+			"error": "",
+			"removedAll": "",
+			"missingPerms": "",
+			"success": "",
+			"successNoMention": ""
 		}
 	},
 	"8ball": {
 		"responses": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Most definitely.",
-			"Signs point to yes.",
-			"Reply hazy try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again.",
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned."
+		"noArgs": "Ye' mus' include a soul to bring back from Davy Jones' Locker!",
+		"success": ""
 	},
 	"mute": {
-		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
-		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
-		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
-		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
-		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
+		"noArgs": "",
+		"success": "",
+		"generated": "",
+		"generatePermError": "",
+		"alreadyMuted": "",
+		"invalid": "",
+		"setForPast": "",
+		"furtherPls": "",
+		"tooHigh": ""
 	},
 	"unmute": {
-		"success": "{0} has been unmuted.",
-		"notMuted": "That user is not muted!",
-		"tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
+		"success": "",
+		"notMuted": "",
+		"tooHigh": ""
 	},
 	"emojify": {
-		"noArgs": "Please include a sentence to emojify!"
+		"noArgs": ""
 	},
 	"next": {
-		"success": "Skipped `{0}`.",
-		"nothingNext": "There is nothing in the queue to skip to."
+		"success": "",
+		"nothingNext": ""
 	},
 	"botinfo": {
-		"noArgs": "Please mention a bot or include a search term.",
-		"notABot": "Beep boop? That user is not a bot.",
-		"notFound": "That bot is not listed on discordbots.org :c",
+		"noArgs": "",
+		"notABot": "",
+		"notFound": "",
 		"embed": {
-			"library": "Library",
+			"library": "",
 			"servers": {
-				"name": "Servers",
-				"none": "Unknown"
+				"name": "",
+				"none": ""
 			},
 			"shards": {
-				"name": "Shards",
-				"none": "Unknown"
+				"name": "",
+				"none": ""
 			},
-			"prefix": "Prefix",
+			"prefix": "",
 			"github": {
-				"name": "Github",
-				"none": "None"
+				"name": "",
+				"none": ""
 			},
 			"website": {
-				"name": "Website",
-				"none": "None"
+				"name": "",
+				"none": ""
 			},
-			"owners": "Owners",
-			"footer": "Approved at",
-			"invite": "Invite Link",
+			"owners": "",
+			"footer": "",
+			"invite": "",
 			"support": {
-				"name": "Support Server",
-				"none": "None"
+				"name": "",
+				"none": ""
 			}
 		}
 	},
 	"leave": {
-		"recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
-		"sameChannel": "You must be in the same voice channel as I am to do that!",
-		"nothingPlaying": "There is nothing playing in this server!",
-		"leftNoChannel": "I have left the voice channel.",
-		"leftChannel": "I have left `{0}`!"
+		"recentRestart": "",
+		"sameChannel": "",
+		"nothingPlaying": "",
+		"leftNoChannel": "",
+		"leftChannel": ""
 	},
 	"achievement": {
-		"noArgs": "You have to include something to turn into an achievement.",
-		"header": "Achievement Get!"
+		"noArgs": "",
+		"header": ""
 	},
 	"coinflip": {
-		"heads": "I flipped a coin and got heads!",
-		"tails": "I flipped a coin and got tails!"
+		"heads": "",
+		"tails": ""
 	},
 	"move": {
-		"noArgs": "You have to include a channel to move the message to.",
-		"noMessage": "I could not find a message matching `{0}`.",
-		"noChannel": "I could not find a channel matching `{0}`.",
-		"notInTime": "{0}, you did not add a reaction in time.",
-		"sameChannel": "That message is already in {0}.",
-		"invalidType": "That message type cannot be transferred to a different channel.",
-		"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
-		"success": "Message moved to {0}.",
-		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+		"noArgs": "",
+		"noMessage": "",
+		"noChannel": "",
+		"notInTime": "",
+		"sameChannel": "",
+		"invalidType": "",
+		"waiting": "",
+		"success": "",
+		"noMessageOrPerms": ""
 	},
 	"texttoemoji": {
-		"noArgs": "You have to include some text to convert."
+		"noArgs": ""
 	},
 	"log": {
-		"noResults": "I could not find a channel matching `{0}`.",
+		"noResults": "",
 		"actions": {
-			"success": "Action logs will now be sent to {0}.",
-			"disabled": "Action logging has been disabled."
+			"success": "",
+			"disabled": ""
 		},
 		"moderation": {
-			"success": "Moderation logs will now be sent to {0}.",
-			"disabled": "Moderation logging has been disabled."
+			"success": "",
+			"disabled": ""
 		},
 		"errors": {
-			"success": "Errors will now be sent to {0}.",
-			"disabled": "Error logging has been disabled."
+			"success": "",
+			"disabled": ""
 		}
 	},
 	"slowmode": {
-		"noArgs": "You have to include a message interval in seconds.",
-		"invalid": "The slowmode rate must be between 0 and 120.",
-		"success": "Users can now send messages every {0}.",
-		"disabled": "Disabled slowmode for {0}."
+		"noArgs": "",
+		"invalid": "",
+		"success": "",
+		"disabled": ""
 	},
 	"purge": {
 		"general": {
-			"tooLow": "The number you provided is too low. It must be one or higher.",
-			"tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
-			"success": "{0} has purged `{1}` messages.",
-			"invalidFilter": "You have to include a valid filter."
+			"tooLow": "",
+			"tooHigh": "",
+			"nothingPurged": "",
+			"success": "",
+			"invalidFilter": ""
 		},
 		"base": {
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+			"nothingPurged": ""
 		},
 		"user": {
-			"noArgs": "Please include a user mention!",
-			"noUser": "I couldn't find a valid user matching your search."
+			"noArgs": "",
+			"noUser": ""
 		}
 	},
 	"filters": {
 		"action": {
-			"noFilter": "You have to include a valid filter name to edit.",
-			"noAction": "You have to include a valid action. Available actions: `{0}`.",
-			"success": "The {0} filter has been set to `{1}`."
+			"noFilter": "",
+			"noAction": "",
+			"success": ""
 		},
 		"list": {
-			"title": "Filters"
+			"title": ""
 		}
 	},
 	"kick": {
-		"noArgs": "Please include a user to kick!",
-		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`.",
+		"noArgs": "",
+		"success": "",
+		"withReason": "",
 		"feelsGoodMan": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "",
+			"noReason": ""
 		}
 	},
 	"gotcharacter": {
-		"notFound": "I could not find a Game of Thrones character matching `{0}`."
+		"notFound": ""
 	},
 	"genavatar": {
-		"title": "Here you go!",
-		"description": "[Click here]({0}) for a higher quality version.",
-		"footer": "Via adorable.io"
+		"title": "",
+		"description": "",
+		"footer": ""
 	},
 	"urban": {
-		"noArgs": "You have to provide a search!",
-		"noResults": "I couldn't find any definition for `{0}`.",
-		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
-		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
+		"noArgs": "",
+		"noResults": "",
+		"nsfwDef": "",
+		"nsfwWord": "",
 		"author": {
-			"name": "Author"
+			"name": ""
 		},
-		"votes": "{0} upvotes, {1} downvotes"
+		"votes": "{0} popular votes, {1} unpopular votes"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
-			"title": "Here you go!"
+			"cannotFind": "There innit a lad matching `{0}`.",
+			"title": ""
 		},
 		"server": {
-			"noIcon": "This server has no icon."
+			"noIcon": ""
 		}
 	},
 	"advancedembed": {
-		"unsupportedColor": "`{0}` is not a supported color format.",
-		"error": "Error validating embed: `{0}`."
+		"unsupportedColor": "",
+		"error": ""
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
-		"invalid": "`{0}` is not a valid discriminator.",
-		"none": "There are no users in this server with that discriminator."
+		"title": "Lads with a #{0} Discriminator",
+		"invalid": "",
+		"none": ""
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "Ye' mus' include something to search fer'.",
+		"noResults": "I couldn't find anythin' when lookin' fer' that."
 	},
 	"inrole": {
-		"noArgs": "You have to provide a role name/mention to lookup.",
-		"noRole": "I could not find a role matching `{0}`.",
-		"noOne": "That role does not have any members.",
-		"title": "Members in the {0} Role"
+		"noArgs": "",
+		"noRole": "",
+		"noOne": "",
+		"title": ""
 	},
 	"inviteinfo": {
-		"invalid": "`{0}` is not a valid invite link or code.",
-		"title": "Invite Info for {0}",
+		"invalid": "",
+		"title": "",
 		"guild": {
-			"name": "Server Name"
+			"name": ""
 		},
 		"inviter": {
-			"name": "Inviter"
+			"name": ""
 		},
 		"channel": {
-			"name": "Channel",
-			"value": "{0} ({1})"
+			"name": "",
+			"value": ""
 		},
 		"owner": {
-			"name": "Owner"
+			"name": ""
 		},
 		"memberCount": {
-			"name": "Member Count",
-			"value": "{0} ({1} online)"
+			"name": "",
+			"value": ""
 		}
 	},
 	"joined": {
-		"noArgs": "Please include a user to check.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"message": "{0} joined {1} at {2}."
+		"noArgs": "",
+		"noUser": "There innit a lad matching `{0}`.",
+		"message": ""
 	},
 	"membercount": {
-		"total": "Total",
-		"online": "Online",
-		"idle": "Idle",
-		"dnd": "Do not Disturb",
-		"offline": "Offline",
-		"bots": "Bots"
+		"total": "",
+		"online": "",
+		"idle": "",
+		"dnd": "",
+		"offline": "",
+		"bots": ""
 	},
 	"minecraft": {
-		"noArgs": "Please include a server IP.",
-		"invalidIP": "`{0}` is not a valid Minecraft IP.",
+		"noArgs": "",
+		"invalidIP": "",
 		"uptime": {
-			"name": "Uptime"
+			"name": ""
 		},
 		"players": {
-			"name": "Players",
-			"value": "{0}/{1}"
+			"name": "",
+			"value": ""
 		},
 		"software": {
-			"name": "Software"
+			"name": ""
 		},
-		"lastChecked": "Via mcapi.us  •  last checked",
-		"status": "Status",
-		"online": "Online",
-		"offline": "Offline"
+		"lastChecked": "",
+		"status": "",
+		"online": "",
+		"offline": ""
 	},
 	"quote": {
-		"noArgs": "Please include a message ID or share link.",
-		"noMessage": "I could not find any message matching that :c",
-		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"noArgs": "",
+		"noMessage": "",
+		"invalidType": "",
+		"invalidMsg": ""
 	},
-	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
+	"randomcolor": "",
 	"reddit": {
-		"noArgs": "Please include a subreddit name.",
-		"over18": "That subreddit is NSFW. Please use an NSFW channel.",
-		"invalid": "I could not find a subreddit with the name `{0}`."
+		"noArgs": "",
+		"over18": "",
+		"invalid": ""
 	},
 	"id": {
-		"noArgs": "Please include a role, user or channel.",
-		"noTarget": "I could not resolve `{0}` to a channel, role or user.",
-		"role": "The ID for the `@{0}` role is `{1}`.",
-		"channel": "{0}'s ID is `{1}`.",
-		"memberOrGuild": "{0}'s ID is `{1}`."
+		"noArgs": "",
+		"noTarget": "",
+		"role": "",
+		"channel": "",
+		"memberOrGuild": ""
 	},
 	"roleinfo": {
-		"noArgs": "Please include a role.",
-		"invalidRole": "I could not find a role matching `{0}`.",
+		"noArgs": "Ye' mus' include a role.",
+		"invalidRole": "",
 		"id": {
-			"name": "ID"
+			"name": ""
 		},
 		"name": {
-			"name": "Name"
+			"name": ""
 		},
 		"color": {
-			"name": "Color"
+			"name": ""
 		},
 		"mention": {
-			"name": "Mention"
+			"name": ""
 		},
 		"members": {
-			"name": "Members"
+			"name": ""
 		},
 		"position": {
-			"name": "Position"
+			"name": ""
 		},
 		"mentionable": {
-			"name": "Mentionable"
+			"name": ""
 		},
 		"hoisted": {
-			"name": "Hoisted"
+			"name": ""
 		},
-		"yes": "Yes",
-		"no": "No",
-		"footer": "Created At"
+		"yes": "",
+		"no": "",
+		"footer": ""
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Ye' have to include something fer' me to say."
 	},
 	"serverinfo": {
 		"name": {
-			"name": "Name"
+			"name": ""
 		},
 		"textChannels": {
-			"name": "Text Channels"
+			"name": ""
 		},
 		"voiceChannels": {
-			"name": "Voice Channels"
+			"name": ""
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": ""
 		},
 		"region": {
-			"name": "Region"
+			"name": ""
 		},
 		"roles": {
-			"name": "Roles"
+			"name": ""
 		},
 		"members": {
-			"name": "Members"
+			"name": ""
 		},
 		"owner": {
-			"name": "Owner"
+			"name": ""
 		},
-		"footer": "Created"
+		"footer": ""
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Ye' mus' include a URL.",
+		"invalidURI": "`{0}` ain't a valid URL."
 	},
 	"time": {
-		"noArgs": "Please include a location to get the time for.",
-		"noTimezone": "I could not find a town or city matching `{0}`.",
-		"success": "It is currently {0} in {1}."
+		"noArgs": "Ye' mus' include a spot on the map to get the time fer'.",
+		"noTimezone": "I could not find a port by the name of `{0}`.",
+		"success": "'Tis currently {0} in {1}."
 	},
 	"locale": {
-		"success": "The servers language has been set to {0}.",
-		"notFound": "I could not find a locale matching `{0}` :c",
-		"title": "Supported Languages",
-		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
+		"success": "The servers tongue has been set to {0}.",
+		"notFound": "There innit a locale matching `{0}`.",
+		"title": "Supported Tongues",
+		"description": "To change this 'ere server's locale, ye' mus' do `{0}locale <name>`. Ye' can find a list of names below. Some tongues may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages ['ere](https://translate.atlasbot.xyz).\n\n{1}"
 	},
 	"wiki": {
-		"noArgs": "You have to include a search term!",
-		"tooLong": "Your search term must be under 64 characters!",
-		"noResults": "I could not find any wiki article matching your search term!",
-		"description": "{0} [Wiki Page]({1})",
-		"footer": "Results for \"{0}\""
+		"noArgs": "",
+		"tooLong": "",
+		"noResults": "",
+		"description": "",
+		"footer": ""
 	},
 	"channelspaces": {
-		"success": "Hyphens in {0} have been replaced with spaces.",
-		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
-		"noChannel": "I couldn't find a channel matching `{0}`."
+		"success": "",
+		"error": "",
+		"noChannel": ""
 	}
 }
