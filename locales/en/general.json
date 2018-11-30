@@ -1,355 +1,355 @@
 {
 	"player": {
-		"none": "There is nothing playing in this server.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"none": "",
+		"trackQueued": "Arr. I added {0} to the queue. Ye betcha it'll play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
-			"author": "Author",
+			"addedBy": "Add By",
+			"author": "",
 			"duration": "Duration",
-			"footer": "{0} in queue"
+			"footer": ""
 		},
-		"leaving": "There is nothing left to play, leaving channel...",
+		"leaving": "",
 		"autoplay": {
-			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"failed": "",
+			"addedBy": ""
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Via nekobot.xyz"
+		"nekobot": ""
 	},
 	"logs": {
 		"guildMemberKick": {
-			"title": "Member Kicked",
-			"description": "{0} has been kicked from the server.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Member Updated - Role Added",
-				"description": "{0} has been given the {1} role.",
+				"title": "",
+				"description": "",
 				"moderator": {
-					"name": "Moderator",
-					"value": "{0} (`{1}`)"
+					"name": "",
+					"value": ""
 				},
-				"reason": "Reason"
+				"reason": ""
 			},
 			"roleRemove": {
-				"title": "Member Updated - Role Removed",
-				"description": "{0} has had the {1} role taken from them.",
+				"title": "",
+				"description": "",
 				"moderator": {
-					"name": "Moderator",
-					"value": "{0} (`{1}`)"
+					"name": "",
+					"value": ""
 				},
-				"reason": "Reason"
+				"reason": ""
 			},
 			"usernameChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their username from `{1}` to `{2}`."
+				"title": "",
+				"description": ""
 			},
 			"avatarChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their avatar from `{1}` to `{2}`."
+				"title": "",
+				"description": ""
 			}
 		},
 		"guildMemberAdd": {
-			"title": "Member Joined",
-			"description": "{0} has joined the server."
+			"title": "",
+			"description": ""
 		},
 		"guildRoleCreate": {
-			"title": "Role Created",
-			"description": "The {0} role was created.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Role Deleted",
-			"description": "The {0} role was deleted.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			}
 		},
 		"guildRoleUpdate": {
-			"title": "Role Updated",
-			"description": "The {0} role has been updated.",
+			"title": "",
+			"description": "",
 			"colorChange": {
-				"name": "Color Updated"
+				"name": ""
 			},
 			"nameChange": {
-				"name": "Name Updated"
+				"name": ""
 			},
 			"permAdded": {
-				"name": "Permissions Added",
-				"value": "The role now has the `{0}` permissions."
+				"name": "",
+				"value": ""
 			},
 			"permRemoved": {
-				"name": "Permissions Revoked",
-				"value": "The role no longer has the `{0}` permissions."
+				"name": "",
+				"value": ""
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"hoistTrue": {
-				"name": "Hoist Updated",
-				"value": "The role will now display members seperately from online members."
+				"name": "",
+				"value": ""
 			},
 			"hoistFalse": {
-				"name": "Hoist Updated",
-				"value": "The role will no longer display members seperately from online members."
+				"name": "",
+				"value": ""
 			},
 			"mentionableTrue": {
-				"name": "@mention Updated",
-				"value": "The role can now be mentioned."
+				"name": "",
+				"value": ""
 			},
 			"mentionableFalse": {
-				"name": "@mention Updated",
-				"value": "The role can no longer be mentioned."
+				"name": "",
+				"value": ""
 			}
 		},
 		"messageDelete": {
-			"title": "Message Deleted",
-			"description": "A message by {0} has been deleted in {1}.",
+			"title": "",
+			"description": "",
 			"content": {
-				"name": "Content"
+				"name": ""
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"reason": {
-				"name": "Reason"
+				"name": ""
 			}
 		},
 		"messageUpdate": {
-			"title": "Message Updated",
-			"description": "A message by {0} has been updated in {1}.",
+			"title": "",
+			"description": "",
 			"oldContent": {
-				"name": "Before"
+				"name": ""
 			},
 			"newContent": {
-				"name": "After"
+				"name": ""
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Member Left",
-			"description": "{0} has left the server."
+			"title": "",
+			"description": ""
 		},
 		"channelCreate": {
-			"title": "Channel Created",
-			"description": "The {0} (`{1}`) {2} channel has been created.",
+			"title": "",
+			"description": "",
 			"category": {
-				"name": "Category"
+				"name": ""
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			}
 		},
 		"channelDelete": {
-			"title": "Channel Deleted",
-			"description": "The {0} channel has been deleted.",
+			"title": "",
+			"description": "",
 			"category": {
-				"name": "Category"
+				"name": ""
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			}
 		},
 		"guildBanAdd": {
-			"title": "Member Banned",
-			"description": "{0} has been banned.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"reason": {
-				"name": "Reason"
+				"name": ""
 			}
 		},
 		"guildBanRemove": {
-			"title": "Member Unbanned",
-			"description": "{0} has been unbanned.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"reason": {
-				"name": "Reason"
+				"name": ""
 			}
 		},
 		"mute": {
-			"title": "Member Muted",
-			"description": "{0} has been muted.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"duration": {
 				"name": "Duration"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": ""
 			},
-			"footer": "Target {0} Mod {1}"
+			"footer": ""
 		},
 		"unmute": {
-			"title": "Member Unmuted",
-			"description": "{0} has been unmuted.",
+			"title": "",
+			"description": "",
 			"moderator": {
-				"name": "Moderator"
+				"name": ""
 			},
 			"unmuteReason": {
-				"name": "Reason"
+				"name": ""
 			}
 		}
 	},
-	"messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
-	"messageQueryLate": "{0}, you took too long to add the reaction.",
-	"botPermError": "I am missing one or more permissions that I need to do that.",
-	"noResults": "I couldn't find anything matching your query, `{0}`.",
-	"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
-	"noPermission": "You don't have permission to access that command.",
-	"restError": "<:sadpanda:497907940225843220> Something went wrong when running the command, please try again in a few minutes.",
-	"errorExecuting": "An unknown error occured executing the command.",
-	"noUserFound": "I couldn't find that user.",
-	"noMorePages": "{0}, there are no more pages that way.",
-	"guildOnly": "That command can only be used in servers!",
-	"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-	"premiumOnly": "Only premium servers can use that command. ",
-	"notPunishable": "You are lacking the permission required to punish that user.",
-	"lolno": "I cannot punish that user as their permission level is above my own.",
+	"messageQuery": "",
+	"messageQueryLate": "",
+	"botPermError": "",
+	"noResults": "",
+	"webhookPermError": "",
+	"noPermission": "",
+	"restError": "",
+	"errorExecuting": "",
+	"noUserFound": "",
+	"noMorePages": "",
+	"guildOnly": "",
+	"patronOnly": "",
+	"premiumOnly": "",
+	"notPunishable": "",
+	"lolno": "",
 	"music": {
 		"position": {
-			"name": "Position",
-			"value": "{0}"
+			"name": "",
+			"value": ""
 		},
 		"nowPlaying": {
-			"name": "Now Playing",
-			"value": "[{0}]({1})"
+			"name": "",
+			"value": ""
 		},
 		"playlist": {
-			"name": "Playlist Queued",
-			"value": "{0} songs queued by {1}"
+			"name": "",
+			"value": ""
 		},
-		"description": "[{0}]({1})",
+		"description": "",
 		"duration": {
 			"name": "Duration",
-			"value": "{0}"
+			"value": ""
 		},
 		"addedBy": {
-			"name": "Added By",
-			"value": "{0}"
+			"name": "Add By",
+			"value": ""
 		},
 		"author": {
-			"name": "Author",
-			"value": "{0}"
+			"name": "",
+			"value": ""
 		},
-		"addedTrack": "Added Track",
+		"addedTrack": "",
 		"ttp": {
 			"name": "Time Until Playing",
-			"value": "{0}"
+			"value": ""
 		},
 		"inQueue": {
-			"name": "In Queue",
+			"name": "",
 			"value": {
-				"plural": "{0} songs",
-				"singular": "{0} song"
+				"plural": "",
+				"singular": ""
 			}
 		}
 	},
-	"disabledCommand": "The `{0}{1}` command has been disabled by a server administrator.",
+	"disabledCommand": "",
 	"blacklisted": {
 		"roles": {
-			"plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
-			"singular": "You have the {0} role which is blacklisted from using `{1}{2}`."
+			"plural": "",
+			"singular": ""
 		},
-		"channel": "This channel is blacklisted from using `{1}{2}`."
+		"channel": ""
 	},
 	"permissions": {
 		"list": {
-			"createInstantInvite": "Create Invite",
-			"kickMembers": "Kick Members",
-			"banMembers": "Ban Members",
-			"administrator": "Administrator",
-			"manageChannels": "Manage Channels",
-			"manageGuild": "Manage Guild",
-			"addReactions": "Add Reactions",
-			"readMessages": "Read Messages",
-			"sendMessages": "Send Messages",
-			"SendTTSMessages": "Send TTS Messages",
-			"manageMessages": "Manage Messages",
-			"embedLinks": "Embed Links",
-			"attachFiles": "Embed Files",
-			"readMessageHistory": "Read Message History",
-			"mentionEveryone": "Mention Everyone",
-			"externalEmojis": "External Emojis",
-			"voiceConnect": "Connect to Voice",
-			"voiceSpeak": "Speak in Voice",
-			"voiceMuteMembers": "Mute Voice Members",
-			"voiceUseVAD": "Use VAD",
-			"changeNickname": "Change Nickname",
-			"manageNicknames": "Manage Nicknames",
-			"manageRoles": "Manage Roles",
-			"manageWebhooks": "Manage Webhooks",
-			"manageEmojis": "Manage Emojis"
+			"createInstantInvite": "",
+			"kickMembers": "",
+			"banMembers": "",
+			"administrator": "",
+			"manageChannels": "",
+			"manageGuild": "",
+			"addReactions": "",
+			"readMessages": "",
+			"sendMessages": "",
+			"SendTTSMessages": "",
+			"manageMessages": "",
+			"embedLinks": "",
+			"attachFiles": "",
+			"readMessageHistory": "",
+			"mentionEveryone": "",
+			"externalEmojis": "",
+			"voiceConnect": "",
+			"voiceSpeak": "",
+			"voiceMuteMembers": "",
+			"voiceUseVAD": "",
+			"changeNickname": "",
+			"manageNicknames": "",
+			"manageRoles": "",
+			"manageWebhooks": "",
+			"manageEmojis": ""
 		},
 		"permError": {
-			"user": "You need the `{0}` permissions to do that.",
-			"bot": "I need the `{0}` permission to do that."
+			"user": "",
+			"bot": ""
 		}
 	},
 	"filters": {
 		"actions": {
-			"disabled": "Disabled",
-			"dtm": "Delete the Message",
-			"wtu": "Warn the User",
-			"dtm_wtu": "Delete Message & Warn User",
-			"ca": "Custom Action"
+			"disabled": "",
+			"dtm": "",
+			"wtu": "",
+			"dtm_wtu": "",
+			"ca": ""
 		},
 		"messages": {
 			"capitalization": {
-				"warning": "Excessive capitalization.",
-				"message": "{0}, cool it with the caps."
+				"warning": "",
+				"message": ""
 			},
 			"emoji": {
-				"warning": "Excessive emojis.",
-				"message": "{0}, please dont use so many emojis."
+				"warning": "",
+				"message": ""
 			},
 			"cursing": {
-				"warning": "Cursing",
-				"message": "{0}, please refrain from swearing here."
+				"warning": "",
+				"message": ""
 			},
 			"invites": {
-				"warning": "Sending an invite.",
-				"message": "{0}, invite links are not allowed here."
+				"warning": "",
+				"message": ""
 			},
 			"links": {
-				"warning": "Sending a link.",
-				"message": "{0}, please dont share links here."
+				"warning": "",
+				"message": ""
 			},
 			"mentions": {
-				"warning": "Sending too many (`{0}`) mentions.",
-				"message": "{0}, please dont mention so many people at once."
+				"warning": "",
+				"message": ""
 			},
 			"phrases": {
-				"warning": "Message contained a blacklisted word.",
-				"message": "{0}, please refrain from using that word.",
-				"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
+				"warning": "",
+				"message": "",
+				"dm": ""
 			},
 			"spam": {
-				"warning": "Flooding chat.",
-				"message": "{0}, please don't flood chat."
+				"warning": "",
+				"message": ""
 			}
 		}
 	},
 	"action": {
-		"disabled": "That action is disabled.",
-		"noSubActions": "That action has no sub-actions to run.",
+		"disabled": "",
+		"noSubActions": "",
 		"banned": {
-			"channel": "This channel is not allowed to use that action.",
-			"role": "You have a role which has been blocked from using this action."
+			"channel": "",
+			"role": ""
 		},
 		"whitelist": {
-			"role": "Only whitelisted roles are allowed to use that action.",
-			"channel": "Only whitelisted channels are allowed to use that action."
+			"role": "",
+			"channel": ""
 		}
 	}
 }
