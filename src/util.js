@@ -388,8 +388,10 @@ module.exports = class Util {
 			const toSave = schema(author);
 
 			// updates the user if the saved data doesn't exist or doesn't equal what it would be if we update it
-			if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
-				await this.Atlas.DB.User.updateOneOrCreate({ id: toSave.id }, toSave);
+			if (!saved) {
+				await this.Atlas.DB.User.create({ id: toSave.id, ...toSave });
+			} else if (JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
+				await this.Atlas.DB.User.updateOne({ id: toSave.id }, toSave);
 			}
 		} catch (e) {
 			console.warn(e);
@@ -493,6 +495,14 @@ module.exports = class Util {
 			await musicCache.set(identifier, track);
 
 			return track;
+		}
+	}
+
+	async levelup(previous, current) {
+		console.log(previous, current);
+
+		if (previous.current.level !== current.current.level) {
+			console.warn(`LEVEL UP! ${previous.current.level} > ${current.current.level}`);
 		}
 	}
 };
