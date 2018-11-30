@@ -46,7 +46,13 @@ module.exports = class Event {
 			// this mess will get the guilds settings and check to see if there are any triggers for it
 
 			// emoji.id is only set if it's a custom emoji, which is what is stored as 'trigger.content' for custom emojis.
-			const query = emoji.id || emojiUtil.get(emoji.name).name;
+			const query = emoji.id || (() => {
+				const e = emojiUtil.get(emoji.name);
+
+				if (e) {
+					return e.name;
+				}
+			})();
 
 			const actions = (await mongoose.model('Action').find({
 				guild: msg.guild.id,

@@ -1,9 +1,11 @@
 const superagent = require('superagent');
+const emoji = require('../../../lib/emoji');
 const Command = require('../../structures/Command.js');
 
-const overrides = {
-	us: 'gb',
-};
+const emojis = Object.entries(emoji).map(([name, data]) => ({
+	name,
+	...data,
+})).filter(e => e.category === 'flags');
 
 module.exports = class Locale extends Command {
 	constructor(Atlas) {
@@ -16,19 +18,32 @@ module.exports = class Locale extends Command {
 		const responder = new this.Atlas.structs.Paginator(msg, null, 'locale');
 
 		// fetching it from here so we can also get the names of languages
-		const { body } = await superagent.get('https://api.crowdin.com/api/supported-languages?json');
+		const { body } = await superagent.post(`https://api.crowdin.com/api/project/${process.env.CROWDIN_PROJECT}/status`)
+			.query({
+				key: process.env.CROWDIN_KEY,
+				json: true,
+			});
 
-		const supported = body.filter(l => this.Atlas.locales.has(l.crowdin_code));
+		console.log(body.length);
+
+		const supported = [...body.filter(l => this.Atlas.locales.has(l.code)), {
+			name: 'English',
+			code: 'gb',
+		}];
 
 		if (!args.length) {
-			const formatted = supported.map((s) => {
-				let { name } = s;
+			const formatted = supported.map(({ name, code, translated_progress: translated }) => {
+				const key = code.split('-').pop().toLowerCase();
 
-				const key = s.locale.split('-').pop().toLowerCase();
+				const keys = [`flag_${key}`, key, name];
+				const e = emojis.find(x => keys.includes(x.name) || x.keywords.some(k => keys.includes(k)));
 
-				const emoji = this.Atlas.lib.emoji.get(`flag_${overrides[key] || key}`);
-				if (emoji) {
-					name = `${emoji.char} ${name}`;
+				if (e) {
+					name = `${e.char} ${name}`;
+				}
+
+				if (translated != undefined) { // eslint-disable-line eqeqeq
+					name = `${name} • [${translated}% translated](https://translate.atlasbot.xyz/project/getatlas/${code})`;
 				}
 
 				return name;

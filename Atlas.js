@@ -1,6 +1,7 @@
 const Raven = require('raven');
 const path = require('path');
 const Eris = require('eris');
+const flatten = require('flat');
 const fs = require('fs').promises;
 
 const lib = require('./lib');
@@ -170,19 +171,7 @@ module.exports = class Atlas {
 
 		console.log(`Loaded ${events.length} events`);
 
-		// Loading locales
-		const locales = await fs.readdir('./locales');
-		for (const locale of locales) {
-			console.log(`Loading locale "${locale}"`);
-			const files = await fs.readdir(path.join('./locales', locale));
-
-			const data = {};
-			files.forEach((f) => {
-				data[f.split('.')[0]] = require(`./locales/${locale}/${f}`);
-			});
-
-			this.locales.set(locale, data);
-		}
+		await this.loadLocales();
 
 		console.log(`Loaded ${this.locales.size} languages`);
 
@@ -220,5 +209,48 @@ module.exports = class Atlas {
 		}
 
 		return parseInt(colour.color.replace(/#/ig, ''), 16);
+	}
+
+	async loadLocales() {
+		const locales = await fs.readdir('./locales');
+
+		const english = await this.loadLocale('en');
+
+		for (const locale of locales.filter(l => l !== 'en')) {
+			const flat = this.loadLocale(locale);
+
+			const keys = Object.keys(flat);
+			let translated = keys.length;
+
+			console.log(translated);
+
+			keys.forEach((key) => {
+				if (english[key] === flat[key]) {
+					translated--;
+				}
+			});
+
+			console.log(locale, translated);
+
+			this.locales.set(locale, {
+				data: flat,
+			});
+		}
+	}
+
+	async loadLocale(filename) {
+		console.log(`Loading locale "${filename}"`);
+
+		const files = await fs.readdir(path.join('./locales', filename));
+
+		const data = {};
+		files
+			// sometimes weird shit gets in there and idk where it's from but k
+			.filter(f => f.endsWith('.json'))
+			.forEach((f) => {
+				data[f.split('.').shift()] = require(`./locales/${filename}/${f}`);
+			});
+
+		return flatten(data);
 	}
 };

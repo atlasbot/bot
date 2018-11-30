@@ -46,6 +46,7 @@ module.exports = class Util {
 				key: options,
 			};
 		}
+
 		if (!this.Atlas.locales.has(identifier)) {
 			throw new Error(`${identifier} is not a valid language.`);
 		}

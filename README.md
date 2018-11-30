@@ -43,26 +43,28 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 
 ## Environment Variables
 
-| Name           | Description                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| PREFIXES       | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention.   |
-| DEFAULT_PREFIX | The default prefix for Atlas to use. By default, this is "a!"                                                                   |
-| NODE_ENV       | The environment the bot is in, should be "production" or "development".                                                         |
-| TOKEN          | The bot token to login with.                                                                                                    |
-| MONGO_URI      | A MongoDB Connection URI.                                                                                                       |
-| VERBOSE        | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment. |
-| OWNER          | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**  |
-| DEFAULT_LANG   | The default language to use for everything. Valid languages are in [/locales](/locales)                                         |
-| LAVALINK_NODES | An array of Lavalink nodes. See example for more info.                                                                          |
-| OMDBAPI_KEY \* | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key.                                                                               |
-| GOOGLE_CX \*   | A Google CX key for custom searches. Google is your friend.                                                                     |
-| GOOGLE_KEY \*  | A Google key for custom searches. See above.                                                                                    |
-| REDIS_HOST \*  | The host for Redis. Redis is optional entirely optional.                                                                        |
-| REDIS_PASS \*  | The password for the Redis server                                                                                               |
-| REDIS_PORT \*  | The port for the Redis server                                                                                                   |
-| YOUTUBE_KEY \* | A YouTube Data API key. Currently only used for autoplay.                                                                       |
-| DBL_KEY \*     | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵️                           |
-| PATREON_KEY \* | Used to tell who is a patreon and who isn't.                                                                                    |
+| Name               | Description                                                                                                                        |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| PREFIXES           | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention.      |
+| DEFAULT_PREFIX     | The default prefix for Atlas to use. By default, this is "a!"                                                                      |
+| NODE_ENV           | The environment the bot is in, should be "production" or "development".                                                            |
+| TOKEN              | The bot token to login with.                                                                                                       |
+| MONGO_URI          | A MongoDB Connection URI.                                                                                                          |
+| VERBOSE            | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment.    |
+| OWNER              | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**     |
+| DEFAULT_LANG       | The default language to use for everything. Valid languages are in [/locales](/locales)                                            |
+| LAVALINK_NODES     | An array of Lavalink nodes. See example for more info.                                                                             |
+| OMDBAPI_KEY \*     | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key.                                                                                  |
+| GOOGLE_CX \*       | A Google CX key for custom searches. Google is your friend.                                                                        |
+| GOOGLE_KEY \*      | A Google key for custom searches. See above.                                                                                       |
+| REDIS_HOST \*      | The host for Redis. Redis is optional entirely optional.                                                                           |
+| REDIS_PASS \*      | The password for the Redis server                                                                                                  |
+| REDIS_PORT \*      | The port for the Redis server                                                                                                      |
+| YOUTUBE_KEY \*     | A YouTube Data API key. Currently only used for autoplay.                                                                          |
+| DBL_KEY \*         | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵                               |
+| PATREON_KEY \*     | Used to tell who is a patreon and who isn't.                                                                                       |
+| CROWDIN_KEY \*     | Crowdin API key, used to fetch languages and their % translated.Should only really be set if you're hosting the production version |
+| CROWDIN_PROJECT \* | The crowdin project.                                                                                                               |
 
 _\* Optional, but some features may not work without them._
 
