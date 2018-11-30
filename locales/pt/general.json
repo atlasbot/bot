@@ -1,0 +1,355 @@
+{
+	"player": {
+		"none": "",
+		"trackQueued": "'{0}' foi adicionado à fila. Irá tocar em cerca de {1}.",
+		"npEmbed": {
+			"ttp": "Tempo até tocar",
+			"addedBy": "Adicionado por",
+			"author": "",
+			"duration": "Duração",
+			"footer": ""
+		},
+		"leaving": "",
+		"autoplay": {
+			"failed": "",
+			"addedBy": ""
+		}
+	},
+	"poweredBy": {
+		"nekobot": "Por nekobot.xyz"
+	},
+	"logs": {
+		"guildMemberKick": {
+			"title": "Membro expulso",
+			"description": "{0} foi expulso do servidor.",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildMemberUpdate": {
+			"roleAdd": {
+				"title": "Membro atualizado - Grupo adicionado",
+				"description": "",
+				"moderator": {
+					"name": "Moderador",
+					"value": ""
+				},
+				"reason": ""
+			},
+			"roleRemove": {
+				"title": "",
+				"description": "",
+				"moderator": {
+					"name": "Moderador",
+					"value": ""
+				},
+				"reason": ""
+			},
+			"usernameChange": {
+				"title": "",
+				"description": ""
+			},
+			"avatarChange": {
+				"title": "",
+				"description": ""
+			}
+		},
+		"guildMemberAdd": {
+			"title": "",
+			"description": ""
+		},
+		"guildRoleCreate": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildRoleDelete": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildRoleUpdate": {
+			"title": "",
+			"description": "",
+			"colorChange": {
+				"name": ""
+			},
+			"nameChange": {
+				"name": ""
+			},
+			"permAdded": {
+				"name": "",
+				"value": ""
+			},
+			"permRemoved": {
+				"name": "",
+				"value": ""
+			},
+			"moderator": {
+				"name": "Moderador"
+			},
+			"hoistTrue": {
+				"name": "",
+				"value": ""
+			},
+			"hoistFalse": {
+				"name": "",
+				"value": ""
+			},
+			"mentionableTrue": {
+				"name": "",
+				"value": ""
+			},
+			"mentionableFalse": {
+				"name": "",
+				"value": ""
+			}
+		},
+		"messageDelete": {
+			"title": "",
+			"description": "",
+			"content": {
+				"name": ""
+			},
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": ""
+			}
+		},
+		"messageUpdate": {
+			"title": "",
+			"description": "",
+			"oldContent": {
+				"name": ""
+			},
+			"newContent": {
+				"name": ""
+			}
+		},
+		"guildMemberRemove": {
+			"title": "",
+			"description": ""
+		},
+		"channelCreate": {
+			"title": "",
+			"description": "",
+			"category": {
+				"name": ""
+			},
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"channelDelete": {
+			"title": "",
+			"description": "",
+			"category": {
+				"name": ""
+			},
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildBanAdd": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": ""
+			}
+		},
+		"guildBanRemove": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": ""
+			}
+		},
+		"mute": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"duration": {
+				"name": "Duração"
+			},
+			"reason": {
+				"name": ""
+			},
+			"footer": ""
+		},
+		"unmute": {
+			"title": "",
+			"description": "",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"unmuteReason": {
+				"name": ""
+			}
+		}
+	},
+	"messageQuery": "",
+	"messageQueryLate": "",
+	"botPermError": "",
+	"noResults": "",
+	"webhookPermError": "",
+	"noPermission": "",
+	"restError": "",
+	"errorExecuting": "",
+	"noUserFound": "",
+	"noMorePages": "",
+	"guildOnly": "",
+	"patronOnly": "",
+	"premiumOnly": "",
+	"notPunishable": "",
+	"lolno": "",
+	"music": {
+		"position": {
+			"name": "",
+			"value": ""
+		},
+		"nowPlaying": {
+			"name": "",
+			"value": ""
+		},
+		"playlist": {
+			"name": "",
+			"value": ""
+		},
+		"description": "",
+		"duration": {
+			"name": "Duração",
+			"value": ""
+		},
+		"addedBy": {
+			"name": "Adicionado por",
+			"value": ""
+		},
+		"author": {
+			"name": "",
+			"value": ""
+		},
+		"addedTrack": "",
+		"ttp": {
+			"name": "Tempo até tocar",
+			"value": ""
+		},
+		"inQueue": {
+			"name": "",
+			"value": {
+				"plural": "",
+				"singular": ""
+			}
+		}
+	},
+	"disabledCommand": "",
+	"blacklisted": {
+		"roles": {
+			"plural": "",
+			"singular": ""
+		},
+		"channel": ""
+	},
+	"permissions": {
+		"list": {
+			"createInstantInvite": "",
+			"kickMembers": "",
+			"banMembers": "",
+			"administrator": "",
+			"manageChannels": "",
+			"manageGuild": "",
+			"addReactions": "",
+			"readMessages": "",
+			"sendMessages": "",
+			"SendTTSMessages": "",
+			"manageMessages": "",
+			"embedLinks": "",
+			"attachFiles": "",
+			"readMessageHistory": "",
+			"mentionEveryone": "",
+			"externalEmojis": "",
+			"voiceConnect": "",
+			"voiceSpeak": "",
+			"voiceMuteMembers": "",
+			"voiceUseVAD": "",
+			"changeNickname": "",
+			"manageNicknames": "",
+			"manageRoles": "",
+			"manageWebhooks": "",
+			"manageEmojis": ""
+		},
+		"permError": {
+			"user": "",
+			"bot": ""
+		}
+	},
+	"filters": {
+		"actions": {
+			"disabled": "",
+			"dtm": "",
+			"wtu": "",
+			"dtm_wtu": "",
+			"ca": ""
+		},
+		"messages": {
+			"capitalization": {
+				"warning": "",
+				"message": ""
+			},
+			"emoji": {
+				"warning": "",
+				"message": ""
+			},
+			"cursing": {
+				"warning": "",
+				"message": ""
+			},
+			"invites": {
+				"warning": "",
+				"message": ""
+			},
+			"links": {
+				"warning": "",
+				"message": ""
+			},
+			"mentions": {
+				"warning": "",
+				"message": ""
+			},
+			"phrases": {
+				"warning": "",
+				"message": "",
+				"dm": ""
+			},
+			"spam": {
+				"warning": "",
+				"message": ""
+			}
+		}
+	},
+	"action": {
+		"disabled": "",
+		"noSubActions": "",
+		"banned": {
+			"channel": "",
+			"role": ""
+		},
+		"whitelist": {
+			"role": "",
+			"channel": ""
+		}
+	}
+}
