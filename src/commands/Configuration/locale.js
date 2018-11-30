@@ -22,7 +22,7 @@ module.exports = class Locale extends Command {
 		}));
 
 		if (!args.length) {
-			const formatted = locales.map(({ code, translated, total, name }) => {
+			const formatted = locales.map(({ code, name }) => {
 				if (overrides[code]) {
 					code = overrides[code];
 				}
@@ -33,11 +33,11 @@ module.exports = class Locale extends Command {
 					name = `${emoji.char} ${name}`;
 				}
 
-				if (translated != undefined) { // eslint-disable-line eqeqeq
-					const percent = (translated / total) * 100;
+				// if (translated != undefined) { // eslint-disable-line eqeqeq
+				// 	const percent = Math.floor((translated / total) * 100);
 
-					name += ` ${percent}%`;
-				}
+				// 	name += ` ${percent}%`;
+				// }
 
 				return name;
 			});
