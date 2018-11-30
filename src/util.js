@@ -388,10 +388,8 @@ module.exports = class Util {
 			const toSave = schema(author);
 
 			// updates the user if the saved data doesn't exist or doesn't equal what it would be if we update it
-			if (!saved) {
-				await this.Atlas.DB.User.create({ id: toSave.id, ...toSave });
-			} else if (JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
-				await this.Atlas.DB.User.updateOne({ id: toSave.id }, toSave);
+			if (!saved || JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
+				await this.Atlas.DB.User.updateOneOrCreate({ id: toSave.id }, toSave);
 			}
 		} catch (e) {
 			console.warn(e);
