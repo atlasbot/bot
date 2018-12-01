@@ -23,11 +23,29 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
 
 ## Prerequisites
 
-- Node.js >v10
-- MongoDB
-- [Lavalink](https://github.com/Frederikam/Lavalink)
+- [Docker](https://docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
+- [Node.js](https://nodejs.org/en/) >=10.0.0 (not required for self-hosting)
 
 ## Installation
+
+### Self-hosting
+
+1. Install [Docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/)
+
+2. Clone this repo
+
+   ```bash
+   git clone https://github.com/get-atlas/bot.git
+   ```
+
+3. Open a terminal in the cloned folder
+
+4. Copy `.env.example` to `.env` and fill in the required env variables
+
+5. Start the bot with `docker-compose up -d`
+
+### Development
 
 1. Clone this repo
 
@@ -35,11 +53,19 @@ A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atla
    git clone https://github.com/get-atlas/bot.git
    ```
 
-2. Run `npm i` to install dependencies
+2. Open a terminal in the cloned folder
 
-3. Copy `.env.example` to `.env` and fill in the env variables
+3. Run `npm i` to install dependencies
 
-4. Start the bot with `npm start`
+4. Copy `.env.example` to `.env` and fill in the env variables
+
+5. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
+
+   If you are using docker-compose to host these services, you can leave the defaults in `.env.example` for those services and it should be gucci.
+
+6. Start the bot with `npm start`
+
+7. Start breaking things
 
 ## Environment Variables
 

@@ -1,5 +1,6 @@
 const url = require('url');
 const superagent = require('superagent');
+const { unflatten } = require('flat');
 
 const Fuzzy = require('../lib/structures/Fuzzy');
 const lib = require('../lib');
@@ -47,6 +48,21 @@ module.exports = class Util {
 			};
 		}
 
+		const replace = (val, repl) => {
+			if (val && repl.length) {
+				return val.replace(/\{([0-9]+)\}/ig, (match, p1) => {
+					const i = Number(p1);
+					if (repl[i] != undefined) { // eslint-disable-line eqeqeq
+						return repl[i];
+					}
+
+					return match;
+				});
+			}
+
+			return val;
+		};
+
 		if (!this.Atlas.locales.has(identifier)) {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
@@ -59,6 +75,22 @@ module.exports = class Util {
 		const val = locale[options.key] || locale[`commands.${options.key}`];
 
 		if (!val) {
+			if (!options.stringOnly) {
+				// handles getting objects from the locale, which it doesn't like because it's flattened
+				const filtered = Object.keys(locale).filter(key => key.startsWith(options.key));
+
+
+				if (filtered.length) {
+					const obj = unflatten(filtered.reduce((o, key) => {
+						o[key] = locale[key];
+
+						return o;
+					}, {}));
+
+					return replace(this.getNested(obj, options.key, false), replacements);
+				}
+			}
+
 			return;
 		}
 
@@ -66,18 +98,7 @@ module.exports = class Util {
 			return;
 		}
 
-		if (replacements.length) {
-			return val.replace(/\{([0-9]+)\}/ig, (match, p1) => {
-				const i = Number(p1);
-				if (replacements[i] != undefined) { // eslint-disable-line eqeqeq
-					return replacements[i];
-				}
-
-				return '';
-			});
-		}
-
-		return val;
+		return replace(val, replacements);
 	}
 
 	/**

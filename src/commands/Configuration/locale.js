@@ -27,7 +27,10 @@ module.exports = class Locale extends Command {
 					code = overrides[code];
 				}
 
-				const emoji = [`flag_${code}`, code, name].map(e => emutil.get(e.toLowerCase())).find(e => e && e.category === 'flags');
+				const emoji = [`flag_${code}`, code, name]
+					.filter(e => e)
+					.map(e => emutil.get(e.toLowerCase()))
+					.find(e => e && e.category === 'flags');
 
 				if (emoji) {
 					name = `${emoji.char} ${name}`;
@@ -74,10 +77,10 @@ module.exports = class Locale extends Command {
 		}
 
 		await settings.update({
-			lang: language.crowdin_code,
+			lang: language.code,
 		});
 
-		return responder.text('success', language.name).send();
+		return responder.lang(language.code).text('success', language.name).send();
 	}
 };
 

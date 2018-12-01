@@ -1,6 +1,7 @@
 version: "3"
 services:
   atlas:
+    restart: "unless-stopped"
     tty: true
     build: "."
     env_file:
@@ -18,6 +19,7 @@ services:
       - REDIS_HOST=redis
       - MONGO_URI=mongodb://mongo:27017/antares
   lavalink:
+    restart: "unless-stopped"
     image: fredboat/lavalink:v3
     env_file:
       - lavalink.env
@@ -25,12 +27,14 @@ services:
       - 80:80
       - 2333:2333
   redis:
+    restart: "unless-stopped"
     image: "redis"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 6379:6379
   mongo:
+    restart: "unless-stopped"
     image: mongo:latest
     env_file:
       - mongo.env

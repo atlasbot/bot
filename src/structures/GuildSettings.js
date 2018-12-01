@@ -169,6 +169,9 @@ module.exports = class GuildSettings {
 			runValidators,
 			new: true,
 		});
+
+		await this.Atlas.DB.cache.del(this.id);
+
 		this.settings = data;
 
 		return data;
