@@ -3,19 +3,19 @@
 		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
 		"node": "Node",
 		"players": "Players",
-		"events": "Events",
-		"footer": "Atlas' Voice Nodes"
+		"events": "Activiteiten",
+		"footer": "Atlas' Spraak Nodes"
 	},
 	"vaporwave": {
-		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+		"noArgs": "Voeg iets toe om naar een ｖａｐｏｒｗａｖｅ te converteren"
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Autplay staat nu aan.",
+		"disabled": "Autoplay staat nu uit."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Er staan niet genoeg items in de afspeellijst om te shuffelen.",
+		"success": "Shuffled `{0}` afspeellijst items."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
