@@ -39,9 +39,9 @@
 	},
 	"remindme": {
 		"invalid": "That is not a valid date.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
-		"youGotIt": "You got it, I'll remind you in {0}.",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
+		"youGotIt": "Is goed, ik zal het je herinneren in {0}.",
 		"relative": " Also, in the future you should use relative time, for example `in 1 hour` or `in 2 days` instead of a specific time like `at 5pm today` or `21/08/2018` due to timezones that I can't handle"
 	},
 	"ping": {
@@ -223,8 +223,8 @@
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
 		"invalid": "Please include a valid mute duration.",
-		"setForPast": "Please give me a date that is in the future.",
-		"furtherPls": "The time must be five seconds or more in the future.",
+		"setForPast": "Geef mij aub een datum die nog moet komen.",
+		"furtherPls": "De tijd moet minstens vijf seconden in de toekomst zijn.",
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
