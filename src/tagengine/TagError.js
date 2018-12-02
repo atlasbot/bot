@@ -1,6 +1,5 @@
 const discordCodes = require('../../lib/discordCodes.json');
 
-// todo
 module.exports = class TagError extends Error {
 	constructor(raw, {
 		docRef,

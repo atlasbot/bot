@@ -179,7 +179,6 @@ class Command {
 			embed.footer.text = `Do ${msg.displayPrefix}help ${this.info.name} <subcommand name> to view info about subcommands.`;
 		}
 
-		// todo: support examples from language files
 		if (this.info.examples && this.info.examples.length) {
 			if (this.info.examples.length > 5) {
 				let col1;
