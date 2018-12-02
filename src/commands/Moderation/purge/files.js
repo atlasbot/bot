@@ -10,7 +10,7 @@ module.exports = class Files extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const num = isNaN(args[0]) ? 100 : Number(args[0]);
+		const num = !isFinite(args[0]) ? 100 : Number(args[0]);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

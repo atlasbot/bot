@@ -10,12 +10,12 @@ module.exports = class Purge extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (args.length >= 2 && isNaN(args[1])) {
+		if (args.length >= 2 && !isFinite(args[1])) {
 			// chances are they did a typo and didn't mean to call this command
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		const num = isNaN(args[0]) ? 100 : Number(args[0]);
+		const num = !isFinite(args[0]) ? 100 : Number(args[0]);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

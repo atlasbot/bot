@@ -52,7 +52,7 @@ module.exports = class Remove extends Command {
 			return responder.text('warn.remove.noWarns', target.mention).send();
 		}
 
-		const pageN = isNaN(args[1]) ? 1 : Number(args[1]);
+		const pageN = !isFinite(args[1]) ? 1 : Number(args[1]);
 
 		let currPageWarns;
 
@@ -112,7 +112,7 @@ module.exports = class Remove extends Command {
 			.exec(async (m, emoji, userID, info) => {
 				const num = emojiNumbers.findIndex(e => e === info.name);
 
-				if (!isNaN(num) && currPageWarns) {
+				if (isFinite(num) && currPageWarns) {
 					const warn = currPageWarns[num - 1];
 					if (warn) {
 						await settings.removeInfraction(warn._id);

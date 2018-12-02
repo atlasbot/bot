@@ -1,7 +1,7 @@
 const TagError = require('./../TagError');
 
 module.exports = (info, [timeout]) => {
-	if (!timeout || isNaN(timeout)) {
+	if (!timeout || !isFinite(timeout)) {
 		throw new TagError('Timeout must be a valid number.');
 	}
 

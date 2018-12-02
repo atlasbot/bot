@@ -17,7 +17,7 @@ module.exports = class User extends Command {
 		}
 
 
-		const num = isNaN(args[1]) ? 100 : Number(args[1]);
+		const num = !isFinite(args[1]) ? 100 : Number(args[1]);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

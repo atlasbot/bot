@@ -20,7 +20,7 @@ module.exports = class Queue extends Command {
 			return responder.error('general.player.none').send();
 		}
 
-		const pageN = isNaN(args[0]) ? 1 : Number(args[0]);
+		const pageN = !isFinite(args[0]) ? 1 : Number(args[0]);
 		const { queue } = player;
 		const np = player.track;
 
