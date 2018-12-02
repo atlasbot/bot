@@ -24,10 +24,10 @@ module.exports = class Leave extends Command {
 			return responder.error('leave.sameChannel').send();
 		}
 
-		const p = await this.Atlas.client.voiceConnections.getPlayer(userVC, false);
+		const player = await this.Atlas.client.voiceConnections.getPlayer(userVC, false);
 		const entry = this.Atlas.client.voiceConnections.get(msg.guild.id);
 
-		if (!p && !entry && !myVC) {
+		if (!player && !entry && !myVC) {
 			// if atlas has restarted, sometimes there will be a "ghost" in the channel because discord
 			// hasn't updated clients yet, but to Atlas it isn't in the channel.
 			if (this.Atlas.client.uptime < (5 * 60 * 1000)) {
@@ -47,8 +47,8 @@ module.exports = class Leave extends Command {
 			myVC.leave();
 		}
 
-		if (p) {
-			// todo: delete player messages to prevent a ton of channel spam
+		if (player) {
+			player.responder.clean(msg.channel.id);
 		}
 
 		if (entry) {

@@ -113,7 +113,6 @@ module.exports = class Commands {
 		// the plugin the command is from
 		prop.info.plugin = plugin;
 
-		// TODO: subcommand alias support
 		prop.info.aliases.forEach((alias) => {
 			if (master) {
 				master.info.subcommandAliases.set(alias, prop.info.name);

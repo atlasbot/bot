@@ -62,16 +62,14 @@ module.exports = class Agenda extends EventEmitter {
 			// get the DM channel of the user
 			const channel = await this.Atlas.client.getDMChannel(user);
 
-			// todo: lang should be fetched from guild incase it's been changed (or default to the users preference if it's set)
 			const responder = new this.Atlas.structs.Responder(channel, lang || 'en');
 
-			// todo: localisation
 			const embed = {
-				title: 'Reminder',
+				title: 'general.reminder.title',
 				description: `"${message}"`,
 				timestamp: requested,
 				footer: {
-					text: 'Requested',
+					text: 'general.reminder.footer',
 				},
 			};
 			try {

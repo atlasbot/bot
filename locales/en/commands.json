@@ -18,10 +18,9 @@
 		"success": "Shuffled `{0}` queue items."
 	},
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead."
-	},
-	"series": {
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead."
+		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
+		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
+		"ratings": "Ratings"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -339,7 +338,6 @@
 	},
 	"filters": {
 		"action": {
-			"noFilter": "You have to include a valid filter name to edit.",
 			"noAction": "You have to include a valid action. Available actions: `{0}`.",
 			"success": "The {0} filter has been set to `{1}`."
 		},

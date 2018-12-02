@@ -2,7 +2,6 @@ const middleware = require('./middleware');
 const TagError = require('../../TagError');
 const Util = require('../../../util');
 
-// todo: maybe format nicer or something
 module.exports = middleware(async ({ user, guild }, [roleQuery, exact = 'false']) => {
 	const member = guild.members.get(user.id);
 	const util = new Util();

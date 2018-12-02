@@ -41,7 +41,6 @@ class Command {
 		const responder = new Responder(msg);
 
 		if (settings) {
-			// todo: check permission overwrites for the channel (maybe?)
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
 				const permissions = Object.keys(this.info.permissions[permsKey]);
 				for (const perm of permissions) {
@@ -159,7 +158,6 @@ class Command {
 	 * @returns {Object} The embed
 	 */
 	helpEmbed(msg) {
-		// TODO: localise properly
 		const info = this.getInfo(msg.lang);
 
 		const embed = {

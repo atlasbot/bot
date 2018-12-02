@@ -63,7 +63,6 @@ module.exports = class Event {
 			}
 		}
 
-		// todo: nicknames
 		if (member.username !== oldMember.username) {
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.usernameChange.title',

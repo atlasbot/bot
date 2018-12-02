@@ -9,7 +9,6 @@ module.exports = class Queue extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		// todo: handle channels where the bot can't embed links
 		const responder = new this.Atlas.structs.Paginator(msg);
 
 		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
@@ -89,4 +88,9 @@ module.exports.info = {
 		'upnext',
 		'q',
 	],
+	permissions: {
+		bot: {
+			embedLinks: true,
+		},
+	},
 };

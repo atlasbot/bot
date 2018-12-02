@@ -15,7 +15,6 @@ module.exports = class extends Command {
 		settings,
 		// when true, the command was called via a reaction/player button
 		button = false,
-		// todo: patron checks
 	}) {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang));
 

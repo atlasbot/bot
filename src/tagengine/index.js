@@ -9,7 +9,6 @@ module.exports = class {
 	/**
      *
      * @param {Object} data Data for the tags to pull information from
-     * @param {Object} data.ticket The ticket to get info from
      * @param {Guild} data.guild The guild to get info from
      * @param {Channel} data.channel The channel to get info from
      * @param {Object} data.action The action that is being processed
@@ -19,8 +18,6 @@ module.exports = class {
 	constructor({
 		msg,
 		guild = msg ? msg.guild : undefined,
-		// todo: try and get channel ourselves if it's not present
-		ticket,
 		channel = msg ? msg.channel : undefined,
 		settings,
 		action,
@@ -28,7 +25,6 @@ module.exports = class {
 	}, managed = true) {
 		this.data = {
 			msg,
-			ticket,
 			guild,
 			channel,
 			settings,

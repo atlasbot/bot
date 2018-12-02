@@ -1,4 +1,25 @@
 {
+	"reminder": {
+		"title": "Reminder",
+		"footer": "Requested"
+	},
+	"warning": {
+		"title": "Member Warned",
+		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"total": {
+			"name": "Total Warnings",
+			"value": "{0} now has {1} total warning(s)."
+		},
+		"dm": {
+			"name": "Direct Messaged",
+			"true": "The user was direct-messaged.",
+			"false": "The user was not direct-messaged."
+		},
+		"reason": {
+			"name": "Reason",
+			"value": "No reason specified."
+		}
+	},
 	"player": {
 		"none": "There is nothing playing in this server.",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",

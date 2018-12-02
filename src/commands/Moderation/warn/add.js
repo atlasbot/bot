@@ -40,22 +40,21 @@ module.exports = class Add extends Command {
 
 		const warnings = await settings.getInfractions(target);
 
-		// todo: localise
 		settings.log('mod', {
 			color: this.Atlas.colors.get('orange').decimal,
-			title: 'Member Warned',
-			description: `${target.mention} (\`${target.tag}\`) has been warned by a ${msg.author.mention} (\`${msg.author.tag}\`).`,
+			title: 'general.warning.title',
+			description: ['general.warning.description', target.mention, target.tag, msg.author.mention, msg.author.tag],
 			fields: [{
-				name: 'Total Warnings',
-				value: `${target.tag} now has ${warnings.length + 1} total warning(s).`,
+				name: 'general.warning.total.name',
+				value: ['general.warning.total.value', target.tag, warnings.length + 1],
 				inline: true,
 			}, {
-				name: 'Direct Messaged',
-				value: notified ? 'The user was direct-messaged.' : 'The user was not direct-messaged.',
+				name: 'general.warning.dm.name',
+				value: notified ? 'general.warning.dm.true' : 'general.warning.dm.false',
 				inline: true,
 			}, {
-				name: 'Reason',
-				value: args.length ? reason : 'No reason specified',
+				name: 'general.warning.reason.name',
+				value: args.length ? reason : 'general.warning.dm.value',
 				inline: true,
 			}],
 			timestamp: new Date(),

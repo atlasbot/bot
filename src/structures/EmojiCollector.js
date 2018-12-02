@@ -98,7 +98,6 @@ module.exports = class EmojiCollector {
 	 * @returns {EmojiCollector} the emoji collector
 	 */
 	listen() {
-		// todo: make this support generally listening for emojis
 		if (!this._exec) {
 			throw new Error('Exec func is required');
 		}
@@ -181,13 +180,16 @@ module.exports = class EmojiCollector {
 	 * @private
 	 */
 	async _addEmojis(emojis) {
-		// todo: check if we have perms to add emojis before trying to
 		if (!emojis) {
 			emojis = this._emojis;
 		}
 
 		if (!this._msg) {
 			return emojis;
+		}
+
+		if (!this._msg.channel.permissionsOf(this._Atlas.client.user.id).has('addReactions')) {
+			throw new Error('No permissions to add reactions');
 		}
 
 		for (const emoji of emojis) {

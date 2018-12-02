@@ -1,9 +1,5 @@
 // special tag so it gets special treatment
 
-// todo: ability to return the command output (probably catch it in the responder before sending it)
-// todo: ability to override permissions and let any user run any comand, probably a true/false value
-// todo: "advanced" command tag that supports those ^, adding it here would break backwards compatibility
-
 module.exports = class {
 	constructor(command, settings) {
 		this.command = command;

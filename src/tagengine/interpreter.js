@@ -35,7 +35,6 @@ const interp = async (tokens, info, functions) => {
 					args = await parseArgs(args);
 				}
 
-				// todo: handle tag errors, etc...
 				try {
 					const out = await func.execute(info, args, {
 						output,

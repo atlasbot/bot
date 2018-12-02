@@ -213,11 +213,13 @@ module.exports = class Util {
 	 * @param {Object} options Options
 	 * @param {number} options.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
 	 * @param {string} options.type The type to search for, defaults to either role or channel. Must be either void, 'role' or 'channel'
+	 * @param {boolean} [options.fuzzy=true] Whether to use fuzzy searching.
 	 * @returns {Promise<Channel|Role|Void>}
 	 */
 	async findRoleOrChannel(guild, query, {
 		percent,
 		type,
+		fuzzy = true,
 	}) {
 		if (!query) {
 			return;
@@ -229,6 +231,10 @@ module.exports = class Util {
 			if (valid.has(id)) {
 				return valid.get(id);
 			}
+		}
+
+		if (!fuzzy) {
+			return;
 		}
 
 		return (new Fuzzy(Array.from(valid.values()), {

@@ -8,7 +8,6 @@ module.exports = class Unban extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		// TODO: add ban to guild event thingy in guild struct and handle logging from here instead of action log
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {

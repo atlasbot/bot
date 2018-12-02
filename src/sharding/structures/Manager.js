@@ -52,8 +52,8 @@ module.exports = class Manager {
 			this.start(this.clusterCount);
 
 			cluster.on('exit', (worker) => {
-				// todo: if the cluster restarts too many times in X amount of minutes, start slowing restarts down
 				console.warn(`Cluster ${worker.id} died, starting new cluster in it's place...`);
+
 				const options = this.clusters.get(worker.id);
 
 				return this.start(1, 0, options, true);

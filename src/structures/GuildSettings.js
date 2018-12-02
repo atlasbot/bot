@@ -7,8 +7,6 @@ const mongoose = require('mongoose');
 
 const Action = require('./Action');
 
-// TODO: this shouldn't be created every time data is fetched from the DB (aka, cache it and reuse it)
-
 module.exports = class GuildSettings {
 	/**
     * Create a new instance of a guild

@@ -1,8 +1,6 @@
 const middleware = require('./middleware');
 const Responder = require('../../../structures/Responder');
 
-// todo: support forwarding command tags and stuff
-
 module.exports = middleware(async ({ channel }, [content]) => {
 	const responder = new Responder(channel, 'en');
 

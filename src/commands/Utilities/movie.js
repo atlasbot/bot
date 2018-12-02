@@ -8,8 +8,9 @@ module.exports = class Movie extends Command {
 
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
+		override,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'movie');
 
 		if (!args[0]) {
 			return responder.embed(this.helpEmbed(msg)).send();
@@ -27,17 +28,19 @@ module.exports = class Movie extends Command {
 			throw new Error(body.Error);
 		}
 
-		if (body.Type !== 'movie') {
+		if (!override && body.Type !== 'movie') {
 			return responder.error('movie.notAMovie', msg.displayPrefix, args.join(' ')).send();
+		} if (override && body.Type !== 'series') {
+			return responder.error('movie.notASeries', msg.displayPrefix, args.join(' ')).send();
 		}
 
 		const embed = {
 			title: body.Title,
-			description: body.Plot += body.Awards !== 'N/A' ? `\n\n${body.Awards}` : '',
+			description: [body.Plot, body.Awards].filter(x => x).join('\n') || null,
 			url: body.Website !== 'N/A' ? body.Website : null,
 			fields: [
 				{
-					name: 'Ratings',
+					name: 'ratings',
 					value: body.Ratings.map(r => `${r.Value} - ${r.Source}`).join('\n'),
 					inline: true,
 				}, {

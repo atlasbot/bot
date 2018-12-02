@@ -9,7 +9,6 @@ module.exports = class Kick extends Command {
 	async action(msg, args, {
 		settings, // eslint-disable-line no-unused-vars
 	}) {
-		// TODO: DM the user why they were banned
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {
@@ -25,7 +24,6 @@ module.exports = class Kick extends Command {
 			return responder.error('general.noUserFound').send();
 		}
 
-		// todo: all occures of this mess should be replaced with proper checks
 		if (!target.punishable(msg.member)) {
 			return responder.error('general.notPunishable').send();
 		} if (!target.kickable) {

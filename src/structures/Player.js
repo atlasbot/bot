@@ -163,7 +163,6 @@ module.exports = class extends Player {
 						});
 					}
 				} catch (e) {
-					// todo: send to sentry (including other places where i did this for some reason)
 					console.warn(e);
 				}
 			}

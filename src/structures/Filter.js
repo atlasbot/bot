@@ -23,10 +23,8 @@ module.exports = class Filter {
 		// here is some eye bleach for that if statement https://i.imgur.com/uJV5MgX.jpg
 
 		for (const str of [msg.content, msg.cleanContent]) {
-			// todo: check if it's disabled
-			const output = this.execute(str, msg, {
+			const output = await this.execute(str, msg, {
 				filterConfig,
-				fullMode: true,
 			});
 
 			if (output) {
@@ -62,9 +60,7 @@ module.exports = class Filter {
 					} catch (e) {} // eslint-disable-line no-empty
 				}
 
-				await responder.text(`general.filters.messages.${this.info.settingsKey}.message`, msg.author.mention).ttl(5).send();
-
-				return true;
+				return !!(await responder.text(`general.filters.messages.${this.info.settingsKey}.message`, msg.author.mention).ttl(5).send());
 			}
 		}
 

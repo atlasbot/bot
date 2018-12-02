@@ -50,7 +50,6 @@ module.exports = class AdvancedEmbed extends Command {
 		};
 
 		for (const [name, value] of Object.entries(parsedArgs)) {
-			// todo: revisit this, regex is probably overkill here
 			const match = /field([0-9])value/.exec(name);
 			if (match) {
 				const [, number] = match;
@@ -78,7 +77,6 @@ module.exports.info = {
 	aliases: [
 		'ae',
 	],
-	// todo: support localisation on these
 	supportedFlags: [{
 		name: 'description',
 		placeholder: 'text',

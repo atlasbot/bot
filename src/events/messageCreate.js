@@ -58,7 +58,6 @@ module.exports = class Ready {
 					try {
 						await action.execute(msg);
 					} catch (e) {
-						// todo: log to guild
 						console.error(e);
 					}
 				}
@@ -106,8 +105,9 @@ module.exports = class Ready {
 		}
 
 		if (msg.guild && settings) {
-			for (const filter of this.Atlas.filters.values()) {
+			for (const [, filter] of this.Atlas.filters) {
 				const output = await filter.checkMessage(settings, msg);
+
 				if (output === true) {
 					break;
 				}
@@ -133,7 +133,6 @@ module.exports = class Ready {
 			await ratelimits.set(msg.author.id, Date.now(), 5);
 
 			if (settings.plugin('levels').state === 'enabled') {
-				// todo: this is like 2 db queries minimum, could be one but mongoose is stubborn
 				// the amount of xp to reward them with
 				const xp = this.Atlas.lib.xputil.calcXP(msg.content);
 
@@ -177,12 +176,10 @@ module.exports = class Ready {
 
 				// will announce level ups and reward roles when needed
 				this.Atlas.util.levelup(
-					settings.plugins.get('levels').options,
+					settings.plugin('levels').options,
 					this.Atlas.lib.xputil.getUserXPProfile(guild ? guild.xp : 0),
 					this.Atlas.lib.xputil.getUserXPProfile(currentXP),
 				);
-
-				// todo: check if the user has leveled up
 
 				return profile;
 			}

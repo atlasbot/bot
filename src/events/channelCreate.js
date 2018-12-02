@@ -10,7 +10,6 @@ module.exports = class Event {
 			return;
 		}
 
-		// todo: support localisation on this
 		const type = this.Atlas.lib.utils.getChannelType(channel.type);
 
 		const auditEntry = await this.Atlas.util.getGuildAuditEntry(channel.guild, channel.id, 10);

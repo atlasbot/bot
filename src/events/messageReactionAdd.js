@@ -73,7 +73,6 @@ module.exports = class Event {
 							lang: settings.lang,
 						});
 					} catch (e) {
-					// todo: log to guild
 						console.error(e);
 					}
 				}

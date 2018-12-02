@@ -14,7 +14,7 @@ module.exports = class Action extends Command {
 		const [filterName, ...action] = args;
 
 		if (!filterName) {
-			return responder.error('filters.action.noFilter').send();
+			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
 		// grabbing and validating the channel
@@ -23,7 +23,7 @@ module.exports = class Action extends Command {
 		})).search(filterName);
 
 		if (!filter) {
-			return responder.error('filters.action.noFilter').send();
+			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
 		const possible = [];

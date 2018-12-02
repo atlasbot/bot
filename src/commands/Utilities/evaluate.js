@@ -15,7 +15,6 @@ module.exports = class TagEval extends Command {
 			return responder.error('You have to include something to evaluate!').send();
 		}
 
-		// todo: add more here
 		const parser = new Parser({
 			msg,
 			settings,

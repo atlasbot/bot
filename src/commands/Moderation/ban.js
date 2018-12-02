@@ -11,7 +11,6 @@ module.exports = class Ban extends Command {
 		settings, // eslint-disable-line no-unused-vars
 		fun = false,
 	}) {
-		// TODO: DM the user why they were banned
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args[0]) {

@@ -93,7 +93,6 @@ module.exports = class Action {
 			return responder.error('noSubActions').send();
 		}
 
-		// todo: maybe timeouts between uses? or something to stop abuse
 		for (const subaction of this.content) {
 			try {
 				await this.runSubAction(msg, subaction);
@@ -118,7 +117,6 @@ module.exports = class Action {
 			guild: this.guild,
 		});
 
-		// todo: move to guild settings struct with automatic error reporting so it doesn't have to be handled each time
 		const { output } = await parser.parse(message);
 
 		if (!output) {
@@ -146,7 +144,6 @@ module.exports = class Action {
 				const target = channel ? this.guild.channels.get(channel) : msg.channel;
 
 				if (!target) {
-				// todo: log that it's misconfigured to the guild log
 					return;
 				}
 

@@ -16,7 +16,6 @@ const commandMap = [{
 	emoji: '🇦',
 	name: 'autoplay',
 }];
-// todo: only show buttons if they can be used (e.g, hide skip if there is no song to skip to or if it's disabled)
 
 module.exports = class PlayerResponder extends Responder {
 	constructor(player, lang, {

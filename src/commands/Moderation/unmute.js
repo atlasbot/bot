@@ -63,7 +63,6 @@ module.exports = class Unmute extends Command {
 		}
 
 		if (role) {
-			// todo: log the unmute to the guild log
 			if (role.position >= msg.guild.me.highestRole.position) {
 				return responder.error('unmute.tooHigh').send();
 			}

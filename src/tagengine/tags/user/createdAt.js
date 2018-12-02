@@ -1,7 +1,6 @@
 const middleware = require('./middleware');
 const timeFormat = require('../../../../lib/utils/timeFormat');
 
-// todo: maybe format nicer or something
 module.exports = middleware(({ user }, [exact]) => timeFormat(user.createdAt, exact === 'true'), 1);
 
 module.exports.info = {
