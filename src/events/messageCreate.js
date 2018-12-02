@@ -133,6 +133,7 @@ module.exports = class Ready {
 			await ratelimits.set(msg.author.id, Date.now(), 5);
 
 			if (settings.plugin('levels').state === 'enabled') {
+				// todo: this is like 2 db queries minimum, could be one but mongoose is stubborn
 				// the amount of xp to reward them with
 				const xp = this.Atlas.lib.xputil.calcXP(msg.content);
 
@@ -140,68 +141,55 @@ module.exports = class Ready {
 					username: msg.author.username,
 					discriminator: msg.author.discriminator,
 					avatar: msg.author.avatar,
-					// permissions: {
-					// 	allow: msg.member.permission.allow,
-					// 	deny: msg.member.permission.deny,
-					// },
-					// roles: msg.member.roles,
 				};
 
-				try {
-					const data = await mongoose
-						.model('User')
-						.findOneAndUpdate({ 	id: msg.author.id, 'guilds.id': msg.guild.id },
-							{
-								$set: payload,
-								$inc: {
-									'guilds.$.xp': xp,
-									'guilds.$.messages': 1,
-								},
-							}, {
-								upsert: true,
-								setDefaultsOnInsert: true,
-								fields: {
-									'guilds.$': msg.guild.id,
-								},
-							});
+				const profile = await this.Atlas.DB.getProfile(msg.author, msg.guild.id);
 
-					// first guild will always be the target guild due to the mongo magic above
-					const guildProfile = data.guilds.shift();
-					const currentXP = guildProfile.xp + xp;
+				const guild = profile.guilds.find(({ id }) => id === msg.guild.id);
 
-					// will announce level ups and reward roles when needed
-					this.Atlas.util.levelup(
-						this.Atlas.lib.xputil.getUserXPProfile(guildProfile.xp),
-						this.Atlas.lib.xputil.getUserXPProfile(currentXP),
-					);
-
-					// todo: check if the user has leveled up
-
-					return data;
-				} catch (e) {
-					if (e.code === 16836) {
-						// guild does not exist on the users profile
-						const data = await mongoose.model('User').updateOne({ id: msg.author.id }, {
-							$set: payload,
-							$push: {
-								guilds: {
-									id: msg.guild.id,
-									xp,
-									messages: 1,
-								},
+				if (guild) {
+					// update existing guild profile
+					await mongoose.model('User').updateOne({ id: profile.id, 'guilds._id': guild._id }, {
+						$set: payload,
+						$inc: {
+							'guilds.$.xp': xp,
+							'guilds.$.messages': 1,
+						},
+					});
+				} else {
+					await mongoose.model('User').updateOne({ id: profile.id }, {
+						$set: payload,
+						$push: {
+							guilds: {
+								id: msg.guild.id,
+								xp,
+								messages: 1,
 							},
-						});
-
-						return data;
-					}
-
-					throw e;
+						},
+					});
 				}
-			} else {
-				// since levels are disabled or they don't need XP, forward to the regular
-				// func that makes sure our "local" info (avatars, usernames) are acurate
-				await this.Atlas.util.updateUser(msg.author);
+
+				// update the cached version aswell because why not
+				await this.Atlas.DB.cache.del(profile.id);
+
+				// first guild will always be the target guild due to the mongo magic above
+				const currentXP = guild ? guild.xp + xp : xp;
+
+				// will announce level ups and reward roles when needed
+				this.Atlas.util.levelup(
+					settings.plugins.get('levels').options,
+					this.Atlas.lib.xputil.getUserXPProfile(guild ? guild.xp : 0),
+					this.Atlas.lib.xputil.getUserXPProfile(currentXP),
+				);
+
+				// todo: check if the user has leveled up
+
+				return profile;
 			}
+
+			// since levels are disabled or they don't need XP, forward to the regular
+			// func that makes sure our "local" info (avatars, usernames) are acurate
+			await this.Atlas.util.updateUser(msg.author);
 		}
 	}
 };

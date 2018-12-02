@@ -1,6 +1,7 @@
 const url = require('url');
 const superagent = require('superagent');
 const { unflatten } = require('flat');
+const assert = require('assert');
 
 const Fuzzy = require('../lib/structures/Fuzzy');
 const lib = require('../lib');
@@ -8,6 +9,13 @@ const Cache = require('../lib/structures/Cache');
 
 const webhookCache = new Cache('webhooks');
 const musicCache = new Cache('music');
+
+const profileSchema = user => ({
+	id: user.id,
+	avatar: user.avatar,
+	username: user.username,
+	discriminator: user.discriminator,
+});
 
 module.exports = class Util {
 	constructor(Atlas) {
@@ -402,24 +410,22 @@ module.exports = class Util {
 			author = author.user;
 		}
 
-		const schema = user => ({
-			id: user.id,
-			avatar: user.avatar,
-			username: user.username,
-			discriminator: user.discriminator,
-		});
-
 		try {
 			// find an existing one and cache it for an hour (which means it should hit redis for most messages)
-			const saved = await this.Atlas.DB.User.findOne({ id: author.id });
+			const profile = await this.Atlas.DB.getProfile(author);
 
-			const toSave = schema(author);
+			const toSave = profileSchema(author);
 
-			// updates the user if the saved data doesn't exist or doesn't equal what it would be if we update it
-			if (!saved) {
-				await this.Atlas.DB.User.create({ id: toSave.id, ...toSave });
-			} else if (JSON.stringify(schema(saved)) !== JSON.stringify(toSave)) {
-				await this.Atlas.DB.User.updateOne({ id: toSave.id }, toSave);
+			try {
+				// throws if the objects are not the same
+				assert.deepStrictEqual({
+					...profile,
+					...toSave,
+				}, profile);
+			} catch (e) {
+				console.warn(e);
+
+				return await this.Atlas.DB.User.updateOne({ id: profile.id }, toSave);
 			}
 		} catch (e) {
 			console.warn(e);
@@ -526,7 +532,7 @@ module.exports = class Util {
 		}
 	}
 
-	async levelup(previous, current) {
+	async levelup({ notify, rewards, stack }, previous, current) {
 		console.log(previous, current);
 
 		if (previous.current.level !== current.current.level) {
