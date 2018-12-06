@@ -21,9 +21,11 @@ module.exports = class Eval extends Command {
 		parsedArgs,
 	}) {
 		const responder = (new this.Atlas.structs.Responder(msg)).localised().noDupe(false);
+
 		if (msg.author.id !== process.env.OWNER) {
 			return responder.error('no u').send();
 		}
+
 		try {
 			const result = this.clean(util
 				.inspect(await eval(args.join(' ')), false) // eslint-disable-line no-eval

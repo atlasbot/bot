@@ -30,4 +30,8 @@ module.exports = class VaporWave extends Command {
 
 module.exports.info = {
 	name: 'vaporwave',
+	aliases: [
+		'edgyaesthetic',
+		'aesthetic',
+	],
 };

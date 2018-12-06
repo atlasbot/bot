@@ -9,7 +9,7 @@ module.exports = async ({ guild, msg }, [emojiName]) => {
 
 	emojiName = emojiName.replace(/[^0-9a-z-_]/gi, '');
 
-	const emoji = utils.nsFuzzy(guild.emojis, ['name', 'id'], emojiName) || emojiUtil.get(emojiName);
+	const emoji = utils.nbsFuzzy(guild.emojis, ['name', 'id'], emojiName) || emojiUtil.get(emojiName);
 
 	if (!emoji) {
 		throw new TagError(`Could not find emoji "${emojiName}"`);

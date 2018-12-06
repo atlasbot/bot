@@ -1,3 +1,5 @@
+// todo: parse then check instead of parsing all of them then checking each one
+
 module.exports = async (info, args) => args.find(a => !!a.trim());
 
 module.exports.info = {
