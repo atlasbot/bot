@@ -5,6 +5,7 @@ module.exports = middleware(({ channel }) => channel.topic);
 module.exports.info = {
 	name: 'channel.topic',
 	description: 'Gets the topic of the channel.',
+	args: '<channel>',
 	examples: [{
 		input: '{channel.topic}',
 		output: 'Welcome to General',

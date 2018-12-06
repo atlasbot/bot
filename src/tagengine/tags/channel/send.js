@@ -10,6 +10,7 @@ module.exports = middleware(async ({ channel }, [content]) => {
 module.exports.info = {
 	name: 'channel.send',
 	description: 'Sends a message to the channel.',
+	args: '<channel>',
 	examples: [{
 		input: '{channel.send;ayyy}',
 		output: 'ayyy',

@@ -73,6 +73,7 @@ module.exports.info = {
 		'@random not partying hard enough',
 		`${process.env.OWNER} being too cool`,
 	],
+	aliases: ['punt'],
 	permissions: {
 		user: {
 			kickMembers: true,
