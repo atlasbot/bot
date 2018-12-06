@@ -54,7 +54,7 @@ module.exports = class Agenda extends EventEmitter {
 			this.emit('ready');
 			this.agenda.start();
 
-			return console.log('Agena has started.');
+			return console.log('Agenda has started.');
 		});
 
 		this.agenda.define('reminder', async (job, done) => {

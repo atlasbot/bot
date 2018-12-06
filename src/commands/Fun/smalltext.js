@@ -30,4 +30,5 @@ module.exports = class SmallText extends Command {
 
 module.exports.info = {
 	name: 'smalltext',
+	aliases: ['superscript'],
 };

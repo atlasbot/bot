@@ -1,4 +1,8 @@
 {
+	"smalltext": {
+		"description": "Makes text smaller.",
+		"usage": "[text]"
+	},
 	"nodes": {
 		"description": "Gets information/statuses about available voice nodes."
 	},
