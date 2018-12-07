@@ -1,3 +1,4 @@
+const url = require('url');
 const Filter = require('./../structures/Filter');
 
 module.exports = class Links extends Filter {
@@ -6,10 +7,16 @@ module.exports = class Links extends Filter {
 		this.Atlas = Atlas;
 	}
 
-	execute(str, msg, filterConfig) {
+	execute(str, msg, {
+		filterConfig: { exlusions },
+	}) {
 		const uri = this.Atlas.lib.utils.isUri(str);
-		if (!filterConfig.exclusions.find(pattern => this.Atlas.lib.utils.wildcard.match(pattern, uri))) {
-			return uri;
+
+		if (uri) {
+			const { hostname } = url.parse(uri);
+			if (!exlusions.includes(hostname)) {
+				return uri;
+			}
 		}
 	}
 };

@@ -8,12 +8,13 @@ module.exports = class Phrases extends Filter {
 	}
 
 	execute(str, msg, {
-		filterConfig,
+		filterConfig: { list },
 	}) {
-		const phrases = filterConfig.list.map(m => ({
+		const phrases = list.map(m => ({
 			regex: wildcardToRegExp(`*${m}*`),
 			raw: m,
 		}));
+
 		for (const phrase of phrases) {
 			if (phrase.regex.test(str)) {
 				return phrase.raw;

@@ -7,10 +7,10 @@ module.exports = class Mentions extends Filter {
 	}
 
 	execute(str, msg, {
-		filterConfig,
+		filterConfig: { threshold },
 	}) {
 		if (msg) {
-			return msg.mentions.length >= filterConfig.threshold || msg.roleMentions.length >= filterConfig.threshold;
+			return msg.mentions.length >= threshold || msg.roleMentions.length >= threshold;
 		}
 	}
 };

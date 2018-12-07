@@ -7,8 +7,16 @@ module.exports = class Cursing extends Filter {
 		this.Atlas = Atlas;
 	}
 
-	execute(str) {
-		return swearjar.profane(str);
+	execute(str, msg, {
+		filterConfig,
+	}) {
+		const scorecard = swearjar.scorecard(str);
+
+		const categories = Object.keys(scorecard);
+
+		if (categories.length) {
+			return categories.some(k => filterConfig[k]);
+		}
 	}
 };
 

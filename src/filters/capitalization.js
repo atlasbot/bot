@@ -7,13 +7,13 @@ module.exports = class Capitalization extends Filter {
 	}
 
 	execute(str, msg, {
-		filterConfig,
+		filterConfig: { threshold },
 	}) {
 		if (str.length > 3) {
 			const uppercase = str.replace(/[^A-Z]/g, '').length;
 			const percent = Math.floor((uppercase / str.length) * 100);
 
-			return percent > filterConfig.threshold;
+			return percent > threshold;
 		}
 	}
 };

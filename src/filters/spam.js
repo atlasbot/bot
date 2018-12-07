@@ -8,14 +8,12 @@ module.exports = class Spam extends Filter {
 	}
 
 	execute(str, msg, {
-		filterConfig,
+		filterConfig: { time, threshold },
 	}) {
 		const messages = Array.from(msg.channel.messages.values())
-			.filter(m => m.author.id === msg.author.id
-				&& ((new Date()) - m.timestamp) < filterConfig.time
-				&& !this.triggered.includes(m.id));
+			.filter(m => m.author.id === msg.author.id && (Date.now() - m.timestamp) < time && !this.triggered.includes(m.id));
 
-		const triggered = messages.length > filterConfig.threshold && messages.map(m => m.id);
+		const triggered = messages.length > threshold && messages.map(m => m.id);
 
 		if (triggered) {
 			this.triggered.push(...triggered);
