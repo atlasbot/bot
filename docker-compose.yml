@@ -15,7 +15,7 @@ services:
       - lavalink
       - mongo
     environment:
-      - LAVALINK_NODES=[{"host":"lavalink","port":80,"region":"us","password":"youshallnotpass"}]
+      - LAVALINK_NODES=[{"host":"lavalink","port":59152,"region":"us","password":"youshallnotpass"}]
       - REDIS_HOST=redis
       - MONGO_URI=mongodb://mongo:27017/antares
   lavalink:
@@ -24,7 +24,7 @@ services:
     env_file:
       - lavalink.env
     ports:
-      - 80:80
+      - 59152:59152
       - 2333:2333
   redis:
     restart: "unless-stopped"
