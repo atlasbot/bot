@@ -43,22 +43,13 @@ module.exports = class Event {
 		}
 
 		if (msg.guild && user) {
-			// this mess will get the guilds settings and check to see if there are any triggers for it
-
-			// emoji.id is only set if it's a custom emoji, which is what is stored as 'trigger.content' for custom emojis.
-			const query = emoji.id || (() => {
-				const e = emojiUtil.get(emoji.name);
-
-				if (e) {
-					return e.name;
-				}
-			})();
-
 			const actions = (await mongoose.model('Action').find({
 				guild: msg.guild.id,
-				'trigger.content': query,
+				// emoji.id is only set for custom emojis, otherwise atlas uses the emoji as the content
+				'trigger.content': emoji.id || emoji.name,
 			}));
 
+			// run those actions
 			if (actions.length) {
 				const settings = await this.Atlas.DB.getGuild(msg.guild.id);
 
