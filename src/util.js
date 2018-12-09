@@ -3,6 +3,7 @@ const superagent = require('superagent');
 const { unflatten } = require('flat');
 const assert = require('assert');
 
+const Parser = require('./tagengine');
 const Fuzzy = require('../lib/structures/Fuzzy');
 const lib = require('../lib');
 const Cache = require('../lib/structures/Cache');
@@ -538,11 +539,55 @@ module.exports = class Util {
 		}
 	}
 
-	async levelup({ notify, rewards, stack }, previous, current) {
-		console.log(previous, current);
+	async levelup(member, {
+		previous: { current: { level: previousLevel } },
+		current: { current: { level: currentLevel } },
+	}, msg, settings) {
+		const { stack, rewards, notify } = settings.plugin('levels').options;
 
-		if (previous.current.level !== current.current.level) {
-			console.warn(`LEVEL UP! ${previous.current.level} > ${current.current.level}`);
+		const shouldHave = rewards
+			.filter(r => r.level === currentLevel)
+			.map(({ content: roleId }) => member.guild.roles.get(roleId));
+
+		for (const role of shouldHave) {
+			if (!member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
+				await member.addRole(role.id, 'Level-up');
+			}
+		}
+
+		if (previousLevel !== currentLevel) {
+			if (!stack) {
+				const shouldntHave = rewards
+					.filter(r => r.level < currentLevel)
+					.map(({ content: roleId }) => member.guild.roles.get(roleId));
+
+				for (const role of shouldntHave) {
+					if (member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
+						await member.removeRole(role.id, 'Level-up');
+					}
+				}
+			}
+
+			if (notify.enabled) {
+				const parser = new Parser({
+					msg,
+					settings,
+				}, false);
+
+				const { output } = await parser.parse(notify.content);
+
+				if (notify.stack) {
+					try {
+						msg.author.createMessage(msg.channel.id, {
+							content: output,
+						});
+					} catch (e) {} // eslint-disable-line no-empty
+				} else {
+					this.Atlas.client.createMessage(msg.channel.id, {
+						content: output,
+					});
+				}
+			}
 		}
 	}
 };

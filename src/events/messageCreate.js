@@ -31,9 +31,6 @@ module.exports = class Ready {
 
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;
-
-
-			this.updateProfile(msg, settings).catch(console.warn);
 		} else {
 			([msg.displayPrefix] = prefixes);
 			// temporary
@@ -47,6 +44,11 @@ module.exports = class Ready {
 			msg.args = msg.content.replace(/<@!/g, '<@').substring(msg.prefix.length).trim()
 				.split(/ +/g);
 			msg.label = msg.args.shift().toLowerCase();
+		}
+
+		// am using eval to alter levels during testing when no commands for levels existed
+		if (msg.label !== 'eval') {
+			this.updateProfile(msg, settings).catch(console.warn);
 		}
 
 		// try and find an action, if one exists it'll run it then do nothing.
@@ -175,11 +177,10 @@ module.exports = class Ready {
 				const currentXP = guild ? guild.xp + xp : xp;
 
 				// will announce level ups and reward roles when needed
-				this.Atlas.util.levelup(
-					settings.plugin('levels').options,
-					this.Atlas.lib.xputil.getUserXPProfile(guild ? guild.xp : 0),
-					this.Atlas.lib.xputil.getUserXPProfile(currentXP),
-				);
+				this.Atlas.util.levelup(msg.member, {
+					previous: this.Atlas.lib.xputil.getUserXPProfile(guild ? guild.xp : 0),
+					current: this.Atlas.lib.xputil.getUserXPProfile(currentXP),
+				}, msg, settings);
 
 				return profile;
 			}

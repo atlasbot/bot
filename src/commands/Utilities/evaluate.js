@@ -19,6 +19,7 @@ module.exports = class TagEval extends Command {
 			msg,
 			settings,
 		}, false);
+
 		const ret = await parser.parse(args.join(' '));
 
 		const output = ret.output || 'No variable output :c';
