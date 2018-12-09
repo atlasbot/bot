@@ -35,6 +35,7 @@ module.exports = class Say extends Command {
 
 			const botMsg = await responder.text(text).send();
 
+			// deletes the message if the user who did "a!say"
 			return this.Atlas.deleteAliases.set(msg.id, {
 				msg: botMsg.id,
 				channel: channel ? channel.id : msg.channel.id,

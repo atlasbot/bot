@@ -11,12 +11,14 @@ module.exports = class Filter {
 
 		// jesus christ
 		if (
-			(msg.author.bot && filterConfig.sanction_bots !== true)
-            || msg.author.id === this.Atlas.client.user.id
-            || !msg.guild.me.permission.json.manageMessages
-            || filterConfig.exempt_channels.includes(msg.channel.id)
-            || filterConfig.exempt_roles.find(r => msg.member.roles && msg.member.roles.includes(r))
-            || filterConfig.action_type === 0
+			(settings.plugin('moderation').state === 'disabled'
+				|| (msg.author.bot && filterConfig.sanction_bots !== true))
+        || msg.author.id === this.Atlas.client.user.id
+				|| !msg.guild.me.permission.json.manageMessages
+				|| (msg.member.permissions.has('manageMessages') && !filterConfig.sanction_moderators)
+        || filterConfig.exempt_channels.includes(msg.channel.id)
+        || filterConfig.exempt_roles.find(r => msg.member.roles && msg.member.roles.includes(r))
+        || filterConfig.action_type === 0
 		) {
 			return false;
 		}
