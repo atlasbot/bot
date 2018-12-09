@@ -8,13 +8,14 @@ module.exports = class Links extends Filter {
 	}
 
 	execute(str, msg, {
-		filterConfig: { exlusions },
+		filterConfig: { exclusions },
 	}) {
 		const uri = this.Atlas.lib.utils.isUri(str);
 
 		if (uri) {
 			const { hostname } = url.parse(uri);
-			if (!exlusions.includes(hostname)) {
+
+			if (!exclusions.includes(hostname)) {
 				return uri;
 			}
 		}

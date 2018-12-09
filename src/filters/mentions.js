@@ -9,9 +9,7 @@ module.exports = class Mentions extends Filter {
 	execute(str, msg, {
 		filterConfig: { threshold },
 	}) {
-		if (msg) {
-			return msg.mentions.length >= threshold || msg.roleMentions.length >= threshold;
-		}
+		return msg.mentions.length >= threshold || msg.roleMentions.length >= threshold;
 	}
 };
 

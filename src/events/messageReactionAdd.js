@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-const emojiUtil = require('../../lib/emoji');
 const Action = require('../structures/Action');
 
 module.exports = class Event {
