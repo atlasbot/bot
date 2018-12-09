@@ -1,7 +1,3 @@
-const mongoose = require('mongoose');
-
-const Action = require('../structures/Action');
-
 module.exports = class Event {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
@@ -42,31 +38,17 @@ module.exports = class Event {
 		}
 
 		if (msg.guild && user) {
-			const actions = (await mongoose.model('Action').find({
+			const settings = await this.Atlas.DB.getGuild(msg.guild.id);
+
+			await settings.runActions({
 				guild: msg.guild.id,
+				'trigger.type': 'reactionAdd',
 				// emoji.id is only set for custom emojis, otherwise atlas uses the emoji as the content
 				'trigger.content': emoji.id || emoji.name,
-			}));
-
-			// run those actions
-			if (actions.length) {
-				const settings = await this.Atlas.DB.getGuild(msg.guild.id);
-
-				for (const action of actions.map(a => new Action(settings, a))) {
-					try {
-					// basically immitating a message with the user that added the reaction as the author
-						await action.execute({
-							author: user,
-							guild: msg.guild,
-							member: msg.guild.members.get(user.id),
-							channel: msg.channel,
-							lang: settings.lang,
-						});
-					} catch (e) {
-						console.error(e);
-					}
-				}
-			}
+			}, {
+				msg,
+				user,
+			});
 		}
 	}
 };

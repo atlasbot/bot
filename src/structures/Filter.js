@@ -12,17 +12,18 @@ module.exports = class Filter {
 		// jesus christ
 		if (
 			(settings.plugin('moderation').state === 'disabled'
+        || filterConfig.action_type === 0
 				|| (msg.author.bot && filterConfig.sanction_bots !== true))
         || msg.author.id === this.Atlas.client.user.id
 				|| !msg.guild.me.permission.json.manageMessages
 				|| (msg.member.permissions.has('manageMessages') && !filterConfig.sanction_moderators)
         || filterConfig.exempt_channels.includes(msg.channel.id)
         || filterConfig.exempt_roles.find(r => msg.member.roles && msg.member.roles.includes(r))
-        || filterConfig.action_type === 0
 		) {
 			return false;
 		}
 		// here is some eye bleach for that if statement https://i.imgur.com/uJV5MgX.jpg
+		// if anyone wants to clean that up then you're more then welcome
 
 		for (const str of [msg.content, msg.cleanContent]) {
 			const output = await this.execute(str, msg, {

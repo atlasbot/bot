@@ -1,9 +1,9 @@
 /** Represents a guild config    */
+const mongoose = require('mongoose');
+
 const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
-
-const mongoose = require('mongoose');
 
 const Action = require('./Action');
 
@@ -369,6 +369,41 @@ module.exports = class GuildSettings {
 				console.warn(e);
 			}
 		}
+	}
+
+	/**
+	 * Run actions based on a Mongoose query.
+	 *
+	 * @param {Object} query A Mongoose query for the Actions collection
+	 * @param {Object} options options
+	 * @param {Object} options.msg The message to use in context.
+	 * @param {Object} [options.user=options.msg] The user to have in context, defaults to msg.author !! WHICH MAY BE INCORRECT !! sometimes.
+	 */
+	async runActions(query, {
+		msg,
+		user = msg.author,
+	}) {
+		const actions = await mongoose.model('Action').find(query);
+
+		// run those actions
+		if (actions.length) {
+			for (const action of actions.map(a => new Action(this.settings, a))) {
+				try {
+					// basically immitating a message with the user that added the reaction as the author
+					await action.execute({
+						author: user,
+						guild: msg.guild,
+						member: msg.guild.members.get(user.id),
+						channel: msg.channel,
+						lang: this.settings.lang,
+					});
+				} catch (e) {
+					console.warn('Error executing action', e);
+				}
+			}
+		}
+
+		return actions;
 	}
 
 	async getTriggers() {
