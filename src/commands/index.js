@@ -10,16 +10,11 @@ module.exports = class Commands {
 			const file = _path.parse(path);
 			if (!file.ext) {
 				// it's /probably/ a directory, so lets try and load it as a plugin
-				const plugin = require(_path.join(__dirname, path, 'plugin.json'));
-				if (!plugin) {
-					throw new Error(`No plugin info file for ${path}`);
-				}
-				if (!plugin.commands) {
-					plugin.commands = [];
-				}
-				if (!plugin.subcommands) {
-					plugin.subcommands = [];
-				}
+				const plugin = {
+					name: path,
+					commands: [],
+					subcommands: [],
+				};
 
 				const pluginCmds = (await fs.readdir(_path.join(__dirname, path)))
 					.map(f => _path.parse(f));
