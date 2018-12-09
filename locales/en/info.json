@@ -1,4 +1,7 @@
 {
+	"leaderboard": {
+		"description": "Gets the leaderboard link for Levels."
+	},
 	"smalltext": {
 		"description": "Makes text smaller.",
 		"usage": "[text]"
