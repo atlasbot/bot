@@ -31,8 +31,6 @@ module.exports = class Ready {
 		if (msg.guild) {
 			settings = await this.Atlas.DB.getSettings(msg.guild.id);
 
-			console.log(settings)
-
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;
 		} else {
@@ -136,7 +134,7 @@ module.exports = class Ready {
 
 	async updateProfile(msg, settings) {
 		if (!(await ratelimits.get(msg.author.id))) {
-			await ratelimits.set(msg.author.id, Date.now(), 5);
+			await ratelimits.set(msg.author.id, Date.now(), 60);
 
 			if (settings.plugin('levels').state === 'enabled') {
 				// the amount of xp to reward them with

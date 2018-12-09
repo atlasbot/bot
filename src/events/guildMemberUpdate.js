@@ -78,6 +78,8 @@ module.exports = class Event {
 			});
 		}
 
+		await this.Atlas.util.updateUser(member);
+
 		if (member.avatarURL !== oldMember.avatarURL) {
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.avatarChange',

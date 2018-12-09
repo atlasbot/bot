@@ -80,7 +80,7 @@ module.exports = class Remove extends Command {
 				fields: page.data.map((w, i) => {
 					const moderator = msg.guild.members.get(w.moderator);
 					const name = `${i + 1} • ${moderator ? `${moderator.tag} (${w.moderator})` : w.moderator}`;
-					const value = `${w.reason} • ${new Date(w.date).toLocaleDateString()}`;
+					const value = `${w.reason} • ${new Date(w.createdAt).toLocaleDateString()}`;
 
 					return {
 						name,

@@ -50,7 +50,7 @@ module.exports = class View extends Command {
 				fields: page.data.map((w) => {
 					const moderator = msg.guild.members.get(w.moderator);
 					const name = `${moderator ? `${moderator.tag} (${w.moderator})` : w.moderator}`;
-					const value = `${w.reason} • ${new Date(w.date).toLocaleDateString()}`;
+					const value = `${w.reason} • ${new Date(w.createdAt).toLocaleDateString()}`;
 
 					return {
 						name,
