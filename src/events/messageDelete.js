@@ -13,7 +13,7 @@ module.exports = class Event {
 				this.Atlas.client.deleteMessage(x.channel, x.msg).catch(console.error);
 			}
 
-			const settings = await this.Atlas.DB.getGuild(msg.guild.id);
+			const settings = await this.Atlas.DB.getSettings(msg.guild.id);
 
 			if (!settings.actionLogChannel) {
 				return;

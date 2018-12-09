@@ -11,7 +11,7 @@ const cmdUtil = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
 const PlayerManager = require('./src/structures/PlayerManager');
-const GuildSettingsClass = require('./src/structures/GuildSettings');
+const SettingsStruct = require('./src/structures/Settings');
 const Player = require('./src/structures/Player');
 
 const { version } = require('./package.json');
@@ -74,7 +74,7 @@ module.exports = class Atlas {
 		this.agenda = new Agenda();
 
 		this.DB = new DB({
-			GuildSettingsClass,
+			SettingsStruct,
 		});
 
 		this.DB.init();

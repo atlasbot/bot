@@ -164,14 +164,15 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		runValidators = true,
 	} = {}) {
-		const data = await this.Atlas.DB.Guild.findOneAndUpdate({ id: this.id }, settings, {
+		const data = await this.Atlas.DB.Settings.findOneAndUpdate({ id: this.id }, settings, {
 			runValidators,
 			new: true,
 		});
 
 		await this.Atlas.DB.cache.del(this.id);
 
-		this.settings = data;
+		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
+		this.raw = data;
 
 		return data;
 	}

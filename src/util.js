@@ -412,30 +412,32 @@ module.exports = class Util {
 		}
 	}
 
+	/**
+	 *update a users interval profile.
+	 * @param {Object} author The author or mongodb query
+	 * @returns {Promise}
+	 */
 	async updateUser(author) {
 		if (author.user) {
 			author = author.user;
 		}
 
+		// getProfile will find or create one and cache it.
+		const profile = await this.Atlas.DB.getProfile(author);
+
+		const toSave = profileSchema(author);
+
 		try {
-			// find an existing one and cache it for an hour (which means it should hit redis for most messages)
-			const profile = await this.Atlas.DB.getProfile(author);
-
-			const toSave = profileSchema(author);
-
-			try {
-				// throws if the objects are not the same
-				assert.deepStrictEqual({
-					...profile,
-					...toSave,
-				}, profile);
-			} catch (e) {
-				console.warn(e);
-
-				return await this.Atlas.DB.User.updateOne({ id: profile.id }, toSave);
-			}
+			// throws if the objects are not the same
+			assert.deepStrictEqual({
+				...profile,
+				...toSave,
+			}, profile);
 		} catch (e) {
-			console.warn(e);
+			// remove any existing cached objects because we're updating it
+			await this.Atlas.DB.cache.del(author.id);
+
+			return this.Atlas.DB.User.updateOne({ id: profile.id }, toSave);
 		}
 	}
 

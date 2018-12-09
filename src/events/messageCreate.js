@@ -23,11 +23,15 @@ module.exports = class Ready {
 	}
 
 	async execute(msg) {
-		if (msg.type !== 0 || msg.author.bot) return;
+		if (msg.type !== 0 || msg.author.bot) {
+			return;
+		}
 
 		let settings;
 		if (msg.guild) {
-			settings = await this.Atlas.DB.getGuild(msg.guild.id);
+			settings = await this.Atlas.DB.getSettings(msg.guild.id);
+
+			console.log(settings)
 
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;
