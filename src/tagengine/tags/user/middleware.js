@@ -1,16 +1,14 @@
-const Util = require('../../../util');
 const TagError = require('./../../TagError');
 
 module.exports = (func, argIndex = 0) => async ({
 	guild,
 	user,
+	Atlas,
 	...randomData
 }, args, ...randomShit) => {
 	if (args[argIndex]) {
-		const util = new Util();
-
 		// try and resolve the user cus why not
-		user = await util.findMember(guild, args[argIndex], {
+		user = await Atlas.util.findMember(guild, args[argIndex], {
 			// why the fuck is it called findMember if it doesn't always return a member? past sylver, explain pls
 			memberOnly: true,
 		});
@@ -24,6 +22,7 @@ module.exports = (func, argIndex = 0) => async ({
 	return func({
 		guild,
 		user,
+		Atlas,
 		...randomData,
 	}, args, ...randomShit);
 };

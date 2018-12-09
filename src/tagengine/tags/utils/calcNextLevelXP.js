@@ -12,11 +12,11 @@ module.exports = async (x, [number]) => {
 };
 
 module.exports.info = {
-	name: 'levels.nextLevelXP',
+	name: 'utils.calcNextLevelXP',
 	args: '<number>',
 	description: 'Calculates the XP the next level requires, where <number> is the amount of XP the user has.',
 	examples: [{
-		input: '{levels.nextLevelXP;1337}',
+		input: '{utils.calcNextLevelXP;1337}',
 		output: '1380',
 	}],
 	dependencies: [],

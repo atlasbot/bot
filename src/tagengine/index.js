@@ -23,20 +23,22 @@ module.exports = class {
 		action,
 		user = msg.author,
 	}, managed = true) {
-		this.data = {
+		this.Atlas = require('./../../Atlas');
+
+		this.context = {
 			msg,
 			guild,
 			channel,
 			settings,
 			action,
 			user,
+			Atlas: this.Atlas,
 		};
 
 		// coming soon to a parser near you
 		this.managed = managed;
 
 		this.tags = tags;
-		this.Atlas = require('./../../Atlas');
 
 		// janky "temporary" way for tag aliases that will probably never be replaced :^)
 		this.tags.get = (key) => {
@@ -63,6 +65,6 @@ module.exports = class {
 		const ast = Lexer.lex(source);
 		const parsed = await Parser.parse(ast);
 
-		return interpreter(parsed, this.data, this.tags);
+		return interpreter(parsed, this.context, this.tags);
 	}
 };

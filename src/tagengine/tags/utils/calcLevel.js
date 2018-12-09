@@ -1,22 +1,20 @@
 const TagError = require('../../TagError');
-const getUserXPProfile = require('../../../../lib/xputil/getUserXPProfile');
+const getLevelFromXP = require('../../../../lib/xputil/getLevelFromXP');
 
 module.exports = async (x, [number]) => {
 	if (!isFinite(number)) {
 		throw new TagError('Invalid XP number');
 	}
 
-	const { current: { level } } = getUserXPProfile(number);
-
-	return level;
+	return getLevelFromXP(number);
 };
 
 module.exports.info = {
-	name: 'levels.level',
+	name: 'utils.calcLevel',
 	args: '<number>',
 	description: 'Gets a level from an XP count.',
 	examples: [{
-		input: '{levels.level;1337}',
+		input: '{utils.calcLevel;1337}',
 		output: '5',
 	}],
 	dependencies: [],

@@ -1,22 +1,22 @@
-const isUri = require('../../../lib/utils/isUri');
+const isUri = require('../../../../lib/utils/isUri');
 
 module.exports = async (x, [str]) => !!isUri(str);
 
 module.exports.info = {
-	name: 'isUrl',
+	name: 'utils.isUrl',
 	args: '<string>',
 	description: 'Returns true if <string> is a valid web URL, or false if it\'s anything else.',
 	examples: [{
-		input: '{isUrl;https://atlasbot.xyz}',
+		input: '{utils.isUrl;https://atlasbot.xyz}',
 		output: 'true',
 	}, {
-		input: '{isUrl;hahaepic}',
+		input: '{utils.isUrl;hahaepic}',
 		output: 'false',
 	}, {
-		input: '{isUrl;}',
+		input: '{utils.isUrl;}',
 		output: 'false',
 	}, {
-		input: '{isUrl;protocol://example.com}',
+		input: '{utils.isUrl;protocol://example.com}',
 		output: 'false',
 	}],
 	dependencies: [],
