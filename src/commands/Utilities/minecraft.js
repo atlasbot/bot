@@ -99,8 +99,10 @@ module.exports = class Minecraft extends Command {
 
 module.exports.info = {
 	name: 'minecraft',
+	aliases: [
+		'mcserver',
+	],
 	examples: [
 		'play.hypixel.net',
 	],
-	guildOnly: true,
 };
