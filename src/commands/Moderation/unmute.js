@@ -100,7 +100,7 @@ module.exports = class Unmute extends Command {
 				});
 			}
 
-			settings.log(['action', 'mod'], logEmbed);
+			settings.log('mod', logEmbed);
 
 			return responder.text('unmute.success', target.tag).send();
 		}

@@ -44,6 +44,6 @@ module.exports = class Event {
 			embed.footer.text += ` Mod ${auditEntry.user.id}`;
 		}
 
-		return settings.log(['action', 'mod'], embed);
+		return settings.log('mod', embed);
 	}
 };

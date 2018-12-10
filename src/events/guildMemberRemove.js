@@ -46,7 +46,7 @@ module.exports = class Event {
 
 			// the user probably left of their own free will
 
-			return settings.log(['action', 'mod'], {
+			return settings.log('mod', {
 				title: 'general.logs.guildMemberKick.title',
 				color: this.Atlas.colors.get('cyan').decimal,
 				description: ['general.logs.guildMemberKick.description', member.tag],

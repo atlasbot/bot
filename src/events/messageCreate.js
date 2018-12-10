@@ -152,24 +152,28 @@ module.exports = class Ready {
 
 				if (guild) {
 					// update existing guild profile
-					await mongoose.model('User').updateOne({ id: profile.id, 'guilds._id': guild._id }, {
-						$set: payload,
-						$inc: {
-							'guilds.$.xp': xp,
-							'guilds.$.messages': 1,
-						},
-					});
-				} else {
-					await mongoose.model('User').updateOne({ id: profile.id }, {
-						$set: payload,
-						$push: {
-							guilds: {
-								id: msg.guild.id,
-								xp,
-								messages: 1,
+					await mongoose
+						.model('User')
+						.updateOne({ id: profile.id, 'guilds._id': guild._id }, {
+							$set: payload,
+							$inc: {
+								'guilds.$.xp': xp,
+								'guilds.$.messages': 1,
 							},
-						},
-					});
+						});
+				} else {
+					await mongoose
+						.model('User')
+						.updateOne({ id: profile.id }, {
+							$set: payload,
+							$push: {
+								guilds: {
+									id: msg.guild.id,
+									xp,
+									messages: 1,
+								},
+							},
+						});
 				}
 
 				// update the cached version aswell because why not

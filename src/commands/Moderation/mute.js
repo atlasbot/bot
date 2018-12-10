@@ -155,7 +155,7 @@ module.exports = class Mute extends Command {
 			});
 		}
 
-		settings.log(['action', 'mod'], logEmbed);
+		settings.log('mod', logEmbed);
 
 		responder.text('mute.success', target.tag, this.Atlas.lib.utils.prettyMs(parsed.relative, {
 			verbose: true,
