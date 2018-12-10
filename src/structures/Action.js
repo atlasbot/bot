@@ -27,16 +27,6 @@ module.exports = class Action {
 				delete: action.flags.delete,
 				quiet: action.flags.quiet,
 			};
-
-			this.banned = {
-				roles: action.banned.roles.filter(r => this.guild.roles.has(r)),
-				channels: action.banned.channels.filter(c => this.guild.channels.has(c)),
-			};
-
-			this.allowed = {
-				roles: action.allowed.roles.filter(r => this.guild.roles.has(r)),
-				channels: action.allowed.channels.filter(c => this.guild.channels.has(c)),
-			};
 		}
 	}
 
@@ -60,17 +50,17 @@ module.exports = class Action {
 			return responder.error('disabled').send();
 		}
 
-		if (this.banned.channels.includes(msg.channel.id)) {
-			return responder.error('banned.channel').send();
-		}
+		// if (this.banned.channels.includes(msg.channel.id)) {
+		// 	return responder.error('banned.channel').send();
+		// }
 
-		if (msg.member.roles && msg.member.roles.some(r => this.banned.roles.includes(r))) {
-			if (this.flags.quiet) {
-				return;
-			}
+		// if (msg.member.roles && msg.member.roles.some(r => this.banned.roles.includes(r))) {
+		// 	if (this.flags.quiet) {
+		// 		return;
+		// 	}
 
-			return responder.error('banned.role').send();
-		}
+		// 	return responder.error('banned.role').send();
+		// }
 
 		// only enable whitelisting when > 1 role count
 		if (this.allowed.roles.length && !msg.member.roles.some(r => !this.allowed.roles.includes(r))) {
