@@ -559,5 +559,17 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>."
+	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"level": {
+		"invalidUser": "I could not find a user matching `{0}` :c",
+		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"embed": {
+			"rank": "Rank",
+			"level": "Level",
+			"experience": {
+				"name": "Experience",
+				"value": "{0}/{1} • `{0}` total"
+			}
+		}
+	}
 }

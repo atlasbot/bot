@@ -1,4 +1,8 @@
 {
+	"level": {
+		"description": "Gets your or another users level.",
+		"usage": "<user>"
+	},
 	"leaderboard": {
 		"description": "Gets the leaderboard link for Levels."
 	},
