@@ -74,6 +74,18 @@ module.exports = class Ready {
 			msg.command = this.Atlas.commands.get(msg.label);
 
 			if (msg.command) {
+				if (msg.guild) {
+					const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.commands');
+					// handle guild things
+					const pluginConf = settings.plugin(msg.command.info.plugin.name.toLowerCase());
+
+					if (pluginConf) {
+						if (pluginConf.state === 'disabled') {
+							return responder.error('pluginDisabled', msg.command.info.plugin.name, msg.command.info.name).send();
+						}
+					}
+				}
+
 				if (msg.command.info.subcommands.size !== 0 && msg.args[0]) {
 					// handle subcommands
 					const subLabel = msg.args[0].toLowerCase();
@@ -89,9 +101,10 @@ module.exports = class Ready {
 				const uncleanOptions = parseArgs(msg.content);
 				const parsedArgs = {};
 				for (const arg of Object.keys(uncleanOptions)) {
-					if (msg.command.info.allowAllFlags
-						|| (msg.command.info.supportedFlags && msg.command.info.supportedFlags.map(a => a.name).includes(arg.toLowerCase()))) {
-						parsedArgs[arg] = uncleanOptions[arg];
+					const cleanedArg = arg.toLowerCase().trim();
+
+					if (msg.command.info.allowAllFlags || ((msg.command.info.supportedFlags || []).map(a => a.name).includes(cleanedArg))) {
+						parsedArgs[cleanedArg] = uncleanOptions[cleanedArg];
 					}
 				}
 

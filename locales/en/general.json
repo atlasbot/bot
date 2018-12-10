@@ -1,4 +1,7 @@
 {
+	"commands": {
+		"pluginDisabled": "The plugin \"{0}\" that `{1}` belongs to is disabled in this server."
+	},
 	"reminder": {
 		"title": "Reminder",
 		"footer": "Requested"

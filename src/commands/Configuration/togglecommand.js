@@ -15,12 +15,7 @@ module.exports = class ToggleCommand extends Command {
 		}
 
 		const query = args.join(' ');
-		let command = this.Atlas.lib.utils.nbsFuzzy(this.Atlas.commands.labels, ['info.name'], query);
-
-		if (!command) {
-			// look for an alias
-			command = this.Atlas.commands.get(this.Atlas.lib.utils.nbsFuzzy(this.Atlas.commands.aliases, [], query));
-		}
+		const command = this.Atlas.lib.utils.nbsFuzzy(this.Atlas.commands.labels, ['info.name'], query);
 
 		if (!command) {
 			return responder.error('noCommand', query).send();
