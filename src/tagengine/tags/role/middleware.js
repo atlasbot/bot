@@ -2,24 +2,23 @@ const TagError = require('./../../TagError');
 
 module.exports = (func, argIndex = 0) => async ({
 	guild,
-	channel,
 	Atlas,
 	...randomData
 }, args, ...randomShit) => {
-	if (args[argIndex]) {
-		channel = await Atlas.util.findRoleOrChannel(guild, args[argIndex], {
-			type: 'channel',
-		});
+	// try and resolve the user cus why not
+	const role = await Atlas.util.findRoleOrChannel(guild, args[argIndex], {
+		type: 'role',
+	});
 
-		if (!channel) {
-			throw new TagError('Invalid channel query.');
-		}
+	if (!role) {
+		throw new TagError('Invalid role query.');
 	}
 
+	// first arg is the role name
+	args.shift();
 
 	return func({
 		guild,
-		channel,
 		Atlas,
 		...randomData,
 	}, args, ...randomShit);

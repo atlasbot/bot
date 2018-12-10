@@ -63,17 +63,17 @@ module.exports = class Action {
 		// }
 
 		// only enable whitelisting when > 1 role count
-		if (this.allowed.roles.length && !msg.member.roles.some(r => !this.allowed.roles.includes(r))) {
-			if (this.flags.quiet) {
-				return;
-			}
+		// if (this.allowed.roles.length && !msg.member.roles.some(r => !this.allowed.roles.includes(r))) {
+		// 	if (this.flags.quiet) {
+		// 		return;
+		// 	}
 
-			return responder.error('whitelist.role').send();
-		}
+		// 	return responder.error('whitelist.role').send();
+		// }
 
-		if (this.allowed.channels.length && !this.allowed.channels.includes(msg.channel.id)) {
-			return responder.error('whitelist.channel').send();
-		}
+		// if (this.allowed.channels.length && !this.allowed.channels.includes(msg.channel.id)) {
+		// 	return responder.error('whitelist.channel').send();
+		// }
 
 		// checks pass
 

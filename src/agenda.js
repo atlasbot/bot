@@ -20,7 +20,7 @@ module.exports = class Agenda extends EventEmitter {
 		this.agenda = null;
 
 		this.graceful = (async (stop) => {
-			console.info('Gracefully shutting down Agenda...');
+			console.info('Gracefully shutting down Agenda..');
 
 			if (this.agenda) {
 				await this.agenda.stop();

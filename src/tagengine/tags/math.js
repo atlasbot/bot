@@ -12,7 +12,7 @@ module.exports = (info, args) => {
 module.exports.info = {
 	name: 'math',
 	args: '[expression]',
-	description: 'Evaluates a math expression..',
+	description: 'Evaluates a math expression.',
 	examples: [{
 		input: '{math;9+10}',
 		output: '21',

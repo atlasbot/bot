@@ -1,6 +1,6 @@
 const TagError = require('./TagError');
 
-const interp = async (tokens, info, functions) => {
+const interp = async (tokens, context, functions) => {
 	const output = [];
 	const errors = [];
 
@@ -16,7 +16,7 @@ const interp = async (tokens, info, functions) => {
 
 				for (const arg of args) {
 					if (arg.type !== 'WORD') {
-						const childOutput = await interp([arg], info, functions);
+						const childOutput = await interp([arg], context, functions);
 
 						parsed.push(childOutput.output);
 						errors.push(...childOutput.errors);
@@ -35,25 +35,29 @@ const interp = async (tokens, info, functions) => {
 					args = await parseArgs(args);
 				}
 
-				try {
-					const out = await func.execute(info, args, {
-						output,
-						errors,
-					});
+				if (func.info.dependencies && func.info.dependencies.some(k => !context[k])) {
+					output.push(`{${thisToken.value}-MISSINGDEP}`);
+				} else {
+					try {
+						const out = await func.execute(context, args, {
+							output,
+							errors,
+						});
 
-					output.push(out);
-				} catch (e) {
-					if (process.env.NODE_ENV === 'development') {
-						console.warn(e);
+						output.push(out);
+					} catch (e) {
+						if (process.env.NODE_ENV === 'development') {
+							console.warn(e);
+						}
+
+						if (e instanceof TagError) {
+							errors.push(e);
+						} else {
+							errors.push(new TagError(e));
+						}
+
+						output.push(`{${thisToken.value}-ERROR${errors.length}}`);
 					}
-
-					if (e instanceof TagError) {
-						errors.push(e);
-					} else {
-						errors.push(new TagError(e));
-					}
-
-					output.push(`{${thisToken.value}-ERROR${errors.length}}`);
 				}
 
 				continue;

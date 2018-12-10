@@ -1,6 +1,6 @@
 const middleware = require('./middleware');
 
-module.exports = middleware((x, [emoji]) => console.log(emoji) || emoji.category);
+module.exports = middleware((x, [emoji]) => emoji.category);
 
 module.exports.info = {
 	name: 'emoji.category',
