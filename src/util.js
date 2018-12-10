@@ -321,9 +321,10 @@ module.exports = class Util {
 		message = 'general.messageQuery',
 		responder = new this.Atlas.structs.Responder(channel, lang),
 	}) {
-		const emojiInfo = this.Atlas.lib.utils.emoji(emoji);
+		const emojiInfo = this.Atlas.lib.emoji.get(emoji);
+
 		try {
-			const queryMsg = await responder.text(message, emoji, emojiInfo.names[0]).send();
+			const queryMsg = await responder.text(message, emoji, emojiInfo.name).send();
 			let targetMsg = await this.awaitEmoji(emoji, user);
 
 			queryMsg.delete().catch(() => false);
@@ -381,7 +382,9 @@ module.exports = class Util {
 		}
 
 		// if we don't have perms to view audit logs, there is no point in trying
-		if (!guild.me.permission.json.viewAuditLogs) return;
+		if (!guild.me.permission.has('viewAuditLogs')) {
+			return;
+		}
 
 		// some commands will fake their own audit log entries to show accurate data
 		const override = this.Atlas.auditOverrides.find(e => e.guild === guild.id

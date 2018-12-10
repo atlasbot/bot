@@ -22,7 +22,7 @@ module.exports = class Mute extends Command {
 			role = msg.guild.roles.find(r => r.name.toLowerCase().includes('muted'));
 
 			if (!role) {
-				if (!msg.guild.me.permission.json.manageChannels) {
+				if (!msg.guild.me.permission.has('manageChannels')) {
 					return responder.error('mute.generatePermError').send();
 				}
 

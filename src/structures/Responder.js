@@ -334,31 +334,35 @@ class Responder {
 		}
 
 		for (const key of Object.keys(obj)) {
-			let val = obj[key];
-			if (typeof val === 'string' && !val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
+			if (['type', 'proxy_'].some(ds => key.includes(ds))) {
+				delete obj[key];
+			} else {
+				let val = obj[key];
+				if (typeof val === 'string' && !val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
 				// replacing a regular key
-				val = this.format({
-					key: val,
-					noThrow: true,
-					stringOnly: true,
-				}) || val;
-			} else if (Array.isArray(val) && typeof val[0] === 'string') {
+					val = this.format({
+						key: val,
+						noThrow: true,
+						stringOnly: true,
+					}) || val;
+				} else if (Array.isArray(val) && typeof val[0] === 'string') {
 				// handling arrays where the first item is the key, everything else is a replacer arg (probably)
-				const [str, ...replacements] = val;
+					const [str, ...replacements] = val;
 
-				if (str && typeof str === 'string') {
-					val = (this.format(str, ...replacements) || str);
-				}
-			} else if (val === Object(val)) {
+					if (str && typeof str === 'string') {
+						val = (this.format(str, ...replacements) || str);
+					}
+				} else if (val === Object(val)) {
 				// replacing objects (e.g, thumbnail values and shit)
-				if (iterations >= 10) {
-					throw new Error(`Possible parser error, ${iterations} iterations over ${key}`);
+					if (iterations >= 10) {
+						throw new Error(`Possible parser error, ${iterations} iterations over ${key}`);
+					}
+
+					val = this._parseObject(val, lang, iterations++);
 				}
 
-				val = this._parseObject(val, lang, iterations++);
+				obj[key] = val;
 			}
-
-			obj[key] = val;
 		}
 
 		return obj;

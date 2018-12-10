@@ -18,7 +18,7 @@ module.exports = class View extends Command {
 			return responder.error('general.noUserFound').send();
 		}
 
-		if (target.id !== msg.author.id && !msg.member.permission.json.manageMessages) {
+		if (target.id !== msg.author.id && !msg.member.permission.has('manageMessages')) {
 			return responder.error('warn.view.noPerms').send();
 		}
 

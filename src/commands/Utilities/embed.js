@@ -19,7 +19,7 @@ module.exports = class Embed extends Command {
 			timestamp: new Date(),
 			footer: {
 				// if the user doesn't have admin perms, then add their tag to the footer to prevent abuse
-				text: !(msg.member && msg.member.permission.json.manageMessages) ? msg.author.tag : null,
+				text: !(msg.member && msg.member.permission.has('manageMessages')) ? msg.author.tag : null,
 			},
 		}).send();
 	}
