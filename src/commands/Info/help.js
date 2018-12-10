@@ -5,9 +5,7 @@ module.exports = class Help extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args.length) {

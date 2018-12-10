@@ -7,7 +7,7 @@ module.exports = class FunBan extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
+		settings,
 	}) {
 		const baseBan = this.Atlas.commands.get('ban');
 

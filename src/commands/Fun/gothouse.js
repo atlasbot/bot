@@ -10,9 +10,7 @@ module.exports = class GotHouse extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const h = args[0] ? (new this.Atlas.lib.structs.Fuzzy(houses.map((house) => {

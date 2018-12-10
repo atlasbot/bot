@@ -7,9 +7,7 @@ module.exports = class Cat extends Command {
 		this.reddit = new this.Atlas.lib.structs.Reddit(['kitten', 'cats', 'catpics', 'catpictures']);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const d = await this.reddit.getImage(msg.author.id);

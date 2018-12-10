@@ -5,9 +5,7 @@ module.exports = class Includes extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const { num, cleanedArgs } = this.Atlas.lib.utils.getArgNumber(args, {

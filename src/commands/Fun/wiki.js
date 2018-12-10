@@ -7,12 +7,10 @@ module.exports = class Wiki extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'wiki');
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('noArgs').send();
 		} if (args.join(' ').length > 64) {
 			return responder.error('tooLong').send();

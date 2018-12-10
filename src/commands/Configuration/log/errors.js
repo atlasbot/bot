@@ -6,8 +6,8 @@ module.exports = class Errors extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
+	async action(msg, args, {
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 

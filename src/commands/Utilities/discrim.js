@@ -5,9 +5,7 @@ module.exports = class Discrim extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 
 		const number = args[0] || msg.author.discriminator;

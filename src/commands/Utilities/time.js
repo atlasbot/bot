@@ -9,7 +9,7 @@ module.exports = class Time extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg, null, 'time');
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('noArgs').send();
 		}
 

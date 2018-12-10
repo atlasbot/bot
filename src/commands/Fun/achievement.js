@@ -6,13 +6,12 @@ module.exports = class Achievement extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
+	async action(msg, args, {
 		cleanArgs,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('achievement.noArgs').send();
 		}
 

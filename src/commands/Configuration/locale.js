@@ -12,7 +12,7 @@ module.exports = class Locale extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg, null, 'locale');
 

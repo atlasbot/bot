@@ -6,7 +6,7 @@ module.exports = class ServerInfo extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg, null, 'serverinfo');
 

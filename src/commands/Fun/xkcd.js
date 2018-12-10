@@ -7,9 +7,7 @@ module.exports = class XKCD extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const { num } = (await superagent.get('https://xkcd.com/info.0.json')

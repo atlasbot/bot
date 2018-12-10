@@ -17,7 +17,6 @@ module.exports = class Eval extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
 		parsedArgs,
 	}) {
 		const responder = (new this.Atlas.structs.Responder(msg)).localised().noDupe(false);

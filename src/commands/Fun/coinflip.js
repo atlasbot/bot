@@ -5,9 +5,7 @@ module.exports = class CoinFlip extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const random = this.Atlas.lib.utils.pickOne(['heads', 'tails']);

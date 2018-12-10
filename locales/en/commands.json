@@ -571,5 +571,8 @@
 				"value": "{0}/{1} • `{0}` total"
 			}
 		}
+	},
+	"toggleplugin": {
+		"noArgs": "Please include a plugin name."
 	}
 }

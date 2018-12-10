@@ -6,9 +6,7 @@ module.exports = class Log extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		responder.embed(this.helpEmbed(msg)).send();

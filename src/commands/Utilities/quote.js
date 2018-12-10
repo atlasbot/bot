@@ -8,7 +8,7 @@ module.exports = class Quote extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('quote.noArgs').send();
 		}
 

@@ -5,12 +5,12 @@ module.exports = class Joined extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
+	async action(msg, args, {
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('joined.noArgs').send();
 		}
 

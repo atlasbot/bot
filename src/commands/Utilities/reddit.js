@@ -9,7 +9,7 @@ module.exports = class Reddit extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('reddit.noArgs').send();
 		}
 

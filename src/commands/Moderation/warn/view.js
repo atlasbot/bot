@@ -8,7 +8,7 @@ module.exports = class View extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 

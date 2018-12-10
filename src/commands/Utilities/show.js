@@ -6,11 +6,11 @@ module.exports = class Show extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
+		settings,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 

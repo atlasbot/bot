@@ -8,12 +8,11 @@ module.exports = class trumpgen extends Command {
 	}
 
 	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
 		cleanArgs,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (!args[0]) {
+		if (!args.length) {
 			return responder.error('You have to include text to mangle!').send();
 		}
 

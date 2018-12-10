@@ -1,4 +1,8 @@
 {
+	"toggleplugin": {
+		"description": "Toggle a plugin on or off.",
+		"usage": "[plugin]"
+	},
 	"level": {
 		"description": "Gets your or another users level.",
 		"usage": "<user>"

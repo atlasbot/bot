@@ -5,9 +5,7 @@ module.exports = class Ping extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, { // eslint-disable-line no-unused-vars
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const valid = this.Atlas.util.format(msg.lang, 'commands.ping.randoms');

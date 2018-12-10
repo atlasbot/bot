@@ -5,9 +5,7 @@ module.exports = class Purge extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (args.length >= 2 && !isFinite(args[1])) {

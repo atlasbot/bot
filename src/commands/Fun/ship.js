@@ -6,9 +6,7 @@ module.exports = class Ship extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		settings, // eslint-disable-line no-unused-vars
-	}) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const user1 = await this.Atlas.util.findMember(msg.guild, args[0]);
