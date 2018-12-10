@@ -573,6 +573,8 @@
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name."
+		"noArgs": "Please include a plugin name.",
+		"noPlugin": "I could not find a plugin matching `{0}`.",
+		"success": "The {0} plugin has been `{1}`."
 	}
 }
