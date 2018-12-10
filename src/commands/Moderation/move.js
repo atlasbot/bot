@@ -52,7 +52,8 @@ module.exports = class Move extends Command {
 			return responder.error('move.sameChannel', channel.mention).send();
 		}
 
-		 responder.channel(channel)
+		responder.channel(channel)
+			.localised(true)
 			.embed(targetMsg.embeds ? targetMsg.embeds[0] : null)
 			.file(targetMsg.file);
 
