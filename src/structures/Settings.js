@@ -14,7 +14,7 @@ module.exports = class GuildSettings {
   	*/
 	constructor(settings) {
 		// mongoose does stupid stuff, toObject makes it a regular, fun object.
-		this.settings = settings.toObject ? settings.toObject() : settings;
+		this.raw = settings.toObject ? settings.toObject() : settings;
 
 		this.Atlas = require('../../Atlas');
 
@@ -27,7 +27,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get muteRole() {
-		return this.guild.roles.get(this.settings.plugins.moderation.mute_role);
+		return this.guild.roles.get(this.raw.plugins.moderation.mute_role);
 	}
 
 	/**
@@ -36,7 +36,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get ticketCategory() {
-		return this.guild.channels.get(this.settings.plugins.tickets.category);
+		return this.guild.channels.get(this.raw.plugins.tickets.category);
 	}
 
 	/**
@@ -45,7 +45,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get id() {
-		return this.settings.id;
+		return this.raw.id;
 	}
 
 	/**
@@ -54,7 +54,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get prefix() {
-		return this.settings.prefix || prefixes[0];
+		return this.raw.prefix || prefixes[0];
 	}
 
 	/**
@@ -63,7 +63,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get lang() {
-		return this.settings.lang || process.env.DEFAULT_LANG;
+		return this.raw.lang || process.env.DEFAULT_LANG;
 	}
 
 	/**
@@ -103,7 +103,7 @@ module.exports = class GuildSettings {
 	}
 
 	filter(name) {
-		return this.settings.plugins.moderation.filters[name];
+		return this.raw.plugins.moderation.filters[name];
 	}
 
 	/**
@@ -151,7 +151,7 @@ module.exports = class GuildSettings {
         * @returns {Object} the plugins data
         */
 	plugin(name) {
-		return this.settings.plugins[name.toLowerCase()];
+		return this.raw.plugins[name.toLowerCase()];
 	}
 
 	/**
@@ -163,8 +163,9 @@ module.exports = class GuildSettings {
     */
 	async update(settings, {
 		runValidators = true,
+		query = {},
 	} = {}) {
-		const data = await this.Atlas.DB.Settings.findOneAndUpdate({ id: this.id }, settings, {
+		const data = await this.Atlas.DB.Settings.findOneAndUpdate({ id: this.id, ...query }, settings, {
 			runValidators,
 			new: true,
 		});
@@ -188,7 +189,7 @@ module.exports = class GuildSettings {
 			throw new Error(`"${label}" is not a valid command label!`);
 		}
 
-		const opts = this.settings.command_options.find(o => o.label === label);
+		const opts = this.raw.command_options.find(o => o.label === label);
 
 		const parsed = Object.assign({
 			label,
@@ -389,7 +390,7 @@ module.exports = class GuildSettings {
 
 		// run those actions
 		if (actions.length) {
-			for (const action of actions.map(a => new Action(this.settings, a))) {
+			for (const action of actions.map(a => new Action(this.raw, a))) {
 				try {
 					// basically immitating a message with the user that added the reaction as the author
 					await action.execute({
@@ -397,7 +398,7 @@ module.exports = class GuildSettings {
 						guild: msg.guild,
 						member: msg.guild.members.get(user.id),
 						channel: msg.channel,
-						lang: this.settings.lang,
+						lang: this.raw.lang,
 					});
 				} catch (e) {
 					console.warn('Error executing action', e);

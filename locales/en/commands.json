@@ -576,5 +576,11 @@
 		"noArgs": "Please include a plugin name.",
 		"noPlugin": "I could not find a plugin matching `{0}`.",
 		"success": "The {0} plugin has been `{1}`."
+	},
+	"togglecommand": {
+		"noArgs": "Please include a command name.",
+		"noCommand": "I could not find a command matching `{0}`.",
+		"disabled": "The {0} command has been `disabled`.",
+		"enabled": "The {0} command has been `enabled`."
 	}
 }

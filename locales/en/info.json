@@ -1,4 +1,8 @@
 {
+	"togglecommand": {
+		"description": "Toggle a command on/off.",
+		"usage": "[command]"
+	},
 	"toggleplugin": {
 		"description": "Toggle a plugin on or off.",
 		"usage": "[plugin]"
