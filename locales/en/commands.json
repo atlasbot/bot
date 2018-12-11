@@ -1,4 +1,9 @@
 {
+	"remove": {
+		"invalidCurrIndex": "Please provide a valid queue position.",
+		"noTrack": "There is no track in the queue at position `{0}`.",
+		"removed": "`{0}` has been removed from the queue."
+	},
 	"shift": {
 		"invalidCurrIndex": "Please provide a valid queue position.",
 		"invalidNewIndex": "Please provide a valid queue position to move the track to.",

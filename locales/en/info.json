@@ -1,4 +1,8 @@
 {
+	"remove": {
+		"description": "Removes a song from the queue.",
+		"usage": "[queue position]"
+	},
 	"shift": {
 		"description": "Shift a song's position in the queue.",
 		"usage": "[current position] [new position]"
