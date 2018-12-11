@@ -34,8 +34,6 @@ module.exports = class extends Command {
 			return responder.error('general.player.sameVoiceChannel').send();
 		}
 
-		console.log(player.track);
-
 		let ms = 0;
 		const input = args.join(' ');
 		if (isFinite(input)) {

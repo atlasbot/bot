@@ -90,8 +90,6 @@ module.exports = class Util {
 			const valid = ['general', 'info', 'commands'];
 			const index = parts.findIndex(k => valid.includes(k));
 
-			console.log(parts, index);
-
 			if (index !== -1) {
 				const newParts = parts.splice(index, parts.length);
 

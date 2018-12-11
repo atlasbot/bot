@@ -2,8 +2,6 @@ const TagError = require('./../../TagError');
 const middleware = require('./middleware');
 
 module.exports = middleware(async ({ guild, msg, channel, Atlas }, [emojiName]) => {
-	console.log(emojiName);
-
 	if (!channel.permissionsOf(guild.me.id).has('addReactions')) {
 		throw new TagError('Missing permissions');
 	}
