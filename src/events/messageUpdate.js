@@ -8,7 +8,7 @@ module.exports = class Event {
 			msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
 		}
 
-		if (msg.type === 0 && msg.guild && !msg.author.bot) {
+		if (msg.type === 0 && msg.guild && !msg.author.bot && oldMsg.content !== msg.content) {
 			const settings = await this.Atlas.DB.getSettings(msg.guild.id);
 
 			for (const filter of this.Atlas.filters.values()) {
