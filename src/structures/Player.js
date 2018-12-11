@@ -152,7 +152,9 @@ module.exports = class extends Player {
 				return this.play(next, {
 					force: true,
 				});
-			} if (this.autoplay) {
+			}
+
+			if (this.autoplay) {
 				try {
 					const next = await this.Atlas.util.relatedTrack(this, this.track || this.lastTrack);
 
@@ -162,20 +164,20 @@ module.exports = class extends Player {
 							addedBy: this.responder.format('general.player.autoplay.addedBy'),
 						});
 					}
+
+					// autoplay is far from perfect
+					await this.responder.buttons(false).text('general.player.autoplay.failed').send();
 				} catch (e) {
 					console.warn(e);
 				}
 			}
 
-			if (this.autoplay) {
+			if (!this.autoplay) {
 				// autoplay can fail sometimes at finding related/suggested songs, and i feel like this is the best way to handle it
-				await this.responder.buttons(false).text('general.player.autoplay.failed').send();
-			} else {
 				await this.responder.buttons(false).text('general.player.leaving').send();
-
-
-				await this.Atlas.client.leaveVoiceChannel(this.channelId);
 			}
+
+			await this.Atlas.client.leaveVoiceChannel(this.channelId);
 		}
 		this.emit('end', message);
 	}

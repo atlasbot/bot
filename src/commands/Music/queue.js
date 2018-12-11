@@ -7,7 +7,7 @@ module.exports = class Queue extends Command {
 	}
 
 	async action(msg, args) {
-		const responder = new this.Atlas.structs.Paginator(msg);
+		const responder = new this.Atlas.structs.Paginator(msg, msg.lang, 'queue');
 
 		const voiceChannel = msg.guild.channels.get(msg.guild.me.voiceState.channelID);
 		if (!voiceChannel) {
@@ -38,37 +38,35 @@ module.exports = class Queue extends Command {
 			const formatted = this.Atlas.lib.utils.prettyMs(length);
 
 			const embed = {
+				title: 'general.music.nowPlaying.name',
+				description: ['general.music.nowPlaying.value', np.info.title, np.info.uri],
 				fields: [],
 			};
 
-			if (np && np.info) {
-				embed.fields.push({
-					name: 'general.music.nowPlaying.name',
-					value: ['general.music.nowPlaying.value', np.info.title, np.info.uri],
-				});
-			}
-
 			embed.fields.push({
-				name: 'queue.embed.totalDuration.name',
-				value: ['queue.embed.totalDuration.value', formatted],
+				name: 'totalDuration.name',
+				value: ['totalDuration.value', formatted],
 				inline: true,
 			}, {
-				name: 'queue.embed.inQueue.name',
+				name: 'inQueue.name',
 				value: [
-					`queue.embed.inQueue.value.${queue.length === 1
+					`inQueue.value.${queue.length === 1
 						? 'singular'
 						: 'plural'}`,
 					queue.length,
 				],
 				inline: true,
-			}, {
-				name: 'queue.embed.upNext.value',
-				value: page.data
-					.map(m => responder
-						.format('queue.embed.upNext.format', m.index + 1, m.info.title, m.info.uri))
-					.join('\n')
-					.substring(0, 1024),
 			});
+
+			if (page.data.length) {
+				embed.fields.push({
+					name: 'upNext.value',
+					value: page.data
+						.map(m => responder.format('upNext.format', m.index + 1, m.info.title, m.info.uri))
+						.join('\n')
+						.substring(0, 1024),
+				});
+			}
 
 			return embed;
 		}).send();

@@ -137,22 +137,20 @@
 		}
 	},
 	"queue": {
-		"embed": {
-			"totalDuration": {
-				"name": "Total Duration",
-				"value": "{0}"
-			},
-			"inQueue": {
-				"name": "In Queue",
-				"value": {
-					"plural": "{0} songs",
-					"singular": "{0} song"
-				}
-			},
-			"upNext": {
-				"value": "Up Next",
-				"format": "{0}. [{1}]({2})"
+		"totalDuration": {
+			"name": "Total Duration",
+			"value": "{0}"
+		},
+		"inQueue": {
+			"name": "In Queue",
+			"value": {
+				"plural": "{0} songs",
+				"singular": "{0} song"
 			}
+		},
+		"upNext": {
+			"value": "Up Next",
+			"format": "{0}. [{1}]({2})"
 		}
 	},
 	"qplaylist": {

@@ -338,8 +338,9 @@ class Responder {
 				delete obj[key];
 			} else {
 				let val = obj[key];
+
 				if (typeof val === 'string' && !val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
-				// replacing a regular key
+					// replacing a regular key
 					val = this.format({
 						key: val,
 						noThrow: true,

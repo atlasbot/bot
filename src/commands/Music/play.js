@@ -2,6 +2,10 @@ const superagent = require('superagent');
 const Command = require('../../structures/Command.js');
 const lib = require('./../../../lib');
 
+const Cache = require('../../../lib/structures/Cache');
+
+const cache = new Cache('bot-music');
+
 module.exports = class Play extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -34,11 +38,7 @@ module.exports = class Play extends Command {
 		const query = args.join(' ');
 		const url = lib.utils.isUri(query);
 
-		const { body } = await superagent.get(`http://${node.host}:2333/loadtracks`)
-			.query({
-				identifier: `${!url ? 'ytsearch:' : ''}${query}`,
-			})
-			.set('Authorization', node.password);
+		const body = await this.search(node, query, url);
 
 		if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED') {
 			responder.error('play.noResults', query).send();
@@ -71,11 +71,46 @@ module.exports = class Play extends Command {
 				});
 			}
 		} else {
+			const track = url ? body.tracks[0] : this.findIdealTrack(query, body.tracks);
+
 			// regular, boring old song. play it normally
-			await player.play(body.tracks.shift(), {
+			await player.play(track, {
 				addedBy: msg.author,
 			});
 		}
+	}
+
+	// australia internet makes searches slow in development, caching makes it faster
+	async search(node, query, url) {
+		const existing = await cache.get(query);
+		if (existing) {
+			return existing;
+		}
+
+		const { body } = await superagent.get(`http://${node.host}:2333/loadtracks`)
+			.query({
+				identifier: `${!url ? 'ytsearch:' : ''}${query}`,
+			})
+			.set('Authorization', node.password);
+
+		await cache.set(query, body);
+
+		return body;
+	}
+
+	// "an algorithm" 😉 that finds the best track to play
+	findIdealTrack(query, results) {
+		// prefer lyric videos because they don't have pauses for scenes in actual videos or sound effects from the video
+		const lyrics = this.Atlas.lib.utils.nbsFuzzy(results, ['info.title'], `${query} lyrics`, {
+			matchPercent: 0.65,
+		});
+
+		if (lyrics) {
+			return lyrics;
+		}
+
+		// fall back to the first result if no lyrics exist
+		return results.shift();
 	}
 };
 

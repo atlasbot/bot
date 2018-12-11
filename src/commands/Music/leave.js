@@ -4,6 +4,8 @@ const Command = require('../../structures/Command.js');
 	This whole command is setup in a way that means even if Atlas isn't technically playing anything
 	it should be able to get the bot to leave
 */
+const FIVE_MINUTES = 5 * 60 * 1000;
+
 module.exports = class Leave extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -28,7 +30,7 @@ module.exports = class Leave extends Command {
 		if (!player && !entry && !myVC) {
 			// if atlas has restarted, sometimes there will be a "ghost" in the channel because discord
 			// hasn't updated clients yet, but to Atlas it isn't in the channel.
-			if (this.Atlas.client.uptime < (5 * 60 * 1000)) {
+			if (this.Atlas.client.uptime < FIVE_MINUTES) {
 				const uptime = this.Atlas.lib.utils.prettyMs(this.Atlas.client.uptime, 'milliseconds', { verbose: true });
 
 				return responder.error('leave.recentRestart', uptime).send();

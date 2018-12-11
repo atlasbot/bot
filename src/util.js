@@ -81,13 +81,21 @@ module.exports = class Util {
 			...this.Atlas.locales.get(identifier).data,
 		};
 
-		const val = locale[options.key] || locale[`commands.${options.key}`];
+		let val = locale[options.key] || locale[`commands.${options.key}`];
+		if (!val) {
+			// supports removing prefixes if they're (probably) trying to get a general/info/other command key
+			const parts = options.key.split('.');
+
+			if (['general', 'info', 'commands'].includes(parts[1])) {
+				parts.shift();
+				val = locale[parts.join('.')];
+			}
+		}
 
 		if (!val) {
 			if (!options.stringOnly) {
 				// handles getting objects from the locale, which it doesn't like because it's flattened
 				const filtered = Object.keys(locale).filter(key => key.startsWith(options.key));
-
 
 				if (filtered.length) {
 					const obj = unflatten(filtered.reduce((o, key) => {
@@ -104,6 +112,8 @@ module.exports = class Util {
 		}
 
 		if (options.stringOnly && typeof val !== 'string') {
+			console.warn(val, 'stringonly');
+
 			return;
 		}
 
@@ -500,7 +510,7 @@ module.exports = class Util {
 
 		if (!url.parse(uri).hostname.includes('youtube.com')) {
 			// because this relies on youtube, basically just searching for the same song on youtube.
-			// 70% of the time every time this works
+			// every time, 70% of the time, this works.
 			identifier = (await superagent.get('https://www.googleapis.com/youtube/v3/search')
 				.query({
 					part: 'id',
@@ -518,7 +528,7 @@ module.exports = class Util {
 			return existing;
 		}
 
-		const { body } = await superagent.get('https://www.googleapis.com/youtube/v3/search')
+		const { body: { items } } = await superagent.get('https://www.googleapis.com/youtube/v3/search')
 			.query({
 				part: 'id',
 				relatedToVideoId: identifier,
@@ -529,8 +539,8 @@ module.exports = class Util {
 			})
 			.set('User-Agent', this.Atlas.userAgent);
 
-		if (body.items.length) {
-			const { videoId } = body.items[0].id;
+		if (items.length) {
+			const { videoId } = items[0].id;
 
 			const [track] = (await superagent.get(`http://${node.host}:2333/loadtracks`)
 				.query({
