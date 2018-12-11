@@ -1,4 +1,8 @@
 {
+	"resume": {
+		"notPaused": "The player is not paused.",
+		"resumed": "The player has been resumed."
+	},
 	"repeat": {
 		"enabled": "Repeat has been enabled.",
 		"disabled": "Repeat has been disabled."

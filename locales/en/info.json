@@ -1,4 +1,7 @@
 {
+	"resume": {
+		"description": "Resumes the player if it is paused."
+	},
 	"repeat": {
 		"description": "Toggles player repeat on/off."
 	},
