@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class Next extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -8,19 +8,17 @@ module.exports = class Next extends Command {
 	async action({
 		// only guaranteed arguments
 		channel,
-		author,
-		guild,
 		member,
+		guild,
 		lang,
 	}, args, {
 		settings,
-		// when true, the command was called via a reaction/player button
-		button = false,
+		button,
 	}) {
-		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang));
+		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'repeat');
 
 		if (button) {
-			responder.mention(author.mention);
+			responder.mention(member.mention);
 		}
 
 		const voiceChannel = guild.channels.get(guild.me.voiceState.channelID);
@@ -37,25 +35,19 @@ module.exports = class Next extends Command {
 			return responder.error('general.player.sameVoiceChannel').send();
 		}
 
-		if (!player.queue.length && !player.autoplay && !player.repeat) {
-			return responder.error('next.nothingNext').send();
+		const isRepeating = player.repeat;
+
+		player.repeat = !isRepeating;
+
+		if (player.repeat) {
+			return responder.text('enabled').send();
 		}
 
-		const { title } = player.track.info;
-		await player.stop();
-
-		return responder.text('next.success', title).send();
-	}
-
-	showButton(player) {
-		return player.queue.length;
+		return responder.text('disabled').send();
 	}
 };
 
 module.exports.info = {
-	name: 'next',
+	name: 'repeat',
 	guildOnly: true,
-	aliases: [
-		'skip',
-	],
 };

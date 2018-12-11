@@ -10,6 +10,7 @@ module.exports = class extends Player {
 		this.settings = null;
 		this.msg = null;
 		this.autoplay = false;
+		this.repeat = false;
 	}
 
 	get responder() {
@@ -146,6 +147,11 @@ module.exports = class extends Player {
   */
 	async onTrackEnd(message = {}) {
 		if (message.reason !== 'REPLACED') {
+			if (this.repeat) {
+				// add it to the end of the queue
+				this.queue.push(this.lastTrack);
+			}
+
 			if (this.queue.length) {
 				const next = this.queue.shift();
 

@@ -1,4 +1,7 @@
 {
+	"repeat": {
+		"description": "Toggles player repeat on/off."
+	},
 	"remove": {
 		"description": "Removes a song from the queue.",
 		"usage": "[queue position]"

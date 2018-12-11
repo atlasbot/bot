@@ -1,4 +1,8 @@
 {
+	"repeat": {
+		"enabled": "Repeat has been enabled.",
+		"disabled": "Repeat has been disabled."
+	},
 	"remove": {
 		"invalidCurrIndex": "Please provide a valid queue position.",
 		"noTrack": "There is no track in the queue at position `{0}`.",
