@@ -17,6 +17,10 @@
 		"delete": {
 			"description": "Delete one of your existing playlists.",
 			"usage": "[playlist name/id]"
+		},
+		"play": {
+			"description": "Plays a playlist.",
+			"usage": "[playlist name/id]"
 		}
 	},
 	"volume": {

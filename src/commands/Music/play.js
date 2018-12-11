@@ -13,6 +13,8 @@ module.exports = class Play extends Command {
 
 	async action(msg, args, {
 		settings,
+		body,
+		pseudoBody = !!body,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
@@ -38,10 +40,13 @@ module.exports = class Play extends Command {
 		const query = args.join(' ');
 		const url = lib.utils.isUri(query);
 
-		const body = await this.search(node, query, url);
+		// some commands (see playlist/play.js) provide their own fake body with it's own data
+		if (!body) {
+			body = await this.search(node, query, url);
 
-		if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED') {
-			responder.error('play.noResults', query).send();
+			if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED') {
+				responder.error('play.noResults', query).send();
+			}
 		}
 
 		const player = await this.Atlas.client.voiceConnections.getPlayer(userVoiceChannel, true);
@@ -55,7 +60,7 @@ module.exports = class Play extends Command {
 			// gotta do it before so the "Now playing" message is sent after the playlist loaded message or else it looks fucky
 			// also disabling buttons so the "now playing" message has the controls, it just looks nicer + no reason to have double-up
 			await player.responder.embed({
-				url: args[0],
+				url: pseudoBody ? undefined : args[0],
 				title: ['play.playlistEmbed.title', body.playlistInfo.name],
 				description: ['play.playlistEmbed.description', msg.author.mention, body.tracks.length],
 				timestamp: new Date(),
