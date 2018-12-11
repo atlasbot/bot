@@ -83,12 +83,21 @@ module.exports = class Util {
 
 		let val = locale[options.key] || locale[`commands.${options.key}`];
 		if (!val) {
+			console.warn(options.key);
 			// supports removing prefixes if they're (probably) trying to get a general/info/other command key
 			const parts = options.key.split('.');
 
-			if (['general', 'info', 'commands'].includes(parts[1])) {
-				parts.shift();
-				val = locale[parts.join('.')];
+			const valid = ['general', 'info', 'commands'];
+			const index = parts.findIndex(k => valid.includes(k));
+
+			console.log(parts, index);
+
+			if (index !== -1) {
+				const newParts = parts.splice(index, parts.length);
+
+				console.warn(newParts, newParts.join('.'));
+
+				val = locale[newParts.join('.')];
 			}
 		}
 

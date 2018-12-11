@@ -1,4 +1,29 @@
 {
+	"playlist": {
+		"create": {
+			"noArgs": "Please include a name for your new playlist.",
+			"nothingPlaying": "Please add something to your queue before creating a playlist.",
+			"success": "Playlist created! You can do `{0}playlist play {1}` to play your playlist.",
+			"tooLong": "Your playlist name must be under 24 characters long.",
+			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+		},
+		"list": {
+			"noPlaylists": "You do not have any playlists.",
+			"more": "+ `{0}` more",
+			"description": "{0} total tracks",
+			"duration": "Duration",
+			"created": "Created",
+			"updated": "Updated",
+			"tracks": "Tracks",
+			"footer": "{0} • Playlist {1}/{2}"
+		},
+		"delete": {
+			"noArgs": "Please include a playlist name or ID!",
+			"noPlaylists": "You do not have any playlists.",
+			"noneFound": "I could not find a playlist matching `{0}`.",
+			"success": "The `{0}` playlist has been deleted successfully."
+		}
+	},
 	"volume": {
 		"noArgs": "Please include a volume number between 1% and 150%.",
 		"tooLow": "The volume cannot go below 1%.",
@@ -230,7 +255,7 @@
 			"noWarns": "{0} does not have any warnings.",
 			"error": "An error occured when adding reactions.",
 			"removedAll": "{0}, you have removed all of {1}'s warnings.",
-			"missingPerms": "I need permissions to add reactions to do that. ",
+			"missingPerms": "I need permissions to add reactions to do that.",
 			"success": "{0}, removed warning `{1}` from {2}.",
 			"successNoMention": "Removed warning `{0}` from {1}."
 		}

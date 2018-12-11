@@ -1,4 +1,20 @@
 {
+	"playlist": {
+		"base": {
+			"description": "Create, manage, delete music playlists."
+		},
+		"create": {
+			"description": "Creates a playlist from the current queue.",
+			"usage": "[name]"
+		},
+		"list": {
+			"description": "Lists all your existing playlists."
+		},
+		"delete": {
+			"description": "Delete one of your existing playlists.",
+			"usage": "[playlist name/id]"
+		}
+	},
 	"volume": {
 		"description": "Sets the player's volume.",
 		"usage": "[volume %]"
