@@ -1,4 +1,19 @@
 {
+	"pause": {
+		"alreadyPaused": {
+			"button": "The player is already paused.",
+			"label": "The player is already paused. Did you mean `{0}resume`?"
+		},
+		"paused": "The player has been paused."
+	},
+	"join": {
+		"alreadyPlaying": "I'm already playing in `{0}`.",
+		"joined": "Joined `{0}`.",
+		"switch": {
+			"notPaused": "Switched to `{0}`.",
+			"paused": "Switched to `{0}`. The player is paused, you'll have to resume it to resume playback."
+		}
+	},
 	"nodes": {
 		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
 		"node": "Node",

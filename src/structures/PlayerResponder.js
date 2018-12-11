@@ -114,6 +114,7 @@ module.exports = class PlayerResponder extends Responder {
 									channel: this.player.msg.channel,
 									author: this.Atlas.client.users.get(userID) || this.player.msg.author,
 									guild: this.settings.guild,
+									member: this.settings.guild.members.get(userID) || this.player.msg.member,
 								}, args, {
 									settings: this.settings,
 									button: true,

@@ -24,6 +24,8 @@
 		}
 	},
 	"player": {
+		"sameVoiceChannel": "You must be in my voice channel to do that.",
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"none": "There is nothing playing in this server.",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
@@ -241,6 +243,7 @@
 	"notPunishable": "You are lacking the permission required to punish that user.",
 	"lolno": "I cannot punish that user as their permission level is above my own.",
 	"music": {
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
 			"name": "Position",
 			"value": "{0}"

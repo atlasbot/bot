@@ -1,4 +1,10 @@
 {
+	"pause": {
+		"description": "Pauses the player."
+	},
+	"join": {
+		"description": "Make Atlas join your voice channel."
+	},
 	"togglecommand": {
 		"description": "Toggle a command on/off.",
 		"usage": "[command]"

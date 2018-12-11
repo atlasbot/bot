@@ -8,19 +8,18 @@ module.exports = class extends Command {
 	async action({
 		// only guaranteed arguments
 		channel,
-		author,
-		guild,
 		member,
+		guild,
+		prefix,
 		lang,
 	}, args, {
 		settings,
-		// when true, the command was called via a reaction/player button
-		button = false,
+		button,
 	}) {
-		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang));
+		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'pause');
 
 		if (button) {
-			responder.mention(author.mention);
+			responder.mention(member.mention);
 		}
 
 		const voiceChannel = guild.channels.get(guild.me.voiceState.channelID);
@@ -37,20 +36,21 @@ module.exports = class extends Command {
 			return responder.error('general.player.sameVoiceChannel').send();
 		}
 
-		player.autoplay = !player.autoplay;
+		if (player.paused) {
+			if (button || !prefix) {
+				return responder.error('alreadyPaused.button').send();
+			}
 
-		if (player.autoplay) {
-			responder.text('autoplay.enabled');
-		} else {
-			responder.text('autoplay.disabled');
+			return responder.error('alreadyPaused.label', prefix).send();
 		}
 
-		return responder.send();
+		await player.setPause(true);
+
+		return responder.text('paused').send();
 	}
 };
 
 module.exports.info = {
-	name: 'autoplay',
+	name: 'pause',
 	guildOnly: true,
-	patronOnly: true,
 };

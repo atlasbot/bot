@@ -49,8 +49,11 @@ module.exports = class Ready {
 		}
 
 		// am using eval to alter levels during testing when no commands for levels existed
-		if (msg.label !== 'eval') {
+		if (!msg.label) {
+			// don't level up the user on commands, it looks weird.
 			this.updateProfile(msg, settings).catch(console.warn);
+		} else {
+			this.Atlas.util.updateUser(msg.author);
 		}
 
 		// try and find an action, if one exists it'll run it then do nothing.

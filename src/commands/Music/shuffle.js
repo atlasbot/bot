@@ -10,6 +10,7 @@ module.exports = class extends Command {
 		channel,
 		author,
 		guild,
+		member,
 		lang,
 	}, args, {
 		settings,
@@ -30,6 +31,10 @@ module.exports = class extends Command {
 		const player = await this.Atlas.client.voiceConnections.getPlayer(voiceChannel, false);
 		if (!player || !player.isPlaying || !player.track) {
 			return responder.error('general.player.none').send();
+		}
+
+		if (voiceChannel.id !== member.voiceState.channelID) {
+			return responder.error('general.player.sameVoiceChannel').send();
 		}
 
 		if (!player.queue.length) {
