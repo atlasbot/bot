@@ -6,25 +6,16 @@ module.exports = async (x, [string]) => {
 		throw new TagError('"string" is required.');
 	}
 
-	return capitalize(string);
+	return capitalize(string.trim());
 };
 
 module.exports.info = {
 	name: 'utils.capitalize',
 	args: '<string>',
-	description: 'Returns true if the input is a valid Discord snowflake, or false for any other circumstance. This does not mean the snowflake is definitely used by something, just that it could be in use or used in the future.',
+	description: 'Capitalizes the first letter of a string.',
 	examples: [{
-		input: '{utils.isSnowflake;111372124383428608}',
-		output: 'true',
-	}, {
-		input: '{utils.isSnowflake;awd}',
-		output: 'false',
-	}, {
-		input: '{utils.isSnowflake;}',
-		output: 'false',
-	}, {
-		input: '{utils.isSnowflake;{user.id}}',
-		output: 'true',
+		input: '{utils.capitalize;hehe epic}',
+		output: 'Hehe epic',
 	}],
 	dependencies: [],
 };
