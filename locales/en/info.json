@@ -1,4 +1,8 @@
 {
+	"seek": {
+		"description": "Move the player's position.",
+		"usage": "[position]"
+	},
 	"resume": {
 		"description": "Resumes the player if it is paused."
 	},

@@ -1,4 +1,11 @@
 {
+	"seek": {
+		"noArgs": "Please include a position to seek to.",
+		"notSeekable": "This track is not seekable.",
+		"noTimestamp": "Please include a valid timestamp.",
+		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
+		"seeked": "Skipped to {0} in."
+	},
 	"resume": {
 		"notPaused": "The player is not paused.",
 		"resumed": "The player has been resumed."
