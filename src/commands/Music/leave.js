@@ -12,7 +12,7 @@ module.exports = class Leave extends Command {
 	}
 
 	async action(msg) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'leave');
 
 		// the voice channel the user is in
 		const userVC = msg.channel.guild.channels.get(msg.member.voiceState.channelID);
@@ -21,7 +21,7 @@ module.exports = class Leave extends Command {
 
 		// if they aren't in the same VC as atlas and the VC isn't empty, then say no.
 		if (myVC && !myVC.voiceMembers.find(m => m.id === msg.author.id) && myVC.voiceMembers.some(m => !m.bot)) {
-			return responder.error('leave.sameChannel').send();
+			return responder.error('sameChannel').send();
 		}
 
 		const player = await this.Atlas.client.voiceConnections.getPlayer(userVC, false);
@@ -33,18 +33,14 @@ module.exports = class Leave extends Command {
 			if (this.Atlas.client.uptime < FIVE_MINUTES) {
 				const uptime = this.Atlas.lib.utils.prettyMs(this.Atlas.client.uptime, 'milliseconds', { verbose: true });
 
-				return responder.error('leave.recentRestart', uptime).send();
+				return responder.error('recentRestart', uptime).send();
 			}
 
-			return responder.error('leave.nothingPlaying').send();
+			return responder.error('nothingPlaying').send();
 		}
 
 		if (myVC) {
-			myVC.leave();
-		}
-
-		if (myVC) {
-			myVC.leave();
+			await myVC.leave();
 		}
 
 		if (player) {
@@ -57,10 +53,10 @@ module.exports = class Leave extends Command {
 
 		// channel is not guaranteed, sometimes there are ghost players that aren't really playing
 		if (myVC && myVC.name) {
-			return responder.text('leave.leftChannel', myVC.name).send();
+			return responder.text('leftChannel', myVC.name).send();
 		}
 
-		return responder.text('leave.leftNoChannel').send();
+		return responder.text('leftNoChannel').send();
 	}
 };
 

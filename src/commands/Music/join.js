@@ -6,7 +6,6 @@ module.exports = class extends Command {
 	}
 
 	async action({
-		// only guaranteed arguments
 		channel,
 		member,
 		guild,

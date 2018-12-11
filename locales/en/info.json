@@ -1,4 +1,8 @@
 {
+	"shift": {
+		"description": "Shift a song's position in the queue.",
+		"usage": "[current position] [new position]"
+	},
 	"pause": {
 		"description": "Pauses the player."
 	},

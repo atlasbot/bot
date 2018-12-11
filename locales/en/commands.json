@@ -1,4 +1,10 @@
 {
+	"shift": {
+		"invalidCurrIndex": "Please provide a valid queue position.",
+		"invalidNewIndex": "Please provide a valid queue position to move the track to.",
+		"noTrack": "There is no track in the queue at position `{0}`.",
+		"moved": "`{0}` has been moved from queue position `{1}` to position `{2}`."
+	},
 	"pause": {
 		"alreadyPaused": {
 			"button": "The player is already paused.",
