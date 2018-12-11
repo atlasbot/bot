@@ -1,6 +1,13 @@
 const middleware = require('./middleware');
+const TagError = require('../../TagError');
 
-module.exports = middleware(({ channel }) => channel.nsfw);
+module.exports = middleware(({ channel }) => {
+	if (channel.type !== 0) {
+		throw new TagError('This tag only works for text channels.');
+	}
+
+	return channel.nsfw;
+});
 
 module.exports.info = {
 	name: 'channel.nsfw',

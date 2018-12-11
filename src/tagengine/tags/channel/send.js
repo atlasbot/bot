@@ -1,7 +1,12 @@
 const middleware = require('./middleware');
+const TagError = require('../../TagError');
 const Responder = require('../../../structures/Responder');
 
 module.exports = middleware(async ({ channel }, [content]) => {
+	if (channel.type !== 0) {
+		throw new TagError('This tag only works for text channels.');
+	}
+
 	const responder = new Responder(channel, 'en');
 
 	await responder.channel(channel).localised(true).text(content).send();

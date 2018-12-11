@@ -3,6 +3,10 @@ const TagError = require('../../TagError');
 const Collector = require('../../../structures/MessageCollector');
 
 module.exports = middleware(async ({ channel }, [author, timeout = '30']) => {
+	if (channel.type !== 0) {
+		throw new TagError('This tag only works for text channels.');
+	}
+
 	if (!isFinite(timeout)) {
 		throw new TagError('Timeout must be a number.');
 	}
