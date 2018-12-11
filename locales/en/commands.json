@@ -1,4 +1,13 @@
 {
+	"volume": {
+		"noArgs": "Please include a volume number between 1% and 150%.",
+		"tooLow": "The volume cannot go below 1%.",
+		"tooHigh": "The volume cannot go over 150%.",
+		"success": "The volume is now at `{0}%`."
+	},
+	"stop": {
+		"stopped": "The player has been stopped."
+	},
 	"seek": {
 		"noArgs": "Please include a position to seek to.",
 		"notSeekable": "This track is not seekable.",

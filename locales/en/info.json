@@ -1,4 +1,11 @@
 {
+	"volume": {
+		"description": "Sets the player's volume.",
+		"usage": "[volume %]"
+	},
+	"stop": {
+		"description": "Stops the player and clears the queue, but doesn't leave the channel."
+	},
 	"seek": {
 		"description": "Move the player's position.",
 		"usage": "[position]"

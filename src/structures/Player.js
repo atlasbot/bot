@@ -147,6 +147,11 @@ module.exports = class extends Player {
   */
 	async onTrackEnd(message = {}) {
 		if (message.reason !== 'REPLACED') {
+			if (this.stopped) {
+				// don't fuck with anything if the "stop" command was used.
+				return;
+			}
+
 			if (this.repeat) {
 				// add it to the end of the queue
 				this.queue.push(this.lastTrack);
