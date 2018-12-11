@@ -1,4 +1,9 @@
 {
+	"resetlevel": {
+		"noArgs": "Please include a user to reset the level of.",
+		"noUser": "I could not find a user matching `{0}`.",
+		"success": "{0} has had their level reset to zero."
+	},
 	"playlist": {
 		"create": {
 			"noArgs": "Please include a name for your new playlist.",

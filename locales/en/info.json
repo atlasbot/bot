@@ -1,4 +1,8 @@
 {
+	"resetlevel": {
+		"description": "Reset a users level.",
+		"usage": "[user]"
+	},
 	"playlist": {
 		"base": {
 			"description": "Create, manage, delete music playlists."

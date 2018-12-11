@@ -45,6 +45,18 @@
 		"nekobot": "Via nekobot.xyz"
 	},
 	"logs": {
+		"levelReset": {
+			"title": "Level Reset",
+			"description": "{0} has had their level reset from `{1}` to `0`.",
+			"moderator": {
+				"name": "Administrator",
+				"value": "{0}"
+			},
+			"target": {
+				"name": "Target",
+				"value": "{0}"
+			}
+		},
 		"guildMemberKick": {
 			"title": "Member Kicked",
 			"description": "{0} has been kicked from the server.",
