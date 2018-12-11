@@ -3,7 +3,7 @@ const TagError = require('./../../TagError');
 module.exports = (func, argIndex = 0) => async ({
 	guild,
 	Atlas,
-	...randomData
+	...context
 }, args, ...randomShit) => {
 	// try and resolve the user cus why not
 	const role = await Atlas.util.findRoleOrChannel(guild, args[argIndex], {
@@ -20,6 +20,6 @@ module.exports = (func, argIndex = 0) => async ({
 	return func({
 		guild,
 		Atlas,
-		...randomData,
+		...context,
 	}, args, ...randomShit);
 };

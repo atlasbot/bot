@@ -4,7 +4,7 @@ module.exports = (func, argIndex = 0) => async ({
 	guild,
 	channel,
 	Atlas,
-	...randomData
+	...context
 }, args, ...randomShit) => {
 	if (args[argIndex]) {
 		channel = await Atlas.util.findRoleOrChannel(guild, args[argIndex], {
@@ -21,6 +21,6 @@ module.exports = (func, argIndex = 0) => async ({
 		guild,
 		channel,
 		Atlas,
-		...randomData,
+		...context,
 	}, args, ...randomShit);
 };

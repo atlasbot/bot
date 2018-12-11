@@ -5,7 +5,7 @@ module.exports = (func, argIndex = 0) => async ({
 	channel,
 	msg,
 	Atlas,
-	...randomData
+	...context
 }, args, ...randomShit) => {
 	if (args[argIndex] && isSnowflake(args[argIndex])) {
 		msg = await Atlas.client.getMessage(args[argIndex + 1] || channel.id, args[argIndex]);
@@ -19,6 +19,6 @@ module.exports = (func, argIndex = 0) => async ({
 		channel,
 		msg,
 		Atlas,
-		...randomData,
+		...context,
 	}, args, ...randomShit);
 };
