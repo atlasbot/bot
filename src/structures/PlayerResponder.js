@@ -3,10 +3,13 @@ const EmojiCollector = require('./EmojiCollector');
 
 const sent = new Map();
 
-// '⏸',
-// '▶',
-// '🔁',
 const commandMap = [{
+	emoji: '⏸',
+	name: 'pause',
+}, {
+	emoji: '▶',
+	name: 'resume',
+}, {
 	emoji: '⏭',
 	name: 'skip',
 }, {

@@ -71,7 +71,7 @@ module.exports = class Play extends Command {
 
 				await player.play(track, {
 					play: (selectedTrack > -1 && !player.isPlaying) ? selectedTrack === i : true,
-					notify: i === 0,
+					notify: !player.track && i === 0,
 					addedBy: msg.author,
 				});
 			}
