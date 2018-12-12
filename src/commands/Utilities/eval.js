@@ -16,22 +16,26 @@ module.exports = class Eval extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, {
-		parsedArgs,
-	}) {
+	async action(msg, args, context) {
 		const responder = (new this.Atlas.structs.Responder(msg)).localised().noDupe(false);
 
 		if (msg.author.id !== process.env.OWNER) {
-			return responder.error('no u').send();
+			const evaluate = this.Atlas.commands.get('evaluate');
+
+			// if they aren't a developer then they probably wanted "evaluate"
+			// if they didn't want it then it's what they're getting anyway.
+			// also gonna be funny when people thing they've gotten eval perms
+			return evaluate.execute(msg, args, context);
+		}
+
+		if (process.env.NODE_ENV === 'production') {
+			return responder.error('"eval" is disabled in production.').send();
 		}
 
 		try {
 			const result = this.clean(util
 				.inspect(await eval(args.join(' ')), false) // eslint-disable-line no-eval
 				.substr(0, 1950));
-			if (parsedArgs.silent) {
-				return responder.text('Success, hiding output due to `--silent` flag.').send();
-			}
 
 			return responder.text(`\`\`\`js\n${result}\n\`\`\``).send();
 		} catch (e) {
@@ -56,6 +60,7 @@ module.exports = class Eval extends Command {
 
 module.exports.info = {
 	name: 'eval',
+	allowAllFlags: true,
 	localised: true,
 	hidden: true,
 };
