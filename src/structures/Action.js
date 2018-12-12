@@ -11,12 +11,17 @@ module.exports = class Action {
 			content: action.trigger.content,
 		};
 
+		this.restrictions = {
+			roles: action.restrictions.roles,
+			channels: action.restrictions.channels,
+			mode: action.restrictions.mode,
+		};
+
 		if (action.content) {
-			this.content = action.content.filter(sa => !sa.channel).map(sa => ({
-				type: sa.type,
-				message: sa.message,
-				channel: sa.channel,
-				fallback: sa.fallback,
+			this.content = action.content.map(sa => ({
+				...sa,
+				type: this.trigger.type === 'interval' ? 'channel' : sa.type,
+				channel: this.guild.channels.get(sa.channel),
 			}));
 
 			this.flags = {
@@ -30,6 +35,10 @@ module.exports = class Action {
 		}
 	}
 
+	get quiet() {
+		return this.flags.quiet || this.flags.silent;
+	}
+
 	get emoji() {
 		return this.Atlas.lib.utils.getActionEmoji(this, this.guild);
 	}
@@ -39,43 +48,54 @@ module.exports = class Action {
 	 * @param {Message} msg The message to run on.
 	 */
 	async execute(msg) {
-		const responder = new this.Atlas.structs.Responder(msg, 'general.action');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.action');
 
 		if (this.flags.enabled === false) {
 			// keywords can be triggered a lot, and spamming that it's disabled would get annoying.
-			if (this.flags.quiet || this.trigger.type === 'keyword') {
+			if (this.quiet || this.trigger.type === 'keyword') {
 				return;
 			}
 
 			return responder.error('disabled').send();
 		}
 
-		// if (this.banned.channels.includes(msg.channel.id)) {
-		// 	return responder.error('banned.channel').send();
-		// }
+		if (this.trigger.type !== 'interval') {
+			const { roles, channels } = this.restrictions;
 
-		// if (msg.member.roles && msg.member.roles.some(r => this.banned.roles.includes(r))) {
-		// 	if (this.flags.quiet) {
-		// 		return;
-		// 	}
+			if (this.restrictions.mode === 'whitelist') {
+				if (channels.length && !channels.includes(msg.channel.id)) {
+					if (this.quiet) {
+						return;
+					}
 
-		// 	return responder.error('banned.role').send();
-		// }
+					return responder.error('whitelist.channel').send();
+				}
 
-		// only enable whitelisting when > 1 role count
-		// if (this.allowed.roles.length && !msg.member.roles.some(r => !this.allowed.roles.includes(r))) {
-		// 	if (this.flags.quiet) {
-		// 		return;
-		// 	}
+				if (roles.length && !msg.member.roles.some(id => roles.includes(id))) {
+					if (this.quiet) {
+						return;
+					}
 
-		// 	return responder.error('whitelist.role').send();
-		// }
+					return responder.error('whitelist.role').send();
+				}
+			} else {
+				if (channels.includes(msg.channel.id)) {
+					if (this.quiet) {
+						return;
+					}
 
-		// if (this.allowed.channels.length && !this.allowed.channels.includes(msg.channel.id)) {
-		// 	return responder.error('whitelist.channel').send();
-		// }
+					return responder.error('banned.channel').send();
+				}
 
-		// checks pass
+				if (msg.member.roles.some(id => roles.includes(id))) {
+					if (this.quiet) {
+						return;
+					}
+
+					return responder.error('banned.role').send();
+				}
+			}
+		}
 
 		// the dashboard prevents users from removing the last subaction but the api doesn't (which is intentional for future use)
 		// this is more of a "oh shit they did something they can't do at the time of writing this" message
@@ -113,32 +133,34 @@ module.exports = class Action {
 			return;
 		}
 
-		if (!this.flags.silent) {
-			if (type === 'dm') {
-				try {
-					const dmChannel = await msg.author.getDMChannel();
+		if (this.flags.silent) {
+			return;
+		}
 
-					const out = await responder.channel(dmChannel).text(output).send();
+		if (type === 'dm') {
+			try {
+				const dmChannel = await msg.author.getDMChannel();
 
-					return out;
-				} catch (e) {
-					if (fallback) {
-						// try fallback to invocation channel
+				const out = await responder.channel(dmChannel).text(output).send();
 
-						return responder.channel(msg.channel).text(output).send();
-					}
-				}
-			}
+				return out;
+			} catch (e) {
+				if (fallback) {
+					// try fallback to invocation channel
 
-			if (type === 'channel') {
-				const target = channel ? this.guild.channels.get(channel) : msg.channel;
-
-				if (!target) {
-					return;
+					return responder.channel(msg.channel).text(output).send();
 				}
 
-				return responder.channel(target).text(output).send();
+				return;
 			}
 		}
+
+		const target = channel || msg.channel;
+
+		if (!target) {
+			return;
+		}
+
+		return responder.channel(target).text(output).send();
 	}
 };

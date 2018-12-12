@@ -418,10 +418,13 @@ module.exports = class GuildSettings {
 	}
 
 	async getAction(id) {
-		const action = await mongoose.model('Action').findOne({
-			_id: id,
-			guild: this.id,
-		});
+		const action = await mongoose.model('Action')
+			.findOne({
+				_id: id,
+				guild: this.id,
+			})
+			.lean()
+			.exec();
 
 		if (action) {
 			return new Action(this, action);
@@ -456,11 +459,15 @@ module.exports = class GuildSettings {
 	}
 
 	async getActions(ids) {
-		return (await mongoose.model('Action').find({
-			_id: {
-				$in: ids,
-			},
-			guild: this.id,
-		})).map(a => new Action(this, a));
+		return (await mongoose.model('Action')
+			.find({
+				_id: {
+					$in: ids,
+				},
+				guild: this.id,
+			})
+			.lean()
+			.exec())
+			.map(a => new Action(this, a));
 	}
 };

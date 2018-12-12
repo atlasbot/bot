@@ -8,7 +8,11 @@ module.exports = class Lexer {
 
 
 		let content = script.split(/(\{|\}|;)/);
-		content = content.map((t, i) => (t == '' && (content[i + 1] == '{' || content[i - 1] == '}') ? undefined : t)).filter(c => c !== undefined);
+
+		content = content
+			.map((t, i) => (t == '' && (content[i + 1] == '{' || content[i - 1] == '}') ? undefined : t))
+			.filter(c => c !== undefined);
+
 		for (const token of content) {
 			switch (token) {
 				case '{':

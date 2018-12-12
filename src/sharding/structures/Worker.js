@@ -54,6 +54,10 @@ module.exports = class Cluster {
 			maxShards: this.maxShards,
 		});
 
+		this.client.on('hello', (trace, id) => {
+			console.log(`gateway(s) ${trace.join(' ')}, id ${id}`);
+		});
+
 		this.client.on('ready', async () => {
 			const end = new Date();
 

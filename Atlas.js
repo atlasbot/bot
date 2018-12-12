@@ -13,6 +13,7 @@ const constants = require('./src/constants');
 const PlayerManager = require('./src/structures/PlayerManager');
 const SettingsStruct = require('./src/structures/Settings');
 const Player = require('./src/structures/Player');
+const ActionsInterval = require('./src/actionsInterval');
 
 const { version } = require('./package.json');
 
@@ -108,6 +109,7 @@ module.exports = class Atlas {
 
 		this.lib = lib;
 		this.env = process.env.NODE_ENV || 'development';
+		this.actionsInterval = new ActionsInterval(this);
 	}
 
 	// im lazy
@@ -186,6 +188,8 @@ module.exports = class Atlas {
 			player: Player,
 		});
 
+		// start the interval interval loop
+		this.actionsInterval.start();
 		// get agenda to connect
 		this.agenda.connect();
 		// load commands
