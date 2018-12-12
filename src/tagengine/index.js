@@ -62,6 +62,14 @@ module.exports = class {
 	}
 
 	async parse(source) {
+		if (!source) {
+			console.warn('No source, returning nothing.');
+
+			return '';
+		} if (!source.includes('{')) {
+			// no point in trying to parse it if it doesn't include tags
+			return source;
+		}
 		const ast = Lexer.lex(source);
 		const parsed = await Parser.parse(ast);
 

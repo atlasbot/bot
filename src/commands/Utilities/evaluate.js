@@ -1,6 +1,8 @@
 const Command = require('../../structures/Command.js');
 const Parser = require('./../../tagengine');
 
+const MENTION_REGEX = /<@[0-9]{15,25}>/;
+
 module.exports = class TagEval extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -35,6 +37,13 @@ module.exports = class TagEval extends Command {
 				description: ret.errors.map((e, i) => `${i + 1}. ${e.message}`).join('\n').substring(0, 2048),
 			}).send();
 		}
+
+		if (MENTION_REGEX.test(output)) {
+			// codeblocks don't show mentions and mentions not working or showing up as <@091823> could confuse people so ¯\_(ツ)_/¯
+			return responder.text(output).localised().send();
+		}
+
+		// but i still like codeblocks
 
 		return responder.text(`\`\`\`${output}\`\`\``).localised().send();
 	}
