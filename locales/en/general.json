@@ -381,7 +381,7 @@
 	},
 	"action": {
 		"disabled": "That action is disabled.",
-		"noSubActions": "That action has no sub-actions to run.",
+		"noSubActions": "That action has no valid sub-actions to run.",
 		"banned": {
 			"channel": "This channel is not allowed to use that action.",
 			"role": "You have a role which has been blocked from using this action."

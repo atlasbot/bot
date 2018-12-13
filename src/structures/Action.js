@@ -4,7 +4,7 @@ module.exports = class Action {
 	constructor(settings, action) {
 		this.Atlas = require('./../../Atlas');
 		this.guild = settings.guild;
-		this.settings = settings;
+		this.settings = this.Atlas.client.guilds.get(settings.id);
 
 		this.trigger = {
 			type: action.trigger.type,
@@ -18,11 +18,13 @@ module.exports = class Action {
 		};
 
 		if (action.content) {
-			this.content = action.content.map(sa => ({
-				...sa,
-				type: this.trigger.type === 'interval' ? 'channel' : sa.type,
-				channel: this.guild.channels.get(sa.channel),
-			}));
+			this.content = action.content
+				.map(sa => ({
+					...sa,
+					type: this.trigger.type === 'interval' ? 'channel' : sa.type,
+					channel: this.guild.channels.get(sa.channel),
+				}))
+				.filter(c => (c.type === 'channel' ? c.channel : true));
 
 			this.flags = {
 				ttl: action.flags.ttl,

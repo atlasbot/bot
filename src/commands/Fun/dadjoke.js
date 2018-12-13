@@ -9,9 +9,9 @@ module.exports = class DadJoke extends Command {
 	async action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const { body } = await superagent.get('https://icanhazdadjoke.com/');
+		const { body: { joke } } = await superagent.get('https://icanhazdadjoke.com/');
 
-		return responder.localised().text(body.joke).send();
+		return responder.localised().text(joke).send();
 	}
 };
 

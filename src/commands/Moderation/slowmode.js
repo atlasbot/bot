@@ -19,7 +19,7 @@ module.exports = class SlowMode extends Command {
 		}
 		const num = Number(args[0]);
 
-		if (this.Atlas.constants.disableTriggers.includes(args[0].toLowerCase()) || num === 0) {
+		if (this.Atlas.lib.utils.parseBool(args[0]) || num === 0) {
 			await this.Atlas.client.requestHandler.request('PATCH', Endpoints.CHANNEL(msg.channel.id), true, {
 				rate_limit_per_user: 0,
 			});

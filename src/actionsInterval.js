@@ -2,7 +2,7 @@
 const Settings = require('./structures/Settings');
 const Action = require('./structures/Action');
 
-const CHECK_INTERVAL = 30000;
+const CHECK_INTERVAL = 5000;
 
 module.exports = class {
 	constructor(Atlas) {

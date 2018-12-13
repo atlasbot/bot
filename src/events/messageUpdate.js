@@ -4,6 +4,12 @@ module.exports = class Event {
 	}
 
 	async execute(msg, oldMsg) {
+		// according to sentry this can sometimes be null
+		// /shrug
+		if (!oldMsg) {
+			return;
+		}
+
 		if (!msg.author) {
 			msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
 		}

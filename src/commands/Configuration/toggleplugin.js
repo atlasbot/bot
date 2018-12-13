@@ -20,7 +20,15 @@ module.exports = class TogglePlugin extends Command {
 		}
 
 		const query = args.join(' ');
-		const plugin = this.Atlas.lib.utils.nbsFuzzy(this.Atlas.plugins, ['name'], query);
+
+		const extra = Object.keys(settings.raw.plugins).map(name => ({
+			name,
+		}));
+
+		const plugin = this.Atlas.lib.utils.nbsFuzzy([
+			...extra,
+			...Array.from(this.Atlas.plugins.values()),
+		], ['name'], query);
 
 		if (!plugin) {
 			return responder.error('noPlugin', query).send();
