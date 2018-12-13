@@ -10,13 +10,13 @@ const interp = async (tokens, context, functions) => {
 
 			const func = functions.get(thisToken.value);
 
-			const parseArgs = async (args) => {
+			const parseArgs = async (args, ctx) => {
 				// this fucking mess parses subtags
 				const parsed = [];
 
 				for (const arg of args) {
 					if (arg.type !== 'WORD') {
-						const childOutput = await interp([arg], context, functions);
+						const childOutput = await interp([arg], ctx || context, functions);
 
 						parsed.push(childOutput.output);
 						errors.push(...childOutput.errors);
@@ -39,7 +39,10 @@ const interp = async (tokens, context, functions) => {
 					output.push(`{${thisToken.value}-MISSINGDEP}`);
 				} else {
 					try {
-						const out = await func.execute(context, args, {
+						const out = await func.execute({
+							...context,
+							parseArgs,
+						}, args, {
 							output,
 							errors,
 						});

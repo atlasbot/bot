@@ -15,13 +15,15 @@ module.exports = class {
 
 	async execute({ guild, channel, user, msg }, args) {
 		await this.command.execute({
-			author: user,
 			guild,
-			member: guild.members.get(user.id),
 			channel,
-			lang: this.settings.lang,
-			timestamp: msg.timestamp || Date.now(),
 			type: 0,
+			author: user,
+			member: guild.members.get(user.id),
+			lang: this.settings.lang,
+			prefix: this.settings.prefix,
+			displayPrefix: this.settings.prefix,
+			timestamp: msg.timestamp || Date.now(),
 		}, args, {
 			settings: this.settings,
 			parsedArgs: {},

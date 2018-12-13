@@ -6,6 +6,8 @@ module.exports = (func, argIndex = 0) => async ({
 	Atlas,
 	...context
 }, args, ...randomShit) => {
+	console.warn(argIndex, args[argIndex]);
+
 	if (args[argIndex]) {
 		channel = await Atlas.util.findRoleOrChannel(guild, args[argIndex], {
 			type: 'channel',
