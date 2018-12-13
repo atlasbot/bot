@@ -304,7 +304,7 @@ class Command {
 
 				if (options.length) {
 					f.value = f.value
-						.replace(/#([A-z-]+)/ig, (ignore, match1) => {
+						.replace(/#([A-z-]{7,})/ig, (ignore, match1) => {
 							const channel = msg.guild.channels.find(c => c.name === match1);
 
 							if (channel) {

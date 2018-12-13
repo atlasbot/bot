@@ -76,6 +76,10 @@ module.exports.info = {
 	aliases: [
 		'ae',
 	],
+	examples: [
+		'--title="My Embed" --description="A very interesting description" --color="pink"',
+		'--color="#593001" --title="Welcome to my server" --description="Some very long description about why my server is the best and that you should just delete all your other servers and use mine instead." --timestamp',
+	],
 	supportedFlags: [{
 		name: 'description',
 		placeholder: 'text',
@@ -99,7 +103,7 @@ module.exports.info = {
 	}, {
 		name: 'color',
 		placeholder: 'color',
-		desc: 'Sets the embed color. Can be a name of a color, hex (`#FFFFFF`) or RGB (`255,255,255`)',
+		desc: 'Sets the embed color. Can be a name of a color, hex #FFFFFF or RGB 255,255,255',
 	}, {
 		name: 'thumbnail',
 		placeholder: 'image url',
