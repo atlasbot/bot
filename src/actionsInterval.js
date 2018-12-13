@@ -86,8 +86,6 @@ module.exports = class {
 				console.warn(e);
 			}
 
-			console.warn(+rawAction.trigger.content + Date.now());
-
 			await this.Atlas.DB.Action.updateOne({
 				_id: rawAction._id,
 			}, {

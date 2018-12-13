@@ -63,8 +63,8 @@ module.exports = class {
 
 	async parse(source) {
 		if (!source || !source.includes('{')) {
-			if (!source) {
-				console.warn('No source, returning nothing.');
+			if (!source && process.env.VERBOSE) {
+				console.warn(new Error('No source, returning nothing'));
 			}
 
 			return {

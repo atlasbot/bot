@@ -83,7 +83,6 @@ module.exports = class Util {
 
 		let val = locale[options.key] || locale[`commands.${options.key}`];
 		if (!val) {
-			console.warn(options.key);
 			// supports removing prefixes if they're (probably) trying to get a general/info/other command key
 			const parts = options.key.split('.');
 
@@ -92,8 +91,6 @@ module.exports = class Util {
 
 			if (index !== -1) {
 				const newParts = parts.splice(index, parts.length);
-
-				console.warn(newParts, newParts.join('.'));
 
 				val = locale[newParts.join('.')];
 			}
@@ -119,8 +116,6 @@ module.exports = class Util {
 		}
 
 		if (options.stringOnly && typeof val !== 'string') {
-			console.warn(val, 'stringonly');
-
 			return;
 		}
 

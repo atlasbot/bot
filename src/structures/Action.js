@@ -5,6 +5,11 @@ module.exports = class Action {
 		this.Atlas = require('./../../Atlas');
 		this.guild = this.Atlas.client.guilds.get(settings.id);
 
+		if (action.toObject) {
+			// in other news fuck mongoose and it's weirdness (although i also kind of love it sometimes)
+			action = action.toObject();
+		}
+
 		this.settings = settings;
 
 		this.trigger = {
