@@ -25,7 +25,7 @@ module.exports = class Action {
 					type: this.trigger.type === 'interval' ? 'channel' : sa.type,
 					channel: this.guild && this.guild.channels.get(sa.channel),
 				}))
-				.filter(c => (c.type === 'channel' ? c.channel : true));
+				.filter(c => (this.trigger.type === 'interval' ? c.channel : true));
 
 			this.flags = {
 				ttl: action.flags.ttl,
