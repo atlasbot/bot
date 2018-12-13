@@ -3,8 +3,9 @@ const Parser = require('./../tagengine');
 module.exports = class Action {
 	constructor(settings, action) {
 		this.Atlas = require('./../../Atlas');
-		this.guild = settings.guild;
-		this.settings = this.Atlas.client.guilds.get(settings.id);
+		this.guild = this.Atlas.client.guilds.get(settings.id);
+
+		this.settings = settings;
 
 		this.trigger = {
 			type: action.trigger.type,
@@ -22,7 +23,7 @@ module.exports = class Action {
 				.map(sa => ({
 					...sa,
 					type: this.trigger.type === 'interval' ? 'channel' : sa.type,
-					channel: this.guild.channels.get(sa.channel),
+					channel: this.guild && this.guild.channels.get(sa.channel),
 				}))
 				.filter(c => (c.type === 'channel' ? c.channel : true));
 
@@ -50,7 +51,7 @@ module.exports = class Action {
 	 * @param {Message} msg The message to run on.
 	 */
 	async execute(msg) {
-		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.action');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang || this.settings.lang, 'general.action');
 
 		if (this.flags.enabled === false) {
 			// keywords can be triggered a lot, and spamming that it's disabled would get annoying.

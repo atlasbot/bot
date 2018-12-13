@@ -390,7 +390,7 @@ module.exports = class GuildSettings {
 
 		// run those actions
 		if (actions.length) {
-			for (const action of actions.map(a => new Action(this.raw, a))) {
+			for (const action of actions.map(a => new Action(this, a))) {
 				try {
 					// basically immitating a message with the user that added the reaction as the author
 					await action.execute({
