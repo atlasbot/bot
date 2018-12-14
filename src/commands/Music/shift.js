@@ -47,10 +47,7 @@ module.exports = class extends Command {
 
 		player.queue.splice(newIndex, 0, player.queue.splice(currIndex, 1)[0]);
 
-		const queuePos = newIndex + 1;
-		const newPos = player.queue.length > queuePos ? player.queue.length : queuePos;
-
-		return responder.text('moved', track.info.title, currIndex + 1, newPos).send();
+		return responder.text('moved', track.info.title, currIndex + 1, newIndex + 1).send();
 	}
 };
 

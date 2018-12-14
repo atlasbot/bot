@@ -1,6 +1,6 @@
 const Command = require('../../../structures/Command.js');
 
-const TRACKS_PREVIEW_SIZE = 2;
+const TRACKS_PREVIEW_SIZE = 4;
 
 module.exports = class extends Command {
 	constructor(Atlas) {

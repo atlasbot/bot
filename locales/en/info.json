@@ -21,6 +21,14 @@
 		"play": {
 			"description": "Plays a playlist.",
 			"usage": "[playlist name/id]"
+		},
+		"addqueue": {
+			"description": "Adds the current queue to an existing playlist.",
+			"usage": "[playlist name/id]"
+		},
+		"removetrack": {
+			"description": "Remove a track from your playlist.",
+			"usage": "[playlist name/id] [track]"
 		}
 	},
 	"volume": {

@@ -16,7 +16,11 @@ module.exports = class Eval extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args, context) {
+	async action(msg, args, {
+		settings,
+		parsedArgs,
+		...extra
+	}) {
 		const responder = (new this.Atlas.structs.Responder(msg)).localised().noDupe(false);
 
 		if (msg.author.id !== process.env.OWNER) {
@@ -25,7 +29,11 @@ module.exports = class Eval extends Command {
 			// if they aren't a developer then they probably wanted "evaluate"
 			// if they didn't want it then it's what they're getting anyway.
 			// also gonna be funny when people thing they've gotten eval perms
-			return evaluate.execute(msg, args, context);
+			return evaluate.execute(msg, args, {
+				settings,
+				parsedArgs,
+				...extra,
+			});
 		}
 
 		if (process.env.NODE_ENV === 'production') {

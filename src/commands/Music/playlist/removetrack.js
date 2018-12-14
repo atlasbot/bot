@@ -8,10 +8,14 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Paginator(msg.channel, (msg.lang || settings.lang), 'playlist.delete');
+		const responder = new this.Atlas.structs.Responder(msg.channel, (msg.lang || settings.lang), 'playlist.removetrack');
 
 		if (!args[0]) {
 			return responder.error('noArgs').send();
+		}
+
+		if (!args[1]) {
+			return responder.error('noQuery').send();
 		}
 
 		const playlists = await this.Atlas.DB.Playlist.find({
@@ -22,7 +26,7 @@ module.exports = class extends Command {
 			return responder.error('noPlaylists').send();
 		}
 
-		const query = args.join(' ');
+		const query = args[0];
 		const playlist = this.Atlas.lib.utils.nbsFuzzy(playlists, [
 			'_id',
 			'name',
@@ -32,18 +36,33 @@ module.exports = class extends Command {
 			return responder.error('noneFound', query).send();
 		}
 
-		await this.Atlas.DB.Playlist.deleteOne({
-			author: msg.author.id,
-			_id: playlist._id,
+		const trackQuery = args.slice(1).join(' ');
+		const track = this.Atlas.lib.utils.nbsFuzzy(playlist.tracks, ['info.title', 'info.identifier'], trackQuery, {
+			matchPercent: 0.60,
 		});
 
-		return responder.text('success', playlist.name).send();
+		if (!track) {
+			return responder.error('noTrack', trackQuery).send();
+		}
+
+		await this.Atlas.DB.Playlist.updateOne({
+			author: msg.author.id,
+			_id: playlist._id,
+		}, {
+			$pull: {
+				tracks: {
+					_id: track._id,
+				},
+			},
+		});
+
+		return responder.text('success', track.info.title, playlist.name).send();
 	}
 };
 
 module.exports.info = {
-	name: 'delete',
-	aliases: ['gtfo'],
+	name: 'removetrack',
+	aliases: ['remove', 'deltrack'],
 	guildOnly: true,
 	patronOnly: true,
 };
