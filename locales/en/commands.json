@@ -1,4 +1,5 @@
 {
+	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
 	"resetlevel": {
 		"noArgs": "Please include a user to reset the level of.",
 		"noUser": "I could not find a user matching `{0}`.",

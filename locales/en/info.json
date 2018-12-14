@@ -1,4 +1,7 @@
 {
+	"dashboard": {
+		"description": "Get a link to your servers dashboard."
+	},
 	"resetlevel": {
 		"description": "Reset a users level.",
 		"usage": "[user]"
