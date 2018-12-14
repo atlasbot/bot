@@ -9,29 +9,29 @@ You should try to provide as much detail as possible.
 Screenshots are a huge help with error messages especially!>
 If we cannot recreate it, we won't be able to figure out how to fix it. -->
 
-1. 2. 3.
+1.
+2.
+3.
 
 ### Expected behavior
-
 <!-- Tell us what you would expect to happen if the bug didn't exist. -->
 
-### Actual behavior
 
+### Actual behavior
 <!-- Tell us what is ACTUALLY happening. i.e, what is broken or not working correctly. -->
 
-### Environment
 
+### Environment
 - Server ID:
   <!-- Don't know how to get your server ID? Do `a!roleid guild`. -->
-- Error messages (if any):
-
+- Error messages (if any): <!-- Put them between the three backticks ```. -->
 ```
 
 ```
 
 ### Additional information
-
 <!-- Here would be a good place to include any other information necessary to this bug report. Screenshots should go here - GitHub supports pasting screenshots from clipboard directly, no need to upload to imgur or another site. -->
+
 
 <br />
 
