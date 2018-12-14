@@ -1,5 +1,7 @@
 const Command = require('../../structures/Command.js');
 
+const REGEX = /[0-9]{4}/;
+
 module.exports = class Discrim extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -8,13 +10,20 @@ module.exports = class Discrim extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 
-		const number = args[0] || msg.author.discriminator;
+		let discrim;
+		if (args[0]) {
+			const match = REGEX.exec(args.join(' '));
 
-		if (!/[0-9]{4}/.test(number)) {
-			return responder.error('discrim.invalid', number);
+			if (match && match[0]) {
+				[discrim] = match;
+			} else {
+				return responder.error('discrim.invalid', args.join(' '));
+			}
+		} else {
+			discrim = msg.author.discriminator;
 		}
 
-		const matching = msg.guild.members.filter(({ discriminator, id }) => discriminator === number && id !== msg.author.id);
+		const matching = msg.guild.members.filter(({ discriminator }) => discriminator === discrim);
 
 		if (!matching.length) {
 			return responder.error('discrim.none').send();
@@ -32,7 +41,7 @@ module.exports = class Discrim extends Command {
 			}
 
 			const embed = {
-				title: ['discrim.title', number],
+				title: ['discrim.title', discrim],
 				description: page.data.map(({ tag }) => `• ${tag}`).join('\n'),
 				timestamp: new Date(),
 				footer: {
