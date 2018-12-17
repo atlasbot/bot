@@ -197,9 +197,10 @@ module.exports = class GuildSettings {
 			disabled: false,
 			silent: false,
 			cooldown: command.info.cooldown.min,
-			blacklist: {
+			restrictions: {
 				channels: [],
 				roles: [],
+				mode: 'blacklist',
 			},
 		}, opts ? opts.toObject() : {});
 
