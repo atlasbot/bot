@@ -1,0 +1,394 @@
+{
+	"commands": {
+		"pluginDisabled": "The plugin \"{0}\" that `{1}` belongs to is disabled in this server."
+	},
+	"reminder": {
+		"title": "Reminder",
+		"footer": "Requested"
+	},
+	"warning": {
+		"title": "Member Warned",
+		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"total": {
+			"name": "Total Warnings",
+			"value": "{0} now has {1} total warning(s)."
+		},
+		"dm": {
+			"name": "Direct Messaged",
+			"true": "The user was direct-messaged.",
+			"false": "The user was not direct-messaged."
+		},
+		"reason": {
+			"name": "Raison",
+			"value": "No reason specified."
+		}
+	},
+	"player": {
+		"sameVoiceChannel": "You must be in my voice channel to do that.",
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"none": "Il n'y a rien de joué sur ce serveur.",
+		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"npEmbed": {
+			"ttp": "Temps avant de jouer",
+			"addedBy": "Added By",
+			"author": "Auteur",
+			"duration": "Durée",
+			"footer": "{0} dans la file d’attente"
+		},
+		"leaving": "Il n'y a plus rien à jouer, je quitte le salon vocal...",
+		"autoplay": {
+			"failed": "Je n'ai rien trouvé à jouer :c. Essayez de faire la queue pour autre chose.",
+			"addedBy": "Lecture automatique"
+		}
+	},
+	"poweredBy": {
+		"nekobot": "Avec nekoboz.xyz"
+	},
+	"logs": {
+		"levelReset": {
+			"title": "Level Reset",
+			"description": "{0} has had their level reset from `{1}` to `0`.",
+			"moderator": {
+				"name": "Administrateur",
+				"value": "{0}"
+			},
+			"target": {
+				"name": "Target",
+				"value": "{0}"
+			}
+		},
+		"guildMemberKick": {
+			"title": "Membre expulsé",
+			"description": "{0} a été expulsé du serveur.",
+			"moderator": {
+				"name": "Modérateur"
+			}
+		},
+		"guildMemberUpdate": {
+			"roleAdd": {
+				"title": "Mise à jour des membres - Rôle ajouté",
+				"description": "{0} a reçu le rôle {1}.",
+				"moderator": {
+					"name": "Modérateur",
+					"value": "{0} (`{1}`)"
+				},
+				"reason": "Raison"
+			},
+			"roleRemove": {
+				"title": "Mise à jour des membres - Rôle supprimé",
+				"description": "{0} s'est fait retirer le rôle {1}.",
+				"moderator": {
+					"name": "Modérateur",
+					"value": "{0} (`{1}`)"
+				},
+				"reason": "Raison"
+			},
+			"usernameChange": {
+				"title": "Mise à jour des membres - Changement de pseudonyme",
+				"description": "{0} a changé son nom d'utilisateur qui était `{1}`à `{2}`."
+			},
+			"avatarChange": {
+				"title": "Mise à jour des membres - Changement de pseudonyme",
+				"description": "{0} a changé son nom avatar qui était `{1}`à `{2}`."
+			}
+		},
+		"guildMemberAdd": {
+			"title": "Un membre à rejoint",
+			"description": "{0} a rejoint le serveur."
+		},
+		"guildRoleCreate": {
+			"title": "Rôle créé",
+			"description": "Le rôle {0} a été créé.",
+			"moderator": {
+				"name": "Modérateur"
+			}
+		},
+		"guildRoleDelete": {
+			"title": "Rôle supprimé",
+			"description": "Le rôle {0} a été supprimé.",
+			"moderator": {
+				"name": "Modérateur"
+			}
+		},
+		"guildRoleUpdate": {
+			"title": "Rôle mis à jour",
+			"description": "Le rôle {0} a été mis à jour.",
+			"colorChange": {
+				"name": "Couleur mis à jour"
+			},
+			"nameChange": {
+				"name": "Nom mis à jour"
+			},
+			"permAdded": {
+				"name": "Permissions ajoutées",
+				"value": "Le rôle a maintenant les permissions `{0}`."
+			},
+			"permRemoved": {
+				"name": "Révocation des permissions",
+				"value": "Le rôle n’a plus les permissions de `{0}`."
+			},
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"hoistTrue": {
+				"name": "Mise à jour de l'hôte",
+				"value": "Le rôle affiche désormais les membres séparément des membres en ligne."
+			},
+			"hoistFalse": {
+				"name": "Mise à jour de l'hôte",
+				"value": "Le rôle n'affichera plus les membres séparément des membres en ligne."
+			},
+			"mentionableTrue": {
+				"name": "@mention mis à jour",
+				"value": "Le rôle peut maintenant être mentionné."
+			},
+			"mentionableFalse": {
+				"name": "@mention mis à jour",
+				"value": "Le rôle ne peut plus être mentionné."
+			}
+		},
+		"messageDelete": {
+			"title": "Message supprimé",
+			"description": "Le message de {0} a été supprimé dans {1}.",
+			"content": {
+				"name": "Contenu"
+			},
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"reason": {
+				"name": "Raison"
+			}
+		},
+		"messageUpdate": {
+			"title": "Message modifié",
+			"description": "Le message de {0} a été modifié dans {1}.",
+			"oldContent": {
+				"name": "Avant"
+			},
+			"newContent": {
+				"name": "Après"
+			}
+		},
+		"guildMemberRemove": {
+			"title": "Le membre est parti",
+			"description": "{0} a quitté le serveur."
+		},
+		"channelCreate": {
+			"title": "Canal crée",
+			"description": "Le canal {0} (`{1}`) {2} a été créé.",
+			"category": {
+				"name": "Catégorie"
+			},
+			"moderator": {
+				"name": "Modérateur"
+			}
+		},
+		"channelDelete": {
+			"title": "Canal supprimé",
+			"description": "Le canal {0} a été supprimé.",
+			"category": {
+				"name": "Catégorie"
+			},
+			"moderator": {
+				"name": "Modérateur"
+			}
+		},
+		"guildBanAdd": {
+			"title": "Membre banni",
+			"description": "{0} a été banni.",
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"reason": {
+				"name": "Raison"
+			}
+		},
+		"guildBanRemove": {
+			"title": "Membre débanni",
+			"description": "{0} a été débanni.",
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"reason": {
+				"name": "Raison"
+			}
+		},
+		"mute": {
+			"title": "Membre mute",
+			"description": "{0} a été mute.",
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"duration": {
+				"name": "Durée"
+			},
+			"reason": {
+				"name": "Raison"
+			},
+			"footer": "Cible {0} Mod {1}"
+		},
+		"unmute": {
+			"title": "Membre démute",
+			"description": "{0} a été démute.",
+			"moderator": {
+				"name": "Modérateur"
+			},
+			"unmuteReason": {
+				"name": "Raison"
+			}
+		}
+	},
+	"messageQuery": "Veuillez réagir avec {0} `:{1}:` au message que vous voulez utiliser.",
+	"messageQueryLate": "{0}, vous avez pris trop de temps à ajouter la réaction.",
+	"botPermError": "Il me manque une ou plusieurs autorisations dont j'ai besoin pour le faire.",
+	"noResults": "Je n'ai rien trouvé qui corresponde à votre requête, `{0}`.",
+	"webhookPermError": "ERREUR : Atlas a besoin de permissions pour gérer les webhooks pour que la connexion fonctionne. Veuillez attendre jusqu'à 5 minutes après la mise à jour des permissions pour que le changement prenne effet.",
+	"noPermission": "Vous n'avez pas la permission d'accéder à cette commande.",
+	"restError": "<:sadpanda:497907940225843220> quelque chose a mal tourné lorsque l’exécution de la commande, Veuillez réessayer dans quelques minutes.",
+	"errorExecuting": "Une erreur inconnue s'est produite lors de l'exécution de la commande.",
+	"noUserFound": "Je n'ai pas trouvé cet utilisateur.",
+	"noMorePages": "{0}, il n'y a plus de pages comme ça.",
+	"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
+	"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
+	"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
+	"notPunishable": "Vous n'avez pas la permission requise pour punir cet utilisateur.",
+	"lolno": "Je ne peux pas punir cet utilisateur car son niveau de permission est supérieur au mien.",
+	"music": {
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"position": {
+			"name": "Position",
+			"value": "{0}"
+		},
+		"nowPlaying": {
+			"name": "Lecture en cours",
+			"value": "[{0}]({1})"
+		},
+		"playlist": {
+			"name": "Playlist mise file d’attente",
+			"value": "{0} chansons mises en file d'attente par {1}"
+		},
+		"description": "[{0}]({1})",
+		"duration": {
+			"name": "Durée",
+			"value": "{0}"
+		},
+		"addedBy": {
+			"name": "Added By",
+			"value": "{0}"
+		},
+		"author": {
+			"name": "Auteur",
+			"value": "{0}"
+		},
+		"addedTrack": "Ajout d'une piste",
+		"ttp": {
+			"name": "Temps avant de jouer",
+			"value": "{0}"
+		},
+		"inQueue": {
+			"name": "Dans la file d'attente",
+			"value": {
+				"plural": "{0} chansons",
+				"singular": "{0} chanson"
+			}
+		}
+	},
+	"disabledCommand": "La commande `{0}` a été désactivée par un administrateur du serveur.",
+	"blacklisted": {
+		"roles": {
+			"plural": "Vous avez les rôles {0} qui sont interdit d'utiliser `{1}{2}`.",
+			"singular": "Vous avez le rôle {0} qui est interdit d'utiliser`{1}{2}`."
+		},
+		"channel": "Ce canal est interdit d'utiliser `{1}{2}`."
+	},
+	"permissions": {
+		"list": {
+			"createInstantInvite": "Créer une invitation",
+			"kickMembers": "Expulser des membres",
+			"banMembers": "Bannir des membres",
+			"administrator": "Administrateur",
+			"manageChannels": "Gérer les salons",
+			"manageGuild": "Gérer la guilde",
+			"addReactions": "Ajouter des réactions",
+			"readMessages": "Lire les messages",
+			"sendMessages": "Envoyer des messages",
+			"SendTTSMessages": "Envoyer des messages TTS",
+			"manageMessages": "Gérer les messages",
+			"embedLinks": "Intégrer des liens",
+			"attachFiles": "Intégrer des fichiers",
+			"readMessageHistory": "Lire l'historique des messages",
+			"mentionEveryone": "Mentionner everyone",
+			"externalEmojis": "Émojis externes",
+			"voiceConnect": "Se connecter à un salon vocal",
+			"voiceSpeak": "Parler dans un salon vocal",
+			"voiceMuteMembers": "Rendre muet les membres des salons vocaux",
+			"voiceUseVAD": "Utiliser VAD",
+			"changeNickname": "Changer le nom d'utilisateur",
+			"manageNicknames": "Gérer les pseudos",
+			"manageRoles": "Gérer les rôles",
+			"manageWebhooks": "Gérer les webhooks",
+			"manageEmojis": "Gérer les émojis"
+		},
+		"permError": {
+			"user": "Vous avez besoin de la permission {0} pour cela.",
+			"bot": "J’ai besoin de la permission {0} pour faire ceci."
+		}
+	},
+	"filters": {
+		"actions": {
+			"disabled": "Désactivé",
+			"dtm": "Supprimer le message",
+			"wtu": "Avertir l'utilisateur",
+			"dtm_wtu": "Supprimer le message & avertir l'utilisateur",
+			"ca": "Action personnalisée"
+		},
+		"messages": {
+			"capitalization": {
+				"warning": "Trop de majuscules.",
+				"message": "{0}, soit cool avec les majuscules."
+			},
+			"emoji": {
+				"warning": "Abus d'émojis.",
+				"message": "{0}, veuillez ne pas utiliser autant d'émojis."
+			},
+			"cursing": {
+				"warning": "Insulte",
+				"message": "{0}, veuillez vous abstenir de jurer ici."
+			},
+			"invites": {
+				"warning": "Envoi d’une invitation.",
+				"message": "{0}, les liens d'invitations ne sont pas autorisés ici."
+			},
+			"links": {
+				"warning": "Envoi d'un lien.",
+				"message": "{0}, veuillez ne pas partager de liens ici."
+			},
+			"mentions": {
+				"warning": "Envoi excessif de mentions (`{0}`).",
+				"message": "{0}, veuillez ne pas mentionner autant de gens à la fois."
+			},
+			"phrases": {
+				"warning": "Ce message contenait un mot interdit.",
+				"message": "{0}, évitez d'utiliser ce mot.",
+				"dm": "Vous avez envoyé un message contenant `{0}` dans `{1}`. Ce mot va à l'encontre des mots interdits dans les mots du serveur, alors veuillez éviter de l'utiliser."
+			},
+			"spam": {
+				"warning": "Flood du chat.",
+				"message": "{0}, évitez de flood le chat."
+			}
+		}
+	},
+	"action": {
+		"disabled": "Cet action est désactivé.",
+		"noSubActions": "That action has no valid sub-actions to run.",
+		"banned": {
+			"channel": "Ce canal n'est pas autorisé à utiliser cette action.",
+			"role": "Vous avez un rôle qui a été bloqué pour ne pas utiliser cette action."
+		},
+		"whitelist": {
+			"role": "Seul les rôles dans la whitelist sont autorisés à utiliser cette action.",
+			"channel": "Seul les canaux dans la whitelist sont autorisés à utiliser cette action."
+		}
+	}
+}
