@@ -205,15 +205,19 @@ module.exports = class GuildSettings {
 		}, opts ? opts.toObject() : {});
 
 		if (this.guild) {
-			parsed.blacklist.channels = parsed.blacklist.channels
-				.filter(id => this.guild.channels.has(id));
-			parsed.blacklist.roles = parsed.blacklist.roles
-				.filter((id) => {
-					const role = this.guild.channels.get(id);
-					const me = this.guild.members.get(this.Atlas.client.user.id);
+			parsed.restrictions.channels = parsed.restrictions.channels
+				.map(id => this.guild.channels.get(id))
+				.filter(x => x);
 
-					return !role || role.position >= me.highestRole.position;
-				});
+			const me = this.guild.members.get(this.Atlas.client.user.id);
+			parsed.restrictions.roles = parsed.restrictions.roles
+				.map((id) => {
+					const role = this.guild.channels.get(id);
+
+					return role;
+				})
+				.filter(x => x && x.position >= me.highestRole.position);
+
 			parsed.validated = true;
 		}
 

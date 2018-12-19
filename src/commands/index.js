@@ -116,15 +116,6 @@ module.exports = class Commands {
 			}
 		});
 
-		if (master && Atlas.commands.labels.has(prop.info.name)) {
-			warnings.push(`Name ${prop.info.relative} is already registered by ${Atlas.commands.get(prop.info.name).info.relative}`);
-		}
-
-		// more or less enforce examples for most commands
-		if (prop.info.usage && prop.info.noExamples) {
-			warnings.push(`Command "${prop.info.relative}" has usage without any examples!`);
-		}
-
 		// registering the command
 		if (master) {
 			master.info.subcommands.set(prop.info.name, prop);

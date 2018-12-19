@@ -28,7 +28,7 @@ const interp = async (tokens, context, functions) => {
 				return parsed;
 			};
 
-			let args = token.value.map(a => a[0]);
+			let args = token.value.map(a => (a[0].trim ? a[0].trim() : a[0]));
 
 			if (func) {
 				if (!func.info.dontParse) {

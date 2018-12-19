@@ -57,27 +57,33 @@ class Command {
 			if (options.disabled) {
 				return responder.error('general.disabledCommand', settings.prefix, this.info.name).send();
 			}
-			if (options.blacklist.channels.includes(msg.channel.id)) {
-				return responder.error('general.blacklisted.channel', settings.prefix, this.info.name).send();
-			}
-			if (
-				options.blacklist.roles
-					.some(id => msg.member.roles && msg.member.roles.includes(id))
-			) {
-				// one of their roles is blacklisted
-				const roles = options.blacklist.roles.filter(id => msg.member.roles.includes(id));
-				const names = roles.map(id => msg.guild.roles.get(id).name);
 
-				return responder
-					.error(
-						`general.blacklisted.roles.${names.length !== 1 ? 'plural' : 'singular'}`,
-						`\`@${names.join('`, `@')}\``,
-						settings.prefix,
-						this.info.name,
-					)
-					.send();
+			if (options.restrictions.mode === 'blacklist') {
+				if (options.restrictions.channels.includes(msg.channel.id)) {
+					return responder.error('general.blacklisted.channel', settings.prefix, this.info.name).send();
+				}
+				if (
+					options.restrictions.roles
+						.some(id => msg.member.roles && msg.member.roles.includes(id))
+				) {
+				// one of their roles is blacklisted
+					const roles = options.restrictions.roles.filter(id => msg.member.roles.includes(id));
+					const names = roles.map(id => msg.guild.roles.get(id).name);
+
+					return responder
+						.error(
+							`general.restrictions.roles.${names.length !== 1 ? 'plural' : 'singular'}`,
+							`\`@${names.join('`, `@')}\``,
+							settings.prefix,
+							this.info.name,
+						)
+						.send();
+				}
 			}
+		} else {
+			// todo
 		}
+
 
 		if ((this.info.guildOnly === true || this.info.premiumOnly) && !msg.guild) {
 			return responder.error('general.guildOnly').send();
