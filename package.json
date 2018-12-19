@@ -43,6 +43,7 @@
 		"parse-color": "^1.0.0",
 		"parse-ms": "^2.0.0",
 		"raven": "^2.6.4",
+		"safe-regex": "^2.0.1",
 		"string-similarity": "^3.0.0",
 		"superagent": "^4.0.0",
 		"swearjar": "^0.2.0",
