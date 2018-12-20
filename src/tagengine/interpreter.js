@@ -28,7 +28,16 @@ const interp = async (tokens, context, functions) => {
 				return parsed;
 			};
 
-			let args = token.value.map(a => (a[0].trim ? a[0].trim() : a[0]));
+			let args = token.value.map(a => (a[0].value.trim()));
+
+			// pseudo "log" tag. not registered like normal because it's disabled in production and shouldn't be documented.
+			if (thisToken.value === 'log' && process.env.NODE_ENV === 'development') {
+				console.log(args);
+
+				output.push('logged');
+
+				continue;
+			}
 
 			if (func) {
 				if (!func.info.dontParse) {
