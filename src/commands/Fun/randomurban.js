@@ -9,7 +9,7 @@ module.exports = class RandomUrban extends Command {
 	}
 
 	async action(msg, args) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'urban');
 
 
 		const { body } = await superagent.get('http://api.urbandictionary.com/v0/random')
@@ -33,7 +33,7 @@ module.exports = class RandomUrban extends Command {
 
 
 		if (!msg.channel.nsfw && filter.execute(definition)) {
-			return responder.error('urban.nsfwDef').send();
+			return responder.error('nsfwDef').send();
 		}
 
 		return responder.embed({
@@ -41,11 +41,11 @@ module.exports = class RandomUrban extends Command {
 			description: definition.replace(/\[|\]/g, '').substring(0, 2048),
 			url: `https://www.urbandictionary.com/define.php?term=${encodeURIComponent(word)}`,
 			fields: [{
-				name: 'urban.author.name',
+				name: 'author',
 				value: `[${author}](https://www.urbandictionary.com/author.php?author=${encodeURIComponent(author)})`,
 			}],
 			footer: {
-				text: ['urban.votes', thumbs_up, thumbs_down],
+				text: ['votes', thumbs_up, thumbs_down],
 			},
 			timestamp: new Date(),
 		}).send();
