@@ -68,9 +68,9 @@ module.exports = class InviteInfo extends Command {
 module.exports.info = {
 	name: 'inviteinfo',
 	examples: [
-		'https://discordapp.com/invite/curhwsb',
-		'disord.gg/curhwsb',
-		'curhwsb',
+		'https://discordapp.com/invite/AXXBPM7',
+		'disord.gg/AXXBPM7',
+		'AXXBPM7',
 	],
 	aliases: [
 		'codeinfo',
