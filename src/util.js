@@ -81,8 +81,6 @@ module.exports = class Util {
 			...this.Atlas.locales.get(identifier).data,
 		};
 
-		console.log(options);
-
 		let val = locale[options.key] || locale[`commands.${options.key}`];
 		if (!val) {
 			// supports removing prefixes if they're (probably) trying to get a general/info/other command key

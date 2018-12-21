@@ -10,9 +10,10 @@ module.exports = class Advice extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		const res = await superagent.get('http://api.adviceslip.com/advice');
-		const body = JSON.parse(res.body);
 
-		return responder.localised().text(body.slip.advice).send();
+		const { slip: { advice } } = JSON.parse(res.text);
+
+		return responder.localised().text(advice).send();
 	}
 };
 
