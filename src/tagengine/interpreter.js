@@ -33,8 +33,6 @@ const interp = async (tokens, context, functions) => {
 				value: a[0].value.trim(),
 			}));
 
-			console.warn('awd', args);
-
 			// pseudo "log" tag. not registered like normal because it's disabled in production and shouldn't be documented.
 			if (thisToken.value === 'log' && process.env.NODE_ENV === 'development') {
 				console.log(args);
@@ -45,12 +43,9 @@ const interp = async (tokens, context, functions) => {
 			}
 
 			if (func) {
-				console.warn('awd2', args);
 				if (!func.info.dontParse) {
 					args = await parseArgs(args);
 				}
-
-				console.warn('awd3', args);
 
 				if (func.info.dependencies && func.info.dependencies.some(k => !context[k])) {
 					output.push(`{${thisToken.value}-MISSINGDEP}`);
