@@ -12,7 +12,7 @@
     <a href="https://get-atlas.xyz/support">
 			<img src="https://img.shields.io/discord/345177567541723137.svg?maxAge=300" alt="Discord">
 		</a>
-    <a href="https://get-atlas.xyz/support">
+    <a href="https://hub.docker.com/r/sylver/bot">
 			<img src="https://img.shields.io/docker/pulls/sylver/bot.svg?maxAge=300" alt="Docker">
 		</a>
 </div>
