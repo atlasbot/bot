@@ -22,8 +22,9 @@ module.exports = class Captcha extends Command {
 			user = msg.member;
 		}
 
-		if (await cache.has(user.id)) {
-			return responder.embed(await cache.get(user.id)).send();
+		const cached = await cache.get(user.id);
+		if (cached) {
+			return responder.embed(cached).send();
 		}
 
 		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
@@ -43,7 +44,7 @@ module.exports = class Captcha extends Command {
 			},
 		};
 
-		await this.cache.set(user.id, embed, 60);
+		await cache.set(user.id, embed, 60);
 
 		return responder.embed(embed).send();
 	}

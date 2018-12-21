@@ -4,7 +4,6 @@ const Command = require('../../structures/Command.js');
 module.exports = class trumpgen extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
-		this.cache = new Map();
 	}
 
 	async action(msg, args, {
@@ -17,10 +16,6 @@ module.exports = class trumpgen extends Command {
 		}
 
 		const text = cleanArgs.join(' ');
-
-		if (this.cache.has(text)) {
-			return responder.embed(text).send();
-		}
 
 		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
