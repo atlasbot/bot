@@ -3,8 +3,6 @@ const interpreter = require('./interpreter');
 const Parser = require('./Parser');
 const Lexer = require('./lexer');
 
-const CommandTag = require('./CommandTag');
-
 module.exports = class {
 	/**
      *
@@ -32,6 +30,7 @@ module.exports = class {
 			settings,
 			action,
 			user,
+			tag: true,
 			Atlas: this.Atlas,
 		};
 
@@ -51,7 +50,35 @@ module.exports = class {
 				const command = this.Atlas.commands.get(label);
 
 				if (command) {
-					return new CommandTag(command, settings);
+					return {
+						execute: async (context, args) => {
+							console.warn(args);
+
+							await command.execute({
+								...this.context,
+								type: 0,
+								author: user,
+								member: guild.members.get(user.id),
+								lang: settings.lang,
+								prefix: settings.prefix,
+								displayPrefix: settings.prefix,
+								timestamp: msg.timestamp || Date.now(),
+							}, args, {
+								settings,
+								parsedArgs: {},
+							});
+						},
+						info: {
+							name: key,
+							description: `Tag wrapper for "${command.info.name}": ${command.getInfo(settings.lang).description}`,
+							dependencies: ['guild', 'channel', 'user'],
+							examples: [{
+								input: `{${prefix}${label}}`,
+								output: '',
+								note: `The "${label}" command would run and output in a separate message.`,
+							}],
+						},
+					};
 				}
 			}
 
