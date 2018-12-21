@@ -95,7 +95,7 @@ module.exports = class {
 			}
 
 			return {
-				output: '',
+				output: source || '',
 				errors: [],
 			};
 		}
