@@ -460,9 +460,7 @@
 		"noResults": "Je n'ai pas trouvé de définition pour `{0}`.",
 		"nsfwDef": "La définition de ce mot est NSFW. Veuillez utiliser un canal NSFW.",
 		"nsfwWord": "Ce mot est NSFW. Veuillez utiliser un canal NSFW.",
-		"author": {
-			"name": "Auteur"
-		},
+		"author": "Auteur",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
