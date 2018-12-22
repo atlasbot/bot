@@ -35,4 +35,9 @@ module.exports = class Achievement extends Command {
 
 module.exports.info = {
 	name: 'achievement',
+	permissions: {
+		bot: {
+			attachFiles: true,
+		},
+	},
 };

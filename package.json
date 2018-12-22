@@ -38,6 +38,7 @@
 		"eventemitter3": "^3.1.0",
 		"expr-eval": "^1.2.2",
 		"flat": "^4.1.0",
+		"jimp": "^0.6.0",
 		"joi": "^14.3.0",
 		"mongoose": "^5.3.15",
 		"parse-color": "^1.0.0",
