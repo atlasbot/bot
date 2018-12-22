@@ -109,14 +109,6 @@ module.exports = class Launches extends Command {
 				inline: true,
 			});
 
-			if (item.static_fire_date_utc) {
-				embed.fields.push({
-					name: 'Static Fire',
-					value: this.Atlas.lib.utils.timeFormat(new Date(item.static_fire_date_utc), true),
-					inline: true,
-				});
-			}
-
 			if (item.telemetry.flight_club) {
 				embed.fields.push({
 					name: 'Telemetry',
