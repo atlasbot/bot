@@ -1,4 +1,8 @@
 {
+	"randomcase": {
+		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
+		"usage": "<TeXt>"
+	},
 	"dashboard": {
 		"description": "Get a link to your servers dashboard."
 	},
