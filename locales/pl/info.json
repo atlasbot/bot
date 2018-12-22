@@ -1,4 +1,8 @@
 {
+	"needsmorejpeg": {
+		"description": "Fucks up your image with JPEG compression. There is no such thing as too much jpeg.",
+		"usage": "<image url> <quality=2.5>"
+	},
 	"randomcase": {
 		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
 		"usage": "<TeXt>"
