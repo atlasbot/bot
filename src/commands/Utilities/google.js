@@ -29,7 +29,7 @@ module.exports = class Google extends Command {
 			user: msg.author.id,
 			total: body.items.length,
 		}, (paginator) => {
-			const item = body.items[paginator.page.current];
+			const item = body.items[paginator.page.current - 1];
 
 			if (!item) {
 				return;

@@ -6,7 +6,11 @@ module.exports = {
 	description: Joi.string().max(2048).allow([true, false, null, '']),
 	fields: Joi.array().items({
 		name: Joi.string().max(256),
-		value: Joi.string().max(1024).required(),
+		value: Joi.alternatives([
+			Joi.string().max(1024),
+			Joi.number(),
+			Joi.boolean(),
+		]).required(),
 		inline: Joi.boolean(),
 	}).max(25),
 	footer: {
@@ -16,7 +20,7 @@ module.exports = {
 		name: Joi.string().max(256),
 		icon_url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
 	},
-	url: Joi.string().uri(),
+	url: Joi.string().uri().allow(null),
 	image: {
 		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
 	},

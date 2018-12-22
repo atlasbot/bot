@@ -31,7 +31,7 @@ module.exports = class extends Command {
 
 			let trackField = playlist.tracks.slice(0, TRACKS_PREVIEW_SIZE).map((track, i) => `${i + 1}. [${track.info.title}](${track.info.uri})`).join('\n');
 			if (playlist.tracks.length > TRACKS_PREVIEW_SIZE) {
-				trackField += `\n  ${responder.format('more', playlist.tracks.length - TRACKS_PREVIEW_SIZE)}`;
+				trackField += `\n  ${responder.format('more', playlist.tracks.length = TRACKS_PREVIEW_SIZE)}`;
 			}
 
 			// we're displaying the subreddit info

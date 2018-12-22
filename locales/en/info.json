@@ -1,4 +1,21 @@
 {
+	"spacex": {
+		"base": {
+			"description": "Information about SpaceX and the cool shit they have."
+		},
+		"launches": {
+			"description": "Gets information on past, present and future SpaceX launches.",
+			"usage": "<launch name>"
+		},
+		"rockets": {
+			"description": "Gets information about SpaceX's rockets.",
+			"usage": "<rocket name>"
+		},
+		"ships": {
+			"description": "Gets information about SpaceX's ships.",
+			"usage": "<ship name>"
+		}
+	},
 	"needsmorejpeg": {
 		"description": "Fucks up your image with JPEG compression. There is no such thing as too much jpeg.",
 		"usage": "<image url> <quality=2.5>"
