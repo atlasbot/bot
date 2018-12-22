@@ -69,7 +69,10 @@ module.exports = class Ready {
 					}
 				}
 
-				return;
+				// if an "custom command" was called, don't do anything.
+				if (actions.find(a => a.trigger.type === 'label' && a.trigger.content === msg.label)) {
+					return;
+				}
 			}
 		}
 

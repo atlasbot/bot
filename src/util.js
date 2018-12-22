@@ -1,15 +1,12 @@
-const url = require('url');
 const superagent = require('superagent');
 const { unflatten } = require('flat');
 const assert = require('assert');
+const url = require('url');
 
+const lib = require('../lib');
 const Parser = require('./tagengine');
 const Fuzzy = require('../lib/structures/Fuzzy');
-const lib = require('../lib');
 const Cache = require('../lib/structures/Cache');
-
-const webhookCache = new Cache('webhooks');
-const musicCache = new Cache('music');
 
 const profileSchema = user => ({
 	id: user.id,
@@ -22,21 +19,26 @@ module.exports = class Util {
 	constructor(Atlas) {
 		this.Atlas = Atlas || require('./../Atlas');
 
+		this.webhookCache = new Cache('webhooks');
+		this.musicCache = new Cache('music');
+
 		this._avatar64 = null;
 	}
 
 	/**
 	 * Gets the bot's avatar in base64 format.
+	 * @param {string} [format=png] The format of the avatar.
 	 * @returns {Promise<string>} The base64 string with the avatar
 	 */
-	async avatar64() {
+	async avatar64(format = 'png') {
 		if (this._avatar64) {
 			return this._avatar64;
 		}
-		const { id, avatar } = this.Atlas.client.user;
-		const { body } = await superagent.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=128`);
 
-		this._avatar64 = `data:image/png;base64,${body.toString('base64')}`;
+		const { id, avatar } = this.Atlas.client.user;
+		const { body } = await superagent.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}.${format}?size=128`);
+
+		this._avatar64 = `data:image/${format};base64,${body.toString('base64')}`;
 
 		return this._avatar64;
 	}
@@ -76,50 +78,53 @@ module.exports = class Util {
 			throw new Error(`${identifier} is not a valid language.`);
 		}
 
-		const locale = {
-			...this.Atlas.locales.get(process.env.DEFAULT_LANG).data,
-			...this.Atlas.locales.get(identifier).data,
-		};
+		const keys = [options.key, `commands.${options.key}`];
 
-		let val = locale[options.key] || locale[`commands.${options.key}`];
-		if (!val) {
-			// supports removing prefixes if they're (probably) trying to get a general/info/other command key
-			const parts = options.key.split('.');
+		// supports removing prefixes if they're (probably) trying to get a general/info/other command key
+		const parts = options.key.split('.');
 
-			const valid = ['general', 'info', 'commands'];
-			const index = parts.findIndex(k => valid.includes(k));
+		const valid = ['general', 'info', 'commands'];
+		const index = parts.findIndex(k => valid.includes(k));
 
-			if (index !== -1) {
-				const newParts = parts.splice(index, parts.length);
+		if (index !== -1) {
+			const newParts = parts.splice(index, parts.length);
 
-				val = locale[newParts.join('.')];
-			}
+			keys.push(newParts.join('.'));
 		}
 
-		if (!val) {
-			if (!options.stringOnly) {
-				// handles getting objects from the locale, which it doesn't like because it's flattened
-				const filtered = Object.keys(locale).filter(key => key.startsWith(options.key));
+		const { data: def } = this.Atlas.locales.get(process.env.DEFAULT_LANG);
+		const { data: target } = this.Atlas.locales.get(identifier);
 
-				if (filtered.length) {
-					const obj = unflatten(filtered.reduce((o, key) => {
-						o[key] = locale[key];
+		let val;
+		for (const key of keys) {
+			val = target[key] || def[key];
+		}
 
-						return o;
-					}, {}));
-
-					return replace(this.getNested(obj, options.key, false), replacements);
-				}
+		if (val) {
+			if (options.stringOnly && typeof val !== 'string') {
+				return;
 			}
 
-			return;
-		}
+			return replace(val, replacements);
+		} if (!options.stringOnly) {
+			const locale = {
+				...def,
+				...target,
+			};
 
-		if (options.stringOnly && typeof val !== 'string') {
-			return;
-		}
+			// handles getting objects from the locale, which it doesn't like because it's flattened
+			const filtered = Object.keys(locale).filter(key => key.startsWith(options.key));
 
-		return replace(val, replacements);
+			if (filtered.length) {
+				const obj = unflatten(filtered.reduce((o, key) => {
+					o[key] = locale[key];
+
+					return o;
+				}, {}));
+
+				return replace(this.getNested(obj, options.key, false), replacements);
+			}
+		}
 	}
 
 	/**
@@ -398,7 +403,7 @@ module.exports = class Util {
 			return;
 		}
 
-		// some commands will fake their own audit log entries to show accurate data
+		// sometimes something will fake it's own audit log entries to show more accurate data
 		const override = this.Atlas.auditOverrides.find(e => e.guild === guild.id
 				&& e.type === type
 				&& e.targetID === id
@@ -407,23 +412,28 @@ module.exports = class Util {
 		if (override) {
 			return override;
 		}
-		// wait a few seconds to let the audit log catch up
+
+		// wait a few seconds to let the audit log catch up, idk why sometimes it takes a bit for logs to show up
 		await new Promise(resolve => setTimeout(resolve, 1000));
+
 		const x = await this.Atlas.client.getGuildAuditLogs(guild.id, 25, null, type);
 		if (x) {
 			const entry = x.entries.find(e => e.targetID === id);
-			if (entry) {
-				if (checkTimestamp) {
-					const time = this.Atlas.lib.utils.isSnowflake.getTime(entry.id);
 
-					// if the entry is older then 5 seconds it's probably not the one we're after
-					if ((Date.now() - time) > 5000) {
-						return;
-					}
-				}
-
-				return entry;
+			if (!entry) {
+				return;
 			}
+
+			if (checkTimestamp) {
+				const time = this.Atlas.lib.utils.isSnowflake.getTime(entry.id);
+
+				// if the entry is older then 5 seconds it's probably not the one we're after
+				if ((Date.now() - time) > 5000) {
+					return;
+				}
+			}
+
+			return entry;
 		}
 	}
 
@@ -467,10 +477,10 @@ module.exports = class Util {
 	async getWebhook(c, reason, clearHookCache = false) {
 		const channelID = c.id || c;
 
-		const existing = await webhookCache.get(channelID);
+		const existing = await this.webhookCache.get(channelID);
 		if (existing) {
 			if (clearHookCache) {
-				await webhookCache.del(channelID);
+				await this.webhookCache.del(channelID);
 			} else {
 				return existing;
 			}
@@ -495,7 +505,7 @@ module.exports = class Util {
 		}
 
 		// cache for 10 minutes
-		await webhookCache.set(channelID, hook, 600);
+		await this.webhookCache.set(channelID, hook, 600);
 
 		return hook;
 	}
@@ -525,7 +535,7 @@ module.exports = class Util {
 				.set('User-Agent', this.Atlas.userAgent)).body.items[0].id.videoId;
 		}
 
-		const existing = await musicCache.get(identifier);
+		const existing = await this.musicCache.get(identifier);
 		if (existing) {
 			return existing;
 		}
@@ -550,7 +560,7 @@ module.exports = class Util {
 				})
 				.set('Authorization', node.password)).body.tracks;
 
-			await musicCache.set(identifier, track);
+			await this.this.musicCache.set(identifier, track);
 
 			return track;
 		}

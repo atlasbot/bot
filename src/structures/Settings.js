@@ -347,7 +347,7 @@ module.exports = class GuildSettings {
 
 				// format embeds
 				const embeds = (Array.isArray(embed) ? embed : [embed]).map((e) => {
-					const parsed = responder._parseObject(e, this.lang);
+					const parsed = responder.localiseObject(e, this.lang);
 					// will throw if it doesn't work correctly
 					responder.validateEmbed(parsed);
 

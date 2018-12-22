@@ -3,6 +3,8 @@ const embedSchema = require('./../schemas/embed');
 
 /** A responder, sends data to channels. */
 
+/* eslint-disable no-case-declarations, no-fall-through */
+
 class Responder {
 	/**
      * Creates a new responder.
@@ -155,7 +157,6 @@ class Responder {
 	 * Returns a formatted string
 	 * @param {string|Object} obj options - if this is a string it'll assume it's the key
 	 * @param {string} obj.str The key to format
-	 * @param {boolean} obj.noThrow If the string is not found, this will determine whether an error is thrown or not
 	 * @param {string[]} replacements the strings to replace the placeholders with
 	 * @returns {string} the formatted string if successful, otherwise it will throw
 	 */
@@ -163,21 +164,20 @@ class Responder {
 		if (typeof obj === 'string') {
 			obj = {
 				key: obj,
-				language: this._lang,
-				noThrow: true,
-				stringOnly: true,
 			};
 		}
 
-		const val = this.Atlas.util.format(obj.language || this._lang, {
+		obj = {
+			language: this._lang,
+			stringOnly: true,
+			...obj,
+		};
+
+		const val = this.Atlas.util.format(obj.language, {
 			key: this.keyPrefix ? `${this.keyPrefix}.${obj.key}` : obj.key,
 			stringOnly: obj.stringOnly,
 			replacements,
 		}, ...replacements);
-
-		if (!val && !obj.noThrow) {
-			throw new Error(`No language value matching key "${obj.key}"`);
-		}
 
 		return val;
 	}
@@ -273,7 +273,7 @@ class Responder {
 		}
 
 		if (data.embed && !data.localised) {
-			data.embed = this._parseObject(data.embed, data.lang);
+			data.embed = this.localiseObject(data.embed, data.lang);
 
 			if (data.validateEmbed) {
 				// will throw if it doesn't work correctly
@@ -322,48 +322,56 @@ class Responder {
 	/**
 	 * Replaces an objects locale strings with the actual string.
 	 * @param {Object} obj the object to parse
-	 * @param {string} lang the language to use
 	 * @param {number} iterations the amount of times it's already been looped over
 	 * @returns {Object} the object with strings replaced
 	 * @private
 	 */
-	_parseObject(obj, lang = this._lang, iterations = 0) {
+	localiseObject(obj, iterations = 0) {
 		// here be dragons
 		if (!obj) {
 			return;
 		}
 
-		for (const key of Object.keys(obj)) {
-			if (['type', 'proxy_'].some(ds => key.includes(ds))) {
-				delete obj[key];
-			} else {
-				let val = obj[key];
+		for (const [key, val] of Object.entries(obj)) {
+			let output;
 
-				if (typeof val === 'string' && !val.includes(' ') && !this.Atlas.lib.utils.isUri(val)) {
-					// replacing a regular key
-					val = this.format({
-						key: val,
-						noThrow: true,
-						stringOnly: true,
-					}) || val;
-				} else if (Array.isArray(val) && typeof val[0] === 'string') {
-				// handling arrays where the first item is the key, everything else is a replacer arg (probably)
-					const [str, ...replacements] = val;
+			switch (Array.isArray(val) ? 'array' : typeof val) {
+				case 'string':
+					// handles 'key' strings (and regular ones)
 
-					if (str && typeof str === 'string') {
-						val = (this.format(str, ...replacements) || str);
+					if (val.includes(' ')) {
+						output = val;
+					} else if (!this.Atlas.lib.utils.isUri(val)) {
+						output = this.format({
+							key: val,
+						});
 					}
-				} else if (val === Object(val)) {
-				// replacing objects (e.g, thumbnail values and shit)
+
+					break;
+				case 'array':
+					if (typeof val[0] === 'string') {
+						// handles [key, ...replacements] arrays
+						const [localeKey, ...replacements] = val;
+
+						output = this.format(localeKey, ...replacements);
+					} else {
+						output = val.map(o => this.localiseObject(o));
+					}
+
+					break;
+				case 'object':
+					// handles parsing child objects
 					if (iterations >= 10) {
-						throw new Error(`Possible parser error, ${iterations} iterations over ${key}`);
+						throw new Error(`Possible error, ${iterations} iterations over ${key}`);
 					}
 
-					val = this._parseObject(val, lang, iterations++);
-				}
+					output = this.localiseObject(val, iterations++);
 
-				obj[key] = val;
+					break;
+				default:
 			}
+
+			obj[key] = output || val;
 		}
 
 		return obj;

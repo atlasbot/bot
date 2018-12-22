@@ -58,7 +58,7 @@ module.exports = class Paginator extends Responder {
 			return super.send();
 		}
 
-		this._data.embed = this._parseObject(await this.page.generator(this));
+		this._data.embed = this.localiseObject(await this.page.generator(this));
 
 		const res = await super.send();
 
@@ -132,7 +132,7 @@ module.exports = class Paginator extends Responder {
 	}
 
 	async updatePage() {
-		const em = this._parseObject(await this.page.generator(this));
+		const em = this.localiseObject(await this.page.generator(this));
 
 		if (this.collector && !this.showPages && this.collector.currEmojis.length) {
 			this.collector.purgeReactions(true).catch(console.warn);

@@ -52,8 +52,6 @@ module.exports = class {
 				if (command) {
 					return {
 						execute: async (context, args) => {
-							console.warn(args);
-
 							await command.execute({
 								...this.context,
 								type: 0,
