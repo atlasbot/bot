@@ -1,4 +1,11 @@
 {
+	"needsmorejpeg": {
+		"noArgs": "Please include an image attachment or image URL.",
+		"invalidUrl": "`{0}` is not a valid URL."
+	},
+	"randomcase": {
+		"noArgs": "Please include something to raNdomIsE."
+	},
 	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
 	"resetlevel": {
 		"noArgs": "Please include a user to reset the level of.",
