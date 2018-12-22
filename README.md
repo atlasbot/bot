@@ -12,6 +12,7 @@
     <a href="https://get-atlas.xyz/support">
 			<img src="https://img.shields.io/discord/345177567541723137.svg?maxAge=300" alt="Discord">
 		</a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fget-atlas%2Fbot?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fget-atlas%2Fbot.svg?type=shield"/></a>
     <a href="https://hub.docker.com/r/sylver/bot">
 			<img src="https://img.shields.io/docker/pulls/sylver/bot.svg?maxAge=300" alt="Docker">
 		</a>
@@ -105,3 +106,7 @@ This is a very early version of 8.0, which means many features from 7.x are miss
 - lib/utils/parseTime - from [Aetheryx/remindme](https://github.com/Aetheryx/remindme/blob/edb8d301c633379e7fa3d4141226143cc3358906/src/utils/parseTime.js), licensed under MIT.
 - lib/utils/cleanArgs - from [abalabahaha/eris](https://github.com/abalabahaha/eris/blob/e6208fa8ab49d526df5276620ac21eb351da3954/lib/structures/Message.js#L147), licensed under MIT.
 - src/tagengine - now with added flavour from [nirewen/tatsuscript](https://github.com/nirewen/tatsuscript), licensed under MIT.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fget-atlas%2Fbot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fget-atlas%2Fbot?ref=badge_large)
