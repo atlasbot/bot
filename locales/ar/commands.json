@@ -1,4 +1,8 @@
 {
+	"needsmorejpeg": {
+		"noArgs": "Please include an image attachment or image URL.",
+		"invalidUrl": "`{0}` is not a valid URL."
+	},
 	"randomcase": {
 		"noArgs": "Please include something to raNdomIsE."
 	},
