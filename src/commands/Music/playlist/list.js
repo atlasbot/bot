@@ -20,10 +20,21 @@ module.exports = class extends Command {
 			return responder.error('noPlaylists').send();
 		}
 
+		// lets the user view info about a specific playlist
+		let page = 1;
+		if (args[0]) {
+			const playlist = this.Atlas.lib.utils.nbsFuzzy(playlists, ['name', '_id'], args.join(' '));
+
+			if (playlist) {
+				page = playlists.findIndex(p => p._id === playlist._id) + 1;
+			}
+		}
+
 		return responder.paginate({
 			user: msg.author.id,
 			total: playlists.length,
 			startAndEndSkip: false,
+			page,
 		}, (paginator) => {
 			const playlist = playlists[paginator.page.current - 1];
 
@@ -68,6 +79,7 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'list',
+	aliases: ['view'],
 	guildOnly: true,
 	patronOnly: true,
 };
