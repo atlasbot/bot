@@ -1,4 +1,7 @@
 {
+	"fact": {
+		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
+	},
 	"spacex": {
 		"base": {
 			"description": "Information about SpaceX and the cool shit they have."
