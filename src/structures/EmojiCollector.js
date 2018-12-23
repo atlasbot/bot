@@ -148,10 +148,11 @@ module.exports = class EmojiCollector {
 	 * @private
 	 */
 	async fire(msg, emoji, userID) {
-		if (this._remove && userID !== this._Atlas.client.user.id) {
+		if (this._remove && userID !== this._Atlas.client.user.id && this._msg.guild) {
 			msg.removeReaction(emoji.name, userID)
 				.catch(() => false);
 		}
+
 		if (this._msg && msg.id !== this._msg.id) {
 			return;
 		}
@@ -188,7 +189,7 @@ module.exports = class EmojiCollector {
 			return emojis;
 		}
 
-		if (!this._msg.channel.permissionsOf(this._Atlas.client.user.id).has('addReactions')) {
+		if (this._msg.guild && !this._msg.channel.permissionsOf(this._Atlas.client.user.id).has('addReactions')) {
 			throw new Error('No permissions to add reactions');
 		}
 
@@ -213,6 +214,10 @@ module.exports = class EmojiCollector {
 	 * @returns {Promise}
 	 */
 	async purgeReactions(careful = false) {
+		if (!this._msg.guild) {
+			return;
+		}
+
 		if (this.currEmojis.length) {
 			if (!careful) {
 				return this._msg.removeReactions();
