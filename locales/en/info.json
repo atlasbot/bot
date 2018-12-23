@@ -1,4 +1,8 @@
 {
+	"isspass": {
+		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
+		"usage": "<location>"
+	},
 	"fact": {
 		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
 	},
