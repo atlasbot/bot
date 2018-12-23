@@ -679,5 +679,11 @@
 		"noCommand": "I could not find a command matching `{0}`.",
 		"disabled": "The {0} command has been `disabled`.",
 		"enabled": "The {0} command has been `enabled`."
+	},
+	"isspass": {
+		"noResults": "I could not find a location matching `{0}`.",
+		"title": "ISS Passes Over {0}",
+		"format": "• {0} for {1}",
+		"footer": "Times are local to {0}."
 	}
 }
