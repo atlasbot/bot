@@ -147,8 +147,7 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "I have a `{0}ms/{1}ms` delay to this server.",
 		"randoms": [
 			"I'm hungry...",
 			"Shovelling coal into the server...",
