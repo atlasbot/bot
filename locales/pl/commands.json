@@ -1,4 +1,13 @@
 {
+	"haveibeenpwned": {
+		"success": "Success! Check your direct-messages for a list of your breached accounts.",
+		"noBreaches": "Awesome! There are no known breaches for your account.",
+		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
+		"breach": "Breach",
+		"pwnedUsers": "Pwned Users",
+		"compromisedData": "Compromised Data",
+		"footer": "Breach {0}/{1}"
+	},
 	"needsmorejpeg": {
 		"noArgs": "Please include an image attachment or image URL.",
 		"invalidUrl": "`{0}` is not a valid URL."
