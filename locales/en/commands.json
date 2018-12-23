@@ -1,4 +1,18 @@
 {
+	"convert": {
+		"invalidUnits": "Please include valid units.",
+		"invalidFrom": "Please include a valid input measurement.",
+		"invalidTo": "Please include a valid to measurement.",
+		"currency": {
+			"invalidTarget": "Invalid target currency `{0}`",
+			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+		},
+		"other": {
+			"unknownInput": "Unknown input format.",
+			"unknownOutput": "Unknown output format.",
+			"converted": "`{0} {1}` > `{2} {3}`."
+		}
+	},
 	"haveibeenpwned": {
 		"success": "Success! Check your direct-messages for a list of your breached accounts.",
 		"noBreaches": "Awesome! There are no known breaches for your account.",
