@@ -1,4 +1,13 @@
 {
+	"haveibeenpwned": {
+		"success": "Success! Check your direct-messages for a list of your breached accounts.",
+		"noBreaches": "Awesome! There are no known breaches for your account.",
+		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
+		"breach": "Breach",
+		"pwnedUsers": "Pwned Users",
+		"compromisedData": "Compromised Data",
+		"footer": "Breach {0}/{1}"
+	},
 	"needsmorejpeg": {
 		"noArgs": "Please include an image attachment or image URL.",
 		"invalidUrl": "`{0}` is not a valid URL."
@@ -25,7 +34,7 @@
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
 			"duration": "Duração",
-			"created": "Created",
+			"created": "Criado",
 			"updated": "Updated",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
@@ -112,12 +121,12 @@
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
@@ -466,7 +475,7 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Author",
+		"author": "Autor",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
@@ -529,7 +538,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Bots"
+		"bots": "Robôs"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -613,7 +622,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": "Region"
@@ -627,7 +636,7 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Created"
+		"footer": "Criado"
 	},
 	"shorten": {
 		"noArgs": "Please include a URL.",
