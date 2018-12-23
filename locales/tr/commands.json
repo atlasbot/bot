@@ -1,4 +1,13 @@
 {
+	"haveibeenpwned": {
+		"success": "Success! Check your direct-messages for a list of your breached accounts.",
+		"noBreaches": "Awesome! There are no known breaches for your account.",
+		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
+		"breach": "Breach",
+		"pwnedUsers": "Pwned Users",
+		"compromisedData": "Compromised Data",
+		"footer": "Breach {0}/{1}"
+	},
 	"needsmorejpeg": {
 		"noArgs": "Please include an image attachment or image URL.",
 		"invalidUrl": "`{0}` is not a valid URL."
@@ -147,8 +156,7 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms` delay to this server.",
-		"dm": "I have a `{0}ms` delay to this dm.",
+		"server": "I have a `{0}ms/{1}ms` delay to this server.",
 		"randoms": [
 			"I'm hungry...",
 			"Shovelling coal into the server...",
@@ -680,5 +688,11 @@
 		"noCommand": "I could not find a command matching `{0}`.",
 		"disabled": "The {0} command has been `disabled`.",
 		"enabled": "The {0} command has been `enabled`."
+	},
+	"isspass": {
+		"noResults": "I could not find a location matching `{0}`.",
+		"title": "ISS Passes Over {0}",
+		"format": "• {0} for {1}",
+		"footer": "Times are local to {0}."
 	}
 }
