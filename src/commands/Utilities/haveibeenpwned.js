@@ -56,7 +56,7 @@ module.exports = class HIBPWNED extends Command {
 					thumbnail: {
 						url: breach.LogoPath,
 					},
-					url: `https://${breach.Domain}`,
+					url: breach.Domain.trim() && (breach.Domain.startsWith('http') ? breach.Domain : `https://${breach.Domain}`),
 					fields: [{
 						name: 'breach',
 						value: this.Atlas.lib.utils.timeFormat(new Date(breach.BreachDate)),

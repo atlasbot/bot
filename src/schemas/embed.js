@@ -20,7 +20,7 @@ module.exports = {
 		name: Joi.string().max(256),
 		icon_url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
 	},
-	url: Joi.string().uri().allow(null),
+	url: Joi.string().uri().allow(null, ''),
 	image: {
 		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
 	},
