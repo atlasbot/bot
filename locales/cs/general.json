@@ -278,6 +278,8 @@
 	"notPunishable": "You are lacking the permission required to punish that user.",
 	"lolno": "I cannot punish that user as their permission level is above my own.",
 	"music": {
+		"emptyPause": "All users have left the voice channel - the player has been paused.",
+		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
 			"name": "Position",
