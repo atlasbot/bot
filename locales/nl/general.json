@@ -1,6 +1,34 @@
 {
-	"commands": {
-		"pluginDisabled": "The plugin \"{0}\" that `{1}` belongs to is disabled in this server."
+	"plugin": {
+		"disabled": "That plugin has been disabled by a server administrator.",
+		"restrictions": {
+			"whitelist": {
+				"role": "You are not whitelisted to use that plugin.",
+				"channel": "This channel is not whitelisted to use that plugin."
+			},
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that plugin.",
+				"channel": "You are in a channel that is blacklisted from using that plugin."
+			}
+		}
+	},
+	"command": {
+		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
+		"errorExecuting": "An unknown internal error occured executing the command.",
+		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
+		"premiumOnly": "Only premium servers can use that command. ",
+		"guildOnly": "That command can only be used in servers!",
+		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"restrictions": {
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that command.",
+				"channel": "This channel is blacklisted from using that command."
+			},
+			"whitelist": {
+				"role": "You are not whitelisted to use that command.",
+				"channel": "This channel is not whitelisted to use that command."
+			}
+		}
 	},
 	"reminder": {
 		"title": "Reminder",
@@ -245,16 +273,13 @@
 	"noResults": "I couldn't find anything matching your query, `{0}`.",
 	"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
 	"noPermission": "You don't have permission to access that command.",
-	"restError": "<:sadpanda:497907940225843220> Something went wrong when running the command, please try again in a few minutes.",
-	"errorExecuting": "An unknown error occured executing the command.",
 	"noUserFound": "I couldn't find that user.",
 	"noMorePages": "{0}, there are no more pages that way.",
-	"guildOnly": "That command can only be used in servers!",
-	"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-	"premiumOnly": "Only premium servers can use that command. ",
 	"notPunishable": "You are lacking the permission required to punish that user.",
 	"lolno": "I cannot punish that user as their permission level is above my own.",
 	"music": {
+		"emptyPause": "All users have left the voice channel - the player has been paused.",
+		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
 			"name": "Position",
@@ -294,7 +319,6 @@
 			}
 		}
 	},
-	"disabledCommand": "The `{0}{1}` command has been disabled by a server administrator.",
 	"blacklisted": {
 		"roles": {
 			"plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
@@ -382,13 +406,15 @@
 	"action": {
 		"disabled": "That action is disabled.",
 		"noSubActions": "That action has no valid sub-actions to run.",
-		"banned": {
-			"channel": "This channel is not allowed to use that action.",
-			"role": "You have a role which has been blocked from using this action."
-		},
-		"whitelist": {
-			"role": "Only whitelisted roles are allowed to use that action.",
-			"channel": "Only whitelisted channels are allowed to use that action."
+		"restrictions": {
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that action.",
+				"channel": "This channel is blacklisted from using that action."
+			},
+			"whitelist": {
+				"role": "You are not whitelisted to use that action.",
+				"channel": "This channel is not whitelisted to use that action."
+			}
 		}
 	}
 }
