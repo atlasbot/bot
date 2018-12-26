@@ -1,6 +1,34 @@
 {
-	"commands": {
-		"pluginDisabled": "The plugin \"{0}\" that `{1}` belongs to is disabled in this server."
+	"plugin": {
+		"disabled": "That plugin has been disabled by a server administrator.",
+		"restrictions": {
+			"whitelist": {
+				"role": "You are not whitelisted to use that plugin.",
+				"channel": "This channel is not whitelisted to use that plugin."
+			},
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that plugin.",
+				"channel": "You are in a channel that is blacklisted from using that plugin."
+			}
+		}
+	},
+	"command": {
+		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
+		"errorExecuting": "An unknown internal error occured executing the command.",
+		"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
+		"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
+		"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
+		"disabled": "La commande `{0}` a été désactivée par un administrateur du serveur.",
+		"restrictions": {
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that command.",
+				"channel": "This channel is blacklisted from using that command."
+			},
+			"whitelist": {
+				"role": "You are not whitelisted to use that command.",
+				"channel": "This channel is not whitelisted to use that command."
+			}
+		}
 	},
 	"reminder": {
 		"title": "Reminder",
@@ -245,16 +273,13 @@
 	"noResults": "Je n'ai rien trouvé qui corresponde à votre requête, `{0}`.",
 	"webhookPermError": "ERREUR : Atlas a besoin de permissions pour gérer les webhooks pour que la connexion fonctionne. Veuillez attendre jusqu'à 5 minutes après la mise à jour des permissions pour que le changement prenne effet.",
 	"noPermission": "Vous n'avez pas la permission d'accéder à cette commande.",
-	"restError": "<:sadpanda:497907940225843220> quelque chose a mal tourné lorsque l’exécution de la commande, Veuillez réessayer dans quelques minutes.",
-	"errorExecuting": "Une erreur inconnue s'est produite lors de l'exécution de la commande.",
 	"noUserFound": "Je n'ai pas trouvé cet utilisateur.",
 	"noMorePages": "{0}, il n'y a plus de pages comme ça.",
-	"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
-	"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
-	"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
 	"notPunishable": "Vous n'avez pas la permission requise pour punir cet utilisateur.",
 	"lolno": "Je ne peux pas punir cet utilisateur car son niveau de permission est supérieur au mien.",
 	"music": {
+		"emptyPause": "All users have left the voice channel - the player has been paused.",
+		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
 			"name": "Position",
@@ -294,7 +319,6 @@
 			}
 		}
 	},
-	"disabledCommand": "La commande `{0}` a été désactivée par un administrateur du serveur.",
 	"blacklisted": {
 		"roles": {
 			"plural": "Vous avez les rôles {0} qui sont interdit d'utiliser `{1}{2}`.",
@@ -382,13 +406,15 @@
 	"action": {
 		"disabled": "Cet action est désactivé.",
 		"noSubActions": "That action has no valid sub-actions to run.",
-		"banned": {
-			"channel": "Ce canal n'est pas autorisé à utiliser cette action.",
-			"role": "Vous avez un rôle qui a été bloqué pour ne pas utiliser cette action."
-		},
-		"whitelist": {
-			"role": "Seul les rôles dans la whitelist sont autorisés à utiliser cette action.",
-			"channel": "Seul les canaux dans la whitelist sont autorisés à utiliser cette action."
+		"restrictions": {
+			"blacklist": {
+				"role": "You have a role that is blacklisted from using that action.",
+				"channel": "This channel is blacklisted from using that action."
+			},
+			"whitelist": {
+				"role": "You are not whitelisted to use that action.",
+				"channel": "This channel is not whitelisted to use that action."
+			}
 		}
 	}
 }
