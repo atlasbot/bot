@@ -258,6 +258,10 @@
 		"playlistEmbed": {
 			"title": "Playlist Queued - {0}",
 			"description": "{0} has queued {1} songs from a playlist."
+		},
+		"searchQuery": {
+			"outOfTime": "You did not provide a valid track number in time.",
+			"invalidTrack": "`{0}` is not a valid track number."
 		}
 	},
 	"queue": {
