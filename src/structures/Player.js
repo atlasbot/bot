@@ -109,7 +109,13 @@ module.exports = class extends Player {
 		this.playing = !this.paused;
 		this.timestamp = Date.now();
 
-		if (notify) {
+		const { options } = this.settings.plugin('music');
+
+		if (notify && !options.hide_nowplaying) {
+			if (options.small_msgs) {
+				return this.responder.text('general.music.playingTrack', track.info.title, this.Atlas.lib.utils.prettyMs(track.info.length)).send();
+			}
+
 			return this.responder.embed(this.npEmbed(track)).send();
 		}
 	}

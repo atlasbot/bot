@@ -16,12 +16,12 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'shift');
 
-		const currIndex = Math.floor(Number(args[0])) - 1;
+		const currIndex = Math.floor(this.Atlas.lib.utils.parseNumber(args[0])) - 1;
 		if (!isFinite(currIndex)) {
 			return responder.error('invalidCurrIndex').send();
 		}
 
-		const newIndex = Math.floor(Number(args[1])) - 1;
+		const newIndex = Math.floor(this.Atlas.lib.utils.parseNumber(args[0])) - 1;
 		if (!isFinite(newIndex)) {
 			return responder.error('invalidNewIndex').send();
 		}

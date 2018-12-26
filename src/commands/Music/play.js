@@ -1,7 +1,8 @@
 const superagent = require('superagent');
-const Command = require('../../structures/Command.js');
-const lib = require('./../../../lib');
 
+const Command = require('../../structures/Command.js');
+
+const Collector = require('../../structures/MessageCollector');
 const Cache = require('../../../lib/structures/Cache');
 
 const cache = new Cache('bot-music');
@@ -9,6 +10,8 @@ const cache = new Cache('bot-music');
 module.exports = class Play extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
+
+		this.waiting = new Map();
 	}
 
 	async action(msg, args, {
@@ -17,6 +20,16 @@ module.exports = class Play extends Command {
 		pseudoBody = !!body,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
+
+		if (this.waiting.has(msg.author.id)) {
+			const number = this.Atlas.lib.utils.parseNumber(args.join(' '));
+
+			if (number) {
+				const cb = this.waiting.get(msg.author.id);
+
+				return cb(number);
+			}
+		}
 
 		if (!args.length) {
 			return responder.error('play.noArgs').send();
@@ -38,7 +51,7 @@ module.exports = class Play extends Command {
 		}
 
 		const query = args.join(' ');
-		const url = lib.utils.isUri(query);
+		const url = this.Atlas.lib.utils.isUri(query);
 
 		// some commands (see playlist/play.js) provide their own fake body with it's own data
 		if (!body) {
@@ -76,7 +89,38 @@ module.exports = class Play extends Command {
 				});
 			}
 		} else {
-			const track = url ? body.tracks[0] : this.findIdealTrack(query, body.tracks);
+			let track;
+
+			const musicConf = settings.plugin('music').options;
+
+			if (!url && musicConf.show_results) {
+				const tmpMsg = await responder.embed({
+					color: 3553599,
+					title: 'Search Results',
+					description: body.tracks.slice(0, 4).map((t, i) => `${i + 1}. [${t.info.title}](${t.info.uri})`).join('\n'),
+					timestamp: new Date(),
+					footer: {
+						text: `Say a number or "${msg.displayPrefix}play 1" to play a result`,
+					},
+				}).send();
+
+				const trackNumber = await this.awaitTrackNumber(msg);
+
+				if (isNaN(trackNumber)) {
+					return responder.mention(msg.author).text('play.searchQuery.outOfTime').send();
+				}
+
+				track = body.tracks[trackNumber];
+
+				if (!track) {
+					return responder.mention(msg.author).text('play.searchQuery.invalidTrack', trackNumber).send();
+				}
+
+				tmpMsg.delete().catch(() => false);
+			} else {
+				track = url ? body.tracks[0] : this.findIdealTrack(query, body.tracks);
+			}
+
 
 			// regular, boring old song. play it normally
 			await player.play(track, {
@@ -116,6 +160,32 @@ module.exports = class Play extends Command {
 
 		// fall back to the first result if no lyrics exist
 		return results.shift();
+	}
+
+	awaitTrackNumber({ author, channel }) {
+		return new Promise(async (resolve) => {
+			const cb = (number) => {
+				if (!this.waiting.has(author.id)) {
+					return;
+				}
+
+				this.waiting.delete(author.id);
+
+				return resolve(number - 1);
+			};
+
+			this.waiting.set(author.id, cb);
+
+			const collector = new Collector(channel, msg => msg.channel.id === channel.id && msg.author.id === author.id && this.Atlas.lib.utils.parseNumber(msg.content));
+
+			collector.listen(25000);
+
+			const message = await collector.await();
+
+			if (message) {
+				return cb(this.Atlas.lib.utils.parseNumber(message.content));
+			}
+		});
 	}
 };
 

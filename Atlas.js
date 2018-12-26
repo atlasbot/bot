@@ -69,6 +69,7 @@ module.exports = class Atlas {
 			},
 		};
 
+		this.eventHandlers = new Map();
 		this.locales = new Map();
 		this.filters = new Map();
 		this.plugins = new Map();
@@ -159,7 +160,10 @@ module.exports = class Atlas {
 			const Handler = require(`./src/events/${e}`);
 			const handler = new Handler(this);
 
-			this.client.on(e.split('.')[0], handler.execute.bind(handler));
+			const name = e.split('.')[0];
+
+			this.eventHandlers.set(name, handler);
+			this.client.on(name, handler.execute.bind(handler));
 
 			delete require.cache[require.resolve(`./src/events/${e}`)];
 
