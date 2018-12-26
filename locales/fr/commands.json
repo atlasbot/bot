@@ -1,4 +1,18 @@
 {
+	"convert": {
+		"invalidUnits": "Please include valid units.",
+		"invalidFrom": "Please include a valid input measurement.",
+		"invalidTo": "Please include a valid to measurement.",
+		"currency": {
+			"invalidTarget": "Invalid target currency `{0}`",
+			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+		},
+		"other": {
+			"unknownInput": "Unknown input format.",
+			"unknownOutput": "Unknown output format.",
+			"converted": "`{0} {1}` > `{2} {3}`."
+		}
+	},
 	"haveibeenpwned": {
 		"success": "Success! Check your direct-messages for a list of your breached accounts.",
 		"noBreaches": "Awesome! There are no known breaches for your account.",
@@ -142,7 +156,7 @@
 		"withReason": "Banned {0} for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
-		"feelsGoodMan": {
+		"dm": {
 			"reason": "Vous avez été banni de {0} pour `{1}` par {2} ({3}).",
 			"noReason": "Vous avez été banni de {0} par {1} ({2})."
 		}
@@ -244,6 +258,10 @@
 		"playlistEmbed": {
 			"title": "Playlist mise file d’attente - {0}",
 			"description": "{0} a mis en liste d'attente {1} chansons d’une playlist."
+		},
+		"searchQuery": {
+			"outOfTime": "You did not provide a valid track number in time.",
+			"invalidTrack": "`{0}` is not a valid track number."
 		}
 	},
 	"queue": {
@@ -457,7 +475,7 @@
 		"noArgs": "Veuillez inclure un utilisateur à kick!",
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} pour `{1}`.",
-		"feelsGoodMan": {
+		"dm": {
 			"reason": "Vous avez été kick de {0} avec la raison: `{1}` par {2} ({3}).",
 			"noReason": "Vous avez été kick de {0} par {1} ({2})."
 		}
