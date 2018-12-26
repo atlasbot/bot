@@ -1,6 +1,8 @@
 const superagent = require('superagent');
 const convert = require('convert-units');
 
+const currencyCodes = require('../../../data/currencyCodes.json');
+
 const Command = require('../../structures/Command.js');
 const Cache = require('../../../lib/structures/Cache');
 
@@ -8,7 +10,7 @@ const cache = new Cache('currencies');
 
 // REGEX ALL THE THINGS! /s
 // regex was just the easiest solution i could think of
-const REGEX = /([0-9,. ]+) ?([A-z]{0,10}) (?:to )?([A-z]{0,4})/i;
+const REGEX = /([0-9,. ]+) ?([A-z-_,]+) (?:to )?([A-z-_,]+)/i;
 
 module.exports = class Convert extends Command {
 	constructor(Atlas) {
@@ -24,7 +26,7 @@ module.exports = class Convert extends Command {
 
 		let [, uncleanUnits, from, to] = REGEX.exec(args.join(' ')) || []; // eslint-disable-line prefer-const
 
-		const units = Number((uncleanUnits || '').replace(/[^0-9]/g, ''));
+		const units = this.Atlas.lib.utils.parseNumber(uncleanUnits);
 
 		if (!units) {
 			return responder.error('invalidUnits').send();
@@ -42,30 +44,45 @@ module.exports = class Convert extends Command {
 			base: 'EUR',
 			rates: {},
 		};
+
 		// try/catch getCurrencies() so it doesn't nuke the whole command if currency conversion is offline
 		try {
 			currency = await this.getCurrencies();
 		} catch (e) {} // eslint-disable-line no-empty
 
-		if (from.toUpperCase() in currency.rates) {
-			if (!(to.toUpperCase() in currency.rates)) {
-				return responder.error('currency.invalidTarget', to.toLowerCase()).send();
+		let fromCode = from.trim().toUpperCase();
+
+		const fromCurrency = this.Atlas.lib.utils.nbsFuzzy(currencyCodes, ['code', 'currency', 'countries'], from);
+		if (fromCurrency) {
+			fromCode = fromCurrency.code;
+		}
+
+		let toCode = to.trim().toUpperCase();
+
+		const toCurrency = this.Atlas.lib.utils.nbsFuzzy(currencyCodes, ['code', 'currency', 'countries'], to);
+		if (toCurrency) {
+			toCode = toCurrency.code;
+		}
+
+		if (fromCode in currency.rates) {
+			if (!(toCode in currency.rates)) {
+				return responder.error('currency.invalidTarget', toCode).send();
 			}
 
-			const converted = units * this.getRate(from.toUpperCase(), to.toUpperCase(), currency);
+			const converted = units * this.getRate(fromCode, toCode, currency);
 
 			const fromFormed = new Intl.NumberFormat('en-AU', {
 				style: 'currency',
-				currency: from,
+				currency: fromCode,
 			}).format(units);
 
 			const toFormed = new Intl.NumberFormat('en-AU', {
 				style: 'currency',
-				currency: to,
+				currency: toCode,
 			}).format(converted);
 
 			return responder
-				.text('currency.converted', fromFormed, from.toUpperCase(), toFormed, to.toUpperCase())
+				.text('currency.converted', fromFormed, fromCode, toFormed, toCode)
 				.send();
 		}
 

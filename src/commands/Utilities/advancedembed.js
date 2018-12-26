@@ -50,6 +50,7 @@ module.exports = class AdvancedEmbed extends Command {
 
 		for (const [name, value] of Object.entries(parsedArgs)) {
 			const match = /field([0-9])value/.exec(name);
+
 			if (match) {
 				const [, number] = match;
 
