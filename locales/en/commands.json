@@ -156,7 +156,7 @@
 		"withReason": "Banned {0} for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
-		"feelsGoodMan": {
+		"dm": {
 			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
 			"noReason": "You have been banned from {0} by {1} ({2})."
 		}
@@ -471,7 +471,7 @@
 		"noArgs": "Please include a user to kick!",
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
-		"feelsGoodMan": {
+		"dm": {
 			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
 			"noReason": "You have been kicked from {0} by {1} ({2})."
 		}
