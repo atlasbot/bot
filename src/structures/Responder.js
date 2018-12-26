@@ -50,7 +50,7 @@ class Responder {
 		this._defaults = JSON.parse(JSON.stringify(this._data));
 
 		// events/messageCreate adds some special goodies to guild messages
-		if (data.options) {
+		if (data && data.options) {
 			if (data.options.dm && data.author) {
 				this.dm(data.author, true);
 			}
@@ -64,6 +64,10 @@ class Responder {
 		}
 
 		this._data.mention = mention;
+
+		if (this._data.str) {
+			this._data.str = this._data.str.charAt(0).toLowerCase() + this._data.str.slice(1);
+		}
 
 		return this;
 	}
