@@ -1,6 +1,6 @@
 {
 	"name": "atlas-bot",
-	"version": "8.0.22-alpha",
+	"version": "8.0.23-alpha",
 	"description": "A Discord bot that does the things",
 	"main": "Cluster.js",
 	"scripts": {
@@ -53,7 +53,7 @@
 		"yargs-parser": "^11.1.1"
 	},
 	"devDependencies": {
-		"eslint": "5.10.0",
+		"eslint": "5.11.0",
 		"eslint-config-airbnb": "17.1.0",
 		"eslint-plugin-import": "2.14.0",
 		"eslint-plugin-jsx-a11y": "6.1.2",

@@ -19,6 +19,7 @@ module.exports = class Event {
 
 			for (const filter of this.Atlas.filters.values()) {
 				const output = await filter.checkMessage(settings, msg);
+
 				if (output === true) {
 					break;
 				}

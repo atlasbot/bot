@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const parseArgs = require('yargs-parser');
 const mongoose = require('mongoose');
 
@@ -12,14 +10,6 @@ const prefixes = process.env.PREFIXES.split(',');
 module.exports = class Ready {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
-		this.sitDown = new Map();
-		this.filters = fs
-			.readdirSync(path.join(__dirname, '../filters'))
-			.map((f) => {
-				const Prop = require(path.join(__dirname, '../filters', f));
-
-				return (new Prop(this.Atlas));
-			});
 	}
 
 	async execute(msg) {
