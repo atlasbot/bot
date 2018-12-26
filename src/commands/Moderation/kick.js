@@ -37,9 +37,9 @@ module.exports = class Kick extends Command {
 			responder.channel(channel);
 
 			if (args[0]) {
-				responder.text('kick.feelsGoodMan.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
+				responder.text('kick.dm.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
 			} else {
-				responder.text('kick.feelsGoodMan.noReason', msg.guild.name, msg.author.tag, msg.author.id);
+				responder.text('kick.dm.noReason', msg.guild.name, msg.author.tag, msg.author.id);
 			}
 
 			await responder.send();

@@ -10,6 +10,7 @@ module.exports = class Ban extends Command {
 	async action(msg, args, {
 		settings,
 		fun = false,
+		purgeDays = 0,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
@@ -50,9 +51,9 @@ module.exports = class Ban extends Command {
 			responder.channel(channel);
 
 			if (args[0]) {
-				responder.text('ban.feelsGoodMan.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
+				responder.text('ban.dm.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);
 			} else {
-				responder.text('ban.feelsGoodMan.noReason', msg.guild.name, msg.author.tag, msg.author.id);
+				responder.text('ban.dm.noReason', msg.guild.name, msg.author.tag, msg.author.id);
 			}
 
 			await responder.send();
@@ -69,7 +70,7 @@ module.exports = class Ban extends Command {
 			guild: msg.guild.id,
 		});
 
-		await msg.guild.banMember(target.id, 0, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
+		await msg.guild.banMember(target.id, purgeDays, `Banned by ${msg.author.tag} ${args[0] ? `with reason "${args.join(' ')}"` : ''}`);
 
 		if (fun) {
 			return responder.embed({

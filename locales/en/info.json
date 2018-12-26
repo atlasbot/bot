@@ -1,4 +1,8 @@
 {
+	"purgeban": {
+		"description": "Bans a user and purges their messages over the last 7 days.",
+		"usage": "[user] <reason>"
+	},
 	"convert": {
 		"description": "Convert things to other things. Supports currency, mass, length, etc...",
 		"usage": "<units> <from> <to>"
