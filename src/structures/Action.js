@@ -17,11 +17,7 @@ module.exports = class Action {
 			content: action.trigger.content,
 		};
 
-		this.restrictions = {
-			roles: action.restrictions.roles,
-			channels: action.restrictions.channels,
-			mode: action.restrictions.mode,
-		};
+		this.restrictions = action.restrictions;
 
 		if (action.content) {
 			this.content = action.content
@@ -68,40 +64,17 @@ module.exports = class Action {
 		}
 
 		if (this.trigger.type !== 'interval') {
-			const { roles, channels } = this.restrictions;
+			const errorKey = this.Atlas.lib.utils.checkRestriction({
+				roles: msg.member.roles || [],
+				channel: msg.channel.id,
+			}, this.restrictions);
 
-			if (this.restrictions.mode === 'whitelist') {
-				if (channels.length && !channels.includes(msg.channel.id)) {
-					if (this.quiet) {
-						return;
-					}
-
-					return responder.error('whitelist.channel').send();
+			if (errorKey) {
+				if (this.quiet) {
+					return;
 				}
 
-				if (roles.length && !msg.member.roles.some(id => roles.includes(id))) {
-					if (this.quiet) {
-						return;
-					}
-
-					return responder.error('whitelist.role').send();
-				}
-			} else {
-				if (channels.includes(msg.channel.id)) {
-					if (this.quiet) {
-						return;
-					}
-
-					return responder.error('banned.channel').send();
-				}
-
-				if (msg.member.roles.some(id => roles.includes(id))) {
-					if (this.quiet) {
-						return;
-					}
-
-					return responder.error('banned.role').send();
-				}
+				return responder.error(`restrictions.${errorKey}`).send();
 			}
 		}
 

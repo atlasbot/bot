@@ -80,14 +80,25 @@ module.exports = class Ready {
 			msg.command = this.Atlas.commands.get(msg.label);
 
 			if (msg.command) {
-				if (msg.guild) {
-					const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.commands');
+				if (settings) {
+					// guild-only checks
+
+					const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.plugin');
 					// handle guild things
 					const pluginConf = settings.plugin(msg.command.info.plugin.name.toLowerCase());
 
 					if (pluginConf) {
 						if (pluginConf.state === 'disabled') {
-							return responder.error('pluginDisabled', msg.command.info.plugin.name, msg.command.info.name).send();
+							return responder.error('disabled', msg.command.info.plugin.name, msg.command.info.name).send();
+						}
+
+						const errorKey = this.Atlas.lib.utils.checkRestriction({
+							roles: msg.member.roles || [],
+							channel: msg.channel.id,
+						}, pluginConf.restrictions);
+
+						if (errorKey) {
+							return responder.error(`restrictions.${errorKey}`).send();
 						}
 					}
 				}
@@ -155,7 +166,15 @@ module.exports = class Ready {
 		if (!(await ratelimits.get(msg.author.id))) {
 			await ratelimits.set(msg.author.id, Date.now(), 60);
 
-			if (settings.plugin('levels').state === 'enabled') {
+			const levelConf = settings.plugin('levels');
+
+			const restrictionError = this.Atlas.lib.utils.checkRestriction({
+				roles: msg.member.roles || [],
+				channel: msg.channel.id,
+			}, levelConf.restrictions);
+
+			// if levels are enabled and the channel/user is not blacklisted, then... wew
+			if (levelConf.state === 'enabled' && !restrictionError) {
 				// the amount of xp to reward them with
 				const xp = this.Atlas.lib.xputil.calcXP(msg.content);
 
@@ -187,8 +206,8 @@ module.exports = class Ready {
 							$set: payload,
 							$push: {
 								guilds: {
-									id: msg.guild.id,
 									xp,
+									id: msg.guild.id,
 									messages: 1,
 								},
 							},

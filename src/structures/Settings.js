@@ -180,19 +180,19 @@ module.exports = class GuildSettings {
 
 	/**
     * Get options for a command by label
-    * @param {string} label the label of the command to get options for
+    * @param {string} name the label of the command to get options for
     * @returns {Object|null} the command's options
     */
-	command(label) {
-		const command = this.Atlas.commands.get(label);
+	command(name) {
+		const command = this.Atlas.commands.get(name);
 		if (!command) {
-			throw new Error(`"${label}" is not a valid command label!`);
+			throw new Error(`"${name}" is not a valid command label!`);
 		}
 
-		const opts = this.raw.command_options.find(o => o.label === label);
+		const opts = this.raw.command_options.find(o => o.name === name);
 
-		const parsed = Object.assign({
-			label,
+		const parsed = {
+			name,
 			auto_delete: false,
 			disabled: false,
 			silent: false,
@@ -202,24 +202,8 @@ module.exports = class GuildSettings {
 				roles: [],
 				mode: 'blacklist',
 			},
-		}, opts ? opts.toObject() : {});
-
-		if (this.guild) {
-			parsed.restrictions.channels = parsed.restrictions.channels
-				.map(id => this.guild.channels.get(id))
-				.filter(x => x);
-
-			const me = this.guild.members.get(this.Atlas.client.user.id);
-			parsed.restrictions.roles = parsed.restrictions.roles
-				.map((id) => {
-					const role = this.guild.channels.get(id);
-
-					return role;
-				})
-				.filter(x => x && x.position >= me.highestRole.position);
-
-			parsed.validated = true;
-		}
+			...opts,
+		};
 
 		return parsed;
 	}

@@ -38,62 +38,52 @@ class Command {
 		parsedArgs = {},
 		...passthrough
 	}) {
-		const responder = new Responder(msg);
+		const responder = new Responder(msg, msg.lang, 'general');
 
+		let options;
 		if (settings) {
+			// user is in a guild, run guild-only checks
+
+			// permission checking for bot/user
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
 				const permissions = Object.keys(this.info.permissions[permsKey]);
 				for (const perm of permissions) {
 					const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
 					if (perms.has(perm) === false) {
-						const missing = responder.format(`general.permissions.list.${perm}`);
+						const missing = responder.format(`permissions.list.${perm}`);
 
-						return responder.error(`general.permissions.permError.${permsKey}`, missing).send();
+						return responder.error(`permissions.permError.${permsKey}`, missing).send();
 					}
 				}
 			}
 
-			const options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
+			options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
+
 			if (options.disabled) {
-				return responder.error('general.disabledCommand', settings.prefix, this.info.name).send();
+			// command is disabled
+				return responder.error('command.disabled', settings.prefix, this.info.name).send();
 			}
 
-			if (options.restrictions.mode === 'blacklist') {
-				if (options.restrictions.channels.includes(msg.channel.id)) {
-					return responder.error('general.blacklisted.channel', settings.prefix, this.info.name).send();
-				}
-				if (
-					options.restrictions.roles
-						.some(id => msg.member.roles && msg.member.roles.includes(id))
-				) {
-				// one of their roles is blacklisted
-					const roles = options.restrictions.roles.filter(id => msg.member.roles.includes(id));
-					const names = roles.map(id => msg.guild.roles.get(id).name);
+			const errorKey = this.Atlas.lib.utils.checkRestriction({
+				roles: msg.member.roles || [],
+				channel: msg.channel.id,
+			}, options.restrictions);
 
-					return responder
-						.error(
-							`general.restrictions.roles.${names.length !== 1 ? 'plural' : 'singular'}`,
-							`\`@${names.join('`, `@')}\``,
-							settings.prefix,
-							this.info.name,
-						)
-						.send();
-				}
+			if (errorKey) {
+				return responder.error(`command.restrictions.${errorKey}`).send();
 			}
 		} else {
-			// todo
-		}
-
-
-		if ((this.info.guildOnly === true || this.info.premiumOnly) && !msg.guild) {
-			return responder.error('general.guildOnly').send();
+			// DM-only options
+			if ((this.info.guildOnly === true || this.info.premiumOnly)) { // eslint-disable-line no-lonely-if
+				return responder.error('command.guildOnly').send();
+			}
 		}
 
 		if (this.info.premiumOnly) {
 			const patron = await this.Atlas.lib.utils.isPatron(msg.guild.ownerID);
 
 			if (!patron || patron.amount_cents < 500) {
-				return responder.error('general.premiumOnly').send();
+				return responder.error('command.premiumOnly').send();
 			}
 		}
 
@@ -101,11 +91,20 @@ class Command {
 			const patron = !!await this.Atlas.lib.utils.isPatron(msg.author.id);
 
 			if (!patron) {
-				return responder.error('general.patronOnly', msg.prefix).send();
+				return responder.error('command.patronOnly', msg.prefix).send();
 			}
 		}
 
 		try {
+			if (settings) {
+				if (options.delete && msg.channel.permissionsOf(msg.guild.me.id).has('manageMessages')) {
+					msg.delete().catch(() => false);
+				}
+
+				msg.options = options;
+			}
+
+			// run the command
 			await this.action(msg, args, {
 				settings,
 				parsedArgs,
@@ -121,13 +120,11 @@ class Command {
 				console.log(`${this.info.name} - ${msg.author.username} ${msg.author.id} ${duration}ms`);
 			}
 		} catch (e) {
-			console.error(e);
-
 			if (e.status && e.response) {
-				// it's /probably/ a superagent error
-				responder.error('general.restError').send();
+				// it's /probably/ a http error
+				responder.error('command.restError').send();
 			} else {
-				responder.error('general.errorExecuting').send();
+				responder.error('command.errorExecuting').send();
 			}
 
 			throw e;
@@ -253,7 +250,7 @@ class Command {
 			embed.fields.push({
 				name: 'User Permissions',
 				value: `\`${Object.keys(this.info.permissions.user)
-					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
+					.map(p => this.Atlas.util.format(msg.lang, `permissions.list.${p}`))
 					.join('`, `')}\``,
 				inline: true,
 			});
@@ -263,7 +260,7 @@ class Command {
 			embed.fields.push({
 				name: 'Bot Permissions',
 				value: `\`${Object.keys(this.info.permissions.bot)
-					.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`))
+					.map(p => this.Atlas.util.format(msg.lang, `permissions.list.${p}`))
 					.join('`, `')}\``,
 				inline: true,
 			});

@@ -7,7 +7,8 @@ module.exports = class Filter {
 	}
 
 	async checkMessage(settings, msg) {
-		const filterConfig = settings.plugin('moderation').filters[this.info.settingsKey];
+		const modConf = settings.plugin('moderation');
+		const filterConfig = modConf.filters[this.info.settingsKey];
 
 		// jesus christ
 		if (
@@ -24,6 +25,16 @@ module.exports = class Filter {
 		}
 		// here is some eye bleach for that if statement https://i.imgur.com/uJV5MgX.jpg
 		// if anyone wants to clean that up then you're more then welcome
+
+		const restrictionError = this.Atlas.lib.utils.checkRestriction({
+			roles: msg.member.roles || [],
+			channel: msg.channel.id,
+		}, modConf.restrictions);
+
+		// dont run filters on users that are blacklisted or whitelisted
+		if (restrictionError) {
+			return;
+		}
 
 		for (const str of [msg.content, msg.cleanContent]) {
 			const output = await this.execute(str, msg, {

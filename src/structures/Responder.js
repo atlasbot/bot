@@ -13,14 +13,14 @@ class Responder {
 		 * @param {string} keyPrefix A prefix to add before any keys.
      */
 	constructor(data, lang, keyPrefix) {
-		let channelID;
+		let channelId;
 		if (data) {
 			if (data.channel) {
-				channelID = data.channel.id || data.channel;
+				channelId = data.channel.id || data.channel;
 			} else if (data.id) {
-				channelID = data.id;
+				channelId = data.id;
 			} else {
-				channelID = data;
+				channelId = data;
 			}
 		}
 
@@ -28,7 +28,7 @@ class Responder {
 		this._lang = lang || (data && data.lang);
 
 		this._data = {
-			channelID,
+			channelId,
 			str: null,
 			embed: null,
 			ttl: 0,
@@ -37,13 +37,24 @@ class Responder {
 			noDupe: true,
 			localised: false,
 			validateEmbed: true,
+			dm: {
+				user: null,
+				fallback: false,
+			},
 		};
 
 		this.Atlas = require('./../../Atlas');
-		this.guild = this.Atlas.client.guilds.find(g => g.channels.has(this._data.channelID));
+		this.guild = this.Atlas.client.guilds.find(g => g.channels.has(this._data.channelId));
 
 		// break reference, cheap way but meh
 		this._defaults = JSON.parse(JSON.stringify(this._data));
+
+		// events/messageCreate adds some special goodies to guild messages
+		if (data.options) {
+			if (data.options.dm && data.author) {
+				this.dm(data.author, true);
+			}
+		}
 	}
 
 	mention(mention) {
@@ -53,6 +64,21 @@ class Responder {
 		}
 
 		this._data.mention = mention;
+
+		return this;
+	}
+
+	/**
+	 * Sets the responder to DM <user> instead of sending to the channel.
+	 * @param {User|Object|string} user The user to DM. ID preferable.
+	 * @param {boolean} [fallback=true] If true, if the DM fails (closed dm's, etc...) the responder will send the msg to the channel.
+   * @returns {Responder} The current responder instance
+	 */
+	dm(user, fallback = false) {
+		this._data.dm = {
+			user: user.id || user,
+			fallback,
+		};
 
 		return this;
 	}
@@ -199,7 +225,7 @@ class Responder {
      * @returns {Responder} The current responder instance
 	 */
 	channel(channel) {
-		this._data.channelID = channel.id || channel;
+		this._data.channelId = channel.id || channel;
 
 		return this;
 	}
@@ -254,7 +280,7 @@ class Responder {
 		}
 
 		if (data.noDupe && content) {
-			const existing = this.Atlas.sent.find(c => c.channel === data.channelID && c.str === content);
+			const existing = this.Atlas.sent.find(c => c.channel === data.channelId && c.str === content);
 			if (existing) {
 				try {
 					if (existing.edited < 4) {
@@ -291,13 +317,29 @@ class Responder {
 		let msg;
 		if (data.edit) {
 			msg = await data.edit.edit(payload, data.file);
+		} else if (data.dm.user) {
+			try {
+				const channel = await this.Atlas.client.getDMChannel(data.dm.user);
+
+				if (channel) {
+					msg = await this.Atlas.client.createMessage(channel.id, payload, data.file);
+				} else {
+					throw new Error('Could not get DM channel');
+				}
+			} catch (e) {
+				if (data.dm.fallback) {
+					msg = await this.Atlas.client.createMessage(data.channelId, payload, data.file);
+				} else {
+					throw e;
+				}
+			}
 		} else {
-			msg = await this.Atlas.client.createMessage(data.channelID, payload, data.file);
+			msg = await this.Atlas.client.createMessage(data.channelId, payload, data.file);
 		}
 
 		if (data.noDupe) {
 			this.Atlas.sent.push({
-				channel: data.channelID,
+				channel: data.channelId,
 				str: content,
 				edited: 1,
 				msg,
