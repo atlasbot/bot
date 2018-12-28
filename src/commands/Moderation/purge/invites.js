@@ -20,9 +20,7 @@ module.exports = class Invites extends Command {
 
 		await msg.delete();
 
-		const inviteFilter = this.Atlas.filters.get('invites');
-
-		const purgeCount = await msg.channel.purge(num, m => !m.pinned && (inviteFilter.execute(m.content) || inviteFilter.execute(m.cleanContent)));
+		const purgeCount = await msg.channel.purge(num, m => !m.pinned && this.Atlas.constants.inviteRegex.test(m.content));
 
 		if (purgeCount === 0) {
 			return responder.error('purge.general.nothingPurged', msg.author.mention).send();
