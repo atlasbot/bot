@@ -48,7 +48,7 @@
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
 			"duration": "Duração",
-			"created": "Criado",
+			"created": "Created",
 			"updated": "Updated",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
@@ -135,12 +135,12 @@
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Reprodução automática foi habilitada.",
-		"disabled": "Reprodução automática foi desabilitada."
+		"enabled": "Autoplay has been enabled.",
+		"disabled": "Autoplay has been disabled."
 	},
 	"shuffle": {
-		"tooFew": "Não há itens suficientes na fila para embaralhar.",
-		"success": "`{0}` itens da fila embaralhados."
+		"tooFew": "There is not enough items in the queue to shuffle.",
+		"success": "Shuffled `{0}` queue items."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
@@ -192,8 +192,18 @@
 	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
+		"footer": "{0} commands",
+		"disabled": {
+			"plural": " • {0} plugins disabled",
+			"singular": " • {0} plugin disabled"
+		},
 		"title": "Need some help?",
-		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
+		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos.",
+		"welcome": {
+			"footer": "Don't be afraid to ask for help!",
+			"title": "Oh hey!",
+			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
+		}
 	},
 	"info": {
 		"title": "Atlas",
@@ -493,7 +503,7 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Autor",
+		"author": "Author",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
@@ -556,7 +566,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Robôs"
+		"bots": "Bots"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -640,7 +650,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Nível de Verificação"
+			"name": "Verification Level"
 		},
 		"region": {
 			"name": "Region"
@@ -654,7 +664,7 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Criado"
+		"footer": "Created"
 	},
 	"shorten": {
 		"noArgs": "Please include a URL.",
