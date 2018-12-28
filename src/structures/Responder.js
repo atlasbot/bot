@@ -391,10 +391,14 @@ class Responder {
 
 					if (val.includes(' ')) {
 						output = val;
-					} else if (!this.Atlas.lib.utils.isUri(val)) {
+					} else {
 						output = this.format({
 							key: val,
 						});
+
+						if (!output && this.Atlas.lib.utils.isUri(val)) {
+							output = val;
+						}
 					}
 
 					break;

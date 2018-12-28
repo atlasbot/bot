@@ -43,7 +43,7 @@ module.exports = class Level extends Command {
 		})) + 1;
 
 		// todo: this is inefficient too
-		const { remaining, current, next } = this.Atlas.lib.xputil.getUserXPProfile(xp);
+		const { current, next } = this.Atlas.lib.xputil.getUserXPProfile(xp);
 
 		return responder.embed({
 			author: {
@@ -60,8 +60,7 @@ module.exports = class Level extends Command {
 				inline: true,
 			}, {
 				name: 'embed.experience.name',
-				value: ['embed.experience.value', remaining, next.xp, xp.toLocaleString]
-					.map(v => (typeof v === 'number' ? v.toLocaleString() : v)),
+				value: ['embed.experience.value', next.completed, next.xp, xp.toLocaleString].map(v => (v.toLocaleString ? v.toLocaleString() : v)),
 				inline: true,
 			}],
 		}).send();
