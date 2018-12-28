@@ -192,8 +192,18 @@
 	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
+		"footer": "{0} commands",
+		"disabled": {
+			"plural": " • {0} plugins disabled",
+			"singular": " • {0} plugin disabled"
+		},
 		"title": "Need some help?",
-		"description": "Vous pouvez faire `{0}<command>` pour exécuter une commande, ou `{0}help <command>` pour plus d’informations sur une commande spécifique. Vous pouvez faire `{0}help <command> <subcommand>` pour plus d’informations sur les sous-commandes. \n\nLes commandes marquées avec un \\* astérisque ont les sous-commandes."
+		"description": "Vous pouvez faire `{0}<command>` pour exécuter une commande, ou `{0}help <command>` pour plus d’informations sur une commande spécifique. Vous pouvez faire `{0}help <command> <subcommand>` pour plus d’informations sur les sous-commandes. \n\nLes commandes marquées avec un \\* astérisque ont les sous-commandes.",
+		"welcome": {
+			"footer": "Don't be afraid to ask for help!",
+			"title": "Oh hey!",
+			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
+		}
 	},
 	"info": {
 		"title": "Atlas",
