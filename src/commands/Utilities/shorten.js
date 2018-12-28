@@ -13,14 +13,15 @@ module.exports = class Shorten extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		if (!this.Atlas.lib.utils.isUri(args[0])) {
-			return responder.error('invalidURI', args[0]).send();
+		const url = args.join(' ');
+		if (!this.Atlas.lib.utils.isUri(url)) {
+			return responder.error('invalidURI', url).send();
 		}
 
 		const { text } = await superagent.get('https://is.gd/create.php')
 			.query({
 				format: 'json',
-				url: args[0],
+				url,
 			})
 			.set('User-Agent', this.Atlas.userAgent);
 
