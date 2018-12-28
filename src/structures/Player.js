@@ -15,7 +15,8 @@ module.exports = class extends Player {
 
 	get responder() {
 		if (!this._responder) {
-			this._responder = new PlayerResponder(this, this.settings.lang, {
+			// todo: settings isn't added fast enough sometimes and it causes issues
+			this._responder = new PlayerResponder(this, this.settings ? this.settings.lang : process.env.DEFAULT_LANG, {
 				settings: this.settings,
 			});
 		}
