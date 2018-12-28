@@ -82,7 +82,7 @@ module.exports = class Ready {
 					const pluginConf = settings.plugin(msg.command.info.plugin.name.toLowerCase());
 
 					if (pluginConf) {
-						if (pluginConf.state === 'disabled') {
+						if (pluginConf.state === 'disabled' && !(msg.command.info.name === 'help' && !Object.values(settings.raw.plugins).some(p => p.state === 'enabled' && msg.member.permission.has('manageGuild')))) {
 							return responder.error('disabled', msg.command.info.plugin.name, msg.command.info.name).send();
 						}
 
