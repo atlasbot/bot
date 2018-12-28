@@ -59,7 +59,7 @@
 		"npEmbed": {
 			"ttp": "Tempo até tocar",
 			"addedBy": "Added By",
-			"author": "Autor",
+			"author": "Author",
 			"duration": "Duração",
 			"footer": "{0} in queue"
 		},
@@ -122,17 +122,17 @@
 		},
 		"guildMemberAdd": {
 			"title": "Member Joined",
-			"description": "{0} juntou-se ao servidor."
+			"description": "{0} has joined the server."
 		},
 		"guildRoleCreate": {
-			"title": "Cargo Criado",
-			"description": "O cargo {0} foi criado.",
+			"title": "Role Created",
+			"description": "The {0} role was created.",
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Cargo Deletado",
+			"title": "Role Deleted",
 			"description": "The {0} role was deleted.",
 			"moderator": {
 				"name": "Moderador"
@@ -148,7 +148,7 @@
 				"name": "Name Updated"
 			},
 			"permAdded": {
-				"name": "Permissões Adicionadas",
+				"name": "Permissions Added",
 				"value": "The role now has the `{0}` permissions."
 			},
 			"permRemoved": {
@@ -176,10 +176,10 @@
 			}
 		},
 		"messageDelete": {
-			"title": "Mensagem Excluída",
+			"title": "Message Deleted",
 			"description": "A message by {0} has been deleted in {1}.",
 			"content": {
-				"name": "Conteúdo"
+				"name": "Content"
 			},
 			"moderator": {
 				"name": "Moderador"
@@ -189,17 +189,17 @@
 			}
 		},
 		"messageUpdate": {
-			"title": "Mensagem Atualizada",
+			"title": "Message Updated",
 			"description": "A message by {0} has been updated in {1}.",
 			"oldContent": {
-				"name": "Antes"
+				"name": "Before"
 			},
 			"newContent": {
-				"name": "Depois"
+				"name": "After"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Membro Saiu",
+			"title": "Member Left",
 			"description": "{0} has left the server."
 		},
 		"channelCreate": {
@@ -303,7 +303,7 @@
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Autor",
+			"name": "Author",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
