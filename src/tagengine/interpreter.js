@@ -30,7 +30,7 @@ const interp = async (tokens, context, functions) => {
 
 			let args = token.value.map(a => ({
 				...a[0],
-				value: a[0].value.trim(),
+				value: a[0].value.trim ? a[0].value.trim() : a[0].value,
 			}));
 
 			// pseudo "log" tag. not registered like normal because it's disabled in production and shouldn't be documented.
