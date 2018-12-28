@@ -7,13 +7,17 @@ module.exports = class XKCD extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg) {
+	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const { num } = (await superagent.get('https://xkcd.com/info.0.json')
-			.set('User-Agent', this.Atlas.userAgent)).body;
+		let comicNum = this.Atlas.lib.utils.parseNumber(args.join(' '));
+		if (isNaN(comicNum)) {
+			const { num } = (await superagent.get('https://xkcd.com/info.0.json')
+				.set('User-Agent', this.Atlas.userAgent)).body;
 
-		const comicNum = (Math.floor(Math.random() * num) + 1);
+			comicNum = (Math.floor(Math.random() * num) + 1);
+		}
+
 
 		const { body } = await superagent.get(`https://xkcd.com/${comicNum}/info.0.json`)
 			.set('User-Agent', this.Atlas.userAgent);
