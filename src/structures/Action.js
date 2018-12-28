@@ -93,7 +93,11 @@ module.exports = class Action {
 					await this.Atlas.lib.utils.sleep(1000);
 				}
 			} catch (e) {
-				console.error(e);
+				if (this.Atlas.Raven) {
+					this.Atlas.Raven.captureException(e);
+				}
+
+				console.warn(e);
 			}
 		}
 	}

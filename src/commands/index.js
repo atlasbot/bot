@@ -85,6 +85,10 @@ module.exports = class Commands {
 		try {
 			prop = new Prop(Atlas);
 		} catch (e) {
+			if (Atlas.Raven) {
+				Atlas.Raven.captureException(e);
+			}
+
 			console.error(`Error loading ${Prop.info.name}`, e);
 
 			return;

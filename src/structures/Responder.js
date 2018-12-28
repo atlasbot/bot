@@ -295,6 +295,10 @@ class Responder {
 
 					existing.edited++;
 				} catch (e) {
+					if (this.Atlas.Raven) {
+						this.Atlas.Raven.captureException(e);
+					}
+
 					console.warn(e);
 				}
 

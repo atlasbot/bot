@@ -135,6 +135,10 @@ module.exports = class PlayerResponder extends Responder {
 				}
 			}
 		} catch (e) {
+			if (this.Atlas.Raven) {
+				this.Atlas.Raven.captureException(e);
+			}
+
 			console.error(e);
 
 			return res;

@@ -78,6 +78,7 @@ module.exports = class Agenda extends EventEmitter {
 				return done();
 			} catch (e) {
 				embed.footer.text = 'Open your direct-message to have this direct-messaged to you - Requested';
+
 				await responder
 					.channel(job.attrs.data.channel)
 					.text(`<@${user}>`)

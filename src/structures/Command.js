@@ -127,6 +127,11 @@ class Command {
 				responder.error('command.errorExecuting').send();
 			}
 
+
+			if (this.Atlas.Raven) {
+				this.Atlas.Raven.captureException(e);
+			}
+
 			throw e;
 		}
 	}

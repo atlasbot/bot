@@ -25,7 +25,7 @@ module.exports = class WouldYouRather extends Command {
 				await reactionMsg.addReaction(this.Atlas.lib.emoji.get('one').char);
 				await reactionMsg.addReaction(this.Atlas.lib.emoji.get('two').char);
 			} catch (e) {
-				console.error(e);
+				console.warn(e);
 			}
 		}
 	}
