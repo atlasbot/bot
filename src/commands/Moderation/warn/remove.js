@@ -31,6 +31,10 @@ module.exports = class Remove extends Command {
 		const query = args.join(' ');
 		const target = await this.Atlas.util.findMember(msg.guild, user);
 
+		if (!target) {
+			return responder.error('general.noUserFound').send();
+		}
+
 		if (args.length) {
 			// remove the warning without doing shitty embed stuff
 

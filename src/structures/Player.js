@@ -69,6 +69,10 @@ module.exports = class extends Player {
 		notify = true,
 		addedBy,
 	}) {
+		if (!track) {
+			throw new Error('No track');
+		}
+
 		if (!track.addedBy) {
 			// it may be possible for this to be false, probably needs to be double-checked
 			track.addedBy = addedBy.tag || addedBy;
