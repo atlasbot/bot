@@ -5,7 +5,7 @@
 	},
 	"convert": {
 		"description": "Convert things to other things. Supports currency, mass, length, etc...",
-		"usage": "<units> <from> <to>"
+		"usage": "[units] [from] [to]"
 	},
 	"haveibeenpwned": {
 		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
@@ -13,7 +13,7 @@
 	},
 	"isspass": {
 		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
-		"usage": "<location>"
+		"usage": "[location]"
 	},
 	"fact": {
 		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
@@ -41,7 +41,7 @@
 	},
 	"randomcase": {
 		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
-		"usage": "<TeXt>"
+		"usage": "[TeXt]"
 	},
 	"dashboard": {
 		"description": "Get a link to your servers dashboard."
@@ -59,7 +59,8 @@
 			"usage": "[name]"
 		},
 		"list": {
-			"description": "Lists all your existing playlists."
+			"description": "Lists all your existing playlists.",
+			"usage": "<playlist name/id>"
 		},
 		"delete": {
 			"description": "Delete one of your existing playlists.",
@@ -198,7 +199,7 @@
 	},
 	"inviteinfo": {
 		"description": "Gets information about an invite.",
-		"usage": "[invite code/link>]"
+		"usage": "[invite code/link]"
 	},
 	"inrole": {
 		"description": "Lists users in a role.",
@@ -277,11 +278,11 @@
 	"log": {
 		"base": {
 			"description": "Controls where certain messages are logged in your guild.",
-			"usage": "<subcommand>"
+			"usage": "[subcommand]"
 		},
 		"actions": {
 			"description": "Sets where action logs are logged to. Run with no args to reset.",
-			"usage": "<channel>"
+			"usage": "[channel]"
 		}
 	},
 	"purge": {
@@ -355,7 +356,8 @@
 		"usage": "[bot mention/query]"
 	},
 	"xkcd": {
-		"description": "Gets a random XKCD comic."
+		"description": "Gets a random (or not) XKCD comic.",
+		"usage": "<comic number>"
 	},
 	"leave": {
 		"description": "Leaves the voice channel and dumps the queue."
@@ -429,7 +431,7 @@
 	},
 	"warnings": {
 		"description": "Views your/another users warnings.",
-		"args": "<user>"
+		"usage": "<user>"
 	},
 	"funban": {
 		"description": "Bans a user but it's fun (and slightly spammy)",
@@ -447,7 +449,7 @@
 		"fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
 	},
 	"help": {
-		"usage": "[command|plugin]",
+		"usage": "<command|plugin>",
 		"description": "View all of Atlas' commands or get help for a specific command or plugin."
 	},
 	"meme": {
@@ -510,7 +512,7 @@
 	},
 	"captcha": {
 		"description": "Are you a robot? I know I am.",
-		"usage": "[user]"
+		"usage": "<user>"
 	},
 	"invite": {
 		"description": "Get Atlas in your own server by inviting me!"
