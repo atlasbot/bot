@@ -39,7 +39,7 @@ module.exports = class Event {
 
 			if (gatekeeper.channel.enabled) {
 				if (channel) {
-					parser.data.channel = channel;
+					parser.context.channel = channel;
 
 					const { output } = await parser.parse(gatekeeper.channel.content);
 
@@ -51,7 +51,7 @@ module.exports = class Event {
 				try {
 					const dmChannel = await member.user.getDMChannel();
 
-					parser.data.channel = dmChannel;
+					parser.context.channel = dmChannel;
 
 					const { output } = await parser.parse(gatekeeper.dm.content);
 
