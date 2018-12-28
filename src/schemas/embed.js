@@ -25,7 +25,7 @@ module.exports = {
 		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
 	},
 	thumbnail: {
-		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null]),
+		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null, '']),
 	},
 	timestamp: Joi.date().timestamp().allow([true, false, null]),
 };
