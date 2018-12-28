@@ -49,7 +49,7 @@ module.exports = class Mute extends Command {
 		// make sure permission overwrites are set
 		for (const channel of msg.guild.channels.filter(c => (c.type === 0) || (c.type === 2))) {
 			// we don't wanna fuck with permissions in ticket categories
-			if (!(settings.ticketCategory && settings.ticketCategory.id === channel.parentID) || channel.permissionOverwrites.get(role.id)) {
+			if (channel.permissionOverwrites.get(role.id)) {
 				try {
 					await channel.editPermission(role.id, 0, 2099264, 'role', 'Mute role permissions');
 				} catch (e) {

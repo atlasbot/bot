@@ -32,15 +32,6 @@ module.exports = class GuildSettings {
 	}
 
 	/**
-    * The guilds ticket category
-    * @readonly
-    * @memberof Guild
-    */
-	get ticketCategory() {
-		return this.guild.channels.get(this.raw.plugins.tickets.category);
-	}
-
-	/**
     * The ID of the server
     * @readonly
     * @memberof Guild
