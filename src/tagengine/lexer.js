@@ -6,7 +6,6 @@ module.exports = class Lexer {
 	static lex(script) {
 		const tokens = [];
 
-
 		let content = script.split(/(\{|\}|;)/);
 
 		content = content
@@ -16,20 +15,20 @@ module.exports = class Lexer {
 		for (const token of content) {
 			switch (token) {
 				case '{':
-					tokens.push(new Token('LBRACKET', token)[0]);
+					tokens.push(new Token('LBRACKET', token));
 					break;
 				case '}':
-					tokens.push(new Token('RBRACKET', token)[0]);
+					tokens.push(new Token('RBRACKET', token));
 					break;
 				case ';':
-					tokens.push(new Token('SEMI', token)[0]);
+					tokens.push(new Token('SEMI', token));
 					break;
 				default:
-					tokens.push(new Token('WORD', token)[0]);
+					tokens.push(new Token('WORD', token));
 					break;
 			}
 		}
-		tokens.push(new Token('EOF', '')[0]);
+		tokens.push(new Token('EOF', ''));
 
 		return tokens;
 	}

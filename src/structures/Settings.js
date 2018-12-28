@@ -392,7 +392,7 @@ module.exports = class GuildSettings {
 
 					if (actions.length !== 1) {
 						// sleep for 1s to prevent abuse
-						await this.Atlas.lib.uitls.sleep(1000);
+						await this.Atlas.lib.utils.sleep(1000);
 					}
 				} catch (e) {
 					console.warn('Error executing action', e);

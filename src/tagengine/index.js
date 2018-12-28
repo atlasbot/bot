@@ -53,7 +53,7 @@ module.exports = class {
 					return {
 						execute: async (context, args) => {
 							await command.execute({
-								...this.context,
+								...context,
 								type: 0,
 								author: user,
 								member: guild.members.get(user.id),
@@ -99,6 +99,7 @@ module.exports = class {
 		}
 
 		const ast = Lexer.lex(source);
+
 		const parsed = await Parser.parse(ast);
 
 		return interpreter(parsed, this.context, this.tags);

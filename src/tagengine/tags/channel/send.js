@@ -35,8 +35,8 @@ module.exports = async (context, args) => {
 	});
 
 	if (!content) {
-		// tag was parsed and probably executed correctly
 		if (args[0]) {
+			// tag was parsed and probably executed correctly
 			return;
 		}
 

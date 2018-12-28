@@ -90,7 +90,7 @@ module.exports = class Action {
 
 				if (this.content.length !== 1) {
 					// sleep for 1s between each subaction to prevent abuse
-					await this.Atlas.lib.uitls.sleep(1000);
+					await this.Atlas.lib.utils.sleep(1000);
 				}
 			} catch (e) {
 				console.error(e);

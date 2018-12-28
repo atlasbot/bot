@@ -1,8 +1,28 @@
 const TagError = require('./TagError');
+const Atlas = require('../../Atlas');
 
 const interp = async (tokens, context, functions) => {
 	const output = [];
 	const errors = [];
+
+	const parseArgs = async ([tkns], ctx = context) => {
+		const out = [];
+
+		if (!tkns) {
+			return [];
+		}
+
+		for (const tkn of tkns) {
+			// this fucking mess parses subtags
+			const ret = await interp([tkn], ctx, functions);
+
+			errors.push(...ret.errors);
+
+			out.push(ret.output);
+		}
+
+		return out;
+	};
 
 	for (const token of tokens) {
 		if (token.type === 'BRACKETGROUP') {
@@ -10,79 +30,61 @@ const interp = async (tokens, context, functions) => {
 
 			const func = functions.get(thisToken.value);
 
-			const parseArgs = async (args, ctx) => {
-				// this fucking mess parses subtags
-				const parsed = [];
-
-				for (const arg of args) {
-					if (arg.type !== 'WORD') {
-						const childOutput = await interp([arg], ctx || context, functions);
-
-						parsed.push(childOutput.output);
-						errors.push(...childOutput.errors);
-					} else {
-						parsed.push(arg.value);
-					}
-				}
-
-				return parsed;
-			};
-
-			let args = token.value.map(a => ({
-				...a[0],
-				value: a[0].value.trim ? a[0].value.trim() : a[0].value,
-			}));
-
-			// pseudo "log" tag. not registered like normal because it's disabled in production and shouldn't be documented.
-			if (thisToken.value === 'log' && process.env.NODE_ENV === 'development') {
-				console.log(args);
-
-				output.push('logged');
-
-				continue;
+			let args = token.value;
+			if (func && !func.info.dontParse) {
+				args = await parseArgs(token.value);
 			}
 
 			if (func) {
-				if (!func.info.dontParse) {
-					args = await parseArgs(args);
-				}
-
+				// wew valid tag
 				if (func.info.dependencies && func.info.dependencies.some(k => !context[k])) {
 					output.push(`{${thisToken.value}-MISSINGDEP}`);
-				} else {
-					try {
-						const out = await func.execute({
-							...context,
-							parseArgs,
-						}, args, {
-							output,
-							errors,
-						});
 
-						output.push(out);
-					} catch (e) {
-						if (process.env.NODE_ENV === 'development') {
-							console.warn(e);
-						}
+					continue;
+				}
 
-						if (e instanceof TagError) {
-							errors.push(e);
-						} else {
-							errors.push(new TagError(e));
-						}
+				try {
+					// (try) and run the tag
+					const out = await func.execute({
+						...context,
+						parseArgs,
+					}, args, {
+						output,
+						errors,
+					});
 
-						output.push(`{${thisToken.value}-ERROR${errors.length}}`);
+					output.push(out);
+				} catch (e) {
+					// error handling
+					if (process.env.NODE_ENV === 'development') {
+						console.warn(e);
+					}
+
+					if (e instanceof TagError) {
+						errors.push(e);
+					} else {
+						errors.push(new TagError(e));
+					}
+
+					output.push(`{${thisToken.value}-ERROR${errors.length}}`);
+
+					if (Atlas.Raven) {
+						Atlas.Raven.captureException(e);
 					}
 				}
+
+				// if it ran into an error or was successful it would have been managed
 
 				continue;
 			}
 
+			// invalid tag name
 			output.push(`{${thisToken.value}-INVALID}`);
 
 			continue;
 		}
 
+		// regular text/words
 		output.push(token.value);
 	}
 

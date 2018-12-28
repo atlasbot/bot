@@ -21,7 +21,7 @@ module.exports.info = {
 	description: 'Gets the user\'s next level.',
 	args: '<user>',
 	examples: [{
-		input: '{user.level}',
+		input: '{user.nextLevel}',
 		output: '2',
 	}],
 	dependencies: ['user', 'guild'],
