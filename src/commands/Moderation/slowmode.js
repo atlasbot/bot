@@ -17,9 +17,9 @@ module.exports = class SlowMode extends Command {
 		if (!args.length) {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
-		const num = Number(args[0]);
+		const num = this.Atlas.lib.utils.parseNumber(args[0]);
 
-		if (this.Atlas.lib.utils.parseBool(args[0]) || num === 0) {
+		if (this.Atlas.lib.utils.parseBool(args[0]) === false || num === 0) {
 			await this.Atlas.client.requestHandler.request('PATCH', Endpoints.CHANNEL(msg.channel.id), true, {
 				rate_limit_per_user: 0,
 			});
@@ -27,7 +27,7 @@ module.exports = class SlowMode extends Command {
 			return responder.text('slowmode.disabled', msg.channel.mention).send();
 		}
 
-		if (!num) {
+		if (isNaN(num)) {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
