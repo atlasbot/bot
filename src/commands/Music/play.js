@@ -198,10 +198,12 @@ module.exports.info = {
 	],
 	aliases: [
 		'add',
+		'p',
 		// pre-v8 had a "qplaylist" command because lavalink wouldn't handle it properly, this is legacy support
 		'qplaylist',
 		'qp',
-		'queueplaylist', 'queuep',
+		'queueplaylist',
+		'queuep',
 	],
 	guildOnly: true,
 	permissions: {

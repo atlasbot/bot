@@ -50,7 +50,7 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'play',
-	aliases: ['queue'],
+	aliases: ['queue', 'p'],
 	guildOnly: true,
 	patronOnly: true,
 };
