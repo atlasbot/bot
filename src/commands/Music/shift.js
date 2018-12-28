@@ -16,12 +16,12 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'shift');
 
-		const currIndex = Math.floor(this.Atlas.lib.utils.parseNumber(args[0])) - 1;
+		const currIndex = this.Atlas.lib.utils.parseNumber(args[0]) - 1;
 		if (!isFinite(currIndex)) {
 			return responder.error('invalidCurrIndex').send();
 		}
 
-		const newIndex = Math.floor(this.Atlas.lib.utils.parseNumber(args[0])) - 1;
+		const newIndex = this.Atlas.lib.utils.parseNumber(args[1]) - 1;
 		if (!isFinite(newIndex)) {
 			return responder.error('invalidNewIndex').send();
 		}
@@ -40,12 +40,12 @@ module.exports = class extends Command {
 			return responder.error('general.player.sameVoiceChannel').send();
 		}
 
-		const track = player.queue[currIndex];
+		const track = player.queue.splice(currIndex, 1)[0];
 		if (!track) {
 			return responder.error('noTrack', currIndex).send();
 		}
 
-		player.queue.splice(newIndex, 0, player.queue.splice(currIndex, 1)[0]);
+		player.queue.splice(newIndex, 0, track);
 
 		return responder.text('moved', track.info.title, currIndex + 1, newIndex + 1).send();
 	}
