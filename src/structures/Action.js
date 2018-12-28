@@ -63,7 +63,7 @@ module.exports = class Action {
 			return responder.error('disabled').send();
 		}
 
-		if (this.trigger.type !== 'interval') {
+		if (!['interval', 'guildMemberAdd', 'guildMemberRemove'].includes(this.trigger.type)) {
 			const errorKey = this.Atlas.lib.utils.checkRestriction({
 				roles: msg.member.roles || [],
 				channel: msg.channel.id,
@@ -87,6 +87,11 @@ module.exports = class Action {
 		for (const subaction of this.content) {
 			try {
 				await this.runSubAction(msg, subaction);
+
+				if (this.content.length !== 1) {
+					// sleep for 1s between each subaction to prevent abuse
+					await this.Atlas.lib.uitls.sleep(1000);
+				}
 			} catch (e) {
 				console.error(e);
 			}

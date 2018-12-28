@@ -11,6 +11,21 @@ module.exports = class Event {
 
 		const gatekeeper = settings.plugin('gatekeeper');
 
+		const channel = guild.channels.get(gatekeeper.leave.channel);
+
+		await settings.runActions({
+			guild: guild.id,
+			'trigger.type': 'guildMemberRemove',
+		}, {
+			msg: {
+				member,
+				guild,
+				author: member.user,
+				channel: channel || guild.channels.get(guild.systemChannelID),
+			},
+			user: member.user,
+		});
+
 		// regex stops people joining with invites/other links in their name and immediately leaving to advertise things.
 		// idk why i decided to use regex but it's gud enuf
 		if (gatekeeper.state === 'enabled' && !/[A-z]{2,}\.(?:com|gg|io|net|org|tv|me)/.test(member.username)) {
@@ -18,8 +33,6 @@ module.exports = class Event {
 
 
 			if (gatekeeper.leave.enabled) {
-				const channel = guild.channels.get(gatekeeper.leave.channel);
-
 				if (channel) {
 					const parser = new Parser({
 						channel,

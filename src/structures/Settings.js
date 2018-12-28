@@ -422,6 +422,14 @@ module.exports = class GuildSettings {
 
 	async findActions(msg) {
 		const triggers = (await this.getTriggers()).filter(({ trigger }) => {
+			if (trigger.type === 'messageCreate') {
+				if (!trigger.content) {
+					return true;
+				}
+
+				return trigger.content === msg.channel.id;
+			}
+
 			if (trigger.type === 'label' && msg.label === trigger.content) {
 				return true;
 			}

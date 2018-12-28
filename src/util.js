@@ -98,6 +98,10 @@ module.exports = class Util {
 		let val;
 		for (const key of keys) {
 			val = target[key] || def[key];
+
+			if (val) {
+				break;
+			}
 		}
 
 		if (val) {
