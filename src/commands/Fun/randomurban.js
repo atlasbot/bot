@@ -1,4 +1,6 @@
 const superagent = require('superagent');
+const swearjar = require('swearjar');
+
 const Command = require('../../structures/Command.js');
 
 /* eslint-disable camelcase */
@@ -17,11 +19,7 @@ module.exports = class RandomUrban extends Command {
 				term: args.join(' '),
 			})
 			.set('User-Agent', this.Atlas.userAgent);
-
-		const filter = this.Atlas.filters.get('cursing');
-
-		// try and filter down to no nsfw posts
-		const filtered = msg.channel.nsfw ? body.list : body.list.filter(({ definition }) => !filter.execute(definition));
+		const filtered = msg.channel.nsfw ? body.list : body.list.filter(({ definition }) => !swearjar.profane(definition));
 
 		const { word, author, thumbs_up, thumbs_down, definition } = (filtered.length ? filtered : body.list).reduce((a, b) => {
 			if ((a.thumbs_up - a.thumbs_down) > (b.thumbs_up - b.thumbs_down)) {
@@ -32,7 +30,7 @@ module.exports = class RandomUrban extends Command {
 		});
 
 
-		if (!msg.channel.nsfw && filter.execute(definition)) {
+		if (!msg.channel.nsfw && swearjar.profane(definition)) {
 			return responder.error('nsfwDef').send();
 		}
 

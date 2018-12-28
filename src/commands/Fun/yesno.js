@@ -12,7 +12,7 @@ module.exports = class YesNo extends Command {
 		const { body } = await superagent.get('https://yesno.wtf/api');
 
 		return responder.localised().embed({
-			title: this.Atlas.lib.utils.capitalize(body.answer),
+			title: body.answer === 'no' ? 'No.' : 'Yes!',
 			image: {
 				url: body.image,
 			},

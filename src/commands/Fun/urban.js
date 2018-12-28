@@ -1,4 +1,5 @@
 const superagent = require('superagent');
+const swearjar = require('swearjar');
 const Command = require('../../structures/Command.js');
 
 /* eslint-disable camelcase */
@@ -15,9 +16,7 @@ module.exports = class Urban extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		const filter = this.Atlas.filters.get('cursing');
-
-		if (!msg.channel.nsfw && filter.execute(args.join(' '))) {
+		if (!msg.channel.nsfw && swearjar.profane(args.join(' '))) {
 			return responder.error('nsfwWord').send();
 		}
 
@@ -39,7 +38,7 @@ module.exports = class Urban extends Command {
 			return b;
 		});
 
-		if (!msg.channel.nsfw && filter.execute(definition)) {
+		if (!msg.channel.nsfw && swearjar.profane(definition)) {
 			return responder.error('nsfwDef').send();
 		}
 
