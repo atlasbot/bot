@@ -14,6 +14,7 @@ module.exports = class GuildSettings {
   	*/
 	constructor(settings) {
 		// mongoose does stupid stuff, toObject makes it a regular, fun object.
+		// https://i.sylver.me/hCS7u7.jpg
 		this.raw = settings.toObject ? settings.toObject() : settings;
 
 		this.Atlas = require('../../Atlas');

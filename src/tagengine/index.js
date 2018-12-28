@@ -37,6 +37,8 @@ module.exports = class {
 		// coming soon to a parser near you
 		this.managed = managed;
 
+		this.settings = settings;
+
 		this.tags = tags;
 
 		// janky "temporary" way for tag aliases that will probably never be replaced :^)
@@ -87,6 +89,10 @@ module.exports = class {
 	}
 
 	async parse(source) {
+		const volatile = new Map();
+
+		const persistent = new Map(this.settings.raw.persistent);
+
 		if (!source || !source.includes('{')) {
 			if (!source && process.env.VERBOSE) {
 				console.warn(new Error('No source, returning nothing'));
@@ -102,6 +108,21 @@ module.exports = class {
 
 		const parsed = await Parser.parse(ast);
 
-		return interpreter(parsed, this.context, this.tags);
+		const output = await interpreter(parsed, {
+			...this.context,
+			volatile,
+			persistent,
+		}, this.tags);
+
+		const modified = source.includes('perset') || (persistent.size !== this.settings.raw.persistent.length);
+
+		if (modified) {
+			// persistent storage was modified, save that shit
+			await this.settings.update({
+				persistent: Array.from(persistent),
+			});
+		}
+
+		return output;
 	}
 };
