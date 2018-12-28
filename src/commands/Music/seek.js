@@ -53,7 +53,7 @@ module.exports = class extends Command {
 		if (ms > player.track.info.length) {
 			return responder.error('overTrackLength', this.Atlas.lib.utils.prettyMs(player.track.info.length, {
 				verbose: false,
-			}));
+			})).send();
 		}
 
 		await player.seek(ms);
