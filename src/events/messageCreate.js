@@ -54,6 +54,10 @@ module.exports = class Ready {
 				for (const action of actions) {
 					try {
 						await action.execute(msg);
+						if (actions.length !== 1) {
+							// sleep for 1s to prevent abuse
+							await this.Atlas.lib.uitls.sleep(1000);
+						}
 					} catch (e) {
 						console.error(e);
 					}
