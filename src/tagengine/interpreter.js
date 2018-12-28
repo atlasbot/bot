@@ -5,8 +5,14 @@ const interp = async (tokens, context, functions) => {
 	const output = [];
 	const errors = [];
 
-	const parseArgs = async ([tkns], ctx = context) => {
+	const parseArgs = async (tkns, ctx = context) => {
+		let returnArray = true;
 		const out = [];
+
+		if (!Array.isArray(tkns[0])) {
+			tkns = [tkns];
+			returnArray = false;
+		}
 
 		if (!tkns) {
 			return [];
@@ -14,14 +20,14 @@ const interp = async (tokens, context, functions) => {
 
 		for (const tkn of tkns) {
 			// this fucking mess parses subtags
-			const ret = await interp([tkn], ctx, functions);
+			const ret = await interp(tkn, ctx, functions);
 
 			errors.push(...ret.errors);
 
 			out.push(ret.output);
 		}
 
-		return out;
+		return returnArray ? out : out[0];
 	};
 
 	for (const token of tokens) {
@@ -44,10 +50,28 @@ const interp = async (tokens, context, functions) => {
 				}
 
 				try {
+					let textArgs = null;
+					if (func.info.dontParse) {
+						textArgs = args.map((a) => {
+							// don't worry about it ;)
+							let val = '';
+
+							for (const x of a) {
+								if (Array.isArray(x.value)) {
+									val += x.value[0].value;
+								} else {
+									val += x.value;
+								}
+							}
+
+							return val;
+						});
+					}
 					// (try) and run the tag
 					const out = await func.execute({
 						...context,
 						parseArgs,
+						textArgs,
 					}, args, {
 						output,
 						errors,
