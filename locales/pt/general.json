@@ -1,4 +1,8 @@
 {
+	"roles": {
+		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
+		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
+	},
 	"plugin": {
 		"disabled": "That plugin has been disabled by a server administrator.",
 		"restrictions": {
