@@ -165,7 +165,7 @@ module.exports = class extends Player {
 
 			if (this.repeat) {
 				// add it to the end of the queue
-				this.queue.push(this.lastTrack);
+				this.queue.push(this.lastTrack || this.track);
 			}
 
 			if (this.queue.length) {
