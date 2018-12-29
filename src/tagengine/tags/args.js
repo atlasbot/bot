@@ -1,6 +1,6 @@
 const TagError = require('../TagError');
 
-module.exports = async ({ msg }, [i, r = '1']) => {
+module.exports = async ({ msg, Atlas }, [i, r = '1']) => {
 	let args;
 	if (msg.args) {
 		// should already be there for commands
@@ -13,17 +13,19 @@ module.exports = async ({ msg }, [i, r = '1']) => {
 		return args.join(' ');
 	}
 
-	const index = this.Atlas.lib.utils.parseNumber(i) - 1;
+	const index = Atlas.lib.utils.parseNumber(i) - 1;
 	if (isNaN(index)) {
 		throw new TagError('Expected "index" to be a finite number.');
 	}
 
-	const range = this.Atlas.lib.utils.parseNumber(r);
+	const range = Atlas.lib.utils.parseNumber(r);
 	if (isNaN(range)) {
 		throw new TagError('Expected "range" to be a finite number.');
 	}
 
-	return args.slice(index, range).join(' ');
+	const cloned = args.slice();
+
+	return cloned.splice(index, range).join(' ');
 };
 
 module.exports.info = {
