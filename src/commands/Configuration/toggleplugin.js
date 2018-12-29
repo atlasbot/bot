@@ -13,7 +13,7 @@ module.exports = class TogglePlugin extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Paginator(msg, null, 'toggleplugin');
+		const responder = new this.Atlas.structs.Responder(msg, null, 'toggleplugin');
 
 		if (!args.length) {
 			return responder.error('noArgs').send();

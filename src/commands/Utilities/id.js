@@ -7,7 +7,7 @@ module.exports = class ID extends Command {
 	}
 
 	async action(msg, args) {
-		const responder = new this.Atlas.structs.Paginator(msg);
+		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (!args.length) {
 			return responder.error('id.noArgs').send();

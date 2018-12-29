@@ -9,7 +9,7 @@ module.exports = class extends Command {
 		settings,
 	}) {
 		// this is essentially the same as "delete" so it uses the same keys
-		const responder = new this.Atlas.structs.Paginator(msg.channel, (msg.lang || settings.lang), 'playlist.delete');
+		const responder = new this.Atlas.structs.Responder(msg.channel, (msg.lang || settings.lang), 'playlist.delete');
 
 		if (!args[0]) {
 			return responder.error('noArgs').send();

@@ -8,7 +8,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Paginator(msg.channel, (msg.lang || settings.lang), 'playlist.delete');
+		const responder = new this.Atlas.structs.Responder(msg.channel, (msg.lang || settings.lang), 'playlist.delete');
 
 		if (!args[0]) {
 			return responder.error('noArgs').send();
