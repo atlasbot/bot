@@ -1,4 +1,15 @@
 {
+	"iam": {
+		"noRoles": "This server does not have any available roles.",
+		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
+		"unassignable": "I lack the permissions to assign you that role.",
+		"removed": "You no longer have the {0} role.",
+		"added": "You now have the {0} role.",
+		"embed": {
+			"title": "Available \"iam\" Roles​",
+			"footer": "\"{0}iam [role]\" to claim a role"
+		}
+	},
 	"convert": {
 		"invalidUnits": "Please include valid units.",
 		"invalidFrom": "Please include a valid input measurement.",
