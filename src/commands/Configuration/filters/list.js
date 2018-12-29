@@ -27,7 +27,7 @@ module.exports = class List extends Command {
 			const s = settings.plugin('moderation').filters[f.info.settingsKey];
 
 			col1.push(f.info.name);
-			col2.push(`\`${actionTypes.find(c => c.type === s.action_type).human}\``);
+			col2.push(`\`${actionTypes.find(c => c.type === s.action).human}\``);
 		});
 
 		return responder.embed({

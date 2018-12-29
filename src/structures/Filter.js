@@ -13,7 +13,7 @@ module.exports = class Filter {
 		// jesus christ
 		if (
 			(settings.plugin('moderation').state === 'disabled'
-        || filterConfig.action_type === 0
+        || filterConfig.action === 0
 				|| (msg.author.bot && filterConfig.sanction.bots !== true))
         || msg.author.id === this.Atlas.client.user.id
 				|| !msg.guild.me.permission.has('manageMessages')
@@ -44,7 +44,7 @@ module.exports = class Filter {
 			if (output) {
 				const responder = new this.Atlas.structs.Responder(msg);
 
-				if (filterConfig.action_type === 1 || filterConfig.action_type === 2) {
+				if (filterConfig.action === 1 || filterConfig.action === 2) {
 					if (Array.isArray(output)) {
 						if (output.every(id => this.Atlas.lib.utils.isSnowflake(id))) {
 							await msg.channel.deleteMessages(output);
@@ -54,7 +54,7 @@ module.exports = class Filter {
 					}
 				}
 
-				if (filterConfig.action_type === 2 || filterConfig.action_type === 3) {
+				if (filterConfig.action === 2 || filterConfig.action === 3) {
 					// warn the user
 					await settings.addInfraction({
 						target: msg.author,

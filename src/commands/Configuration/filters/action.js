@@ -48,7 +48,7 @@ module.exports = class Action extends Command {
 		}
 
 		await settings.update({
-			[`plugins.moderation.filters.${filter.info.settingsKey}.action_type`]: newType.type,
+			[`plugins.moderation.filters.${filter.info.settingsKey}.action`]: newType.type,
 		});
 
 		return responder.text('filters.action.success', filter.info.name, newType.human).send();
