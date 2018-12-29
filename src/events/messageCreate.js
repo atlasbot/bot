@@ -121,10 +121,6 @@ module.exports = class Ready {
 					}
 				}
 
-				if (msg.author.id === process.env.OWNER && this.Atlas.env === 'development') {
-					msg.addReaction('🔁').catch(() => false);
-				}
-
 				return msg.command.execute(msg, msg.args, {
 					settings,
 					parsedArgs,

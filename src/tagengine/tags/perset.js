@@ -10,8 +10,6 @@ module.exports = async ({ persistent }, [key, value]) => {
 	}
 
 	if (!value) {
-		console.log('deleting');
-
 		persistent.delete(key);
 	} else {
 		persistent.set(key, value);
