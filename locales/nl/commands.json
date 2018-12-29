@@ -192,6 +192,7 @@
 	"donate": "Steun Atlas en unlock coole dingen als bedankje door te doneren op <https://www.patreon.com/NotSylver>.",
 	"invite": "Je kan Atlas in je eigen server krijgen via <https://atlasbot.xyz/get>.",
 	"help": {
+		"sent": "Check your direct-messages for help!",
 		"footer": "{0} commands",
 		"disabled": {
 			"plural": " • {0} plugins disabled",
