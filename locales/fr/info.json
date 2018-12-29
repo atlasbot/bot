@@ -5,7 +5,7 @@
 	},
 	"convert": {
 		"description": "Convert things to other things. Supports currency, mass, length, etc...",
-		"usage": "<units> <from> <to>"
+		"usage": "[units] [from] [to]"
 	},
 	"haveibeenpwned": {
 		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
@@ -13,7 +13,7 @@
 	},
 	"isspass": {
 		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
-		"usage": "<location>"
+		"usage": "[location]"
 	},
 	"fact": {
 		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
@@ -41,7 +41,7 @@
 	},
 	"randomcase": {
 		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
-		"usage": "<TeXt>"
+		"usage": "[TeXt]"
 	},
 	"dashboard": {
 		"description": "Get a link to your servers dashboard."
@@ -59,7 +59,8 @@
 			"usage": "[name]"
 		},
 		"list": {
-			"description": "Lists all your existing playlists."
+			"description": "Lists all your existing playlists.",
+			"usage": "<playlist name/id>"
 		},
 		"delete": {
 			"description": "Delete one of your existing playlists.",
@@ -198,7 +199,7 @@
 	},
 	"inviteinfo": {
 		"description": "Avoir des informations à propos d'une invitation.",
-		"usage": "[invite code/link>]"
+		"usage": "[invite code/link]"
 	},
 	"inrole": {
 		"description": "Liste les utilisateurs dans un rôle.",
@@ -277,11 +278,11 @@
 	"log": {
 		"base": {
 			"description": "Contrôle l'endroit où certains messages sont enregistrés dans votre guilde.",
-			"usage": "<subcommand>"
+			"usage": "[subcommand]"
 		},
 		"actions": {
 			"description": "Définit l'endroit où les journaux d'actions sont enregistrés. Fonctionne sans args à réinitialiser.",
-			"usage": "<channel>"
+			"usage": "[channel]"
 		}
 	},
 	"purge": {
@@ -355,7 +356,8 @@
 		"usage": "[bot mention/query]"
 	},
 	"xkcd": {
-		"description": "Obtient une bande dessinée XKCD au hasard."
+		"description": "Gets a random (or not) XKCD comic.",
+		"usage": "<comic number>"
 	},
 	"leave": {
 		"description": "Quitte le canal vocal et décharge la file d'attente."
@@ -429,7 +431,7 @@
 	},
 	"warnings": {
 		"description": "Affiche vos/autres avertissements d'utilisateurs.",
-		"args": "<user>"
+		"usage": "<user>"
 	},
 	"funban": {
 		"description": "Bannir un utilisateur mais c'est amusant (et légèrement spammé)",
@@ -447,7 +449,7 @@
 		"fullDescription": "Soutenez Atlas en devenant un Patreon et obtenez d'incroyables avantages en retour !"
 	},
 	"help": {
-		"usage": "[command|plugin]",
+		"usage": "<command|plugin>",
 		"description": "Voir toutes les commandes d'Atlas ou obtenir de l'aide pour une commande ou un plugin spécifique."
 	},
 	"meme": {
@@ -510,7 +512,7 @@
 	},
 	"captcha": {
 		"description": "Vous êtes un robot ? Je sais que je le suis.",
-		"usage": "[user]"
+		"usage": "<user>"
 	},
 	"invite": {
 		"description": "Obtenez Atlas sur votre propr serveur en m'invitant!"
