@@ -14,12 +14,12 @@ module.exports = class Filter {
 		if (
 			(settings.plugin('moderation').state === 'disabled'
         || filterConfig.action_type === 0
-				|| (msg.author.bot && filterConfig.sanction_bots !== true))
+				|| (msg.author.bot && filterConfig.sanction.bots !== true))
         || msg.author.id === this.Atlas.client.user.id
 				|| !msg.guild.me.permission.has('manageMessages')
-				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction_moderators)
-        || filterConfig.exempt_channels.includes(msg.channel.id)
-        || filterConfig.exempt_roles.find(r => msg.member.roles && msg.member.roles.includes(r))
+				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
+        || filterConfig.exempt.channels.includes(msg.channel.id)
+        || filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))
 		) {
 			return false;
 		}
