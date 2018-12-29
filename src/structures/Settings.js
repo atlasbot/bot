@@ -73,7 +73,9 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get actionLogChannel() {
-		return this.guild.channels.get(this.plugin('moderation').logs.action);
+		const channels = this.plugin('moderation').logs;
+
+		return channels && this.guild.channels.get(channels.action);
 	}
 
 	/**
@@ -82,7 +84,9 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get modLogChannel() {
-		return this.guild.channels.get(this.plugin('moderation').logs.mod);
+		const channels = this.plugin('moderation').logs;
+
+		return channels && this.guild.channels.get(channels.mod);
 	}
 
 	/**
@@ -91,7 +95,9 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get errorLogChannel() {
-		return this.guild.channels.get(this.plugin('moderation').logs.error);
+		const channels = this.plugin('moderation').logs;
+
+		return channels && this.guild.channels.get(channels.error);
 	}
 
 	filter(name) {
