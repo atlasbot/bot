@@ -192,6 +192,7 @@
 	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
+		"sent": "Check your direct-messages for help!",
 		"footer": "{0} commands",
 		"disabled": {
 			"plural": " • {0} plugins disabled",
