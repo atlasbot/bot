@@ -45,7 +45,7 @@ module.exports = class {
 		this.tags.get = (key) => {
 			// in dev environments prefix is different, but i want compat so 'a!',
 			//  also pre-v8 used 'a!' no matter what so more compat
-			const prefix = ['a!', process.env.DEFAULT_PREFIX, settings.prefix].find(p => key.startsWith(p));
+			const prefix = ['a!', process.env.DEFAULT_PREFIX, settings.prefix].filter(f => f && typeof f === 'string').find(p => key.startsWith(p));
 
 			if (prefix) {
 				const label = key.substring(prefix.length);
