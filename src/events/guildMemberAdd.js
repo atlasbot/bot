@@ -9,7 +9,28 @@ module.exports = class Event {
 	async execute(guild, member) {
 		const settings = await this.Atlas.DB.getSettings(guild.id);
 
+		const roles = settings.plugin('roles');
 		const gatekeeper = settings.plugin('gatekeeper');
+
+		if (roles.state === 'enabled' && roles.options.join.length) {
+			// add join roles
+			const toAdd = roles.options.join.map(r => guild.roles.get(r)).filter(r => r && !r.higherThan(guild.me.highestRole));
+
+			if (toAdd.length) {
+				// 5 roles max
+				for (const role of toAdd.slice(0, 5).filter(r => !member.roles.includes(r.id))) {
+					try {
+						await member.addRole(role.id);
+					} catch (e) {
+						console.warn(e);
+
+						if (this.Atlas.Raven) {
+							this.Atlas.Raven.captureException(e);
+						}
+					}
+				}
+			}
+		}
 
 		const channel = guild.channels.get(gatekeeper.channel.channel);
 
