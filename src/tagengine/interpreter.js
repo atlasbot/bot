@@ -113,7 +113,7 @@ const interp = async (tokens, context, functions) => {
 	}
 
 	return {
-		output: output.join(' '),
+		output: output.join(''),
 		errors,
 	};
 };
