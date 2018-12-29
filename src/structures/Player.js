@@ -171,6 +171,10 @@ module.exports = class extends Player {
 			if (this.queue.length) {
 				const next = this.queue.shift();
 
+				if (!next) {
+					throw new Error('No track but apparently there was one - something fucked up.');
+				}
+
 				return this.play(next, {
 					force: true,
 				});
