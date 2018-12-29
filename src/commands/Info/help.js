@@ -11,7 +11,7 @@ module.exports = class Help extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	action(msg, args, {
+	async action(msg, args, {
 		settings,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
@@ -77,7 +77,28 @@ module.exports = class Help extends Command {
 				});
 			}
 
-			return responder.embed(embed).send();
+			if (settings) {
+				const actions = await this.Atlas.DB.Action.find({
+					guild: msg.guild.id,
+					'trigger.type': 'label',
+				});
+
+				if (actions.length) {
+					embed.fields.push({
+						name: `Actions • ${actions.length}`,
+						value: `\`${actions.map(a => msg.displayPrefix + a.trigger.content).join('`, `')}\``,
+					});
+				}
+			}
+
+			const sentMsg = await responder.embed(embed).dm(msg.author.id).send();
+
+			if (sentMsg.channel.id !== msg.channel.id) {
+				// it was probably dm'd
+				return responder.text('help.sent').send();
+			}
+
+			return sentMsg;
 		}
 
 		// they're looking for a plugin or command
