@@ -1,4 +1,8 @@
 {
+	"iam": {
+		"description": "Give yourself a role that server admins have published.",
+		"usage": "<role>"
+	},
 	"purgeban": {
 		"description": "Bans a user and purges their messages over the last 7 days.",
 		"usage": "[user] <reason>"
