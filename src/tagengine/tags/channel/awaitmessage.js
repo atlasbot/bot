@@ -1,17 +1,20 @@
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
 const Collector = require('../../../structures/MessageCollector');
+const parseNumber = require('./../../../../lib/utils/parseNumber');
 
-module.exports = middleware(async ({ channel }, [author, timeout = '30']) => {
+module.exports = middleware(async ({ channel, Atlas }, [author, timeout = '30']) => {
 	if (channel.type !== 0) {
 		throw new TagError('This tag only works for text channels.');
 	}
 
-	if (!isFinite(timeout)) {
+	timeout = Atlas.lib.utils.parseNumber(timeout);
+
+	if (isNaN(timeout)) {
 		throw new TagError('Timeout must be a number.');
 	}
 
-	timeout = Number(timeout);
+	timeout = parseNumber(timeout);
 
 	const collector = new Collector(channel, msg => !author || msg.author.id === author);
 

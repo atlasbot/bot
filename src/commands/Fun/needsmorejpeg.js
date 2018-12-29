@@ -21,9 +21,9 @@ module.exports = class NeedsMoreJPEG extends Command {
 
 		const image = await jimp.read(url);
 
-		let quality = 2.5;
-		if (!isNaN(args[1])) {
-			quality = Number(args[1]);
+		let quality = this.Atlas.lib.utils.parseNumber(args[1]);
+		if (isNaN(quality)) {
+			quality = 1.5;
 		}
 
 		const buffer = await image.quality(quality).getBufferAsync(jimp.MIME_JPEG);

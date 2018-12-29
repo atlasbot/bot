@@ -36,9 +36,9 @@ module.exports = class extends Command {
 
 		// remove any non-numbers (% signs ;)) and parse it as a number
 		const raw = args[0].replace(/[^0-9]+/g, '');
-		const volume = Number(raw);
+		const volume = this.Atlas.lib.utils.parseNumber(raw);
 
-		if (!isFinite(volume)) {
+		if (isNaN(volume)) {
 			return responder.error('invalid').send();
 		}
 

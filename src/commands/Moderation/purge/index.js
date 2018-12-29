@@ -8,12 +8,12 @@ module.exports = class Purge extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (args.length >= 2 && !isFinite(args[1])) {
-			// chances are they did a typo and didn't mean to call this command
+		if (args.length >= 2 && isNaN(this.Atlas.lib.utils.parseNumber(args[1]))) {
+			// chances are they did a typo and didn't mean to call this command, don't wanna accidently purge anything
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		const num = !isFinite(args[0]) ? 100 : Number(args[0]);
+		const num = this.Atlas.lib.utils.parseNumber(args[0], 100);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

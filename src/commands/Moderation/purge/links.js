@@ -8,7 +8,7 @@ module.exports = class Links extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const num = !isFinite(args[0]) ? 100 : Number(args[0]);
+		const num = this.Atlas.lib.utils.parseNumber(args[0], 100);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

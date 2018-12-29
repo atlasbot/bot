@@ -13,17 +13,17 @@ module.exports = async ({ msg }, [i, r = '1']) => {
 		return args.join(' ');
 	}
 
-	const index = Number(i) - 1;
-	if (!isFinite(index)) {
+	const index = this.Atlas.lib.utils.parseNumber(i) - 1;
+	if (isNaN(index)) {
 		throw new TagError('Expected "index" to be a finite number.');
 	}
 
-	const range = Number(r);
-	if (!isFinite(range)) {
+	const range = this.Atlas.lib.utils.parseNumber(r);
+	if (isNaN(range)) {
 		throw new TagError('Expected "range" to be a finite number.');
 	}
 
-	return args.splice(index, range).join(' ');
+	return args.slice(index, range).join(' ');
 };
 
 module.exports.info = {

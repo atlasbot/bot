@@ -1,8 +1,10 @@
 const TagError = require('../../TagError');
 const getUserXPProfile = require('../../../../lib/xputil/getUserXPProfile');
 
-module.exports = async (x, [number]) => {
-	if (!isFinite(number)) {
+module.exports = async (context, [number]) => {
+	number = context.Atlas.lib.utils.parseNumber(number);
+
+	if (isNaN(number)) {
 		throw new TagError('Invalid XP number');
 	}
 

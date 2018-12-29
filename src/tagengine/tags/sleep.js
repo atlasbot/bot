@@ -1,7 +1,10 @@
 const TagError = require('./../TagError');
+const parseNumber = require('./../../../lib/utils/parseNumber');
 
 module.exports = (info, [timeout]) => {
-	if (!timeout || !isFinite(timeout)) {
+	timeout = info.Atlas.lib.utils.parseNumber(timeout);
+
+	if (isNaN(timeout)) {
 		throw new TagError('Timeout must be a valid number.');
 	}
 
@@ -9,7 +12,7 @@ module.exports = (info, [timeout]) => {
 		throw new TagError('You cannot sleep for more than 5 minutes.');
 	}
 
-	timeout = Number(timeout);
+	timeout = parseNumber(timeout);
 
 	return new Promise(resolve => setTimeout(resolve, timeout * 1000));
 };

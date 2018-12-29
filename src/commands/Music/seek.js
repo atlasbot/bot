@@ -36,9 +36,9 @@ module.exports = class extends Command {
 
 		let ms = 0;
 		const input = args.join(' ');
-		if (isFinite(input)) {
+		if (!isNaN(input)) {
 			// input is assumed to be seconds
-			ms = Number(input) * 1000;
+			ms = this.Atlas.lib.utils.parseNumber(input) * 1000;
 		} else {
 			const parsed = parseTime(input);
 			if (parsed) {

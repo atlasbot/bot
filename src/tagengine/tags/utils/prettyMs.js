@@ -2,13 +2,15 @@ const TagError = require('../../TagError');
 
 const prettyMs = require('../../../../lib/utils/prettyMs');
 const parseBool = require('../../../../lib/utils/parseBool');
+// parse all the things :D
+const parseNumber = require('../../../../lib/utils/parseNumber');
 
 module.exports = async (x, [n, verbose = 'true']) => {
-	if (!isFinite(n)) {
+	const ms = parseNumber(n);
+
+	if (isNaN(ms)) {
 		throw new TagError('Invalid millisecond input');
 	}
-
-	const ms = Number(n);
 
 	return prettyMs(ms, {
 		verbose: parseBool(verbose),

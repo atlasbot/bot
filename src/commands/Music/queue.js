@@ -18,7 +18,8 @@ module.exports = class Queue extends Command {
 			return responder.error('general.player.none').send();
 		}
 
-		const pageN = !isFinite(args[0]) ? 1 : Number(args[0]);
+		const pageN = this.Atlas.lib.utils.parseNumber(args[0], 1);
+
 		const { queue } = player;
 		const np = player.track;
 

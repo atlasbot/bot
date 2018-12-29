@@ -16,8 +16,8 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'remove');
 
-		const currIndex = Math.floor(Number(args[0])) - 1;
-		if (!isFinite(currIndex)) {
+		const currIndex = Math.floor(this.Atlas.lib.utils.parseNumber(args[0])) - 1;
+		if (isNaN(currIndex)) {
 			return responder.error('invalidCurrIndex').send();
 		}
 

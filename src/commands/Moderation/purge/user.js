@@ -15,7 +15,7 @@ module.exports = class User extends Command {
 		}
 
 
-		const num = !isFinite(args[1]) ? 100 : Number(args[1]);
+		const num = this.Atlas.lib.utils.parseNumber(args[1], 100);
 
 		if (num < 1) {
 			return responder.text('purge.general.tooLow').send();

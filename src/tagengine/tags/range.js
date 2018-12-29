@@ -1,19 +1,24 @@
 const TagError = require('../TagError');
 const randomInt = require('../../../lib/utils/randomInt');
+const parseNumber = require('./../../../lib/utils/parseNumber');
 
 module.exports = async (x, [min, max]) => {
 	if (!min) {
 		throw new TagError('No minimum value');
 	}
 
-	if (!isFinite(min)) {
+	min = parseNumber(min);
+
+	if (isNaN(min)) {
 		throw new TagError('Minimum must be a number.');
 	}
 	if (!max) {
 		throw new TagError('No maximum value');
 	}
 
-	if (!isFinite(max)) {
+	max = parseNumber(max);
+
+	if (isNaN(max)) {
 		throw new TagError('Maximum must be a number.');
 	}
 

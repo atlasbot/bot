@@ -55,7 +55,7 @@ module.exports = class {
 
 				// disable any invalid actions
 				// note: if actions are being randomly disabled, this may be the cause - eris doesn't fetch all members for larger guilds cus discord
-				if (!guild || !isFinite(rawAction.trigger.content) || !guild.members.get(rawAction.updatedBy) || !rawAction.content.find(sa => guild.channels.has(sa.channel))) {
+				if (!guild || isNaN(rawAction.trigger.content) || !guild.members.get(rawAction.updatedBy) || !rawAction.content.find(sa => guild.channels.has(sa.channel))) {
 					await this.Atlas.DB.Action.updateOne({
 						_id: rawAction._id,
 					}, {

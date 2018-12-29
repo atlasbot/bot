@@ -17,12 +17,12 @@ module.exports = class extends Command {
 		const responder = new this.Atlas.structs.Responder(channel, (lang || settings.lang), 'shift');
 
 		const currIndex = this.Atlas.lib.utils.parseNumber(args[0]) - 1;
-		if (!isFinite(currIndex)) {
+		if (isNaN(currIndex)) {
 			return responder.error('invalidCurrIndex').send();
 		}
 
 		const newIndex = this.Atlas.lib.utils.parseNumber(args[1]) - 1;
-		if (!isFinite(newIndex)) {
+		if (isNaN(newIndex)) {
 			return responder.error('invalidNewIndex').send();
 		}
 

@@ -27,7 +27,7 @@ module.exports = class View extends Command {
 			return responder.text('warn.view.noWarns', target.mention).send();
 		}
 
-		const pageN = !isFinite(args[1]) ? 1 : Number(args[1]);
+		const pageN = this.Atlas.lib.utils.parseNumber(args[1], 1);
 
 		responder.paginate({
 			user: msg.author.id,
