@@ -449,8 +449,7 @@
 		"description": "Soumettez vos suggestions au canal de suggestions."
 	},
 	"donate": {
-		"description": "Faites un don pour soutenir Atlas et bénéficiez d'avantages incroyables !",
-		"fullDescription": "Soutenez Atlas en devenant un Patreon et obtenez d'incroyables avantages en retour !"
+		"description": "Faites un don pour soutenir Atlas et bénéficiez d'avantages incroyables !"
 	},
 	"help": {
 		"usage": "<command|plugin>",
@@ -511,7 +510,6 @@
 	},
 	"remindme": {
 		"description": "Définissez des rappels pour être averti à l'avenir.",
-		"fullDescription": "Définissez des rappels pour être averti à l'avenir. L'endroit où se trouve le [time] dans votre phrase n'a pas vraiment d'importance. L'Atlas peut arrondir l'heure qu'il indique, mais l'heure réelle sera exacte.",
 		"usage": "[time] <task>"
 	},
 	"captcha": {
