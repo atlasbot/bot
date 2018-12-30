@@ -51,7 +51,7 @@ module.exports = class Quote extends Command {
 				url: img && img.proxy_url,
 			},
 			description: `"${targetMsg.content.substring(0, 2048 - (src.length + 2))}" ${src}`,
-			timestamp: new Date(),
+			timestamp: new Date(targetMsg.timestamp),
 		}).send();
 	}
 };
