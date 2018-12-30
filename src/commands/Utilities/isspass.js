@@ -13,7 +13,7 @@ module.exports = class ISSPass extends Command {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		// use yahoo yql to get langitude/longitude, a location name and timezone
+		// use yahoo yql to get laitude/longitude, a location name and timezone
 		const { body: { query: { results } } } = await superagent.get('https://query.yahooapis.com/v1/public/yql')
 			.set('User-Agent', this.Atlas.userAgent)
 			.query({

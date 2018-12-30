@@ -53,9 +53,12 @@ module.exports = class {
 			try {
 				const guild = this.Atlas.client.guilds.get(rawAction.guild);
 
+				const updatedBy = guild.members.get(rawAction.updatedBy);
+				const validChannel = rawAction.content.find(sa => guild.channels.has(sa.channel));
+
 				// disable any invalid actions
 				// note: if actions are being randomly disabled, this may be the cause - eris doesn't fetch all members for larger guilds cus discord
-				if (!guild || isNaN(rawAction.trigger.content) || !guild.members.get(rawAction.updatedBy) || !rawAction.content.find(sa => guild.channels.has(sa.channel))) {
+				if (!guild || isNaN(rawAction.trigger.content) || !updatedBy || !validChannel) {
 					await this.Atlas.DB.Action.updateOne({
 						_id: rawAction._id,
 					}, {
@@ -66,11 +69,10 @@ module.exports = class {
 				}
 
 				const settings = new Settings(rawAction.settings);
-				// we're in action bois
+				// we're in bois
 				const action = new Action(settings, rawAction);
-				const updatedBy = guild.members.get(rawAction.updatedBy);
 
-				const channel = guild.channels.get(rawAction.content[0].channel);
+				const channel = guild.channels.get(validChannel.channel);
 
 				// execute it with a pseudo message which should work in most cases.
 				await action.execute({
