@@ -187,7 +187,7 @@ module.exports = class extends Player {
 					if (next) {
 						return this.play(next, {
 							force: true,
-							addedBy: this.responder.format('general.player.autoplay.addedBy'),
+							addedBy: this.settings.guild.me,
 						});
 					}
 

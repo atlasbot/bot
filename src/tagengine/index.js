@@ -43,9 +43,12 @@ module.exports = class {
 
 		// janky "temporary" way for tag aliases that will probably never be replaced :^)
 		this.tags.get = (key) => {
+			if (!key) {
+				return;
+			}
 			// in dev environments prefix is different, but i want compat so 'a!',
 			//  also pre-v8 used 'a!' no matter what so more compat
-			const prefix = ['a!', process.env.DEFAULT_PREFIX, settings.prefix].filter(f => f && typeof f === 'string').find(p => key.startsWith(p));
+			const prefix = ['a!', process.env.DEFAULT_PREFIX, settings.prefix].find(p => key.startsWith(p));
 
 			if (prefix) {
 				const label = key.substring(prefix.length);
@@ -92,6 +95,10 @@ module.exports = class {
 		const volatile = new Map();
 
 		const persistent = new Map(this.settings.raw.persistent);
+
+		if (!this.settings.raw.persistent) {
+			this.settings.raw.persistent = [];
+		}
 
 		if (!source || !source.includes('{')) {
 			if (!source && process.env.VERBOSE) {
