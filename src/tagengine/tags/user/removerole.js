@@ -1,10 +1,8 @@
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
-const Util = require('../../../util');
 
-module.exports = middleware(async ({ user, guild }, [roleQuery, exact = 'false']) => {
+module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery, exact = 'false']) => {
 	const member = guild.members.get(user.id);
-	const util = new Util();
 
 	if (!guild.me.permission.has('manageRoles')) {
 		throw new TagError('Atlas cannot remove roles without the "Manage Roles" permission.');
@@ -16,7 +14,7 @@ module.exports = middleware(async ({ user, guild }, [roleQuery, exact = 'false']
 
 	let role;
 	if (exact === 'true') {
-		const query = util.cleanID(roleQuery) || roleQuery;
+		const query = Atlas.util.cleanID(roleQuery) || roleQuery;
 
 		role = guild.roles.find(r => r.id === query || r.name === query);
 
@@ -24,7 +22,7 @@ module.exports = middleware(async ({ user, guild }, [roleQuery, exact = 'false']
 			throw new TagError('Could not find a role matching your query (exact)');
 		}
 	} else {
-		role = await util.findRoleOrChannel(guild, roleQuery, {
+		role = await Atlas.util.findRoleOrChannel(guild, roleQuery, {
 			type: 'role',
 		});
 
