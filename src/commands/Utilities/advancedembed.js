@@ -9,11 +9,7 @@ module.exports = class AdvancedEmbed extends Command {
 	async action(msg, args, {
 		parsedArgs,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg);
-
-		if (Array.from(Object.keys(parsedArgs)).length === 0) {
-			return responder.embed(this.helpEmbed(msg)).send();
-		}
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'advancedembed');
 
 		let color;
 		if (parsedArgs.color || parsedArgs.colour) {
@@ -22,7 +18,7 @@ module.exports = class AdvancedEmbed extends Command {
 			color = this.Atlas.colors.get(unparsedColor.trim().toLowerCase()) || parse(unparsedColor);
 
 			if (!color.hex) {
-				return responder.error('advancedembed.unsupportedColor', unparsedColor).send();
+				return responder.error('unsupportedColor', unparsedColor).send();
 			}
 		}
 
@@ -65,7 +61,7 @@ module.exports = class AdvancedEmbed extends Command {
 		const error = responder.validateEmbed(embed, false);
 
 		if (error) {
-			return responder.error('advancedembed.error', this.Atlas.lib.utils.parseJoiError(error).map(e => e.message).join(', ')).send();
+			return responder.error('error', this.Atlas.lib.utils.parseJoiError(error).map(e => e.message).join(', ')).send();
 		}
 
 		return responder.localised().embed(embed).send();

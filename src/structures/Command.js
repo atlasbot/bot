@@ -40,13 +40,21 @@ class Command {
 		const responder = new Responder(msg, msg.lang, 'general');
 
 		// parse --args="arg"
-		const uncleanOptions = parseArgs(msg.content);
-		const parsedArgs = {};
-		for (const arg of Object.keys(uncleanOptions)) {
-			const cleanedArg = arg.toLowerCase().trim();
 
-			if (this.info.allowAllFlags || ((this.info.supportedFlags || []).map(a => a.name).includes(cleanedArg))) {
-				parsedArgs[cleanedArg] = uncleanOptions[cleanedArg];
+		const parsedArgs = {};
+
+		for (let i = 0; i < args.length; i++) {
+			const arg = args[i];
+
+			const parsed = parseArgs(arg);
+			const argName = Object.keys(parsed).pop();
+
+			if (argName === '_') {
+				continue;
+			}
+
+			if (this.info.allowAllFlags || this.info.supportedFlags.some(a => a.name === argName)) {
+				parsedArgs[argName] = parsed[argName];
 			}
 		}
 

@@ -62,10 +62,10 @@ module.exports = class {
 								lang: settings.lang,
 								prefix: settings.prefix,
 								displayPrefix: settings.prefix,
+								content: `${settings.prefix}${label} ${args.join(' ')}`.trim(),
 								timestamp: msg.timestamp || Date.now(),
 							}, args, {
 								settings,
-								parsedArgs: {},
 							});
 						},
 						info: {

@@ -1,4 +1,3 @@
-const parseArgs = require('yargs-parser');
 const mongoose = require('mongoose');
 
 const Cache = require('../../lib/structures/Cache');
@@ -111,19 +110,8 @@ module.exports = class Ready {
 					}
 				}
 
-				const uncleanOptions = parseArgs(msg.content);
-				const parsedArgs = {};
-				for (const arg of Object.keys(uncleanOptions)) {
-					const cleanedArg = arg.toLowerCase().trim();
-
-					if (msg.command.info.allowAllFlags || ((msg.command.info.supportedFlags || []).map(a => a.name).includes(cleanedArg))) {
-						parsedArgs[cleanedArg] = uncleanOptions[cleanedArg];
-					}
-				}
-
 				return msg.command.execute(msg, msg.args, {
 					settings,
-					parsedArgs,
 				});
 			}
 

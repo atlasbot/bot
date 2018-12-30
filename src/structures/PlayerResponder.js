@@ -121,6 +121,7 @@ module.exports = class PlayerResponder extends Responder {
 									lang: this.settings.lang,
 									displayPrefix: this.settings.prefix,
 									prefix: this.settings.prefix,
+									content: `${this.settings.prefix}${command.name} ${args.join(' ')}`.trim(),
 								}, args, {
 									settings: this.settings,
 									button: true,
