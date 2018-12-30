@@ -449,8 +449,7 @@
 		"description": "Submit suggestions to the suggestion channel."
 	},
 	"donate": {
-		"description": "Donate to support Atlas and get awesome perks!",
-		"fullDescription": "Support Atlas by becoming a Patreon and get awesome perks in return!"
+		"description": "Donate to support Atlas and get awesome perks!"
 	},
 	"help": {
 		"usage": "<command|plugin>",
@@ -511,7 +510,6 @@
 	},
 	"remindme": {
 		"description": "Set reminders to get notified in the future.",
-		"fullDescription": "Set reminders to get notified in the future. Where [time] is in your sentence doesn't really matter. Atlas may round up the time it says but the actual time will be accurate.",
 		"usage": "[time] <task>"
 	},
 	"captcha": {
