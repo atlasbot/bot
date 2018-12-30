@@ -41,20 +41,13 @@ class Command {
 
 		// parse --args="arg"
 
+
 		const parsedArgs = {};
+		const parsed = parseArgs(msg.content);
 
-		for (let i = 0; i < args.length; i++) {
-			const arg = args[i];
-
-			const parsed = parseArgs(arg);
-			const argName = Object.keys(parsed).pop();
-
-			if (argName === '_') {
-				continue;
-			}
-
-			if (this.info.allowAllFlags || this.info.supportedFlags.some(a => a.name === argName)) {
-				parsedArgs[argName] = parsed[argName];
+		for (const key of Object.keys(parsed)) {
+			if (this.info.allowAllFlags || this.info.supportedFlags.some(a => a.name === parsed)) {
+				parsedArgs[key] = parsed[key];
 			}
 		}
 
