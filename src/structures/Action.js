@@ -84,6 +84,12 @@ module.exports = class Action {
 			return responder.error('noSubActions').send();
 		}
 
+		if (this.flags.delete && msg && msg.delete) {
+			if (msg.channel.permissionsOf(this.Atlas.client.user.id).has('manageMessages')) {
+ 			msg.delete().catch(() => false);
+			}
+		}
+
 		for (const subaction of this.content) {
 			try {
 				await this.runSubAction(msg, subaction);
