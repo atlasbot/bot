@@ -1,3 +1,4 @@
+const parseArgs = require('yargs-parser');
 const Responder = require('./Responder');
 const cleanArgs = require('./../../lib/utils/cleanArgs');
 
@@ -5,29 +6,28 @@ class Command {
 	constructor(Atlas, info) {
 		this.Atlas = Atlas;
 		this.raw = info;
-		this.info = { ...{
-			usage: null,
-			aliases: [],
-			cooldown: {
-				min: 2000,
-				default: 2000,
+		this.info = {
+			...{
+				usage: null,
+				aliases: [],
+				cooldown: {
+					min: 2000,
+					default: 2000,
+				},
+				guildOnly: true,
+				hidden: false,
+				permissions: {
+					bot: {},
+					user: {},
+				},
+				examples: [],
+				noExamples: info.usage && !info.examples,
+				supportedArgs: [],
+				subcommands: new Map(),
+				subcommandAliases: new Map(),
+				supportedFlags: [],
 			},
-			guildOnly: true,
-			description: 'This command has no description!',
-			fullDescription: 'This command has no full description!',
-			isDefaultDesc: !info.fullDescription,
-			hidden: false,
-			permissions: {
-				bot: {},
-				user: {},
-			},
-			examples: [],
-			noExamples: info.usage && !info.examples,
-			supportedArgs: [],
-			subcommands: new Map(),
-			subcommandAliases: new Map(),
-		},
-		...info };
+			...info };
 
 		this.execute = this.execute.bind(this);
 		this.action = this.action.bind(this);
@@ -35,10 +35,20 @@ class Command {
 
 	async execute(msg, args, {
 		settings,
-		parsedArgs = {},
 		...passthrough
 	}) {
 		const responder = new Responder(msg, msg.lang, 'general');
+
+		// parse --args="arg"
+		const uncleanOptions = parseArgs(msg.content);
+		const parsedArgs = {};
+		for (const arg of Object.keys(uncleanOptions)) {
+			const cleanedArg = arg.toLowerCase().trim();
+
+			if (this.info.allowAllFlags || ((this.info.supportedFlags || []).map(a => a.name).includes(cleanedArg))) {
+				parsedArgs[cleanedArg] = uncleanOptions[cleanedArg];
+			}
+		}
 
 		let options;
 		if (settings) {
@@ -166,129 +176,110 @@ class Command {
 	 * @returns {Object} The embed
 	 */
 	helpEmbed(msg) {
-		const info = this.getInfo(msg.lang);
+		const info = {
+			...this.info,
+			...this.getInfo(msg.lang),
+		};
+
+		const getDN = ({ info: { master, name } }) => (master ? `${master.info.name} ${name}` : name);
+		const displayName = getDN(this);
 
 		const embed = {
-			title: `${msg.displayPrefix}${this.info.master ? `${this.info.master.info.name} ${this.info.name}` : this.info.name}`,
-			description: this.info.isDefaultDesc ? info.description : info.fullDescription || info.description,
+			title: msg.displayPrefix + displayName,
+			description: info.description,
 			fields: [],
 			timestamp: new Date(),
 			footer: {},
 		};
 
-		if (this.info.subcommands && this.info.subcommands.size !== 0) {
-			embed.fields.push({
-				value: `**•** ${msg.displayPrefix}${this.info.name} ${Array.from(this.info.subcommands.values())
-					.map(sub => sub.info.name)
-					.join(`\n**•** ${msg.displayPrefix}${this.info.name} `)}`,
-				name: 'Subcommands',
-				inline: true,
-			});
-			embed.footer.text = `Do ${msg.displayPrefix}help ${this.info.name} <subcommand name> to view info about subcommands.`;
-		}
+		if (info.examples.length) {
+			const examples = info.examples.map(e => `• ${msg.displayPrefix + displayName} ${e}`);
 
-		if (this.info.examples && this.info.examples.length) {
-			if (this.info.examples.length > 5) {
-				let col1;
-				if (this.info.master) {
-					col1 = this.info.examples.map(e => `${msg.displayPrefix + this.info.master.info.name} ${this.info.name} ${e}`);
-				} else {
-					col1 = this.info.examples.map(e => `${msg.displayPrefix + this.info.name} ${e}`);
-				}
-				const col2 = col1.splice(0, Math.floor((col1.length / 2)));
+			if (examples.length > 4) {
+				const colOne = examples;
+				const colTwo = info.examples.splice(0, Math.floor(colOne.length / 2));
 
 				embed.fields.push({
-					name: 'Examples',
-					value: col1.join('\n'),
+					name: 'general.help.examples',
+					value: colOne.join('\n'),
 					inline: true,
 				}, {
 					// This has a zero-width character in it
 					name: '​',
-					value: col2.join('\n'),
-					inline: true,
-				});
-			} else if (this.info.master) {
-				embed.fields.push({
-					name: 'Examples',
-					value: `${msg.displayPrefix + this.info.master.info.name} ${this.info.name} ${this.info.examples
-						.join(`\n${msg.displayPrefix + this.info.master.info.name} ${this.info.name} `)}`,
-				});
-			} else {
-				embed.fields.push({
-					name: 'Examples',
-					value: `${msg.displayPrefix + this.info.name} ${this.info.examples.join(`\n${msg.displayPrefix + this.info.name} `)}`,
-				});
-			}
-		}
-
-		if (this.info.aliases && this.info.aliases.length) {
-			if (this.info.master) {
-				embed.fields.push({
-					name: 'Aliases',
-					value: `**•** ${msg.displayPrefix}${this.info.master.info.name} ${this.info.aliases.join(`\n**•** ${msg.displayPrefix}`)}`,
+					value: colTwo.join('\n'),
 					inline: true,
 				});
 			} else {
 				embed.fields.push({
-					name: 'Aliases',
-					value: `**•** ${msg.displayPrefix}${this.info.aliases.join(`\n**•** ${msg.displayPrefix}`)}`,
-					inline: true,
+					name: 'general.help.examples',
+					value: examples.join('\n'),
 				});
 			}
 		}
 
-		if (this.info.master) {
+		if (info.aliases.length) {
+			const aliases = info.aliases.map(a => `• ${getDN({ info: { ...this.info, name: a } })}`);
+
 			embed.fields.push({
-				name: 'Usage',
-				value: `${msg.displayPrefix}${this.info.master.info.name} ${this.info.name} ${info.usage || ''}`,
-				inline: true,
-			});
-		} else {
-			embed.fields.push({
-				name: 'Usage',
-				value: `${msg.displayPrefix}${this.info.name} ${info.usage || ''}`,
+				name: 'general.help.aliases',
+				value: aliases.join('\n'),
 				inline: true,
 			});
 		}
 
-		if (this.info.permissions.user && Object.keys(this.info.permissions.user).length) {
+		if (info.subcommands.size !== 0) {
 			embed.fields.push({
-				name: 'User Permissions',
-				value: `\`${Object.keys(this.info.permissions.user)
-					.map(p => this.Atlas.util.format(msg.lang, `permissions.list.${p}`))
-					.join('`, `')}\``,
+				name: 'general.help.subcommands',
+				value: Array.from(info.subcommands.values()).map(({ info: { name } }) => `• ${name}`).join('\n'),
+				inline: true,
+			});
+
+			embed.footer.text = ['general.help.footer', msg.displayPrefix, this.info.name];
+		}
+
+		embed.fields.push({
+			name: 'general.help.usage',
+			value: `${msg.displayPrefix + displayName} ${info.usage || ''}`,
+			inline: true,
+		});
+
+		const userPerms = Object.keys(info.permissions.user || {});
+		const botPerms = Object.keys(info.permissions.bot || {});
+
+		if (userPerms.length) {
+			embed.fields.push({
+				name: 'general.help.userPerms',
+				value: `\`${userPerms.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`)).join('`, `')}\``,
 				inline: true,
 			});
 		}
 
-		if (this.info.permissions.bot && Object.keys(this.info.permissions.bot).length) {
+		if (botPerms.length) {
 			embed.fields.push({
-				name: 'Bot Permissions',
-				value: `\`${Object.keys(this.info.permissions.bot)
-					.map(p => this.Atlas.util.format(msg.lang, `permissions.list.${p}`))
-					.join('`, `')}\``,
+				name: 'general.help.botPerms',
+				value: `\`${botPerms.map(p => this.Atlas.util.format(msg.lang, `general.permissions.list.${p}`)).join('`, `')}\``,
 				inline: true,
 			});
 		}
 
-		if (this.info.supportedFlags && this.info.supportedFlags[0]) {
-			let supported = this.info.supportedFlags;
+		if (info.supportedFlags.length) {
+			let supported = info.supportedFlags;
 
 			if (msg.author.id !== process.env.OWNER) {
-				supported = this.info.supportedFlags.filter(arg => !arg.dev);
+				supported = info.supportedFlags.filter(arg => !arg.dev);
 			}
 
 			const flags = supported.map((m) => {
-				let str = `**•** \`--${m.name}\``;
+				let str = `**•** \`--${m.name}`;
 
 				if (m.placeholder) {
-					str += `\`--${m.name}="${m.placeholder}"\` `;
+					str += `="${m.placeholder}"\``;
 				} else {
-					str += `\`--${m.name}\` `;
+					str += '`';
 				}
 
 				if (m.desc) {
-					str += `- ${m.desc}`;
+					str += ` - ${m.desc}`;
 				}
 
 				return str;
@@ -297,7 +288,7 @@ class Command {
 			flags.sort((a, b) => b.length - a.length);
 
 			embed.fields.push({
-				name: 'Supported Flags',
+				name: 'general.help.supportedFlags',
 				value: flags.join('\n'),
 			});
 		}
@@ -305,26 +296,6 @@ class Command {
 		embed.fields.forEach((f) => {
 			// using random names doesn't work anymore because discord won't resolve id's in embeds :c
 			f.value = f.value.replace(/(@sylver|@random|@user)/ig, msg.author.mention);
-
-			if (msg.guild) {
-				// names without numbers look better in embeds, also wipes out tickets because they include the users discrim
-				const options = [...msg.guild.channels.values()].filter(c => c.type === 0 && !/[0-9]/.exec(c.name) && c.permissionsOf(msg.author.id).has('readMessages'));
-
-				if (options.length) {
-					f.value = f.value
-						.replace(/#([A-z-]{7,})/ig, (ignore, match1) => {
-							const channel = msg.guild.channels.find(c => c.name === match1);
-
-							if (channel) {
-								return channel.mention;
-							}
-
-							const option = this.Atlas.lib.utils.pickOne(options);
-
-							return option.mention;
-						});
-				}
-			}
 		});
 
 		return embed;
