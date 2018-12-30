@@ -1,17 +1,17 @@
 {
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
-		"added": "You now have the {0} role.",
+		"noRoles": "Ce serveur n'a pas de rôles disponibles.",
+		"invalidQuery": "Je n'ai pas pu trouvé un rôle \"iam\" correspondant à `{0}`.",
+		"unassignable": "Il me manque les permissions pour vous assigner ce rôle.",
+		"removed": "Vous n'avez plus le rôle {0}.",
+		"added": "Vous avez maintenant le rôle {0}.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "Rôles \"iam\" Disponibles",
+			"footer": "\"{0}iam [role]\" pour recevoir un rôle"
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
+		"invalidUnits": "Veuillez inclure des unités valides.",
 		"invalidFrom": "Please include a valid input measurement.",
 		"invalidTo": "Please include a valid to measurement.",
 		"currency": {
@@ -155,8 +155,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "Ce n'est pas une émission de télé! Essayez peut-être `{0}movie {1}` à la place.",
+		"ratings": "Notations"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -498,8 +498,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} pour `{1}`.",
 		"dm": {
-			"reason": "Vous avez été kick de {0} avec la raison: `{1}` par {2} ({3}).",
-			"noReason": "Vous avez été kick de {0} par {1} ({2})."
+			"reason": "Vous avez été expulsé de {0} avec la raison: `{1}` par {2} ({3}).",
+			"noReason": "Vous avez été expulsé de {0} par {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -705,29 +705,29 @@
 		"error": "Quelque chose s'est mal passé en mettant à jour le nom du canal. Discord a probablement fixé les \"espaces\" que nous utilisons, ou quelque chose est peut être temporairement cassé.",
 		"noChannel": "Je n'ai pas trouvé de canal correspondant à `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Vous pouvez voir le tableau de bord du serveur sur <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "Je n'ai pas trouvé d'utilisateur correspondant à `{0} ` :c",
+		"noProfile": "Hmm, quelque chose ne va pas. Je n'ai pas pu trouver de profile pour cet utilisateur.",
 		"embed": {
-			"rank": "Rank",
-			"level": "Level",
+			"rank": "Rang",
+			"level": "Niveau",
 			"experience": {
-				"name": "Experience",
-				"value": "{0}/{1} • `{0}` total"
+				"name": "Expérience",
+				"value": "{0}/{1} • `{0}` au total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Veuillez inclure un nom de plugin.",
+		"noPlugin": "Je n'ai pas pu trouver de plugin correspond à `{0}`.",
+		"success": "Le plugin {0} a été `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Veuillez inclure un nom de commande.",
+		"noCommand": "Je n'ai pas pu trouver de commande correspondant à `{0}`.",
+		"disabled": "La commande {0} a été `désactivée`.",
+		"enabled": "La commande {0} a été `activée`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
