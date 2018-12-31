@@ -25,7 +25,7 @@ module.exports = class Event {
 				}
 			}
 
-			if (!settings.actionLogChannel) {
+			if (!settings.actionLogChannel || (msg.channel && msg.channel.topic.includes('actionlog-ignore'))) {
 				return;
 			}
 

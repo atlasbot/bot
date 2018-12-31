@@ -55,8 +55,21 @@ module.exports = class Event {
 
 				embed.footer.text += ` Mod ${auditEntry.user.id}`;
 
+				const types = [];
+				if (!msg.channel.topic || !msg.channel.topic.includes('actionlog-ignore')) {
+					types.push('action');
+				}
+
+				if (!msg.channel.topic || !msg.channel.topic.includes('modlog-ignore')) {
+					types.push('mod');
+				}
+
 				// if it was deleted by a moderator it's probably worth while to log it
 				return settings.log(['mod', 'action'], embed);
+			}
+
+			if (msg.channel.topic && msg.channel.topic.includes('actionlog-ignore')) {
+				return;
 			}
 
 			return settings.log('action', embed);

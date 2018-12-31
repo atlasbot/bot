@@ -1,8 +1,8 @@
+const Message = require('eris/lib/structures/Message');
 const tags = require('./loader')();
 const interpreter = require('./interpreter');
 const Parser = require('./Parser');
 const Lexer = require('./lexer');
-const Message = require('eris/lib/structures/Message');
 
 const RETURN_ID_REGEX = /--?returnId((?:=)?('|")true('|"))?/;
 
