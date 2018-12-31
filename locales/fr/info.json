@@ -115,22 +115,22 @@
 		"description": "Make Atlas join your voice channel."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
+		"description": "Active ou désactive une commande.",
 		"usage": "[command]"
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
+		"description": "Active ou désactive un plugin.",
 		"usage": "[plugin]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "Récupère votre niveau ou celui d'un autre utilisateur.",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "Avoir le lien du tableau de bord pour les Niveaux."
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "Rends le texte plus petit.",
 		"usage": "[text]"
 	},
 	"nodes": {
@@ -195,7 +195,7 @@
 		"description": "Voir le statut d'un serveur Minecraft.",
 		"usage": "[server ip]"
 	},
-	"memberCount": {
+	"membercount": {
 		"description": "Voir les informations à propos du nombre de membres dans le serveur."
 	},
 	"joined": {
