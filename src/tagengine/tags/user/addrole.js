@@ -43,7 +43,7 @@ module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery, exact = '
 
 module.exports.info = {
 	name: 'user.addrole',
-	description: 'Adds a role to the user. When exact is true, Atlas will be strict and only search for a role that matches the name/ID exactly. Otherwise, ATlas will use the fuzzy searcher.',
+	description: 'Adds a role to the user. When exact is true, Atlas will be strict and only search for a role that matches the name/ID exactly. Otherwise, Atlas will use the fuzzy searcher.',
 	args: '[role id/name/mention]  <exact=false> <user>',
 	examples: [{
 		input: '{user.addrole;Humans}',
