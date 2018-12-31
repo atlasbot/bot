@@ -1,7 +1,7 @@
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
 
-module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery, exact = 'false']) => {
+module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery]) => {
 	const member = guild.members.get(user.id);
 
 	if (!guild.me.permission.has('manageRoles')) {
@@ -12,23 +12,12 @@ module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery, exact = '
 		throw new TagError('You must include a role search.');
 	}
 
-	let role;
-	if (exact === 'true') {
-		const query = Atlas.util.cleanID(roleQuery) || roleQuery;
+	const role = await Atlas.util.findRoleOrChannel(guild, roleQuery, {
+		type: 'role',
+	});
 
-		role = guild.roles.find(r => r.id === query || r.name === query);
-
-		if (!role) {
-			throw new TagError('Could not find a role matching your query (exact)');
-		}
-	} else {
-		role = await Atlas.util.findRoleOrChannel(guild, roleQuery, {
-			type: 'role',
-		});
-
-		if (!role) {
-			throw new TagError('Could not find a role matching your query (fuzzy)');
-		}
+	if (!role) {
+		throw new TagError('Could not find a role matching your query (fuzzy)');
 	}
 
 	if (!member.roles.includes(role.id)) {
@@ -44,8 +33,8 @@ module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery, exact = '
 
 module.exports.info = {
 	name: 'user.removerole',
-	description: 'Removes a role from the user. When exact is true, Atlas will be strict and only search for a role that matches the name/ID exactly. Otherwise, Atlas will use the fuzzy searcher.',
-	args: '[role id/name/mention]  <exact=false> <user>',
+	description: 'Removes a role from the user. Role is matched using a fuzzy matcher.',
+	args: '[role id/name/mention] <user>',
 	examples: [{
 		input: '{user.removerole;Humans}',
 		output: '',
