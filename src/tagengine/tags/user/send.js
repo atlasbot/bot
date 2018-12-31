@@ -38,7 +38,7 @@ module.exports = middleware(async (context, args) => {
 
 module.exports.info = {
 	name: 'user.send',
-	description: 'Sends a message to the channel.',
+	description: 'Direct-messages a user a message.',
 	args: '[message] <user>',
 	examples: [{
 		input: '{user.send;Hello :)}',

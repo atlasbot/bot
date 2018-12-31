@@ -19,5 +19,7 @@ module.exports = () => {
 		});
 	}
 
+	console.log(`Loaded ${tags.size} tags`);
+
 	return tags;
 };

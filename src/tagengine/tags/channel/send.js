@@ -7,7 +7,7 @@ module.exports = async (context, args) => {
 
 	let channel;
 	if (args[1]) {
-		const [channelQuery] = await parseArgs([args[1]]);
+		const channelQuery = await parseArgs(args[1]);
 
 		channel = await Atlas.util.findRoleOrChannel(guild, channelQuery, {
 			type: 'channel',

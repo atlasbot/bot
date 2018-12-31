@@ -173,10 +173,6 @@ module.exports = class Util {
 		}
 		const id = this.cleanID(query);
 
-		if (!id) {
-			return;
-		}
-
 		let guildMembers;
 		if (members) {
 			guildMembers = new Map();
@@ -250,11 +246,8 @@ module.exports = class Util {
 		if (!query) {
 			return;
 		}
-		const id = this.cleanID(query);
 
-		if (!id) {
-			return;
-		}
+		const id = this.cleanID(query);
 
 		const valid = type ? guild[`${type}s`] : new Map([...guild.roles, ...guild.channels]);
 		if (id) {
@@ -305,10 +298,6 @@ module.exports = class Util {
 		} catch (e) {} // eslint-disable-line no-empty
 		const id = this.cleanID(query);
 
-		if (!id) {
-			return;
-		}
-
 		if (id) {
 			try {
 				const message = await channel.getMessage(id);
@@ -325,12 +314,6 @@ module.exports = class Util {
 	 * @returns {string|void} The ID if one was found, otherwise void
 	 */
 	cleanID(id) {
-		if (!id) {
-			return;
-		}
-
-		console.log(id);
-
 		// im bad at regex
 		let possible = id.match(/[0-9]{15,25}/g);
 
