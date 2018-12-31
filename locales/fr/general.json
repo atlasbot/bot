@@ -31,7 +31,7 @@
 		"errorExecuting": "An unknown internal error occured executing the command.",
 		"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
 		"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
-		"guildOnly": "Cette commande peut seulement être utilisé dans les serveurs!",
+		"guildOnly": "Cette commande peut être seulement utilisée dans les serveurs!",
 		"disabled": "La commande `{0}` a été désactivée par un administrateur du serveur.",
 		"restrictions": {
 			"blacklist": {
@@ -45,24 +45,24 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "Rappel",
+		"footer": "Demandé"
 	},
 	"warning": {
-		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"title": "Membre Averti",
+		"description": "{0} (`{1}`) a été averti par un {2} (`{3}`).",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "Total d'Avertissements",
+			"value": "{0} a maintenant {1} avertissement(s) au total."
 		},
 		"dm": {
-			"name": "Direct Messaged",
-			"true": "The user was direct-messaged.",
-			"false": "The user was not direct-messaged."
+			"name": "Message Direct",
+			"true": "L'utilisateur a reçu un message en direct.",
+			"false": "L'utilisateur n'a pas reçu de message en direct."
 		},
 		"reason": {
 			"name": "Raison",
-			"value": "No reason specified."
+			"value": "Aucune raison spécifiée."
 		}
 	},
 	"player": {
