@@ -2,6 +2,9 @@ const tags = require('./loader')();
 const interpreter = require('./interpreter');
 const Parser = require('./Parser');
 const Lexer = require('./lexer');
+const Message = require('eris/lib/structures/Message');
+
+const RETURN_ID_REGEX = /--?returnId((?:=)?('|")true('|"))?/;
 
 module.exports = class {
 	/**
@@ -57,7 +60,17 @@ module.exports = class {
 				if (command) {
 					return {
 						execute: async (context, args) => {
-							await command.execute({
+							let returnId = false;
+
+							const argIndex = args.findIndex(a => RETURN_ID_REGEX.test(a));
+
+							if (argIndex !== -1) {
+								args.splice(argIndex, 1);
+
+								returnId = true;
+							}
+
+							const outMsg = await command.execute({
 								...context,
 								type: 0,
 								author: user,
@@ -70,6 +83,10 @@ module.exports = class {
 							}, args, {
 								settings,
 							});
+
+							if (outMsg instanceof Message && returnId) {
+								return outMsg.id;
+							}
 						},
 						info: {
 							name: key,

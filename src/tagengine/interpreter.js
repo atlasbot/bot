@@ -90,6 +90,10 @@ const interp = async (tokens, context, functions) => {
 						errors.push(new TagError(e));
 					}
 
+					if (process.env.NODE_ENV === 'development' || process.env.VERBOSE === 'true') {
+						console.warn(e);
+					}
+
 					output.push(`{${thisToken.value}-ERROR${errors.length}}`);
 
 					if (Atlas.Raven) {

@@ -27,7 +27,7 @@ module.exports = async (context, [string, search, replacement]) => {
 module.exports.info = {
 	name: 'replace',
 	args: '<string> <search> <replacement>',
-	description: 'Returns a random argument, now with extra regexp flavour.',
+	description: 'Replaces <search> in <string> with <replacement>, now with extra regexp flavour.',
 	examples: [{
 		input: '{replace;kittens are the best;kittens;puppies}',
 		output: 'puppies are the best',

@@ -116,7 +116,7 @@ class Command {
 			}
 
 			// run the command
-			await this.action(msg, args, {
+			const out = await this.action(msg, args, {
 				settings,
 				parsedArgs,
 				...passthrough,
@@ -130,6 +130,8 @@ class Command {
 			if (process.env.VERBOSE === 'true') {
 				console.log(`${this.info.name} - ${msg.author.username} ${msg.author.id} ${duration}ms`);
 			}
+
+			return out;
 		} catch (e) {
 			if (e.status && e.response) {
 				// it's /probably/ a http error
