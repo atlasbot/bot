@@ -122,10 +122,10 @@ module.exports = class {
 				console.warn(new Error('No source, returning nothing'));
 			}
 
-			return {
+			return this.replace({
 				output: source || '',
 				errors: [],
-			};
+			});
 		}
 
 		const ast = Lexer.lex(source);
@@ -138,28 +138,47 @@ module.exports = class {
 			persistent,
 		}, this.tags);
 
-		if (data.output && this.context.guild && ['#', '@', ':'].some(c => data.output.includes(c))) {
-			data.output = data.output.replace(/#[A-z0-9_-]*/g, (match) => {
-				const channel = this.context.guild.channels.find(c => c.name === match);
+		const modified = source.includes('perset') || (persistent.size !== this.settings.raw.persistent.length);
 
-				if (channel) {
-					return channel.mention;
-				}
-
-				return match;
+		if (modified) {
+			// persistent storage was modified, save that shit
+			await this.settings.update({
+				persistent: Array.from(persistent),
 			});
+		}
 
-			data.output = data.output.replace(/@[A-z0-9_-]*/g, (match) => {
-				const role = this.context.guild.roles.find(c => c.name === match);
+		return this.replace(data);
+	}
 
-				if (role) {
-					return role.mention;
-				}
+	/**
+	 * Replaces channel/role mentions and emojis in the output
+	 * @param {Object} data data
+	 * @returns {Object}
+	 */
+	replace(data) {
+		data.output = data.output
+			.replace(/#([a-zA-Z0-9_-]*)/ig, (ignore, match) => {
+				const channels = Array.from(this.context.guild.channels.values());
+				const channel = channels.find(m => m.name.toLowerCase().trim() === match.toLowerCase().trim());
 
-				return match;
-			});
+				if (channel && channel.mention) return channel.mention;
 
-			data.output = data.output.replace(/:[a-zA-Z0-9_-]*:/g, (match, index) => {
+				return ignore;
+			})
+			.replace(/@([a-zA-Z0-9_-]*)/ig, (ignore, match) => {
+				const roles = Array.from(this.context.guild.roles.values());
+				const role = roles.find(m => m.name.toLowerCase() === match.toLowerCase());
+
+				if (role && role.mention) return role.mention;
+
+				const members = Array.from(this.context.guild.members.values());
+				const member = members.find(m => m.username.toLowerCase() === match.toLowerCase());
+
+				if (member && member.mention) return member.mention;
+
+				return ignore;
+			})
+			.replace(/:([a-zA-Z0-9_-]*):/mg, (ignore, match, index) => {
 				const gEmoji = this.context.guild.emojis.find(e => e.name === match);
 
 				// The index thing here is to not garble up emojis that have been parsed by Discord already
@@ -174,16 +193,6 @@ module.exports = class {
 
 				return match;
 			});
-		}
-
-		const modified = source.includes('perset') || (persistent.size !== this.settings.raw.persistent.length);
-
-		if (modified) {
-			// persistent storage was modified, save that shit
-			await this.settings.update({
-				persistent: Array.from(persistent),
-			});
-		}
 
 		return data;
 	}
