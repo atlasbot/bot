@@ -195,7 +195,7 @@
 		"description": "Checks the status of a Minecraft server.",
 		"usage": "[server ip]"
 	},
-	"memberCount": {
+	"membercount": {
 		"description": "Shows information about the servers member count."
 	},
 	"joined": {
