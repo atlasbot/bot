@@ -36,7 +36,10 @@ module.exports = class Manager {
 	async launch() {
 		if (cluster.isMaster) {
 			const { shards, session_start_limit } = await this.getBotGateway(); // eslint-disable-line camelcase
-			if (session_start_limit.remaining < 50) {
+
+			if (session_start_limit.remaining <= 1) {
+				console.error(`Reached session start limit, limit resets in ${session_start_limit.reset_after}ms`);
+			} else if (session_start_limit.remaining < 50) {
 				console.warn(`Approaching session start limit - remaining: ${session_start_limit.remaining}, resets in ${session_start_limit.reset_after}ms`);
 			}
 

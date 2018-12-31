@@ -115,11 +115,49 @@ module.exports = class {
 
 		const parsed = await Parser.parse(ast);
 
-		const output = await interpreter(parsed, {
+		const data = await interpreter(parsed, {
 			...this.context,
 			volatile,
 			persistent,
 		}, this.tags);
+
+		if (data.output && this.context.guild && ['#', '@', ':'].some(c => data.output.includes(c))) {
+			data.output = data.output.replace(/#[A-z0-9_-]*/g, (match) => {
+				const channel = this.context.guild.channels.find(c => c.name === match);
+
+				if (channel) {
+					return channel.mention;
+				}
+
+				return match;
+			});
+
+			data.output = data.output.replace(/@[A-z0-9_-]*/g, (match) => {
+				const role = this.context.guild.roles.find(c => c.name === match);
+
+				if (role) {
+					return role.mention;
+				}
+
+				return match;
+			});
+
+			data.output = data.output.replace(/:[a-zA-Z0-9_-]*:/g, (match, index) => {
+				const gEmoji = this.context.guild.emojis.find(e => e.name === match);
+
+				// The index thing here is to not garble up emojis that have been parsed by Discord already
+				if (gEmoji && gEmoji.name && gEmoji.id && data.output[index - 1] !== '<') {
+					return `<:${gEmoji.name}:${gEmoji.id}>`;
+				}
+
+				const emoji = this.Atlas.lib.emoji.get(match);
+				if (emoji) {
+					return emoji.char;
+				}
+
+				return match;
+			});
+		}
 
 		const modified = source.includes('perset') || (persistent.size !== this.settings.raw.persistent.length);
 
@@ -130,6 +168,6 @@ module.exports = class {
 			});
 		}
 
-		return output;
+		return data;
 	}
 };

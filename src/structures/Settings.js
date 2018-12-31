@@ -322,7 +322,12 @@ module.exports = class GuildSettings {
 
 		if (channel) {
 			try {
-				const webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
+				let webhook;
+				try {
+					webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
+				} catch (e) {
+					return;
+				}
 
 				// using & abusing the responder to format the embed(s)
 				const responder = new this.Atlas.structs.Responder(null, this.lang);

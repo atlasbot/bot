@@ -51,7 +51,7 @@ module.exports = async (context, args) => {
 module.exports.info = {
 	name: 'channel.send',
 	description: 'Sends a message to the channel.',
-	args: '<channel>',
+	args: '[content] <channel>',
 	examples: [{
 		input: '{channel.send;ayyy}',
 		output: 'ayyy',

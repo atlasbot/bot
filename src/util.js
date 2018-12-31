@@ -173,6 +173,10 @@ module.exports = class Util {
 		}
 		const id = this.cleanID(query);
 
+		if (!id) {
+			return;
+		}
+
 		let guildMembers;
 		if (members) {
 			guildMembers = new Map();
@@ -247,6 +251,11 @@ module.exports = class Util {
 			return;
 		}
 		const id = this.cleanID(query);
+
+		if (!id) {
+			return;
+		}
+
 		const valid = type ? guild[`${type}s`] : new Map([...guild.roles, ...guild.channels]);
 		if (id) {
 			// it's probably an ID or mention
@@ -295,6 +304,11 @@ module.exports = class Util {
 			}
 		} catch (e) {} // eslint-disable-line no-empty
 		const id = this.cleanID(query);
+
+		if (!id) {
+			return;
+		}
+
 		if (id) {
 			try {
 				const message = await channel.getMessage(id);
@@ -311,6 +325,12 @@ module.exports = class Util {
 	 * @returns {string|void} The ID if one was found, otherwise void
 	 */
 	cleanID(id) {
+		if (!id) {
+			return;
+		}
+
+		console.log(id);
+
 		// im bad at regex
 		let possible = id.match(/[0-9]{15,25}/g);
 
@@ -578,7 +598,8 @@ module.exports = class Util {
 
 		const shouldHave = rewards
 			.filter(r => r.level === currentLevel)
-			.map(({ content: roleId }) => member.guild.roles.get(roleId));
+			.map(({ content: roleId }) => member.guild.roles.get(roleId))
+			.filter(r => r);
 
 		for (const role of shouldHave) {
 			if (!member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
@@ -590,7 +611,8 @@ module.exports = class Util {
 			if (!stack) {
 				const shouldntHave = rewards
 					.filter(r => r.level < currentLevel)
-					.map(({ content: roleId }) => member.guild.roles.get(roleId));
+					.map(({ content: roleId }) => member.guild.roles.get(roleId))
+					.filter(r => r);
 
 				for (const role of shouldntHave) {
 					if (member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
