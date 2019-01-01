@@ -529,7 +529,9 @@
 	},
 	"advancedembed": {
 		"unsupportedColor": "`{0}` is not a supported color format.",
-		"error": "Error validating embed: `{0}`."
+		"error": "Error validating embed: `{0}`.",
+		"invalidEdit": "I could not find a message matching `{0}`.",
+		"cannotEdit": "I cannot edit another users messages."
 	},
 	"discrim": {
 		"title": "Users with a #{0} Discriminator",
