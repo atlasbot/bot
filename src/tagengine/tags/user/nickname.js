@@ -1,6 +1,6 @@
 const middleware = require('./middleware');
 
-module.exports = middleware(({ user }) => user.nickname);
+module.exports = middleware(({ user }) => user.nickname || user.username);
 
 module.exports.info = {
 	name: 'user.nickname',
