@@ -326,6 +326,17 @@ class Responder {
 			embed,
 		};
 
+		if (this.guild) {
+			const channel = this.guild.channels.get(data.channelId);
+
+			if (channel.permissionsOf) {
+				const perms = channel.permissionsOf(this.Atlas.client.user.id);
+				if (!perms.has('sendMessages')) {
+					throw new Error('Missing permissions');
+				}
+			}
+		}
+
 		let msg;
 		if (data.edit) {
 			msg = await data.edit.edit(payload, data.file);
