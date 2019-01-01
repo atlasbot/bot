@@ -23,7 +23,9 @@ module.exports = class Purge extends Command {
 			return responder.text('purge.general.tooHigh').send();
 		}
 
-		await msg.delete();
+		try {
+			await msg.delete();
+		} catch (e) {} // eslint-disable-line no-empty
 
 		const purgeCount = await msg.channel.purge(num, m => !m.pinned);
 

@@ -18,7 +18,9 @@ module.exports = class Images extends Command {
 			return responder.text('purge.general.tooHigh').send();
 		}
 
-		await msg.delete();
+		try {
+			await msg.delete();
+		} catch (e) {} // eslint-disable-line no-empty
 
 		// According to API docs, 'height' is only set if it's an image.
 		const purgeCount = await msg.channel.purge(num, m => !m.pinned && m.attachments.filter(a => a.height).length);
