@@ -283,6 +283,7 @@ module.exports = class Util {
 		if (!query) {
 			return;
 		}
+
 		try {
 			const { pathname } = url.parse(query);
 			const chunks = pathname.split('/');
@@ -297,6 +298,13 @@ module.exports = class Util {
 			}
 		} catch (e) {} // eslint-disable-line no-empty
 		const id = this.cleanID(query);
+
+		if (channel.guild) {
+			const hasChannel = channel.guild.channels.find(c => c.type === 0 && c.messages.has(id));
+			if (hasChannel) {
+				return hasChannel.messages.get(id);
+			}
+		}
 
 		if (id) {
 			try {
