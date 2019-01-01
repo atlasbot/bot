@@ -301,6 +301,7 @@ module.exports = class Util {
 		if (id) {
 			try {
 				const message = await channel.getMessage(id);
+
 				if (message) {
 					return message;
 				}

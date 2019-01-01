@@ -132,6 +132,10 @@ class Responder {
      * @returns {Responder} The current responder instance
 	 */
 	edit(msg) {
+		if (!msg) {
+			return this;
+		}
+
 		if (!msg.edit) {
 			throw new Error('Message passed to Responder#edit() had no edit function!');
 		} else {

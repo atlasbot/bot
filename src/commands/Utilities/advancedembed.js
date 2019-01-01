@@ -15,6 +15,19 @@ module.exports = class AdvancedEmbed extends Command {
 			msg.delete().catch(() => false);
 		}
 
+		let toEdit;
+		if (parsedArgs.edit) {
+			toEdit = await this.Atlas.util.findMessage(msg.channel, parsedArgs.edit);
+
+			if (!toEdit) {
+				return responder.error('invalidEdit', parsedArgs.edit).send();
+			}
+
+			if (toEdit.author.id !== this.Atlas.client.user.id) {
+				return responder.error('cannotEdit').send();
+			}
+		}
+
 		let color;
 		if (parsedArgs.color || parsedArgs.colour) {
 			const unparsedColor = parsedArgs.color || parsedArgs.colour;
@@ -68,7 +81,7 @@ module.exports = class AdvancedEmbed extends Command {
 			return responder.error('error', this.Atlas.lib.utils.parseJoiError(error).map(e => e.message).join(', ')).send();
 		}
 
-		return responder.localised().embed(embed).send();
+		return responder.localised().edit(toEdit).embed(embed).send();
 	}
 };
 
@@ -119,6 +132,10 @@ module.exports.info = {
 	}, {
 		name: 'name',
 		desc: 'The author name. This or "title" are required for "icon" to work.',
+	}, {
+		name: 'edit',
+		placeholder: 'message id',
+		desc: 'Sets the message to edit. Must be in the same channel as the command invocation message.',
 	}, {
 		name: 'd',
 		desc: 'Deletes the invocation message.',
