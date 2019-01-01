@@ -529,7 +529,9 @@
 	},
 	"advancedembed": {
 		"unsupportedColor": "«{0}» n’est pas un format de couleurs pris en charge.",
-		"error": "Erreur de validation d'incorporation : `{0}`."
+		"error": "Erreur de validation d'incorporation : `{0}`.",
+		"invalidEdit": "Je n'ai pas trouvé de message correspondant à `{0}`.",
+		"cannotEdit": "I cannot edit another users messages."
 	},
 	"discrim": {
 		"title": "Users with a #{0} Discriminator",
