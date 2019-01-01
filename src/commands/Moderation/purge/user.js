@@ -33,7 +33,7 @@ module.exports = class User extends Command {
 			return responder.error('purge.general.nothingPurged', msg.author.mention).send();
 		}
 
-		return responder.error('purge.general.success', msg.author.mention, purgeCount).send();
+		return responder.error('purge.general.success', msg.author.mention, purgeCount).ttl(5).send();
 	}
 };
 

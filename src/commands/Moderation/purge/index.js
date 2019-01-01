@@ -31,7 +31,7 @@ module.exports = class Purge extends Command {
 			return responder.error('purge.base.nothingPurged', msg.author.mention).send();
 		}
 
-		return responder.error('purge.general.success', msg.author.mention, purgeCount).send();
+		return responder.error('purge.general.success', msg.author.mention, purgeCount).ttl(5).send();
 	}
 };
 

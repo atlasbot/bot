@@ -117,10 +117,10 @@ class Responder {
 
 	/**
      * Sets the time-to-live time for the message
-     * @param {number} [time=15] The time (in MS) for the message to last before being deleted
+     * @param {number} time The time (in seconds) for the message to last before being deleted
      * @returns {Responder} The current responder instance
      */
-	ttl(time = 15) {
+	ttl(time) {
 		this._data.ttl = time * 1000;
 
 		return this;
@@ -370,15 +370,13 @@ class Responder {
 
 			setTimeout(() => {
 				this.Atlas.sent = this.Atlas.sent.filter(s => s.msg.id !== msg.id);
-			}, (data._ttl || 16000) - 1000);
+			}, (data.ttl || 16000) - 1000);
 		}
 
-		if (data._ttl && data._ttl > 0) {
+		if (data.ttl && data.ttl > 0) {
 			setTimeout(() => {
-				if (msg) {
-					msg.delete().catch(() => false);
-				}
-			}, data._ttl);
+				msg.delete().catch(console.warn);
+			}, data.ttl);
 		}
 
 		return msg;
