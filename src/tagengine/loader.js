@@ -13,10 +13,16 @@ module.exports = () => {
 	for (const file of files.filter(f => !f.startsWith('-') && !f.endsWith('middleware.js'))) {
 		const tag = require(file);
 
-		tags.set(tag.info.name, {
+		const data = {
 			info: tag.info,
 			execute: tag,
-		});
+		};
+
+		if (tag.info.aliases) {
+			tag.info.aliases.map(a => tags.set(a, data));
+		}
+
+		tags.set(tag.info.name, data);
 	}
 
 	console.log(`Loaded ${tags.size} tags`);

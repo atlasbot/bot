@@ -41,7 +41,7 @@ module.exports = class AdvancedEmbed extends Command {
 
 		const embed = {
 			color: color && parseInt(color.hex.replace(/#/g, ''), 16),
-			title: !(parsedArgs.icon && !parsedArgs.name) && parsedArgs.title,
+			title: !(parsedArgs.icon && !parsedArgs.name) ? parsedArgs.title : null,
 			author: {
 				name: parsedArgs.icon && !parsedArgs.name ? parsedArgs.title : parsedArgs.name,
 				icon_url: parsedArgs.icon,
