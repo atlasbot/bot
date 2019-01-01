@@ -76,9 +76,16 @@ module.exports = class Commands {
 	} = {}) {
 		const warnings = [];
 
+		const dirname = _path.basename(_path.dirname(path));
+		const name = _path.basename(path).split('.').shift();
+
 		const Prop = require(path);
 		if (!Prop.info) {
 			return;
+		}
+
+		if (Prop.info.name !== name && dirname === plugin.name) {
+			console.warn(`${path} "info.name" does not match it's file name.`);
 		}
 
 		let prop;
