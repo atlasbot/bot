@@ -8,6 +8,10 @@ module.exports = class Embed extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
+		if (parsedArgs.d) {
+			msg.delete().catch(() => false);
+		}
+
 		if (!args.length) {
 			return responder.error('embed.noArgs').send();
 		}
@@ -29,6 +33,10 @@ module.exports.info = {
 		'wew',
 		'hey this looks pretty neato',
 	],
+	supportedFlags: [{
+		name: 'd',
+		desc: 'Deletes the invocation message.',
+	}],
 	permissions: {
 		bot: {
 			embedLinks: true,

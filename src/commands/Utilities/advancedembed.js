@@ -11,6 +11,10 @@ module.exports = class AdvancedEmbed extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'advancedembed');
 
+		if (parsedArgs.d) {
+			msg.delete().catch(() => false);
+		}
+
 		let color;
 		if (parsedArgs.color || parsedArgs.colour) {
 			const unparsedColor = parsedArgs.color || parsedArgs.colour;
@@ -115,6 +119,9 @@ module.exports.info = {
 	}, {
 		name: 'name',
 		desc: 'The author name. This or "title" are required for "icon" to work.',
+	}, {
+		name: 'd',
+		desc: 'Deletes the invocation message.',
 	}],
 	allowAllFlags: true,
 	permissions: {
