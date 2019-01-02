@@ -12,7 +12,7 @@ module.exports = class extends Command {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		responder.text(`http://lmgtfy.com/?q=${args.map(encodeURIComponent).join('+')}`).send();
+		responder.localised(true).text(`http://lmgtfy.com/?q=${args.map(encodeURIComponent).join('+')}`).send();
 	}
 };
 

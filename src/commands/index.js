@@ -85,7 +85,5 @@ module.exports = class Commands {
 				parent.subcommandAliases.set(a, sub);
 			});
 		}
-
-		console.log(subs.length);
 	}
 };
