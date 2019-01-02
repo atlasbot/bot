@@ -80,7 +80,7 @@ module.exports = class Ready {
 
 					const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.plugin');
 					// handle guild things
-					const pluginConf = settings.plugin(msg.command.info.plugin.name.toLowerCase());
+					const pluginConf = settings.plugin(msg.command.plugin.name.toLowerCase());
 
 					if (pluginConf) {
 						if (pluginConf.state === 'disabled') {
@@ -91,7 +91,7 @@ module.exports = class Ready {
 							// /shrug
 
 							if (!canHelpBypass && !canTmBypass) {
-								return responder.error('disabled', msg.command.info.plugin.name, msg.command.info.name).send();
+								return responder.error('disabled', msg.command.plugin.name, msg.command.info.name).send();
 							}
 						}
 
@@ -106,11 +106,11 @@ module.exports = class Ready {
 					}
 				}
 
-				if (msg.command.info.subcommands.size !== 0 && msg.args[0]) {
+				if (msg.command.subcommands.size !== 0 && msg.args[0]) {
 					// handle subcommands
 					const subLabel = msg.args[0].toLowerCase();
-					const sub = msg.command.info.subcommands.get(subLabel)
-						|| msg.command.info.subcommands.get(msg.command.info.subcommandAliases.get(subLabel));
+					const sub = msg.command.subcommands.get(subLabel)
+						|| msg.command.subcommands.get(msg.command.subcommandAliases.get(subLabel));
 
 					if (sub) {
 						msg.args.shift();

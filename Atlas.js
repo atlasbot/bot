@@ -7,7 +7,7 @@ const fs = require('fs').promises;
 const lib = require('./lib');
 const Util = require('./src/util');
 const Agenda = require('./src/agenda');
-const cmdUtil = require('./src/commands');
+const loader = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
 const PlayerManager = require('./src/structures/PlayerManager');
@@ -197,7 +197,7 @@ module.exports = class Atlas {
 		// get agenda to connect
 		this.agenda.connect();
 		// load commands
-		cmdUtil.load(this);
+		loader.setup(this);
 	}
 
 	/**

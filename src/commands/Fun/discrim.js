@@ -2,7 +2,7 @@ const Command = require('../../structures/Command.js');
 
 const REGEX = /[0-9]{4}/;
 
-module.exports = class Discrim extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

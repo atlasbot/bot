@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command.js');
 const parseTime = require('./../../../lib/utils/parseTime');
 
-module.exports = class Mute extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

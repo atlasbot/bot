@@ -2,7 +2,7 @@ const Command = require('../../structures/Command.js');
 
 const SPACE = '\u2009\u2009\u2009';
 
-module.exports = class ChannelSpaces extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

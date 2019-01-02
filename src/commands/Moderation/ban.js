@@ -2,7 +2,7 @@ const { Member } = require('eris');
 const Command = require('../../structures/Command.js');
 
 
-module.exports = class Ban extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

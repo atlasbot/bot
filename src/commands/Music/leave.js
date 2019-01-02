@@ -6,7 +6,7 @@ const Command = require('../../structures/Command.js');
 */
 const FIVE_MINUTES = 5 * 60 * 1000;
 
-module.exports = class Leave extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

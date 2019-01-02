@@ -4,7 +4,7 @@ const Cache = require('../../../lib/structures/Cache');
 
 const cache = new Cache('cmd-captcha');
 
-module.exports = class Captcha extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

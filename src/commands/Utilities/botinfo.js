@@ -3,7 +3,7 @@ const url = require('url');
 
 const Command = require('../../structures/Command.js');
 
-module.exports = class BotInfo extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

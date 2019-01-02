@@ -5,7 +5,7 @@ const Cache = require('../../../../lib/structures/Cache');
 
 const cache = new Cache('spacex-dragons');
 
-module.exports = class Dragons extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

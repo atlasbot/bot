@@ -2,7 +2,7 @@ const Command = require('../../structures/Command.js');
 
 // todo: this command is inefficient, the whole user profile system is actually
 
-module.exports = class Level extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

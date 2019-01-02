@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command.js');
 
-module.exports = class Someone extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -6,7 +6,7 @@ const overrides = {
 	en: 'uk',
 };
 
-module.exports = class Locale extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

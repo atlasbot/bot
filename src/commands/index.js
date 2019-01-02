@@ -1,145 +1,91 @@
 const _path = require('path');
-const fs = require('fs').promises;
+const fs = require('fs');
+
+const walkSync = require('../../lib/utils/walkSync');
 const Plugin = require('./../structures/Plugin');
 
 module.exports = class Commands {
-	static async plugins() {
+	/**
+	 * Loads commands and plugins.
+	 * @param {boolean} require Whether to require() each command or just return the file.
+	 * @returns {Object} The loaded data with plugins and commands
+	 */
+	static load(require = false) {
 		const plugins = [];
-		const files = await fs.readdir(__dirname);
-		for (const path of files) {
-			const file = _path.parse(path);
-			if (!file.ext) {
-				// it's /probably/ a directory, so lets try and load it as a plugin
-				const plugin = {
-					name: path,
-					commands: [],
-					subcommands: [],
-				};
+		let commands = [];
 
-				const pluginCmds = (await fs.readdir(_path.join(__dirname, path)))
-					.map(f => _path.parse(f));
+		const pluginNames = fs.readdirSync(__dirname).filter(c => !_path.parse(c).ext);
 
-				// loading bases/subs
-				const bases = pluginCmds.filter(p => !p.ext);
-				if (bases.length) {
-					for (const base of bases) {
-						const cmdfiles = await fs.readdir(_path.join(__dirname, path, base.base));
-						plugin.subcommands.push({
-							base: _path.join(__dirname, path, base.base, 'index.js'),
-							subs: cmdfiles.filter(f => f !== 'index.js')
-								.map(f => _path.join(__dirname, path, base.base, f)),
-						});
-					}
-				}
-				// loading regular commands
-				const cmds = pluginCmds.filter(p => p.ext === '.js');
-				if (cmds.length) {
-					for (const cmd of cmds) {
-						plugin.commands.push(_path.join(__dirname, path, cmd.base));
-					}
-				}
+		for (const folder of pluginNames) {
+			const pluginDir = _path.join(__dirname, folder);
+			const pluginCommands = walkSync(pluginDir);
 
-				plugins.push(plugin);
-			}
+			plugins.push({
+				directory: pluginDir,
+				commands: pluginCommands,
+			});
 		}
 
-		return plugins;
+		if (require) {
+			commands = commands.map(c => require(c));
+		}
+
+		return {
+			plugins,
+			commands,
+		};
 	}
 
-	static async load(Atlas) {
-		const plugins = await this.plugins();
-		for (const plugin of plugins) {
-			Atlas.plugins.set(plugin.name.toLowerCase(), new Plugin(plugin));
+	static setup(Atlas) {
+		const { plugins: rawPlugins } = this.load();
 
-			plugin.commands.forEach(cmd => this.setup(Atlas, cmd, {
-				plugin,
-			}));
+		const subs = [];
 
-			plugin.subcommands.forEach(sub => this.setup(Atlas, sub.base, {
-				subs: sub.subs,
-				plugin,
-			}));
+		for (const { directory, commands } of rawPlugins) {
+			const plugin = new Plugin(directory, commands);
 
-			console.log(`Loaded plugin: "${plugin.name}"`);
-		}
+			for (const loc of plugin.commandFiles) {
+				const fileName = _path.basename(loc);
+				const parent = _path.basename(_path.dirname(loc));
 
-		console.log(`Loaded ${plugins.length} plugins`);
+				const isSub = plugin.name !== parent && fileName !== 'index.js';
 
-		console.log(`Loaded ${plugins.map(p => p.commands.length).reduce((a, b) => a + b, 0)} commands`);
-		console.log(`Loaded ${plugins.map(p => p.subcommands.length).reduce((a, b) => a + b, 0)} subcommands`);
-	}
+				const Command = require(loc);
+				const command = new Command(Atlas, plugin);
 
-	static setup(Atlas, path, {
-		subs,
-		master,
-		plugin,
-	} = {}) {
-		const warnings = [];
+				command.plugin = plugin;
+				command.location = loc;
+				command.isSub = isSub;
 
-		const dirname = _path.basename(_path.dirname(path));
-		const name = _path.basename(path).split('.').shift();
+				if (!isSub) {
+					// subcommands are registered on their parent
+					Atlas.commands.labels.set(command.info.name, command);
 
-		const Prop = require(path);
-		if (!Prop.info) {
-			return;
-		}
+					command.info.aliases.forEach((a) => {
+						Atlas.commands.aliases.set(a, command);
+					});
+				} else {
+					command.parent = parent;
 
-		if (Prop.info.name !== name && dirname === plugin.name) {
-			console.warn(`${path} "info.name" does not match it's file name.`);
-		}
+					subs.push(command);
+				}
 
-		let prop;
-		try {
-			prop = new Prop(Atlas);
-		} catch (e) {
-			if (Atlas.Raven) {
-				Atlas.Raven.captureException(e);
+				delete require.cache[require.resolve(loc)];
 			}
 
-			console.error(`Error loading ${Prop.info.name}`, e);
-
-			return;
+			Atlas.plugins.set(plugin.name, plugin);
 		}
 
-		prop.info.subcommands = new Map();
-		prop.info.subcommandAliases = new Map();
+		for (const sub of subs) {
+			const parent = Atlas.commands.get(sub.parent);
 
-		if (master) {
-			prop.info.master = master;
-		} else if (subs) {
-			subs.forEach(sub => this.setup(Atlas, sub, {
-				master: prop,
-				plugin,
-			}));
+			parent.subcommands.set(sub.info.name, sub);
+
+			sub.info.aliases.forEach((a) => {
+				parent.subcommandAliases.set(a, sub);
+			});
 		}
 
-		// the location is basically where the command file is
-		prop.info.location = path;
-		prop.info.relative = _path.relative(process.cwd(), path);
-		// the plugin the command is from
-		prop.info.plugin = plugin;
-
-		prop.info.aliases.forEach((alias) => {
-			if (master) {
-				master.info.subcommandAliases.set(alias, prop.info.name);
-			} else {
-				Atlas.commands.aliases.set(alias, prop.info.name);
-			}
-		});
-
-		// registering the command
-		if (master) {
-			master.info.subcommands.set(prop.info.name, prop);
-		} else {
-			Atlas.commands.labels.set(prop.info.name, prop);
-		}
-
-		if (prop.info.ignoreStyleRules !== true) {
-			warnings.map(w => console.warn(w));
-		}
-
-		delete require.cache[require.resolve(path)];
-
-		return prop;
+		console.log(subs.length);
 	}
 };

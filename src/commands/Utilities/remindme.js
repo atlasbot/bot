@@ -1,7 +1,7 @@
 const parseTime = require('./../../../lib/utils/parseTime');
 const Command = require('../../structures/Command.js');
 
-module.exports = class RemindMe extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

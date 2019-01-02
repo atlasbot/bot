@@ -3,7 +3,7 @@ const Parser = require('../../tagengine');
 
 const MENTION_REGEX = /<(#|@)(!|&)?[0-9]{15,25}>/;
 
-module.exports = class TagEval extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

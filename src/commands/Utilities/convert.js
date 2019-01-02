@@ -12,7 +12,7 @@ const cache = new Cache('currencies');
 // regex was just the easiest solution i could think of
 const REGEX = /([0-9,. ]+) ?([A-z-_,]+) (?:to )?([A-z-_,]+)/i;
 
-module.exports = class Convert extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -7,7 +7,7 @@ const Cache = require('../../../lib/structures/Cache');
 
 const cache = new Cache('bot-music');
 
-module.exports = class Play extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 

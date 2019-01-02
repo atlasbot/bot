@@ -3,7 +3,7 @@ const Command = require('../../structures/Command.js');
 // note: at the time of making this, adorable.io is getting 503'd
 // it should work because this is a direct copy from v7, but still
 
-module.exports = class GenAvatar extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

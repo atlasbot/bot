@@ -5,7 +5,7 @@ const opposites = {
 	disabled: 'enabled',
 };
 
-module.exports = class TogglePlugin extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

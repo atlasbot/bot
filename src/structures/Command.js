@@ -1,4 +1,6 @@
 const parseArgs = require('yargs-parser');
+const path = require('path');
+
 const Responder = require('./Responder');
 const cleanArgs = require('./../../lib/utils/cleanArgs');
 
@@ -23,14 +25,31 @@ class Command {
 				examples: [],
 				noExamples: info.usage && !info.examples,
 				supportedArgs: [],
-				subcommands: new Map(),
-				subcommandAliases: new Map(),
 				supportedFlags: [],
 			},
 			...info };
 
+		this.subcommands = new Map();
+		this.subcommandAliases = new Map();
+
+		// loader will populate these
+		// would be done using another arg but i'm not updating ~120 commands to forward it lmao
+		this.plugin = null;
+		this.location = null;
+		this.isSub = null;
+
 		this.execute = this.execute.bind(this);
 		this.action = this.action.bind(this);
+	}
+
+	get master() {
+		if (!this.isSub) {
+			return;
+		}
+
+		const master = path.basename(path.dirname(this.location));
+
+		return this.Atlas.commands.get(master);
 	}
 
 	async execute(msg, args, {
@@ -69,7 +88,7 @@ class Command {
 				}
 			}
 
-			options = settings.command(this.info.master ? this.info.master.info.name : this.info.name);
+			options = settings.command(this.master ? this.master.info.name : this.info.name);
 
 			if (options.disabled) {
 			// command is disabled
@@ -159,9 +178,9 @@ class Command {
 		const responder = new Responder(null, lang);
 
 		let key;
-		if (this.info.master) {
-			key = `info.${this.info.master.info.name}.${this.info.name}`;
-		} else if (this.info.subcommands.size !== 0) {
+		if (this.master) {
+			key = `info.${this.master.info.name}.${this.info.name}`;
+		} else if (this.subcommands.size !== 0) {
 			key = `info.${this.info.name}.base`;
 		} else {
 			key = `info.${this.info.name}`;
@@ -231,10 +250,10 @@ class Command {
 			});
 		}
 
-		if (info.subcommands.size !== 0) {
+		if (this.subcommands.size !== 0) {
 			embed.fields.push({
 				name: 'general.help.subcommands',
-				value: Array.from(info.subcommands.values()).map(({ info: { name } }) => `• ${name}`).join('\n'),
+				value: Array.from(this.subcommands.values()).map(({ info: { name } }) => `• ${name}`).join('\n'),
 				inline: true,
 			});
 

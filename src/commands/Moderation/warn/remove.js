@@ -13,7 +13,7 @@ const emojis = [
 
 // fixme: doesn't handle if custom reactions are added to the embed
 
-module.exports = class Remove extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command.js');
 const facts = require('../../../data/facts.json');
 
-module.exports = class Neat extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -4,9 +4,9 @@ const restricted = {
 	configuration: 'manageGuild',
 };
 
-const formatCommands = cmds => cmds.map(m => (m.info.subcommands.size !== 0 ? `\`${m.info.name}\`\\*` : `\`${m.info.name}\``)).join(', ');
+const formatCommands = cmds => cmds.map(m => (m.subcommands.size !== 0 ? `\`${m.info.name}\`\\*` : `\`${m.info.name}\``)).join(', ');
 
-module.exports = class Help extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -91,7 +91,10 @@ module.exports = class Help extends Command {
 				}
 			}
 
-			const sentMsg = await responder.embed(embed).dm(msg.author.id).send();
+			const sentMsg = await responder
+				.embed(embed)
+			// .dm(msg.author.id)
+				.send();
 
 			if (sentMsg.channel.id !== msg.channel.id) {
 				// it was probably dm'd
@@ -132,8 +135,8 @@ module.exports = class Help extends Command {
 			return responder.error('general.noResults', query).send();
 		}
 
-		if (command.info.subcommands && args[1]) {
-			const sub = (new this.Atlas.lib.structs.Fuzzy(Array.from(command.info.subcommands.values()), {
+		if (command.subcommands && args[1]) {
+			const sub = (new this.Atlas.lib.structs.Fuzzy(Array.from(command.subcommands.values()), {
 				keys: ['info.name', 'info.aliases'],
 			})).search(args[1].replace(/[\W_]+/g, ''));
 

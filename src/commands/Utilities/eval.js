@@ -11,7 +11,7 @@ Object.keys(process.env).forEach((k) => {
 	}
 });
 
-module.exports = class Eval extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
@@ -36,9 +36,11 @@ module.exports = class Eval extends Command {
 			});
 		}
 
-		if (process.env.NODE_ENV === 'production') {
-			return responder.error('"eval" is disabled in production.').send();
-		}
+		// turns out this is annoying for testing shit
+		// might re-enable it once post-v8 shit storm is over though
+		// if (process.env.NODE_ENV === 'production') {
+		// 	return responder.error('"eval" is disabled in production.').send();
+		// }
 
 		try {
 			const result = this.clean(util

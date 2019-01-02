@@ -8,7 +8,7 @@ const FILTERED_TAGS = [
 	'gross',
 ];
 
-module.exports = class WouldYouRather extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

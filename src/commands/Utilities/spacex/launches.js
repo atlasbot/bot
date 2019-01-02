@@ -6,7 +6,7 @@ const Cache = require('../../../../lib/structures/Cache');
 
 const cache = new Cache('spacex-launches');
 
-module.exports = class Launches extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

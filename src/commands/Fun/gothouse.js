@@ -5,7 +5,7 @@ const Command = require('../../structures/Command.js');
 const characters = require('./../../../data/gameOfThrones/characters.json');
 const houses = require('./../../../data/gameOfThrones/houses.json');
 
-module.exports = class GotHouse extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}

@@ -7,7 +7,7 @@ const cache = new Cache('spacex-ships');
 
 const MAX_MISSIONS = 2;
 
-module.exports = class Ships extends Command {
+module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
 	}
