@@ -59,7 +59,7 @@
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
 			"duration": "Duração",
-			"created": "Created",
+			"created": "Criado",
 			"updated": "Updated",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
@@ -146,12 +146,12 @@
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
@@ -276,6 +276,7 @@
 		"noResults": "I could not find any search results matching `{0}`.",
 		"noVoiceChannel": "You have to be in a voice channel to do that!",
 		"busy": "I'm already playing in `{0}`.",
+		"noPerms": "I do not have permission to play in that voice channel.",
 		"noArgs": "You have to include a search term or song URL!",
 		"playlistEmbed": {
 			"title": "Playlist Queued - {0}",
@@ -284,6 +285,10 @@
 		"searchQuery": {
 			"outOfTime": "You did not provide a valid track number in time.",
 			"invalidTrack": "`{0}` is not a valid track number."
+		},
+		"searchResults": {
+			"title": "Search Results",
+			"footer": "Say a number or \"{0}play <num>\" to play a result"
 		}
 	},
 	"queue": {
@@ -515,7 +520,7 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Author",
+		"author": "Autor",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
@@ -580,7 +585,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Bots"
+		"bots": "Robôs"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -664,7 +669,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": "Region"
@@ -678,7 +683,7 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Created"
+		"footer": "Criado"
 	},
 	"shorten": {
 		"noArgs": "Please include a URL.",
