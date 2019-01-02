@@ -115,22 +115,22 @@
 		"description": "Make Atlas join your voice channel."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
+		"description": "Bir komutu aç / kapat.",
 		"usage": "[command]"
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
+		"description": "Bir eklentiyi aç veya kapat.",
 		"usage": "[plugin]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "Sizin veya başka bir kullanıcı seviyenizi alır.",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "Düzeyler için liderlik linkini alır."
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "Metni küçültür.",
 		"usage": "[text]"
 	},
 	"nodes": {
@@ -196,7 +196,7 @@
 		"usage": "[server ip]"
 	},
 	"membercount": {
-		"description": "Shows information about the servers member count."
+		"description": "Sunucu üye sayısı hakkında bilgi gösterir."
 	},
 	"joined": {
 		"description": "Find out when a user joined the server."
