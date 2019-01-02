@@ -52,19 +52,20 @@ module.exports = class Event {
 		if (gatekeeper.state === 'enabled' && !/[A-z]{2,}\.(?:com|gg|io|net|org|tv|me)/.test(member.username)) {
 			const responder = new Responder(null, settings.lang);
 
-			const parser = new Parser({
-				settings,
-				user: member,
-				guild,
-			}, true);
-
 			if (gatekeeper.channel.enabled) {
 				if (channel) {
-					parser.context.channel = channel;
+					const parser = new Parser({
+						settings,
+						user: member.user,
+						channel,
+						guild,
+					});
 
 					const { output } = await parser.parse(gatekeeper.channel.content);
 
-					await responder.channel(channel).localised(true).text(output).send();
+					if (output) {
+						await responder.channel(channel).localised(true).text(output).send();
+					}
 				}
 			}
 
@@ -72,11 +73,18 @@ module.exports = class Event {
 				try {
 					const dmChannel = await member.user.getDMChannel();
 
-					parser.context.channel = dmChannel;
+					const parser = new Parser({
+						settings,
+						user: member.user,
+						channel: dmChannel,
+						guild,
+					});
 
 					const { output } = await parser.parse(gatekeeper.dm.content);
 
-					await responder.channel(dmChannel).localised(true).text(output).send();
+					if (output) {
+						await responder.channel(dmChannel).localised(true).text(output).send();
+					}
 				} catch (e) {
 					console.warn(e);
 				}

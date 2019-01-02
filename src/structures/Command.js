@@ -60,6 +60,7 @@ class Command {
 				const permissions = Object.keys(this.info.permissions[permsKey]);
 				for (const perm of permissions) {
 					const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
+
 					if (perms.has(perm) === false) {
 						const missing = responder.format(`permissions.list.${perm}`);
 

@@ -144,7 +144,9 @@ module.exports = class extends Player {
 			},
 			{
 				name: 'general.player.npEmbed.duration',
-				value: this.Atlas.lib.utils.prettyMs(track.info.length),
+				value: (track.info.isStream || track.info.length >= 9223372036854776000)
+					? '∞'
+					: this.Atlas.lib.utils.prettyMs(track.info.length),
 				inline: true,
 			}],
 			timestamp: new Date(),

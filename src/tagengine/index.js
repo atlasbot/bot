@@ -1,4 +1,7 @@
 const Message = require('eris/lib/structures/Message');
+const Permission = require('eris/lib/structures/Permission');
+const { Permissions } = require('eris/lib/Constants');
+
 const tags = require('./loader')();
 const interpreter = require('./interpreter');
 const Parser = require('./Parser');
@@ -25,6 +28,24 @@ module.exports = class {
 		user = msg.author,
 	}, managed = true) {
 		this.Atlas = require('./../../Atlas');
+
+		if (!msg) {
+			if (!channel.permissionsOf) {
+				channel.permissionsOf = () => new Permission(Permissions.all);
+			}
+
+			msg = {
+				guild,
+				channel,
+				author: user,
+				type: 0,
+				timestamp: Date.now(),
+				lang: settings.lang,
+				content: '???',
+				prefix: settings.prefix,
+				displayPrefix: settings.prefix,
+			};
+		}
 
 		this.context = {
 			msg,
@@ -157,7 +178,7 @@ module.exports = class {
 	 */
 	replace(data) {
 		if (!data || !data.output) {
-			return;
+			return data;
 		}
 
 		data.output = data.output
