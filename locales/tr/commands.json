@@ -35,7 +35,7 @@
 	},
 	"needsmorejpeg": {
 		"noArgs": "Lütfen bir resim eki veya resim URL'si ekleyin.",
-		"invalidUrl": "`{0}` is not a valid URL."
+		"invalidUrl": "`{0}` is not a valid user."
 	},
 	"randomcase": {
 		"noArgs": "Lütfen Rastgele bir şey ekle"
@@ -58,8 +58,8 @@
 			"noPlaylists": "Çalma listeniz yok.",
 			"more": "+ `{0}` daha fazla",
 			"description": "{0} toplam parça",
-			"duration": "Duration",
-			"created": "Created",
+			"duration": "Süre",
+			"created": "Oluşturuldu",
 			"updated": "Güncellenmiş",
 			"tracks": "Parçalar",
 			"footer": "{0} • Oynatma listesi {1} / {2}"
@@ -138,7 +138,7 @@
 	"nodes": {
 		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
 		"node": "Ana Sunucu",
-		"players": "Players",
+		"players": "Oyuncular",
 		"events": "Etkinlikler",
 		"footer": "Atlas'ın Ses Düğümleri"
 	},
@@ -361,11 +361,11 @@
 	},
 	"unban": {
 		"noArgs": "Lütfen engellemeyi kaldırmak için bir kullanıcı ekleyin!",
-		"success": "Kullanıcı yasağı kaldırıldı."
+		"success": "{0} Kullanıcı yasağı kaldırıldı."
 	},
 	"mute": {
-		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
+		"noArgs": "Lütfen engellemeyi kaldırmak için bir kullanıcı ekleyin!",
+		"success": "{0}  adlı kullanıcı {1} tarafından susturuldu",
 		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
@@ -375,15 +375,15 @@
 		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
 	},
 	"unmute": {
-		"success": "{0} has been unmuted.",
-		"notMuted": "That user is not muted!",
+		"success": "{0} Kullanıcı susturulma yasağı kaldırıldı.",
+		"notMuted": "Bu kullanıcı susturulmamış!",
 		"tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
 	},
 	"emojify": {
 		"noArgs": "Please include a sentence to emojify!"
 	},
 	"next": {
-		"success": "Skipped `{0}`.",
+		"success": "{0} `atlandı.",
 		"nothingNext": "There is nothing in the queue to skip to."
 	},
 	"botinfo": {
@@ -391,29 +391,29 @@
 		"notABot": "Beep boop? That user is not a bot.",
 		"notFound": "That bot is not listed on discordbots.org :c",
 		"embed": {
-			"library": "Library",
+			"library": "Arşiv",
 			"servers": {
-				"name": "Servers",
-				"none": "Unknown"
+				"name": "Sunucular",
+				"none": "Bilinmeyen"
 			},
 			"shards": {
-				"name": "Shards",
-				"none": "Unknown"
+				"name": " Parçalar",
+				"none": "Bilinmeyen"
 			},
-			"prefix": "Prefix",
+			"prefix": "Ön ek",
 			"github": {
-				"name": "Github",
+				"name": "GitHub",
 				"none": "Yok"
 			},
 			"website": {
 				"name": "İnternet sitesi",
 				"none": "Yok"
 			},
-			"owners": "Owners",
-			"footer": "Approved at",
-			"invite": "Invite Link",
+			"owners": "Sahibi",
+			"footer": "Onaylı",
+			"invite": "Bağlantı ile davet et",
 			"support": {
-				"name": "Support Server",
+				"name": "Destek Sunucusu",
 				"none": "Yok"
 			}
 		}
@@ -490,12 +490,12 @@
 			"success": "The {0} filter has been set to `{1}`."
 		},
 		"list": {
-			"title": "Filters"
+			"title": "filtrele"
 		}
 	},
 	"kick": {
 		"noArgs": "Please include a user to kick!",
-		"success": "Kicked {0}.",
+		"success": "{0} atıldı!",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
 			"reason": "{0} 'dan atıldınız. {1} ({2}) tarafından.",
@@ -506,7 +506,7 @@
 		"notFound": "I could not find a Game of Thrones character matching `{0}`."
 	},
 	"genavatar": {
-		"title": "Here you go!",
+		"title": "İşte böyle.",
 		"description": "[Click here]({0}) for a higher quality version.",
 		"footer": "Via adorable.io"
 	},
@@ -515,13 +515,13 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Author",
+		"author": "Yazar",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
 		"base": {
 			"cannotFind": "I could not find a user matching `{0}`.",
-			"title": "Here you go!"
+			"title": "İşte böyle."
 		},
 		"server": {
 			"noIcon": "This server has no icon."
@@ -552,53 +552,53 @@
 		"invalid": "`{0}` is not a valid invite link or code.",
 		"title": "Invite Info for {0}",
 		"guild": {
-			"name": "Server Name"
+			"name": "Sunucu adı"
 		},
 		"inviter": {
-			"name": "Inviter"
+			"name": "Davet eden:"
 		},
 		"channel": {
-			"name": "Channel",
+			"name": "Kanal",
 			"value": "{0} ({1})"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Sahibi"
 		},
 		"memberCount": {
-			"name": "Member Count",
-			"value": "{0} ({1} online)"
+			"name": "Üye Sayısı",
+			"value": "{0} ({1} Aktif Kullanıcı)"
 		}
 	},
 	"joined": {
-		"noArgs": "Please include a user to check.",
+		"noArgs": "Lütfen kontrol etmek için bir kullanıcı ekleyin.",
 		"noUser": "I could not find a user matching `{0}`.",
-		"message": "{0} joined {1} at {2}."
+		"message": "{0}, {2} 'de {1}' e katıldı."
 	},
 	"membercount": {
-		"total": "Total",
-		"online": "Online",
-		"idle": "Idle",
-		"dnd": "Do not Disturb",
-		"offline": "Offline",
-		"bots": "Bots"
+		"total": "Toplam",
+		"online": "Çevrimiçi",
+		"idle": "Boşta",
+		"dnd": "Rahatsız Etmeyin",
+		"offline": "Çevrimdışı",
+		"bots": "Botlar"
 	},
 	"minecraft": {
-		"noArgs": "Please include a server IP.",
-		"invalidIP": "`{0}` is not a valid Minecraft IP.",
+		"noArgs": "Lütfen bir sunucu IP'si ekleyin.",
+		"invalidIP": "`{0}` geçerli bir Minecraft IP'si değil.",
 		"uptime": {
-			"name": "Uptime"
+			"name": "Çalışma süresi"
 		},
 		"players": {
-			"name": "Players",
+			"name": "Oyuncular",
 			"value": "{0}/{1}"
 		},
 		"software": {
-			"name": "Software"
+			"name": "Yazılım"
 		},
 		"lastChecked": "Via mcapi.us  •  last checked",
 		"status": "Durum",
-		"online": "Online",
-		"offline": "Offline"
+		"online": "Çevrimiçi",
+		"offline": "Çevrimdışı"
 	},
 	"quote": {
 		"noArgs": "Please include a message ID or share link.",
@@ -623,66 +623,66 @@
 		"noArgs": "Please include a role.",
 		"invalidRole": "I could not find a role matching `{0}`.",
 		"id": {
-			"name": "ID"
+			"name": "Kimlik"
 		},
 		"name": {
-			"name": "Name"
+			"name": "İsim"
 		},
 		"color": {
-			"name": "Color"
+			"name": "Renk"
 		},
 		"mention": {
-			"name": "Mention"
+			"name": "Bahset"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Üyeler"
 		},
 		"position": {
-			"name": "Position"
+			"name": "Konum"
 		},
 		"mentionable": {
-			"name": "Mentionable"
+			"name": "Etiketlenebilir"
 		},
 		"hoisted": {
-			"name": "Hoisted"
+			"name": "Çekmek"
 		},
-		"yes": "Yes",
-		"no": "No",
-		"footer": "Created At"
+		"yes": "Evet",
+		"no": "Hayır",
+		"footer": "Oluşturulma Tarihi"
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Söylemem için bir şeyler eklemelisin."
 	},
 	"serverinfo": {
 		"name": {
-			"name": "Name"
+			"name": "İsim"
 		},
 		"textChannels": {
-			"name": "Text Channels"
+			"name": "Mesaj Kanalları"
 		},
 		"voiceChannels": {
-			"name": "Voice Channels"
+			"name": "Ses Kanalları"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Doğrulama seviyesi"
 		},
 		"region": {
-			"name": "Region"
+			"name": "Bölge"
 		},
 		"roles": {
-			"name": "Roles"
+			"name": "Roller"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Üyeler"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Sahibi"
 		},
-		"footer": "Created"
+		"footer": "Oluşturuldu"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Lütfen bir URL girin",
+		"invalidURI": "`{0}` is not a valid user."
 	},
 	"time": {
 		"noArgs": "Please include a location to get the time for.",
