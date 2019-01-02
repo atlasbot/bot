@@ -1,4 +1,7 @@
 {
+	"smalltext": {
+		"noArgs": "Please include something to make ˢᵐᵒˡ"
+	},
 	"iam": {
 		"noRoles": "Kullanıcının herhangi bir rolü yok.",
 		"invalidQuery": "{0} `ile eşleşen bir\" iam \"rolü bulamadım.",
