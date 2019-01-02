@@ -1,12 +1,12 @@
 {
 	"help": {
-		"examples": "Examples",
-		"aliases": "Aliases",
-		"subcommands": "Subcommands",
+		"examples": "Örnekler",
+		"aliases": "Diğer Adlar",
+		"subcommands": "Alt komutları",
 		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
-		"usage": "Usage",
-		"userPerms": "User Permissions",
-		"botPerms": "Bot Permissions",
+		"usage": "Kullanım",
+		"userPerms": "Kullanıcı İzinleri",
+		"botPerms": "\nbot İzinleri",
 		"supportedFlags": "Supported Flags"
 	},
 	"roles": {
@@ -29,10 +29,10 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-		"premiumOnly": "Only premium servers can use that command. ",
-		"guildOnly": "That command can only be used in servers!",
-		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"patronOnly": "Sadece -Patrons- bu komutu kullanabilir. Daha fazla bilgi için `{0}`bağış veriniz.",
+		"premiumOnly": "Yalnızca premium sunucular bu komutu kullanabilir.",
+		"guildOnly": "Bu komut sadece sunucularda kullanılabilir!",
+		"disabled": "`{0} {1}` komutu bir sunucu yöneticisi tarafından devre dışı bırakıldı.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that command.",
@@ -45,24 +45,24 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "Hatırlatıcı",
+		"footer": "İstendi"
 	},
 	"warning": {
-		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"title": "Kullanıcı Uyarıldı",
+		"description": "{0} (`{1}`), bir {2} (`{3}`) tarafından uyarıldı.",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "Toplam Uyarı",
+			"value": "{0} şu an {1} toplam uyarıya sahip."
 		},
 		"dm": {
-			"name": "Direct Messaged",
-			"true": "The user was direct-messaged.",
-			"false": "The user was not direct-messaged."
+			"name": "Direkt mesaj",
+			"true": "Kullanıcıyı Direkt Mesaj atıldı",
+			"false": "Kullanıcıya Direkt Mesaj atılamadı"
 		},
 		"reason": {
-			"name": "Reason",
-			"value": "No reason specified."
+			"name": "Sebep",
+			"value": "bir sebep belirtilmedi."
 		}
 	},
 	"player": {
@@ -72,15 +72,15 @@
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
-			"author": "Author",
-			"duration": "Duration",
+			"addedBy": "Ekleyen",
+			"author": "Yazar",
+			"duration": "Süre",
 			"footer": "{0} in queue"
 		},
 		"leaving": "There is nothing left to play, leaving channel...",
 		"autoplay": {
 			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"addedBy": "OtomatikOynat"
 		}
 	},
 	"poweredBy": {
@@ -88,68 +88,68 @@
 	},
 	"logs": {
 		"levelReset": {
-			"title": "Level Reset",
+			"title": "Seviye Sıfırlama",
 			"description": "{0} has had their level reset from `{1}` to `0`.",
 			"moderator": {
-				"name": "Administrator",
+				"name": "Yönetici",
 				"value": "{0}"
 			},
 			"target": {
-				"name": "Target",
+				"name": "Hedef",
 				"value": "{0}"
 			}
 		},
 		"guildMemberKick": {
-			"title": "Member Kicked",
-			"description": "{0} has been kicked from the server.",
+			"title": "Üye Atıldı",
+			"description": "{0} Sunucudan atıldı.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			}
 		},
 		"guildMemberUpdate": {
 			"roleAdd": {
-				"title": "Member Updated - Role Added",
-				"description": "{0} has been given the {1} role.",
+				"title": "Üye Güncellendi - Rol Eklendi",
+				"description": "{0}, {1} rolü verildi.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderatör",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Sebep"
 			},
 			"roleRemove": {
-				"title": "Member Updated - Role Removed",
-				"description": "{0} has had the {1} role taken from them.",
+				"title": "Üye Güncellenme - Rol Kaldırıldı",
+				"description": "{0}, onlardan {1} rol aldı.",
 				"moderator": {
-					"name": "Moderator",
+					"name": "Moderatör",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Sebep"
 			},
 			"usernameChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their username from `{1}` to `{2}`."
+				"title": "Üye Güncellenmiştir - Kullanıcı Adı Değişti",
+				"description": "{0} kullanıcı adını `{1}` yerine `{2}` olarak değiştirdi."
 			},
 			"avatarChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their avatar from `{1}` to `{2}`."
+				"title": "Üye Güncellenmiştir - Kullanıcı Adı Değişti",
+				"description": "{0}, avatarlarını {1} `dan` {2} `a değiştirdi."
 			}
 		},
 		"guildMemberAdd": {
-			"title": "Member Joined",
+			"title": "Üye Katıldı",
 			"description": "{0} has joined the server."
 		},
 		"guildRoleCreate": {
 			"title": "Role Created",
 			"description": "The {0} role was created.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			}
 		},
 		"guildRoleDelete": {
 			"title": "Role Deleted",
 			"description": "The {0} role was deleted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			}
 		},
 		"guildRoleUpdate": {
@@ -170,7 +170,7 @@
 				"value": "The role no longer has the `{0}` permissions."
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"hoistTrue": {
 				"name": "Hoist Updated",
@@ -196,10 +196,10 @@
 				"name": "Content"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Sebep"
 			}
 		},
 		"messageUpdate": {
@@ -209,75 +209,75 @@
 				"name": "Before"
 			},
 			"newContent": {
-				"name": "After"
+				"name": "Sonra"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Member Left",
-			"description": "{0} has left the server."
+			"title": "Üye Ayrıldı",
+			"description": "{0} sunucudan çıktı."
 		},
 		"channelCreate": {
-			"title": "Channel Created",
-			"description": "The {0} (`{1}`) {2} channel has been created.",
+			"title": "Kanal Oluşturldu",
+			"description": "{0} (`{1}`) {2} kanalı oluşturuldu.",
 			"category": {
-				"name": "Category"
+				"name": "Kategori"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			}
 		},
 		"channelDelete": {
-			"title": "Channel Deleted",
-			"description": "The {0} channel has been deleted.",
+			"title": "Kanal Silindi",
+			"description": "{0} kanalı silindi.",
 			"category": {
-				"name": "Category"
+				"name": "Kategori"
 			},
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			}
 		},
 		"guildBanAdd": {
-			"title": "Member Banned",
+			"title": "Üye Yasaklandı",
 			"description": "{0} has been banned.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Sebep"
 			}
 		},
 		"guildBanRemove": {
 			"title": "Member Unbanned",
-			"description": "{0} has been unbanned.",
+			"description": "{0} Kullanıcı yasağı kaldırıldı.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Sebep"
 			}
 		},
 		"mute": {
 			"title": "Member Muted",
 			"description": "{0} has been muted.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "Süre"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Sebep"
 			},
 			"footer": "Target {0} Mod {1}"
 		},
 		"unmute": {
 			"title": "Member Unmuted",
-			"description": "{0} has been unmuted.",
+			"description": "{0} Kullanıcı susturulma yasağı kaldırıldı.",
 			"moderator": {
-				"name": "Moderator"
+				"name": "Moderatör"
 			},
 			"unmuteReason": {
-				"name": "Reason"
+				"name": "Sebep"
 			}
 		}
 	},
@@ -296,7 +296,7 @@
 		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
-			"name": "Position",
+			"name": "Konum",
 			"value": "{0}"
 		},
 		"nowPlaying": {
@@ -309,15 +309,15 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "Süre",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Ekleyen",
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Author",
+			"name": "Yazar",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
@@ -342,18 +342,18 @@
 	},
 	"permissions": {
 		"list": {
-			"createInstantInvite": "Create Invite",
-			"kickMembers": "Kick Members",
-			"banMembers": "Ban Members",
-			"administrator": "Administrator",
-			"manageChannels": "Manage Channels",
+			"createInstantInvite": "Davet Yarat",
+			"kickMembers": "Üyeleri At",
+			"banMembers": "Üyeleri Engelle",
+			"administrator": "Yönetici",
+			"manageChannels": "Kanalları Yönet",
 			"manageGuild": "Manage Guild",
-			"addReactions": "Add Reactions",
-			"readMessages": "Read Messages",
-			"sendMessages": "Send Messages",
-			"SendTTSMessages": "Send TTS Messages",
-			"manageMessages": "Manage Messages",
-			"embedLinks": "Embed Links",
+			"addReactions": "Tepki Ekle",
+			"readMessages": "Mesajları Oku",
+			"sendMessages": "Mesaj Gönder",
+			"SendTTSMessages": "Sesli Mesaj Gönder",
+			"manageMessages": "Mesajları Yönet",
+			"embedLinks": "Gömme Bağlantılar",
 			"attachFiles": "Embed Files",
 			"readMessageHistory": "Read Message History",
 			"mentionEveryone": "Mention Everyone",
@@ -383,7 +383,7 @@
 		},
 		"messages": {
 			"capitalization": {
-				"warning": "Excessive capitalization.",
+				"warning": "Aşırı büyük harf kullanımı.",
 				"message": "{0}, cool it with the caps."
 			},
 			"emoji": {
