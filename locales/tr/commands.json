@@ -4,7 +4,7 @@
 		"invalidQuery": "{0} `ile eşleşen bir\" iam \"rolü bulamadım.",
 		"unassignable": "Sana bu rolü verme iznim yok.",
 		"removed": "Artık {0} rolünüz yok.",
-		"added": "You now have the {0} role.",
+		"added": "Artık {0} rolünüz var.",
 		"embed": {
 			"title": "Mevcut \"iam\" Roller",
 			"footer": "Rol almak için \"{0} iam [role]\""
@@ -15,71 +15,71 @@
 		"invalidFrom": "Lütfen geçerli bir giriş ölçümü ekleyin.",
 		"invalidTo": "Lütfen ölçüm için geçerli bir ekleme yapın.",
 		"currency": {
-			"invalidTarget": "Invalid target currency `{0}`",
-			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+			"invalidTarget": "Geçersiz hedef para birimi `{0}`",
+			"converted": "`{0}` {1} * kabaca * `{2}` {3} 'dır."
 		},
 		"other": {
-			"unknownInput": "Unknown input format.",
-			"unknownOutput": "Unknown output format.",
+			"unknownInput": "Bilinmeyen giriş formatı.",
+			"unknownOutput": "Bilinmeyen çıktı formatı.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
 	"haveibeenpwned": {
-		"success": "Success! Check your direct-messages for a list of your breached accounts.",
-		"noBreaches": "Awesome! There are no known breaches for your account.",
-		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
-		"breach": "Breach",
-		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Compromised Data",
-		"footer": "Breach {0}/{1}"
+		"success": "Başarı! İhlal edilen hesaplarınızın bir listesi için doğrudan mesajlarınızı kontrol edin.",
+		"noBreaches": "Korku veren! Hesabınız için bilinen bir ihlal yok.",
+		"unknownError": "Kötü bir şey oldu. Sunucuda iseniz Atlas'ın size doğrudan mesaj gönderebildiğinden emin olun.",
+		"breach": "ihlal",
+		"pwnedUsers": "Pwned Kullanıcılar",
+		"compromisedData": "Güvenlik Verileri",
+		"footer": "{0} / {1} ihlali"
 	},
 	"needsmorejpeg": {
-		"noArgs": "Please include an image attachment or image URL.",
+		"noArgs": "Lütfen bir resim eki veya resim URL'si ekleyin.",
 		"invalidUrl": "`{0}` is not a valid URL."
 	},
 	"randomcase": {
-		"noArgs": "Please include something to raNdomIsE."
+		"noArgs": "Lütfen Rastgele bir şey ekle"
 	},
-	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
+	"dashboard": "Sunucunuzu <https://atlasbot.xyz/meera/ {0}> adresinde yapılandırabilirsiniz.",
 	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
+		"noArgs": "Lütfen seviyesini sıfırlamak için bir kullanıcı ekleyin.",
 		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+		"success": "{0} seviyelerini sıfıra getirdi."
 	},
 	"playlist": {
 		"create": {
-			"noArgs": "Please include a name for your new playlist.",
-			"nothingPlaying": "Please add something to your queue before creating a playlist.",
-			"success": "Playlist created! You can do `{0}playlist play {1}` to play your playlist.",
-			"tooLong": "Your playlist name must be under 24 characters long.",
-			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+			"noArgs": "Lütfen yeni çalma listeniz için bir ad ekleyin.",
+			"nothingPlaying": "Lütfen bir oynatma listesi oluşturmadan önce sıranıza bir şey ekleyin.",
+			"success": "Oynatma listesi oluşturuldu! Çalma listenizi çalmak için `{0} çalma listesi çalmayı {1}` yapabilirsiniz.",
+			"tooLong": "Oynatma listenizin adı 24 karakterden uzun olmalıdır.",
+			"livestreamFound": "Sıranızda, bir oynatma listesine eklenemeyen bir canlı yayın var."
 		},
 		"list": {
-			"noPlaylists": "You do not have any playlists.",
-			"more": "+ `{0}` more",
-			"description": "{0} total tracks",
+			"noPlaylists": "Çalma listeniz yok.",
+			"more": "+ `{0}` daha fazla",
+			"description": "{0} toplam parça",
 			"duration": "Duration",
 			"created": "Created",
-			"updated": "Updated",
-			"tracks": "Tracks",
-			"footer": "{0} • Playlist {1}/{2}"
+			"updated": "Güncellenmiş",
+			"tracks": "Parçalar",
+			"footer": "{0} • Oynatma listesi {1} / {2}"
 		},
 		"delete": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noArgs": "Lütfen bir oynatma listesi adı veya kimliği ekleyin!",
+			"noPlaylists": "Çalma listeniz yok.",
+			"noneFound": "{0} `ile eşleşen bir oynatma listesi bulamadım.",
 			"success": "The `{0}` playlist has been deleted successfully."
 		},
 		"addqueue": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noArgs": "Lütfen bir oynatma listesi adı veya kimliği ekleyin!",
+			"noPlaylists": "Çalma listeniz yok.",
+			"noneFound": "{0} `ile eşleşen bir oynatma listesi bulamadım.",
 			"success": "Added {0} tracks to the `{1}` playlist."
 		},
 		"removetrack": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noArgs": "Lütfen bir oynatma listesi adı veya kimliği ekleyin!",
+			"noPlaylists": "Çalma listeniz yok.",
+			"noneFound": "{0} `ile eşleşen bir oynatma listesi bulamadım.",
 			"noQuery": "Please include a track name to search for and remove.",
 			"noTrack": "I could not find a track matching `{0}`.",
 			"success": "Removed `{0}` from your `{1}` playlist."
@@ -92,7 +92,7 @@
 		"success": "The volume is now at `{0}%`."
 	},
 	"stop": {
-		"stopped": "The player has been stopped."
+		"stopped": "Oyuncu durduruldu."
 	},
 	"seek": {
 		"noArgs": "Please include a position to seek to.",
@@ -116,13 +116,13 @@
 	},
 	"shift": {
 		"invalidCurrIndex": "Please provide a valid queue position.",
-		"invalidNewIndex": "Please provide a valid queue position to move the track to.",
+		"invalidNewIndex": "Lütfen parçayı taşımak için geçerli bir sıra pozisyonu sağlayın.",
 		"noTrack": "There is no track in the queue at position `{0}`.",
-		"moved": "`{0}` has been moved from queue position `{1}` to position `{2}`."
+		"moved": "`{0}`, {1} `sıra konumundan` {2} `konumuna getirildi."
 	},
 	"pause": {
 		"alreadyPaused": {
-			"button": "The player is already paused.",
+			"button": "Müzikçalar zaten duraklatıldı.",
 			"label": "The player is already paused. Did you mean `{0}resume`?"
 		},
 		"paused": "The player has been paused."
@@ -137,10 +137,10 @@
 	},
 	"nodes": {
 		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
-		"node": "Node",
+		"node": "Ana Sunucu",
 		"players": "Players",
-		"events": "Events",
-		"footer": "Atlas' Voice Nodes"
+		"events": "Etkinlikler",
+		"footer": "Atlas'ın Ses Düğümleri"
 	},
 	"vaporwave": {
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
@@ -159,21 +159,21 @@
 		"ratings": "Derecelendirme"
 	},
 	"funban": {
-		"success": "Banned {0}."
+		"success": " {0} Banlandı."
 	},
 	"ban": {
 		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
+		"success": " {0} Banlandı.",
 		"withReason": "Banned {0} for `{1}`.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned.",
+		"tooLate": "{0} zaten yasaklandı.",
 		"dm": {
 			"reason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından.",
 			"noReason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından."
 		}
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
+		"invalid": "Bu geçerli bir tarih değil.",
 		"setForPast": "Please give me a date that is in the future.",
 		"furtherPls": "The time must be five seconds or more in the future.",
 		"youGotIt": "You got it, I'll remind you in {0}.",
@@ -183,7 +183,7 @@
 		"start": "<a:typing:426097044625686528> {0}",
 		"server": "I have a `{0}ms/{1}ms` delay to this server.",
 		"randoms": [
-			"I'm hungry...",
+			"Açım...",
 			"Shovelling coal into the server...",
 			"In my defense, this is still faster than you could do it...",
 			"Waiting for the stars to align...",
@@ -196,7 +196,7 @@
 			"Please insert quarter...",
 			"Hang on a sec, it's here somewhere...",
 			"Have you lost weight?...",
-			"brb, one sec...",
+			"brb, bir saniye ...",
 			"Spinning up the hamster..."
 		]
 	},
@@ -204,28 +204,28 @@
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
-		"footer": "{0} commands",
+		"footer": "{0} komutları",
 		"disabled": {
-			"plural": " • {0} plugins disabled",
-			"singular": " • {0} plugin disabled"
+			"plural": "• {0} eklenti devre dışı",
+			"singular": "• {0} eklenti devre dışı"
 		},
-		"title": "Need some help?",
+		"title": "Yardıma mı ihtiyacınız var?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands.",
 		"welcome": {
 			"footer": "Don't be afraid to ask for help!",
-			"title": "Oh hey!",
-			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
+			"title": "Ah hey!",
+			"description": "Sunucunuzda tüm eklentileri devre dışı bırakılmış. Atlas'ı kullanmaya başlamak için bazı eklentileri etkinleştirmeyi deneyin. Başlamak için yardıma ihtiyacınız olursa, katılın [support server](https://atlasbot.xyz/support).  Eklentileri etkinleştirmek için [dashboard] kullanın (https://atlasbot.xyz/) veya <{0} toggleplugin <plugin> `işlevini yapın."
 		}
 	},
 	"info": {
 		"title": "Atlas",
 		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
 		"support": {
-			"name": "Support",
+			"name": "Destek",
 			"value": "[Cick here](https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
+			"name": "İnternet sitesi",
 			"value": "[Click here](https://atlasbot.xyz/)"
 		}
 	},
@@ -234,43 +234,43 @@
 		"noUser": "You have to tell me who to look up!",
 		"embed": {
 			"tag": {
-				"name": "Tag",
+				"name": "Etiket",
 				"value": "{0}"
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "Avatar URL'si",
+				"value": "[Buraya tıklayın] ({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
+				"name": "Hesap oluşturuldu",
 				"value": "{0}"
 			},
 			"joined": {
-				"name": "Joined",
+				"name": "Katılım",
 				"value": "{0}"
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "Oynuyor",
 				"value": {
 					"set": "{0}",
-					"null": "Nothing"
+					"null": "Hiçbir şey"
 				}
 			},
 			"status": {
-				"name": "Status",
+				"name": "Durum",
 				"value": "{0}"
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "Roller ({0})",
 				"value": {
 					"set": "{0}",
-					"null": "None",
-					"tooMany": "{0} total."
+					"null": "Yok",
+					"tooMany": "Toplam {0}."
 				}
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Yardıma mı ihtiyacınız var? Adresindeki sunucumuza katılın <https://atlasbot.xyz/support>",
 	"play": {
 		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 		"noResults": "I could not find any search results matching `{0}`.",
@@ -347,21 +347,21 @@
 			"Outlook good.",
 			"Most definitely.",
 			"Signs point to yes.",
-			"Reply hazy try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again.",
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Yanıt biraz meşgul gibi, sonra tekrar deneyin",
+			"Daha sonra tekrar sor",
+			"Sana şimdi söylemesem daha iyi",
+			"Şuanda tahmin edemem",
+			"Odaklan ve yeniden sor",
+			"Buna güvenme.",
+			"Cevabım hayır",
+			"Kaynaklarım hayır diyor.",
+			"Çok da iyi görünmüyor",
+			"Oldukça süpheli"
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned."
+		"noArgs": "Lütfen engellemeyi kaldırmak için bir kullanıcı ekleyin!",
+		"success": "Kullanıcı yasağı kaldırıldı."
 	},
 	"mute": {
 		"noArgs": "Please include a user to mute!",
@@ -403,18 +403,18 @@
 			"prefix": "Prefix",
 			"github": {
 				"name": "Github",
-				"none": "None"
+				"none": "Yok"
 			},
 			"website": {
-				"name": "Website",
-				"none": "None"
+				"name": "İnternet sitesi",
+				"none": "Yok"
 			},
 			"owners": "Owners",
 			"footer": "Approved at",
 			"invite": "Invite Link",
 			"support": {
 				"name": "Support Server",
-				"none": "None"
+				"none": "Yok"
 			}
 		}
 	},
@@ -596,7 +596,7 @@
 			"name": "Software"
 		},
 		"lastChecked": "Via mcapi.us  •  last checked",
-		"status": "Status",
+		"status": "Durum",
 		"online": "Online",
 		"offline": "Offline"
 	},
