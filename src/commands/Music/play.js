@@ -55,16 +55,16 @@ module.exports = class Play extends Command {
 			return responder.error('play.noNodes').send();
 		}
 
-		const query = args.join(' ');
+		const query = args.join(' ').replace(/http(s):\/\/(music|gaming).youtube/g, 'https://www.youtube');
 		const url = this.Atlas.lib.utils.isUri(query);
 
 		// some commands (see playlist/play.js) provide their own fake body with it's own data
 		if (!body) {
 			body = await this.search(node, query, url);
+		}
 
-			if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED') {
-				responder.error('play.noResults', query).send();
-			}
+		if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED' || !body.tracks.length) {
+			return responder.error('play.noResults', query).send();
 		}
 
 		const player = await this.Atlas.client.voiceConnections.getPlayer(userVoiceChannel, true);
