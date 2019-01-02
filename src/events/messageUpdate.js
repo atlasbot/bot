@@ -6,7 +6,7 @@ module.exports = class Event {
 	async execute(msg, oldMsg) {
 		// according to sentry this can sometimes be null
 		// /shrug
-		if (!oldMsg) {
+		if (!oldMsg || msg.content === oldMsg.content) {
 			return;
 		}
 
@@ -14,7 +14,7 @@ module.exports = class Event {
 			msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
 		}
 
-		if (msg.type === 0 && msg.guild && !msg.author.bot && oldMsg.content !== msg.content) {
+		if (msg.type === 0 && msg.guild && !msg.author.bot) {
 			const settings = await this.Atlas.DB.getSettings(msg.guild);
 
 			for (const filter of this.Atlas.filters.values()) {
