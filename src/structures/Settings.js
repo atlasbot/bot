@@ -11,15 +11,16 @@ module.exports = class GuildSettings {
 	/**
     * Create a new instance of a guild
     * @param {Object} settings The guilds settings from a DB
+		* @param {Guild} guild The guild the settings is for
   	*/
-	constructor(settings) {
+	constructor(settings, guild) {
 		// mongoose does stupid stuff, toObject makes it a regular, fun object.
 		// https://i.sylver.me/hCS7u7.jpg
 		this.raw = settings.toObject ? settings.toObject() : settings;
 
 		this.Atlas = require('../../Atlas');
 
-		this.guild = this.Atlas.client.guilds.get(settings.id);
+		this.guild = guild || this.Atlas.client.guilds.get(settings.id);
 	}
 
 	/**

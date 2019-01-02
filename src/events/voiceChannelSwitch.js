@@ -11,7 +11,9 @@ module.exports = class Event {
 			if (player) {
 				await player.setPause(true);
 
-				return player.responder.buttons(false).text('general.music.emptyPause').send();
+				if (player.msg) {
+					return player.responder.buttons(false).text('general.music.emptyPause').send();
+				}
 			}
 		}
 	}

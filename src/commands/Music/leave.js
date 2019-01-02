@@ -11,7 +11,9 @@ module.exports = class Leave extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg) {
+	async action(msg, args, {
+		settings,
+	}) {
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'leave');
 
 		// the voice channel the user is in
@@ -37,6 +39,10 @@ module.exports = class Leave extends Command {
 			}
 
 			return responder.error('nothingPlaying').send();
+		}
+
+		if (!player.msg) {
+			player.config(msg, settings);
 		}
 
 		if (myVC) {

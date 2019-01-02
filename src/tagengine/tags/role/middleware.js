@@ -18,6 +18,7 @@ module.exports = (func, argIndex = 0) => async ({
 	args.shift();
 
 	return func({
+		role,
 		guild,
 		Atlas,
 		...context,

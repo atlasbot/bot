@@ -45,6 +45,11 @@ module.exports = class Play extends Command {
 			return responder.error('play.busy', botVoiceChannel.name).send();
 		}
 
+		const perms = userVoiceChannel.permissionsOf(msg.guild.me.id);
+		if (!perms.has('voiceConnect') || !perms.has('voiceSpeak')) {
+			return responder.error('play.noPerms').send();
+		}
+
 		const node = await this.Atlas.client.voiceConnections.findIdealNode(msg.guild.region);
 		if (!node) {
 			return responder.error('play.noNodes').send();
@@ -96,11 +101,11 @@ module.exports = class Play extends Command {
 			if (!url && musicConf.show_results) {
 				const tmpMsg = await responder.embed({
 					color: 3553599,
-					title: 'Search Results',
+					title: 'play.searchResults.title',
 					description: body.tracks.slice(0, 4).map((t, i) => `${i + 1}. [${t.info.title}](${t.info.uri})`).join('\n'),
 					timestamp: new Date(),
 					footer: {
-						text: `Say a number or "${msg.displayPrefix}play 1" to play a result`,
+						text: ['play.searchResults.footer', msg.displayPrefix],
 					},
 				}).send();
 

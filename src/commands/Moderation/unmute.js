@@ -54,7 +54,7 @@ module.exports = class Unmute extends Command {
 				// maybe time the mute was cut short? or something?
 				role = msg.guild.roles.get(job.attrs.data.role);
 			}
-		} else if (target.roles.includes(settings.plugin('moderation').mute_role)) {
+		} else if (target.roles && target.roles.includes(settings.plugin('moderation').mute_role)) {
 			role = settings.muteRole;
 		} else {
 			role = msg.guild.roles.get(target.roles

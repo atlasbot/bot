@@ -7,7 +7,7 @@ module.exports = class Event {
 	}
 
 	async execute(guild, member) {
-		const settings = await this.Atlas.DB.getSettings(guild.id);
+		const settings = await this.Atlas.DB.getSettings(guild);
 
 		const roles = settings.plugin('roles');
 		const gatekeeper = settings.plugin('gatekeeper');

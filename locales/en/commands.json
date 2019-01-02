@@ -276,6 +276,7 @@
 		"noResults": "I could not find any search results matching `{0}`.",
 		"noVoiceChannel": "You have to be in a voice channel to do that!",
 		"busy": "I'm already playing in `{0}`.",
+		"noPerms": "I do not have permission to play in that voice channel.",
 		"noArgs": "You have to include a search term or song URL!",
 		"playlistEmbed": {
 			"title": "Playlist Queued - {0}",
@@ -284,6 +285,10 @@
 		"searchQuery": {
 			"outOfTime": "You did not provide a valid track number in time.",
 			"invalidTrack": "`{0}` is not a valid track number."
+		},
+		"searchResults": {
+			"title": "Search Results",
+			"footer": "Say a number or \"{0}play <num>\" to play a result"
 		}
 	},
 	"queue": {

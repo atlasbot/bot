@@ -108,7 +108,7 @@ class Command {
 
 		try {
 			if (settings) {
-				if (options.delete && msg.channel.permissionsOf(msg.guild.me.id).has('manageMessages')) {
+				if (options.delete && msg.delete && msg.channel.permissionsOf(msg.guild.me.id).has('manageMessages')) {
 					msg.delete().catch(() => false);
 				}
 

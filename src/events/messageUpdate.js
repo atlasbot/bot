@@ -15,7 +15,7 @@ module.exports = class Event {
 		}
 
 		if (msg.type === 0 && msg.guild && !msg.author.bot && oldMsg.content !== msg.content) {
-			const settings = await this.Atlas.DB.getSettings(msg.guild.id);
+			const settings = await this.Atlas.DB.getSettings(msg.guild);
 
 			for (const filter of this.Atlas.filters.values()) {
 				const output = await filter.checkMessage(settings, msg);

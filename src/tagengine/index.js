@@ -156,6 +156,10 @@ module.exports = class {
 	 * @returns {Object}
 	 */
 	replace(data) {
+		if (!data || !data.output) {
+			return;
+		}
+
 		data.output = data.output
 			.replace(/#([a-zA-Z0-9_-]*)/ig, (ignore, match) => {
 				const channels = Array.from(this.context.guild.channels.values());

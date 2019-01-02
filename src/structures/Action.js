@@ -84,8 +84,8 @@ module.exports = class Action {
 			return responder.error('noSubActions').send();
 		}
 
-		const perms = msg && msg.channel.permissionsOf(this.Atlas.client.user.id);
-		if (this.flags.delete && perms && perms.has('manageMessages')) {
+		const perms = msg.channel && msg.channel.permissionsOf(this.Atlas.client.user.id);
+		if (this.flags.delete && perms && perms.has('manageMessages') && msg.delete) {
 			msg.delete().catch(() => false);
 		}
 

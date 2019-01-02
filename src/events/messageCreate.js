@@ -18,7 +18,7 @@ module.exports = class Ready {
 
 		let settings;
 		if (msg.guild) {
-			settings = await this.Atlas.DB.getSettings(msg.guild.id);
+			settings = await this.Atlas.DB.getSettings(msg.guild);
 
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;

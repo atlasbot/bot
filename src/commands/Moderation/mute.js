@@ -71,7 +71,7 @@ module.exports = class Mute extends Command {
 			if (!target) {
 				return responder.error('general.noUserFound').send();
 			}
-		} else if (target.roles.includes(role.id)) {
+		} else if (target.roles && target.roles.includes(role.id)) {
 			return responder.error('mute.alreadyMuted', msg.displayPrefix).send();
 		} else if (!target.punishable(msg.member)) {
 			return responder.error('general.notPunishable');

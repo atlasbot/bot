@@ -94,7 +94,7 @@ _\* Optional, but some features may not work without them._
 
 ## A minor note on tags
 
-The current implementation from [nirewen/tatsuscript](https://github.com/nirewen/tatsuscript) is more or less temporary to test plugins that rely on tags (like actions). It will be replaced soon:tm: or cleaned up/overhauled.
+The current implementation from [nirewen/tatsuscript](https://github.com/nirewen/tatsuscript) is more or less temporary. It will be replaced soon:tm: or cleaned up/overhauled.
 
 ## Disclaimer / Warning
 

@@ -6,7 +6,9 @@ module.exports = middleware(async ({ msg, guild, channel }) => {
 		throw new TagError('Missing permissions');
 	}
 
-	await msg.delete();
+	if (msg.delete) {
+		await msg.delete();
+	}
 });
 
 module.exports.info = {

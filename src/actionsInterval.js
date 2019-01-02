@@ -89,7 +89,7 @@ module.exports = class {
 					continue;
 				}
 
-				const settings = new Settings(rawAction.settings);
+				const settings = new Settings(rawAction.settings, guild);
 				// we're in bois
 				const action = new Action(settings, rawAction);
 

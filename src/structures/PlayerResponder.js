@@ -11,7 +11,7 @@ const commandMap = [{
 	name: 'resume',
 }, {
 	emoji: '⏭',
-	name: 'skip',
+	name: 'next',
 }, {
 	emoji: '🔀',
 	name: 'shuffle',

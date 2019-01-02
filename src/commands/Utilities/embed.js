@@ -5,7 +5,9 @@ module.exports = class Embed extends Command {
 		super(Atlas, module.exports.info);
 	}
 
-	async action(msg, args) {
+	async action(msg, args, {
+		parsedArgs,
+	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (parsedArgs.d) {

@@ -31,6 +31,10 @@ const interp = async (tokens, context, functions) => {
 	};
 
 	for (const token of tokens) {
+		if (!token) {
+			continue;
+		}
+
 		if (token.type === 'BRACKETGROUP') {
 			const thisToken = token.value.shift();
 
@@ -90,7 +94,7 @@ const interp = async (tokens, context, functions) => {
 						console.warn(e);
 					}
 
-					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z]/g, '')}}`);
+					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z-]/g, '')}}`);
 
 					if (Atlas.Raven) {
 						Atlas.Raven.captureException(e);
@@ -103,7 +107,7 @@ const interp = async (tokens, context, functions) => {
 			}
 
 			// invalid tag name
-			output.push(`{${thisToken.value}-INVALID}`);
+			output.push(`{${thisToken.value}}`);
 
 			continue;
 		}

@@ -21,6 +21,10 @@ module.exports = class extends Player {
 			});
 		}
 
+		if (!this.msg) {
+			throw new Error('Player not configured - player not ready.');
+		}
+
 		return this._responder.channel(this.msg.channel);
 	}
 
