@@ -21,7 +21,7 @@ module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery]) => {
 	}
 
 	if (member.roles.includes(role.id)) {
-		throw new TagError('User already has that role.');
+		return;
 	}
 
 	if (role.higherThan(guild.me.highestRole)) {

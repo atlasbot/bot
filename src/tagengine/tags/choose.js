@@ -1,9 +1,8 @@
-const TagError = require('../TagError');
 const pickOne = require('../../../lib/utils/pickOne');
 
 module.exports = async (x, options) => {
 	if (!options.length) {
-		throw new TagError('No options');
+		return options[0];
 	}
 
 	return pickOne(options);

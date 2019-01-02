@@ -12,13 +12,10 @@ module.exports = async (x, [min, max]) => {
 	if (isNaN(min)) {
 		throw new TagError('Minimum must be a number.');
 	}
-	if (!max) {
-		throw new TagError('No maximum value');
-	}
 
 	max = parseNumber(max);
 
-	if (isNaN(max)) {
+	if (max && isNaN(max)) {
 		throw new TagError('Maximum must be a number.');
 	}
 

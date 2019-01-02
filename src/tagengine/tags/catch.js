@@ -1,10 +1,9 @@
-const TagError = require('./../TagError');
 
 module.exports = (info, [subcontent, message], {
 	errors,
 }) => {
 	if (!message) {
-		throw new TagError('Message is required.');
+		message = 'Something bad happened :c';
 	}
 
 	if (errors.length) {
@@ -21,6 +20,10 @@ module.exports.info = {
 	examples: [{
 		input: '{catch;{throw;test};Something bad happened :c}',
 		output: 'Something bad happened :c',
+	}, {
+		input: '{catch;{throw;test}}',
+		output: 'Something bad happened :c',
+		note: 'The default message is "Something bad happened :c"',
 	}],
 	dependencies: [],
 };

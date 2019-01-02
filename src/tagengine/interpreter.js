@@ -80,10 +80,6 @@ const interp = async (tokens, context, functions) => {
 					output.push(out);
 				} catch (e) {
 					// error handling
-					if (process.env.NODE_ENV === 'development') {
-						console.warn(e);
-					}
-
 					if (e instanceof TagError) {
 						errors.push(e);
 					} else {
@@ -94,7 +90,7 @@ const interp = async (tokens, context, functions) => {
 						console.warn(e);
 					}
 
-					output.push(`{${thisToken.value}-ERROR${errors.length}}`);
+					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z]/g, '')}}`);
 
 					if (Atlas.Raven) {
 						Atlas.Raven.captureException(e);
