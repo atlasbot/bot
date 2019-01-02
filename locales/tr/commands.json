@@ -1,19 +1,19 @@
 {
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
+		"noRoles": "Kullanıcının herhangi bir rolü yok.",
+		"invalidQuery": "{0} `ile eşleşen bir\" iam \"rolü bulamadım.",
+		"unassignable": "Sana bu rolü verme iznim yok.",
+		"removed": "Artık {0} rolünüz yok.",
 		"added": "You now have the {0} role.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "Mevcut \"iam\" Roller",
+			"footer": "Rol almak için \"{0} iam [role]\""
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
-		"invalidFrom": "Please include a valid input measurement.",
-		"invalidTo": "Please include a valid to measurement.",
+		"invalidUnits": "Lütfen geçerli birimler ekleyin.",
+		"invalidFrom": "Lütfen geçerli bir giriş ölçümü ekleyin.",
+		"invalidTo": "Lütfen ölçüm için geçerli bir ekleme yapın.",
 		"currency": {
 			"invalidTarget": "Invalid target currency `{0}`",
 			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
@@ -155,8 +155,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "Bu bir TV şovu değil! Belki onun yerine `{0} filmi {1}` deneyin.",
+		"ratings": "Derecelendirme"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -168,8 +168,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından.",
+			"noReason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından."
 		}
 	},
 	"remindme": {
@@ -288,7 +288,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "Toplam süre",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -299,7 +299,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "Sıradaki",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -498,8 +498,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "{0} 'dan atıldınız. {1} ({2}) tarafından.",
+			"noReason": "{0} 'dan atıldınız. {1} ({2}) tarafından."
 		}
 	},
 	"gotcharacter": {
@@ -707,29 +707,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Bu sunucunun sıralamasını buradan görüntüleyebilirsiniz <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "{0} İle eşleşen bir kullanıcı bulamadım: c",
+		"noProfile": "Hmm, bir şeyler ters gitti. Bu kullanıcı için bir profil bulamadım.",
 		"embed": {
-			"rank": "Rank",
-			"level": "Level",
+			"rank": "Sıralama",
+			"level": "Seviye",
 			"experience": {
-				"name": "Experience",
-				"value": "{0}/{1} • `{0}` total"
+				"name": "Puan",
+				"value": "{0} / {1} • toplam {0} `toplam"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Lütfen bir eklenti adı ekleyin.",
+		"noPlugin": "{0} `ile eşleşen bir eklenti bulamadım.",
+		"success": "{0} eklentisi {1} `idi."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Lütfen bir komut adı ekleyin.",
+		"noCommand": "{0} `ile eşleşen bir eklenti bulamadım.",
+		"disabled": "{0} komutu `devre dışı bırakıldı '.",
+		"enabled": "{0} komutu `etkin` oldu."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
