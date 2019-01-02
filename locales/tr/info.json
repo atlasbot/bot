@@ -1,4 +1,8 @@
 {
+	"lmgtfy": {
+		"description": "Let me google that for you :^)",
+		"usage": "<search>"
+	},
 	"iam": {
 		"description": "Give yourself a role that server admins have published.",
 		"usage": "<role>"
