@@ -1,8 +1,10 @@
-const path = require('path');
-
-class Plugin {
-	constructor(directory, commands) {
-		this.name = path.basename(directory);
+module.exports = class Plugin {
+	constructor({
+		directory,
+		commands,
+		name,
+	}) {
+		this.name = name;
 		this.dir = directory;
 
 		this.commandFiles = commands;
@@ -16,5 +18,4 @@ class Plugin {
 	get commands() {
 		return Array.from(this.Atlas.commands.labels.values()).filter(m => m.plugin.name === this.name);
 	}
-}
-module.exports = Plugin;
+};

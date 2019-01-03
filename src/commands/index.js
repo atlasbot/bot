@@ -18,11 +18,13 @@ module.exports = class Commands {
 
 		for (const folder of pluginNames) {
 			const pluginDir = _path.join(__dirname, folder);
+			const pluginName = _path.basename(pluginDir);
 			const pluginCommands = walkSync(pluginDir);
 
 			plugins.push({
 				directory: pluginDir,
 				commands: pluginCommands,
+				name: pluginName,
 			});
 		}
 
@@ -41,8 +43,10 @@ module.exports = class Commands {
 
 		const subs = [];
 
-		for (const { directory, commands } of rawPlugins) {
-			const plugin = new Plugin(directory, commands);
+		for (const { directory, commands, name } of rawPlugins) {
+			const plugin = new Plugin({
+				directory, commands, name,
+			});
 
 			for (const loc of plugin.commandFiles) {
 				const fileName = _path.basename(loc);
