@@ -1,6 +1,6 @@
+const randomInt = require('atlas-lib/lib/utils/randomInt');
+const parseNumber = require('atlas-lib/lib/utils/parseNumber');
 const TagError = require('../TagError');
-const randomInt = require('../../../lib/utils/randomInt');
-const parseNumber = require('./../../../lib/utils/parseNumber');
 
 module.exports = async (x, [min, max]) => {
 	if (!min) {

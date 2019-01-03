@@ -1,5 +1,5 @@
+const parseNumber = require('atlas-lib/lib/utils/parseNumber');
 const TagError = require('./../TagError');
-const parseNumber = require('./../../../lib/utils/parseNumber');
 
 module.exports = (info, [timeout]) => {
 	timeout = info.Atlas.lib.utils.parseNumber(timeout);

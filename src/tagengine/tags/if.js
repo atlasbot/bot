@@ -1,5 +1,5 @@
+const safeCompare = require('atlas-lib/lib/utils/safeCompare');
 const TagError = require('../TagError');
-const safeCompare = require('../../../lib/utils/safeCompare');
 
 module.exports = async ({
 	parseArgs,

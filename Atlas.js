@@ -4,7 +4,7 @@ const Eris = require('eris');
 const flatten = require('flat');
 const fs = require('fs').promises;
 
-const lib = require('./lib');
+const lib = require('atlas-lib');
 const Util = require('./src/util');
 const Agenda = require('./src/agenda');
 const loader = require('./src/commands');

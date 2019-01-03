@@ -1,5 +1,5 @@
+const roleColor = require('atlas-lib/lib/utils/roleColor');
 const middleware = require('./middleware');
-const roleColor = require('../../../../lib/utils/roleColor');
 
 module.exports = middleware(({ role }, [hex = true]) => {
 	if (hex === 'true') {

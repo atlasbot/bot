@@ -1,5 +1,5 @@
+const timeFormat = require('atlas-lib/lib/utils/timeFormat');
 const middleware = require('./middleware');
-const timeFormat = require('../../../../lib/utils/timeFormat');
 
 module.exports = middleware(({ user, guild }, [exact]) => {
 	const member = guild.members.get(user.id);

@@ -1,6 +1,7 @@
 const superagent = require('superagent');
+
+const Cache = require('atlas-lib/lib/structures/Cache');
 const Command = require('../../structures/Command.js');
-const Cache = require('../../../lib/structures/Cache');
 
 const cache = new Cache('cmd-captcha');
 

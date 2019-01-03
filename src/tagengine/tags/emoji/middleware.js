@@ -1,5 +1,5 @@
+const lib = require('atlas-lib/lib/emoji');
 const TagError = require('../../TagError');
-const lib = require('../../../../lib/emoji');
 
 module.exports = func => (info, [name, ...args], ...extra) => {
 	if (!name) {

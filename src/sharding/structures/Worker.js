@@ -1,6 +1,5 @@
 const Eris = require('eris');
-
-const Logger = require('./../../../lib/Logger');
+const Logger = require('atlas-lib/lib/Logger');
 
 const logger = new Logger(true); // eslint-disable-line no-unused-vars
 

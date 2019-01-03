@@ -1,4 +1,4 @@
-const isUri = require('../../../../lib/utils/isUri');
+const isUri = require('atlas-lib/lib/utils/isUri');
 
 module.exports = async (x, [str, verify]) => !!isUri(str, verify === 'true');
 

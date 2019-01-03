@@ -1,4 +1,4 @@
-const pickOne = require('../../../lib/utils/pickOne');
+const pickOne = require('atlas-lib/lib/utils/pickOne');
 
 module.exports = async ({ parseArgs }, args) => {
 	if (!args.length) {

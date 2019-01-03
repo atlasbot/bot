@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Cache = require('../../lib/structures/Cache');
+const Cache = require('atlas-lib/lib/structures/Cache');
 
 const ratelimits = new Cache('ratelimits');
 
@@ -38,7 +38,7 @@ module.exports = class Ready {
 		}
 
 		// am using eval to alter levels during testing when no commands for levels existed
-		if (!msg.label) {
+		if (!msg.label && settings) {
 			// don't level up the user on commands, it looks weird.
 			this.updateProfile(msg, settings).catch(console.warn);
 		} else {

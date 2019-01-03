@@ -1,4 +1,4 @@
-const capitalize = require('../../../../lib/utils/capitalize');
+const capitalize = require('atlas-lib/lib/utils/capitalize');
 
 module.exports = async (x, [string = '']) => capitalize(string.trim());
 

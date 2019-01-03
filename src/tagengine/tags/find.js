@@ -1,6 +1,6 @@
 const isSafeRe = require('safe-regex');
+const escapeRegex = require('atlas-lib/lib/utils/escapeRegex');
 const TagError = require('../TagError');
-const escapeRegex = require('../../../lib/utils/escapeRegex');
 
 module.exports = async (context, [string, search = '']) => {
 	if (!string) {

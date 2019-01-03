@@ -1,4 +1,4 @@
-const isSnowflake = require('../../../../lib/utils/isSnowflake');
+const isSnowflake = require('atlas-lib/lib/utils/isSnowflake');
 
 module.exports = async (x, [str]) => !!isSnowflake(str);
 

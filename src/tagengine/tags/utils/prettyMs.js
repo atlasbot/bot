@@ -1,9 +1,9 @@
-const TagError = require('../../TagError');
 
-const prettyMs = require('../../../../lib/utils/prettyMs');
-const parseBool = require('../../../../lib/utils/parseBool');
+const prettyMs = require('atlas-lib/lib/utils/prettyMs');
+const parseBool = require('atlas-lib/lib/utils/parseBool');
 // parse all the things :D
-const parseNumber = require('../../../../lib/utils/parseNumber');
+const parseNumber = require('atlas-lib/lib/utils/parseNumber');
+const TagError = require('../../TagError');
 
 module.exports = async (x, [n, verbose = 'true']) => {
 	const ms = parseNumber(n);

@@ -1,6 +1,7 @@
-const emutil = require('../../../lib/emoji');
+const lib = require('atlas-lib');
+
 const Command = require('../../structures/Command.js');
-const languageCodes = require('../../../lib/languageCodes.json');
+const languageCodes = require('../../../data/languageCodes.json');
 
 const overrides = {
 	en: 'uk',
@@ -29,7 +30,7 @@ module.exports = class extends Command {
 
 				const emoji = [`flag_${code}`, code, name]
 					.filter(e => e)
-					.map(e => emutil.get(e.toLowerCase()))
+					.map(e => lib.emoji.get(e.toLowerCase()))
 					.find(e => e && e.category === 'flags');
 
 				if (emoji) {

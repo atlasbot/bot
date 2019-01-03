@@ -1,5 +1,5 @@
+const xputil = require('atlas-lib/lib/xputil');
 const middleware = require('./middleware');
-const xputil = require('../../../../lib/xputil');
 
 module.exports = middleware(async ({ user, guild, Atlas }) => {
 	if (user.bot) {

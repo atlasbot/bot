@@ -1,7 +1,7 @@
 const _path = require('path');
 const fs = require('fs');
 
-const walkSync = require('../../lib/utils/walkSync');
+const walkSync = require('atlas-lib/lib/utils/walkSync');
 const Plugin = require('./../structures/Plugin');
 
 module.exports = class Commands {

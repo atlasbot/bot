@@ -1,5 +1,5 @@
+const lib = require('atlas-lib');
 const Command = require('../../structures/Command.js');
-const lib = require('./../../../lib');
 
 module.exports = class extends Command {
 	constructor(Atlas) {

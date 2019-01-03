@@ -10,7 +10,7 @@ module.exports = {
 			Joi.string().max(1024),
 			Joi.number(),
 			Joi.boolean(),
-		]).allow(null, '').required(),
+		]).required(),
 		inline: Joi.boolean(),
 	}).max(25),
 	footer: {

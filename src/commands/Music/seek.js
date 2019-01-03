@@ -1,5 +1,5 @@
+const parseTime = require('atlas-lib/lib/utils/parseTime');
 const Command = require('../../structures/Command.js');
-const parseTime = require('../../../lib/utils/parseTime');
 
 module.exports = class extends Command {
 	constructor(Atlas) {

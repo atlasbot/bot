@@ -1,6 +1,6 @@
+const lib = require('atlas-lib');
 const Command = require('../../../structures/Command.js');
 const EmojiCollector = require('../../../structures/EmojiCollector');
-const lib = require('./../../../../lib');
 
 const PER_PAGE = 4;
 

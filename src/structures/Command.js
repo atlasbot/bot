@@ -1,8 +1,8 @@
 const parseArgs = require('yargs-parser');
 const path = require('path');
 
+const cleanArgs = require('atlas-lib/lib/utils/cleanArgs');
 const Responder = require('./Responder');
-const cleanArgs = require('./../../lib/utils/cleanArgs');
 
 class Command {
 	constructor(Atlas, info) {

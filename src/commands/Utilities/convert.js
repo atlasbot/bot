@@ -1,10 +1,10 @@
 const superagent = require('superagent');
 const convert = require('convert-units');
 
+const Cache = require('atlas-lib/lib/structures/Cache');
 const currencyCodes = require('../../../data/currencyCodes.json');
 
 const Command = require('../../structures/Command.js');
-const Cache = require('../../../lib/structures/Cache');
 
 const cache = new Cache('currencies');
 

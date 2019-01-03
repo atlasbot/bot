@@ -1,4 +1,4 @@
-const timeFormat = require('../../../../lib/utils/timeFormat');
+const timeFormat = require('atlas-lib/lib/utils/timeFormat');
 
 module.exports = (context, [exact = 'true', time]) => {
 	const date = Date.parse(time) || Date.now();

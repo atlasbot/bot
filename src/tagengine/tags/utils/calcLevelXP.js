@@ -1,5 +1,5 @@
+const getLevelXP = require('atlas-lib/lib/xputil/getLevelXP');
 const TagError = require('../../TagError');
-const getLevelXP = require('../../../../lib/xputil/getLevelXP');
 
 module.exports = async (context, [number]) => {
 	number = context.Atlas.lib.utils.parseNumber(number);

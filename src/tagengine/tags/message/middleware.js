@@ -1,5 +1,5 @@
+const isSnowflake = require('atlas-lib/lib/utils/isSnowflake');
 const TagError = require('./../../TagError');
-const isSnowflake = require('../../../../lib/utils/isSnowflake');
 
 module.exports = (func, argIndex = 0) => async ({
 	channel,

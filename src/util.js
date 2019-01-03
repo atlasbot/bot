@@ -3,10 +3,10 @@ const { unflatten } = require('flat');
 const assert = require('assert');
 const url = require('url');
 
-const lib = require('../lib');
+const lib = require('atlas-lib');
+const Fuzzy = require('atlas-lib/lib/structures/Fuzzy');
+const Cache = require('atlas-lib/lib/structures/Cache');
 const Parser = require('./tagengine');
-const Fuzzy = require('../lib/structures/Fuzzy');
-const Cache = require('../lib/structures/Cache');
 
 const profileSchema = user => ({
 	id: user.id,

@@ -1,5 +1,5 @@
+const getUserXPProfile = require('atlas-lib/lib/xputil/getUserXPProfile');
 const TagError = require('../../TagError');
-const getUserXPProfile = require('../../../../lib/xputil/getUserXPProfile');
 
 module.exports = async (context, [number]) => {
 	number = context.Atlas.lib.utils.parseNumber(number);

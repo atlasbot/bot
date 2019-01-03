@@ -1,4 +1,4 @@
-const { wildcardToRegExp } = require('./../../lib/utils/wildcard');
+const { wildcardToRegExp } = require('atlas-lib/lib/utils/wildcard');
 const Filter = require('./../structures/Filter');
 
 module.exports = class Phrases extends Filter {

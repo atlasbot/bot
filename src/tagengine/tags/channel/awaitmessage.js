@@ -1,7 +1,7 @@
+const parseNumber = require('atlas-lib/lib/utils/parseNumber');
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
 const Collector = require('../../../structures/MessageCollector');
-const parseNumber = require('./../../../../lib/utils/parseNumber');
 
 module.exports = middleware(async ({ channel, Atlas }, [author, timeout = '30']) => {
 	if (channel.type !== 0) {

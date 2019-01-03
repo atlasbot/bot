@@ -1,4 +1,4 @@
-const cleanRegion = require('./../../../../lib/utils/cleanRegion');
+const cleanRegion = require('atlas-lib/lib/utils/cleanRegion');
 
 module.exports = ({ guild }) => cleanRegion(guild.region);
 

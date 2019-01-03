@@ -1,9 +1,9 @@
 const superagent = require('superagent');
+const Logger = require('atlas-lib/lib/Logger');
 const cluster = require('cluster');
+
 const Worker = require('./Worker');
 const { version } = require('./../../../package.json');
-
-const Logger = require('./../../../lib/Logger');
 
 const logger = new Logger(true); // eslint-disable-line no-unused-vars
 

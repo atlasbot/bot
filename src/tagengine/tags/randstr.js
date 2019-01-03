@@ -1,5 +1,5 @@
-const parseNumber = require('../../../lib/utils/parseNumber');
-const randomInt = require('../../../lib/utils/randomInt');
+const parseNumber = require('atlas-lib/lib/utils/parseNumber');
+const randomInt = require('atlas-lib/lib/utils/randomInt');
 const TagError = require('../TagError');
 
 module.exports = (context, [chars = 'abcdefghijklmnopqrstuvwxyz0123456789', length = '6']) => {

@@ -1,5 +1,5 @@
 const path = require('path');
-const walkSync = require('./../../lib/utils/walkSync');
+const walkSync = require('atlas-lib/lib/utils/walkSync');
 
 /**
  * Loads tags from the tag directory into a nice phat map
