@@ -63,6 +63,14 @@ module.exports = class extends Player {
 		this.settings = settings;
 	}
 
+	onTrackException() {
+		if (this.responder) {
+			this.responder.text('general.music.trackException').send();
+		}
+
+		this.onTrackEnd();
+	}
+
 	/**
     * Play a Lavalink track
     * @param {string} track The track to play
