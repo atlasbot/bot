@@ -5,6 +5,7 @@ module.exports = () => '';
 module.exports.info = {
 	name: 'note',
 	args: '*',
+	aliases: ['//'],
 	description: 'Returns nothing, useful for notes.',
 	examples: [{
 		input: '{note;Wew some super secret text :)}',

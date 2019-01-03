@@ -13,6 +13,7 @@ module.exports.info = {
 	name: 'role.color',
 	description: 'Gets the hex code of a role. If <hex=false>, the color will be in base 10 and may be empty if the role has no color.',
 	args: '<hex=true>',
+	aliases: ['role.colour'],
 	examples: [{
 		input: '{role.color;Developer}',
 		output: '#95a5a6',
