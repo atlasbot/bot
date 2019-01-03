@@ -62,7 +62,7 @@ module.exports = class Commands {
 					Atlas.commands.labels.set(command.info.name, command);
 
 					command.info.aliases.forEach((a) => {
-						Atlas.commands.aliases.set(a, command);
+						Atlas.commands.aliases.set(a, command.info.name);
 					});
 				} else {
 					command.parent = parent;
@@ -82,7 +82,7 @@ module.exports = class Commands {
 			parent.subcommands.set(sub.info.name, sub);
 
 			sub.info.aliases.forEach((a) => {
-				parent.subcommandAliases.set(a, sub);
+				parent.subcommandAliases.set(a, sub.info.name);
 			});
 		}
 	}
