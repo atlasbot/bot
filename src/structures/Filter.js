@@ -10,13 +10,15 @@ module.exports = class Filter {
 		const modConf = settings.plugin('moderation');
 		const filterConfig = modConf.filters[this.info.settingsKey];
 
+		const perms = msg.channel.permissionsOf(this.Atlas.client.user.id);
+
 		// jesus christ
 		if (
 			(settings.plugin('moderation').state === 'disabled'
         || filterConfig.action === 0
 				|| (msg.author.bot && filterConfig.sanction.bots !== true))
         || msg.author.id === this.Atlas.client.user.id
-				|| !msg.guild.me.permission.has('manageMessages')
+				|| !perms.has('manageMessages')
 				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
         || filterConfig.exempt.channels.includes(msg.channel.id)
         || filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))
