@@ -9,6 +9,9 @@ module.exports.info = {
 	examples: [{
 		input: '{or;; ;test}',
 		output: 'test',
+	}, {
+		input: '{or;first;second}',
+		output: 'first',
 	}],
 	dependencies: [],
 };
