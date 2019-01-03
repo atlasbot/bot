@@ -32,6 +32,7 @@ module.exports = middleware(async (context, args) => {
 
 		await responder.channel(channel).localised(true).text(content).send();
 	} catch (e) {
+		console.warn(e);
 		throw new Error('User\'s direct-messages are not open.');
 	}
 }, 1);

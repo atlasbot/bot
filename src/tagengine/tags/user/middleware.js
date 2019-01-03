@@ -15,14 +15,16 @@ module.exports = (func, argIndex = 0) => async ({
 		}
 
 		// try and resolve the user cus why not
-		user = await Atlas.util.findMember(guild, arg, {
+		const member = await Atlas.util.findMember(guild, arg, {
 			// why the fuck is it called findMember if it doesn't always return a member? past sylver, explain pls
 			memberOnly: true,
 		});
 
-		if (!user) {
+		if (!member) {
 			throw new TagError('No user matching your search');
 		}
+
+		({ user } = member);
 	}
 
 

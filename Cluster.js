@@ -8,7 +8,7 @@ if (!process.env.TOKEN) {
 }
 
 new Manager(process.env.TOKEN, path.join(__dirname, './Atlas.js'), { // eslint-disable-line no-new
-	guildsPerShard: 1500,
+	guildsPerShard: 1750,
 	clientOptions: {
 		// atlas uses rest mode for fetching users from ID's, among other things
 		restMode: true,
