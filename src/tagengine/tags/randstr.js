@@ -6,7 +6,7 @@ module.exports = (context, [chars = 'abcdefghijklmnopqrstuvwxyz0123456789', leng
 	const number = parseNumber(length);
 
 	if (isNaN(number)) {
-		throw new TagError('Invalid number.');
+		throw new TagError('"length" should be a number.');
 	}
 
 	let result = '';

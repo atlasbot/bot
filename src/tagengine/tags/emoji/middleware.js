@@ -9,7 +9,7 @@ module.exports = func => (info, [name, ...args], ...extra) => {
 	const emoji = lib.get(name);
 
 	if (!emoji) {
-		throw new TagError('No emojis matching query.');
+		throw new TagError('No emojis matching search.');
 	}
 
 	return func(info, [emoji, ...args], ...extra);

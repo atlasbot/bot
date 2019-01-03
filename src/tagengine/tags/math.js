@@ -3,7 +3,7 @@ const TagError = require('./../TagError');
 
 module.exports = (info, args) => {
 	if (!args.length) {
-		throw new TagError('This tag requires some arguments.');
+		throw new TagError('This tag requires atleast one argument.');
 	}
 
 	return Parser.evaluate(args.join(' '));

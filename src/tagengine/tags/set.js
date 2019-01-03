@@ -2,7 +2,7 @@ const TagError = require('../TagError');
 
 module.exports = async ({ volatile }, [key, value]) => {
 	if (!key) {
-		throw new TagError('"key" is required.');
+		throw new TagError('Please include a storage key (see docs.atlasbot.xyz)');
 	}
 
 	volatile.set(key, value);

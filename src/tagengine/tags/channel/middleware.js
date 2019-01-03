@@ -12,7 +12,7 @@ module.exports = (func, argIndex = 0) => async ({
 		});
 
 		if (!channel) {
-			throw new TagError('Invalid channel query.');
+			throw new TagError('No channel matching your search');
 		}
 	}
 

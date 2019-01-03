@@ -5,7 +5,7 @@ module.exports = (info, [timeout]) => {
 	timeout = info.Atlas.lib.utils.parseNumber(timeout);
 
 	if (isNaN(timeout)) {
-		throw new TagError('Timeout must be a valid number.');
+		throw new TagError('"timeout" should be a valid number.');
 	}
 
 	if (timeout > 300) {

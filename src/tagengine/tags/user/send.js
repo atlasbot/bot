@@ -25,7 +25,7 @@ module.exports = middleware(async (context, args) => {
 				return;
 			}
 
-			throw new TagError('No content to send.');
+			throw new TagError('Missing something to send');
 		}
 
 		const responder = new Responder(channel, 'en');

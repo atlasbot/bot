@@ -62,7 +62,11 @@ class Command {
 
 
 		const parsedArgs = {};
-		const parsed = parseArgs(msg.content);
+		const parsed = parseArgs(msg.content, {
+			configuration: {
+				'parse-numbers': false,
+			},
+		});
 
 		for (const key of Object.keys(parsed)) {
 			if (this.info.allowAllFlags || this.info.supportedFlags.some(a => a.name === parsed)) {

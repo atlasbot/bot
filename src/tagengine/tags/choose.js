@@ -1,11 +1,11 @@
 const pickOne = require('../../../lib/utils/pickOne');
 
-module.exports = async (x, options) => {
-	if (!options.length) {
-		return options[0];
+module.exports = async ({ parseArgs }, args) => {
+	if (!args.length) {
+		return;
 	}
 
-	return pickOne(options);
+	return parseArgs(pickOne(args));
 };
 
 module.exports.info = {
@@ -22,5 +22,6 @@ module.exports.info = {
 		input: 'Doggos are {choose;good;good} mkay',
 		output: 'Doggos are good mkay',
 	}],
+	dontParse: true,
 	dependencies: [],
 };

@@ -14,7 +14,7 @@ module.exports = async (context, args) => {
 		});
 
 		if (!channel) {
-			throw new TagError('Invalid channel query.');
+			throw new TagError('No channel matching search.');
 		}
 	} else {
 		({ channel } = context);

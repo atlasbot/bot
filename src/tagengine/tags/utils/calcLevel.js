@@ -5,7 +5,7 @@ module.exports = async (context, [number]) => {
 	number = context.Atlas.lib.utils.parseNumber(number);
 
 	if (isNaN(number)) {
-		throw new TagError('Invalid XP number');
+		throw new TagError('"number" should be a number');
 	}
 
 	return getLevelFromXP(number);

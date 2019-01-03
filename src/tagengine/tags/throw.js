@@ -2,7 +2,7 @@ const TagError = require('./../TagError');
 
 module.exports = (info, [message]) => {
 	if (!message) {
-		throw new TagError('Message is required.');
+		throw new TagError('Something bad happened');
 	}
 
 	throw new TagError(message);

@@ -2,7 +2,7 @@ const TagError = require('../TagError');
 
 module.exports = async ({ persistent }, [key]) => {
 	if (!key) {
-		throw new TagError('"key" is required.');
+		throw new TagError('Please include a storage key (see docs.atlasbot.xyz)');
 	}
 
 	return persistent.get(key);

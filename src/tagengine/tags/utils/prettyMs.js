@@ -9,7 +9,7 @@ module.exports = async (x, [n, verbose = 'true']) => {
 	const ms = parseNumber(n);
 
 	if (isNaN(ms)) {
-		throw new TagError('Invalid millisecond input');
+		throw new TagError('"milliseconds" should be a number');
 	}
 
 	return prettyMs(ms, {

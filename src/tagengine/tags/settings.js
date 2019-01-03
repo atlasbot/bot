@@ -2,10 +2,14 @@ const TagError = require('../TagError');
 
 module.exports = async ({ settings, Atlas }, [key]) => {
 	if (!key) {
-		throw new TagError('"key" is required.');
+		throw new TagError('"key" should be a string.');
 	}
 
 	const data = Atlas.lib.utils.getNested(settings.raw, key);
+
+	if (!data) {
+		return;
+	}
 
 	return JSON.stringify(data).replace(/^"(.*)"$/, '$1');
 };

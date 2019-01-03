@@ -2,9 +2,9 @@ const isSafeRe = require('safe-regex');
 const TagError = require('../TagError');
 const escapeRegex = require('../../../lib/utils/escapeRegex');
 
-module.exports = async (context, [string, search]) => {
-	if (!string || !search) {
-		throw new TagError('"string" and "search" are required.');
+module.exports = async (context, [string, search = '']) => {
+	if (!string) {
+		throw new TagError('"target" is required.');
 	}
 
 	if (isSafeRe(search)) {
@@ -34,8 +34,8 @@ module.exports = async (context, [string, search]) => {
 
 module.exports.info = {
 	name: 'find',
-	args: '<string> <search>',
-	description: 'Finds <search> in <string>, now with extra regexp flavour.',
+	args: '<target> <search>',
+	description: 'Finds <search> in <target>, now with extra regexp flavour.',
 	examples: [{
 		input: '{find;This is a test;test}',
 		output: 'test',

@@ -21,7 +21,7 @@ module.exports = (func, argIndex = 0) => async ({
 		});
 
 		if (!user) {
-			throw new TagError('Invalid user query.');
+			throw new TagError('No user matching your search');
 		}
 	}
 

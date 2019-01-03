@@ -11,7 +11,7 @@ module.exports = middleware(async ({ channel, Atlas }, [author, timeout = '30'])
 	timeout = Atlas.lib.utils.parseNumber(timeout);
 
 	if (isNaN(timeout)) {
-		throw new TagError('Timeout must be a number.');
+		throw new TagError('"timeout" should be a number.');
 	}
 
 	timeout = parseNumber(timeout);
@@ -21,10 +21,6 @@ module.exports = middleware(async ({ channel, Atlas }, [author, timeout = '30'])
 	collector.listen(timeout * 1000);
 
 	const message = await collector.await();
-
-	if (!message) {
-		throw new TagError('No message in time');
-	}
 
 	if (!message) {
 		return;

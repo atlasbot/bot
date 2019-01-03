@@ -15,12 +15,12 @@ module.exports = async ({ msg, Atlas }, [i, r = '1']) => {
 
 	const index = Atlas.lib.utils.parseNumber(i) - 1;
 	if (isNaN(index)) {
-		throw new TagError('Expected "index" to be a finite number.');
+		throw new TagError('"index" should be a number.');
 	}
 
 	const range = Atlas.lib.utils.parseNumber(r);
 	if (isNaN(range)) {
-		throw new TagError('Expected "range" to be a finite number.');
+		throw new TagError('"range" should be a number.');
 	}
 
 	const cloned = args.slice();
