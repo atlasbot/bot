@@ -1,4 +1,7 @@
 {
+	"smalltext": {
+		"noArgs": "Please include something to make ˢᵐᵒˡ"
+	},
 	"iam": {
 		"noRoles": "Ce serveur n'a pas de rôles disponibles.",
 		"invalidQuery": "Je n'ai pas pu trouvé un rôle \"iam\" correspondant à `{0}`.",
