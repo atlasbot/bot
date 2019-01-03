@@ -17,7 +17,7 @@ module.exports = async ({ settings, Atlas }, [key]) => {
 module.exports.info = {
 	name: 'settings',
 	args: '<key>',
-	description: 'Gets a raw setting value. This is an advanced command, if you don\'t understand how to use it or what it does, then you probably shouldn\'t be using it.',
+	description: 'Gets a raw setting value. This is an advanced tag, if you don\'t understand how to use it or what it does, then you probably shouldn\'t be using it.',
 	examples: [{
 		input: '{settings;prefix}',
 		output: 'a!',

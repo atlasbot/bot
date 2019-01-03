@@ -14,8 +14,10 @@ module.exports = async ({
 	if (length === 2) {
 		// {if;condition;then}
 		const [rawCondition, rawThen] = rawArgs;
+
 		const needs = await parseArgs(rawCondition);
-		if (needs) {
+
+		if (needs && needs !== 'false') {
 			return parseArgs(rawThen);
 		}
 	}
@@ -26,7 +28,7 @@ module.exports = async ({
 		// parse required args
 		const cond = await parseArgs(rawCond);
 
-		if (cond) {
+		if (cond && cond !== 'false') {
 			// then
 			return parseArgs(rawThen);
 		}
