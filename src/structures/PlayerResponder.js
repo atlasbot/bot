@@ -51,11 +51,12 @@ module.exports = class PlayerResponder extends Responder {
 	get shouldAdd() {
 		const { options } = this.settings.plugin('music');
 
-		if (this.settings && !this.settings.guild.me.permission.has('addReactions')) {
-			return false;
+		const perms = this.player.msg.permissionsOf(this.Atlas.client.user.id);
+		if (perms.has('addReactions')) {
+			return (options.player_buttons && this._buttons);
 		}
 
-		return (options.player_buttons && this._buttons);
+		return false;
 	}
 
 	async clean(channel) {
