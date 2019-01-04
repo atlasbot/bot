@@ -27,7 +27,7 @@ module.exports = middleware(async ({ channel, Atlas }, [author, timeout = '30'])
 	}
 
 	return message.content;
-}, 1);
+}, 2);
 
 module.exports.info = {
 	name: 'channel.awaitmessage',
