@@ -353,11 +353,13 @@ module.exports = class GuildSettings {
 					embeds,
 				});
 			} catch (e) {
-				if (!retry && e.code === 10015) {
-					return this.log(type, embed, true);
+				if (e.code !== 10015) {
+					throw e;
 				}
 
-				throw e;
+				if (!retry) {
+					return this.log(type, embed, true);
+				}
 			}
 		}
 	}
