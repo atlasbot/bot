@@ -40,16 +40,15 @@ module.exports = class extends Command {
 
 			return responder.error('nothingPlaying').send();
 		}
-
-		if (!player.msg) {
-			player.config(msg, settings);
-		}
-
 		if (myVC) {
 			await myVC.leave();
 		}
 
 		if (player) {
+			if (!player.msg) {
+				player.config(msg, settings);
+			}
+
 			player.responder.clean(msg.channel.id);
 		}
 
