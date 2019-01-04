@@ -96,7 +96,7 @@
 	},
 	"seek": {
 		"description": "Move the player's position.",
-		"usage": "[position]"
+		"usage": "[Posição]"
 	},
 	"resume": {
 		"description": "Resumes the player if it is paused."
