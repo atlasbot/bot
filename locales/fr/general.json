@@ -292,6 +292,7 @@
 	"notPunishable": "Vous n'avez pas la permission requise pour punir cet utilisateur.",
 	"lolno": "Je ne peux pas punir cet utilisateur car son niveau de permission est supérieur au mien.",
 	"music": {
+		"trackException": "An error occured playing the track, skipping...",
 		"emptyPause": "All users have left the voice channel - the player has been paused.",
 		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
