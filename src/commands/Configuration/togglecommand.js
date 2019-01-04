@@ -21,12 +21,11 @@ module.exports = class extends Command {
 			return responder.error('noCommand', query).send();
 		}
 
-		const config = settings.raw.command_options.find(c => c.name === command.info.name);
-		const disabled = config ? config.disabled : false;
+		const config = settings.command(command.info.name);
 
-		if (config) {
+		if (config.existing) {
 			await settings.update({
-				'command_options.$.disabled': !disabled,
+				'command_options.$.disabled': !config.disabled,
 			}, {
 				query: {
 					'command_options.name': command.info.name,
@@ -37,13 +36,13 @@ module.exports = class extends Command {
 				$push: {
 					command_options: {
 						name: command.info.name,
-						disabled: !disabled,
+						disabled: !config.disabled,
 					},
 				},
 			});
 		}
 
-		return responder.text((disabled ? 'disabled' : 'enabled'), command.info.name).send();
+		return responder.text((config.disabled ? 'enabled' : 'disabled'), command.info.name).send();
 	}
 };
 

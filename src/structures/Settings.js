@@ -201,6 +201,7 @@ module.exports = class GuildSettings {
 				roles: [],
 				mode: 'blacklist',
 			},
+			existing: !!opts,
 			...opts,
 		};
 
