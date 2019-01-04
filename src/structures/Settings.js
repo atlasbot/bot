@@ -316,58 +316,48 @@ module.exports = class GuildSettings {
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
     */
 	async log(type, embed, retry = false) {
+		if (!this.guild.me.permission.has('manageWebhooks')) {
+			return;
+		}
+
 		if (Array.isArray(type)) {
-			return type.forEach(t => this.log(t, embed));
+			return Promise.all(type.map(t => this.log(t, embed, retry)));
 		}
 
 		const channel = this[`${type}LogChannel`];
 
 		if (channel) {
+			let webhook;
 			try {
-				let webhook;
-				try {
-					webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
-				} catch (e) {
-					return;
-				}
-
-				// using & abusing the responder to format the embed(s)
-				const responder = new this.Atlas.structs.Responder(null, this.lang);
-
-				// format embeds
-				const embeds = (Array.isArray(embed) ? embed : [embed]).map((e) => {
-					const parsed = responder.localiseObject(e, this.lang);
-					// will throw if it doesn't work correctly
-					responder.validateEmbed(parsed);
-
-					return parsed;
-				});
-
-				if (embed.length > 25) {
-					throw new Error('Maximum of 25 embeds allowed.');
-				}
-
-				try {
-					return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
-						username: this.guild.me.nick || this.guild.me.username,
-						avatarURL: this.Atlas.avatar,
-						embeds,
-					});
-				} catch (e) {
-					if (!retry) {
-						if (e.code === 10015) {
-							return this.log(type, embed, true);
-						}
-					}
-
-					throw e;
-				}
+				webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
 			} catch (e) {
-				if (this.Atlas.Raven) {
-					this.Atlas.Raven.captureException(e);
+				return;
+			}
+
+			// using & abusing the responder to format the embed(s)
+			const responder = new this.Atlas.structs.Responder(null, this.lang);
+
+			// format embeds
+			const embeds = (Array.isArray(embed) ? embed : [embed]).map((e) => {
+				const parsed = responder.localiseObject(e, this.lang);
+				// will throw if it doesn't work correctly
+				responder.validateEmbed(parsed);
+
+				return parsed;
+			});
+
+			try {
+				return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
+					username: this.guild.me.nick || this.guild.me.username,
+					avatarURL: this.Atlas.avatar,
+					embeds,
+				});
+			} catch (e) {
+				if (!retry && e.code === 10015) {
+					return this.log(type, embed, true);
 				}
 
-				console.warn(e);
+				throw e;
 			}
 		}
 	}
