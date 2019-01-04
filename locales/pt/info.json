@@ -60,22 +60,22 @@
 	},
 	"playlist": {
 		"base": {
-			"description": "Criar, gerenciar, deletar playlist de musicas."
+			"description": "Criar, gerenciar, deletar lista de reprodução de musicas."
 		},
 		"create": {
 			"description": "Cria uma playlist a partir da fila atual.",
 			"usage": "[nome]"
 		},
 		"list": {
-			"description": "Lista de todas suas playlists.",
-			"usage": "<nome da playlist/id>"
+			"description": "Lista de todas suas listas de reprodução.",
+			"usage": "<nome da lista de reprodução/id>"
 		},
 		"delete": {
-			"description": "Exclua uma de suas playlists existentes.",
+			"description": "Exclua uma de suas listas de reprodução existentes.",
 			"usage": "[playlist name/id]"
 		},
 		"play": {
-			"description": "Plays a playlist.",
+			"description": "Reproduzir uma lista de reprodução.",
 			"usage": "[playlist name/id]"
 		},
 		"addqueue": {
