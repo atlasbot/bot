@@ -1,6 +1,6 @@
 {
 	"help": {
-		"examples": "Examples",
+		"examples": "Ejemplos",
 		"aliases": "Aliases",
 		"subcommands": "Subcommands",
 		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
