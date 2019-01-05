@@ -225,48 +225,53 @@ module.exports = class GuildSettings {
 			guild: this.id,
 		});
 
-		if (target.id && this.guild && this.guild.members.has(target.id)) {
+		try {
+			if (!this.guild.members.has(target.id)) {
+				throw new Error('Cannot warn a member not in the guild');
+			}
+
+			const channel = await target.getDMChannel();
+			const responder = new this.Atlas.structs.Responder(channel);
+
 			try {
-				const channel = await target.getDMChannel();
-				const responder = new this.Atlas.structs.Responder(channel);
-				try {
-					await responder.embed({
-						color: this.Atlas.colors.get('red').decimal,
-						title: 'Warning',
-						description: `You have recieved a warning in ${this.guild.name}. Improve your behaviour or you will be removed from the server.`,
-						fields: [{
-							name: 'Warned By',
-							value: `${moderator.mention} (\`${moderator.tag}\`)`,
-							inline: true,
-						}, {
-							name: 'Reason',
-							value: reason,
-							inline: true,
-						}],
-						timestamp: new Date(),
-						footer: {
-							text: `This message was sent automatically because you recieved a warn in ${this.guild.name}. You can block Atlas if you wish to stop recieving these messages.`,
-						},
-					}).send();
+				await responder.embed({
+					color: this.Atlas.colors.get('red').decimal,
+					title: 'Warning',
+					description: `You have recieved a warning in ${this.guild.name}. Improve your behaviour or you will be removed from the server.`,
+					fields: [{
+						name: 'Warned By',
+						value: `${moderator.mention} (\`${moderator.tag}\`)`,
+						inline: true,
+					}, {
+						name: 'Reason',
+						value: reason,
+						inline: true,
+					}],
+					timestamp: new Date(),
+					footer: {
+						text: `This message was sent automatically because you recieved a warn in ${this.guild.name}. You can block Atlas if you wish to stop recieving these messages.`,
+					},
+				}).send();
 
-					return {
-						notified: true,
-						info: d,
-					};
-				} catch (e) {
-					return {
-						notified: false,
-						info: d,
-					};
-				}
+				return {
+					notified: true,
+					info: d,
+				};
 			} catch (e) {
-				console.error(e);
-
 				return {
 					notified: false,
 					info: d,
 				};
 			}
+		} catch (e) {
+			if (process.env.VERBOSE === 'true') {
+				console.error(e);
+			}
+
+			return {
+				notified: false,
+				info: d,
+			};
 		}
 	}
 

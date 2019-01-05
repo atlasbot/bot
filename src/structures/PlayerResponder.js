@@ -51,7 +51,7 @@ module.exports = class PlayerResponder extends Responder {
 	get shouldAdd() {
 		const { options } = this.settings.plugin('music');
 
-		const perms = this.player.msg.permissionsOf(this.Atlas.client.user.id);
+		const perms = this.player.msg.channel.permissionsOf(this.Atlas.client.user.id);
 		if (perms.has('addReactions')) {
 			return (options.player_buttons && this._buttons);
 		}

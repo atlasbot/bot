@@ -139,7 +139,7 @@ module.exports = class {
 		}
 
 		if (!source || !source.includes('{')) {
-			if (!source && process.env.VERBOSE) {
+			if (!source && process.env.VERBOSE === 'true') {
 				console.warn(new Error('No source, returning nothing'));
 			}
 

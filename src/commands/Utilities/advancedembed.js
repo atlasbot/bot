@@ -11,7 +11,7 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'advancedembed');
 
-		if (parsedArgs.d) {
+		if (parsedArgs.d && msg.delete) {
 			msg.delete().catch(() => false);
 		}
 

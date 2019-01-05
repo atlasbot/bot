@@ -28,7 +28,7 @@ module.exports = class extends Command {
 			return responder.error('warn.add.noReason').send();
 		}
 
-		if (args[0] && reason.length > 48) {
+		if (reason.length > 48) {
 			return responder.error('warn.add.tooLong').send();
 		}
 

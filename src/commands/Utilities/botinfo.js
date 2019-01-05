@@ -20,7 +20,7 @@ module.exports = class extends Command {
 		let target = await settings.findMember(args.join(' '));
 
 		try {
-			let body;
+			let bot;
 			const snowflake = this.Atlas.lib.utils.isSnowflake(args.join(' ').replace(/<|@|!|>/g, ''));
 			// if the target is not a bot and the query was not a mention, maybe they wanted to search and it just happened
 			// to find a guild member
@@ -30,7 +30,7 @@ module.exports = class extends Command {
 					return responder.error('botinfo.noArgs').send();
 				}
 				// try and search DBL for the query
-				const res = await superagent.get('https://discordbots.org/api/bots')
+				const { body: { results } } = await superagent.get('https://discordbots.org/api/bots')
 					.set('Authorization', process.env.DBL_KEY)
 					.set('User-Agent', this.Atlas.userAgent)
 					.query({
@@ -38,11 +38,15 @@ module.exports = class extends Command {
 						limit: 10,
 					});
 
-				body = this.getBest(res.body.results);
+				bot = this.getBest(results);
 
-				target = await settings.findMember(body.id);
+				if (!bot) {
+					return responder.error('botinfo.notFound').send();
+				}
+
+				target = await settings.findMember(bot.id);
 			} else {
-				({ body } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
+				({ bot } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
 					.set('Authorization', process.env.DBL_KEY)
 					.set('User-Agent', this.Atlas.userAgent));
 			}
@@ -52,12 +56,12 @@ module.exports = class extends Command {
 			}
 
 			const owners = [];
-			for (let i = 0; i < body.owners.length; i++) {
+			for (let i = 0; i < bot.owners.length; i++) {
 				if (i > 5) {
-					owners.push(` + ${body.owners.length - 5} more`);
+					owners.push(` + ${bot.owners.length - 5} more`);
 					break;
 				}
-				const owner = body.owners[i];
+				const owner = bot.owners[i];
 				const member = await settings.findMember(owner);
 				if (member) {
 					owners.push(`[${member.tag}](https://discordbots.org/user/${member.id})`);
@@ -68,52 +72,52 @@ module.exports = class extends Command {
 				thumbnail: {
 					url: target.avatarURL,
 				},
-				url: `https://discordbots.org/bot/${body.vanity || target.id}`,
+				url: `https://discordbots.org/bot/${bot.vanity || target.id}`,
 				title: target.username,
-				description: body.shortdesc.toString(),
+				description: bot.shortdesc.toString(),
 				fields: [{
 					name: 'botinfo.embed.prefix',
-					value: body.prefix,
+					value: bot.prefix,
 					inline: true,
 				}, {
 					name: 'botinfo.embed.library',
-					value: body.lib,
+					value: bot.lib,
 					inline: true,
 				}, {
 					name: 'botinfo.embed.servers.name',
-					value: body.server_count ? body.server_count.toLocaleString() : 'botinfo.embed.servers.none',
+					value: bot.server_count ? bot.server_count.toLocaleString() : 'botinfo.embed.servers.none',
 					inline: true,
 				}, {
 					name: 'botinfo.embed.shards.name',
-					value: body.shard_count ? body.shard_count.toLocaleString() : 'botinfo.embed.shards.none',
+					value: bot.shard_count ? bot.shard_count.toLocaleString() : 'botinfo.embed.shards.none',
 					inline: true,
 				}, {
 					name: 'botinfo.embed.github.name',
-					value: body.github
-						? `[${url.parse(body.github).pathname.slice(1)}](${body.github})`
+					value: bot.github
+						? `[${url.parse(bot.github).pathname.slice(1)}](${bot.github})`
 						: 'botinfo.embed.github.none',
 					inline: true,
 				}, {
 					name: 'botinfo.embed.website.name',
-					value: body.website
-						? `[${url.parse(body.website).hostname}](${body.website})`
+					value: bot.website
+						? `[${url.parse(bot.website).hostname}](${bot.website})`
 						: 'botinfo.embed.website.none',
 					inline: true,
 				}, {
 					name: 'botinfo.embed.invite',
-					value: `[Click here](${body.invite})`,
+					value: `[Click here](${bot.invite})`,
 					inline: true,
 				}, {
 					name: 'botinfo.embed.support.name',
-					value: body.support
-						? `[Click here](https://discordapp.com/invite/${body.support})`
+					value: bot.support
+						? `[Click here](https://discordapp.com/invite/${bot.support})`
 						: 'botinfo.embed.support.none',
 					inline: true,
 				}, {
 					name: 'botinfo.embed.owners',
 					value: owners.join(', '),
 				}],
-				timestamp: new Date(body.date),
+				timestamp: new Date(bot.date),
 				footer: {
 					text: 'botinfo.embed.footer',
 				},
@@ -142,7 +146,7 @@ module.exports = class extends Command {
 			}
 		}
 
-		return best;
+		return best || bots[0];
 	}
 };
 
