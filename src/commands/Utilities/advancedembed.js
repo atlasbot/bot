@@ -87,6 +87,7 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'advancedembed',
+	// DO NOT MODIFY ALIASES - lib assumes only "advancedembed" and "ae" aliases exist when converting tags > embeds
 	aliases: [
 		'ae',
 	],

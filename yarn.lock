@@ -371,20 +371,21 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-"atlas-lib@https://github.com/get-atlas/lib.git":
+atlas-lib@../lib:
   version "0.0.1"
-  resolved "https://github.com/get-atlas/lib.git#4ee232902ac72fbe0a15875f073958d514f9b8c1"
   dependencies:
-    cacheman-redis "^2.0.0"
     colors "^1.3.3"
     emojilib "^2.4.0"
+    flat "^4.1.0"
     mongoose "^5.4.1"
+    parse-color "^1.0.0"
     parse-ms "^2.0.0"
     redis "^2.8.0"
     string-similarity "^3.0.0"
     superagent "^4.1.0"
     time-parser "^0.2.10"
     valid-url "^1.0.9"
+    yargs-parser "^11.1.1"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -436,13 +437,6 @@ builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
   integrity sha1-Jw8HbFpywC9bZaR9+Uxf46J4iS8=
-
-cacheman-redis@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/cacheman-redis/-/cacheman-redis-2.0.0.tgz#3fc0fba20c14fd0aa7bd207528caa3a0ef3f927e"
-  integrity sha512-QTcVLBprPh/E4VrrVpCpbuZ5cb29UrGHFrJgqS60059PkzhqqMc5uXakQADY0HChtMMK3GInZ+wM9ra1WECZAQ==
-  dependencies:
-    parse-redis-url "0.0.2"
 
 caller-path@^0.1.0:
   version "0.1.0"
@@ -1880,11 +1874,6 @@ parse-ms@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/parse-ms/-/parse-ms-2.0.0.tgz#7b3640295100caf3fa0100ccceb56635b62f9d62"
   integrity sha512-AddiXFSLLCqj+tCRJ9MrUtHZB4DWojO3tk0NVZ+g5MaMQHF2+p2ktqxuoXyPFLljz/aUK0Nfhd/uGWnhXVXEyA==
-
-parse-redis-url@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/parse-redis-url/-/parse-redis-url-0.0.2.tgz#13c92a0abbe6f2512006a8c49de6cb7b8dd4b277"
-  integrity sha1-E8kqCrvm8lEgBqjEnebLe43Usnc=
 
 path-exists@^2.0.0:
   version "2.1.0"

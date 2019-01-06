@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const Cache = require('atlas-lib/lib/structures/Cache');
 
 const ratelimits = new Cache('ratelimits');
@@ -18,7 +16,7 @@ module.exports = class Ready {
 
 		let settings;
 		if (msg.guild) {
-			settings = await this.Atlas.DB.getSettings(msg.guild);
+			settings = await this.Atlas.DB.settings(msg.guild);
 
 			msg.lang = settings.lang;
 			msg.displayPrefix = settings.prefix || process.env.DEFAULT_PREFIX;
@@ -151,7 +149,9 @@ module.exports = class Ready {
 	}
 
 	async updateProfile(msg, settings) {
-		if (!(await ratelimits.get(msg.author.id))) {
+		const limit = await ratelimits.get(msg.author.id);
+
+		if (!limit) {
 			await ratelimits.set(msg.author.id, Date.now(), 60);
 
 			const levelConf = settings.plugin('levels');
@@ -172,38 +172,31 @@ module.exports = class Ready {
 					avatar: msg.author.avatar,
 				};
 
-				const profile = await this.Atlas.DB.getProfile(msg.author, msg.guild.id);
+				const profile = await this.Atlas.DB.user(msg.author, msg.guild.id);
 
 				const guild = profile.guilds.find(({ id }) => id === msg.guild.id);
 
 				if (guild) {
 					// update existing guild profile
-					await mongoose
-						.model('User')
-						.updateOne({ id: profile.id, 'guilds._id': guild._id }, {
-							$set: payload,
-							$inc: {
-								'guilds.$.xp': xp,
-								'guilds.$.messages': 1,
-							},
-						});
+					await this.Atlas.DB.User.updateOne({ id: profile.id, 'guilds._id': guild._id }, {
+						$set: payload,
+						$inc: {
+							'guilds.$.xp': xp,
+							'guilds.$.messages': 1,
+						},
+					});
 				} else {
-					await mongoose
-						.model('User')
-						.updateOne({ id: profile.id }, {
-							$set: payload,
-							$push: {
-								guilds: {
-									xp,
-									id: msg.guild.id,
-									messages: 1,
-								},
+					await this.Atlas.DB.User.updateOne({ id: profile.id }, {
+						$set: payload,
+						$push: {
+							guilds: {
+								xp,
+								id: msg.guild.id,
+								messages: 1,
 							},
-						});
+						},
+					});
 				}
-
-				// update the cached version aswell because why not
-				await this.Atlas.DB.cache.del(profile.id);
 
 				// first guild will always be the target guild due to the mongo magic above
 				const currentXP = guild ? guild.xp + xp : xp;

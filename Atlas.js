@@ -17,16 +17,16 @@ const ActionsInterval = require('./src/actionsInterval');
 
 const { version } = require('./package.json');
 
-const DB = lib.structs.Database;
+const { Database } = lib.structs;
 
 // load eris addons cus lazy
-const addons = lib.utils.walkSync(path.join(__dirname, 'src/addons'));
+const addons = require('./src/addons');
 
-addons.filter(a => a.endsWith('.js'))
-	.forEach((a) => {
-		const Prop = require(a);
+Object.keys(addons).forEach((a) => {
+	Object.values(addons[a]).forEach((Prop) => {
 		Prop(Eris);
 	});
+});
 
 console.log(`Loaded ${addons.length} eris addons`);
 
@@ -75,11 +75,9 @@ module.exports = class Atlas {
 		this.plugins = new Map();
 		this.agenda = new Agenda();
 
-		this.DB = new DB({
-			SettingsStruct,
+		this.DB = new Database({
+			SettingsHook: settings => new SettingsStruct(settings),
 		});
-
-		this.DB.init();
 
 		this.collectors = {
 			emojis: {

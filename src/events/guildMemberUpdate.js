@@ -8,7 +8,7 @@ module.exports = class Event {
 			return;
 		}
 
-		const settings = await this.Atlas.DB.getSettings(guild);
+		const settings = await this.Atlas.DB.settings(guild);
 
 		if (!settings.actionLogChannel) {
 			return;

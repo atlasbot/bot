@@ -1,6 +1,3 @@
-/** Represents a guild config    */
-const mongoose = require('mongoose');
-
 const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
@@ -9,7 +6,7 @@ const Action = require('./Action');
 
 module.exports = class GuildSettings {
 	/**
-    * Create a new instance of a guild
+    * GuildSettings constructor
     * @param {Object} settings The guilds settings from a DB
 		* @param {Guild} guild The guild the settings is for
   	*/
@@ -168,8 +165,6 @@ module.exports = class GuildSettings {
 			runValidators,
 			new: true,
 		});
-
-		await this.Atlas.DB.cache.del(this.id);
 
 		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
 		this.raw = data;
@@ -381,7 +376,7 @@ module.exports = class GuildSettings {
 		msg,
 		user = msg.author,
 	}) {
-		const actions = await mongoose.model('Action').find(query);
+		const actions = await this.Atlas.DB.Action.find(query);
 
 		// run those actions
 		if (actions.length) {
@@ -414,7 +409,7 @@ module.exports = class GuildSettings {
 	}
 
 	async getTriggers() {
-		return (await mongoose.model('Action').find({
+		return (await this.Atlas.DB.Action.find({
 			guild: this.id,
 		}, {
 			trigger: 1,
@@ -422,7 +417,7 @@ module.exports = class GuildSettings {
 	}
 
 	async getAction(id) {
-		const action = await mongoose.model('Action')
+		const action = await this.Atlas.DB.Action
 			.findOne({
 				_id: id,
 				guild: this.id,
@@ -471,7 +466,7 @@ module.exports = class GuildSettings {
 	}
 
 	async getActions(ids) {
-		return (await mongoose.model('Action')
+		return (await this.Atlas.DB.Action
 			.find({
 				_id: {
 					$in: ids,
