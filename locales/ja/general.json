@@ -72,12 +72,12 @@
 		"trackQueued": "`{0}` を待ち行列に加えました。あと{1} でプレイ可能です。",
 		"npEmbed": {
 			"ttp": "プレイまでの時間",
-			"addedBy": "Added By",
-			"author": "Author",
-			"duration": "Duration",
-			"footer": "{0} in queue"
+			"addedBy": "追加した人",
+			"author": "作った人",
+			"duration": "期間",
+			"footer": "待ち行列に{0} 人"
 		},
-		"leaving": "There is nothing left to play, leaving channel...",
+		"leaving": "プレイできるものがありません。チャンネルを離脱してください……",
 		"autoplay": {
 			"failed": "I couldn't find anything to play next :c. Try queue something else.",
 			"addedBy": "Autoplay"
@@ -263,7 +263,7 @@
 				"name": "Moderator"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "期間"
 			},
 			"reason": {
 				"name": "Reason"
@@ -310,15 +310,15 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "期間",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "追加した人",
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Author",
+			"name": "作った人",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
