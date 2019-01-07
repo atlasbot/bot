@@ -69,9 +69,9 @@
 		"sameVoiceChannel": "それを行うためには私のボイスチャンネルに入らなければなりません。",
 		"noVoiceChannel": "それを行うためにはボイスチャンネルに入る必要があります。",
 		"none": "このサーバにはプレイ中のものはありません。",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"trackQueued": "`{0}` を待ち行列に加えました。あと{1} でプレイ可能です。",
 		"npEmbed": {
-			"ttp": "Time Until Playing",
+			"ttp": "プレイまでの時間",
 			"addedBy": "Added By",
 			"author": "Author",
 			"duration": "Duration",
@@ -323,7 +323,7 @@
 		},
 		"addedTrack": "Added Track",
 		"ttp": {
-			"name": "Time Until Playing",
+			"name": "プレイまでの時間",
 			"value": "{0}"
 		},
 		"inQueue": {
