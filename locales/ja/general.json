@@ -79,16 +79,16 @@
 		},
 		"leaving": "プレイできるものがありません。チャンネルを離脱してください……",
 		"autoplay": {
-			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"failed": "次にプレイできるものが見つかりません (　´Α｀) 別の待ち行列を試してください。",
+			"addedBy": "オートプレイ"
 		}
 	},
 	"poweredBy": {
-		"nekobot": "Via nekobot.xyz"
+		"nekobot": "nekobot.xyz経由"
 	},
 	"logs": {
 		"levelReset": {
-			"title": "Level Reset",
+			"title": "レベルリセット",
 			"description": "{0} has had their level reset from `{1}` to `0`.",
 			"moderator": {
 				"name": "Administrator",
