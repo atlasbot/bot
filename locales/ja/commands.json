@@ -3,10 +3,10 @@
 		"noArgs": "Please include something to make ˢᵐᵒˡ"
 	},
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
+		"noRoles": "このサーバで利用可能なロールはありません。",
+		"invalidQuery": "`{0}`に該当する\"iam\" ロールは見つかりませんでした。",
+		"unassignable": "私にはあなたにそのロールを割り当てる権限がありません。",
+		"removed": "あなたはもはや{0} ロールではありません。",
 		"added": "You now have the {0} role.",
 		"embed": {
 			"title": "Available \"iam\" Roles​",
@@ -158,8 +158,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "{0}ムービー {1}",
+		"ratings": "レーティング"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -171,8 +171,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "あなたは`{1}`のため {2} ({3}) によって{0} から追放されました。",
+			"noReason": "あなたは {1} ({2}) によって{0} から追放されました。"
 		}
 	},
 	"remindme": {
@@ -296,7 +296,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "合計期間",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -307,7 +307,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "次へ",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -506,8 +506,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "あなたは`{1}`のため {2} ({3}) によって{0} から追放されました。",
+			"noReason": "あなたは {1} ({2}) によって{0} から追放されました。"
 		}
 	},
 	"gotcharacter": {
@@ -715,29 +715,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "このサーバのリーダーボードは<https://atlasbot.xyz/leaderboard/{0}>で確認できます。",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "`{0}`に該当するユーザーが見つかりませんでした 《ﾟДﾟ》ノ",
+		"noProfile": "むむっ、なにか変です。このユーザーのプロファイルが見つかりません。",
 		"embed": {
-			"rank": "Rank",
-			"level": "Level",
+			"rank": "ランク",
+			"level": "レベル",
 			"experience": {
-				"name": "Experience",
-				"value": "{0}/{1} • `{0}` total"
+				"name": "経験値",
+				"value": "{0}/{1} • `{0}` 総経験値"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "プラグイン名を含むようにしてください。",
+		"noPlugin": "`{0}`に該当するプラグインが見つかりません。",
+		"success": "{0} プラグインは`{1}`になりました。"
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "コマンド名を含むようにしてください。",
+		"noCommand": "`{0}`に該当するコマンドが見つかりません。",
+		"disabled": "{0} コマンドは`無効`になりました。",
+		"enabled": "{0} コマンドが`有効`になりました。"
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
