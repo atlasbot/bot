@@ -24,7 +24,7 @@
 		"usage": "[location]"
 	},
 	"fact": {
-		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
+		"description": "ランダムになにか面白い話（おそらく事実としては不正確）を取得します。"
 	},
 	"spacex": {
 		"base": {
