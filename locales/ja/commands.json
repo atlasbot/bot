@@ -7,14 +7,14 @@
 		"invalidQuery": "`{0}`に該当する\"iam\" ロールは見つかりませんでした。",
 		"unassignable": "私にはあなたにそのロールを割り当てる権限がありません。",
 		"removed": "あなたはもはや{0} ロールではありません。",
-		"added": "You now have the {0} role.",
+		"added": "あなたは{0} ロールになりました。",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "\"iam\"ロールが使用可能です",
+			"footer": "ロールを要求する\"{0}iam [role]\""
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
+		"invalidUnits": "有効な単位を入れてください。",
 		"invalidFrom": "Please include a valid input measurement.",
 		"invalidTo": "Please include a valid to measurement.",
 		"currency": {
