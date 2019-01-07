@@ -1,23 +1,23 @@
 {
 	"help": {
 		"examples": "例",
-		"aliases": "Aliases",
-		"subcommands": "Subcommands",
-		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
-		"usage": "Usage",
-		"userPerms": "User Permissions",
-		"botPerms": "Bot Permissions",
-		"supportedFlags": "Supported Flags"
+		"aliases": "別名",
+		"subcommands": "サブコマンド",
+		"footer": "サブコマンドを見るために{1}<subcommand>を{0}ヘルプしてください。",
+		"usage": "使用法",
+		"userPerms": "ユーザー権限",
+		"botPerms": "Bot権限",
+		"supportedFlags": "サポート済みフラグ"
 	},
 	"roles": {
-		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
-		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
+		"reactionAdd": "あなたは{1} に対応するため、{0} ロールを与えられました。",
+		"reactionRemove": "あなたの対応が削除されたため、あなたはもはや`{0}` ロールではありません。"
 	},
 	"plugin": {
-		"disabled": "That plugin has been disabled by a server administrator.",
+		"disabled": "このプラグインはサーバ管理者により無効化されました。",
 		"restrictions": {
 			"whitelist": {
-				"role": "You are not whitelisted to use that plugin.",
+				"role": "あなたはこのプラグインを使用できるホワイトリストに入っていません。",
 				"channel": "This channel is not whitelisted to use that plugin."
 			},
 			"blacklist": {
