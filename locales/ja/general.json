@@ -18,29 +18,29 @@
 		"restrictions": {
 			"whitelist": {
 				"role": "あなたはこのプラグインを使用できるホワイトリストに入っていません。",
-				"channel": "This channel is not whitelisted to use that plugin."
+				"channel": "このチャンネルはそのプラグインを使用できるホワイトリストに入っていません。"
 			},
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that plugin.",
-				"channel": "You are in a channel that is blacklisted from using that plugin."
+				"role": "あなたはそのプラグインの使用によりブラックリスト入りしたロールを保持しています。",
+				"channel": "あなたはそのプラグインの使用によりブラックリスト入りしたチャンネルにいます。"
 			}
 		}
 	},
 	"command": {
-		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
-		"errorExecuting": "An unknown internal error occured executing the command.",
+		"restError": "<:sadpanda:497907940225843220>外部サービスとの接続で異常が発生しました。数分後にもう一度お試しください。",
+		"errorExecuting": "コマンドの実行中に不明な内部エラーが発生しました。",
 		"patronOnly": "このコマンドはパトロン専用です。詳しい情報を得るには`{0}の誓約`をしてください。",
 		"premiumOnly": "このコマンドはプレミアムサーバでしか使えません。 ",
 		"guildOnly": "このコマンドはサーバ内でしか使えません！",
 		"disabled": "`{0}{1}` コマンドはサーバ管理者によって無効化されました。",
 		"restrictions": {
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that command.",
-				"channel": "This channel is blacklisted from using that command."
+				"role": "あなたはそのコマンドの使用によりブラックリスト入りしたロールを保持しています。",
+				"channel": "このチャンネルはそのコマンドの使用によりブラックリストに入りました。"
 			},
 			"whitelist": {
-				"role": "You are not whitelisted to use that command.",
-				"channel": "This channel is not whitelisted to use that command."
+				"role": "あなたはそのコマンドの使用によりホワイトリストに入っていません。",
+				"channel": "このチャンネルはそのコマンドの使用によりホワイトリストに入っていません。"
 			}
 		}
 	},
@@ -66,9 +66,9 @@
 		}
 	},
 	"player": {
-		"sameVoiceChannel": "You must be in my voice channel to do that.",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
-		"none": "There is nothing playing in this server.",
+		"sameVoiceChannel": "それを行うためには私のボイスチャンネルに入らなければなりません。",
+		"noVoiceChannel": "それを行うためにはボイスチャンネルに入る必要があります。",
+		"none": "このサーバにはプレイ中のものはありません。",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
@@ -295,7 +295,7 @@
 		"trackException": "An error occured playing the track, skipping...",
 		"emptyPause": "All users have left the voice channel - the player has been paused.",
 		"playingTrack": "Now playing `{0}` ({1})",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"noVoiceChannel": "それを行うためにはボイスチャンネルに入る必要があります。",
 		"position": {
 			"name": "Position",
 			"value": "{0}"
