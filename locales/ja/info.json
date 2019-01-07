@@ -1,26 +1,26 @@
 {
 	"lmgtfy": {
-		"description": "Let me google that for you :^)",
-		"usage": "<search>"
+		"description": "私にググらせてください　( ｀・ω・´)ﾉ",
+		"usage": "<検索>"
 	},
 	"iam": {
-		"description": "Give yourself a role that server admins have published.",
-		"usage": "<role>"
+		"description": "サーバ管理者が発行したロールを自分に付与してください。",
+		"usage": "<ロール>"
 	},
 	"purgeban": {
-		"description": "Bans a user and purges their messages over the last 7 days.",
+		"description": "ユーザーの追放と7日以上経過した彼らのメッセージの削除。",
 		"usage": "[user] <reason>"
 	},
 	"convert": {
-		"description": "Convert things to other things. Supports currency, mass, length, etc...",
-		"usage": "[units] [from] [to]"
+		"description": "ほかのものへの変換。通貨と重さ，長さなどをサポート。",
+		"usage": "[単位][から][へ]"
 	},
 	"haveibeenpwned": {
-		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
-		"usage": "[account]"
+		"description": "データ侵害の被害にあったアカウントがないか確認してください。**ほかのギルドのメンバーに見せたくない情報を入れてはいけません**",
+		"usage": "[アカウント]"
 	},
 	"isspass": {
-		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
+		"description": "国際宇宙ステーション（ISS）が<location>上を通過したときに通知します。",
 		"usage": "[location]"
 	},
 	"fact": {
@@ -119,22 +119,22 @@
 		"description": "Make Atlas join your voice channel."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
-		"usage": "[command]"
+		"description": "コマンドのon/offを切り替えます。",
+		"usage": "[コマンド]"
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
-		"usage": "[plugin]"
+		"description": "プラグインのon/offを切り替えます。",
+		"usage": "[プラグイン]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "あなたもしくは他人のユーザーレベルを取得します。",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "レベルごとのリーダーボードへのリンクを取得します。"
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "テキストを小さくします。",
 		"usage": "[text]"
 	},
 	"nodes": {
@@ -200,7 +200,7 @@
 		"usage": "[server ip]"
 	},
 	"membercount": {
-		"description": "Shows information about the servers member count."
+		"description": "サーバのメンバー数に関する情報を取得します。"
 	},
 	"joined": {
 		"description": "Find out when a user joined the server."
