@@ -22,8 +22,8 @@
 			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
 		},
 		"other": {
-			"unknownInput": "Formato de importação desconhecido.",
-			"unknownOutput": "Formato de exportação desconhecido.",
+			"unknownInput": "Unknown input format.",
+			"unknownOutput": "Unknown output format.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
@@ -33,7 +33,7 @@
 		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
 		"breach": "Breach",
 		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Dados comprometidos",
+		"compromisedData": "Compromised Data",
 		"footer": "Breach {0}/{1}"
 	},
 	"needsmorejpeg": {
@@ -62,7 +62,7 @@
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
 			"duration": "Duração",
-			"created": "Criado",
+			"created": "Created",
 			"updated": "Updated",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
@@ -92,15 +92,15 @@
 		"noArgs": "Please include a volume number between 1% and 150%.",
 		"tooLow": "The volume cannot go below 1%.",
 		"tooHigh": "The volume cannot go over 150%.",
-		"success": "Agora o volume está em `{0}%`."
+		"success": "The volume is now at `{0}%`."
 	},
 	"stop": {
 		"stopped": "The player has been stopped."
 	},
 	"seek": {
-		"noArgs": "Por favor, inclua a posição para procurar.",
+		"noArgs": "Please include a position to seek to.",
 		"notSeekable": "This track is not seekable.",
-		"noTimestamp": "Por favor, inclua um timestamp válido.",
+		"noTimestamp": "Please include a valid timestamp.",
 		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
 		"seeked": "Skipped to {0} in."
 	},
@@ -149,17 +149,17 @@
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Reprodução automática foi habilitada.",
-		"disabled": "Reprodução automática foi desabilitada."
+		"enabled": "Autoplay has been enabled.",
+		"disabled": "Autoplay has been disabled."
 	},
 	"shuffle": {
-		"tooFew": "Não há itens suficientes na fila para embaralhar.",
-		"success": "`{0}` itens da fila embaralhados."
+		"tooFew": "There is not enough items in the queue to shuffle.",
+		"success": "Shuffled `{0}` queue items."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "Isso não é um programa de TV! Tente `{0}movie {1}`.",
-		"ratings": "Classificações"
+		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
+		"ratings": "Ratings"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -171,8 +171,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "Você foi banido do {0} por `{1}` por {2} ({3}).",
-			"noReason": "Você foi banido do {0} por {1}({2})."
+			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been banned from {0} by {1} ({2})."
 		}
 	},
 	"remindme": {
@@ -213,12 +213,7 @@
 			"singular": " • {0} plugin disabled"
 		},
 		"title": "Need some help?",
-		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos.",
-		"welcome": {
-			"footer": "Don't be afraid to ask for help!",
-			"title": "Oh hey!",
-			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
-		}
+		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
 	},
 	"info": {
 		"title": "Atlas",
@@ -296,7 +291,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Duração Total",
+			"name": "Total Duration",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -307,7 +302,7 @@
 			}
 		},
 		"upNext": {
-			"value": "A Seguir",
+			"value": "Up Next",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -506,8 +501,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "Você foi chutado do {0} por `{1}` por {2} ({3}).",
-			"noReason": "Você foi chutado do {0} por {1} ({2})."
+			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
+			"noReason": "You have been kicked from {0} by {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -523,7 +518,7 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Autor",
+		"author": "Author",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
@@ -588,7 +583,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Robôs"
+		"bots": "Bots"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -672,7 +667,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Nível de Verificação"
+			"name": "Verification Level"
 		},
 		"region": {
 			"name": "Region"
@@ -686,7 +681,7 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Criado"
+		"footer": "Created"
 	},
 	"shorten": {
 		"noArgs": "Please include a URL.",
@@ -715,29 +710,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "Você pode ver a classificação dos membros deste servidor em <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "Não foi possível localizar o usuário`{0}` :c",
-		"noProfile": "Hmm, alguma coisa está errada. Não consegui achar o perfil desse usuário.",
+		"invalidUser": "I could not find a user matching `{0}` :c",
+		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
 		"embed": {
 			"rank": "Rank",
-			"level": "Nível",
+			"level": "Level",
 			"experience": {
-				"name": "Experiência",
+				"name": "Experience",
 				"value": "{0}/{1} • `{0}` total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Por favor, inclua o nome do plugin.",
-		"noPlugin": "Não foi possível localizar o plugin `{0}`.",
-		"success": "O {0} plugin foi `{1}`."
+		"noArgs": "Please include a plugin name.",
+		"noPlugin": "I could not find a plugin matching `{0}`.",
+		"success": "The {0} plugin has been `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Por favor, inclua o nome do plugin.",
-		"noCommand": "Não foi possível localizar o comando `{0}`.",
-		"disabled": "O {0} comando foi `desativado`.",
-		"enabled": "O {0} comando foi `ativado`."
+		"noArgs": "Please include a command name.",
+		"noCommand": "I could not find a command matching `{0}`.",
+		"disabled": "The {0} command has been `disabled`.",
+		"enabled": "The {0} command has been `enabled`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
