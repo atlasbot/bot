@@ -22,8 +22,8 @@
 			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
 		},
 		"other": {
-			"unknownInput": "Unknown input format.",
-			"unknownOutput": "Unknown output format.",
+			"unknownInput": "Formato de importação desconhecido.",
+			"unknownOutput": "Formato de exportação desconhecido.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
@@ -33,7 +33,7 @@
 		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
 		"breach": "Breach",
 		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Compromised Data",
+		"compromisedData": "Dados comprometidos",
 		"footer": "Breach {0}/{1}"
 	},
 	"needsmorejpeg": {
@@ -62,7 +62,7 @@
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
 			"duration": "Duração",
-			"created": "Created",
+			"created": "Criado",
 			"updated": "Updated",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
@@ -92,15 +92,15 @@
 		"noArgs": "Please include a volume number between 1% and 150%.",
 		"tooLow": "The volume cannot go below 1%.",
 		"tooHigh": "The volume cannot go over 150%.",
-		"success": "The volume is now at `{0}%`."
+		"success": "Agora o volume está em `{0}%`."
 	},
 	"stop": {
 		"stopped": "The player has been stopped."
 	},
 	"seek": {
-		"noArgs": "Please include a position to seek to.",
+		"noArgs": "Por favor, inclua a posição para procurar.",
 		"notSeekable": "This track is not seekable.",
-		"noTimestamp": "Please include a valid timestamp.",
+		"noTimestamp": "Por favor, inclua um timestamp válido.",
 		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
 		"seeked": "Skipped to {0} in."
 	},
@@ -149,17 +149,17 @@
 		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "Isso não é um programa de TV! Tente `{0}movie {1}`.",
+		"ratings": "Classificações"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -171,8 +171,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "Você foi banido do {0} por `{1}` por {2} ({3}).",
+			"noReason": "Você foi banido do {0} por {1}({2})."
 		}
 	},
 	"remindme": {
@@ -291,7 +291,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "Duração Total",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -302,7 +302,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "A Seguir",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -501,8 +501,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "Você foi chutado do {0} por `{1}` por {2} ({3}).",
+			"noReason": "Você foi chutado do {0} por {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -518,7 +518,7 @@
 		"noResults": "I couldn't find any definition for `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Author",
+		"author": "Autor",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
@@ -583,7 +583,7 @@
 		"idle": "Idle",
 		"dnd": "Do not Disturb",
 		"offline": "Offline",
-		"bots": "Bots"
+		"bots": "Robôs"
 	},
 	"minecraft": {
 		"noArgs": "Please include a server IP.",
@@ -667,7 +667,7 @@
 			"name": "Voice Channels"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
 			"name": "Region"
@@ -681,7 +681,7 @@
 		"owner": {
 			"name": "Owner"
 		},
-		"footer": "Created"
+		"footer": "Criado"
 	},
 	"shorten": {
 		"noArgs": "Please include a URL.",
@@ -710,29 +710,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Você pode ver a classificação dos membros deste servidor em <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "Não foi possível localizar o usuário`{0}` :c",
+		"noProfile": "Hmm, alguma coisa está errada. Não consegui achar o perfil desse usuário.",
 		"embed": {
 			"rank": "Rank",
-			"level": "Level",
+			"level": "Nível",
 			"experience": {
-				"name": "Experience",
+				"name": "Experiência",
 				"value": "{0}/{1} • `{0}` total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Por favor, inclua o nome do plugin.",
+		"noPlugin": "Não foi possível localizar o plugin `{0}`.",
+		"success": "O {0} plugin foi `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Por favor, inclua o nome do plugin.",
+		"noCommand": "Não foi possível localizar o comando `{0}`.",
+		"disabled": "O {0} comando foi `desativado`.",
+		"enabled": "O {0} comando foi `ativado`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
