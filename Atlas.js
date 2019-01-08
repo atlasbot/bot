@@ -1,4 +1,4 @@
-const Raven = require('raven');
+const Sentry = require('@sentry/node');
 const path = require('path');
 const Eris = require('eris');
 const flatten = require('flat');
@@ -10,14 +10,10 @@ const Agenda = require('./src/agenda');
 const loader = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
-const PlayerManager = require('./src/structures/PlayerManager');
-const SettingsStruct = require('./src/structures/Settings');
-const Player = require('./src/structures/Player');
+const Database = require('./src/structures/Database');
 const ActionsInterval = require('./src/actionsInterval');
 
 const { version } = require('./package.json');
-
-const { Database } = lib.structs;
 
 // load eris addons cus lazy
 const addons = require('./src/addons');
@@ -31,7 +27,6 @@ Object.keys(addons).forEach((a) => {
 module.exports = class Atlas {
 	constructor({
 		client,
-		clusterID,
 	}) {
 		module.exports = this;
 
@@ -44,9 +39,8 @@ module.exports = class Atlas {
 		// used for things like overriding the action log for "mute" to show more info
 		this.ignoreUpdates = [];
 
-		this.Raven = Raven;
+		this.Sentry = Sentry;
 		this.structs = structs;
-		this.clusterID = clusterID;
 
 		this.util = (new Util(this));
 
@@ -73,9 +67,7 @@ module.exports = class Atlas {
 		this.plugins = new Map();
 		this.agenda = new Agenda();
 
-		this.DB = new Database({
-			SettingsHook: settings => new SettingsStruct(settings),
-		});
+		this.DB = new Database();
 
 		this.collectors = {
 			emojis: {
@@ -119,36 +111,16 @@ module.exports = class Atlas {
 
 	async launch() {
 		// setting up sentry for error tracking when possible
-		if (process.env.SENTRY_DSN) {
-			Raven.config(process.env.SENTRY_DSN, {
-				environment: process.env.NODE_ENV,
-				name: 'Atlas',
-				release: require('./package.json').version,
-				captureUnhandledRejections: true,
-				stacktrace: true,
-				autoBreadcrumbs: { http: true },
-			}).install((err, sendErr, eventId) => {
-				if (!sendErr) {
-					console.warn(`Successfully sent fatal error with eventId ${eventId} to Sentry`);
-				}
-			});
-		} else {
-			console.warn('"SENTRY_DSN" env not found, error reporting disabled.');
-		}
-
-		const filters = await fs.readdir('src/filters');
-		filters.forEach((f) => {
-			const Filter = require(`./src/filters/${f}`);
-			const filter = new Filter(this);
-
-			filter.info = Filter.info;
-
-			this.filters.set(f.split('.')[0], filter);
-
-			console.log(`Loaded chat filter: "${f}"`);
+		// if no SENTRY_DSN is provided sentry will will still "work"
+		Sentry.init({
+			dsn: process.env.SENTRY_DSN,
+			environment: process.env.NODE_ENV,
+			name: 'Atlas',
+			release: require('./package.json').version,
+			captureUnhandledRejections: true,
+			stacktrace: true,
+			autoBreadcrumbs: { http: true },
 		});
-
-		console.log(`Loaded ${filters.length} filters`);
 
 		const events = await fs.readdir('src/events');
 		// Loading events
@@ -166,48 +138,27 @@ module.exports = class Atlas {
 			console.log(`Loaded event handler: "${e}"`);
 		});
 
+		const filters = await fs.readdir('src/filters');
+		filters.forEach((f) => {
+			const Filter = require(`./src/filters/${f}`);
+			const filter = new Filter(this);
+
+			filter.info = Filter.info;
+
+			this.filters.set(f.split('.')[0], filter);
+
+			console.log(`Loaded chat filter: "${f}"`);
+		});
+
+		console.log(`Loaded ${filters.length} filters`);
+
 		console.log(`Loaded ${events.length} events`);
 
 		await this.loadLocales();
 
 		console.log(`Loaded ${this.locales.size} languages`);
-
-		// set the bot status
-		if (process.env.STATUS) {
-			this.client.editStatus('online', {
-				name: process.env.STATUS.split('{version}').join(this.version),
-				type: 0,
-			});
-		}
-
-		// setup the player
-		this.client.voiceConnections = new PlayerManager(this.client, JSON.parse(process.env.LAVALINK_NODES), {
-			numShards: this.client.options.maxShards,
-			userId: this.client.user.id,
-			defaultRegion: 'us',
-			player: Player,
-		});
-
-		// start the interval interval loop
-		this.actionsInterval.start();
-		// get agenda to connect
-		this.agenda.connect();
 		// load commands
 		loader.setup(this);
-	}
-
-	/**
-	 * Gets a colour
-	 * @param {string} name the name of the colour to get
-	 * @returns {Object} the color, see ./src/colors for what can be returned
-	 */
-	color(name) {
-		const colour = this.colors.find(m => m.name === name.toUpperCase());
-		if (!colour) {
-			throw new Error(`Color does not exist with name "${name}"`);
-		}
-
-		return parseInt(colour.color.replace(/#/ig, ''), 16);
 	}
 
 	async loadLocales() {

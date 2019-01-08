@@ -1,7 +1,7 @@
 const Parser = require('../tagengine');
 const Responder = require('../structures/Responder');
 
-module.exports = class Event {
+module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
 	}

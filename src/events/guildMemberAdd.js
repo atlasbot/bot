@@ -1,7 +1,7 @@
 const Parser = require('../tagengine');
 const Responder = require('../structures/Responder');
 
-module.exports = class Event {
+module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
 	}
@@ -24,9 +24,7 @@ module.exports = class Event {
 					} catch (e) {
 						console.warn(e);
 
-						if (this.Atlas.Raven) {
-							this.Atlas.Raven.captureException(e);
-						}
+						this.Atlas.Sentry.captureException(e);
 					}
 				}
 			}

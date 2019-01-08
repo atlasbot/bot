@@ -165,9 +165,7 @@ class Command {
 			}
 
 
-			if (this.Atlas.Raven) {
-				this.Atlas.Raven.captureException(e);
-			}
+			this.Atlas.Sentry.captureException(e);
 
 			throw e;
 		}

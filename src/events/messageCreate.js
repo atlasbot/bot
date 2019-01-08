@@ -56,9 +56,7 @@ module.exports = class Ready {
 							await this.Atlas.lib.utils.sleep(1000);
 						}
 					} catch (e) {
-						if (this.Atlas.Raven) {
-							this.Atlas.Raven.captureException(e);
-						}
+						this.Atlas.Sentry.captureException(e);
 					}
 				}
 

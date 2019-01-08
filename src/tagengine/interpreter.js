@@ -96,9 +96,7 @@ const interp = async (tokens, context, functions) => {
 
 					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z-]/g, '')}}`);
 
-					if (Atlas.Raven) {
-						Atlas.Raven.captureException(e);
-					}
+					Atlas.Sentry.captureException(e);
 				}
 
 				// if it ran into an error or was successful it would have been managed

@@ -1,4 +1,4 @@
-module.exports = class Event {
+module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
 	}
