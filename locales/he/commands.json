@@ -158,8 +158,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "זו לא תוכנית טלוויזיה! אולי תנסו את `{0}movie {1}` במקום.",
+		"ratings": "דירוגים"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -171,8 +171,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "אתה הורחקת מ- {0} ל- `{1}` על ידי {2} ({3}).",
+			"noReason": "אתה הורחקת מ- {0} על ידי {1} ({2})."
 		}
 	},
 	"remindme": {
@@ -213,12 +213,7 @@
 			"singular": " • {0} plugin disabled"
 		},
 		"title": "Need some help?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands.",
-		"welcome": {
-			"footer": "Don't be afraid to ask for help!",
-			"title": "Oh hey!",
-			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
-		}
+		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
 		"title": "Atlas",
@@ -296,7 +291,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "משך טוטאלי",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -307,7 +302,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "הבא",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
