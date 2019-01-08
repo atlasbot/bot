@@ -213,12 +213,7 @@
 			"singular": "• {0} eklenti devre dışı"
 		},
 		"title": "Yardıma mı ihtiyacınız var?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands.",
-		"welcome": {
-			"footer": "Don't be afraid to ask for help!",
-			"title": "Ah hey!",
-			"description": "Sunucunuzda tüm eklentileri devre dışı bırakılmış. Atlas'ı kullanmaya başlamak için bazı eklentileri etkinleştirmeyi deneyin. Başlamak için yardıma ihtiyacınız olursa, katılın [support server](https://atlasbot.xyz/support).  Eklentileri etkinleştirmek için [dashboard] kullanın (https://atlasbot.xyz/) veya <{0} toggleplugin <plugin> `işlevini yapın."
-		}
+		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
 		"title": "Atlas",
