@@ -34,16 +34,6 @@ module.exports = class extends Command {
 			const entries = Array.from(this.Atlas.plugins.entries());
 
 			if (settings) {
-				if (!Object.values(settings.raw.plugins).some(p => p.state === 'enabled')) {
-					return responder.embed({
-						title: 'help.welcome.title',
-						description: ['help.welcome.description', msg.displayPrefix],
-						footer: {
-							text: 'help.welcome.footer',
-						},
-					}).send();
-				}
-
 				const disabled = entries.filter(([, pl]) => {
 					const conf = settings.plugin(pl.name);
 

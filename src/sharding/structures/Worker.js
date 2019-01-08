@@ -33,7 +33,9 @@ module.exports = class Cluster {
 				this.token = token;
 				this.maxShards = maxShards;
 
-				if (this.shards <= 0) return;
+				if (this.shards <= 0) {
+					return;
+				}
 
 				this.connect();
 			}

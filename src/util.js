@@ -84,12 +84,15 @@ module.exports = class Util {
 		const parts = options.key.split('.');
 
 		const valid = ['general', 'info', 'commands'];
-		const index = parts.findIndex(k => valid.includes(k));
 
-		if (index !== -1) {
-			const newParts = parts.splice(index, parts.length);
+		for (const v of valid) {
+			const index = parts.lastIndexOf(v);
 
-			keys.push(newParts.join('.'));
+			if (index !== -1) {
+				const newParts = parts.splice(index, parts.length);
+
+				keys.push(newParts.join('.'));
+			}
 		}
 
 		const { data: def } = this.Atlas.locales.get(process.env.DEFAULT_LANG);

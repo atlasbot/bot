@@ -82,15 +82,19 @@ module.exports = class Ready {
 
 					if (pluginConf) {
 						if (pluginConf.state === 'disabled') {
-							const allDisabledAndBypass = !Object.values(settings.raw.plugins).some(p => p.state === 'enabled' && msg.member.permission.has('manageGuild'));
-							const canHelpBypass = !(msg.command.info.name === 'help' && allDisabledAndBypass);
-							const canTmBypass = (msg.command.info.name === 'toggleplugin' && msg.member.permissions.has('manageGuild'));
+							const showSetup = !Object.values(settings.raw.plugins).some(p => p.state === 'enabled' && msg.member.permission.has('manageGuild'));
 
-							// /shrug
-
-							if (!canHelpBypass && !canTmBypass) {
-								return responder.error('disabled', msg.command.plugin.name, msg.command.info.name).send();
+							if (showSetup) {
+								return responder.embed({
+									title: 'general.welcome.title',
+									description: 'general.welcome.description',
+									footer: {
+										text: 'general.welcome.footer',
+									},
+								}).send();
 							}
+
+							return responder.error('disabled', msg.command.plugin.name, msg.command.info.name).send();
 						}
 
 						const errorKey = this.Atlas.lib.utils.checkRestriction({
