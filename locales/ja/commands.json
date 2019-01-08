@@ -213,12 +213,7 @@
 			"singular": " • {0} plugin disabled"
 		},
 		"title": "Need some help?",
-		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands.",
-		"welcome": {
-			"footer": "Don't be afraid to ask for help!",
-			"title": "Oh hey!",
-			"description": "It seems your server has all it's plugins disabled. To start using Atlas, try enabling some plugins. If you need help getting started, join our [support server](https://atlasbot.xyz/support). \n\nUse the [dashboard](https://atlasbot.xyz/) or do `{0}toggleplugin <plugin>` to enable plugins. "
-		}
+		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
 		"title": "Atlas",
