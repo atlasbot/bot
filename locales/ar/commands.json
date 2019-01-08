@@ -1,13 +1,13 @@
 {
 	"smalltext": {
-		"noArgs": "Please include something to make ˢᵐᵒˡ"
+		"noArgs": "الرجاء كتابة نص لتحويله إلى نص اصغر"
 	},
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
+		"noRoles": "هذا السيرفر لا يوجد به اي رول.",
 		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
-		"added": "You now have the {0} role.",
+		"unassignable": "لا أملك صلاحيات كافية لإعطائك هذا الرول.",
+		"removed": "لم تعد تملك رول {0}.",
+		"added": "تم منحك رول {0}.",
 		"embed": {
 			"title": "Available \"iam\" Roles​",
 			"footer": "\"{0}iam [role]\" to claim a role"
@@ -159,7 +159,7 @@
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"ratings": "التقييمات"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -171,8 +171,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "تم حظرك من سيرفر {0} بسبب `{1}` من قبل {2} ({3}).",
+			"noReason": "تم حظرك من سيرفر {0} من قبل {1} ({2})."
 		}
 	},
 	"remindme": {
@@ -291,7 +291,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "إجمالي المدة الزمنية",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -302,7 +302,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "التالي",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -501,8 +501,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "تم طردك من سيرفر {0} بسبب `{1}` من قبل {2} ({3}).",
+			"noReason": "تم طردك من سيرفر {0} من قبل {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -710,29 +710,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "يمكنك رؤية المتصدرين في السيرفر من هذا الرابط <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "لم أستطع إيجاد عضو بهذا الأسم `{0}` :c",
+		"noProfile": "لم أستطع إيجاد بروفايل خاص بهذا العضو.",
 		"embed": {
-			"rank": "Rank",
-			"level": "Level",
+			"rank": "الترتيب",
+			"level": "المستوى",
 			"experience": {
-				"name": "Experience",
-				"value": "{0}/{1} • `{0}` total"
+				"name": "الخبرة",
+				"value": "{0}/{1} • `{0}` المجموع"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "الرجاء كتابة اسم الإضافة.",
+		"noPlugin": "لم أستطع إيجاد إضافة بهذا الأسم `{0}`.",
+		"success": "إضافة {0} تمت `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "الرجاء كتابة اسم الأمر.",
+		"noCommand": "لم أستطع إيجاد أمر بهذا الأسم `{0}`.",
+		"disabled": "أمر {0} تم تعطيله.",
+		"enabled": "أمر {0} تم تفعيله."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
