@@ -28,8 +28,6 @@ Object.keys(addons).forEach((a) => {
 	});
 });
 
-console.log(`Loaded ${addons.length} eris addons`);
-
 module.exports = class Atlas {
 	constructor({
 		client,
