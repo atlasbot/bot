@@ -4,12 +4,12 @@
 	},
 	"iam": {
 		"noRoles": "هذا السيرفر لا يوجد به اي رول.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
+		"invalidQuery": "لم أستطع إيجاد في قائمة \"أنا\" رول بهذا الأسم `{0}`.",
 		"unassignable": "لا أملك صلاحيات كافية لإعطائك هذا الرول.",
 		"removed": "لم تعد تملك رول {0}.",
 		"added": "تم منحك رول {0}.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
+			"title": "الرولات المتاحة لقائمة \"أنا\"",
 			"footer": "\"{0}iam [role]\" to claim a role"
 		}
 	},
