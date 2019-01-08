@@ -119,22 +119,22 @@
 		"description": "Make Atlas join your voice channel."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
-		"usage": "[command]"
+		"description": "Переключает команду вкл/выкл.",
+		"usage": "[команда]"
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
-		"usage": "[plugin]"
+		"description": "Переключает плагин вкл или выкл.",
+		"usage": "[плагин]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "Получает ваш уровень или другого пользователя.",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "Получает ссылку на таблицу лидеров по Уровням."
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "Делает текст меньше.",
 		"usage": "[text]"
 	},
 	"nodes": {
@@ -200,7 +200,7 @@
 		"usage": "[server ip]"
 	},
 	"membercount": {
-		"description": "Shows information about the servers member count."
+		"description": "Получает информацию о количестве участников сервера."
 	},
 	"joined": {
 		"description": "Find out when a user joined the server."
