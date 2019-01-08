@@ -1,4 +1,9 @@
 {
+	"welcome": {
+		"title": "Oh hey!",
+		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
+		"footer": "Don't be afraid to ask for help!"
+	},
 	"help": {
 		"examples": "Examples",
 		"aliases": "Aliases",
@@ -29,10 +34,10 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-		"premiumOnly": "Only premium servers can use that command. ",
-		"guildOnly": "That command can only be used in servers!",
-		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"patronOnly": "Только пользователи с патрон-статусом могут использовать эту команду. Выполните`{0}pledge` для большей информации.",
+		"premiumOnly": "Только премиум сервера могут использовать эту команду. ",
+		"guildOnly": "Эта команда может быть выполнена только на серверах!",
+		"disabled": "Команда `{0}{1}` была отключена администратором сервера.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that command.",
@@ -45,24 +50,24 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "Напоминания",
+		"footer": "Запрошено"
 	},
 	"warning": {
-		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"title": "Участник предупрежден",
+		"description": "{0} (`{1}`) был предупрежден {2} (`{3}`).",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "Общие предупреждения",
+			"value": "{0} сейчас имеет {1} общих ошибок."
 		},
 		"dm": {
-			"name": "Direct Messaged",
-			"true": "The user was direct-messaged.",
-			"false": "The user was not direct-messaged."
+			"name": "Личное сообщение",
+			"true": "Пользователю отослано личное сообщение.",
+			"false": "Пользователю НЕ отослано личное сообщение."
 		},
 		"reason": {
 			"name": "Reason",
-			"value": "No reason specified."
+			"value": "Причина не указана."
 		}
 	},
 	"player": {
