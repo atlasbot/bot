@@ -36,7 +36,7 @@
 		"errorExecuting": "An unknown internal error occured executing the command.",
 		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
 		"premiumOnly": "Only premium servers can use that command. ",
-		"guildOnly": "That command can only be used in servers!",
+		"guildOnly": "Esse comando só pode ser usado em servidores!",
 		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
 		"restrictions": {
 			"blacklist": {
@@ -61,7 +61,7 @@
 			"value": "{0} now has {1} total warning(s)."
 		},
 		"dm": {
-			"name": "Direct Messaged",
+			"name": "Mensagem direta",
 			"true": "The user was direct-messaged.",
 			"false": "The user was not direct-messaged."
 		},
@@ -78,7 +78,7 @@
 		"npEmbed": {
 			"ttp": "Tempo até tocar",
 			"addedBy": "Added By",
-			"author": "Author",
+			"author": "Autor",
 			"duration": "Duração",
 			"footer": "{0} in queue"
 		},
@@ -141,17 +141,17 @@
 		},
 		"guildMemberAdd": {
 			"title": "Member Joined",
-			"description": "{0} has joined the server."
+			"description": "{0} juntou-se ao servidor."
 		},
 		"guildRoleCreate": {
-			"title": "Role Created",
-			"description": "The {0} role was created.",
+			"title": "Cargo Criado",
+			"description": "O cargo {0} foi criado.",
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Role Deleted",
+			"title": "Cargo Deletado",
 			"description": "The {0} role was deleted.",
 			"moderator": {
 				"name": "Moderador"
@@ -167,7 +167,7 @@
 				"name": "Name Updated"
 			},
 			"permAdded": {
-				"name": "Permissions Added",
+				"name": "Permissões Adicionadas",
 				"value": "The role now has the `{0}` permissions."
 			},
 			"permRemoved": {
@@ -195,10 +195,10 @@
 			}
 		},
 		"messageDelete": {
-			"title": "Message Deleted",
+			"title": "Mensagem Excluída",
 			"description": "A message by {0} has been deleted in {1}.",
 			"content": {
-				"name": "Content"
+				"name": "Conteúdo"
 			},
 			"moderator": {
 				"name": "Moderador"
@@ -208,17 +208,17 @@
 			}
 		},
 		"messageUpdate": {
-			"title": "Message Updated",
+			"title": "Mensagem Atualizada",
 			"description": "A message by {0} has been updated in {1}.",
 			"oldContent": {
-				"name": "Before"
+				"name": "Antes"
 			},
 			"newContent": {
-				"name": "After"
+				"name": "Depois"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Member Left",
+			"title": "Membro Saiu",
 			"description": "{0} has left the server."
 		},
 		"channelCreate": {
@@ -323,7 +323,7 @@
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Author",
+			"name": "Autor",
 			"value": "{0}"
 		},
 		"addedTrack": "Added Track",
