@@ -1,4 +1,9 @@
 {
+	"welcome": {
+		"title": "Oh hey!",
+		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
+		"footer": "Don't be afraid to ask for help!"
+	},
 	"help": {
 		"examples": "Örnekler",
 		"aliases": "Diğer Adlar",
