@@ -92,20 +92,20 @@
 		"noArgs": "Please include a volume number between 1% and 150%.",
 		"tooLow": "The volume cannot go below 1%.",
 		"tooHigh": "The volume cannot go over 150%.",
-		"success": "The volume is now at `{0}%`."
+		"success": "Die Lautstärke befindet sich nun auf `{0}%`."
 	},
 	"stop": {
 		"stopped": "The player has been stopped."
 	},
 	"seek": {
 		"noArgs": "Please include a position to seek to.",
-		"notSeekable": "This track is not seekable.",
-		"noTimestamp": "Please include a valid timestamp.",
+		"notSeekable": "Dieser Song ist nicht suchbar.",
+		"noTimestamp": "Bitte füge einen gültigen Zeitstempel ein.",
 		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
 		"seeked": "Skipped to {0} in."
 	},
 	"resume": {
-		"notPaused": "The player is not paused.",
+		"notPaused": "Der Spieler ist nicht pausiert.",
 		"resumed": "The player has been resumed."
 	},
 	"repeat": {
@@ -207,12 +207,12 @@
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
-		"footer": "{0} commands",
+		"footer": "{0} Befehle",
 		"disabled": {
-			"plural": " • {0} plugins disabled",
-			"singular": " • {0} plugin disabled"
+			"plural": " {0} Plugins deaktiviert",
+			"singular": " {0} Plugin deaktiviert"
 		},
-		"title": "Need some help?",
+		"title": "Brauchst du Hilfe?",
 		"description": "You can do `{0}<command>` to run a command, or `{0}help <command>` for information about a specific command. You can do `{0}help <command> <subcommand>` for information about subcommands. \n\nCommands marked with an \\* asterisk have subcommands."
 	},
 	"info": {
@@ -223,11 +223,11 @@
 			"value": "[Cick here](https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
+			"name": "Webseite",
 			"value": "[Click here](https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "Ich war online für {0}.",
 	"whois": {
 		"noUser": "You have to tell me who to look up!",
 		"embed": {
@@ -236,8 +236,8 @@
 				"value": "{0}"
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "Profilbild URL",
+				"value": "[Hier klicken]({0})"
 			},
 			"createdAt": {
 				"name": "Account Created",
@@ -285,7 +285,7 @@
 			"invalidTrack": "`{0}` is not a valid track number."
 		},
 		"searchResults": {
-			"title": "Search Results",
+			"title": "Resultate durchsuchen",
 			"footer": "Say a number or \"{0}play <num>\" to play a result"
 		}
 	},
@@ -315,16 +315,16 @@
 	},
 	"warn": {
 		"add": {
-			"noReason": "You have to include a reason.",
-			"noArgs": "Please include a user to warn!",
+			"noReason": "Du musst eine Begründung hinzufügen.",
+			"noArgs": "Bitte gib den Benutzer an, den du verwarnen möchtest!",
 			"success": {
-				"plural": "Added warning to {0}, they now have {1} warnings.",
-				"singular": "Added warning to {0}, they now have {1} warning."
+				"plural": "Verwarnung wurde zu {0} hinzugefügt, sie haben nun {1} Verwarnungen.",
+				"singular": "Verwarnung wurde zu {0} hinzugefügt, sie haben nun {1} Verwarnung."
 			},
 			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
+			"noArgs": "Bitte gib einen Benutzer an!",
 			"noPerms": "You only have permissions to view your own warnings!",
 			"noWarns": "{0} does not have any warnings."
 		},
@@ -351,14 +351,14 @@
 			"Most definitely.",
 			"Signs point to yes.",
 			"Reply hazy try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again.",
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
+			"Frage später noch einmal.",
+			"Das erzähle ich dir am Besten noch nicht.",
+			"Das kann ich jetzt nicht vorhersagen.",
+			"Konzentriere dich und frag nochmal.",
+			"Verlass dich nicht darauf.",
+			"Meine Antowrt ist nein.",
+			"Meine Quellen sagen Nein.",
+			"Die Aussicht ist nicht so gut.",
 			"Very doubtful."
 		]
 	},
@@ -368,7 +368,7 @@
 	},
 	"mute": {
 		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
+		"success": "{0} wurde Stumm geschalten für {1}.",
 		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
 		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
 		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
@@ -409,7 +409,7 @@
 				"none": "None"
 			},
 			"website": {
-				"name": "Website",
+				"name": "Webseite",
 				"none": "None"
 			},
 			"owners": "Owners",
@@ -718,7 +718,7 @@
 			"rank": "Rank",
 			"level": "Level",
 			"experience": {
-				"name": "Experience",
+				"name": "Erfahrung",
 				"value": "{0}/{1} • `{0}` total"
 			}
 		}
