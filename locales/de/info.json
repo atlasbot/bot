@@ -1,15 +1,15 @@
 {
 	"lmgtfy": {
-		"description": "Let me google that for you :^)",
-		"usage": "<search>"
+		"description": "Las es mich für dich googlen :^)",
+		"usage": "<Suche>"
 	},
 	"iam": {
 		"description": "Give yourself a role that server admins have published.",
-		"usage": "<role>"
+		"usage": "<Rolle>"
 	},
 	"purgeban": {
 		"description": "Bans a user and purges their messages over the last 7 days.",
-		"usage": "[user] <reason>"
+		"usage": "[Benutzer] <Begründung>"
 	},
 	"convert": {
 		"description": "Convert things to other things. Supports currency, mass, length, etc...",
@@ -17,11 +17,11 @@
 	},
 	"haveibeenpwned": {
 		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
-		"usage": "[account]"
+		"usage": "[Account]"
 	},
 	"isspass": {
 		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
-		"usage": "[location]"
+		"usage": "[Standort]"
 	},
 	"fact": {
 		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
@@ -75,7 +75,7 @@
 			"usage": "[playlist name/id]"
 		},
 		"play": {
-			"description": "Plays a playlist.",
+			"description": "Spielt eine Playlist.",
 			"usage": "[playlist name/id]"
 		},
 		"addqueue": {
@@ -89,14 +89,14 @@
 	},
 	"volume": {
 		"description": "Sets the player's volume.",
-		"usage": "[volume %]"
+		"usage": "[Lautstärke in %]"
 	},
 	"stop": {
 		"description": "Stops the player and clears the queue, but doesn't leave the channel."
 	},
 	"seek": {
 		"description": "Move the player's position.",
-		"usage": "[position]"
+		"usage": "[Position]"
 	},
 	"resume": {
 		"description": "Resumes the player if it is paused."
@@ -105,36 +105,36 @@
 		"description": "Toggles player repeat on/off."
 	},
 	"remove": {
-		"description": "Removes a song from the queue.",
-		"usage": "[queue position]"
+		"description": "Entfernt einen Song aus der Warteschlange.",
+		"usage": "[Position in der Warteschlange]"
 	},
 	"shift": {
 		"description": "Shift a song's position in the queue.",
 		"usage": "[current position] [new position]"
 	},
 	"pause": {
-		"description": "Pauses the player."
+		"description": "Pausiert den Player."
 	},
 	"join": {
 		"description": "Make Atlas join your voice channel."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
-		"usage": "[command]"
+		"description": "Schaltet einen Befehl ein/aus.",
+		"usage": "[Befehl]"
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
-		"usage": "[plugin]"
+		"description": "Schaltet ein Plugin ein oder aus.",
+		"usage": "[Plugin]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "Vergibt dir oder einen anderen Benutzer zusätzlich Level.",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "Zeigt den Link zur Rangliste."
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "Macht den Text kleiner.",
 		"usage": "[text]"
 	},
 	"nodes": {
@@ -156,11 +156,11 @@
 	},
 	"locale": {
 		"description": "Changes what language Atlas uses in your server.",
-		"usage": "[language]"
+		"usage": "[Sprache]"
 	},
 	"time": {
 		"description": "Gets the time for a timezone.",
-		"usage": "[location]"
+		"usage": "[Standort]"
 	},
 	"shorten": {
 		"description": "Shortens a URL via is.gd.",
@@ -175,32 +175,32 @@
 	},
 	"roleinfo": {
 		"description": "Gets information about a server role.",
-		"usage": "[role]"
+		"usage": "[Rolle]"
 	},
 	"id": {
 		"description": "Gets the ID of a channel, role, user, guild, etc...",
-		"usage": "[channel/role/user/\"guild\"]"
+		"usage": "[Kanal/Rolle/Benutzer/\"Gilde\"]"
 	},
 	"reddit": {
 		"description": "Gets information about a subreddit.",
 		"usage": "[subreddit]"
 	},
 	"someone": {
-		"description": "Mentions a random user."
+		"description": "Erwähnt einen zufälligen Benutzer."
 	},
 	"randomcolor": {
-		"description": "Generates a random colour."
+		"description": "Generiert eine zufällige Farbe."
 	},
 	"quote": {
 		"description": "Quote a message by a user.",
 		"usage": "[message id / message share link]"
 	},
 	"minecraft": {
-		"description": "Checks the status of a Minecraft server.",
-		"usage": "[server ip]"
+		"description": "Überprüft den Status von einen Minecraft Server.",
+		"usage": "[Server IP]"
 	},
 	"membercount": {
-		"description": "Shows information about the servers member count."
+		"description": "Zeigt die Anzahl Server Mitglieder an."
 	},
 	"joined": {
 		"description": "Find out when a user joined the server."
@@ -210,8 +210,8 @@
 		"usage": "[invite code/link]"
 	},
 	"inrole": {
-		"description": "Lists users in a role.",
-		"usage": "[role]"
+		"description": "Listet Benutzer aus einer Rolle auf.",
+		"usage": "[Rolle]"
 	},
 	"google": {
 		"description": "Searches Google for stuffs.",
@@ -223,7 +223,7 @@
 	},
 	"advancedembed": {
 		"description": "Embeds a message with advanced options.",
-		"usage": "[options]"
+		"usage": "[Optionen]"
 	},
 	"discrim": {
 		"description": "Gets users with a discriminator that matches yours.",
@@ -235,7 +235,7 @@
 			"usage": "<mention>"
 		},
 		"user": {
-			"description": "Gets the avatar of a user.",
+			"description": "Zeigt das Profilbild eines Benutzers an.",
 			"usage": "<mention>"
 		},
 		"server": {
@@ -256,50 +256,50 @@
 		"description": "Gets a random starterpack."
 	},
 	"genavatar": {
-		"description": "Generates a random avatar."
+		"description": "Generiert ein zufälliges Profilbild."
 	},
 	"gotcharacter": {
 		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
-		"usage": "<character name>"
+		"usage": "<Charaktername>"
 	},
 	"gothouse": {
 		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
-		"usage": "<house name>"
+		"usage": "<Hausname>"
 	},
 	"kick": {
-		"usage": "[user] <reason>",
-		"description": "Removes a member from the server."
+		"usage": "[Benutzer] <Begründung>",
+		"description": "Entfernt ein Mitglied aus dem Server."
 	},
 	"filters": {
 		"base": {
-			"usage": "<subcommand>",
-			"description": "Controls chat filters."
+			"usage": "<Unterbefehl>",
+			"description": "Kontrolliert Chat Filter."
 		},
 		"action": {
 			"usage": "[filter] <action name>",
 			"description": "Used to enable or disable filters, and change their action."
 		},
 		"list": {
-			"description": "Lists filters and their current settings."
+			"description": "Listet Filter und deren aktuelle Einstellungen auf."
 		}
 	},
 	"log": {
 		"base": {
 			"description": "Controls where certain messages are logged in your guild.",
-			"usage": "[subcommand]"
+			"usage": "[Unterbefehl]"
 		},
 		"actions": {
 			"description": "Sets where action logs are logged to. Run with no args to reset.",
-			"usage": "[channel]"
+			"usage": "[Kanal]"
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purge messages from a channel."
 		},
 		"any": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purge messages from a channel."
 		},
 		"endswith": {
@@ -307,19 +307,19 @@
 			"description": "Purges messages that end with [term]. Supports wild*cards."
 		},
 		"files": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purges messages with attachments."
 		},
 		"images": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purges messages with images attached."
 		},
 		"invites": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purges messages containing Discord server invite links."
 		},
 		"links": {
-			"usage": "<amount>",
+			"usage": "<Anzahl>",
 			"description": "Purges messages containing links."
 		},
 		"includes": {
@@ -372,7 +372,7 @@
 	},
 	"unban": {
 		"description": "Unban a user from the guild.",
-		"usage": "[user] <reason>"
+		"usage": "[Benutzer] <Begründung>"
 	},
 	"emojify": {
 		"description": "Converts regular sentences to awesome emojified sentences 🎉",
@@ -384,7 +384,7 @@
 	},
 	"unmute": {
 		"description": "Unmutes a user.",
-		"usage": "[user] <reason>"
+		"usage": "[Benutzer] <Begründung>"
 	},
 	"movie": {
 		"description": "Get information about a movie!",
@@ -399,7 +399,7 @@
 	},
 	"weather": {
 		"description": "Get weather information from anywhere in the world.",
-		"usage": "[location]"
+		"usage": "[Standort]"
 	},
 	"catfact": {
 		"description": "Who doesn't like facts about cats?"
@@ -426,7 +426,7 @@
 		},
 		"add": {
 			"description": "Add a warning to a user.",
-			"usage": "[user] <reason>"
+			"usage": "[Benutzer] <Begründung>"
 		},
 		"view": {
 			"description": "View a users warnings.",
@@ -443,11 +443,11 @@
 	},
 	"funban": {
 		"description": "Bans a user but it's fun (and slightly spammy)",
-		"usage": "[user] <reason>"
+		"usage": "[Benutzer] <Begründung>"
 	},
 	"ban": {
 		"description": "Bans a user, exactly what it says on the tin.",
-		"usage": "[user] <reason>"
+		"usage": "[Benutzer] <Begründung>"
 	},
 	"submit": {
 		"description": "Submit suggestions to the suggestion channel."
