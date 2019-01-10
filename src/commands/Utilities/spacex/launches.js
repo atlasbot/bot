@@ -24,13 +24,22 @@ module.exports = class extends Command {
 
 		launches.sort((a, b) => b.launch_date_unix - a.launch_date_unix);
 
-		let page = launches.findIndex(l => l.launch_date_unix * 1000 < (Date.now() + 8.64e+7)) + 1;
+		const index = launches.slice().reverse().findIndex(l => new Date(l.launch_date_utc) > Date.now());
+		const count = launches.length - 1;
+		const finalIndex = index >= 0 ? count - index : index;
+
+		let page = finalIndex;
+
 		if (args.length) {
 			const launch = this.Atlas.lib.utils.nbsFuzzy(launches, ['mission_name', 'flight_number'], args.join(' '));
 
 			if (launch) {
 				page = launches.findIndex(l => l.flight_number === launch.flight_number) + 1;
 			}
+		}
+
+		if (page < 1) {
+			page = 1;
 		}
 
 		// todo: use first arg to search for a launch
