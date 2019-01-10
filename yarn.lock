@@ -442,13 +442,13 @@ asynckit@^0.4.0:
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
 "atlas-lib@https://github.com/get-atlas/lib.git":
-  version "0.0.2"
-  resolved "https://github.com/get-atlas/lib.git#842c849b64e47babd492c8ca3869f085c50f25b7"
+  version "0.0.3"
+  resolved "https://github.com/get-atlas/lib.git#c4b9eabdf2e75e70cf78bff735e5c473407e0ec3"
   dependencies:
     colors "^1.3.3"
     emojilib "^2.4.0"
     flat "^4.1.0"
-    mongoose "^5.4.1"
+    mongoose "^5.4.2"
     parse-color "^1.0.0"
     parse-ms "^2.0.0"
     redis "^2.8.0"
@@ -642,9 +642,9 @@ cookiejar@^2.1.2:
   integrity sha512-Mw+adcfzPxcPeI+0WlvRrr/3lGVO0bD75SxX6811cxSh1Wbxx7xZBGK1eVtDf6si8rg2lhnUjsVLMFMfbRIuwA==
 
 core-js@^2.5.7:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.1.tgz#87416ae817de957a3f249b3b5ca475d4aaed6042"
-  integrity sha512-L72mmmEayPJBejKIWe2pYtGis5r0tQ5NaJekdhyXgeMQTpJoBsH0NL4ElY2LfSoV15xeQWKQ+XTTOZdyero5Xg==
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.2.tgz#267988d7268323b349e20b4588211655f0e83944"
+  integrity sha512-NdBPF/RVwPW6jr0NCILuyN9RiqLo2b1mddWHkUL+VnvcB7dzlnBJ1bXYntjpTGOgkZiiLWj2JxmOr7eGE3qK6g==
 
 cron@~1.3.0:
   version "1.3.1"
@@ -1148,9 +1148,9 @@ global@~4.3.0:
     process "~0.5.1"
 
 globals@^11.7.0:
-  version "11.9.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-11.9.0.tgz#bde236808e987f290768a93d065060d78e6ab249"
-  integrity sha512-5cJVtyXWH8PiJPVLZzzoIizXx944O4OmRro5MWKx5fT4MgcN7OfaMutPeaTdJCCURwbWdhhcCWcKIffPnmTzBg==
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.10.0.tgz#1e09776dffda5e01816b3bb4077c8b59c24eaa50"
+  integrity sha512-0GZF1RiPKU97IHUO5TORo9w1PwrH/NBPl+fS7oMLdaTRiYmYbwK4NWoZWrAdd0/abG9R2BU+OiwyQpTpE6pdfQ==
 
 graceful-fs@^4.1.2:
   version "4.1.15"
@@ -1616,9 +1616,9 @@ mem@^1.1.0:
     mimic-fn "^1.0.0"
 
 memory-pager@^1.0.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/memory-pager/-/memory-pager-1.4.0.tgz#8902c72ce2fa34319adc0dae586b7d83cec6d6ac"
-  integrity sha512-ycuyV5gKpZln7HB/A11wCpAxEY9VQ2EhYU1F56pUAxvmj6OyOHtB9tkLLjAyFsPdghSP2S3Ujk3aYJCusgiMZg==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/memory-pager/-/memory-pager-1.5.0.tgz#d8751655d22d384682741c972f2c3d6dfa3e66b5"
+  integrity sha512-ZS4Bp4r/Zoeq6+NLJpP+0Zzm0pR8whtGPf1XExKLJBAczGMnSi3It14OiNCStjQjM6NU1okjQGSxgEZN8eBYKg==
 
 methods@^1.1.1:
   version "1.1.2"
@@ -1714,10 +1714,10 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose@^5.4.1, mongoose@latest:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.4.2.tgz#3f3d87e0082f3e28bf24f0e3f87e107195996461"
-  integrity sha512-bZFYe9oikiLZ2npfSbIGNYpJ0MJVQaSQhU09VFxvu6r7nVGixbt031ewZldKbWwHsG/JPJLX2HhUa8are84ryQ==
+mongoose@^5.4.2, mongoose@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.4.3.tgz#9cbc689ca0c529c2d7dd5a84dcfbc9b041084367"
+  integrity sha512-zhfypQm63CPYHi43O/3lTcEPVucY3h6CqONbzreMKZIEXtwgkB9HCm4wn441Z9/CpM94G6/NA3wcaRb0N2kPYQ==
   dependencies:
     async "2.6.1"
     bson "~1.1.0"
