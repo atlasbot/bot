@@ -1,9 +1,6 @@
 const superagent = require('superagent');
 
-const Cache = require('atlas-lib/lib/structures/Cache');
 const Command = require('../../structures/Command.js');
-
-const cache = new Cache('cmd-captcha');
 
 module.exports = class extends Command {
 	constructor(Atlas) {
@@ -23,11 +20,6 @@ module.exports = class extends Command {
 			user = msg.member;
 		}
 
-		const cached = await cache.get(user.id);
-		if (cached) {
-			return responder.embed(cached).send();
-		}
-
 		const { body } = await superagent.get('https://nekobot.xyz/api/imagegen')
 			.query({
 				type: 'captcha',
@@ -36,18 +28,14 @@ module.exports = class extends Command {
 			})
 			.set('User-Agent', this.Atlas.userAgent);
 
-		const embed = {
+		return responder.embed({
 			image: {
 				url: body.message,
 			},
 			footer: {
 				text: 'general.poweredBy.nekobot',
 			},
-		};
-
-		await cache.set(user.id, embed, 60);
-
-		return responder.embed(embed).send();
+		}).send();
 	}
 };
 

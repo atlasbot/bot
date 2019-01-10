@@ -5,7 +5,7 @@ module.exports = () => {
 	if (process.env.AUTOSCALE !== 'true') {
 		return {
 			total: Number(process.env.SHARDS_TOTAL) || 1,
-			mine: Number(process.env.SHARDS_MINE) || 1,
+			mine: Number(process.env.SHARDS_MINE) || 0,
 		};
 	}
 };
