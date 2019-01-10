@@ -20,7 +20,7 @@
 
 A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atlasbot.xyz)
 
-**This is Atlas 8.0, an unfinished version of Atlas**. Source code for pre-8.0 versions will not be made public. The code here isn't finished, and while it should work fine, it's missing a lot of the features the live version has. Slowly they'll be ported over. Contributions are welcome.
+This is all the code that runs the bot portion of Atlas. The dashboard, API and other secret sauce will remain closed source for now. Contributions are welcome.
 
 ## Prerequisites
 
