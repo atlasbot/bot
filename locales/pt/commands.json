@@ -45,44 +45,44 @@
 	},
 	"dashboard": "Você pode configurar seu servidor em <https://atlasbot.xyz/meera/ {0}>.",
 	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
+		"noArgs": "Por favor, inclua um usuário para redefinir o nível de.",
 		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+		"success": "{0} teve seu nível redefinido para zero."
 	},
 	"playlist": {
 		"create": {
-			"noArgs": "Please include a name for your new playlist.",
-			"nothingPlaying": "Please add something to your queue before creating a playlist.",
-			"success": "Playlist created! You can do `{0}playlist play {1}` to play your playlist.",
-			"tooLong": "Your playlist name must be under 24 characters long.",
-			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+			"noArgs": "Por favor, inclua um nome para sua nova lista de reprodução.",
+			"nothingPlaying": "Por favor, adicione algo à sua fila antes de criar uma lista de reprodução.",
+			"success": "Playlist criada! Você pode fazer a reprodução da lista {0} {1} `para reproduzir sua lista de reprodução.",
+			"tooLong": "O nome da sua playlist deve ter menos de 24 caracteres.",
+			"livestreamFound": "Sua fila tem uma transmissão ao vivo, que não pode ser adicionada a uma lista de reprodução."
 		},
 		"list": {
-			"noPlaylists": "You do not have any playlists.",
-			"more": "+ `{0}` more",
-			"description": "{0} total tracks",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"more": "+ `{0}` mais",
+			"description": "{0} total de faixas",
 			"duration": "Duração",
 			"created": "Criado",
-			"updated": "Updated",
-			"tracks": "Tracks",
-			"footer": "{0} • Playlist {1}/{2}"
+			"updated": "\nAtualizado",
+			"tracks": "Faixas",
+			"footer": "{0} • Lista de reprodução {1} / {2}"
 		},
 		"delete": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "The `{0}` playlist has been deleted successfully."
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
+			"success": "A lista de reprodução `{0}` foi deletada com sucesso."
 		},
 		"addqueue": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
 			"success": "Added {0} tracks to the `{1}` playlist."
 		},
 		"removetrack": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
 			"noQuery": "Please include a track name to search for and remove.",
 			"noTrack": "I could not find a track matching `{0}`.",
 			"success": "Removed `{0}` from your `{1}` playlist."
