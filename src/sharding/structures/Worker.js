@@ -1,7 +1,7 @@
 const Eris = require('eris');
-const Logger = require('atlas-lib/lib/logger');
+const logger = require('atlas-lib/lib/logger');
 
-const logger = new Logger(true); // eslint-disable-line no-unused-vars
+logger.config(true);
 
 module.exports = class Cluster {
 	constructor() {
