@@ -1,4 +1,6 @@
 
+const superagent = require('superagent');
+
 const Player = require('../structures/Player');
 const PlayerManager = require('../structures/PlayerManager');
 
@@ -33,5 +35,22 @@ module.exports = class {
 			defaultRegion: 'us',
 			player: Player,
 		});
+
+		if (process.env.AUTOSCALE !== 'true') {
+			return;
+		}
+
+		// restarts the shard when thte total shard count has changed
+		// this may not be such a great idea with 20+ shards
+		setInterval(async () => {
+			const { body: { shards, session_start_limit: startLimit } } = await superagent.get('https://discordapp.com/api/gateway/bot')
+				.set('Authorization', `Bot ${process.env.TOKEN}`);
+
+			if (startLimit.remaining >= 1 && this.Atlas.client.options.maxShards !== shards) {
+				console.warn('Shard configuration changed, restarting...');
+
+				process.exit(0);
+			}
+		}, 12000);
 	}
 };
