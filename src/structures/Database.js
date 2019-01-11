@@ -1,47 +1,54 @@
-const mongoose = require('mongoose');
+const monk = require('monk');
+const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
+const defaultGuild = require('../../data/defaultGuild.json');
 const Settings = require('./Settings');
-
-/* eslint-disable func-names */
 
 module.exports = class Database {
 	constructor() {
-		const SettingsSchema = require('atlas-lib/lib/models/Settings');
-		const ActionSchema = require('atlas-lib/lib/models/Action');
-		const InfractionSchema = require('atlas-lib/lib/models/Infraction');
-		const PlaylistSchema = require('atlas-lib/lib/models/Playlist');
-		const UserSchema = require('atlas-lib/lib/models/User');
+		this.db = monk(process.env.MONGO_URI);
+	}
 
-		this.Settings = mongoose.model('Settings', SettingsSchema);
-		this.Action = mongoose.model('Action', ActionSchema);
-		this.Infraction = mongoose.model('Infraction', InfractionSchema);
-		this.Playlist = mongoose.model('Playlist', PlaylistSchema);
-		this.User = mongoose.model('User', UserSchema);
-
-		mongoose.connect(process.env.MONGO_URI, {
-			useNewUrlParser: true,
-		});
+	get(db) {
+		return this.db.get(db);
 	}
 
 	async settings(guild) {
-		let settings = await this.Settings.findOne({ id: guild.id || guild });
+		const db = this.get('settings');
+
+		let settings = await db.findOne({ id: guild.id || guild });
 
 		if (!settings) {
-			const data = typeof guild === 'string' ? { id: guild } : guild;
+			const data = typeof guild === 'string' ? { id: guild } : {
+				id: guild.id,
+			};
 
-			settings = await this.Settings.create(data);
+			const { _id: documentId } = await db.insert(data);
+
+			settings = await db.findOne({ _id: documentId });
 		}
 
-		return new Settings(settings);
+		settings._id = settings._id.toString();
+
+		const data = deepMerge(defaultGuild, settings);
+
+		return new Settings(data);
 	}
 
 	async user(user) {
-		let profile = await this.User.findOne({ id: user.id || user });
+		const db = this.get('users');
+
+		let profile = await db.findOne({ id: user.id || user });
 
 		if (!profile) {
-			const data = typeof user === 'string' ? { id: user } : user;
+			const data = typeof user === 'string' ? { id: user } : {
+				id: user.id,
+				username: user.username,
+				avatar: user.avatar,
+				discriminator: user.discriminator,
+			};
 
-			profile = await this.User.create(data);
+			profile = await db.insert(data);
 		}
 
 		return profile;

@@ -18,7 +18,7 @@ module.exports = class extends Command {
 			return responder.error('noQuery').send();
 		}
 
-		const playlists = await this.Atlas.DB.Playlist.find({
+		const playlists = await this.Atlas.DB.get('playlists').find({
 			author: msg.author.id,
 		});
 
@@ -45,7 +45,7 @@ module.exports = class extends Command {
 			return responder.error('noTrack', trackQuery).send();
 		}
 
-		await this.Atlas.DB.Playlist.updateOne({
+		await this.Atlas.DB.get('playlists').updateOne({
 			author: msg.author.id,
 			_id: playlist._id,
 		}, {

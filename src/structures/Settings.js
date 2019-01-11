@@ -147,7 +147,15 @@ module.exports = class GuildSettings {
         * @returns {Object} the plugins data
         */
 	plugin(name) {
-		return this.raw.plugins[name.toLowerCase()];
+		return {
+			state: 'disabled',
+			restrictions: {
+				mode: 'blacklist',
+				roles: [],
+				channels: [],
+			},
+			...this.raw.plugins[name.toLowerCase()] || {},
+		};
 	}
 
 	/**
@@ -161,7 +169,7 @@ module.exports = class GuildSettings {
 		runValidators = true,
 		query = {},
 	} = {}) {
-		const data = await this.Atlas.DB.Settings.findOneAndUpdate({ id: this.id, ...query }, settings, {
+		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.id, ...query }, settings, {
 			runValidators,
 			new: true,
 		});
@@ -213,7 +221,7 @@ module.exports = class GuildSettings {
     * @returns {Promise} The data, data.notify is whether or not the user was notified, data.info is from mongodb.
      */
 	async addInfraction({ target, moderator, reason }) {
-		const d = await this.Atlas.DB.Infraction.create({
+		const d = await this.Atlas.DB.get('infractions').insert({
 			reason,
 			target: target.id,
 			moderator: moderator.id,
@@ -278,7 +286,7 @@ module.exports = class GuildSettings {
 	async removeInfraction(_id) {
 		const id = _id._id || _id;
 
-		const removed = await this.Atlas.DB.Infraction.remove({ _id: id });
+		const removed = await this.Atlas.DB.get('infractions').remove({ _id: id });
 
 		if (removed.nModified !== 0) {
 			return removed;
@@ -297,7 +305,7 @@ module.exports = class GuildSettings {
 	async getInfractions(user, {
 		all = false,
 	} = {}) {
-		const warnings = await this.Atlas.DB.Infraction.find({
+		const warnings = await this.Atlas.DB.get('infractions').find({
 			guild: this.id,
 			target: (user.id || user),
 			all: all ? true : undefined,
@@ -376,7 +384,7 @@ module.exports = class GuildSettings {
 		msg,
 		user = msg.author,
 	}) {
-		const actions = await this.Atlas.DB.Action.find(query);
+		const actions = await this.Atlas.DB.get('actions').find(query);
 
 		// run those actions
 		if (actions.length) {
@@ -407,21 +415,18 @@ module.exports = class GuildSettings {
 	}
 
 	async getTriggers() {
-		return this.Atlas.DB.Action.find({
+		return this.Atlas.DB.get('actions').find({
 			guild: this.id,
-		}, {
-			trigger: 1,
-		});
+		}, 'trigger');
 	}
 
 	async getAction(id) {
-		const action = await this.Atlas.DB.Action
+		const action = await this.Atlas.DB
+			.get('actions')
 			.findOne({
 				_id: id,
 				guild: this.id,
-			})
-			.lean()
-			.exec();
+			});
 
 		if (action) {
 			return new Action(this, action);
@@ -466,15 +471,14 @@ module.exports = class GuildSettings {
 	}
 
 	async getActions(ids) {
-		return (await this.Atlas.DB.Action
+		return (await this.Atlas.DB
+			.get('actions')
 			.find({
 				_id: {
 					$in: ids,
 				},
 				guild: this.id,
-			})
-			.lean()
-			.exec())
+			}))
 			.map(a => new Action(this, a));
 	}
 };

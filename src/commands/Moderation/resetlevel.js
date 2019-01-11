@@ -19,7 +19,7 @@ module.exports = class extends Command {
 			return responder.error('noUser', args.join(' ')).send();
 		}
 
-		const profile = await this.Atlas.DB.User.findOne({
+		const profile = await this.Atlas.DB.get('users').findOne({
 			id: user.id,
 		});
 
@@ -30,7 +30,7 @@ module.exports = class extends Command {
 			// if they don't have a guild profile
 			({ current: { level } } = this.Atlas.lib.xputil.getUserXPProfile(guildProfile.xp));
 
-			await this.Atlas.DB.User.updateOne({ id: user.id, 'guilds.id': msg.guild.id }, {
+			await this.Atlas.DB.get('users').updateOne({ id: user.id, 'guilds.id': msg.guild.id }, {
 				'guilds.$.xp': 0,
 			});
 		}

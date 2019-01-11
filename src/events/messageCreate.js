@@ -47,7 +47,7 @@ module.exports = class Ready {
 
 		// try and find an action, if one exists it'll run it then do nothing.
 		if (msg.guild && settings) {
-			const actions = await this.Atlas.DB.Action.find({
+			const actions = await this.Atlas.DB.get('actions').find({
 				guild: msg.guild.id,
 				$or: [{
 					'trigger.type': 'messageCreate',
@@ -207,7 +207,7 @@ module.exports = class Ready {
 
 				if (guild) {
 					// update existing guild profile
-					await this.Atlas.DB.User.updateOne({ id: profile.id, 'guilds._id': guild._id }, {
+					await this.Atlas.DB.get('users').updateOne({ id: profile.id, 'guilds._id': guild._id }, {
 						$set: payload,
 						$inc: {
 							'guilds.$.xp': xp,
@@ -215,7 +215,7 @@ module.exports = class Ready {
 						},
 					});
 				} else {
-					await this.Atlas.DB.User.updateOne({ id: profile.id }, {
+					await this.Atlas.DB.get('users').updateOne({ id: profile.id }, {
 						$set: payload,
 						$push: {
 							guilds: {

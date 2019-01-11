@@ -15,7 +15,7 @@ module.exports = class extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		const playlists = await this.Atlas.DB.Playlist.find({
+		const playlists = await this.Atlas.DB.get('playlists').find({
 			author: msg.author.id,
 		});
 

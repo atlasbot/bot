@@ -80,7 +80,7 @@ module.exports = class {
 
 				if (command) {
 					return {
-						execute: async (context, args) => {
+						execute: async (context, args = []) => {
 							let returnId = false;
 
 							const argIndex = args.findIndex(a => RETURN_ID_REGEX.test(a));

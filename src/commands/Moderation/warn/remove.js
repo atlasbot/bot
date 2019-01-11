@@ -38,7 +38,7 @@ module.exports = class extends Command {
 		if (args.length) {
 			// remove the warning without doing shitty embed stuff
 
-			const warn = await this.Atlas.DB.Infraction.findOne({
+			const warn = await this.Atlas.DB.get('playlists').findOne({
 				reason: new RegExp(`^${this.Atlas.lib.utils.escapeRegex(query)}$`, 'i'),
 			});
 

@@ -479,7 +479,7 @@ module.exports = class Util {
 			}, profile);
 		} catch (e) {
 			// remove any existing cached objects because we're updating it
-			return this.Atlas.DB.User.updateOne({ id: profile.id }, toSave);
+			return this.Atlas.DB.get('users').updateOne({ id: profile.id }, toSave);
 		}
 	}
 

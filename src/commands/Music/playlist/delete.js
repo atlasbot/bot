@@ -14,7 +14,7 @@ module.exports = class extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		const playlists = await this.Atlas.DB.Playlist.find({
+		const playlists = await this.Atlas.DB.get('playlists').find({
 			author: msg.author.id,
 		});
 
@@ -32,7 +32,7 @@ module.exports = class extends Command {
 			return responder.error('noneFound', query).send();
 		}
 
-		await this.Atlas.DB.Playlist.deleteOne({
+		await this.Atlas.DB.get('playlists').deleteOne({
 			author: msg.author.id,
 			_id: playlist._id,
 		});

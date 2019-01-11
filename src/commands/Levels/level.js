@@ -35,7 +35,7 @@ module.exports = class extends Command {
 		const guildProfile = player.guilds.find(g => g.id === msg.guild.id);
 		const xp = guildProfile ? guildProfile.xp : 0;
 
-		const rank = xp === 0 ? msg.guild.memberCount : (await this.Atlas.DB.User.count({
+		const rank = xp === 0 ? msg.guild.memberCount : (await this.Atlas.DB.get('users').count({
 			'guilds.id': msg.guild.id,
 			'guilds.$.xp': {
 				$gte: xp,

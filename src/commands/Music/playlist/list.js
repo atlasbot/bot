@@ -12,7 +12,7 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg.channel, (msg.lang || settings.lang), 'playlist.list');
 
-		const playlists = await this.Atlas.DB.Playlist.find({
+		const playlists = await this.Atlas.DB.get('playlists').find({
 			author: msg.author.id,
 		});
 

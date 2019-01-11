@@ -1,0 +1,104 @@
+{
+	"prefix": "a!",
+	"command_options": [],
+	"plugins": {
+		"info": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+		},
+		"music": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"options": {
+				"small_msgs": true,
+				"show_results": false,
+				"hide_nowplaying": false
+			}
+		},
+		"fun": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+		},
+		"moderation": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"logs": {},
+			"mutes": [],
+			"mute_role": null,
+			"filters": {
+				"capitalization": {
+					"action": 0,
+					"exempt": {
+						"roles": [],
+						"channels": []
+					},
+					"sanction": {},
+					"threshold": 75
+				},
+				"emoji": {
+					"action": 0,
+					"exempt": {
+						"roles": [],
+						"channels": []
+					},
+					"sanction": {},
+					"threshold": 5
+				},
+				"spam": {
+					"action": 0,
+					"exempt": {
+						"roles": [],
+						"channels": []
+					},
+					"sanction": {},
+					"threshold": 5,
+					"time": 4000
+				},
+				"phrases": {
+					"action": 0,
+					"exempt": { "roles": [], "channels": [] },
+					"sanction": {},
+					"list": []
+				},
+				"cursing": {
+					"action": 0,
+					"exempt": { "roles": [], "channels": [] },
+					"sanction": {}
+				},
+				"links": {
+					"action": 0,
+					"exempt": { "roles": [], "channels": [] },
+					"sanction": {},
+					"exclusions": [
+						"*get-atlas.xyz*",
+						"*atlasbot.xyz*",
+						"*discordapp.com*",
+						"*discord.gg*"
+					]
+				},
+				"invites": {
+					"action": 0,
+					"exempt": { "roles": [], "channels": [] },
+					"sanction": {}
+				},
+				"mentions": {
+					"action": 0,
+					"exempt": { "roles": [], "channels": [] },
+					"sanction": {},
+					"threshold": 5
+				}
+			}
+		},
+		"gatekeeper": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"leave": {},
+			"dm": {},
+			"channel": {}
+		},
+		"utilities": {
+			"state": "enabled",
+			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+		}
+	}
+}

@@ -47,7 +47,7 @@ module.exports = class extends Command {
 			return responder.error('livestreamFound').send();
 		}
 
-		await this.Atlas.DB.Playlist.create({
+		await this.Atlas.DB.get('playlists').insert({
 			author: msg.author.id,
 			name,
 			tracks,

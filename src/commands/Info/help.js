@@ -68,7 +68,7 @@ module.exports = class extends Command {
 			}
 
 			if (settings) {
-				const actions = await this.Atlas.DB.Action.find({
+				const actions = await this.Atlas.DB.get('actions').find({
 					guild: msg.guild.id,
 					'trigger.type': 'label',
 				});

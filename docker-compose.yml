@@ -1,6 +1,6 @@
 version: "3"
 services:
-  atlas:
+  bot:
     restart: "unless-stopped"
     tty: true
     build: "."

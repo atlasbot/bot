@@ -29,7 +29,8 @@ module.exports = class {
 	}
 
 	async update() {
-		this.actions = await this.Atlas.DB.Action
+		this.actions = await this.Atlas.DB
+			.get('actions')
 			.aggregate([
 				{
 					$match: {
@@ -80,7 +81,7 @@ module.exports = class {
 				if (isNaN(rawAction.trigger.content) || !updatedBy || !validChannel) {
 					rawAction.enabled = false;
 
-					await this.Atlas.DB.Action.updateOne({
+					await this.Atlas.DB.get('actions').updateOne({
 						_id: rawAction._id,
 					}, {
 						'flags.enabled': false,
@@ -113,7 +114,7 @@ module.exports = class {
 
 			const nextRunAt = +rawAction.trigger.content + Date.now();
 
-			await this.Atlas.DB.Action.updateOne({
+			await this.Atlas.DB.get('actions').updateOne({
 				_id: rawAction._id,
 			}, {
 				nextRunAt,

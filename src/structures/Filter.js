@@ -12,6 +12,10 @@ module.exports = class Filter {
 
 		const perms = msg.channel.permissionsOf(this.Atlas.client.user.id);
 
+		if (!filterConfig) {
+			console.error('Missing filter config for filter ', this.info);
+		}
+
 		// jesus christ
 		if (
 			(settings.plugin('moderation').state === 'disabled'
