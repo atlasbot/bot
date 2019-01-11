@@ -8,11 +8,11 @@
 		"usage": "<role>"
 	},
 	"purgeban": {
-		"description": "Bans a user and purges their messages over the last 7 days.",
+		"description": "Banni un utilisateur et purge ses messages des 7 derniers jours.",
 		"usage": "[user] <reason>"
 	},
 	"convert": {
-		"description": "Convert things to other things. Supports currency, mass, length, etc...",
+		"description": "Convertir des valeurs. Supporte la monnaie, le poids, la longueur, etc...",
 		"usage": "[units] [from] [to]"
 	},
 	"haveibeenpwned": {
