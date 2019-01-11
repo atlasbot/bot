@@ -1,5 +1,7 @@
 const Cache = require('atlas-lib/lib/structures/Cache');
 
+const Action = require('../structures/Action');
+
 const ratelimits = new Cache('ratelimits');
 
 const prefixes = process.env.PREFIXES.split(',');
@@ -45,27 +47,46 @@ module.exports = class Ready {
 
 		// try and find an action, if one exists it'll run it then do nothing.
 		if (msg.guild && settings) {
-			const actions = await settings.findActions(msg);
+			const actions = await this.Atlas.DB.Action.find({
+				guild: msg.guild.id,
+				$or: [{
+					'trigger.type': 'messageCreate',
+					$or: [{
+						'trigger.content': msg.channel.id,
+					}, {
+						'trigger.content': null,
+					}, {
+						'trigger.content': undefined,
+					}],
+				}, {
+					'trigger.type': 'label',
+					'trigger.content': msg.label,
+				}, {
+					'trigger.type': 'keyword',
+				}],
+			});
 
-			if (actions.length) {
-				for (const action of actions) {
-					try {
-						await action.execute(msg);
-						if (actions.length !== 1) {
-							// sleep for 1s to prevent abuse
-							await this.Atlas.lib.utils.sleep(1000);
-						}
-					} catch (e) {
-						if (this.Atlas.Raven) {
-							this.Atlas.Raven.captureException(e);
-						}
+			for (const rawAction of actions) {
+				if (rawAction.trigger.type === 'keyword' && !msg.content.toLowerCase().includes(rawAction.trigger.content.toLowerCase())) {
+					continue;
+				}
+
+				const action = new Action(settings, rawAction);
+
+				try {
+					await action.execute(msg);
+					if (actions.length !== 1) {
+						// sleep for 1s to prevent abuse
+						await this.Atlas.lib.utils.sleep(1000);
 					}
+				} catch (e) {
+					this.Atlas.Sentry.captureException(e);
 				}
+			}
 
-				// if an "custom command" was called, don't do anything.
-				if (actions.find(a => a.trigger.type === 'label' && a.trigger.content === msg.label)) {
-					return;
-				}
+			// if an "custom command" was called, don't do anything.
+			if (actions.find(a => a.trigger.type === 'label' && a.trigger.content === msg.label)) {
+				return;
 			}
 		}
 
@@ -118,6 +139,10 @@ module.exports = class Ready {
 						msg.args.shift();
 						msg.command = sub;
 					}
+				}
+
+				if (process.env.VERBOSE === 'true') {
+					console.log(`executing ${msg.command.info.name}`);
 				}
 
 				return msg.command.execute(msg, msg.args, {
