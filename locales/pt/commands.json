@@ -77,7 +77,7 @@
 			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
 			"noPlaylists": "Você não tem listas de reprodução.",
 			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
-			"success": "Added {0} tracks to the `{1}` playlist."
+			"success": "Adicionado {0} faixas à lista de reprodução `{1}`."
 		},
 		"removetrack": {
 			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
