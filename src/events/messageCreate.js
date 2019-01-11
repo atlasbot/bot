@@ -207,7 +207,7 @@ module.exports = class Ready {
 
 				if (guild) {
 					// update existing guild profile
-					await this.Atlas.DB.get('users').updateOne({ id: profile.id, 'guilds._id': guild._id }, {
+					await this.Atlas.DB.get('users').update({ id: profile.id, 'guilds._id': guild._id }, {
 						$set: payload,
 						$inc: {
 							'guilds.$.xp': xp,
@@ -215,7 +215,7 @@ module.exports = class Ready {
 						},
 					});
 				} else {
-					await this.Atlas.DB.get('users').updateOne({ id: profile.id }, {
+					await this.Atlas.DB.get('users').update({ id: profile.id }, {
 						$set: payload,
 						$push: {
 							guilds: {

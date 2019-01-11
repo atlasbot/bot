@@ -45,7 +45,7 @@ module.exports = class extends Command {
 			return responder.error('noTrack', trackQuery).send();
 		}
 
-		await this.Atlas.DB.get('playlists').updateOne({
+		await this.Atlas.DB.get('playlists').update({
 			author: msg.author.id,
 			_id: playlist._id,
 		}, {
