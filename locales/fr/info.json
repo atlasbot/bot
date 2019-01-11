@@ -20,7 +20,7 @@
 		"usage": "[account]"
 	},
 	"isspass": {
-		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
+		"description": "Vous informe quand la station spatial internationale (ISS) va passer à l'endroit <location>.",
 		"usage": "[location]"
 	},
 	"fact": {
@@ -35,7 +35,7 @@
 			"usage": "<launch name>"
 		},
 		"rockets": {
-			"description": "Gets information about SpaceX's rockets.",
+			"description": "Obtenir des informations sur les fusées de SpaceX.",
 			"usage": "<rocket name>"
 		},
 		"ships": {
