@@ -15,7 +15,7 @@
 	},
 	"convert": {
 		"invalidUnits": "Veuillez inclure des unités valides.",
-		"invalidFrom": "Please include a valid input measurement.",
+		"invalidFrom": "Veuillez inclure une durée de mute valide.",
 		"invalidTo": "Please include a valid to measurement.",
 		"currency": {
 			"invalidTarget": "Invalid target currency `{0}`",
