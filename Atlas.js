@@ -10,14 +10,13 @@ const Agenda = require('./src/agenda');
 const loader = require('./src/commands');
 const structs = require('./src/structures');
 const constants = require('./src/constants');
+const Player = require('./src/structures/Player');
+const Database = require('./src/structures/Database');
 const PlayerManager = require('./src/structures/PlayerManager');
 const SettingsStruct = require('./src/structures/Settings');
-const Player = require('./src/structures/Player');
 const ActionsInterval = require('./src/actionsInterval');
 
 const { version } = require('./package.json');
-
-const { Database } = lib.structs;
 
 // load eris addons cus lazy
 const addons = require('./src/addons');
