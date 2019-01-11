@@ -165,18 +165,18 @@
 		"success": "Banido {0}."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
+		"noArgs": "Por favor, inclua um usuário para banir!",
 		"success": "Banido {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned.",
+		"withReason": "Banido {0} por `{1}`.",
+		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
+		"tooLate": "{0} já foi banido.",
 		"dm": {
 			"reason": "Você foi banido do {0} por `{1}` por {2} ({3}).",
 			"noReason": "Você foi banido do {0} por {1}({2})."
 		}
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
+		"invalid": "Essa não é uma data válida.",
 		"setForPast": "Dê-me uma data que seja no futuro.",
 		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
 		"youGotIt": "Entendido, irei te relembrar em {0}.",
@@ -184,18 +184,18 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms/{1}ms` delay to this server.",
+		"server": "Eu tenho um atraso de {0} ms / {1} ms para este servidor.\n",
 		"randoms": [
-			"I'm hungry...",
-			"Shovelling coal into the server...",
-			"In my defense, this is still faster than you could do it...",
-			"Waiting for the stars to align...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
-			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
+			"Eu estou com fome...",
+			"Removendo carvão no servidor ...",
+			"Em minha defesa, isso ainda é mais rápido do que você poderia fazer ...",
+			"Esperando as estrelas se alinharem...",
+			"Vá em frente, prenda a respiração ...",
+			"Aproveite a música do elevador ...",
+			"Olá meu nome é Atlas o que você gostaria hoje senhor? ...",
+			"Você estava esperando algo levemente divertido, mas não ...",
+			"Erro: sem paciência ...",
+			"Já estamos lá?...",
 			"Please insert quarter...",
 			"Hang on a sec, it's here somewhere...",
 			"Have you lost weight?...",
