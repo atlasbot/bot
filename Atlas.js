@@ -120,6 +120,11 @@ module.exports = class Atlas {
 			captureUnhandledRejections: true,
 			stacktrace: true,
 			autoBreadcrumbs: { http: true },
+			beforeSend: (event) => {
+				console.error(event.originalException);
+
+				return event;
+			},
 		});
 
 		const events = await fs.readdir('src/events');

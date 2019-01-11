@@ -157,6 +157,8 @@ class Command {
 
 			return out;
 		} catch (e) {
+			console.error(e);
+
 			if (e.status && e.response) {
 				// it's /probably/ a http error
 				responder.error('command.restError').send();

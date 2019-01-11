@@ -12,14 +12,6 @@ module.exports = class {
 	async execute() {
 		console.log(`Logged in as ${this.Atlas.client.user.tag} in ${Date.now() - start}ms`);
 
-		// setup the player
-		this.Atlas.client.voiceConnections = new PlayerManager(this.client, JSON.parse(process.env.LAVALINK_NODES), {
-			numShards: this.client.options.maxShards,
-			userId: this.client.user.id,
-			defaultRegion: 'us',
-			player: Player,
-		});
-
 		// set the bot status
 		if (process.env.STATUS) {
 			this.Atlas.client.editStatus('online', {
@@ -30,7 +22,16 @@ module.exports = class {
 
 		// start the interval interval loop
 		this.Atlas.actionsInterval.start();
+
 		// get agenda to connect and start
 		this.Atlas.agenda.connect();
+
+		// setup the player
+		this.Atlas.client.voiceConnections = new PlayerManager(this.Atlas.client, JSON.parse(process.env.LAVALINK_NODES), {
+			numShards: this.Atlas.client.options.maxShards,
+			userId: this.Atlas.client.user.id,
+			defaultRegion: 'us',
+			player: Player,
+		});
 	}
 };
