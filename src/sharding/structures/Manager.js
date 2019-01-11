@@ -1,5 +1,5 @@
 const superagent = require('superagent');
-const Logger = require('atlas-lib/lib/Logger');
+const Logger = require('atlas-lib/lib/logger');
 const cluster = require('cluster');
 
 const Worker = require('./Worker');
