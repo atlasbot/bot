@@ -1,25 +1,25 @@
 {
 	"smalltext": {
-		"noArgs": "Please include something to make ˢᵐᵒˡ"
+		"noArgs": "Por favor, inclua algo para fazer ˢᵐᵒˡ"
 	},
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
-		"added": "You now have the {0} role.",
+		"noRoles": "Este servidor não possui funções disponíveis.",
+		"invalidQuery": "Eu não consegui encontrar um papel \"iam\" correspondendo a {0} `.",
+		"unassignable": "Eu não tenho as permissões para atribuir-lhe esse papel.\n",
+		"removed": "Você não tem mais o papel {0}.",
+		"added": "Você agora tem o papel {0}.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "Papéis \"iam\" disponíveis",
+			"footer": "\"{0} iam [role]\" para reivindicar um papel"
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
-		"invalidFrom": "Please include a valid input measurement.",
-		"invalidTo": "Please include a valid to measurement.",
+		"invalidUnits": "Por favor, inclua unidades válidas.",
+		"invalidFrom": "Por favor inclua uma medida de entrada válida.",
+		"invalidTo": "Por favor, inclua um válido para medição.",
 		"currency": {
-			"invalidTarget": "Invalid target currency `{0}`",
-			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+			"invalidTarget": "Moeda de destino inválida `{0}`",
+			"converted": "`{0}` {1} é * aproximadamente * `{2}` {3}."
 		},
 		"other": {
 			"unknownInput": "Formato de importação desconhecido.",
@@ -28,22 +28,22 @@
 		}
 	},
 	"haveibeenpwned": {
-		"success": "Success! Check your direct-messages for a list of your breached accounts.",
-		"noBreaches": "Awesome! There are no known breaches for your account.",
-		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
-		"breach": "Breach",
-		"pwnedUsers": "Pwned Users",
+		"success": "Sucesso! Verifique suas mensagens diretas para obter uma lista de suas contas violadas.",
+		"noBreaches": "Impressionante! Não há violações conhecidas para sua conta.",
+		"unknownError": "Algo ruím aconteceu. Certifique-se de que o Atlas possa enviar uma mensagem direta se você estiver em um servidor.",
+		"breach": "Violação",
+		"pwnedUsers": "Usuários Pwned",
 		"compromisedData": "Dados comprometidos",
-		"footer": "Breach {0}/{1}"
+		"footer": "Violação {0} / {1}"
 	},
 	"needsmorejpeg": {
-		"noArgs": "Please include an image attachment or image URL.",
+		"noArgs": "Inclua um anexo de imagem ou um URL de imagem.",
 		"invalidUrl": "`{0}` is not a valid URL."
 	},
 	"randomcase": {
-		"noArgs": "Please include something to raNdomIsE."
+		"noArgs": "Por favor inclua algo para o raNdomIsE."
 	},
-	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
+	"dashboard": "Você pode configurar seu servidor em <https://atlasbot.xyz/meera/ {0}>.",
 	"resetlevel": {
 		"noArgs": "Please include a user to reset the level of.",
 		"noUser": "I could not find a user matching `{0}`.",
