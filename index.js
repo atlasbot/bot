@@ -20,6 +20,8 @@ const autoscale = require('./src/autoscale');
 (async () => {
 	const { total, mine } = await autoscale();
 
+	console.log(`Shard ${mine}, total ${total}`);
+
 	const client = new Eris.Client(process.env.TOKEN, {
 	// atlas uses rest mode for fetching users from ID's, among other things
 		restMode: true,
