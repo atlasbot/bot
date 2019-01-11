@@ -60,7 +60,6 @@ class Command {
 
 		// parse --args="arg"
 
-
 		const parsedArgs = {};
 		const parsed = parseArgs(msg.content, {
 			configuration: {
@@ -138,7 +137,6 @@ class Command {
 
 				msg.options = options;
 			}
-
 			// run the command
 			const out = await this.action(msg, args, {
 				settings,

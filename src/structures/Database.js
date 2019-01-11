@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const Settings = require('./Settings');
 
+/* eslint-disable func-names */
+
 module.exports = class Database {
 	constructor() {
 		const SettingsSchema = require('atlas-lib/lib/models/Settings');
@@ -22,7 +24,7 @@ module.exports = class Database {
 	}
 
 	async settings(guild) {
-		let settings = await mongoose.model('Settings').findOne({ id: guild.id || guild });
+		let settings = await this.Settings.findOne({ id: guild.id || guild });
 
 		if (!settings) {
 			const data = typeof guild === 'string' ? { id: guild } : guild;
@@ -34,7 +36,7 @@ module.exports = class Database {
 	}
 
 	async user(user) {
-		let profile = await mongoose.model('User').findOne({ id: user.id || user });
+		let profile = await this.User.findOne({ id: user.id || user });
 
 		if (!profile) {
 			const data = typeof user === 'string' ? { id: user } : user;

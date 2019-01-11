@@ -54,7 +54,7 @@ const interp = async (tokens, context, functions) => {
 				}
 
 				try {
-					let textArgs = null;
+					let textArgs = [];
 					if (func.info.dontParse) {
 						textArgs = args.map((a) => {
 							// don't worry about it ;)
@@ -94,9 +94,9 @@ const interp = async (tokens, context, functions) => {
 						console.warn(e);
 					}
 
-					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z-]/g, '')}}`);
-
 					Atlas.Sentry.captureException(e);
+
+					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z-]/g, '')}}`);
 				}
 
 				// if it ran into an error or was successful it would have been managed

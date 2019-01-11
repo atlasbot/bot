@@ -120,11 +120,17 @@ module.exports = class Atlas {
 			captureUnhandledRejections: true,
 			stacktrace: true,
 			autoBreadcrumbs: { http: true },
-			beforeSend: (event) => {
-				console.error(event.originalException);
+		});
 
-				return event;
-			},
+		process.on('unhandledRejection', (reason) => {
+			throw reason;
+		});
+
+		process.on('uncaughtException', async (err) => {
+			Sentry.captureException(err);
+
+			console.error(err);
+			// process.exit(0);
 		});
 
 		const events = await fs.readdir('src/events');

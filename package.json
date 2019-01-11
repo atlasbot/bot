@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js",
-		"test": "eslint . --fix"
+		"test": "eslint . --fix",
+		"debug": "node --inspect=0.0.0.0 index.js"
 	},
 	"engines": {
 		"node": ">=10.0.0"

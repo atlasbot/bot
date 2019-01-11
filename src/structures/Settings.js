@@ -407,11 +407,11 @@ module.exports = class GuildSettings {
 	}
 
 	async getTriggers() {
-		return (await this.Atlas.DB.Action.find({
+		return this.Atlas.DB.Action.find({
 			guild: this.id,
 		}, {
 			trigger: 1,
-		})).map(o => o.toObject());
+		});
 	}
 
 	async getAction(id) {
@@ -429,7 +429,9 @@ module.exports = class GuildSettings {
 	}
 
 	async findActions(msg) {
-		const triggers = (await this.getTriggers()).filter(({ trigger }) => {
+		const actions = await this.getTriggers();
+
+		const triggers = actions.filter(({ trigger }) => {
 			if (trigger.type === 'messageCreate') {
 				if (!trigger.content) {
 					return true;
