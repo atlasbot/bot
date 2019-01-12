@@ -3,11 +3,11 @@ const Responder = require('../../../structures/Responder');
 
 // this tag does some weirdness to handle forwarding tags
 module.exports = async (context, args) => {
-	const { guild, parseArgs, Atlas } = context;
+	const { guild, parseArg, Atlas } = context;
 
 	let channel;
 	if (args[1]) {
-		const channelQuery = await parseArgs(args[1]);
+		const channelQuery = await parseArg(args[1]);
 
 		channel = await Atlas.util.findRoleOrChannel(guild, channelQuery, {
 			type: 'channel',
@@ -25,7 +25,7 @@ module.exports = async (context, args) => {
 	}
 
 	// run child tags with custom context so, for example, {a!ae} sends it to the forwarded channel.
-	const [content] = await parseArgs([args[0]], {
+	const content = await parseArg(args[0], {
 		...context,
 		channel,
 		msg: context.msg && {

@@ -4,13 +4,13 @@ const Responder = require('../../../structures/Responder');
 
 // this tag does some weirdness to handle forwarding tags
 module.exports = middleware(async (context, args) => {
-	const { user, parseArgs } = context;
+	const { user, parseArg } = context;
 
 	try {
 		const channel = await user.getDMChannel();
 
 		// run child tags with custom context so, for example, {a!ae} sends it to the forwarded channel.
-		const [content] = await parseArgs([args[0]], {
+		const content = await parseArg(args[0], {
 			...context,
 			channel,
 			msg: context.msg && {
@@ -20,6 +20,7 @@ module.exports = middleware(async (context, args) => {
 		});
 
 		if (!content) {
+			console.log(args);
 			if (args[0]) {
 				// tag was parsed and probably executed correctly
 				return;
@@ -32,8 +33,13 @@ module.exports = middleware(async (context, args) => {
 
 		await responder.channel(channel).localised(true).text(content).send();
 	} catch (e) {
-		console.warn(e);
-		throw new Error('User\'s direct-messages are not open.');
+		if (!(e instanceof TagError)) {
+			console.warn(e);
+
+			throw new Error('User\'s direct-messages are not open.');
+		}
+
+		throw e;
 	}
 }, 1);
 

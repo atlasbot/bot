@@ -1,11 +1,11 @@
 const pickOne = require('atlas-lib/lib/utils/pickOne');
 
-module.exports = async ({ parseArgs }, args) => {
+module.exports = async ({ parseArg }, args) => {
 	if (!args.length) {
 		return;
 	}
 
-	return parseArgs(pickOne(args));
+	return parseArg(pickOne(args));
 };
 
 module.exports.info = {

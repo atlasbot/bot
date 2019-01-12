@@ -91,6 +91,14 @@ module.exports = class {
 								returnId = true;
 							}
 
+							if (!context.channel.permissionsOf) {
+								context.channel.permissionsOf = () => new Permission(Permissions.all);
+							}
+
+							if (!context.channel.guild) {
+								context.channel.guild = context.guild;
+							}
+
 							const outMsg = await command.execute({
 								...context,
 								type: 0,

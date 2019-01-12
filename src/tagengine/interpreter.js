@@ -1,20 +1,15 @@
 const TagError = require('./TagError');
-const Atlas = require('../../Atlas');
 
-const interp = async (tokens, context, functions) => {
+const interp = async (tokens = [], context, functions) => {
 	const output = [];
 	const errors = [];
 
-	const parseArgs = async (tkns, ctx = context) => {
-		let returnArray = true;
+	const { Atlas } = context;
+
+	const parseArgs = async (tkns = [], ctx = context) => {
 		const out = [];
 
-		if (!Array.isArray(tkns[0])) {
-			tkns = [tkns];
-			returnArray = false;
-		}
-
-		if (!tkns) {
+		if (!tkns || !tkns.length) {
 			return [];
 		}
 
@@ -27,7 +22,17 @@ const interp = async (tokens, context, functions) => {
 			out.push(ret.output);
 		}
 
-		return returnArray ? out : out[0];
+		return out;
+	};
+
+	const parseArg = async (arg, ctx) => {
+		if (!arg) {
+			return;
+		}
+
+		const [ret] = await parseArgs([arg], ctx);
+
+		return ret;
 	};
 
 	for (const token of tokens) {
@@ -75,6 +80,7 @@ const interp = async (tokens, context, functions) => {
 					const out = await func.execute({
 						...context,
 						parseArgs,
+						parseArg,
 						textArgs,
 					}, args, {
 						output,

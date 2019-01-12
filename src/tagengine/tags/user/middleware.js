@@ -4,14 +4,14 @@ module.exports = (func, argIndex = 0) => async ({
 	guild,
 	user,
 	Atlas,
-	parseArgs,
+	parseArg,
 	...context
 }, args, ...randomShit) => {
 	if (args[argIndex]) {
 		let arg = args[argIndex];
 
 		if (typeof arg !== 'string') {
-			arg = await parseArgs(arg);
+			arg = await parseArg(arg);
 		}
 
 		// try and resolve the user cus why not
@@ -32,7 +32,7 @@ module.exports = (func, argIndex = 0) => async ({
 		guild,
 		user,
 		Atlas,
-		parseArgs,
+		parseArg,
 		...context,
 	}, args, ...randomShit);
 };

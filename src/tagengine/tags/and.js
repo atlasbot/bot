@@ -1,8 +1,8 @@
 // todo: parse then check instead of parsing all of them then checking each one
 
-module.exports = async ({ parseArgs }, raw) => {
+module.exports = async ({ parseArg }, raw) => {
 	for (const arg of raw) {
-		const parsed = await parseArgs(arg);
+		const parsed = await parseArg(arg);
 
 		if (!parsed.trim()) {
 			return 'false';

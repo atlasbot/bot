@@ -2,8 +2,9 @@ const safeCompare = require('atlas-lib/lib/utils/safeCompare');
 const TagError = require('../TagError');
 
 module.exports = async ({
-	parseArgs,
+	parseArg,
 	textArgs,
+	parseArgs,
 }, rawArgs) => {
 	if (textArgs.length < 2) {
 		throw new TagError('You need to provide atleast two arguments.');
@@ -15,10 +16,10 @@ module.exports = async ({
 		// {if;condition;then}
 		const [rawCondition, rawThen] = rawArgs;
 
-		const needs = await parseArgs(rawCondition);
+		const needs = await parseArg(rawCondition);
 
 		if (needs && needs !== 'false') {
-			return parseArgs(rawThen);
+			return parseArg(rawThen);
 		}
 	}
 
@@ -26,14 +27,14 @@ module.exports = async ({
 		// {if;condition;then;else}
 		const [rawCond, rawThen, rawElse] = rawArgs;
 		// parse required args
-		const cond = await parseArgs(rawCond);
+		const cond = await parseArg(rawCond);
 
 		if (cond && cond !== 'false') {
 			// then
-			return parseArgs(rawThen);
+			return parseArg(rawThen);
 		}
 
-		return parseArgs(rawElse);
+		return parseArg(rawElse);
 	}
 
 	if (length === 4) {
@@ -44,7 +45,7 @@ module.exports = async ({
 
 		if (safeCompare(cond1, op, cond2)) {
 			// then
-			return parseArgs(rawThen);
+			return parseArg(rawThen);
 		}
 	}
 
@@ -56,11 +57,11 @@ module.exports = async ({
 
 		if (safeCompare(cond1, op, cond2)) {
 			// if
-			return parseArgs(rawThen);
+			return parseArg(rawThen);
 		}
 
 		// else
-		return parseArgs(rawElse);
+		return parseArg(rawElse);
 	}
 };
 
