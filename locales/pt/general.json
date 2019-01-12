@@ -1,50 +1,50 @@
 {
 	"welcome": {
-		"title": "Oh hey!",
-		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
-		"footer": "Don't be afraid to ask for help!"
+		"title": "Oh, ei!",
+		"description": "Parece que você é novo em usar o Atlas. Para começar, use o [painel] (https://atlasbot.xyz) para configurar seu servidor.\n\n Se você precisar de ajuda com qualquer coisa, junte-se ao nosso [servidor de suporte] (https://atlasbot.xyz/support)",
+		"footer": "Não tenha medo de pedir ajuda!"
 	},
 	"help": {
-		"examples": "Examples",
+		"examples": "Exemplos",
 		"aliases": "Aliases",
-		"subcommands": "Subcommands",
-		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
-		"usage": "Usage",
-		"userPerms": "User Permissions",
+		"subcommands": "Subcomandos",
+		"footer": "Faça {0} ajudar {1} <subcomando> para visualizar um subcomando.",
+		"usage": "Uso\n",
+		"userPerms": "Permissões do usuário",
 		"botPerms": "Bot Permissions",
-		"supportedFlags": "Supported Flags"
+		"supportedFlags": "Bandeiras Suportadas"
 	},
 	"roles": {
-		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
-		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
+		"reactionAdd": "Você recebeu o (s) papel (ais) para reagir com {1}.",
+		"reactionRemove": "Você não tem mais o (s) papel (ais) {0} porque sua reação foi removida."
 	},
 	"plugin": {
-		"disabled": "That plugin has been disabled by a server administrator.",
+		"disabled": "Esse plugin foi desativado por um administrador do servidor.",
 		"restrictions": {
 			"whitelist": {
-				"role": "You are not whitelisted to use that plugin.",
-				"channel": "This channel is not whitelisted to use that plugin."
+				"role": "Você não está na lista de permissões para usar esse plug-in.",
+				"channel": "Este canal não está na lista de permissões para usar esse plug-in."
 			},
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that plugin.",
-				"channel": "You are in a channel that is blacklisted from using that plugin."
+				"role": "Você tem um papel que está na lista negra de usar esse plugin.",
+				"channel": "Você está em um canal que está na lista negra de usar esse plugin."
 			}
 		}
 	},
 	"command": {
-		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
-		"errorExecuting": "An unknown internal error occured executing the command.",
+		"restError": "<: sadpanda: 497907940225843220> Ocorreu um erro ao entrar em contato com um serviço externo. Tente novamente em alguns minutos.",
+		"errorExecuting": "Ocorreu um erro interno desconhecido ao executar o comando.",
 		"patronOnly": "Somente usuários podem usar esse comando. Faça `{0} penhor` para mais informações.\n",
 		"premiumOnly": "Somente servidores premium podem usar esse comando. ",
 		"guildOnly": "Esse comando só pode ser usado em servidores!",
 		"disabled": "O comando `{0} {1}` foi desativado por um administrador do servidor.",
 		"restrictions": {
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that command.",
-				"channel": "This channel is blacklisted from using that command."
+				"role": "Você tem um papel que está na lista negra de usar esse comando.",
+				"channel": "Este canal está na lista negra de usar esse comando."
 			},
 			"whitelist": {
-				"role": "You are not whitelisted to use that command.",
+				"role": "Você não está na lista de permissões para usar esse comando.",
 				"channel": "This channel is not whitelisted to use that command."
 			}
 		}
