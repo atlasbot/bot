@@ -9,7 +9,7 @@
 	},
 	"purgeban": {
 		"description": "Banir um usuário e apagar suas mensagens dos últimos 7 dias.",
-		"usage": "[user] <reason>"
+		"usage": "[usuário] <reason>"
 	},
 	"convert": {
 		"description": "Converta as coisas para outras coisas. Suporta moeda, massa, comprimento, etc ...",
@@ -179,96 +179,96 @@
 	},
 	"id": {
 		"description": "Obtém o ID de um canal, função, usuário, guilda, etc ...",
-		"usage": "[channel/role/user/\"guild\"]"
+		"usage": "[canal / papel / usuário / \"guia\"]"
 	},
 	"reddit": {
-		"description": "Gets information about a subreddit.",
+		"description": "Obtém informações sobre um subreddit.",
 		"usage": "[subreddit]"
 	},
 	"someone": {
 		"description": "Menciona um usuário aleatório."
 	},
 	"randomcolor": {
-		"description": "Generates a random colour."
+		"description": "Gera uma cor aleatória."
 	},
 	"quote": {
-		"description": "Quote a message by a user.",
-		"usage": "[message id / message share link]"
+		"description": "Cite uma mensagem por um usuário.",
+		"usage": "[ID da mensagem / link de compartilhamento de mensagem]"
 	},
 	"minecraft": {
-		"description": "Checks the status of a Minecraft server.",
-		"usage": "[server ip]"
+		"description": "Verifica o status de um servidor Minecraft.",
+		"usage": "[IP do servidor]"
 	},
 	"membercount": {
 		"description": "Mostra informações sobre a contagem de membros dos servidores."
 	},
 	"joined": {
-		"description": "Find out when a user joined the server."
+		"description": "Descubra quando um usuário ingressou no servidor."
 	},
 	"inviteinfo": {
-		"description": "Gets information about an invite.",
-		"usage": "[invite code/link]"
+		"description": "Obtém informações sobre um convite.",
+		"usage": "[código de convite / link]"
 	},
 	"inrole": {
-		"description": "Lists users in a role.",
+		"description": "Lista usuários em uma função.",
 		"usage": "[Função]"
 	},
 	"google": {
-		"description": "Searches Google for stuffs.",
-		"usage": "[search]"
+		"description": "Pesquisa no Google por coisas.",
+		"usage": "[procurar]"
 	},
 	"embed": {
-		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
+		"description": "Incorpora uma mensagem. Você pode usar \"advancedembed\" para mais opções.",
 		"usage": "[text]"
 	},
 	"advancedembed": {
-		"description": "Embeds a message with advanced options.",
-		"usage": "[options]"
+		"description": "Incorpora uma mensagem com opções avançadas.",
+		"usage": "[opções]"
 	},
 	"discrim": {
-		"description": "Gets users with a discriminator that matches yours.",
-		"usage": "<discriminator>"
+		"description": "Obtém usuários com um discriminador que corresponda ao seu.",
+		"usage": "<discriminador>\n"
 	},
 	"avatar": {
 		"base": {
-			"description": "Gets (the servers)/(a users) avatar.",
-			"usage": "<mention>"
+			"description": "Obtém o avatar (os servidores) / (um usuário).",
+			"usage": "<menção>"
 		},
 		"user": {
-			"description": "Gets the avatar of a user.",
-			"usage": "<mention>"
+			"description": "Obtém o avatar de um usuário.",
+			"usage": "<menção>"
 		},
 		"server": {
-			"description": "Gets the avatar of the server."
+			"description": "Obtém o avatar do servidor."
 		}
 	},
 	"trump": {
-		"description": "Gets something stupid Donald Trump has said."
+		"description": "Obtém algo estúpido Donald Trump disse."
 	},
 	"urban": {
-		"description": "Gets the definition for a word.",
-		"usage": "[search]"
+		"description": "Obtém a definição para uma palavra.",
+		"usage": "[procurar]"
 	},
 	"randomurban": {
-		"description": "Gets a random definition from Urban Dictionary."
+		"description": "Obtém uma definição aleatória do dicionário urbano."
 	},
 	"starterpack": {
-		"description": "Gets a random starterpack."
+		"description": "Obtém um pacote inicial aleatório."
 	},
 	"genavatar": {
-		"description": "Generates a random avatar."
+		"description": "Gera um avatar aleatório."
 	},
 	"gotcharacter": {
-		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
-		"usage": "<character name>"
+		"description": "Obtém informações sobre um personagem de Game of Thrones. Execute sem args para obter um caractere aleatório.",
+		"usage": "<nome do personagem>"
 	},
 	"gothouse": {
-		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
-		"usage": "<house name>"
+		"description": "Obtém informações sobre uma casa de Game of Thrones. Corra sem args para conseguir uma casa aleatória.",
+		"usage": "<nome da casa>"
 	},
 	"kick": {
-		"usage": "[user] <reason>",
-		"description": "Removes a member from the server."
+		"usage": "[usuário] <reason>",
+		"description": "Remove um membro do servidor."
 	},
 	"filters": {
 		"base": {
@@ -372,7 +372,7 @@
 	},
 	"unban": {
 		"description": "Desbane um usuário do servidor.",
-		"usage": "[user] <reason>"
+		"usage": "[usuário] <reason>"
 	},
 	"emojify": {
 		"description": "Converte frases regulares em frases incríveis emoji 🎉",
@@ -384,7 +384,7 @@
 	},
 	"unmute": {
 		"description": "Desativa um usuário.",
-		"usage": "[user] <reason>"
+		"usage": "[usuário] <reason>"
 	},
 	"movie": {
 		"description": "Obter informações sobre um filme!",
@@ -426,41 +426,41 @@
 		},
 		"add": {
 			"description": "Adicione um aviso a um usuário.",
-			"usage": "[user] <reason>"
+			"usage": "[usuário] <reason>"
 		},
 		"view": {
 			"description": "Veja os avisos de usuários.",
-			"usage": "[user] <page=1>"
+			"usage": "[usuário] <page = 1>"
 		},
 		"remove": {
-			"description": "Remove a users warnings.",
-			"usage": "[user] <warn reason>"
+			"description": "Remova os avisos de usuários.",
+			"usage": "[usuário] <advir razão>"
 		}
 	},
 	"warnings": {
-		"description": "Views your/another users warnings.",
+		"description": "Exibe seus / outros avisos de usuários.",
 		"usage": "<user>"
 	},
 	"funban": {
-		"description": "Bans a user but it's fun (and slightly spammy)",
-		"usage": "[user] <reason>"
+		"description": "Bane um usuário, mas é divertido (e levemente com spam)",
+		"usage": "[usuário] <reason>"
 	},
 	"ban": {
-		"description": "Bans a user, exactly what it says on the tin.",
-		"usage": "[user] <reason>"
+		"description": "Bane um usuário, exatamente o que diz na lata.",
+		"usage": "[usuário] <reason>"
 	},
 	"submit": {
-		"description": "Submit suggestions to the suggestion channel."
+		"description": "Envie sugestões para o canal de sugestões."
 	},
 	"donate": {
-		"description": "Donate to support Atlas and get awesome perks!"
+		"description": "Doe para apoiar o Atlas e tenha vantagens incríveis!"
 	},
 	"help": {
-		"usage": "<command|plugin>",
-		"description": "View all of Atlas' commands or get help for a specific command or plugin."
+		"usage": "<plugin de comando>",
+		"description": "Veja todos os comandos do Atlas ou obtenha ajuda para um comando ou plug-in específico."
 	},
 	"meme": {
-		"description": "dank me-mes"
+		"description": "idiota me-mes"
 	},
 	"yesno": {
 		"description": "Yes or no? Gets a random yes or no randomly."
