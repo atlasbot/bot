@@ -694,21 +694,21 @@
 	},
 	"locale": {
 		"success": "O idioma dos servidores foi configurado para {0}.",
-		"notFound": "I could not find a locale matching `{0}` :c",
-		"title": "Supported Languages",
-		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
+		"notFound": "Eu não consegui encontrar um local correspondente `{0}`: c",
+		"title": "Idiomas Suportados",
+		"description": "Para alterar a localidade deste servidor, faça `{0} locale <name>`. Você pode encontrar uma lista de nomes abaixo. Algumas línguas podem ter pouco ou nenhum apoio, caso em que o Atlas preencherá as partes que faltam com o inglês. Ajude a traduzir o Atlas para outros idiomas [aqui] (https://translate.atlasbot.xyz)"
 	},
 	"wiki": {
-		"noArgs": "You have to include a search term!",
-		"tooLong": "Your search term must be under 64 characters!",
-		"noResults": "I could not find any wiki article matching your search term!",
-		"description": "{0} [Wiki Page]({1})",
-		"footer": "Results for \"{0}\""
+		"noArgs": "Você tem que incluir um termo de pesquisa!",
+		"tooLong": "Seu termo de pesquisa deve ter menos de 64 caracteres.",
+		"noResults": "Não encontrei nenhum artigo wiki correspondente ao seu termo de pesquisa!",
+		"description": "{0} [Página do Wiki] ({1})",
+		"footer": "Resultados para \"{0}\""
 	},
 	"channelspaces": {
-		"success": "Hyphens in {0} have been replaced with spaces.",
-		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
-		"noChannel": "I couldn't find a channel matching `{0}`."
+		"success": "Os hífens em {0} foram substituídos por espaços.",
+		"error": "Algo deu errado ao atualizar o nome do canal. Discórdia pode ter consertado os \"espaços\" que usamos, ou algo pode estar temporariamente quebrado.",
+		"noChannel": "Não consegui encontrar um canal correspondente a \"{0}\"."
 	},
 	"leaderboard": "Você pode ver a classificação dos membros deste servidor em <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
@@ -735,9 +735,9 @@
 		"enabled": "O {0} comando foi `ativado`."
 	},
 	"isspass": {
-		"noResults": "I could not find a location matching `{0}`.",
-		"title": "ISS Passes Over {0}",
-		"format": "• {0} for {1}",
-		"footer": "Times are local to {0}."
+		"noResults": "Não consegui encontrar uma localização correspondente a {0} `.",
+		"title": "ISS passa sobre {0}",
+		"format": "• {0} para {1}",
+		"footer": "Os horários são locais para {0}."
 	}
 }
