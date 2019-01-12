@@ -34,10 +34,10 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-		"premiumOnly": "Only premium servers can use that command. ",
-		"guildOnly": "That command can only be used in servers!",
-		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"patronOnly": "فقط المتبرعون من يستطيعون كتابة هذا الأمر. قم بكتابة `{0}pledge` لمعرفة المزيد من المعلومات.",
+		"premiumOnly": "فقط السيرفرات الداعمة من تستطيع كتابة هذا الأمر. ",
+		"guildOnly": "هذا الأمر يمكنك كتابتة فقط في السيرفرات!",
+		"disabled": "أمر `{0}{1}` تم تعطيله من قبل مسؤول السيرفر.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that command.",
@@ -50,15 +50,15 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "تذكير",
+		"footer": "طلب"
 	},
 	"warning": {
 		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"description": "{0} (`{1}`) تم تحذيره من قبل {2} (`{3}`).",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "إجمالي الإنذارات",
+			"value": "العضو {0} لديه {1} إجمالي الإنذارات الخاصة به."
 		},
 		"dm": {
 			"name": "Direct Messaged",
@@ -67,7 +67,7 @@
 		},
 		"reason": {
 			"name": "Reason",
-			"value": "No reason specified."
+			"value": "لم يتم كتابة سبب معين."
 		}
 	},
 	"player": {
