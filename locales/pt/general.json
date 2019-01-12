@@ -168,35 +168,35 @@
 			},
 			"permAdded": {
 				"name": "Permissões Adicionadas",
-				"value": "The role now has the `{0}` permissions."
+				"value": "O papel agora tem as permissões `{0}`."
 			},
 			"permRemoved": {
-				"name": "Permissions Revoked",
-				"value": "The role no longer has the `{0}` permissions."
+				"name": "Permissões revogadas",
+				"value": "O papel não tem mais as permissões `{0}`."
 			},
 			"moderator": {
 				"name": "Moderador"
 			},
 			"hoistTrue": {
-				"name": "Hoist Updated",
-				"value": "The role will now display members seperately from online members."
+				"name": "Guindaste atualizado",
+				"value": "A função agora exibirá membros separadamente dos membros online."
 			},
 			"hoistFalse": {
-				"name": "Hoist Updated",
-				"value": "The role will no longer display members seperately from online members."
+				"name": "Guindaste atualizado",
+				"value": "A função não exibirá mais membros separadamente dos membros on-line."
 			},
 			"mentionableTrue": {
-				"name": "@mention Updated",
-				"value": "The role can now be mentioned."
+				"name": "@mention Atualizado",
+				"value": "O papel agora pode ser mencionado."
 			},
 			"mentionableFalse": {
-				"name": "@mention Updated",
-				"value": "The role can no longer be mentioned."
+				"name": "@mention Atualizado",
+				"value": "O papel não pode mais ser mencionado."
 			}
 		},
 		"messageDelete": {
 			"title": "Mensagem Excluída",
-			"description": "A message by {0} has been deleted in {1}.",
+			"description": "Uma mensagem de {0} foi eliminada em {1}.",
 			"content": {
 				"name": "Conteúdo"
 			},
@@ -209,7 +209,7 @@
 		},
 		"messageUpdate": {
 			"title": "Mensagem Atualizada",
-			"description": "A message by {0} has been updated in {1}.",
+			"description": "Uma mensagem por {0} foi atualizada em {1}.",
 			"oldContent": {
 				"name": "Antes"
 			},
@@ -219,7 +219,7 @@
 		},
 		"guildMemberRemove": {
 			"title": "Membro Saiu",
-			"description": "{0} has left the server."
+			"description": "{0} saiu do servidor."
 		},
 		"channelCreate": {
 			"title": "Channel Created",
@@ -393,42 +393,42 @@
 				"message": "{0}, esfriá-lo com as tampas."
 			},
 			"emoji": {
-				"warning": "Excessive emojis.",
-				"message": "{0}, please dont use so many emojis."
+				"warning": "Emojis excessivos.",
+				"message": "{0}, por favor, não use tantos emojis."
 			},
 			"cursing": {
-				"warning": "Cursing",
-				"message": "{0}, please refrain from swearing here."
+				"warning": "Maldição",
+				"message": "{0}, por favor, evite palavrões aqui."
 			},
 			"invites": {
-				"warning": "Sending an invite.",
-				"message": "{0}, invite links are not allowed here."
+				"warning": "Enviando um convite.",
+				"message": "{0}, os links de convites não são permitidos aqui."
 			},
 			"links": {
-				"warning": "Sending a link.",
-				"message": "{0}, please dont share links here."
+				"warning": "Enviando um link.",
+				"message": "{0}, por favor, não compartilhe links aqui."
 			},
 			"mentions": {
-				"warning": "Sending too many (`{0}`) mentions.",
-				"message": "{0}, please dont mention so many people at once."
+				"warning": "Enviando muitas (`{0}`) menções.",
+				"message": "{0}, por favor, não mencione tantas pessoas ao mesmo tempo."
 			},
 			"phrases": {
-				"warning": "Message contained a blacklisted word.",
-				"message": "{0}, please refrain from using that word.",
-				"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
+				"warning": "A mensagem continha uma palavra na lista negra.",
+				"message": "{0}, por favor, evite usar essa palavra.",
+				"dm": "Você enviou uma mensagem contendo `{0}` em `{1}`. Essa palavra é contra a lista negra de palavras do servidor, por isso, evite usá-la."
 			},
 			"spam": {
-				"warning": "Flooding chat.",
-				"message": "{0}, please don't flood chat."
+				"warning": "Chat de inundação.",
+				"message": "{0}, por favor não enche o chat."
 			}
 		}
 	},
 	"action": {
-		"disabled": "That action is disabled.",
-		"noSubActions": "That action has no valid sub-actions to run.",
+		"disabled": "Essa ação está desativada.",
+		"noSubActions": "Essa ação não tem sub-ações válidas para ser executada.",
 		"restrictions": {
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that action.",
+				"role": "Você tem um papel que está na lista negra de usar essa ação.",
 				"channel": "Este canal está na lista negra de usar essa ação."
 			},
 			"whitelist": {
