@@ -320,116 +320,116 @@
 		},
 		"links": {
 			"usage": "<amount>",
-			"description": "Purges messages containing links."
+			"description": "Exclui mensagens contendo links."
 		},
 		"includes": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that includes your term  Supports wild*cards."
+			"description": "Limpa mensagens que incluem o seu termo Suporta cartões wild *."
 		},
 		"not": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that do not include your term. Supports wild*cards."
+			"description": "Exclui mensagens que não incluem seu termo. Suporta cartões wild *."
 		},
 		"startswith": {
 			"usage": "[term] <amount>",
-			"description": "Purges messages that start with your term. Supports wild*cards."
+			"description": "Exclui mensagens que começam com seu termo. Suporta cartões wild *."
 		},
 		"user": {
-			"usage": "[user] <amount>",
-			"description": "Purges messages that are from the user specified."
+			"usage": "[usuário] <valor>",
+			"description": "Limpa mensagens que são do usuário especificado."
 		}
 	},
 	"slowmode": {
-		"usage": "[ratelimit in seconds/\"disable\"]",
-		"description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+		"usage": "[ratelimit em segundos / \"desativar\"]",
+		"description": "Permite a limitação da taxa de mensagens para o canal. Defina como 0 ou insira \"desabilitar\" para desabilitar totalmente o modo lento."
 	},
 	"coinflip": {
-		"description": "Flips a coin that can land heads or tails."
+		"description": "Lança uma moeda que pode levar cara ou coroa."
 	},
 	"dadjoke": {
-		"description": "Gets a random dadjoke."
+		"description": "Obtém um dadjoke aleatório."
 	},
 	"move": {
-		"description": "Moves a message to another channel.",
-		"usage": "[channel] <message ID or share link>"
+		"description": "Move uma mensagem para outro canal.",
+		"usage": "[canal] <ID da mensagem ou link de compartilhamento>"
 	},
 	"achievement": {
-		"description": "Creates a Minecraft achievement."
+		"description": "Cria uma conquista de Minecraft."
 	},
 	"wouldyourather": {
-		"description": "Would you rather?"
+		"description": "Você preferiria?"
 	},
 	"botinfo": {
-		"description": "Gets information about almost any public bot via discordbots.org.",
-		"usage": "[bot mention/query]"
+		"description": "Obtém informações sobre praticamente qualquer bot público via discordbots.org.",
+		"usage": "[bot menção / consulta]"
 	},
 	"xkcd": {
-		"description": "Gets a random (or not) XKCD comic.",
-		"usage": "<comic number>"
+		"description": "Obtém um quadrinho aleatório (ou não) do XKCD.",
+		"usage": "<número de quadrinhos>"
 	},
 	"leave": {
-		"description": "Leaves the voice channel and dumps the queue."
+		"description": "Deixa o canal de voz e despeja a fila."
 	},
 	"unban": {
-		"description": "Unban a user from the guild.",
+		"description": "Desbane um usuário do servidor.",
 		"usage": "[user] <reason>"
 	},
 	"emojify": {
-		"description": "Converts regular sentences to awesome emojified sentences 🎉",
+		"description": "Converte frases regulares em frases incríveis emoji 🎉",
 		"usage": "[text]"
 	},
 	"mute": {
-		"description": "Stops a user sending messages while they're muted.",
-		"usage": "[user] <duration> | <reason>"
+		"description": "Pára um usuário enviando mensagens enquanto elas estão sem som.",
+		"usage": "[usuário] <duração> | <reason>"
 	},
 	"unmute": {
-		"description": "Unmutes a user.",
+		"description": "Desativa um usuário.",
 		"usage": "[user] <reason>"
 	},
 	"movie": {
-		"description": "Get information about a movie!",
-		"usage": "[movie name]"
+		"description": "Obter informações sobre um filme!",
+		"usage": "[nome do filme]"
 	},
 	"next": {
-		"description": "Goes to the next song in the queue."
+		"description": "Vai para a próxima música na fila."
 	},
 	"show": {
-		"description": "Search for information about a TV Series.",
+		"description": "Procure informações sobre uma série de TV.",
 		"usage": "[show name]"
 	},
 	"weather": {
-		"description": "Get weather information from anywhere in the world.",
+		"description": "Obtenha informações sobre o tempo em qualquer lugar do mundo.",
 		"usage": "[localização]"
 	},
 	"catfact": {
-		"description": "Who doesn't like facts about cats?"
+		"description": "Quem não gosta de fatos sobre gatos?"
 	},
 	"cat": {
-		"description": "Kittens, cats, you name it - we've got it (maybe)."
+		"description": "Gatinhos, gatos, você escolhe - temos (talvez)."
 	},
 	"texttoemoji": {
-		"description": "Converts text to emoji characters.",
+		"description": "Converte texto em caracteres emoji.",
 		"usage": "[text]"
 	},
 	"dog": {
-		"description": "Dogs. Just random pictures of dogs."
+		"description": "Cães Apenas fotos aleatórias de cachorros."
 	},
 	"chucknorris": {
-		"description": "Facts about the man himself"
+		"description": "Fatos sobre o próprio homem"
 	},
 	"advice": {
-		"description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
+		"description": "Precisa de conselhos de vida de qualidade de uma fonte que você pode confiar? Então este não é o comando para você."
 	},
 	"warn": {
 		"base": {
-			"description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
+			"description": "Gerenciar avisos. Avise os usuários por mau comportamento, edite os avisos anteriores que um usuário tem e muito mais."
 		},
 		"add": {
-			"description": "Add a warning to a user.",
+			"description": "Adicione um aviso a um usuário.",
 			"usage": "[user] <reason>"
 		},
 		"view": {
-			"description": "View a users warnings.",
+			"description": "Veja os avisos de usuários.",
 			"usage": "[user] <page=1>"
 		},
 		"remove": {
