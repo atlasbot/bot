@@ -96,7 +96,7 @@
 			"title": "Reset de nível",
 			"description": "{0} teve seu nível redefinido de `{1}` para `0`.",
 			"moderator": {
-				"name": "Administrator",
+				"name": "Administrador",
 				"value": "{0}"
 			},
 			"target": {
@@ -164,7 +164,7 @@
 				"name": "Cor atualizado"
 			},
 			"nameChange": {
-				"name": "Name Updated"
+				"name": "Nome atualizado"
 			},
 			"permAdded": {
 				"name": "Permissões Adicionadas",
@@ -350,47 +350,47 @@
 		"list": {
 			"createInstantInvite": "Create Invite",
 			"kickMembers": "Kick Members",
-			"banMembers": "Ban Members",
-			"administrator": "Administrator",
-			"manageChannels": "Manage Channels",
-			"manageGuild": "Manage Guild",
-			"addReactions": "Add Reactions",
-			"readMessages": "Read Messages",
-			"sendMessages": "Send Messages",
-			"SendTTSMessages": "Send TTS Messages",
-			"manageMessages": "Manage Messages",
-			"embedLinks": "Embed Links",
-			"attachFiles": "Embed Files",
-			"readMessageHistory": "Read Message History",
-			"mentionEveryone": "Mention Everyone",
-			"externalEmojis": "External Emojis",
-			"voiceConnect": "Connect to Voice",
-			"voiceSpeak": "Speak in Voice",
+			"banMembers": "Banir Membros",
+			"administrator": "Administrador",
+			"manageChannels": "Gerenciar Canais",
+			"manageGuild": "Gerenciar a Guilda",
+			"addReactions": "Adicionar Reações",
+			"readMessages": "Mensagens lidas",
+			"sendMessages": "Enviar mensagens",
+			"SendTTSMessages": "Enviar mensagens TTS",
+			"manageMessages": "Gerenciar Mensagens",
+			"embedLinks": "Incorporar Links",
+			"attachFiles": "Incorporar arquivos",
+			"readMessageHistory": "Leia o histórico de mensagens",
+			"mentionEveryone": "Mencione todos",
+			"externalEmojis": "Emojis Externos",
+			"voiceConnect": "Conecte-se a voz",
+			"voiceSpeak": "Falar em voz",
 			"voiceMuteMembers": "Mute Voice Members",
-			"voiceUseVAD": "Use VAD",
-			"changeNickname": "Change Nickname",
-			"manageNicknames": "Manage Nicknames",
-			"manageRoles": "Manage Roles",
-			"manageWebhooks": "Manage Webhooks",
-			"manageEmojis": "Manage Emojis"
+			"voiceUseVAD": "Use o VAD",
+			"changeNickname": "Alterar apelido",
+			"manageNicknames": "Gerenciar apelidos",
+			"manageRoles": "Gerenciar Funções",
+			"manageWebhooks": "Gerenciar Webhooks",
+			"manageEmojis": "Gerenciar Emojis"
 		},
 		"permError": {
-			"user": "You need the `{0}` permissions to do that.",
-			"bot": "I need the `{0}` permission to do that."
+			"user": "Você precisa das permissões `{0}` para fazer isso.",
+			"bot": "Eu preciso da permissão `{0}` para fazer isso."
 		}
 	},
 	"filters": {
 		"actions": {
-			"disabled": "Disabled",
-			"dtm": "Delete the Message",
-			"wtu": "Warn the User",
-			"dtm_wtu": "Delete Message & Warn User",
-			"ca": "Custom Action"
+			"disabled": "Desativado",
+			"dtm": "Excluir Mensagem",
+			"wtu": "Avise o usuário",
+			"dtm_wtu": "Excluir mensagem e avisar usuário",
+			"ca": "Ação personalizada"
 		},
 		"messages": {
 			"capitalization": {
-				"warning": "Excessive capitalization.",
-				"message": "{0}, cool it with the caps."
+				"warning": "Capitalização excessiva.",
+				"message": "{0}, esfriá-lo com as tampas."
 			},
 			"emoji": {
 				"warning": "Excessive emojis.",
