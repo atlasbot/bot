@@ -34,10 +34,10 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-		"premiumOnly": "Only premium servers can use that command. ",
+		"patronOnly": "Somente usuários podem usar esse comando. Faça `{0} penhor` para mais informações.\n",
+		"premiumOnly": "Somente servidores premium podem usar esse comando. ",
 		"guildOnly": "Esse comando só pode ser usado em servidores!",
-		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"disabled": "O comando `{0} {1}` foi desativado por um administrador do servidor.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that command.",
@@ -50,24 +50,24 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "Lembrete",
+		"footer": "Requeridos"
 	},
 	"warning": {
-		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"title": "Membro avisado",
+		"description": "{0} (`{1}`) foi avisado por um {2} (`{3}`).",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "Advertências Totais",
+			"value": "{0} agora tem {1} total de aviso (s)"
 		},
 		"dm": {
 			"name": "Mensagem direta",
-			"true": "The user was direct-messaged.",
-			"false": "The user was not direct-messaged."
+			"true": "O usuário era de mensagens diretas.",
+			"false": "O usuário era de mensagens diretas."
 		},
 		"reason": {
 			"name": "Reason",
-			"value": "No reason specified."
+			"value": "Nenhuma razão especificada."
 		}
 	},
 	"player": {
@@ -253,7 +253,7 @@
 		},
 		"guildBanRemove": {
 			"title": "Member Unbanned",
-			"description": "{0} has been unbanned.",
+			"description": "{0} foi esbanjado.",
 			"moderator": {
 				"name": "Moderador"
 			},
@@ -277,7 +277,7 @@
 		},
 		"unmute": {
 			"title": "Member Unmuted",
-			"description": "{0} has been unmuted.",
+			"description": "{0} foi silenciado.",
 			"moderator": {
 				"name": "Moderador"
 			},
@@ -302,7 +302,7 @@
 		"playingTrack": "Now playing `{0}` ({1})",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
-			"name": "Position",
+			"name": "Posição",
 			"value": "{0}"
 		},
 		"nowPlaying": {
@@ -429,11 +429,11 @@
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that action.",
-				"channel": "This channel is blacklisted from using that action."
+				"channel": "Este canal está na lista negra de usar essa ação."
 			},
 			"whitelist": {
-				"role": "You are not whitelisted to use that action.",
-				"channel": "This channel is not whitelisted to use that action."
+				"role": "Você não está na lista de permissões para usar essa ação.",
+				"channel": "Este canal não está na lista de permissões para usar essa ação."
 			}
 		}
 	}
