@@ -1,166 +1,166 @@
 {
 	"lmgtfy": {
-		"description": "Let me google that for you :^)",
-		"usage": "<search>"
+		"description": "Deixe-me google que para você: ^)",
+		"usage": "<pesquisa>"
 	},
 	"iam": {
-		"description": "Give yourself a role that server admins have published.",
-		"usage": "<role>"
+		"description": "Dê a si mesmo um papel que os administradores do servidor publicaram.",
+		"usage": "<função>"
 	},
 	"purgeban": {
-		"description": "Bans a user and purges their messages over the last 7 days.",
+		"description": "Banir um usuário e apagar suas mensagens dos últimos 7 dias.",
 		"usage": "[user] <reason>"
 	},
 	"convert": {
-		"description": "Convert things to other things. Supports currency, mass, length, etc...",
-		"usage": "[units] [from] [to]"
+		"description": "Converta as coisas para outras coisas. Suporta moeda, massa, comprimento, etc ...",
+		"usage": "[unidades] [de] [a]"
 	},
 	"haveibeenpwned": {
-		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
-		"usage": "[account]"
+		"description": "Verifique se você tem uma conta que foi comprometida em uma violação de dados. ** Não inclua nenhuma informação que você não queira que outros membros da guilda vejam **.",
+		"usage": "conta"
 	},
 	"isspass": {
-		"description": "Tells you when the International Space Station (ISS) is going to pass over <location>.",
-		"usage": "[location]"
+		"description": "Diz-lhe quando a Estação Espacial Internacional (ISS) vai passar por <location>.",
+		"usage": "[localização]"
 	},
 	"fact": {
-		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
+		"description": "Obter um fato aleatório, um tanto interessante, possivelmente impreciso."
 	},
 	"spacex": {
 		"base": {
-			"description": "Information about SpaceX and the cool shit they have."
+			"description": "Informações sobre o SpaceX e a merda legal que eles têm."
 		},
 		"launches": {
-			"description": "Gets information on past, present and future SpaceX launches.",
-			"usage": "<launch name>"
+			"description": "Obtém informações sobre lançamentos anteriores, atuais e futuros da SpaceX.",
+			"usage": "<nome do lançamento>"
 		},
 		"rockets": {
-			"description": "Gets information about SpaceX's rockets.",
-			"usage": "<rocket name>"
+			"description": "Obtém informações sobre os foguetes da SpaceX.",
+			"usage": "<nome do foguete>"
 		},
 		"ships": {
-			"description": "Gets information about SpaceX's ships.",
-			"usage": "<ship name>"
+			"description": "Obtém informações sobre os navios da SpaceX.",
+			"usage": "<nome do navio>"
 		}
 	},
 	"needsmorejpeg": {
-		"description": "Fucks up your image with JPEG compression. There is no such thing as too much jpeg.",
-		"usage": "<image url> <quality=2.5>"
+		"description": "Fode sua imagem com a compactação JPEG. Não existe jpeg em demasia.",
+		"usage": "<imagem url> <qualidade=2.5>"
 	},
 	"randomcase": {
-		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
-		"usage": "[TeXt]"
+		"description": "POUPANÇAS EMPRESARIAIS E FORNECEDORES DE LICENÇA",
+		"usage": "[Texto]"
 	},
 	"dashboard": {
-		"description": "Get a link to your servers dashboard."
+		"description": "Obtenha um link para o painel de seus servidores."
 	},
 	"resetlevel": {
-		"description": "Reset a users level.",
+		"description": "Redefinir nível do usuário.",
 		"usage": "[user]"
 	},
 	"playlist": {
 		"base": {
-			"description": "Create, manage, delete music playlists."
+			"description": "Criar, gerenciar, deletar lista de reprodução de musicas."
 		},
 		"create": {
-			"description": "Creates a playlist from the current queue.",
-			"usage": "[name]"
+			"description": "Cria uma playlist a partir da fila atual.",
+			"usage": "[nome]"
 		},
 		"list": {
-			"description": "Lists all your existing playlists.",
-			"usage": "<playlist name/id>"
+			"description": "Lista de todas suas listas de reprodução.",
+			"usage": "<nome da lista de reprodução/id>"
 		},
 		"delete": {
-			"description": "Delete one of your existing playlists.",
-			"usage": "[playlist name/id]"
+			"description": "Exclua uma de suas listas de reprodução existentes.",
+			"usage": "[nome / id da lista de reprodução]"
 		},
 		"play": {
-			"description": "Plays a playlist.",
-			"usage": "[playlist name/id]"
+			"description": "Reproduzir uma lista de reprodução.",
+			"usage": "[nome / id da lista de reprodução]"
 		},
 		"addqueue": {
-			"description": "Adds the current queue to an existing playlist.",
-			"usage": "[playlist name/id]"
+			"description": "Adiciona a fila atual a uma lista de reprodução existente.\n",
+			"usage": "[nome / id da lista de reprodução]"
 		},
 		"removetrack": {
-			"description": "Remove a track from your playlist.",
-			"usage": "[playlist name/id] [track]"
+			"description": "Remover uma faixa da sua playlist.",
+			"usage": "nome da lista de reprodução / id] [faixa]"
 		}
 	},
 	"volume": {
-		"description": "Sets the player's volume.",
+		"description": "Define o volume do player.",
 		"usage": "[volume %]"
 	},
 	"stop": {
-		"description": "Stops the player and clears the queue, but doesn't leave the channel."
+		"description": "Pára o player e limpa a fila, mas não sai do canal."
 	},
 	"seek": {
-		"description": "Move the player's position.",
-		"usage": "[position]"
+		"description": "Pára o player e limpa a fila, mas não sai do canal.",
+		"usage": "[Posição]"
 	},
 	"resume": {
 		"description": "Resumes the player if it is paused."
 	},
 	"repeat": {
-		"description": "Toggles player repeat on/off."
+		"description": "Ativa / desativa a repetição do jogador."
 	},
 	"remove": {
-		"description": "Removes a song from the queue.",
-		"usage": "[queue position]"
+		"description": "Remove uma música da fila.",
+		"usage": "[posição na fila]"
 	},
 	"shift": {
-		"description": "Shift a song's position in the queue.",
-		"usage": "[current position] [new position]"
+		"description": "Mude a posição de uma música na fila.",
+		"usage": "[posição atual] [nova posição]"
 	},
 	"pause": {
-		"description": "Pauses the player."
+		"description": "Pausa o jogador."
 	},
 	"join": {
-		"description": "Make Atlas join your voice channel."
+		"description": "Faça o Atlas juntar-se ao seu canal de voz."
 	},
 	"togglecommand": {
-		"description": "Toggle a command on/off.",
-		"usage": "[command]"
+		"description": "Ative / desative um comando.",
+		"usage": "Ative / desative um comando."
 	},
 	"toggleplugin": {
-		"description": "Toggle a plugin on or off.",
-		"usage": "[plugin]"
+		"description": "Ative ou desative um plug-in.",
+		"usage": "[plugar]"
 	},
 	"level": {
-		"description": "Gets your or another users level.",
+		"description": "Obtém seu ou outro nível de usuários.",
 		"usage": "<user>"
 	},
 	"leaderboard": {
-		"description": "Gets the leaderboard link for Levels."
+		"description": "Obtém o link da tabela de classificação para os Níveis."
 	},
 	"smalltext": {
-		"description": "Makes text smaller.",
+		"description": "Torna o texto menor.",
 		"usage": "[text]"
 	},
 	"nodes": {
-		"description": "Gets information/statuses about available voice nodes."
+		"description": "Obtém informações / status sobre os nós de voz disponíveis."
 	},
 	"vaporwave": {
-		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"description": "Converte texto para ｖａｐｏｒｗａｖｅ",
 		"usage": "[text]"
 	},
 	"channelspaces": {
-		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
+		"description": "Substitua hífens em nomes de canais por espaços falsos reais! Sério, porém, isso é mais um truque e pode ser corrigido a qualquer momento.",
 		"usage": "<canal>"
 	},
 	"autoplay": {
-		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
+		"description": "Ativar ou desativar a reprodução automática. Quando habilitado, uma vez no final de uma fila, o Atlas irá enfileirar automaticamente as músicas relacionadas."
 	},
 	"shuffle": {
-		"description": "Shuffles the player queue."
+		"description": "Embaralha a fila do jogador."
 	},
 	"locale": {
-		"description": "Changes what language Atlas uses in your server.",
-		"usage": "[language]"
+		"description": "Altera o idioma que o Atlas usa em seu servidor.",
+		"usage": "<language>"
 	},
 	"time": {
 		"description": "Obtém a hora para um fuso horário.",
-		"usage": "[location]"
+		"usage": "[localização]"
 	},
 	"shorten": {
 		"description": "Encurta uma URL via is.gd.",
@@ -174,55 +174,55 @@
 		"usage": "[text]"
 	},
 	"roleinfo": {
-		"description": "Obtém informações sobre um grupo do servidor.",
-		"usage": "[role]"
+		"description": "Obtém informações sobre uma função de servidor.",
+		"usage": "[Função]"
 	},
 	"id": {
-		"description": "Obtém o ID de um canal, grupo, usuário, servidor, etc...",
+		"description": "Obtém o ID de um canal, função, usuário, guilda, etc ...",
 		"usage": "[channel/role/user/\"guild\"]"
 	},
 	"reddit": {
-		"description": "Obtém informações sobre um subreddit.",
+		"description": "Gets information about a subreddit.",
 		"usage": "[subreddit]"
 	},
 	"someone": {
 		"description": "Menciona um usuário aleatório."
 	},
 	"randomcolor": {
-		"description": "Gera uma cor aleatória."
+		"description": "Generates a random colour."
 	},
 	"quote": {
-		"description": "Cite uma mensagem de um usuário.",
+		"description": "Quote a message by a user.",
 		"usage": "[message id / message share link]"
 	},
 	"minecraft": {
-		"description": "Verifica o status de um servidor de Minecraft.",
+		"description": "Checks the status of a Minecraft server.",
 		"usage": "[server ip]"
 	},
 	"membercount": {
-		"description": "Mostra informações sobre a contagem de membros do servidor."
+		"description": "Mostra informações sobre a contagem de membros dos servidores."
 	},
 	"joined": {
-		"description": "Descobre quando um usuário entrou no servidor."
+		"description": "Find out when a user joined the server."
 	},
 	"inviteinfo": {
-		"description": "Obtém informações sobre um convite.",
+		"description": "Gets information about an invite.",
 		"usage": "[invite code/link]"
 	},
 	"inrole": {
-		"description": "Lista usuários em um grupo.",
-		"usage": "[role]"
+		"description": "Lists users in a role.",
+		"usage": "[Função]"
 	},
 	"google": {
-		"description": "Pesquisa coisas no Google.",
+		"description": "Searches Google for stuffs.",
 		"usage": "[search]"
 	},
 	"embed": {
-		"description": "Incorpora uma mensagem. Você pode usar o \"advancedembed\" para mais opções.",
+		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
 		"usage": "[text]"
 	},
 	"advancedembed": {
-		"description": "Incorpora uma mensagem com opções avançadas.",
+		"description": "Embeds a message with advanced options.",
 		"usage": "[options]"
 	},
 	"discrim": {
@@ -231,15 +231,15 @@
 	},
 	"avatar": {
 		"base": {
-			"description": "Obtém o avatar do (servidor)/(usuário).",
+			"description": "Gets (the servers)/(a users) avatar.",
 			"usage": "<mention>"
 		},
 		"user": {
-			"description": "Obtém o avatar de um usuário.",
+			"description": "Gets the avatar of a user.",
 			"usage": "<mention>"
 		},
 		"server": {
-			"description": "Obtém o avatar do servidor."
+			"description": "Gets the avatar of the server."
 		}
 	},
 	"trump": {
@@ -253,73 +253,73 @@
 		"description": "Gets a random definition from Urban Dictionary."
 	},
 	"starterpack": {
-		"description": "Obtém um starterpack aleatório."
+		"description": "Gets a random starterpack."
 	},
 	"genavatar": {
-		"description": "Gera um avatar aleatório."
+		"description": "Generates a random avatar."
 	},
 	"gotcharacter": {
-		"description": "Obtém informações sobre um personagem de Game of Thrones. Execute sem args para obter um personagem aleatório.",
+		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
 		"usage": "<character name>"
 	},
 	"gothouse": {
-		"description": "Obtém informações sobre uma casa de Game of Thrones. Execute sem args para obter uma casa aleatória.",
+		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
 		"usage": "<house name>"
 	},
 	"kick": {
 		"usage": "[user] <reason>",
-		"description": "Remove um membro do servidor."
+		"description": "Removes a member from the server."
 	},
 	"filters": {
 		"base": {
 			"usage": "<subcommand>",
-			"description": "Controla filtros do chat."
+			"description": "Controls chat filters."
 		},
 		"action": {
-			"usage": "[filtro] <nome da ação>",
-			"description": "Usado para habilitar ou desabilitar filtros e mudar suas ações."
+			"usage": "[filter] <action name>",
+			"description": "Used to enable or disable filters, and change their action."
 		},
 		"list": {
-			"description": "Lista filtros e suas configurações atuais."
+			"description": "Lists filters and their current settings."
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controla onde determinadas mensagens são registradas em seu servidor.",
+			"description": "Controls where certain messages are logged in your guild.",
 			"usage": "[subcommand]"
 		},
 		"actions": {
-			"description": "Define onde os registros de ação são registrados. Execute com nenhum args para resetar.",
+			"description": "Sets where action logs are logged to. Run with no args to reset.",
 			"usage": "[channel]"
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<quantidade>",
-			"description": "Limpar mensagens de um canal."
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
 		},
 		"any": {
-			"usage": "<quantidade>",
-			"description": "Limpar mensagens de um canal."
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
 		},
 		"endswith": {
 			"usage": "[term] <amount>",
 			"description": "Purges messages that end with [term]. Supports wild*cards."
 		},
 		"files": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages with attachments."
 		},
 		"images": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages with images attached."
 		},
 		"invites": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages containing Discord server invite links."
 		},
 		"links": {
-			"usage": "<quantidade>",
+			"usage": "<amount>",
 			"description": "Purges messages containing links."
 		},
 		"includes": {
@@ -399,7 +399,7 @@
 	},
 	"weather": {
 		"description": "Get weather information from anywhere in the world.",
-		"usage": "[location]"
+		"usage": "[localização]"
 	},
 	"catfact": {
 		"description": "Who doesn't like facts about cats?"
