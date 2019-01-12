@@ -131,7 +131,7 @@
 		"paused": "O jogador foi pausado."
 	},
 	"join": {
-		"alreadyPlaying": "I'm already playing in `{0}`.",
+		"alreadyPlaying": "Eu já estou jogando em `{0}`.",
 		"joined": "Registrado `{0}`.",
 		"switch": {
 			"notPaused": "Comutado para `{0}`.",
@@ -236,22 +236,22 @@
 				"value": "{0}"
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "URL do avatar",
+				"value": "[Clique aqui] ({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
+				"name": "Conta criada",
 				"value": "{0}"
 			},
 			"joined": {
-				"name": "Joined",
+				"name": "Ingressou",
 				"value": "{0}"
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "Jogando",
 				"value": {
 					"set": "{0}",
-					"null": "Nothing"
+					"null": "Nada"
 				}
 			},
 			"status": {
@@ -259,34 +259,34 @@
 				"value": "{0}"
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "Funções ({0})",
 				"value": {
 					"set": "{0}",
-					"null": "None",
+					"null": "Nenhum",
 					"tooMany": "{0} total."
 				}
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Preciso de ajuda? Junte-se ao nosso servidor em <https://atlasbot.xyz/support>.",
 	"play": {
-		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
-		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"busy": "I'm already playing in `{0}`.",
-		"noPerms": "I do not have permission to play in that voice channel.",
-		"noArgs": "You have to include a search term or song URL!",
+		"noNodes": "Não há nós de voz livre para lidar com sua solicitação. Por favor, aguarde alguns minutos e tente novamente.",
+		"noResults": "Não consegui encontrar nenhum resultado de pesquisa correspondente a {0} `.",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso!",
+		"busy": "Eu já estou jogando em `{0}`.",
+		"noPerms": "Eu não tenho permissão para jogar nesse canal de voz.",
+		"noArgs": "Você precisa incluir um termo de pesquisa ou um URL de música!",
 		"playlistEmbed": {
-			"title": "Playlist Queued - {0}",
-			"description": "{0} has queued {1} songs from a playlist."
+			"title": "Lista de reprodução na fila - {0}",
+			"description": "{0} colocou {1} músicas na fila de uma lista de reprodução."
 		},
 		"searchQuery": {
-			"outOfTime": "You did not provide a valid track number in time.",
-			"invalidTrack": "`{0}` is not a valid track number."
+			"outOfTime": "Você não forneceu um número de trilha válido no tempo.",
+			"invalidTrack": "`{0}` não é um número de faixa válido."
 		},
 		"searchResults": {
-			"title": "Search Results",
-			"footer": "Say a number or \"{0}play <num>\" to play a result"
+			"title": "Procurar Resultados",
+			"footer": "Diga um número ou \"{0} play <num>\" para reproduzir um resultado"
 		}
 	},
 	"queue": {
@@ -307,30 +307,30 @@
 		}
 	},
 	"qplaylist": {
-		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"invalidHostname": "You must enter a valid playlist URL!",
-		"youtubeOnly": "This command only works with YouTube playlists.",
-		"noQueryParam": "That link isn't apart of a playlist. "
+		"noArgs": "Você precisa incluir um URL de playlist do YouTube!",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso!",
+		"invalidHostname": "Você deve inserir um URL de lista de reprodução válido!",
+		"youtubeOnly": "Este comando só funciona com listas de reprodução do YouTube.",
+		"noQueryParam": "Esse link não é separado de uma lista de reprodução. "
 	},
 	"warn": {
 		"add": {
-			"noReason": "You have to include a reason.",
-			"noArgs": "Please include a user to warn!",
+			"noReason": "Você tem que incluir um motivo.",
+			"noArgs": "Por favor, inclua um usuário para avisar!",
 			"success": {
-				"plural": "Added warning to {0}, they now have {1} warnings.",
-				"singular": "Added warning to {0}, they now have {1} warning."
+				"plural": "Adicionado aviso para {0}, eles agora têm {1} avisos.",
+				"singular": "Adicionado aviso para {0}, eles agora têm {1} aviso."
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "O motivo que você forneceu é muito longo, deve ter no máximo 256 caracteres."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
-			"noWarns": "{0} does not have any warnings."
+			"noArgs": "Por favor, inclua um usuário!",
+			"noPerms": "Você só tem permissão para ver seus próprios avisos!",
+			"noWarns": "{0} não tem nenhum aviso."
 		},
 		"remove": {
 			"notFound": "I could not find a warning matching your query.",
-			"noWarns": "{0} does not have any warnings.",
+			"noWarns": "{0} não tem nenhum aviso.",
 			"error": "An error occured when adding reactions.",
 			"removedAll": "{0}, you have removed all of {1}'s warnings.",
 			"missingPerms": "I need permissions to add reactions to do that.",
@@ -406,18 +406,18 @@
 			"prefix": "Prefix",
 			"github": {
 				"name": "Github",
-				"none": "None"
+				"none": "Nenhum"
 			},
 			"website": {
 				"name": "Local na rede Internet",
-				"none": "None"
+				"none": "Nenhum"
 			},
 			"owners": "Owners",
 			"footer": "Approved at",
 			"invite": "Invite Link",
 			"support": {
 				"name": "Support Server",
-				"none": "None"
+				"none": "Nenhum"
 			}
 		}
 	},
