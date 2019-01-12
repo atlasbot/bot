@@ -196,40 +196,40 @@
 			"Você estava esperando algo levemente divertido, mas não ...",
 			"Erro: sem paciência ...",
 			"Já estamos lá?...",
-			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
-			"Spinning up the hamster..."
+			"Por favor, insira o trimestre ...",
+			"Espere um segundo, está aqui em algum lugar ...",
+			"Você perdeu peso?...",
+			"brb, um segundo...",
+			"Ficando no hamster ..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"donate": "Apoie o Atlas e obtenha vantagens incríveis em troca doando em <https://www.patreon.com/NotSylver>.",
+	"invite": "Apoie o Atlas e obtenha vantagens incríveis em troca doando em <https://www.patreon.com/NotSylver>.",
 	"help": {
-		"sent": "Check your direct-messages for help!",
-		"footer": "{0} commands",
+		"sent": "Verifique suas mensagens diretas para obter ajuda!",
+		"footer": "{0} comandos",
 		"disabled": {
-			"plural": " • {0} plugins disabled",
-			"singular": " • {0} plugin disabled"
+			"plural": " {0} plugins desativados",
+			"singular": "{0} plug-in desativado"
 		},
-		"title": "Need some help?",
+		"title": "Precisa de alguma ajuda?",
 		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
 	},
 	"info": {
 		"title": "Atlas",
-		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
+		"description": "O Atlas é um bot Discord de uso geral que pode fazer tudo o que você precisa. Existem muitos plugins úteis, mais de {0} comandos de alta qualidade e muito mais.",
 		"support": {
-			"name": "Support",
-			"value": "[Cick here](https://atlasbot.xyz/support)"
+			"name": "Apoio, suporte",
+			"value": "[Cick aqui] (https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
-			"value": "[Click here](https://atlasbot.xyz/)"
+			"name": "Local na rede Internet",
+			"value": "[Clique aqui] (https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "Estive online por {0}.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "Você tem que me dizer quem procurar!",
 		"embed": {
 			"tag": {
 				"name": "Tag",
@@ -409,7 +409,7 @@
 				"none": "None"
 			},
 			"website": {
-				"name": "Website",
+				"name": "Local na rede Internet",
 				"none": "None"
 			},
 			"owners": "Owners",
