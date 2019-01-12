@@ -358,40 +358,40 @@
 			"Não conte com isso.",
 			"Minha resposta é não.",
 			"Minhas fontes dizem não.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"Outlook não é tão bom.",
+			"Muito duvidoso."
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned."
+		"noArgs": "Por favor, inclua um usuário para cancelar a operação!",
+		"success": "{0} foi esbanjado."
 	},
 	"mute": {
-		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
-		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
-		"generatePermError": "I need permissions to manage channels to automatically generate a mute role.",
-		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
-		"invalid": "Please include a valid mute duration.",
+		"noArgs": "Por favor inclua um usuário para silenciar!",
+		"success": "{0} foi silenciado para {1}.",
+		"generated": "Eu também gerou automaticamente uma função mudo para esse servidor, o que pode exigir algumas pequenas alterações para que funcione corretamente.",
+		"generatePermError": "Eu preciso de permissões para gerenciar canais para gerar automaticamente um papel mudo.",
+		"alreadyMuted": "Esse usuário já está mudo, você quis dizer `{0} ativar o som?",
+		"invalid": "Por favor inclua uma duração mudo válida.",
 		"setForPast": "Dê-me uma data que seja no futuro.",
 		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
-		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
+		"tooHigh": "A função mudo definida para esse servidor está acima de mim na hierarquia de papéis, o que significa que não posso adicioná-lo ao usuário para silenciá-los."
 	},
 	"unmute": {
-		"success": "{0} has been unmuted.",
-		"notMuted": "That user is not muted!",
-		"tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
+		"success": "{0} foi silenciado.",
+		"notMuted": "Esse usuário não está mudo!",
+		"tooHigh": "O usuário está mudo com uma função acima da minha na hierarquia de papéis, o que significa que não posso removê-la."
 	},
 	"emojify": {
-		"noArgs": "Please include a sentence to emojify!"
+		"noArgs": "Por favor inclua uma frase para emoji ficar!"
 	},
 	"next": {
-		"success": "Skipped `{0}`.",
-		"nothingNext": "There is nothing in the queue to skip to."
+		"success": "Ignorada `{0}`.",
+		"nothingNext": "Não há nada na fila para pular para."
 	},
 	"botinfo": {
-		"noArgs": "Please mention a bot or include a search term.",
-		"notABot": "Beep boop? That user is not a bot.",
+		"noArgs": "Por favor mencione um bot ou inclua um termo de pesquisa.",
+		"notABot": "Beep boop? Esse usuário não é um bot.",
 		"notFound": "That bot is not listed on discordbots.org :c",
 		"embed": {
 			"library": "Library",
@@ -493,24 +493,24 @@
 			"success": "The {0} filter has been set to `{1}`."
 		},
 		"list": {
-			"title": "Filters"
+			"title": "Filtros"
 		}
 	},
 	"kick": {
-		"noArgs": "Please include a user to kick!",
+		"noArgs": "Filtros Por favor, inclua um usuário para chutar!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`.",
+		"withReason": "Kicked {0} para `{1}`.",
 		"dm": {
 			"reason": "Você foi chutado do {0} por `{1}` por {2} ({3}).",
 			"noReason": "Você foi chutado do {0} por {1} ({2})."
 		}
 	},
 	"gotcharacter": {
-		"notFound": "I could not find a Game of Thrones character matching `{0}`."
+		"notFound": "Eu não consegui encontrar um caractere de Game of Thrones correspondente a {0} `."
 	},
 	"genavatar": {
-		"title": "Here you go!",
-		"description": "[Click here]({0}) for a higher quality version.",
+		"title": "Aqui está!",
+		"description": "[Clique aqui] ({0}) para uma versão de maior qualidade.",
 		"footer": "Via adorable.io"
 	},
 	"urban": {
@@ -524,7 +524,7 @@
 	"avatar": {
 		"base": {
 			"cannotFind": "I could not find a user matching `{0}`.",
-			"title": "Here you go!"
+			"title": "Aqui está!"
 		},
 		"server": {
 			"noIcon": "This server has no icon."
