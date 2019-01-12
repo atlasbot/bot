@@ -1,4 +1,17 @@
 {
+	"weather": {
+		"noResults": "I couldn't find any weather information for your search.",
+		"title": "Weather in {0}, {1}",
+		"temperature": {
+			"name": "Temperature",
+			"value": "{0}°C, min {1}°C, max {2}°C"
+		},
+		"humidity": "Humidity",
+		"wind": {
+			"name": "Wind",
+			"value": "{0}kph"
+		}
+	},
 	"smalltext": {
 		"noArgs": "小さな文字を指定するときはなにか文字を含んでください。"
 	},
