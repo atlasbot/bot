@@ -514,8 +514,8 @@
 		"footer": "Via adorable.io"
 	},
 	"urban": {
-		"noArgs": "You have to provide a search!",
-		"noResults": "I couldn't find any definition for `{0}`.",
+		"noArgs": "Você tem que fornecer uma pesquisa!",
+		"noResults": "Não encontrei nenhuma definição para `{0}`.",
 		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
 		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
 		"author": "Autor",
