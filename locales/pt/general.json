@@ -45,7 +45,7 @@
 			},
 			"whitelist": {
 				"role": "Você não está na lista de permissões para usar esse comando.",
-				"channel": "This channel is not whitelisted to use that command."
+				"channel": "Este canal não está na lista de permissões para usar esse comando."
 			}
 		}
 	},
@@ -66,26 +66,26 @@
 			"false": "O usuário era de mensagens diretas."
 		},
 		"reason": {
-			"name": "Reason",
+			"name": "Razão",
 			"value": "Nenhuma razão especificada."
 		}
 	},
 	"player": {
-		"sameVoiceChannel": "You must be in my voice channel to do that.",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
-		"none": "There is nothing playing in this server.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"sameVoiceChannel": "Você deve estar no meu canal de voz para fazer isso.",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
+		"none": "Não há nada jogando neste servidor.",
+		"trackQueued": "Adicionado `{0}` à fila. Ele vai jogar em cerca de {1}.",
 		"npEmbed": {
 			"ttp": "Tempo até tocar",
-			"addedBy": "Added By",
+			"addedBy": "Adicionado por",
 			"author": "Autor",
 			"duration": "Duração",
-			"footer": "{0} in queue"
+			"footer": "{0} na fila"
 		},
-		"leaving": "There is nothing left to play, leaving channel...",
+		"leaving": "Não há mais nada para jogar, deixando o canal...",
 		"autoplay": {
-			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"failed": "Não encontrei nada para jogar em seguida: c. Tente enfileirar outra coisa.",
+			"addedBy": "Reprodução automática"
 		}
 	},
 	"poweredBy": {
@@ -93,14 +93,14 @@
 	},
 	"logs": {
 		"levelReset": {
-			"title": "Level Reset",
-			"description": "{0} has had their level reset from `{1}` to `0`.",
+			"title": "Reset de nível",
+			"description": "{0} teve seu nível redefinido de `{1}` para `0`.",
 			"moderator": {
 				"name": "Administrator",
 				"value": "{0}"
 			},
 			"target": {
-				"name": "Target",
+				"name": "Alvo",
 				"value": "{0}"
 			}
 		},
@@ -114,33 +114,33 @@
 		"guildMemberUpdate": {
 			"roleAdd": {
 				"title": "Membro atualizado - Grupo adicionado",
-				"description": "{0} has been given the {1} role.",
+				"description": "32/5000\n{0} recebeu o papel de {1}.",
 				"moderator": {
 					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Razão"
 			},
 			"roleRemove": {
-				"title": "Member Updated - Role Removed",
-				"description": "{0} has had the {1} role taken from them.",
+				"title": "Membro atualizado - Função removida",
+				"description": "{0} teve o papel {1} tirado deles.",
 				"moderator": {
 					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Razão"
 			},
 			"usernameChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their username from `{1}` to `{2}`."
+				"title": "Membro Atualizado - Nome de Usuário Alterado",
+				"description": "{0} mudou seu nome de usuário de `{1}` para `{2}`."
 			},
 			"avatarChange": {
-				"title": "Member Updated - Username Changed",
-				"description": "{0} has changed their avatar from `{1}` to `{2}`."
+				"title": "Membro Atualizado - Nome de Usuário Alterado",
+				"description": "{0} mudou seu avatar de `{1}` para `{2}`."
 			}
 		},
 		"guildMemberAdd": {
-			"title": "Member Joined",
+			"title": "Membro Registrado",
 			"description": "{0} juntou-se ao servidor."
 		},
 		"guildRoleCreate": {
@@ -152,16 +152,16 @@
 		},
 		"guildRoleDelete": {
 			"title": "Cargo Deletado",
-			"description": "The {0} role was deleted.",
+			"description": "A função {0} foi eliminada.",
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildRoleUpdate": {
-			"title": "Role Updated",
-			"description": "The {0} role has been updated.",
+			"title": "Função Atualizada",
+			"description": "A função {0} foi atualizada.",
 			"colorChange": {
-				"name": "Color Updated"
+				"name": "Cor atualizado"
 			},
 			"nameChange": {
 				"name": "Name Updated"
@@ -204,7 +204,7 @@
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Razão"
 			}
 		},
 		"messageUpdate": {
@@ -248,7 +248,7 @@
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Razão"
 			}
 		},
 		"guildBanRemove": {
@@ -258,7 +258,7 @@
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Razão"
 			}
 		},
 		"mute": {
@@ -271,7 +271,7 @@
 				"name": "Duração"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Razão"
 			},
 			"footer": "Target {0} Mod {1}"
 		},
@@ -282,7 +282,7 @@
 				"name": "Moderador"
 			},
 			"unmuteReason": {
-				"name": "Reason"
+				"name": "Razão"
 			}
 		}
 	},
@@ -300,7 +300,7 @@
 		"trackException": "An error occured playing the track, skipping...",
 		"emptyPause": "All users have left the voice channel - the player has been paused.",
 		"playingTrack": "Now playing `{0}` ({1})",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
 		"position": {
 			"name": "Posição",
 			"value": "{0}"
@@ -319,7 +319,7 @@
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Adicionado por",
 			"value": "{0}"
 		},
 		"author": {
