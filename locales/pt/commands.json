@@ -392,18 +392,18 @@
 	"botinfo": {
 		"noArgs": "Por favor mencione um bot ou inclua um termo de pesquisa.",
 		"notABot": "Beep boop? Esse usuário não é um bot.",
-		"notFound": "That bot is not listed on discordbots.org :c",
+		"notFound": "Esse bot não está listado em discordbots.org: c",
 		"embed": {
-			"library": "Library",
+			"library": "Biblioteca",
 			"servers": {
-				"name": "Servers",
-				"none": "Unknown"
+				"name": "Servidores",
+				"none": "Desconhecido"
 			},
 			"shards": {
-				"name": "Shards",
-				"none": "Unknown"
+				"name": "Estilhaços",
+				"none": "Desconhecido"
 			},
-			"prefix": "Prefix",
+			"prefix": "Prefixo",
 			"github": {
 				"name": "Github",
 				"none": "Nenhum"
@@ -412,53 +412,53 @@
 				"name": "Local na rede Internet",
 				"none": "Nenhum"
 			},
-			"owners": "Owners",
-			"footer": "Approved at",
-			"invite": "Invite Link",
+			"owners": "Os Proprietários",
+			"footer": "Aprovado em",
+			"invite": "Link de convite",
 			"support": {
-				"name": "Support Server",
+				"name": "Servidor de suporte",
 				"none": "Nenhum"
 			}
 		}
 	},
 	"leave": {
-		"recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
-		"sameChannel": "You must be in the same voice channel as I am to do that!",
-		"nothingPlaying": "There is nothing playing in this server!",
-		"leftNoChannel": "I have left the voice channel.",
-		"leftChannel": "I have left `{0}`!"
+		"recentRestart": "Nada está jogando neste servidor. Atlas reiniciado {0} atrás, o que pode ter afetado seu servidor.",
+		"sameChannel": "Você deve estar no mesmo canal de voz que eu para fazer isso!",
+		"nothingPlaying": "Não há nada jogando neste servidor!",
+		"leftNoChannel": "Eu deixei o canal de voz.",
+		"leftChannel": "Eu deixei `{0}`!"
 	},
 	"achievement": {
-		"noArgs": "You have to include something to turn into an achievement.",
-		"header": "Achievement Get!"
+		"noArgs": "Você tem que incluir algo para se transformar em uma conquista.",
+		"header": "Conquista realizada!"
 	},
 	"coinflip": {
-		"heads": "I flipped a coin and got heads!",
-		"tails": "I flipped a coin and got tails!"
+		"heads": "Eu joguei uma moeda e peguei cabeças!",
+		"tails": "Eu joguei uma moeda e peguei coroa!"
 	},
 	"move": {
-		"noArgs": "You have to include a channel to move the message to.",
-		"noMessage": "I could not find a message matching `{0}`.",
-		"noChannel": "I could not find a channel matching `{0}`.",
-		"notInTime": "{0}, you did not add a reaction in time.",
-		"sameChannel": "That message is already in {0}.",
-		"invalidType": "That message type cannot be transferred to a different channel.",
-		"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
-		"success": "Message moved to {0}.",
-		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+		"noArgs": "Você precisa incluir um canal para mover a mensagem.",
+		"noMessage": "Não consegui encontrar uma mensagem correspondente a {0} `.",
+		"noChannel": "Não consegui encontrar um canal correspondente a {0} `.",
+		"notInTime": "{0}, você não adicionou uma reação a tempo.",
+		"sameChannel": "Essa mensagem já está em {0}.",
+		"invalidType": "Esse tipo de mensagem não pode ser transferido para um canal diferente.",
+		"waiting": "Por favor, adicione um pacote: `: package:` emoji à mensagem que você deseja mover para {0}.",
+		"success": "Mensagem movida para {0}.",
+		"noMessageOrPerms": "Você precisa fornecer um ID de mensagem ou link de compartilhamento para mover uma mensagem, a menos que tenha permissões para adicionar reações."
 	},
 	"texttoemoji": {
-		"noArgs": "You have to include some text to convert."
+		"noArgs": "Você tem que incluir algum texto para converter."
 	},
 	"log": {
-		"noResults": "I could not find a channel matching `{0}`.",
+		"noResults": "Não consegui encontrar um canal correspondente a {0} `.",
 		"actions": {
-			"success": "Action logs will now be sent to {0}.",
-			"disabled": "Action logging has been disabled."
+			"success": "Os logs de ação agora serão enviados para {0}.",
+			"disabled": "O log de ações foi desativado."
 		},
 		"moderation": {
-			"success": "Moderation logs will now be sent to {0}.",
-			"disabled": "Moderation logging has been disabled."
+			"success": "Agora, os registros de moderação serão enviados para {0}.",
+			"disabled": "O registro de moderação foi desativado."
 		},
 		"errors": {
 			"success": "Errors will now be sent to {0}.",
@@ -533,7 +533,7 @@
 	"advancedembed": {
 		"unsupportedColor": "`{0}` não é um formato de cor suportado.",
 		"error": "Erro ao validar a incorporação: `{0}`.",
-		"invalidEdit": "I could not find a message matching `{0}`.",
+		"invalidEdit": "Não consegui encontrar uma mensagem correspondente a {0} `.",
 		"cannotEdit": "Não consigo editar outras mensagens de usuários."
 	},
 	"discrim": {
