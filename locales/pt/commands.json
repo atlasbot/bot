@@ -38,7 +38,7 @@
 	},
 	"needsmorejpeg": {
 		"noArgs": "Inclua um anexo de imagem ou um URL de imagem.",
-		"invalidUrl": "`{0}` is not a valid URL."
+		"invalidUrl": "`{0}` não é um URL válido."
 	},
 	"randomcase": {
 		"noArgs": "Por favor inclua algo para o raNdomIsE."
@@ -461,36 +461,36 @@
 			"disabled": "O registro de moderação foi desativado."
 		},
 		"errors": {
-			"success": "Errors will now be sent to {0}.",
-			"disabled": "Error logging has been disabled."
+			"success": "Erros agora serão enviados para {0}.",
+			"disabled": "O registro de erros foi desativado."
 		}
 	},
 	"slowmode": {
-		"noArgs": "You have to include a message interval in seconds.",
-		"invalid": "The slowmode rate must be between 0 and 120.",
-		"success": "Users can now send messages every {0}.",
-		"disabled": "Disabled slowmode for {0}."
+		"noArgs": "Você precisa incluir um intervalo de mensagem em segundos.",
+		"invalid": "A taxa do modo lento deve estar entre 0 e 120.",
+		"success": "Os usuários agora podem enviar mensagens a cada {0}.",
+		"disabled": "Desative o modo lento para {0}."
 	},
 	"purge": {
 		"general": {
-			"tooLow": "The number you provided is too low. It must be one or higher.",
-			"tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
-			"success": "{0} has purged `{1}` messages.",
-			"invalidFilter": "You have to include a valid filter."
+			"tooLow": "O número que você forneceu é muito baixo. Deve ser um ou mais alto.",
+			"tooHigh": "O número que você forneceu é muito alto. O Atlas só pode limpar até 100 mensagens de uma só vez.",
+			"nothingPurged": "{0}, hmmm - nada foi removido. Isso significa que não há nada para limpar, não há mensagens que correspondam ao seu filtro ou que as mensagens tenham mais de duas semanas.",
+			"success": "{0} eliminou as mensagens `{1}`.",
+			"invalidFilter": "Você precisa incluir um filtro válido."
 		},
 		"base": {
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+			"nothingPurged": "{0}, hmmm - nada foi removido. Isso significa que não há nada para purgar ou as mensagens têm mais de 2 semanas."
 		},
 		"user": {
-			"noArgs": "Please include a user mention!",
-			"noUser": "I couldn't find a valid user matching your search."
+			"noArgs": "Por favor inclua uma menção de usuário!",
+			"noUser": "Não consegui encontrar um usuário válido que corresponda à sua pesquisa."
 		}
 	},
 	"filters": {
 		"action": {
-			"noAction": "You have to include a valid action. Available actions: `{0}`.",
-			"success": "The {0} filter has been set to `{1}`."
+			"noAction": "Você precisa incluir uma ação válida. Ações disponíveis: `{0}`.",
+			"success": "O filtro {0} foi configurado para `{1}`."
 		},
 		"list": {
 			"title": "Filtros"
@@ -609,74 +609,74 @@
 		"invalidType": "Este comando suporta apenas mensagens de texto.",
 		"invalidMsg": "Essa mensagem não possui nenhum conteúdo ou uma imagem anexada."
 	},
-	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
+	"randomcolor": "Seu hex aleatório é [# {0}] (http://www.color-hex.com/color/ {0})",
 	"reddit": {
-		"noArgs": "Please include a subreddit name.",
-		"over18": "That subreddit is NSFW. Please use an NSFW channel.",
-		"invalid": "I could not find a subreddit with the name `{0}`."
+		"noArgs": "Por favor inclua um nome subreddit.",
+		"over18": "Esse subreddit é o NSFW. Por favor, use um canal NSFW.",
+		"invalid": "Eu não consegui encontrar um subreddit com o nome `{0}`."
 	},
 	"id": {
-		"noArgs": "Please include a role, user or channel.",
-		"noTarget": "I could not resolve `{0}` to a channel, role or user.",
-		"role": "The ID for the `@{0}` role is `{1}`.",
-		"channel": "{0}'s ID is `{1}`.",
-		"memberOrGuild": "{0}'s ID is `{1}`."
+		"noArgs": "Por favor, inclua um papel, usuário ou canal.",
+		"noTarget": "Não consegui resolver `{0}` para um canal, função ou usuário.",
+		"role": "O ID para o papel `@ {0}` é `{1}`.",
+		"channel": "O ID de {0} é `{1}`.",
+		"memberOrGuild": "O ID de {0} é `{1}`."
 	},
 	"roleinfo": {
-		"noArgs": "Please include a role.",
+		"noArgs": "Por favor, inclua um papel.",
 		"invalidRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
 		"id": {
 			"name": "ID"
 		},
 		"name": {
-			"name": "Name"
+			"name": "Nome"
 		},
 		"color": {
-			"name": "Color"
+			"name": "Cor"
 		},
 		"mention": {
-			"name": "Mention"
+			"name": "Menção"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membros"
 		},
 		"position": {
-			"name": "Position"
+			"name": "Posição"
 		},
 		"mentionable": {
-			"name": "Mentionable"
+			"name": "Mencionável"
 		},
 		"hoisted": {
-			"name": "Hoisted"
+			"name": "Içado"
 		},
-		"yes": "Yes",
-		"no": "No",
-		"footer": "Created At"
+		"yes": "Sim",
+		"no": "Não",
+		"footer": "Criado em"
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Você tem que incluir algo para eu dizer."
 	},
 	"serverinfo": {
 		"name": {
-			"name": "Name"
+			"name": "Nome"
 		},
 		"textChannels": {
-			"name": "Text Channels"
+			"name": "Canais de texto:"
 		},
 		"voiceChannels": {
-			"name": "Voice Channels"
+			"name": "Canais de voz:"
 		},
 		"verificationLevel": {
 			"name": "Nível de Verificação"
 		},
 		"region": {
-			"name": "Region"
+			"name": "Região"
 		},
 		"roles": {
-			"name": "Roles"
+			"name": "Papéis"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membros"
 		},
 		"owner": {
 			"name": "Proprietário"
@@ -684,16 +684,16 @@
 		"footer": "Criado"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Por favor, inclua uma URL.",
+		"invalidURI": "`{0}` não é um URL válido."
 	},
 	"time": {
-		"noArgs": "Please include a location to get the time for.",
-		"noTimezone": "I could not find a town or city matching `{0}`.",
-		"success": "It is currently {0} in {1}."
+		"noArgs": "Por favor inclua um local para obter o tempo para.",
+		"noTimezone": "Não consegui encontrar uma cidade ou cidade correspondente a `{0}`.",
+		"success": "Atualmente é {0} em {1}."
 	},
 	"locale": {
-		"success": "The servers language has been set to {0}.",
+		"success": "O idioma dos servidores foi configurado para {0}.",
 		"notFound": "I could not find a locale matching `{0}` :c",
 		"title": "Supported Languages",
 		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
