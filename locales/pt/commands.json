@@ -141,7 +141,7 @@
 	"nodes": {
 		"noNodes": "Hmmm, algo está errado. Parece que não estou conectado a nenhum nó de voz. isso não significa que aconteça.",
 		"node": "Nó",
-		"players": "Players",
+		"players": "Jogadores",
 		"events": "Eventos",
 		"footer": "Nós de voz do Atlas"
 	},
@@ -531,83 +531,83 @@
 		}
 	},
 	"advancedembed": {
-		"unsupportedColor": "`{0}` is not a supported color format.",
-		"error": "Error validating embed: `{0}`.",
+		"unsupportedColor": "`{0}` não é um formato de cor suportado.",
+		"error": "Erro ao validar a incorporação: `{0}`.",
 		"invalidEdit": "I could not find a message matching `{0}`.",
-		"cannotEdit": "I cannot edit another users messages."
+		"cannotEdit": "Não consigo editar outras mensagens de usuários."
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
-		"invalid": "`{0}` is not a valid discriminator.",
-		"none": "There are no users in this server with that discriminator."
+		"title": "Usuários com um Discriminador # {0}",
+		"invalid": "`{0}` não é um discriminador válido.",
+		"none": "Não há usuários neste servidor com esse discriminador."
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "Por favor inclua algo para procurar.",
+		"noResults": "Eu não consegui encontrar nada ao procurar por isso."
 	},
 	"inrole": {
-		"noArgs": "You have to provide a role name/mention to lookup.",
-		"noRole": "I could not find a role matching `{0}`.",
-		"noOne": "That role does not have any members.",
-		"title": "Members in the {0} Role"
+		"noArgs": "Você tem que fornecer um nome de função / menção à pesquisa.",
+		"noRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
+		"noOne": "Essa função não possui membros.",
+		"title": "Membros no papel {0}"
 	},
 	"inviteinfo": {
-		"invalid": "`{0}` is not a valid invite link or code.",
-		"title": "Invite Info for {0}",
+		"invalid": "`{0}` não é um link ou código de convite válido.",
+		"title": "Convide informações para {0}",
 		"guild": {
-			"name": "Server Name"
+			"name": "Nome do servidor"
 		},
 		"inviter": {
 			"name": "Inviter"
 		},
 		"channel": {
-			"name": "Channel",
+			"name": "Canal",
 			"value": "{0} ({1})"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Proprietário"
 		},
 		"memberCount": {
-			"name": "Member Count",
-			"value": "{0} ({1} online)"
+			"name": "Contagem de membro",
+			"value": "{0} ({1} on-line)"
 		}
 	},
 	"joined": {
-		"noArgs": "Please include a user to check.",
+		"noArgs": "Por favor, inclua um usuário para verificar.",
 		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
-		"message": "{0} joined {1} at {2}."
+		"message": "{0} entrou {1} em {2}."
 	},
 	"membercount": {
 		"total": "Total",
 		"online": "Online",
-		"idle": "Idle",
-		"dnd": "Do not Disturb",
+		"idle": "Ocioso",
+		"dnd": "Não perturbe",
 		"offline": "Offline",
 		"bots": "Robôs"
 	},
 	"minecraft": {
-		"noArgs": "Please include a server IP.",
-		"invalidIP": "`{0}` is not a valid Minecraft IP.",
+		"noArgs": "Por favor, inclua um IP do servidor.",
+		"invalidIP": "`{0}` não é um IP Minecraft válido.",
 		"uptime": {
-			"name": "Uptime"
+			"name": "Tempo de atividade"
 		},
 		"players": {
-			"name": "Players",
+			"name": "Jogadores",
 			"value": "{0}/{1}"
 		},
 		"software": {
-			"name": "Software"
+			"name": "Programas"
 		},
-		"lastChecked": "Via mcapi.us  •  last checked",
+		"lastChecked": "Via mcapi.us • última verificação",
 		"status": "Status",
 		"online": "Online",
 		"offline": "Offline"
 	},
 	"quote": {
-		"noArgs": "Please include a message ID or share link.",
-		"noMessage": "I could not find any message matching that :c",
-		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"noArgs": "Por favor inclua um ID de mensagem ou link de compartilhamento.",
+		"noMessage": "Não encontrei nenhuma mensagem que correspondesse a isso: c",
+		"invalidType": "Este comando suporta apenas mensagens de texto.",
+		"invalidMsg": "Essa mensagem não possui nenhum conteúdo ou uma imagem anexada."
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
@@ -624,7 +624,7 @@
 	},
 	"roleinfo": {
 		"noArgs": "Please include a role.",
-		"invalidRole": "I could not find a role matching `{0}`.",
+		"invalidRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
 		"id": {
 			"name": "ID"
 		},
@@ -679,7 +679,7 @@
 			"name": "Members"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Proprietário"
 		},
 		"footer": "Criado"
 	},
