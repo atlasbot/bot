@@ -222,28 +222,28 @@
 			"description": "{0} saiu do servidor."
 		},
 		"channelCreate": {
-			"title": "Channel Created",
-			"description": "The {0} (`{1}`) {2} channel has been created.",
+			"title": "Canal criado",
+			"description": "O canal {0} (`{1}`) {2} foi criado.",
 			"category": {
-				"name": "Category"
+				"name": "Categoria"
 			},
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"channelDelete": {
-			"title": "Channel Deleted",
-			"description": "The {0} channel has been deleted.",
+			"title": "Canal excluído",
+			"description": "O canal {0} foi eliminado.",
 			"category": {
-				"name": "Category"
+				"name": "Categoria"
 			},
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildBanAdd": {
-			"title": "Member Banned",
-			"description": "{0} has been banned.",
+			"title": "Membro Banido",
+			"description": "{0} foi banido.",
 			"moderator": {
 				"name": "Moderador"
 			},
@@ -252,7 +252,7 @@
 			}
 		},
 		"guildBanRemove": {
-			"title": "Member Unbanned",
+			"title": "Membro desbanido",
 			"description": "{0} foi esbanjado.",
 			"moderator": {
 				"name": "Moderador"
@@ -262,8 +262,8 @@
 			}
 		},
 		"mute": {
-			"title": "Member Muted",
-			"description": "{0} has been muted.",
+			"title": "Membro silenciado",
+			"description": "{0} foi silenciado.",
 			"moderator": {
 				"name": "Moderador"
 			},
@@ -273,10 +273,10 @@
 			"reason": {
 				"name": "Razão"
 			},
-			"footer": "Target {0} Mod {1}"
+			"footer": "Alvo {0} Mod {1}"
 		},
 		"unmute": {
-			"title": "Member Unmuted",
+			"title": "Membro não marcado",
 			"description": "{0} foi silenciado.",
 			"moderator": {
 				"name": "Moderador"
@@ -286,32 +286,32 @@
 			}
 		}
 	},
-	"messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
-	"messageQueryLate": "{0}, you took too long to add the reaction.",
-	"botPermError": "I am missing one or more permissions that I need to do that.",
-	"noResults": "I couldn't find anything matching your query, `{0}`.",
-	"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
-	"noPermission": "You don't have permission to access that command.",
-	"noUserFound": "I couldn't find that user.",
-	"noMorePages": "{0}, there are no more pages that way.",
-	"notPunishable": "You are lacking the permission required to punish that user.",
-	"lolno": "I cannot punish that user as their permission level is above my own.",
+	"messageQuery": "Por favor, reagir com {0} `: {1}:` para a mensagem que você deseja usar.",
+	"messageQueryLate": "{0}, você demorou muito para adicionar a reação.",
+	"botPermError": "Eu estou perdendo uma ou mais permissões que eu preciso fazer isso.",
+	"noResults": "Não encontrei nada que correspondesse à sua consulta, `{0}`.",
+	"webhookPermError": "ERRO: O Atlas precisa de permissões para gerenciar webhooks para o logging funcionar. Aguarde até cinco minutos após a atualização das permissões para que a alteração entre em vigor.",
+	"noPermission": "Você não tem permissão para acessar esse comando.",
+	"noUserFound": "Não consegui encontrar esse usuário.",
+	"noMorePages": "{0}, não há mais páginas assim.",
+	"notPunishable": "Você está sem a permissão necessária para punir esse usuário.",
+	"lolno": "Não posso punir esse usuário, pois o nível de permissão deles é superior ao meu.",
 	"music": {
-		"trackException": "An error occured playing the track, skipping...",
-		"emptyPause": "All users have left the voice channel - the player has been paused.",
-		"playingTrack": "Now playing `{0}` ({1})",
+		"trackException": "Ocorreu um erro ao reproduzir a faixa, ignorando ...",
+		"emptyPause": "Todos os usuários deixaram o canal de voz - o player foi pausado.",
+		"playingTrack": "Agora jogando `{0}` ({1})",
 		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
 		"position": {
 			"name": "Posição",
 			"value": "{0}"
 		},
 		"nowPlaying": {
-			"name": "Now Playing",
+			"name": "Agora jogando",
 			"value": "[{0}]({1})"
 		},
 		"playlist": {
-			"name": "Playlist Queued",
-			"value": "{0} songs queued by {1}"
+			"name": "Playlist em fila",
+			"value": "{0} músicas enfileiradas por {1}"
 		},
 		"description": "[{0}]({1})",
 		"duration": {
@@ -326,16 +326,16 @@
 			"name": "Autor",
 			"value": "{0}"
 		},
-		"addedTrack": "Added Track",
+		"addedTrack": "Faixa adicionada",
 		"ttp": {
 			"name": "Tempo até tocar",
 			"value": "{0}"
 		},
 		"inQueue": {
-			"name": "In Queue",
+			"name": "Na fila",
 			"value": {
-				"plural": "{0} songs",
-				"singular": "{0} song"
+				"plural": "{0} músicas",
+				"singular": "{0} música"
 			}
 		}
 	},
