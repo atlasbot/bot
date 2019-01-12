@@ -67,7 +67,10 @@ module.exports = class {
 			}
 		}
 
-		if (member.username !== oldMember.username) {
+		const oldUsername = oldMember.username;
+		const { username } = member;
+
+		if (oldUsername && username && username !== oldUsername) {
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.usernameChange.title',
 				description: [
