@@ -99,6 +99,19 @@
 		"utilities": {
 			"state": "enabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+		},
+		"roles": {
+			"state": "enabled",
+			"restrictions": {
+				"mode": "whitelist",
+				"roles": [],
+				"channels": []
+			},
+			"options": {
+				"join": [],
+				"iam": [],
+				"reactions": []
+			}
 		}
 	}
 }

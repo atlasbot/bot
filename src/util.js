@@ -614,7 +614,7 @@ module.exports = class Util {
 				}
 			}
 
-			if (notify.enabled) {
+			if (notify && notify.enabled) {
 				const parser = new Parser({
 					msg,
 					settings,

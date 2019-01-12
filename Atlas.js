@@ -113,6 +113,7 @@ module.exports = class Atlas {
 		if (!process.env.SENTRY_DSN) {
 			console.warn('Error reporting disabled, set SENTRY_DSN to enable it.');
 		}
+
 		// setting up sentry for error tracking when possible
 		// if no SENTRY_DSN is provided sentry will will still "work"
 		Sentry.init({
