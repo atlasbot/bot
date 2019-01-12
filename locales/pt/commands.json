@@ -46,7 +46,7 @@
 	"dashboard": "Você pode configurar seu servidor em <https://atlasbot.xyz/meera/ {0}>.",
 	"resetlevel": {
 		"noArgs": "Por favor, inclua um usuário para redefinir o nível de.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
 		"success": "{0} teve seu nível redefinido para zero."
 	},
 	"playlist": {
@@ -516,18 +516,18 @@
 	"urban": {
 		"noArgs": "Você tem que fornecer uma pesquisa!",
 		"noResults": "Não encontrei nenhuma definição para `{0}`.",
-		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
-		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
+		"nsfwDef": "A definição para essa palavra é NSFW. Por favor, use um canal NSFW.",
+		"nsfwWord": "Essa palavra é NSFW. Por favor, use um canal NSFW.",
 		"author": "Autor",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
+			"cannotFind": "Eu não consegui encontrar um usuário correspondente `{0}`.",
 			"title": "Aqui está!"
 		},
 		"server": {
-			"noIcon": "This server has no icon."
+			"noIcon": "Este servidor não possui ícone."
 		}
 	},
 	"advancedembed": {
@@ -574,7 +574,7 @@
 	},
 	"joined": {
 		"noArgs": "Please include a user to check.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
 		"message": "{0} joined {1} at {2}."
 	},
 	"membercount": {
