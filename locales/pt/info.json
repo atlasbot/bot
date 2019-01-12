@@ -56,7 +56,7 @@
 	},
 	"resetlevel": {
 		"description": "Redefinir nível do usuário.",
-		"usage": "[user]"
+		"usage": "[do utilizador]"
 	},
 	"playlist": {
 		"base": {
@@ -128,7 +128,7 @@
 	},
 	"level": {
 		"description": "Obtém seu ou outro nível de usuários.",
-		"usage": "<user>"
+		"usage": "<usuário>"
 	},
 	"leaderboard": {
 		"description": "Obtém o link da tabela de classificação para os Níveis."
@@ -272,66 +272,66 @@
 	},
 	"filters": {
 		"base": {
-			"usage": "<subcommand>",
-			"description": "Controls chat filters."
+			"usage": "<subcomando>",
+			"description": "Controla os filtros de bate-papo."
 		},
 		"action": {
-			"usage": "[filter] <action name>",
-			"description": "Used to enable or disable filters, and change their action."
+			"usage": "[filtro] <nome da ação>",
+			"description": "Usado para ativar ou desativar filtros e alterar sua ação."
 		},
 		"list": {
-			"description": "Lists filters and their current settings."
+			"description": "Lista filtros e suas configurações atuais."
 		}
 	},
 	"log": {
 		"base": {
-			"description": "Controls where certain messages are logged in your guild.",
-			"usage": "[subcommand]"
+			"description": "Controla onde certas mensagens são registradas em sua guilda.",
+			"usage": "[subcomando]"
 		},
 		"actions": {
-			"description": "Sets where action logs are logged to. Run with no args to reset.",
-			"usage": "[channel]"
+			"description": "Define onde os logs de ação são registrados. Executar sem argumentos para redefinir.",
+			"usage": "[canal]"
 		}
 	},
 	"purge": {
 		"base": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
 		},
 		"any": {
-			"usage": "<amount>",
-			"description": "Purge messages from a channel."
+			"usage": "<quantidade>",
+			"description": "Limpar mensagens de um canal."
 		},
 		"endswith": {
-			"usage": "[term] <amount>",
-			"description": "Purges messages that end with [term]. Supports wild*cards."
+			"usage": "[term] <quantidade>",
+			"description": "Limpa mensagens que terminam com [term]. Suporta cartões wild *."
 		},
 		"files": {
-			"usage": "<amount>",
-			"description": "Purges messages with attachments."
+			"usage": "<quantidade>",
+			"description": "Limpa mensagens com anexos."
 		},
 		"images": {
-			"usage": "<amount>",
-			"description": "Purges messages with images attached."
+			"usage": "<quantidade>",
+			"description": "Limpa mensagens com imagens anexadas."
 		},
 		"invites": {
-			"usage": "<amount>",
-			"description": "Purges messages containing Discord server invite links."
+			"usage": "<quantidade>",
+			"description": "Limpa mensagens contendo links de convite do servidor Discord."
 		},
 		"links": {
-			"usage": "<amount>",
+			"usage": "<quantidade>",
 			"description": "Exclui mensagens contendo links."
 		},
 		"includes": {
-			"usage": "[term] <amount>",
+			"usage": "[term] <quantidade>",
 			"description": "Limpa mensagens que incluem o seu termo Suporta cartões wild *."
 		},
 		"not": {
-			"usage": "[term] <amount>",
+			"usage": "[term] <quantidade>",
 			"description": "Exclui mensagens que não incluem seu termo. Suporta cartões wild *."
 		},
 		"startswith": {
-			"usage": "[term] <amount>",
+			"usage": "[term] <quantidade>",
 			"description": "Exclui mensagens que começam com seu termo. Suporta cartões wild *."
 		},
 		"user": {
@@ -439,7 +439,7 @@
 	},
 	"warnings": {
 		"description": "Exibe seus / outros avisos de usuários.",
-		"usage": "<user>"
+		"usage": "<usuário>"
 	},
 	"funban": {
 		"description": "Bane um usuário, mas é divertido (e levemente com spam)",
@@ -463,70 +463,70 @@
 		"description": "idiota me-mes"
 	},
 	"yesno": {
-		"description": "Yes or no? Gets a random yes or no randomly."
+		"description": "Sim ou não? Obtém um aleatório sim ou não aleatoriamente."
 	},
 	"info": {
-		"description": "General information about Atlas"
+		"description": "Informações gerais sobre o Atlas"
 	},
 	"ping": {
-		"description": "Check the time Atlas takes to reply to you!"
+		"description": "Verifique o tempo que o Atlas leva para responder a você!"
 	},
 	"support": {
-		"description": "Need help with Atlas? Join our Support server!"
+		"description": "Precisa de ajuda com Atlas? Junte-se ao nosso servidor de suporte!"
 	},
 	"uptime": {
-		"description": "Check how long Atlas has been online for."
+		"description": "Verifique há quanto tempo o Atlas está on-line."
 	},
 	"whois": {
-		"description": "Get information about a user.",
-		"usage": "<user>"
+		"description": "Obter informações sobre um usuário.",
+		"usage": "<usuário>"
 	},
 	"nowplaying": {
-		"description": "Shows information about the song currently playing."
+		"description": "Mostra informações sobre a música atualmente sendo reproduzida."
 	},
 	"play": {
-		"description": "Plays a song in your current voice channel, now with built in playlist support!",
-		"usage": "[song name|url]"
+		"description": "Reproduz uma música no seu canal de voz atual, agora com suporte de playlist integrado.",
+		"usage": "[nome da música | url]"
 	},
 	"qplaylist": {
-		"description": "Adds songs from a YouTube playlist to the queue.",
+		"description": "Adiciona músicas de uma lista de reprodução do YouTube à fila.",
 		"usage": "[youtube playlist url]"
 	},
 	"queue": {
-		"description": "Shows upcoming songs in the player queue.",
-		"usage": "<page number>"
+		"description": "Mostra as próximas músicas na fila do jogador.",
+		"usage": "<número da página>"
 	},
 	"ship": {
-		"description": "Ship two users. ",
+		"description": "Envie dois usuários.",
 		"usage": "[user1] <user2>"
 	},
 	"trapcard": {
-		"usage": "[user]",
-		"description": "You've triggered my trap card!"
+		"usage": "[do utilizador]",
+		"description": "Você acionou meu cartão de armadilha!"
 	},
 	"trumpgen": {
-		"description": "Generate an image of Trump's twitter tweeting something.",
+		"description": "Gere uma imagem do twitter de Trump twittando algo.",
 		"usage": "[text]"
 	},
 	"wiki": {
-		"description": "Search Wikipedia for your search.",
-		"usage": "[query]"
+		"description": "Pesquise na Wikipedia por sua pesquisa.",
+		"usage": "[inquerir]"
 	},
 	"remindme": {
-		"description": "Set reminders to get notified in the future.",
-		"usage": "[time] <task>"
+		"description": "Defina lembretes para ser notificado no futuro.",
+		"usage": "[tempo] <tarefa>"
 	},
 	"captcha": {
-		"description": "Are you a robot? I know I am.",
-		"usage": "<user>"
+		"description": "Você é um robô? Sei quem eu sou.",
+		"usage": "<usuário>"
 	},
 	"invite": {
-		"description": "Get Atlas in your own server by inviting me!"
+		"description": "Obtenha o Atlas no seu próprio servidor, convidando-me!"
 	},
 	"neat": {
-		"description": "hey, that's pretty neat"
+		"description": "Ei, isso é muito legal"
 	},
 	"8ball": {
-		"description": "Ask the magic eight-ball a question."
+		"description": "Pergunte a mágica bola oito uma pergunta."
 	}
 }
