@@ -25,7 +25,10 @@ module.exports = class extends Command {
 		const { body, body: { consolidated_weather: [weather] } } = await superagent.get(`https://www.metaweather.com/api/location/${location.woeid}/`);
 
 		return responder.embed({
-			title: ['title', body.title, body.parent.title],
+			author: {
+				name: ['title', body.title, body.parent.title],
+				icon_url: `https://www.metaweather.com/static/img/weather/png/${weather.weather_state_abbr}.png`,
+			},
 			description: weather.weather_state_name,
 			fields: [{
 				name: 'temperature.name',
