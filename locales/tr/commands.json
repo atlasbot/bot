@@ -8,7 +8,7 @@
 		},
 		"humidity": "Humidity",
 		"wind": {
-			"name": "Wind",
+			"name": "Rüzgar",
 			"value": "{0}kph"
 		}
 	},
