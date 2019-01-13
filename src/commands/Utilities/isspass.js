@@ -1,4 +1,6 @@
 const superagent = require('superagent');
+const tzlookup = require('tz-lookup');
+
 const Command = require('../../structures/Command.js');
 
 module.exports = class extends Command {
@@ -13,33 +15,30 @@ module.exports = class extends Command {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		// use yahoo yql to get laitude/longitude, a location name and timezone
-		const { body: { query: { results } } } = await superagent.get('https://query.yahooapis.com/v1/public/yql')
-			.set('User-Agent', this.Atlas.userAgent)
+		const { body: [location] } = await superagent.get('https://www.metaweather.com/api/location/search/')
 			.query({
-				// todo: you can probably inject yql here
-				q: `select centroid, name, timezone from geo.places(1) where text="${args.join(' ')}"`,
-				format: 'json',
+				query: args.join(' '),
 			});
 
-		if (!results) {
-			return responder.error('noResults', args.join(' ')).send();
+		if (!location) {
+			return responder.error('noTimezone', args.join(' ')).send();
 		}
 
-		const { centroid, name, timezone: { content: timezone } } = results.place;
+		const [latt, long] = location.latt_long.split(',').map(Number);
+		const tz = tzlookup(latt, long);
 
 		// take lang/long and get times from open-notify.org
 		const { body: { response } } = await superagent.get('http://api.open-notify.org/iss-pass.json')
 			.set('User-Agent', this.Atlas.userAgent)
 			.query({
-				lat: centroid.latitude,
-				lon: centroid.longitude,
+				lat: latt,
+				lon: long,
 			});
 
 		// make it all pweety
 		const description = response.map(({ duration, risetime }) => {
 			const time = new Date(risetime * 1000);
-			const timeText = this.Atlas.lib.utils.timeFormat(time, true, timezone);
+			const timeText = this.Atlas.lib.utils.timeFormat(time, true, tz);
 			const durationText = this.Atlas.lib.utils.prettyMs(duration * 1000);
 
 			// extra space is intentional, it looks better
@@ -47,10 +46,10 @@ module.exports = class extends Command {
 		}).join('\n');
 
 		return responder.embed({
-			title: ['title', name],
+			title: ['title', location.title],
 			timestamp: new Date(),
 			footer: {
-				text: ['footer', name],
+				text: ['footer', location.title],
 			},
 			description,
 		}).send();

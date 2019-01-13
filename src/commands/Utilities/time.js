@@ -1,4 +1,6 @@
 const superagent = require('superagent');
+const tzlookup = require('tz-lookup');
+
 const Command = require('../../structures/Command.js');
 
 module.exports = class extends Command {
@@ -13,19 +15,16 @@ module.exports = class extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		const { body } = await superagent.get('https://query.yahooapis.com/v1/public/yql')
+		const { body: [location] } = await superagent.get('https://www.metaweather.com/api/location/search/')
 			.query({
-				q: `select * from geo.places(1) where text="${args.join(' ')}"`,
-				format: 'json',
-			})
-			.set('User-Agent', this.Atlas.userAgent);
+				query: args.join(' '),
+			});
 
-		if (!body.query.results || !body.query.results.place.timezone) {
+		if (!location) {
 			return responder.error('noTimezone', args.join(' ')).send();
 		}
 
-		const data = body.query.results.place;
-		const tz = data.timezone.content;
+		const tz = tzlookup(...location.latt_long.split(',').map(Number));
 
 		const formatter = new Intl.DateTimeFormat([], {
 			timeZone: tz,
@@ -37,9 +36,10 @@ module.exports = class extends Command {
 			second: 'numeric',
 		});
 
-		const location = data.country ? `in ${data.name}, ${data.country.content}` : '';
+		const country = tz.split('/').shift();
+		const title = `in ${location.title}, ${country}`;
 
-		return responder.text('success', formatter.format(new Date()).toLocaleString(), location).send();
+		return responder.text('success', formatter.format(new Date()).toLocaleString(), title).send();
 	}
 };
 

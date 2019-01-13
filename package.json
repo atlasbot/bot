@@ -46,6 +46,7 @@
 		"safe-regex": "^2.0.1",
 		"superagent": "^4.1.0",
 		"swearjar": "^0.2.0",
+		"tz-lookup": "^6.1.8",
 		"yargs-parser": "^11.1.1"
 	},
 	"devDependencies": {
