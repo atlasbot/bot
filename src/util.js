@@ -479,7 +479,9 @@ module.exports = class Util {
 			}, profile);
 		} catch (e) {
 			// remove any existing cached objects because we're updating it
-			return this.Atlas.DB.get('users').update({ id: profile.id }, toSave);
+			return this.Atlas.DB.get('users').update({ id: profile.id }, {
+				$set: toSave,
+			});
 		}
 	}
 

@@ -1,7 +1,7 @@
 const monk = require('monk');
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
-const defaultGuild = require('../../data/defaultGuild.json');
+const defaultSettings = require('../../data/defaultSettings.json');
 const Settings = require('./Settings');
 
 module.exports = class Database {
@@ -30,7 +30,7 @@ module.exports = class Database {
 
 		settings._id = settings._id.toString();
 
-		const data = deepMerge(defaultGuild, settings);
+		const data = deepMerge(defaultSettings, settings);
 
 		return new Settings(data);
 	}
@@ -46,11 +46,15 @@ module.exports = class Database {
 				username: user.username,
 				avatar: user.avatar,
 				discriminator: user.discriminator,
+				guilds: [],
 			};
 
 			profile = await db.insert(data);
 		}
 
-		return profile;
+		return {
+			guilds: [],
+			...profile,
+		};
 	}
 };

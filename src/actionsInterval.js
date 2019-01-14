@@ -84,7 +84,9 @@ module.exports = class {
 					await this.Atlas.DB.get('actions').update({
 						_id: rawAction._id,
 					}, {
-						'flags.enabled': false,
+						$set: {
+							'flags.enabled': false,
+						},
 					});
 
 					continue;
@@ -117,7 +119,9 @@ module.exports = class {
 			await this.Atlas.DB.get('actions').update({
 				_id: rawAction._id,
 			}, {
-				nextRunAt,
+				$set: {
+					nextRunAt,
+				},
 			});
 
 			rawAction.nextRunAt = nextRunAt;

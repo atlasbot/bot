@@ -8,7 +8,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, null, 'togglecommand');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'togglecommand');
 
 		if (!args.length) {
 			return responder.error('noArgs').send();
@@ -25,7 +25,9 @@ module.exports = class extends Command {
 
 		if (config.existing) {
 			await settings.update({
-				'command_options.$.disabled': !config.disabled,
+				$set: {
+					'command_options.$.disabled': !config.disabled,
+				},
 			}, {
 				query: {
 					'command_options.name': command.info.name,

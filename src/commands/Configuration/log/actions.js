@@ -13,7 +13,9 @@ module.exports = class extends Command {
 
 		if (!args[0] || this.Atlas.lib.utils.toggleType(args.join(' '), false) === false) {
 			await settings.update({
-				'plugins.moderation.logs.action': null,
+				$set: {
+					'plugins.moderation.logs.action': null,
+				},
 			});
 
 			return responder.text('log.actions.disabled').send();
@@ -30,7 +32,9 @@ module.exports = class extends Command {
 		}
 
 		await settings.update({
-			'plugins.moderation.logs.action': channel.id,
+			$set: {
+				'plugins.moderation.logs.action': channel.id,
+			},
 		});
 
 		return responder.text('log.actions.success', channel.mention).send();

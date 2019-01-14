@@ -133,7 +133,7 @@ module.exports = class Atlas {
 		process.on('uncaughtException', async (err) => {
 			Sentry.captureException(err);
 
-			console.error(err);
+			// console.error(err);
 			// process.exit(0);
 		});
 

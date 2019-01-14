@@ -3,6 +3,7 @@ const prefixes = process.env.PREFIXES
 	: 	['a!', '@mention'];
 
 const Action = require('./Action');
+const defaultSettings = require('../../data/defaultSettings.json');
 
 module.exports = class GuildSettings {
 	/**
@@ -162,20 +163,17 @@ module.exports = class GuildSettings {
     * Update the guild's config with new data. This will also update the local settings
     * @param {Object} settings a MongoDB query to update the guild with
     * @param {Object} opts Options
-    * @param {boolean} opts.runValidators whether or not to validate the update. This does have some caveats, google is your friend.
     * @returns {Promise<Object>} The new guild's settings
     */
 	async update(settings, {
-		runValidators = true,
 		query = {},
 	} = {}) {
-		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.id, ...query }, settings, {
-			runValidators,
-			new: true,
-		});
+		console.warn({ id: this.id, ...query }, settings);
+		const data = await this.Atlas.DB.get('settings')
+			.findOneAndUpdate({ id: this.id, ...query }, settings);
 
 		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
-		this.raw = data;
+		this.raw = this.Atlas.lib.utils.deepMerge(defaultSettings, data);
 
 		return data;
 	}
@@ -268,7 +266,7 @@ module.exports = class GuildSettings {
 			}
 		} catch (e) {
 			if (process.env.VERBOSE === 'true') {
-				console.error(e);
+				console.warn(e);
 			}
 
 			return {

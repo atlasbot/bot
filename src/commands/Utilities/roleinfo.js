@@ -8,7 +8,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, null, 'roleinfo');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'roleinfo');
 
 		if (!args.length) {
 			return responder.error('noArgs').send();

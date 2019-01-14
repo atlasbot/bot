@@ -37,10 +37,10 @@ module.exports = class extends Command {
 
 		const rank = xp === 0 ? msg.guild.memberCount : (await this.Atlas.DB.get('users').count({
 			'guilds.id': msg.guild.id,
-			'guilds.$.xp': {
+			'guilds.xp': {
 				$gte: xp,
 			},
-		})) + 1;
+		}));
 
 		// todo: this is inefficient too
 		const { current, next } = this.Atlas.lib.xputil.getUserXPProfile(xp);

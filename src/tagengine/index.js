@@ -172,7 +172,9 @@ module.exports = class {
 		if (modified) {
 			// persistent storage was modified, save that shit
 			await this.settings.update({
-				persistent: Array.from(persistent),
+				$set: {
+					persistent: Array.from(persistent),
+				},
 			});
 		}
 

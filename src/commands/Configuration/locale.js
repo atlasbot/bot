@@ -15,7 +15,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Paginator(msg, null, 'locale');
+		const responder = new this.Atlas.structs.Paginator(msg, msg.lang, 'locale');
 
 		const locales = Array.from(this.Atlas.locales.values()).map(l => ({
 			...l,
@@ -78,7 +78,9 @@ module.exports = class extends Command {
 		}
 
 		await settings.update({
-			lang: language.code,
+			$set: {
+				lang: language.code,
+			},
 		});
 
 		return responder.lang(language.code).text('success', language.name).send();

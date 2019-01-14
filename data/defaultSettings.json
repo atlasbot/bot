@@ -3,11 +3,11 @@
 	"command_options": [],
 	"plugins": {
 		"info": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
 		},
 		"music": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
 			"options": {
 				"small_msgs": true,
@@ -16,11 +16,28 @@
 			}
 		},
 		"fun": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
 		},
+		"levels": {
+			"state": "disabled",
+			"restrictions": {
+				"mode": "whitelist",
+				"roles": [],
+				"channels": []
+			},
+			"options": {
+				"rewards": [],
+				"stack": false,
+				"notify": {
+					"enabled": false,
+					"content": "Congratulations {user.mention}! You just advanced to **level {user.level}**!",
+					"dm": false
+				}
+			}
+		},
 		"moderation": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
 			"logs": {},
 			"mutes": [],
@@ -90,18 +107,18 @@
 			}
 		},
 		"gatekeeper": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
 			"leave": {},
 			"dm": {},
 			"channel": {}
 		},
 		"utilities": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
 		},
 		"roles": {
-			"state": "enabled",
+			"state": "disabled",
 			"restrictions": {
 				"mode": "whitelist",
 				"roles": [],

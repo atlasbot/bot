@@ -155,17 +155,12 @@ class Command {
 
 			return out;
 		} catch (e) {
-			console.error(e);
-
 			if (e.status && e.response) {
 				// it's /probably/ a http error
-				responder.error('command.restError').send();
+				await responder.error('command.restError').send();
 			} else {
-				responder.error('command.errorExecuting').send();
+				await responder.error('command.errorExecuting').send();
 			}
-
-
-			this.Atlas.Sentry.captureException(e);
 
 			throw e;
 		}

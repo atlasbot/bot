@@ -40,7 +40,9 @@ module.exports = class extends Command {
 			}
 
 			await settings.update({
-				'plugins.moderation.mute_role': role.id,
+				$set: {
+					'plugins.moderation.mute_role': role.id,
+				},
 			});
 		} else {
 			role = settings.muteRole;

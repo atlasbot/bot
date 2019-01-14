@@ -75,6 +75,7 @@ module.exports = class Ready {
 
 				try {
 					await action.execute(msg);
+
 					if (actions.length !== 1) {
 						// sleep for 1s to prevent abuse
 						await this.Atlas.lib.utils.sleep(1000);
@@ -102,7 +103,9 @@ module.exports = class Ready {
 					const pluginConf = settings.plugin(msg.command.plugin.name.toLowerCase());
 
 					if (pluginConf) {
-						if (pluginConf.state === 'disabled') {
+						const override = msg.member.permission.has('manageGuild') && ['toggleplugin', 'togglecommand'].includes(msg.command.info.name);
+
+						if (pluginConf.state === 'disabled' && !override) {
 							const showSetup = !Object.values(settings.raw.plugins).some(p => p.state === 'enabled' && msg.member.permission.has('manageGuild'));
 
 							if (showSetup) {
@@ -142,7 +145,7 @@ module.exports = class Ready {
 				}
 
 				if (process.env.VERBOSE === 'true') {
-					console.log(`executing ${msg.command.info.name}`);
+					console.log(`executing ${msg.command.info.name} ${Date.now()}`);
 				}
 
 				return msg.command.execute(msg, msg.args, {

@@ -31,7 +31,9 @@ module.exports = class extends Command {
 			({ current: { level } } = this.Atlas.lib.xputil.getUserXPProfile(guildProfile.xp));
 
 			await this.Atlas.DB.get('users').update({ id: user.id, 'guilds.id': msg.guild.id }, {
-				'guilds.$.xp': 0,
+				$set: {
+					'guilds.$.xp': 0,
+				},
 			});
 		}
 

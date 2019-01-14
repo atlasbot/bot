@@ -13,7 +13,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, null, 'toggleplugin');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'toggleplugin');
 
 		if (!args.length) {
 			return responder.error('noArgs').send();
@@ -34,10 +34,12 @@ module.exports = class extends Command {
 			return responder.error('noPlugin', query).send();
 		}
 
-		const { state } = settings.plugin(plugin.name.toLowerCase());
+		const { state } = settings.plugin(plugin.name);
 
 		await settings.update({
-			[`plugins.${plugin.name.toLowerCase()}.state`]: opposites[state],
+			$set: {
+				[`plugins.${plugin.name.toLowerCase()}.state`]: opposites[state],
+			},
 		});
 
 		return responder.text('success', plugin.name, opposites[state]).send();
