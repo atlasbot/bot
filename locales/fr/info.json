@@ -4,7 +4,7 @@
 		"usage": "<search>"
 	},
 	"iam": {
-		"description": "Give yourself a role that server admins have published.",
+		"description": "Donnez-vous un rôle que les administrateurs du serveur ont publié.",
 		"usage": "<role>"
 	},
 	"purgeban": {
@@ -16,7 +16,7 @@
 		"usage": "[units] [from] [to]"
 	},
 	"haveibeenpwned": {
-		"description": "Check if you have an account that has been compromised in a data breach. **Do not include any information you do not want other guild members to see**.",
+		"description": "Vérifiez si votre compte a été compromis par une violation de données. ** N'incluez aucune information que vous ne voulez pas que les autres membres de la guilde voient **.",
 		"usage": "[account]"
 	},
 	"isspass": {
@@ -24,14 +24,14 @@
 		"usage": "[location]"
 	},
 	"fact": {
-		"description": "Get a random, somewhat interesting, possibly inaccurate fact."
+		"description": "Obtenez un fait aléatoire, quelque peu intéressant, voire inexact."
 	},
 	"spacex": {
 		"base": {
-			"description": "Information about SpaceX and the cool shit they have."
+			"description": "Des informations sur SpaceX et de la merde fraîche dont ils disposent."
 		},
 		"launches": {
-			"description": "Gets information on past, present and future SpaceX launches.",
+			"description": "Obtenez des informations sur les lancements passés, présents et futurs de SpaceX.",
 			"usage": "<launch name>"
 		},
 		"rockets": {
@@ -44,46 +44,46 @@
 		}
 	},
 	"needsmorejpeg": {
-		"description": "Fucks up your image with JPEG compression. There is no such thing as too much jpeg.",
+		"description": "Va te faire voir avec ton image et la compression JPEG.",
 		"usage": "<image url> <quality=2.5>"
 	},
 	"randomcase": {
-		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
+		"description": "LeTTrE MAjusCulE et MinuScuLE alEAtoIremEnt.",
 		"usage": "[TeXt]"
 	},
 	"dashboard": {
 		"description": "Obtenez un lien vers le tableau de bord des serveurs."
 	},
 	"resetlevel": {
-		"description": "Reset a users level.",
+		"description": "Réinitialiser le niveau d'utilisateurs.",
 		"usage": "[user]"
 	},
 	"playlist": {
 		"base": {
-			"description": "Create, manage, delete music playlists."
+			"description": "Créer, gérer, supprimer des playlists de musique."
 		},
 		"create": {
-			"description": "Creates a playlist from the current queue.",
+			"description": "Créer, gérer, supprimer des liste de lecture de musique.",
 			"usage": "[name]"
 		},
 		"list": {
-			"description": "Lists all your existing playlists.",
+			"description": "Afficher toute vos listes de lecture existantes.",
 			"usage": "<playlist name/id>"
 		},
 		"delete": {
-			"description": "Delete one of your existing playlists.",
+			"description": "Supprimer l'une de vos listes de lecture.",
 			"usage": "[playlist name/id]"
 		},
 		"play": {
-			"description": "Plays a playlist.",
+			"description": "Joue une liste de lecture.",
 			"usage": "[playlist name/id]"
 		},
 		"addqueue": {
-			"description": "Adds the current queue to an existing playlist.",
+			"description": "Ajouter la file d'attente actuelle à une liste de lecture existante.",
 			"usage": "[playlist name/id]"
 		},
 		"removetrack": {
-			"description": "Remove a track from your playlist.",
+			"description": "Supprimer une piste de votre liste de lecture.",
 			"usage": "[playlist name/id] [track]"
 		}
 	},
