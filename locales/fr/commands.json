@@ -28,7 +28,7 @@
 	},
 	"convert": {
 		"invalidUnits": "Veuillez inclure des unités valides.",
-		"invalidFrom": "Veuillez inclure une durée de mute valide.",
+		"invalidFrom": "Veuillez indiquer une mesure valide.",
 		"invalidTo": "Veuillez inclure une mesure valide.",
 		"currency": {
 			"invalidTarget": "Cible actuelle invalide `{0}`",
@@ -751,6 +751,6 @@
 		"noResults": "I could not find a location matching `{0}`.",
 		"title": "ISS Passes Over {0}",
 		"format": "• {0} pour {1}",
-		"footer": "Times are local to {0}."
+		"footer": "Les heures correspondent à {0}."
 	}
 }
