@@ -88,35 +88,35 @@
 		}
 	},
 	"volume": {
-		"description": "Sets the player's volume.",
+		"description": "Définit le volume du lecteur.",
 		"usage": "[volume %]"
 	},
 	"stop": {
-		"description": "Stops the player and clears the queue, but doesn't leave the channel."
+		"description": "Arrête le lecteur et efface la file d'attente, mais ne quitte pas le canal."
 	},
 	"seek": {
-		"description": "Move the player's position.",
+		"description": "Déplace la position du lecteur.",
 		"usage": "[position]"
 	},
 	"resume": {
-		"description": "Resumes the player if it is paused."
+		"description": "Reprend le lecteur s'il est en pause."
 	},
 	"repeat": {
-		"description": "Toggles player repeat on/off."
+		"description": "Active ou désactive la répétition du lecteur."
 	},
 	"remove": {
-		"description": "Removes a song from the queue.",
-		"usage": "[queue position]"
+		"description": "Supprimer toutes les chansons de la file.",
+		"usage": "Position dans la file"
 	},
 	"shift": {
-		"description": "Shift a song's position in the queue.",
+		"description": "Décale la position d'une chanson dans la file d'attente.",
 		"usage": "[current position] [new position]"
 	},
 	"pause": {
-		"description": "Pauses the player."
+		"description": "Met le lecteur en pause."
 	},
 	"join": {
-		"description": "Make Atlas join your voice channel."
+		"description": "Amenez Atlas à rejoindre votre canal vocal."
 	},
 	"togglecommand": {
 		"description": "Active ou désactive une commande.",
@@ -138,10 +138,10 @@
 		"usage": "[text]"
 	},
 	"nodes": {
-		"description": "Gets information/statuses about available voice nodes."
+		"description": "Obtient des informations / états sur les serveurs vocaux disponibles."
 	},
 	"vaporwave": {
-		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"description": "Convertit le texte en ｖａｐｏｒｗａｖｅ",
 		"usage": "[text]"
 	},
 	"channelspaces": {
