@@ -45,7 +45,7 @@
 		"noBreaches": "Impressionnant! Il n'y a pas d'infractions connues pour votre compte.",
 		"unknownError": "Quelque chose de terrible est arrivé. Assurez-vous qu'Atlas peut vous envoyer un message direct si vous êtes sur un serveur.",
 		"breach": "Infraction",
-		"pwnedUsers": "Pwned Users",
+		"pwnedUsers": "Utilisateurs couronnés",
 		"compromisedData": "Données compromises",
 		"footer": "Infraction {0}/{1}"
 	},
