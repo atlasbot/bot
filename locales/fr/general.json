@@ -1,22 +1,22 @@
 {
 	"welcome": {
 		"title": "Oh hey!",
-		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
+		"description": "Il semble que vous utilisiez pour la première fois Atlas. Pour commencer, utilisez le [dashboard](https://atlasbot.xyz) pour configurer votre serveur.\n\nSi jamais vous avez besoin d’aide, rejoignez notre [serveur de support] (https://atlasbot.xyz/support)",
 		"footer": "Ne soyez pas effrayé pour demander de l'aide!"
 	},
 	"help": {
 		"examples": "Exemples",
 		"aliases": "Pseudonymes",
 		"subcommands": "Sous-commandes",
-		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
+		"footer": "Effectué {0}Aide {1} <subcommand> pour afficher une sous-commande.",
 		"usage": "Utilisation",
 		"userPerms": "Permissions d'un utilisateur",
 		"botPerms": "Permissions d'un robot",
-		"supportedFlags": "Supported Flags"
+		"supportedFlags": "Drapeaux supportés"
 	},
 	"roles": {
-		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
-		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
+		"reactionAdd": "Le(s) rôle(s) `{0}` vous ont été attribués pour réagir avec {1}.",
+		"reactionRemove": "Vous n'avez plus le (s) rôle (s) `{0}` car votre réaction a été supprimée."
 	},
 	"plugin": {
 		"disabled": "Le plugins `{0}` a été désactivé par un administrateur du serveur.",
@@ -26,13 +26,13 @@
 				"channel": "Ce salon n'est pas autorisé à utiliser ce plugin."
 			},
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that plugin.",
-				"channel": "You are in a channel that is blacklisted from using that plugin."
+				"role": "Vous avez un rôle qui interdit l'utilisation de ce plugin.",
+				"channel": "Vous dans un salon qui interdit l'utilisation de ce plugin."
 			}
 		}
 	},
 	"command": {
-		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
+		"restError": "<:sadpanda:497907940225843220> Une erreur s'est produite lors de la prise de contact avec un service externe. Veuillez réessayer dans quelques minutes.",
 		"errorExecuting": "Une erreur inconnue s'est produite lors de l'exécution de la commande.",
 		"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
 		"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
@@ -40,11 +40,11 @@
 		"disabled": "La commande `{0}` a été désactivée par un administrateur du serveur.",
 		"restrictions": {
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that command.",
-				"channel": "This channel is blacklisted from using that command."
+				"role": "Vous avez un rôle qui interdit l'utilisation de cette commande.",
+				"channel": "Ce salon a interdiction d'utiliser cette commande."
 			},
 			"whitelist": {
-				"role": "You are not whitelisted to use that command.",
+				"role": "Vous n'êtes pas autorisé à utiliser cette commande.",
 				"channel": "Ce salon n'est pas autorisé à utiliser cette commande."
 			}
 		}
@@ -72,7 +72,7 @@
 	},
 	"player": {
 		"sameVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"noVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
 		"none": "Il n'y a rien de joué sur ce serveur.",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
@@ -297,10 +297,10 @@
 	"notPunishable": "Vous n'avez pas la permission requise pour punir cet utilisateur.",
 	"lolno": "Je ne peux pas punir cet utilisateur car son niveau de permission est supérieur au mien.",
 	"music": {
-		"trackException": "An error occured playing the track, skipping...",
-		"emptyPause": "All users have left the voice channel - the player has been paused.",
-		"playingTrack": "Now playing `{0}` ({1})",
-		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"trackException": "Une erreur s'est produite lors de la lecture de la piste, ignore celle-ci...",
+		"emptyPause": "Tous les utilisateurs ont quitté le canal vocal. Le lecteur a été mis en pause.",
+		"playingTrack": "Joue actuellement `{0}` ({1})",
+		"noVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
 		"position": {
 			"name": "Position",
 			"value": "{0}"
@@ -428,11 +428,11 @@
 		"noSubActions": "Cet action n'a pas de sous-action à exécuter.",
 		"restrictions": {
 			"blacklist": {
-				"role": "You have a role that is blacklisted from using that action.",
+				"role": "Vous avez un rôle qui interdit l'utilisation de cette action.",
 				"channel": "Ce salon a interdiction d'utiliser cette action."
 			},
 			"whitelist": {
-				"role": "Vous n'êtes pas autorisé à effectuer cette acton.",
+				"role": "Vous n'êtes pas autorisé à effectuer cette action.",
 				"channel": "Ce salon n'est pas autorisé à effectuer cette action."
 			}
 		}
