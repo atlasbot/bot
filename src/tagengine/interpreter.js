@@ -93,7 +93,7 @@ const interp = async (tokens = [], context, functions) => {
 					if (e instanceof TagError) {
 						errors.push(e);
 					} else {
-						errors.push(new TagError(e));
+						throw new Error(e);
 					}
 
 					if (process.env.NODE_ENV === 'development' || process.env.VERBOSE === 'true') {
