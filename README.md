@@ -87,9 +87,9 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 | REDIS_HOST \*  | The host for Redis.                                                                                                             |
 | REDIS_PASS \*  | The password for the Redis server                                                                                               |
 | REDIS_PORT \*  | The port for the Redis server                                                                                                   |
-| YOUTUBE_KEY \* | A YouTube Data API key. Currently only used for autoplay.                                                                       |
 | DBL_KEY \*     | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵                            |
 | PATREON_KEY \* | Used to tell who is a patreon and who isn't.                                                                                    |
+| LASTFM_KEY \*  | Used to find related songs for autoplay.                                                                                        |
 
 _\* Optional, but some features may not work without them._
 

@@ -535,53 +535,93 @@ module.exports = class Util {
 	 * @param {Object} player.node The node to use when searching for tracks.
 	 * @param {Object} track A track to use
 	 */
-	async relatedTrack({ node }, { info }) {
-		let { identifier } = info;
-		const { uri } = info;
+	async relatedTrack(player, { info }) {
+		const parsedTitle = this.Atlas.lib.utils.filterTrackName(info.title);
 
-		if (!url.parse(uri).hostname.includes('youtube.com')) {
-			// because this relies on youtube, basically just searching for the same song on youtube.
-			// every time, 70% of the time, this works.
-			identifier = (await superagent.get('https://www.googleapis.com/youtube/v3/search')
+		try {
+			const { body: { results: { trackmatches: { track: [track] } } } } = await superagent.get('http://ws.audioscrobbler.com/2.0/?method=track.search')
 				.query({
-					part: 'id',
-					q: info.title,
-					type: 'video',
-					key: process.env.YOUTUBE_KEY,
-					maxResults: 1,
-					chart: 'mostPopular',
-				})
-				.set('User-Agent', this.Atlas.userAgent)).body.items[0].id.videoId;
-		}
+					track: parsedTitle,
+					api_key: process.env.LASTFM_KEY,
+					format: 'json',
+				});
 
-		const existing = await this.musicCache.get(identifier);
-		if (existing) {
-			return existing;
-		}
+			if (!track) {
+				return;
+			}
 
-		const { body: { items } } = await superagent.get('https://www.googleapis.com/youtube/v3/search')
-			.query({
-				part: 'id',
-				relatedToVideoId: identifier,
-				type: 'video',
-				key: process.env.YOUTUBE_KEY,
-				maxResults: 1,
-				chart: 'mostPopular',
-			})
-			.set('User-Agent', this.Atlas.userAgent);
+			const closest = async () => {
+				// if last.fm doesn't give us something similar we'll search for other songs by the artist as a fallback
+				const { body: { tracks } } = await superagent.get(`http://${player.node.host}:2333/loadtracks`)
+					.query({
+						identifier: `ytsearch:${track.artist}`,
+					})
+					.set('Authorization', player.node.password);
 
-		if (items.length) {
-			const { videoId } = items[0].id;
+				if (tracks.length) {
+					return tracks.find(t => !t.info.title.toLowerCase().includes(track.name.toLowerCase())) || tracks[0];
+				}
+			};
 
-			const [track] = (await superagent.get(`http://${node.host}:2333/loadtracks`)
+			const { body: { similartracks: { track: similarTracks } } } = await superagent.get('http://ws.audioscrobbler.com/2.0/?method=track.getsimilar')
 				.query({
-					identifier: videoId,
+					artist: track.artist,
+					track: track.name,
+					api_key: process.env.LASTFM_KEY,
+					format: 'json',
+				});
+
+			let similar;
+			for (const candidate of similarTracks) {
+				let played;
+
+				if (player.autoplayCache.has(candidate.name)) {
+					played = true;
+				}
+
+				if (!played) {
+					// this may get slow for large queues
+					const playedTitles = player.played.map(({ info: { title: trackName } }) => ({
+						title: this.Atlas.lib.utils.filterTrackName(trackName),
+					}));
+
+					for (const title of [candidate.name, `${candidate.artist.name} - ${candidate.name}`]) {
+						played = this.Atlas.lib.utils.nbsFuzzy(playedTitles, ['title'], title, {
+							matchPercent: 0.65,
+						});
+
+						if (played) {
+							break;
+						}
+					}
+				}
+
+				if (!played) {
+					similar = candidate;
+
+					break;
+				}
+			}
+
+			if (!similar) {
+				return closest();
+			}
+
+			const { body: { tracks: [result] } } = await superagent.get(`http://${player.node.host}:2333/loadtracks`)
+				.query({
+					identifier: `ytsearch:${similar.artist.name} ${similar.name}`,
 				})
-				.set('Authorization', node.password)).body.tracks;
+				.set('Authorization', player.node.password);
 
-			await this.this.musicCache.set(identifier, track);
+			if (!result) {
+				return;
+			}
 
-			return track;
+			player.autoplayCache.set(similar.name, result.info.title);
+
+			return result;
+		} catch (e) {
+			console.warn(e);
 		}
 	}
 

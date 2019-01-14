@@ -1,4 +1,5 @@
 const { Player } = require('eris-lavalink');
+
 const PlayerResponder = require('./PlayerResponder');
 
 module.exports = class extends Player {
@@ -11,6 +12,8 @@ module.exports = class extends Player {
 		this.msg = null;
 		this.autoplay = false;
 		this.repeat = false;
+		this.played = [];
+		this.autoplayCache = new Map();
 	}
 
 	get responder() {
@@ -177,9 +180,11 @@ module.exports = class extends Player {
 				return;
 			}
 
+			this.played.push(this.track || this.lastTrack);
+
 			if (this.repeat) {
 				// add it to the end of the queue
-				this.queue.push(this.lastTrack || this.track);
+				this.queue.push(this.track || this.lastTrack);
 			}
 
 			if (this.queue.length) {
