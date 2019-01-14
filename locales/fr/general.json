@@ -74,7 +74,7 @@
 		"sameVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
 		"noVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
 		"none": "Il n'y a rien de joué sur ce serveur.",
-		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
+		"trackQueued": "Ajout de {0} à la file d'attente. Cela sera joué dans environ {1}.",
 		"npEmbed": {
 			"ttp": "Temps avant de jouer",
 			"addedBy": "Ajouté par",
