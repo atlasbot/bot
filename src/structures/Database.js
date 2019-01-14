@@ -1,4 +1,6 @@
 const monk = require('monk');
+const Guild = require('eris/lib/structures/Guild');
+
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
 const defaultSettings = require('../../data/defaultSettings.json');
@@ -32,7 +34,7 @@ module.exports = class Database {
 
 		const data = deepMerge(defaultSettings, settings);
 
-		return new Settings(data);
+		return new Settings(data, guild instanceof Guild && guild);
 	}
 
 	async user(user) {
