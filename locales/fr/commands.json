@@ -41,26 +41,26 @@
 		}
 	},
 	"haveibeenpwned": {
-		"success": "Success! Check your direct-messages for a list of your breached accounts.",
-		"noBreaches": "Awesome! There are no known breaches for your account.",
-		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
-		"breach": "Breach",
+		"success": "Succès! Consultez vos messages directs pour obtenir une liste de vos comptes en infraction.",
+		"noBreaches": "Impressionnant! Il n'y a pas d'infractions connues pour votre compte.",
+		"unknownError": "Quelque chose de terrible est arrivé. Assurez-vous qu'Atlas peut vous envoyer un message direct si vous êtes sur un serveur.",
+		"breach": "Infraction",
 		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Compromised Data",
-		"footer": "Breach {0}/{1}"
+		"compromisedData": "Données compromises",
+		"footer": "Infraction {0}/{1}"
 	},
 	"needsmorejpeg": {
-		"noArgs": "Please include an image attachment or image URL.",
+		"noArgs": "Veuillez inclure une image en pièce jointe ou une URL d'image.",
 		"invalidUrl": "`{0}` is not a valid URL."
 	},
 	"randomcase": {
-		"noArgs": "Please include something to raNdomIsE."
+		"noArgs": "Veuillez inclure l'utilisateur quelque chose à faire."
 	},
-	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
+	"dashboard": "Vous pouvez configurer votre serveur à l'adresse <https://atlasbot.xyz/meera/{0}>.",
 	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
+		"noArgs": "Veuillez inclure l'utilisateur a réinitialiser les niveaux.",
 		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+		"success": "{0} a eu ces niveaux remis a zéro."
 	},
 	"playlist": {
 		"create": {
