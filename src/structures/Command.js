@@ -54,6 +54,7 @@ class Command {
 
 	async execute(msg, args, {
 		settings,
+		tag: isTag,
 		...passthrough
 	}) {
 		const responder = new Responder(msg, msg.lang, 'general');
@@ -79,7 +80,12 @@ class Command {
 
 			// permission checking for bot/user
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
-				const permissions = Object.keys(this.info.permissions[permsKey]);
+				let permissions = Object.keys(this.info.permissions[permsKey]);
+
+				if (this.info.name === 'advancedembed' && isTag && permsKey === 'user') {
+					permissions = {};
+				}
+
 				for (const perm of permissions) {
 					const perms = msg.channel.permissionsOf((permsKey === 'bot' ? msg.guild.me : msg.member).id);
 

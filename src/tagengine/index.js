@@ -110,6 +110,7 @@ module.exports = class {
 								content: `${settings.prefix}${label} ${args.join(' ')}`.trim(),
 								timestamp: msg.timestamp || Date.now(),
 							}, args, {
+								tag: true,
 								settings,
 							});
 
