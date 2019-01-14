@@ -409,7 +409,7 @@
 		"embed": {
 			"library": "Bibliothèque",
 			"servers": {
-				"name": "Serveur",
+				"name": "Serveurs",
 				"none": "Inconnu"
 			},
 			"shards": {
