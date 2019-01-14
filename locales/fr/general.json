@@ -45,7 +45,7 @@
 			},
 			"whitelist": {
 				"role": "You are not whitelisted to use that command.",
-				"channel": "This channel is not whitelisted to use that command."
+				"channel": "Ce salon n'est pas autorisé à utiliser cette commande."
 			}
 		}
 	},
@@ -71,13 +71,13 @@
 		}
 	},
 	"player": {
-		"sameVoiceChannel": "You must be in my voice channel to do that.",
+		"sameVoiceChannel": "Vous devez être dans un salon vocal pour faire cela.",
 		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"none": "Il n'y a rien de joué sur ce serveur.",
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Temps avant de jouer",
-			"addedBy": "Added By",
+			"addedBy": "Ajouté par",
 			"author": "Auteur",
 			"duration": "Durée",
 			"footer": "{0} dans la file d’attente"
@@ -93,14 +93,14 @@
 	},
 	"logs": {
 		"levelReset": {
-			"title": "Level Reset",
-			"description": "{0} has had their level reset from `{1}` to `0`.",
+			"title": "Niveau réinitialisé",
+			"description": "{0} a eu ces niveaux remis a zéro de `{1}` à `0`.",
 			"moderator": {
 				"name": "Administrateur",
 				"value": "{0}"
 			},
 			"target": {
-				"name": "Target",
+				"name": "Cible",
 				"value": "{0}"
 			}
 		},
@@ -319,7 +319,7 @@
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Ajouté par",
 			"value": "{0}"
 		},
 		"author": {
@@ -432,7 +432,7 @@
 				"channel": "This channel is blacklisted from using that action."
 			},
 			"whitelist": {
-				"role": "You are not whitelisted to use that action.",
+				"role": "Vous n'êtes pas autorisé à effectuer cette acton.",
 				"channel": "This channel is not whitelisted to use that action."
 			}
 		}
