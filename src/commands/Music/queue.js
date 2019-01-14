@@ -41,7 +41,7 @@ module.exports = class extends Command {
 
 			const embed = {
 				title: 'general.music.nowPlaying.name',
-				description: ['general.music.nowPlaying.value', np.info.title, np.info.uri],
+				description: ['general.music.nowPlaying.value', this.Atlas.lib.utils.filterTrackName(np.info.title), np.info.uri],
 				fields: [],
 			};
 
@@ -64,7 +64,7 @@ module.exports = class extends Command {
 				embed.fields.push({
 					name: 'upNext.value',
 					value: page.data
-						.map(m => responder.format('upNext.format', m.index + 1, m.info.title, m.info.uri))
+						.map(m => responder.format('upNext.format', m.index + 1, this.Atlas.lib.utils.filterTrackName(m.info.title), m.info.uri))
 						.join('\n')
 						.substring(0, 1024),
 				});

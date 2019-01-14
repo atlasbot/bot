@@ -102,7 +102,7 @@ module.exports = class extends Command {
 				const tmpMsg = await responder.embed({
 					color: 3553599,
 					title: 'play.searchResults.title',
-					description: body.tracks.slice(0, 5).map((t, i) => `${i + 1}. [${t.info.title}](${t.info.uri})`).join('\n'),
+					description: body.tracks.slice(0, 5).map((t, i) => `${i + 1}. [${this.Atlas.lib.utils.filterTrackName(t.info.title)}](${t.info.uri})`).join('\n'),
 					timestamp: new Date(),
 					footer: {
 						text: ['play.searchResults.footer', msg.displayPrefix],

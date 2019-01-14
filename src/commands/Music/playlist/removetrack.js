@@ -56,7 +56,7 @@ module.exports = class extends Command {
 			},
 		});
 
-		return responder.text('success', track.info.title, playlist.name).send();
+		return responder.text('success', this.Atlas.lib.utils.filterTrackName(track.info.title), playlist.name).send();
 	}
 };
 

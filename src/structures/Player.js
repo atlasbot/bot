@@ -99,7 +99,7 @@ module.exports = class extends Player {
 
 			if (notify) {
 				return this.responder
-					.text('general.player.trackQueued', track.info.title, this.Atlas.lib.utils.prettyMs(this.ttp - track.info.length))
+					.text('general.player.trackQueued', this.Atlas.lib.utils.filterTrackName(track.info.title), this.Atlas.lib.utils.prettyMs(this.ttp - track.info.length))
 					.buttons(false)
 					.send();
 			}
@@ -133,7 +133,7 @@ module.exports = class extends Player {
 
 		if (notify && !options.hide_nowplaying) {
 			if (options.small_msgs) {
-				return this.responder.text('general.music.playingTrack', track.info.title, this.Atlas.lib.utils.prettyMs(track.info.length)).send();
+				return this.responder.text('general.music.playingTrack', this.Atlas.lib.utils.filterTrackName(track.info.title), this.Atlas.lib.utils.prettyMs(track.info.length)).send();
 			}
 
 			return this.responder.embed(this.npEmbed(track)).send();
@@ -142,7 +142,7 @@ module.exports = class extends Player {
 
 	npEmbed(track) {
 		return {
-			description: `[${track.info.title}](${track.info.uri})`,
+			description: `[${this.Atlas.lib.utils.filterTrackName(track.info.title)}](${track.info.uri})`,
 			fields: [{
 				name: 'general.player.npEmbed.author',
 				value: track.info.author,

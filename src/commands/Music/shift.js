@@ -47,7 +47,7 @@ module.exports = class extends Command {
 
 		player.queue.splice(newIndex, 0, track);
 
-		return responder.text('moved', track.info.title, currIndex + 1, newIndex + 1).send();
+		return responder.text('moved', this.Atlas.lib.utils.filterTrackName(track.info.title), currIndex + 1, newIndex + 1).send();
 	}
 };
 

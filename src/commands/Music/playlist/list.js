@@ -40,7 +40,7 @@ module.exports = class extends Command {
 
 			const duration = playlist.tracks.reduce((a, b) => a + b.info.length, 0);
 
-			let trackField = playlist.tracks.slice(0, TRACKS_PREVIEW_SIZE).map((track, i) => `${i + 1}. [${track.info.title}](${track.info.uri})`).join('\n');
+			let trackField = playlist.tracks.slice(0, TRACKS_PREVIEW_SIZE).map((track, i) => `${i + 1}. [${this.Atlas.lib.utils.filterTrackName(track.info.title)}](${track.info.uri})`).join('\n');
 			if (playlist.tracks.length > TRACKS_PREVIEW_SIZE) {
 				trackField += `\n  ${responder.format('more', playlist.tracks.length = TRACKS_PREVIEW_SIZE)}`;
 			}

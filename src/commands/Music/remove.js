@@ -42,7 +42,7 @@ module.exports = class extends Command {
 
 		player.queue.splice(currIndex, 1);
 
-		return responder.text('removed', track.info.title).send();
+		return responder.text('removed', this.Atlas.lib.utils.filterTrackName(track.info.title)).send();
 	}
 };
 
