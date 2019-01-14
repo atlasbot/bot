@@ -83,7 +83,7 @@ class Command {
 				let permissions = Object.keys(this.info.permissions[permsKey]);
 
 				if (this.info.name === 'advancedembed' && isTag && permsKey === 'user') {
-					permissions = {};
+					permissions = [];
 				}
 
 				for (const perm of permissions) {
