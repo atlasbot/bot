@@ -9,7 +9,7 @@
 		"humidity": "Humidité",
 		"wind": {
 			"name": "Vent",
-			"value": "{0}kph"
+			"value": "{0}km/h"
 		}
 	},
 	"smalltext": {
@@ -31,12 +31,12 @@
 		"invalidFrom": "Veuillez inclure une durée de mute valide.",
 		"invalidTo": "Veuillez inclure une mesure valide.",
 		"currency": {
-			"invalidTarget": "Invalid target currency `{0}`",
-			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+			"invalidTarget": "Cible actuelle invalide `{0}`",
+			"converted": "`{0}` {1} est *grossié* `{2}` {3}."
 		},
 		"other": {
-			"unknownInput": "Unknown input format.",
-			"unknownOutput": "Unknown output format.",
+			"unknownInput": "Format d'entrée inconnu.",
+			"unknownOutput": "Format de sortie inconnu.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
@@ -103,12 +103,12 @@
 	},
 	"volume": {
 		"noArgs": "Please include a volume number between 1% and 150%.",
-		"tooLow": "The volume cannot go below 1%.",
-		"tooHigh": "The volume cannot go over 150%.",
-		"success": "The volume is now at `{0}%`."
+		"tooLow": "Le volume ne peut pas descendre en dessous de 1%.",
+		"tooHigh": "Le volume ne peut pas dépasser 150%.",
+		"success": "Le volume est actuellement a `{0}%`."
 	},
 	"stop": {
-		"stopped": "The player has been stopped."
+		"stopped": "Le joueur a été arrêté."
 	},
 	"seek": {
 		"noArgs": "Please include a position to seek to.",
