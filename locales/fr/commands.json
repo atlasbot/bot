@@ -67,42 +67,42 @@
 			"noArgs": "Merci d'entrer un nom pour votre nouvelle liste de lecture.",
 			"nothingPlaying": "Veuillez ajouter quelque chose a votre file d'attente avant de créer une liste de lecture.",
 			"success": "Liste de lecture créée! Vous pouvez utiliser la `{0}playlist play {1}` pour lire votre liste de lecture.",
-			"tooLong": "Your playlist name must be under 24 characters long.",
-			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+			"tooLong": "Le nom de votre liste de lecture doit comporter moins de 24 caractères.",
+			"livestreamFound": "Votre file d'attente contient un flux direct (stream), qui ne peut pas être ajouté à une liste de lecture."
 		},
 		"list": {
-			"noPlaylists": "You do not have any playlists.",
-			"more": "+ `{0}` more",
-			"description": "{0} total tracks",
+			"noPlaylists": "Vous ne disposez d'aucune liste de lecture.",
+			"more": "+ `{0}` plus",
+			"description": "{0} nombre total de pistes",
 			"duration": "Durée",
 			"created": "Crée",
-			"updated": "Updated",
-			"tracks": "Tracks",
-			"footer": "{0} • Playlist {1}/{2}"
+			"updated": "Mis à jour",
+			"tracks": "Pistes",
+			"footer": "{0} • Liste de lecture {1}/{2}"
 		},
 		"delete": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "The `{0}` playlist has been deleted successfully."
+			"noArgs": "Veuillez ajouter un nom ou ID de liste de lecture!",
+			"noPlaylists": "Vous ne disposez d'aucune liste de lecture.",
+			"noneFound": "Je n'ai pas pu trouver de playlist correspond à `{0}`.",
+			"success": "La playlist `{0}` a été supprimée avec succès."
 		},
 		"addqueue": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "Added {0} tracks to the `{1}` playlist."
+			"noArgs": "Veuillez ajouter un nom ou ID de liste de lecture!",
+			"noPlaylists": "Vous ne disposez d'aucune liste de lecture.",
+			"noneFound": "Je n'ai pas pu trouver de playlist correspond à `{0}`.",
+			"success": "Ajout de {0} pistes à la playlist `{1}`."
 		},
 		"removetrack": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"noQuery": "Please include a track name to search for and remove.",
-			"noTrack": "I could not find a track matching `{0}`.",
-			"success": "Removed `{0}` from your `{1}` playlist."
+			"noArgs": "Veuillez ajouter un nom ou ID de liste de lecture!",
+			"noPlaylists": "Vous ne disposez d'aucune liste de lecture.",
+			"noneFound": "Je n'ai pas pu trouver de playlist correspond à `{0}`.",
+			"noQuery": "Veuillez indiquer un nom de piste à rechercher et à supprimer.",
+			"noTrack": "Je n'ai pas trouvé de piste correspondant à `{0}`.",
+			"success": "Suppression de `{0}` de votre liste de lecture `{1}`."
 		}
 	},
 	"volume": {
-		"noArgs": "Please include a volume number between 1% and 150%.",
+		"noArgs": "Please indiquer un volume entre 1% et 150%.",
 		"tooLow": "Le volume ne peut pas descendre en dessous de 1%.",
 		"tooHigh": "Le volume ne peut pas dépasser 150%.",
 		"success": "Le volume est actuellement a `{0}%`."
@@ -111,11 +111,11 @@
 		"stopped": "Le joueur a été arrêté."
 	},
 	"seek": {
-		"noArgs": "Please include a position to seek to.",
-		"notSeekable": "This track is not seekable.",
-		"noTimestamp": "Please include a valid timestamp.",
-		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
-		"seeked": "Skipped to {0} in."
+		"noArgs": "Veuillez indiquer une position a chercher.",
+		"notSeekable": "Cette piste n'est pas recherchée.",
+		"noTimestamp": "Veuillez indiquer un horodatage valide.",
+		"overTrackLength": "Vous essayez de chercher trop loin, la piste n’est que de {0}.",
+		"seeked": "Passé a {0}."
 	},
 	"resume": {
 		"notPaused": "The player is not paused.",
