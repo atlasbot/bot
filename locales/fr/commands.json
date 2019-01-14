@@ -51,7 +51,7 @@
 	},
 	"needsmorejpeg": {
 		"noArgs": "Veuillez inclure une image en pièce jointe ou une URL d'image.",
-		"invalidUrl": "`{0}` is not a valid URL."
+		"invalidUrl": "'{0}' n'est pas un URL valide."
 	},
 	"randomcase": {
 		"noArgs": "Veuillez entrer quelque chose à faire."
@@ -59,7 +59,7 @@
 	"dashboard": "Vous pouvez configurer votre serveur à l'adresse <https://atlasbot.xyz/meera/{0}>.",
 	"resetlevel": {
 		"noArgs": "Veuillez entrer l'utilisateur a réinitialiser les niveaux.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "Je n'ai pas trouvé d'utilisateur correspondant `{0}`.",
 		"success": "{0} a eu ces niveaux remis a zéro."
 	},
 	"playlist": {
@@ -240,9 +240,9 @@
 			"value": "[Cliquez ici] (https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
+	"uptime": "J’ai été en ligne pour {0}.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "Vous devez me dire qui chercher!",
 		"embed": {
 			"tag": {
 				"name": "Mot clé",
@@ -250,7 +250,7 @@
 			},
 			"avatarURL": {
 				"name": "URL de l’avatar",
-				"value": "[Click here]({0})"
+				"value": "[Cliquez ici] ({0})"
 			},
 			"createdAt": {
 				"name": "Compte crée",
@@ -376,7 +376,7 @@
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
+		"noArgs": "Veuillez indiquer un utilisateur à débannir!",
 		"success": "{0} a été débanni."
 	},
 	"mute": {
@@ -532,11 +532,11 @@
 		"nsfwDef": "La définition de ce mot est NSFW. Veuillez utiliser un canal NSFW.",
 		"nsfwWord": "Ce mot est NSFW. Veuillez utiliser un canal NSFW.",
 		"author": "Auteur",
-		"votes": "{0} upvotes, {1} downvotes"
+		"votes": "{0} votes positifs, {1} votes négatifs"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
+			"cannotFind": "Je n'ai pas trouvé d'utilisateur correspondant `{0}`.",
 			"title": "Allons-y!"
 		},
 		"server": {
@@ -547,7 +547,7 @@
 		"unsupportedColor": "«{0}» n’est pas un format de couleurs pris en charge.",
 		"error": "Erreur de validation d'incorporation : `{0}`.",
 		"invalidEdit": "Je n'ai pas trouvé de message correspondant à `{0}`.",
-		"cannotEdit": "I cannot edit another users messages."
+		"cannotEdit": "Je ne peux pas modifier les messages d'autres personnes."
 	},
 	"discrim": {
 		"title": "Users with a #{0} Discriminator",
@@ -555,8 +555,8 @@
 		"none": "Il n’y a aucun utilisateur dans ce serveur avec ce discriminateur."
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "S’il vous plaît incluez quelque chose à chercher.",
+		"noResults": "Je n'ai rien trouvé en cherchant ça."
 	},
 	"inrole": {
 		"noArgs": "Vous devez fournir un nom/mention de rôle pour effectuer la recherche.",
@@ -587,7 +587,7 @@
 	},
 	"joined": {
 		"noArgs": "Veuillez inclure un utilisateur à vérifier.",
-		"noUser": "I could not find a user matching `{0}`.",
+		"noUser": "Je n'ai pas trouvé d'utilisateur correspondant `{0}`.",
 		"message": "{0} rejoint {1} à {2}."
 	},
 	"membercount": {
@@ -636,7 +636,7 @@
 		"memberOrGuild": "l'ID de {0} est `{1}`."
 	},
 	"roleinfo": {
-		"noArgs": "Please include a role.",
+		"noArgs": "Veuillez indiquer un rôle.",
 		"invalidRole": "Je n'ai pas trouvé de rôle correspondant à `{0}`.",
 		"id": {
 			"name": "ID"
@@ -667,7 +667,7 @@
 		"footer": "Crée le"
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Tu dois m'ajouter quelque chose a dire ."
 	},
 	"serverinfo": {
 		"name": {
@@ -697,8 +697,8 @@
 		"footer": "Crée"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Veuillez saisir une URL.",
+		"invalidURI": "'{0}' n'est pas un URL valide."
 	},
 	"time": {
 		"noArgs": "Veuillez indiquer un emplacement pour obtenir l'heure dans celle-ci.",
@@ -750,7 +750,7 @@
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
 		"title": "ISS Passes Over {0}",
-		"format": "• {0} for {1}",
+		"format": "• {0} pour {1}",
 		"footer": "Times are local to {0}."
 	}
 }
