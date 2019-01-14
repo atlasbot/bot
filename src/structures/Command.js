@@ -16,7 +16,7 @@ class Command {
 					min: 2000,
 					default: 2000,
 				},
-				guildOnly: true,
+				guildOnly: false,
 				hidden: false,
 				permissions: {
 					bot: {},
