@@ -2,16 +2,16 @@
 	"welcome": {
 		"title": "Oh hey!",
 		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
-		"footer": "Don't be afraid to ask for help!"
+		"footer": "Ne soyez pas effrayé pour demander de l'aide!"
 	},
 	"help": {
-		"examples": "Examples",
-		"aliases": "Aliases",
-		"subcommands": "Subcommands",
+		"examples": "Exemples",
+		"aliases": "Pseudonymes",
+		"subcommands": "Sous-commandes",
 		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
-		"usage": "Usage",
-		"userPerms": "User Permissions",
-		"botPerms": "Bot Permissions",
+		"usage": "Utilisation",
+		"userPerms": "Permissions d'un utilisateur",
+		"botPerms": "Permissions d'un robot",
 		"supportedFlags": "Supported Flags"
 	},
 	"roles": {
@@ -19,11 +19,11 @@
 		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
 	},
 	"plugin": {
-		"disabled": "That plugin has been disabled by a server administrator.",
+		"disabled": "Le plugins `{0}` a été désactivé par un administrateur du serveur.",
 		"restrictions": {
 			"whitelist": {
-				"role": "You are not whitelisted to use that plugin.",
-				"channel": "This channel is not whitelisted to use that plugin."
+				"role": "Vous n'êtes pas autorisé à utiliser ce plugin.",
+				"channel": "Ce salon n'est pas autorisé à utiliser ce plugin."
 			},
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that plugin.",
@@ -33,7 +33,7 @@
 	},
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
-		"errorExecuting": "An unknown internal error occured executing the command.",
+		"errorExecuting": "Une erreur inconnue s'est produite lors de l'exécution de la commande.",
 		"patronOnly": "Cette commande peut seulement être utilisé par les patrons. Faites `{0}pledge` pour plus d'information.",
 		"premiumOnly": "Seuls les serveurs premium peuvent utiliser cette commande. ",
 		"guildOnly": "Cette commande peut être seulement utilisée dans les serveurs!",
