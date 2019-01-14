@@ -118,23 +118,23 @@
 		"seeked": "Passé a {0}."
 	},
 	"resume": {
-		"notPaused": "The player is not paused.",
-		"resumed": "The player has been resumed."
+		"notPaused": "Le lecteur n'est pas en pause.",
+		"resumed": "Le lecteur a repris."
 	},
 	"repeat": {
-		"enabled": "Repeat has been enabled.",
-		"disabled": "Repeat has been disabled."
+		"enabled": "La boucle a été activée.",
+		"disabled": "La boucle a été désactivée."
 	},
 	"remove": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
-		"noTrack": "There is no track in the queue at position `{0}`.",
-		"removed": "`{0}` has been removed from the queue."
+		"invalidCurrIndex": "Veuillez fournir une file valide.",
+		"noTrack": "Il n'y a pas de piste dans la file d'attente à la position `{0}`.",
+		"removed": "'{0}' a été supprimé de la file."
 	},
 	"shift": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
-		"invalidNewIndex": "Please provide a valid queue position to move the track to.",
-		"noTrack": "There is no track in the queue at position `{0}`.",
-		"moved": "`{0}` has been moved from queue position `{1}` to position `{2}`."
+		"invalidCurrIndex": "Veuillez fournir une file valide.",
+		"invalidNewIndex": "Veuillez fournir une file d'attente valide pour déplacer la piste.",
+		"noTrack": "Il n'y a pas de piste dans la file d'attente à la position `{0}`.",
+		"moved": "`{0}` a été déplacer de la position `{1}` a la position `{2}`."
 	},
 	"pause": {
 		"alreadyPaused": {
@@ -145,21 +145,21 @@
 	},
 	"join": {
 		"alreadyPlaying": "Je joue actuellement à `{0}`.",
-		"joined": "Joined `{0}`.",
+		"joined": "Rejoint `{0}`.",
 		"switch": {
 			"notPaused": "Passez à `{0}`.",
-			"paused": "Switched to `{0}`. The player is paused, you'll have to resume it to resume playback."
+			"paused": "Basculé sur `{0}`. Le lecteur est en pause, vous devrez le reprendre pour reprendre la lecture."
 		}
 	},
 	"nodes": {
-		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
-		"node": "Node",
+		"noNodes": "Hmmm, quelque chose ne va pas. Il semble que je ne suis connecté à aucun serveur vocal ._. ce n'est pas censé arriver.",
+		"node": "Serveur",
 		"players": "Joueurs",
 		"events": "Évènements",
-		"footer": "Atlas' Voice Nodes"
+		"footer": "Serveurs vocaux d'Atlas"
 	},
 	"vaporwave": {
-		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+		"noArgs": "Indiquez quelque chose à convertir en ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
 		"enabled": "Autoplay a été activé.",
@@ -203,9 +203,9 @@
 			"Pelleter du charbon dans le serveur...",
 			"Pour ma défense, c'est encore plus rapide que vous pourriez le faire...",
 			"En attendant que les étoiles s'alignent...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
+			"Allez-y, retenez votre souffle...",
+			"Profitez de la musique d’ascenseur...",
+			"Bonjour mon nom est Atlas ce que vous voulez aujourd'hui ?...",
 			"Vous vous attendiez à quelque chose de légèrement divertissant, mais non...",
 			"Erreur : Pas assez patience...",
 			"Quand est ce qu'on arrive?...",
@@ -219,7 +219,7 @@
 	"donate": "Soutenez Atlas et obtenez des avantages impressionnants en faisant un don à <https://www.patreon.com/NotSylver>.",
 	"invite": "Vous pouvez obtenir Atlas pour votre propre serveur sur <https://atlasbot.xyz/get>.",
 	"help": {
-		"sent": "Check your direct-messages for help!",
+		"sent": "Vérifier vos messages direct pour de l'aide!",
 		"footer": "{0} commandes",
 		"disabled": {
 			"plural": " • {0} plugins désactivés",
@@ -287,19 +287,19 @@
 		"noResults": "Je n’ai trouvé aucun résultat de recherche correspondant à `{0}`.",
 		"noVoiceChannel": "Vous devez être dans un salon vocal pour faire cela!",
 		"busy": "Je joue actuellement à `{0}`.",
-		"noPerms": "I do not have permission to play in that voice channel.",
+		"noPerms": "Je n'ai pas la permission de jouer dans ce salon vocal.",
 		"noArgs": "Vous devez inclure un terme ou l'URL de la musique!",
 		"playlistEmbed": {
 			"title": "Playlist mise file d’attente - {0}",
 			"description": "{0} a mis en liste d'attente {1} chansons d’une playlist."
 		},
 		"searchQuery": {
-			"outOfTime": "You did not provide a valid track number in time.",
-			"invalidTrack": "`{0}` is not a valid track number."
+			"outOfTime": "Vous n'avez pas fourni de numéro de piste valide a temps.",
+			"invalidTrack": "`{0}` n'est pas une piste valide."
 		},
 		"searchResults": {
-			"title": "Search Results",
-			"footer": "Say a number or \"{0}play <num>\" to play a result"
+			"title": "Résultats de la recherche",
+			"footer": "Dire un nombre ou \"{0} jouer <num>\" pour lire un résultat"
 		}
 	},
 	"queue": {
@@ -334,11 +334,11 @@
 				"plural": "Un avertissement à été ajouté à {0}, cet personne à maintenant {1} avertissements.",
 				"singular": "Un avertissement à été ajouté à {0}, cet personne à maintenant {1} avertissement."
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "La raison que vous avez donné est trop longue, elle ne doit pas dépasser 256 caractères."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
+			"noArgs": "Veuillez indiquer un utilisateur!",
+			"noPerms": "Vous avez uniquement l'autorisation de voir vos propres avertissements!",
 			"noWarns": "{0} n’a aucun avertissement."
 		},
 		"remove": {
@@ -346,7 +346,7 @@
 			"noWarns": "{0} n’a aucun avertissement.",
 			"error": "Une erreur s’est produite lors de l’ajout des réactions.",
 			"removedAll": "{0}, vous avez supprimé tous les avertissements de {1}.",
-			"missingPerms": "I need permissions to add reactions to do that.",
+			"missingPerms": "J'ai besoin de permissions pour ajouter des réactions et faire cela.",
 			"success": "{0}, Suppression de l'avertissement `{1}` de {2}.",
 			"successNoMention": "Suppression de l'avertissement `{0}`de {1}."
 		}
@@ -550,7 +550,7 @@
 		"cannotEdit": "Je ne peux pas modifier les messages d'autres personnes."
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
+		"title": "Utilisateurs ayant un discriminateur de #{0}",
 		"invalid": "`{0}` n’est pas un discriminateur valide.",
 		"none": "Il n’y a aucun utilisateur dans ce serveur avec ce discriminateur."
 	},
@@ -709,7 +709,7 @@
 		"success": "Le langue du serveur a été définie sur {0}.",
 		"notFound": "Je n'ai pas trouvé de correspondance locale à `{0}` :c",
 		"title": "Langues supportées",
-		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
+		"description": "Pour modifier les paramètres régionaux de ce serveur, utilisez `{0}locale <name>`. Vous trouverez une liste de noms ci-dessous. Certaines langues peuvent ne recevoir que peu, voire aucun support, auquel cas Atlas remplira les parties manquantes avec l'anglais.\n\nAidez à traduire Atlas dans d'autres langues [here] (https://translate.atlasbot.xyz).\n{1}"
 	},
 	"wiki": {
 		"noArgs": "Vous devez inclure un terme de recherche !",
@@ -748,8 +748,8 @@
 		"enabled": "La commande {0} a été `activée`."
 	},
 	"isspass": {
-		"noResults": "I could not find a location matching `{0}`.",
-		"title": "ISS Passes Over {0}",
+		"noResults": "Je n'ai pas trouvé d'emplacement correspondant à `{0}`.",
+		"title": "L'ISS passe au dessus de {0}",
 		"format": "• {0} pour {1}",
 		"footer": "Les heures correspondent à {0}."
 	}
