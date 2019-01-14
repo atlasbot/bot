@@ -425,15 +425,15 @@
 	},
 	"action": {
 		"disabled": "Cet action est désactivé.",
-		"noSubActions": "That action has no valid sub-actions to run.",
+		"noSubActions": "Cet action n'a pas de sous-action à exécuter.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that action.",
-				"channel": "This channel is blacklisted from using that action."
+				"channel": "Ce salon a interdiction d'utiliser cette action."
 			},
 			"whitelist": {
 				"role": "Vous n'êtes pas autorisé à effectuer cette acton.",
-				"channel": "This channel is not whitelisted to use that action."
+				"channel": "Ce salon n'est pas autorisé à effectuer cette action."
 			}
 		}
 	}
