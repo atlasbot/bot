@@ -216,7 +216,7 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"donate": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"patreon": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
@@ -283,6 +283,7 @@
 	},
 	"support": "Yardıma mı ihtiyacınız var? Adresindeki sunucumuza katılın <https://atlasbot.xyz/support>",
 	"play": {
+		"spotifyLink": "Only patrons can play Spotify links! Do `{0}patreon` for more info.",
 		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
 		"noResults": "I could not find any search results matching `{0}`.",
 		"noVoiceChannel": "You have to be in a voice channel to do that!",
