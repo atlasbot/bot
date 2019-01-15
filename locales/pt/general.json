@@ -1,91 +1,91 @@
 {
 	"welcome": {
-		"title": "Oh, ei!",
-		"description": "Parece que você é novo em usar o Atlas. Para começar, use o [painel] (https://atlasbot.xyz) para configurar seu servidor.\n\n Se você precisar de ajuda com qualquer coisa, junte-se ao nosso [servidor de suporte] (https://atlasbot.xyz/support)",
-		"footer": "Não tenha medo de pedir ajuda!"
+		"title": "Oh hey!",
+		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
+		"footer": "Don't be afraid to ask for help!"
 	},
 	"help": {
-		"examples": "Exemplos",
+		"examples": "Examples",
 		"aliases": "Aliases",
-		"subcommands": "Subcomandos",
-		"footer": "Faça {0} ajudar {1} <subcomando> para visualizar um subcomando.",
-		"usage": "Uso\n",
-		"userPerms": "Permissões do usuário",
+		"subcommands": "Subcommands",
+		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
+		"usage": "Usage",
+		"userPerms": "User Permissions",
 		"botPerms": "Bot Permissions",
-		"supportedFlags": "Bandeiras Suportadas"
+		"supportedFlags": "Supported Flags"
 	},
 	"roles": {
-		"reactionAdd": "Você recebeu o (s) papel (ais) para reagir com {1}.",
-		"reactionRemove": "Você não tem mais o (s) papel (ais) {0} porque sua reação foi removida."
+		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
+		"reactionRemove": "You no longer have the `{0}` role(s) because your reaction was removed."
 	},
 	"plugin": {
-		"disabled": "Esse plugin foi desativado por um administrador do servidor.",
+		"disabled": "That plugin has been disabled by a server administrator.",
 		"restrictions": {
 			"whitelist": {
-				"role": "Você não está na lista de permissões para usar esse plug-in.",
-				"channel": "Este canal não está na lista de permissões para usar esse plug-in."
+				"role": "You are not whitelisted to use that plugin.",
+				"channel": "This channel is not whitelisted to use that plugin."
 			},
 			"blacklist": {
-				"role": "Você tem um papel que está na lista negra de usar esse plugin.",
-				"channel": "Você está em um canal que está na lista negra de usar esse plugin."
+				"role": "You have a role that is blacklisted from using that plugin.",
+				"channel": "You are in a channel that is blacklisted from using that plugin."
 			}
 		}
 	},
 	"command": {
-		"restError": "<: sadpanda: 497907940225843220> Ocorreu um erro ao entrar em contato com um serviço externo. Tente novamente em alguns minutos.",
-		"errorExecuting": "Ocorreu um erro interno desconhecido ao executar o comando.",
-		"patronOnly": "Somente usuários podem usar esse comando. Faça `{0} penhor` para mais informações.\n",
-		"premiumOnly": "Somente servidores premium podem usar esse comando. ",
-		"guildOnly": "Esse comando só pode ser usado em servidores!",
-		"disabled": "O comando `{0} {1}` foi desativado por um administrador do servidor.",
+		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
+		"errorExecuting": "An unknown internal error occured executing the command.",
+		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
+		"premiumOnly": "Only premium servers can use that command. ",
+		"guildOnly": "That command can only be used in servers!",
+		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
 		"restrictions": {
 			"blacklist": {
-				"role": "Você tem um papel que está na lista negra de usar esse comando.",
-				"channel": "Este canal está na lista negra de usar esse comando."
+				"role": "You have a role that is blacklisted from using that command.",
+				"channel": "This channel is blacklisted from using that command."
 			},
 			"whitelist": {
-				"role": "Você não está na lista de permissões para usar esse comando.",
-				"channel": "Este canal não está na lista de permissões para usar esse comando."
+				"role": "You are not whitelisted to use that command.",
+				"channel": "This channel is not whitelisted to use that command."
 			}
 		}
 	},
 	"reminder": {
-		"title": "Lembrete",
-		"footer": "Requeridos"
+		"title": "Reminder",
+		"footer": "Requested"
 	},
 	"warning": {
-		"title": "Membro avisado",
-		"description": "{0} (`{1}`) foi avisado por um {2} (`{3}`).",
+		"title": "Member Warned",
+		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
 		"total": {
-			"name": "Advertências Totais",
-			"value": "{0} agora tem {1} total de aviso (s)"
+			"name": "Total Warnings",
+			"value": "{0} now has {1} total warning(s)."
 		},
 		"dm": {
-			"name": "Mensagem direta",
-			"true": "O usuário era de mensagens diretas.",
-			"false": "O usuário era de mensagens diretas."
+			"name": "Direct Messaged",
+			"true": "The user was direct-messaged.",
+			"false": "The user was not direct-messaged."
 		},
 		"reason": {
-			"name": "Razão",
-			"value": "Nenhuma razão especificada."
+			"name": "Reason",
+			"value": "No reason specified."
 		}
 	},
 	"player": {
-		"sameVoiceChannel": "Você deve estar no meu canal de voz para fazer isso.",
-		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
-		"none": "Não há nada jogando neste servidor.",
-		"trackQueued": "Adicionado `{0}` à fila. Ele vai jogar em cerca de {1}.",
+		"sameVoiceChannel": "You must be in my voice channel to do that.",
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
+		"none": "There is nothing playing in this server.",
+		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Tempo até tocar",
-			"addedBy": "Adicionado por",
-			"author": "Autor",
+			"addedBy": "Added By",
+			"author": "Author",
 			"duration": "Duração",
-			"footer": "{0} na fila"
+			"footer": "{0} in queue"
 		},
-		"leaving": "Não há mais nada para jogar, deixando o canal...",
+		"leaving": "There is nothing left to play, leaving channel...",
 		"autoplay": {
-			"failed": "Não encontrei nada para jogar em seguida: c. Tente enfileirar outra coisa.",
-			"addedBy": "Reprodução automática"
+			"failed": "I couldn't find anything to play next :c. Try queue something else.",
+			"addedBy": "Autoplay"
 		}
 	},
 	"poweredBy": {
@@ -93,14 +93,14 @@
 	},
 	"logs": {
 		"levelReset": {
-			"title": "Reset de nível",
-			"description": "{0} teve seu nível redefinido de `{1}` para `0`.",
+			"title": "Level Reset",
+			"description": "{0} has had their level reset from `{1}` to `0`.",
 			"moderator": {
-				"name": "Administrador",
+				"name": "Administrator",
 				"value": "{0}"
 			},
 			"target": {
-				"name": "Alvo",
+				"name": "Target",
 				"value": "{0}"
 			}
 		},
@@ -114,156 +114,156 @@
 		"guildMemberUpdate": {
 			"roleAdd": {
 				"title": "Membro atualizado - Grupo adicionado",
-				"description": "32/5000\n{0} recebeu o papel de {1}.",
+				"description": "{0} has been given the {1} role.",
 				"moderator": {
 					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Razão"
+				"reason": "Reason"
 			},
 			"roleRemove": {
-				"title": "Membro atualizado - Função removida",
-				"description": "{0} teve o papel {1} tirado deles.",
+				"title": "Member Updated - Role Removed",
+				"description": "{0} has had the {1} role taken from them.",
 				"moderator": {
 					"name": "Moderador",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Razão"
+				"reason": "Reason"
 			},
 			"usernameChange": {
-				"title": "Membro Atualizado - Nome de Usuário Alterado",
-				"description": "{0} mudou seu nome de usuário de `{1}` para `{2}`."
+				"title": "Member Updated - Username Changed",
+				"description": "{0} has changed their username from `{1}` to `{2}`."
 			},
 			"avatarChange": {
-				"title": "Membro Atualizado - Nome de Usuário Alterado",
-				"description": "{0} mudou seu avatar de `{1}` para `{2}`."
+				"title": "Member Updated - Username Changed",
+				"description": "{0} has changed their avatar from `{1}` to `{2}`."
 			}
 		},
 		"guildMemberAdd": {
-			"title": "Membro Registrado",
-			"description": "{0} juntou-se ao servidor."
+			"title": "Member Joined",
+			"description": "{0} has joined the server."
 		},
 		"guildRoleCreate": {
-			"title": "Cargo Criado",
-			"description": "O cargo {0} foi criado.",
+			"title": "Role Created",
+			"description": "The {0} role was created.",
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildRoleDelete": {
-			"title": "Cargo Deletado",
-			"description": "A função {0} foi eliminada.",
+			"title": "Role Deleted",
+			"description": "The {0} role was deleted.",
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildRoleUpdate": {
-			"title": "Função Atualizada",
-			"description": "A função {0} foi atualizada.",
+			"title": "Role Updated",
+			"description": "The {0} role has been updated.",
 			"colorChange": {
-				"name": "Cor atualizado"
+				"name": "Color Updated"
 			},
 			"nameChange": {
-				"name": "Nome atualizado"
+				"name": "Name Updated"
 			},
 			"permAdded": {
-				"name": "Permissões Adicionadas",
-				"value": "O papel agora tem as permissões `{0}`."
+				"name": "Permissions Added",
+				"value": "The role now has the `{0}` permissions."
 			},
 			"permRemoved": {
-				"name": "Permissões revogadas",
-				"value": "O papel não tem mais as permissões `{0}`."
+				"name": "Permissions Revoked",
+				"value": "The role no longer has the `{0}` permissions."
 			},
 			"moderator": {
 				"name": "Moderador"
 			},
 			"hoistTrue": {
-				"name": "Guindaste atualizado",
-				"value": "A função agora exibirá membros separadamente dos membros online."
+				"name": "Hoist Updated",
+				"value": "The role will now display members seperately from online members."
 			},
 			"hoistFalse": {
-				"name": "Guindaste atualizado",
-				"value": "A função não exibirá mais membros separadamente dos membros on-line."
+				"name": "Hoist Updated",
+				"value": "The role will no longer display members seperately from online members."
 			},
 			"mentionableTrue": {
-				"name": "@mention Atualizado",
-				"value": "O papel agora pode ser mencionado."
+				"name": "@mention Updated",
+				"value": "The role can now be mentioned."
 			},
 			"mentionableFalse": {
-				"name": "@mention Atualizado",
-				"value": "O papel não pode mais ser mencionado."
+				"name": "@mention Updated",
+				"value": "The role can no longer be mentioned."
 			}
 		},
 		"messageDelete": {
-			"title": "Mensagem Excluída",
-			"description": "Uma mensagem de {0} foi eliminada em {1}.",
+			"title": "Message Deleted",
+			"description": "A message by {0} has been deleted in {1}.",
 			"content": {
-				"name": "Conteúdo"
+				"name": "Content"
 			},
 			"moderator": {
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Razão"
+				"name": "Reason"
 			}
 		},
 		"messageUpdate": {
-			"title": "Mensagem Atualizada",
-			"description": "Uma mensagem por {0} foi atualizada em {1}.",
+			"title": "Message Updated",
+			"description": "A message by {0} has been updated in {1}.",
 			"oldContent": {
-				"name": "Antes"
+				"name": "Before"
 			},
 			"newContent": {
-				"name": "Depois"
+				"name": "After"
 			}
 		},
 		"guildMemberRemove": {
-			"title": "Membro Saiu",
-			"description": "{0} saiu do servidor."
+			"title": "Member Left",
+			"description": "{0} has left the server."
 		},
 		"channelCreate": {
-			"title": "Canal criado",
-			"description": "O canal {0} (`{1}`) {2} foi criado.",
+			"title": "Channel Created",
+			"description": "The {0} (`{1}`) {2} channel has been created.",
 			"category": {
-				"name": "Categoria"
+				"name": "Category"
 			},
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"channelDelete": {
-			"title": "Canal excluído",
-			"description": "O canal {0} foi eliminado.",
+			"title": "Channel Deleted",
+			"description": "The {0} channel has been deleted.",
 			"category": {
-				"name": "Categoria"
+				"name": "Category"
 			},
 			"moderator": {
 				"name": "Moderador"
 			}
 		},
 		"guildBanAdd": {
-			"title": "Membro Banido",
-			"description": "{0} foi banido.",
+			"title": "Member Banned",
+			"description": "{0} has been banned.",
 			"moderator": {
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Razão"
+				"name": "Reason"
 			}
 		},
 		"guildBanRemove": {
-			"title": "Membro desbanido",
-			"description": "{0} foi esbanjado.",
+			"title": "Member Unbanned",
+			"description": "{0} has been unbanned.",
 			"moderator": {
 				"name": "Moderador"
 			},
 			"reason": {
-				"name": "Razão"
+				"name": "Reason"
 			}
 		},
 		"mute": {
-			"title": "Membro silenciado",
-			"description": "{0} foi silenciado.",
+			"title": "Member Muted",
+			"description": "{0} has been muted.",
 			"moderator": {
 				"name": "Moderador"
 			},
@@ -271,47 +271,47 @@
 				"name": "Duração"
 			},
 			"reason": {
-				"name": "Razão"
+				"name": "Reason"
 			},
-			"footer": "Alvo {0} Mod {1}"
+			"footer": "Target {0} Mod {1}"
 		},
 		"unmute": {
-			"title": "Membro não marcado",
-			"description": "{0} foi silenciado.",
+			"title": "Member Unmuted",
+			"description": "{0} has been unmuted.",
 			"moderator": {
 				"name": "Moderador"
 			},
 			"unmuteReason": {
-				"name": "Razão"
+				"name": "Reason"
 			}
 		}
 	},
-	"messageQuery": "Por favor, reagir com {0} `: {1}:` para a mensagem que você deseja usar.",
-	"messageQueryLate": "{0}, você demorou muito para adicionar a reação.",
-	"botPermError": "Eu estou perdendo uma ou mais permissões que eu preciso fazer isso.",
-	"noResults": "Não encontrei nada que correspondesse à sua consulta, `{0}`.",
-	"webhookPermError": "ERRO: O Atlas precisa de permissões para gerenciar webhooks para o logging funcionar. Aguarde até cinco minutos após a atualização das permissões para que a alteração entre em vigor.",
-	"noPermission": "Você não tem permissão para acessar esse comando.",
-	"noUserFound": "Não consegui encontrar esse usuário.",
-	"noMorePages": "{0}, não há mais páginas assim.",
-	"notPunishable": "Você está sem a permissão necessária para punir esse usuário.",
-	"lolno": "Não posso punir esse usuário, pois o nível de permissão deles é superior ao meu.",
+	"messageQuery": "Please react with {0} `:{1}:` to the message you want to use.",
+	"messageQueryLate": "{0}, you took too long to add the reaction.",
+	"botPermError": "I am missing one or more permissions that I need to do that.",
+	"noResults": "I couldn't find anything matching your query, `{0}`.",
+	"webhookPermError": "ERROR: Atlas needs permissions to manage webhooks for logging to work. Please allow up to 5 minutes after updating permissions for the change to take effect.",
+	"noPermission": "You don't have permission to access that command.",
+	"noUserFound": "I couldn't find that user.",
+	"noMorePages": "{0}, there are no more pages that way.",
+	"notPunishable": "You are lacking the permission required to punish that user.",
+	"lolno": "I cannot punish that user as their permission level is above my own.",
 	"music": {
-		"trackException": "Ocorreu um erro ao reproduzir a faixa, ignorando ...",
-		"emptyPause": "Todos os usuários deixaram o canal de voz - o player foi pausado.",
-		"playingTrack": "Agora jogando `{0}` ({1})",
-		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
+		"trackException": "An error occured playing the track, skipping...",
+		"emptyPause": "All users have left the voice channel - the player has been paused.",
+		"playingTrack": "Now playing `{0}` ({1})",
+		"noVoiceChannel": "You have to be in a voice channel to do that.",
 		"position": {
-			"name": "Posição",
+			"name": "Position",
 			"value": "{0}"
 		},
 		"nowPlaying": {
-			"name": "Agora jogando",
+			"name": "Now Playing",
 			"value": "[{0}]({1})"
 		},
 		"playlist": {
-			"name": "Playlist em fila",
-			"value": "{0} músicas enfileiradas por {1}"
+			"name": "Playlist Queued",
+			"value": "{0} songs queued by {1}"
 		},
 		"description": "[{0}]({1})",
 		"duration": {
@@ -319,121 +319,121 @@
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Adicionado por",
+			"name": "Added By",
 			"value": "{0}"
 		},
 		"author": {
-			"name": "Autor",
+			"name": "Author",
 			"value": "{0}"
 		},
-		"addedTrack": "Faixa adicionada",
+		"addedTrack": "Added Track",
 		"ttp": {
 			"name": "Tempo até tocar",
 			"value": "{0}"
 		},
 		"inQueue": {
-			"name": "Na fila",
+			"name": "In Queue",
 			"value": {
-				"plural": "{0} músicas",
-				"singular": "{0} música"
+				"plural": "{0} songs",
+				"singular": "{0} song"
 			}
 		}
 	},
 	"blacklisted": {
 		"roles": {
-			"plural": "Você tem as funções {0} que estão na lista negra de usar `{1} {2}`.",
-			"singular": "Você tem o papel {0} que está na lista negra de usar `{1} {2}`."
+			"plural": "You have the {0} roles which are blacklisted from using `{1}{2}`.",
+			"singular": "You have the {0} role which is blacklisted from using `{1}{2}`."
 		},
-		"channel": "Este canal está na lista negra de usar `{1} {2}`."
+		"channel": "This channel is blacklisted from using `{1}{2}`."
 	},
 	"permissions": {
 		"list": {
-			"createInstantInvite": "Criar convite",
-			"kickMembers": "Expulsar Membros",
-			"banMembers": "Banir Membros",
-			"administrator": "Administrador",
-			"manageChannels": "Gerenciar Canais",
-			"manageGuild": "Gerenciar a Guilda",
-			"addReactions": "Adicionar Reações",
-			"readMessages": "Mensagens lidas",
-			"sendMessages": "Enviar mensagens",
-			"SendTTSMessages": "Enviar mensagens TTS",
-			"manageMessages": "Gerenciar Mensagens",
-			"embedLinks": "Incorporar Links",
-			"attachFiles": "Incorporar arquivos",
-			"readMessageHistory": "Leia o histórico de mensagens",
-			"mentionEveryone": "Mencione todos",
-			"externalEmojis": "Emojis Externos",
-			"voiceConnect": "Conecte-se a voz",
-			"voiceSpeak": "Falar em voz",
+			"createInstantInvite": "Create Invite",
+			"kickMembers": "Kick Members",
+			"banMembers": "Ban Members",
+			"administrator": "Administrator",
+			"manageChannels": "Manage Channels",
+			"manageGuild": "Manage Guild",
+			"addReactions": "Add Reactions",
+			"readMessages": "Read Messages",
+			"sendMessages": "Send Messages",
+			"SendTTSMessages": "Send TTS Messages",
+			"manageMessages": "Manage Messages",
+			"embedLinks": "Embed Links",
+			"attachFiles": "Embed Files",
+			"readMessageHistory": "Read Message History",
+			"mentionEveryone": "Mention Everyone",
+			"externalEmojis": "External Emojis",
+			"voiceConnect": "Connect to Voice",
+			"voiceSpeak": "Speak in Voice",
 			"voiceMuteMembers": "Mute Voice Members",
-			"voiceUseVAD": "Use o VAD",
-			"changeNickname": "Alterar apelido",
-			"manageNicknames": "Gerenciar apelidos",
-			"manageRoles": "Gerenciar Funções",
-			"manageWebhooks": "Gerenciar Webhooks",
-			"manageEmojis": "Gerenciar Emojis"
+			"voiceUseVAD": "Use VAD",
+			"changeNickname": "Change Nickname",
+			"manageNicknames": "Manage Nicknames",
+			"manageRoles": "Manage Roles",
+			"manageWebhooks": "Manage Webhooks",
+			"manageEmojis": "Manage Emojis"
 		},
 		"permError": {
-			"user": "Você precisa das permissões `{0}` para fazer isso.",
-			"bot": "Eu preciso da permissão `{0}` para fazer isso."
+			"user": "You need the `{0}` permissions to do that.",
+			"bot": "I need the `{0}` permission to do that."
 		}
 	},
 	"filters": {
 		"actions": {
-			"disabled": "Desativado",
-			"dtm": "Excluir Mensagem",
-			"wtu": "Avise o usuário",
-			"dtm_wtu": "Excluir mensagem e avisar usuário",
-			"ca": "Ação personalizada"
+			"disabled": "Disabled",
+			"dtm": "Delete the Message",
+			"wtu": "Warn the User",
+			"dtm_wtu": "Delete Message & Warn User",
+			"ca": "Custom Action"
 		},
 		"messages": {
 			"capitalization": {
-				"warning": "Capitalização excessiva.",
-				"message": "{0}, esfriá-lo com as tampas."
+				"warning": "Excessive capitalization.",
+				"message": "{0}, cool it with the caps."
 			},
 			"emoji": {
-				"warning": "Emojis excessivos.",
-				"message": "{0}, por favor, não use tantos emojis."
+				"warning": "Excessive emojis.",
+				"message": "{0}, please dont use so many emojis."
 			},
 			"cursing": {
-				"warning": "Maldição",
-				"message": "{0}, por favor, evite palavrões aqui."
+				"warning": "Cursing",
+				"message": "{0}, please refrain from swearing here."
 			},
 			"invites": {
-				"warning": "Enviando um convite.",
-				"message": "{0}, os links de convites não são permitidos aqui."
+				"warning": "Sending an invite.",
+				"message": "{0}, invite links are not allowed here."
 			},
 			"links": {
-				"warning": "Enviando um link.",
-				"message": "{0}, por favor, não compartilhe links aqui."
+				"warning": "Sending a link.",
+				"message": "{0}, please dont share links here."
 			},
 			"mentions": {
-				"warning": "Enviando muitas (`{0}`) menções.",
-				"message": "{0}, por favor, não mencione tantas pessoas ao mesmo tempo."
+				"warning": "Sending too many (`{0}`) mentions.",
+				"message": "{0}, please dont mention so many people at once."
 			},
 			"phrases": {
-				"warning": "A mensagem continha uma palavra na lista negra.",
-				"message": "{0}, por favor, evite usar essa palavra.",
-				"dm": "Você enviou uma mensagem contendo `{0}` em `{1}`. Essa palavra é contra a lista negra de palavras do servidor, por isso, evite usá-la."
+				"warning": "Message contained a blacklisted word.",
+				"message": "{0}, please refrain from using that word.",
+				"dm": "You sent a message containing `{0}` in `{1}`. That word is against the servers word blacklist, so please refrain from using it."
 			},
 			"spam": {
-				"warning": "Chat de inundação.",
-				"message": "{0}, por favor não enche o chat."
+				"warning": "Flooding chat.",
+				"message": "{0}, please don't flood chat."
 			}
 		}
 	},
 	"action": {
-		"disabled": "Essa ação está desativada.",
-		"noSubActions": "Essa ação não tem sub-ações válidas para ser executada.",
+		"disabled": "That action is disabled.",
+		"noSubActions": "That action has no valid sub-actions to run.",
 		"restrictions": {
 			"blacklist": {
-				"role": "Você tem um papel que está na lista negra de usar essa ação.",
-				"channel": "Este canal está na lista negra de usar essa ação."
+				"role": "You have a role that is blacklisted from using that action.",
+				"channel": "This channel is blacklisted from using that action."
 			},
 			"whitelist": {
-				"role": "Você não está na lista de permissões para usar essa ação.",
-				"channel": "Este canal não está na lista de permissões para usar essa ação."
+				"role": "You are not whitelisted to use that action.",
+				"channel": "This channel is not whitelisted to use that action."
 			}
 		}
 	}
