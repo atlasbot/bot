@@ -6,23 +6,57 @@ const url = require('url');
 const lib = require('atlas-lib');
 const Fuzzy = require('atlas-lib/lib/structures/Fuzzy');
 const Cache = require('atlas-lib/lib/structures/Cache');
+
+const Spotify = require('./structures/Spotify');
 const Parser = require('./tagengine');
 
-const profileSchema = user => ({
-	id: user.id,
-	avatar: user.avatar,
-	username: user.username,
-	discriminator: user.discriminator,
-});
+const spotifyClient = new Spotify();
 
+/**
+ * General utilities atlas uses
+ */
 module.exports = class Util {
+	/**
+	 * Util constructor
+	 * @param {Atlas} [Atlas=require('./../Atlas')] The Atlas instance to use
+	 */
 	constructor(Atlas) {
 		this.Atlas = Atlas || require('./../Atlas');
 
 		this.webhookCache = new Cache('webhooks');
 		this.musicCache = new Cache('music');
+	}
 
-		this._avatar64 = null;
+	/**
+	 * Formats a user into a savable profile
+	 * @param {Object|User} user The user/user's info to format
+	 * @returns {Object} The profile that should be up to date
+	 */
+	profileSchema(user) {
+		return {
+			id: user.id,
+			avatar: user.avatar,
+			username: user.username,
+			discriminator: user.discriminator,
+		};
+	}
+
+	/**
+	 * Formats a Spotify track from their API into a pseudo lavalink track that the player can play
+	 * @param {Object} track The track with all it's fancy info
+	 * @returns {Object} The lavalink pseudo-track
+	 */
+	formatSpotifyTrack(track) {
+		return {
+			// player will catch that's a spotify link and resolve other info when it plays it
+			info: {
+				identifier: track.id,
+				author: track.artists.map(a => a.name).join(', '),
+				title: track.name,
+				uri: track.external_urls.spotify,
+				targetDuration: track.duration_ms,
+			},
+		};
 	}
 
 	/**
@@ -38,9 +72,105 @@ module.exports = class Util {
 		const { id, avatar } = this.Atlas.client.user;
 		const { body } = await superagent.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}.${format}?size=128`);
 
+		// converts the format to a base64 encoded image data uri
 		this._avatar64 = `data:image/${format};base64,${body.toString('base64')}`;
 
 		return this._avatar64;
+	}
+
+	/**
+	 * Search via Lavalink for a track
+	 *
+	 * @param {Object} node The lavalink node to search on, should be the same as the node that will be used to prevent youtube restrictions from thinking it's free real-estate
+	 * @param {string} query The search term the user is wanting
+	 * @param {boolean} [isUri=this.Atlas.lib.utils.isUri(query)] Whether the query is a URI or not.
+	 * @returns {Object} a Lavalink body containing tracks, etc..
+	 */
+	async trackSearch(node, query, isUri = this.Atlas.lib.utils.isUri(query)) {
+		const existing = await this.musicCache.get(query);
+		if (existing) {
+			return existing;
+		}
+
+		// parses a spotify uri/url into a { type: 'playlist/track', id: 'spotify id' }
+		const spotify = this.Atlas.lib.utils.spotifyParser(query);
+
+		if (spotify) {
+			/*
+				Spotify links are special because lavalink doesn't natively support them
+			*/
+			const body = {
+				// "premium" means only patrons/premium servers can use it
+				// spotify links aren't so easy, so i think that's fair
+				premium: true,
+				loadType: spotify.type === 'playlist' ? 'PLAYLIST_LOADED' : 'TRACK_LOADED',
+				playlistInfo: {},
+				tracks: [],
+			};
+
+			if (spotify.type === 'track') {
+				// get track info from spotify
+				const track = await spotifyClient.getTrack(spotify.id);
+
+				// add the track to the "lavalink result"
+				body.tracks.push(this.formatSpotifyTrack(track));
+			}
+
+			if (spotify.type === 'playlist') {
+				// get playlist info from spotify
+				const playlist = await spotifyClient.getPlaylist(spotify.id);
+
+				// add fancy details about the playlist
+				body.playlistInfo.image = playlist.images[0].url;
+				body.playlistInfo.name = playlist.name;
+				body.playlistInfo.link = playlist.external_urls.spotify;
+
+				// format each track and set the "lavalink result" body to those tracks
+				body.tracks = playlist.tracks.items.map(({ track }) => this.formatSpotifyTrack(track));
+			}
+
+			// cache it so we only have to fetch it once
+			await this.musicCache.set(query, body);
+
+			return body;
+		}
+
+		/*
+			it's not a spotify link so we don't have to flip our shit
+		*/
+
+		// regular lavalink search
+		const { body } = await superagent.get(`http://${node.host}:2333/loadtracks`)
+			.query({
+				identifier: `${!isUri ? 'ytsearch:' : ''}${query}`,
+			})
+			.set('Authorization', node.password);
+
+		// cache it so we don't have to search twice (australian 2s development search delay ftw)
+		await this.musicCache.set(query, body);
+
+		return body;
+	}
+
+	/**
+	 * "an algorithm" 😉 that finds the best track to play
+	 * @param {string} query The search term the user used
+	 * @param {array<Object>} results An array of tracks to search
+	 * @returns {Object} The most ideal track to play
+	 */
+	findIdealTrack(query, results) {
+		// prefer lyric videos because they don't have pauses for scenes in actual videos or sound effects from the video
+		const lyrics = this.Atlas.lib.utils.nbsFuzzy(results, ['info.title'], `${query} lyrics`, {
+			matchPercent: 0.65,
+		});
+
+		// yeet we found a lyrics video
+		if (lyrics) {
+			return lyrics;
+		}
+
+		// fall back to the first result if no lyrics exist
+		return results.shift();
 	}
 
 	/**
@@ -61,8 +191,10 @@ module.exports = class Util {
 
 		const replace = (val, repl) => {
 			if (val && repl.length) {
+				// replaces {0} in the string with replacements[0]
 				return val.replace(/\{([0-9]+)\}/ig, (match, p1) => {
 					const i = Number(p1);
+
 					if (repl[i] != undefined) { // eslint-disable-line eqeqeq
 						return repl[i];
 					}
@@ -85,6 +217,8 @@ module.exports = class Util {
 
 		const valid = ['general', 'info', 'commands'];
 
+		// this does some weird shit but basically it gets the index of a valid key ("general", "commands", "info")
+		// prefering ones at the end of the array because there are a few cases where there are multiple "general" parts
 		for (const v of valid) {
 			const index = parts.lastIndexOf(v);
 
@@ -129,29 +263,8 @@ module.exports = class Util {
 					return o;
 				}, {}));
 
-				return replace(this.getNested(obj, options.key, false), replacements);
+				return replace(this.Atlas.lib.utils.getNested(obj, options.key, false), replacements);
 			}
-		}
-	}
-
-	/**
-	 * Gets a nested value from an object. Keys split at "."
-	 * @param {Object} obj The object to grab the value from
-	 * @param {string} key The key the value is at, e.g "foo.bar" for { foo: { bar: 'ayy' }}
-	 * @param {boolean} [stringOnly=true] Whether returning a string is required
-	 * @returns {string|void}
-	 */
-	getNested(obj, key, stringOnly = true) {
-		let val = obj;
-
-		const keys = key.split('.');
-
-		do {
-			val = val[keys.shift()];
-		} while (val && keys.length);
-
-		if (typeof val === 'string' || stringOnly === false) {
-			return val;
 		}
 	}
 
@@ -174,20 +287,24 @@ module.exports = class Util {
 		if (!query) {
 			return;
 		}
+
+		// strips things like <@ID> (for mentions) or other useless text around possible Id's
 		const id = this.cleanID(query);
 
 		let guildMembers;
 		if (members) {
 			guildMembers = new Map();
+
 			members.forEach(m => guildMembers.set(m.id, m));
 		} else {
 			if (!guild.members) {
 				throw new Error('Util#findMember() was given a guild with no "members" array!');
 			}
+
 			guildMembers = guild.members; // eslint-disable-line prefer-destructuring
 		}
 
-		if (id && lib.utils.isSnowflake(id)) {
+		if (id) {
 			const result = guildMembers.get(id) || this.Atlas.client.users.get(id);
 			if (memberOnly || result) {
 				if (result) {
@@ -403,6 +520,7 @@ module.exports = class Util {
 	}
 
 	/**
+	 * Gets a more or less accurate audit entry for an event target id (on channel update this would be the channel id, etc...)
 	 *
 	 * @param {Guild} guild The guild to get the entry from
 	 * @param {string} id The target ID to get an entry for
@@ -457,7 +575,8 @@ module.exports = class Util {
 	}
 
 	/**
-	 *update a users interval profile.
+	 * update a users interval profile.
+	 *
 	 * @param {Object} author The author or mongodb query
 	 * @returns {Promise}
 	 */
@@ -469,7 +588,7 @@ module.exports = class Util {
 		// user will find or create one and cache it.
 		const profile = await this.Atlas.DB.user(author);
 
-		const toSave = profileSchema(author);
+		const toSave = this.profileSchema(author);
 
 		try {
 			// throws if the objects are not the same
@@ -486,7 +605,9 @@ module.exports = class Util {
 	}
 
 	/**
-    * Get a webhook for the guild
+    * every time, 70% of the time, this will get a valid, working webhook from a guild.
+		* it's also really inefficient so if anyone wants to tame a beast
+		*
     * @param {Object|string} c the channel to get the webhook for
     * @param {string} reason The reason to show in the modlog for the webhook
     * @param {boolean} clearHookCache whether or not to use the webhook cache
@@ -531,6 +652,7 @@ module.exports = class Util {
 
 	/**
 	 * Gets related tracks to a lavalink track.
+	 *
 	 * @param {Object} player A player to get a node from
 	 * @param {Object} player.node The node to use when searching for tracks.
 	 * @param {Object} track A track to use
@@ -625,6 +747,17 @@ module.exports = class Util {
 		}
 	}
 
+	/**
+	 * Announces user level ups if their previous level !== current level
+	 *
+	 * @param {Member} member The member that got XP
+	 * @param {Object} opts Options
+	 * @param {Object} opts.previous The users previous xp profile
+	 * @param {Object} opts.current The users current xp profile
+	 * @param {Message} msg The message that they were leveled up by
+	 * @param {Settings} settings The guild's settings
+	 * @returns {Promise<void>}
+	 */
 	async levelup(member, {
 		previous: { current: { level: previousLevel } },
 		current: { current: { level: currentLevel } },

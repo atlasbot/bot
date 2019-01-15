@@ -1,11 +1,6 @@
-const superagent = require('superagent');
-
-const Cache = require('atlas-lib/lib/structures/Cache');
 const Command = require('../../structures/Command.js');
 
 const Collector = require('../../structures/MessageCollector');
-
-const cache = new Cache('bot-music');
 
 module.exports = class extends Command {
 	constructor(Atlas) {
@@ -17,7 +12,6 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 		body,
-		pseudoBody = !!body,
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
@@ -56,11 +50,19 @@ module.exports = class extends Command {
 		}
 
 		const query = args.join(' ').replace(/http(s):\/\/(music|gaming).youtube/g, 'https://www.youtube');
-		const url = this.Atlas.lib.utils.isUri(query);
+		const isUri = this.Atlas.lib.utils.isUri(query);
 
 		// some commands (see playlist/play.js) provide their own fake body with it's own data
 		if (!body) {
-			body = await this.search(node, query, url);
+			body = await this.Atlas.util.trackSearch(node, query, isUri);
+		}
+
+		if (body.premium) {
+			const hasPerms = await this.Atlas.lib.utils.isPatron(msg.guild.ownerID) || await this.Atlas.lib.utils.isPatron(msg.author.id);
+
+			if (!hasPerms) {
+				return responder.error('play.spotifyLink', msg.displayPrefix).send();
+			}
 		}
 
 		if (body.loadType === 'NO_MATCHES ' || body.loadType === 'LOAD_FAILED' || !body.tracks.length) {
@@ -78,7 +80,10 @@ module.exports = class extends Command {
 			// gotta do it before so the "Now playing" message is sent after the playlist loaded message or else it looks fucky
 			// also disabling buttons so the "now playing" message has the controls, it just looks nicer + no reason to have double-up
 			await player.responder.embed({
-				url: pseudoBody ? undefined : args[0],
+				url: (isUri && args[0]) || body.playlistInfo.link,
+				thumbnail: {
+					url: body.playlistInfo.image,
+				},
 				title: ['play.playlistEmbed.title', body.playlistInfo.name],
 				description: ['play.playlistEmbed.description', msg.author.mention, body.tracks.length],
 				timestamp: new Date(),
@@ -98,7 +103,7 @@ module.exports = class extends Command {
 
 			const musicConf = settings.plugin('music').options;
 
-			if (!url && musicConf.show_results) {
+			if (!isUri && musicConf.show_results) {
 				const tmpMsg = await responder.embed({
 					color: 3553599,
 					title: 'play.searchResults.title',
@@ -123,7 +128,7 @@ module.exports = class extends Command {
 
 				tmpMsg.delete().catch(() => false);
 			} else {
-				track = url ? body.tracks[0] : this.findIdealTrack(query, body.tracks);
+				track = isUri ? body.tracks[0] : this.Atlas.util.findIdealTrack(query, body.tracks);
 			}
 
 
@@ -132,39 +137,6 @@ module.exports = class extends Command {
 				addedBy: msg.author,
 			});
 		}
-	}
-
-	// australia internet makes searches slow in development, caching makes it faster
-	async search(node, query, url) {
-		const existing = await cache.get(query);
-		if (existing) {
-			return existing;
-		}
-
-		const { body } = await superagent.get(`http://${node.host}:2333/loadtracks`)
-			.query({
-				identifier: `${!url ? 'ytsearch:' : ''}${query}`,
-			})
-			.set('Authorization', node.password);
-
-		await cache.set(query, body);
-
-		return body;
-	}
-
-	// "an algorithm" 😉 that finds the best track to play
-	findIdealTrack(query, results) {
-		// prefer lyric videos because they don't have pauses for scenes in actual videos or sound effects from the video
-		const lyrics = this.Atlas.lib.utils.nbsFuzzy(results, ['info.title'], `${query} lyrics`, {
-			matchPercent: 0.65,
-		});
-
-		if (lyrics) {
-			return lyrics;
-		}
-
-		// fall back to the first result if no lyrics exist
-		return results.shift();
 	}
 
 	awaitTrackNumber({ author, channel }) {

@@ -79,7 +79,7 @@ module.exports = class extends Player {
     * @param {string} track The track to play
   	* @returns {void}
   */
-	play(track, {
+	async play(track, {
 		force = false,
 		notify = true,
 		addedBy,
@@ -105,6 +105,41 @@ module.exports = class extends Player {
 			}
 
 			return;
+		}
+
+		if (!track.track) {
+			// hacky way to get spotify tracks to play nice
+			const info = await this.Atlas.util.trackSearch(this.node, `${track.info.author} - ${track.info.title}`);
+
+			if (!info.tracks || !info.tracks.length) {
+				throw new Error(`Could not resolve spotify track ${track.info.identifier}`);
+			}
+
+			// target duration to find a close match for
+			const target = track.info.targetDuration;
+
+			let resolved = info.tracks[0];
+			let diff = Math.abs(target - resolved.info.length);
+
+			// find the track with the closest duration to targetDuration
+			for (let val = 0; val < info.tracks.length; val++) {
+				const newdiff = Math.abs(target - info.tracks[val].info.length);
+				if (newdiff < diff) {
+					diff = newdiff;
+					resolved = info.tracks[val];
+				}
+			}
+
+			// merge the resolved track with the other track info,
+			// keeping track titles and shit from spotify because they're usually cleaner
+			track = {
+				...resolved,
+				...track,
+				info: {
+					...resolved.info,
+					...track.info,
+				},
+			};
 		}
 
 		const trackId = track.track;

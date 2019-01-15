@@ -16,7 +16,7 @@ module.exports = class extends Command {
 
 		return responder
 			.edit(botMsg)
-			.text('ping.server', botMsg.timestamp - msg.timestamp, msg.guild.shard.latency)
+			.text('ping.server', Math.abs(botMsg.timestamp - msg.timestamp), msg.guild.shard.latency)
 			.send();
 	}
 };
