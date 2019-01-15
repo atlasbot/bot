@@ -216,7 +216,7 @@
 			"Tourner en rond..."
 		]
 	},
-	"donate": "Soutenez Atlas et obtenez des avantages impressionnants en faisant un don à <https://www.patreon.com/NotSylver>.",
+	"patreon": "Soutenez Atlas et obtenez des avantages impressionnants en faisant un don à <https://www.patreon.com/NotSylver>.",
 	"invite": "Vous pouvez obtenir Atlas pour votre propre serveur sur <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Vérifier vos messages direct pour de l'aide!",
@@ -283,6 +283,7 @@
 	},
 	"support": "Besoin d’aide ? Rejoignez notre serveur sur <https://atlasbot.xyz/support>.",
 	"play": {
+		"spotifyLink": "Seulement les patrons peuvent joue des liens de Spotify! Fait `{0}patreon` pour plus info.",
 		"noNodes": "Il n'y a pas de serveurs vocaux libres pour traiter votre demande. Veuillez attendre quelques minutes et réessayez.",
 		"noResults": "Je n’ai trouvé aucun résultat de recherche correspondant à `{0}`.",
 		"noVoiceChannel": "Vous devez être dans un salon vocal pour faire cela!",
