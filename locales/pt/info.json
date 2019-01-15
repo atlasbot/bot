@@ -452,8 +452,8 @@
 	"submit": {
 		"description": "Envie sugestões para o canal de sugestões."
 	},
-	"donate": {
-		"description": "Doe para apoiar o Atlas e tenha vantagens incríveis!"
+	"patreon": {
+		"description": "Support Atlas on Patreon and get awesome perks!"
 	},
 	"help": {
 		"usage": "<plugin de comando>",
