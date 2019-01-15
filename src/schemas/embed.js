@@ -19,6 +19,7 @@ module.exports = {
 	author: {
 		name: Joi.string().max(256).allow(null, ''),
 		icon_url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null, '']),
+		url: Joi.string().uri({ scheme: ['http', 'https', 'attachment'] }).allow([true, false, null, '']),
 	},
 	url: Joi.string().uri().allow(null, ''),
 	image: {
