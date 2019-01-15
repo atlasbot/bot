@@ -8,14 +8,14 @@ module.exports = class extends Command {
 	action(msg) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		responder.text('donate').send();
+		responder.text('patreon').send();
 	}
 };
 
 module.exports.info = {
-	name: 'donate',
+	name: 'patreon',
 	aliases: [
-		'patreon',
+		'donate',
 		'patron',
 		'pledge',
 	],
