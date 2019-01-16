@@ -3,7 +3,7 @@
 		"noResults": "I couldn't find any weather information for your search.",
 		"title": "Weather in {0}, {1}",
 		"temperature": {
-			"name": "Temperature",
+			"name": "Temperatur",
 			"value": "{0}°C, min {1}°C, max {2}°C"
 		},
 		"humidity": "Humidity",
@@ -35,7 +35,7 @@
 			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
 		},
 		"other": {
-			"unknownInput": "Unknown input format.",
+			"unknownInput": "Unbekanntes Import-Format.",
 			"unknownOutput": "Unknown output format.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
@@ -74,9 +74,9 @@
 			"noPlaylists": "You do not have any playlists.",
 			"more": "+ `{0}` more",
 			"description": "{0} total tracks",
-			"duration": "Duration",
+			"duration": "Dauer",
 			"created": "Created",
-			"updated": "Updated",
+			"updated": "Aktualisiert",
 			"tracks": "Tracks",
 			"footer": "{0} • Playlist {1}/{2}"
 		},
@@ -305,7 +305,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "Gesamtdauer",
 			"value": "{0}"
 		},
 		"inQueue": {
