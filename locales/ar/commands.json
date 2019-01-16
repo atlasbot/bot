@@ -51,7 +51,8 @@
 	},
 	"needsmorejpeg": {
 		"noArgs": "Please include an image attachment or image URL.",
-		"invalidUrl": "`{0}` is not a valid URL."
+		"invalidUrl": "`{0}` is not a valid URL.",
+		"notAnImage": "That isn't an image :c"
 	},
 	"randomcase": {
 		"noArgs": "Please include something to raNdomIsE."
@@ -459,7 +460,8 @@
 		"invalidType": "That message type cannot be transferred to a different channel.",
 		"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
 		"success": "Message moved to {0}.",
-		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions."
+		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions.",
+		"invalidTargetType": "You can't move messages to non-text channels."
 	},
 	"texttoemoji": {
 		"noArgs": "You have to include some text to convert."
