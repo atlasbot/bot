@@ -1,13 +1,14 @@
 {
 	"name": "atlas-bot",
-	"version": "8.0.53",
+	"version": "8.0.54",
 	"description": "A Discord bot that does the things",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js",
-		"test": "eslint . --fix",
-		"debug": "node --inspect=0.0.0.0 index.js"
+		"test": "npm run mocha && eslint . --fix",
+		"debug": "node --inspect=0.0.0.0 index.js",
+		"mocha": "mocha"
 	},
 	"engines": {
 		"node": ">=10.0.0"
@@ -52,6 +53,7 @@
 	"devDependencies": {
 		"eslint": "5.12.0",
 		"eslint-config-airbnb-base": "^13.1.0",
-		"eslint-plugin-import": "2.14.0"
+		"eslint-plugin-import": "2.14.0",
+		"mocha": "^5.2.0"
 	}
 }

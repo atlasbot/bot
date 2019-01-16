@@ -82,6 +82,10 @@ class Command {
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
 				let permissions = Object.keys(this.info.permissions[permsKey]);
 
+				if (!permissions) {
+					continue;
+				}
+
 				if (this.info.name === 'advancedembed' && isTag && permsKey === 'user') {
 					permissions = [];
 				}
@@ -105,7 +109,7 @@ class Command {
 			}
 
 			const errorKey = this.Atlas.lib.utils.checkRestriction({
-				roles: msg.member.roles || [],
+				roles: (msg.member && msg.member.roles) || [],
 				channel: msg.channel.id,
 			}, options.restrictions);
 

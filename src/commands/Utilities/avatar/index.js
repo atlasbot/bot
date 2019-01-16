@@ -9,7 +9,7 @@ module.exports = class extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		let target;
-		if (args[0]) {
+		if (args[0] && msg.guild) {
 			target = await this.Atlas.util.findMember(msg.guild, args.join(' '));
 
 			if (!target) {
@@ -42,4 +42,5 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	optionalGuild: true,
 };

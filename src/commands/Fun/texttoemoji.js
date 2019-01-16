@@ -24,7 +24,7 @@ module.exports = class extends Command {
 					.join('❕')
 					.split('?')
 					.join('❔')
-					.substring(0, 2048),
+					.substring(0, 2000),
 			)
 			.send();
 	}

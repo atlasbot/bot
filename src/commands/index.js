@@ -7,12 +7,12 @@ const Plugin = require('./../structures/Plugin');
 module.exports = class Commands {
 	/**
 	 * Loads commands and plugins.
-	 * @param {boolean} require Whether to require() each command or just return the file.
+	 * @param {boolean} requireCmds Whether to require() each command or just return the file.
 	 * @returns {Object} The loaded data with plugins and commands
 	 */
-	static load(require = false) {
+	static load(requireCmds = false) {
 		const plugins = [];
-		let commands = [];
+		const commands = [];
 
 		const pluginNames = fs.readdirSync(__dirname).filter(c => !_path.parse(c).ext);
 
@@ -26,10 +26,12 @@ module.exports = class Commands {
 				commands: pluginCommands,
 				name: pluginName,
 			});
-		}
 
-		if (require) {
-			commands = commands.map(c => require(c));
+			if (requireCmds) {
+				commands.push(...pluginCommands.map(require));
+			} else {
+				commands.push(...pluginCommands);
+			}
 		}
 
 		return {

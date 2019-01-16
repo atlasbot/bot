@@ -7,14 +7,14 @@ module.exports = class Filter {
 	}
 
 	async checkMessage(settings, msg) {
-		const modConf = settings.plugin('moderation');
-		const filterConfig = modConf.filters[this.info.settingsKey];
-
-		const perms = msg.channel.permissionsOf(this.Atlas.client.user.id);
+		const plugin = settings.plugin('moderation');
+		const filterConfig = plugin.filters[this.info.settingsKey];
 
 		if (!filterConfig) {
 			console.error('Missing filter config for filter ', this.info);
 		}
+
+		const perms = msg.channel.permissionsOf(this.Atlas.client.user.id);
 
 		// jesus christ
 		if (
@@ -22,10 +22,13 @@ module.exports = class Filter {
         || filterConfig.action === 0
 				|| (msg.author.bot && filterConfig.sanction.bots !== true))
         || msg.author.id === this.Atlas.client.user.id
-				|| !perms.has('manageMessages')
 				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
         || filterConfig.exempt.channels.includes(msg.channel.id)
         || filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))
+				|| !perms.has('manageMessages')
+				// i'm not 100% sure about this, some people may just do it so the bot is silent
+				// but on the other hand it may confuse people if atlas randomly deletes messages
+				|| !perms.has('sendMessages')
 		) {
 			return false;
 		}
@@ -35,7 +38,7 @@ module.exports = class Filter {
 		const restrictionError = this.Atlas.lib.utils.checkRestriction({
 			roles: msg.member.roles || [],
 			channel: msg.channel.id,
-		}, modConf.restrictions);
+		}, plugin.restrictions);
 
 		// dont run filters on users that are blacklisted or whitelisted
 		if (restrictionError) {
@@ -48,7 +51,7 @@ module.exports = class Filter {
 			});
 
 			if (output) {
-				const responder = new this.Atlas.structs.Responder(msg);
+				const responder = new this.Atlas.structs.Responder(msg, settings.lang);
 
 				if (filterConfig.action === 1 || filterConfig.action === 2) {
 					if (Array.isArray(output)) {
@@ -71,13 +74,14 @@ module.exports = class Filter {
 
 				// special handling for phrases to tell them what they said that got them into the bad boi group
 				if (this.info.settingsKey === 'phrases') {
+					let channel;
 					try {
-						const channel = await msg.author.getDMChannel();
-
-						await responder.channel(channel)
-							.text(`general.filters.messages.${this.info.settingsKey}.dm`, output, msg.guild.name)
-							.send();
+						channel = await msg.author.getDMChannel();
 					} catch (e) {} // eslint-disable-line no-empty
+
+					await responder.channel(channel)
+						.text(`general.filters.messages.${this.info.settingsKey}.dm`, output, msg.guild.name)
+						.send();
 				}
 
 				return !!(await responder.text(`general.filters.messages.${this.info.settingsKey}.message`, msg.author.mention).ttl(5).send());

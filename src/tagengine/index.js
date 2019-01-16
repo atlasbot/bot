@@ -99,11 +99,17 @@ module.exports = class {
 								context.channel.guild = context.guild;
 							}
 
+							const member = guild.members.get(user.id);
+
+							if (!member) {
+								return;
+							}
+
 							const outMsg = await command.execute({
 								...context,
 								type: 0,
 								author: user,
-								member: guild.members.get(user.id),
+								member,
 								lang: settings.lang,
 								prefix: settings.prefix,
 								displayPrefix: settings.prefix,

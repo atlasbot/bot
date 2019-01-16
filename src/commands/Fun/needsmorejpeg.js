@@ -14,7 +14,19 @@ module.exports = class extends Command {
 			// search messages over the last 15s for attachments/links
 			// not 100% sure about this yet but /shrug
 			for (const m of msg.channel.messages.filter(x => (Date.now() - x.timestamp) < 15000)) {
-				url = (m.attachments[0] && m.attachments[0].url) || (this.Atlas.lib.utils.isUri(m.content) && m.content);
+				if (this.Atlas.lib.utils.isUri(m.content)) {
+					url = m.content;
+
+					if (url) {
+						break;
+					}
+				}
+
+				const attachment = m.attachments.find(a => a.url && a.height);
+
+				if (attachment) {
+					url = attachment.proxy_url || attachment.url;
+				}
 
 				if (url) {
 					break;
@@ -30,19 +42,29 @@ module.exports = class extends Command {
 			return responder.error('invalidUrl', url).send();
 		}
 
-		const image = await jimp.read(url);
+		try {
+			let quality = this.Atlas.lib.utils.parseNumber(args[1]);
+			if (isNaN(quality)) {
+				quality = 2.5;
+			}
 
-		let quality = this.Atlas.lib.utils.parseNumber(args[1]);
-		if (isNaN(quality)) {
-			quality = 2.5;
+			const image = await jimp.read(url);
+
+			const buffer = await image.quality(quality).getBufferAsync(jimp.MIME_JPEG);
+
+			return responder.file({
+				file: buffer,
+				name: `${new Date().getTime()}.png`,
+			}).send();
+		} catch (e) {
+			console.log(e.message);
+
+			if (e.message.includes('Could not find MIME')) {
+				return responder.text('notAnImage').send();
+			}
+
+			throw e;
 		}
-
-		const buffer = await image.quality(quality).getBufferAsync(jimp.MIME_JPEG);
-
-		return responder.file({
-			file: buffer,
-			name: `${new Date().getTime()}.png`,
-		}).send();
 	}
 };
 

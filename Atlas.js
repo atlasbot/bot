@@ -118,12 +118,10 @@ module.exports = class Atlas {
 		// if no SENTRY_DSN is provided sentry will will still "work"
 		Sentry.init({
 			dsn: process.env.SENTRY_DSN,
-			environment: process.env.NODE_ENV,
-			name: 'Atlas',
+			debug: process.env.NODE_ENV === 'development',
 			release: require('./package.json').version,
-			captureUnhandledRejections: true,
-			stacktrace: true,
-			autoBreadcrumbs: { http: true },
+			environment: process.env.NODE_ENV,
+			maxBreadcrumbs: 5,
 		});
 
 		process.on('unhandledRejection', (reason) => {
@@ -131,6 +129,8 @@ module.exports = class Atlas {
 		});
 
 		process.on('uncaughtException', async (err) => {
+			console.warn(err);
+
 			Sentry.captureException(err);
 
 			// console.error(err);

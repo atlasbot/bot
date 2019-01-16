@@ -22,10 +22,15 @@ module.exports = class extends Command {
 			return responder.error('move.noChannel', args[0]).send();
 		}
 
+		if (channel.type !== 0) {
+			return responder.error('move.invalidTargetType').send();
+		}
+
 		let targetMsg;
 		if (args[1]) {
 			targetMsg = await this.Atlas.util.findMessage(msg.channel, args[1]);
 		}
+
 		if (!targetMsg) {
 			if (channel.permissionsOf(msg.author.id).has('addReactions')) {
 			// ask the user to react to the message to remove

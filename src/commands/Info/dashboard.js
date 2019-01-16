@@ -23,4 +23,5 @@ module.exports.info = {
 			manageGuild: true,
 		},
 	},
+	guildOnly: true,
 };

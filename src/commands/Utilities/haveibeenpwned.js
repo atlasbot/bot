@@ -95,5 +95,5 @@ module.exports.info = {
 		'admin@google.com',
 		'test@example.com',
 	],
-	guildOnly: false,
+	optionalGuild: true,
 };

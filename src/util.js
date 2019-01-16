@@ -305,8 +305,19 @@ module.exports = class Util {
 		}
 
 		if (id) {
-			const result = guildMembers.get(id) || this.Atlas.client.users.get(id);
-			if (memberOnly || result) {
+			const member = guildMembers.get(id);
+
+			if (memberOnly) {
+				if (member) {
+					await this.updateUser(member);
+				}
+
+				return member;
+			}
+
+			const result = this.Atlas.client.users.get(id);
+
+			if (result) {
 				if (result) {
 					await this.updateUser(result);
 				}
@@ -797,17 +808,21 @@ module.exports = class Util {
 
 				const { output } = await parser.parse(notify.content);
 
-				if (notify.stack) {
-					try {
-						msg.author.createMessage(msg.channel.id, {
+				if (!output) {
+					return;
+				}
+
+				try {
+					if (notify.dm) {
+						return msg.author.createMessage(msg.channel.id, {
 							content: output,
 						});
-					} catch (e) {} // eslint-disable-line no-empty
-				} else {
-					this.Atlas.client.createMessage(msg.channel.id, {
+					}
+
+					return this.Atlas.client.createMessage(msg.channel.id, {
 						content: output,
 					});
-				}
+				} catch (e) {} // eslint-disable-line no-empty
 			}
 		}
 	}

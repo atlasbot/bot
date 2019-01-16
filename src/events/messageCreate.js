@@ -148,9 +148,41 @@ module.exports = class Ready {
 					console.log(`executing ${msg.command.info.name} ${Date.now()}`);
 				}
 
-				return msg.command.execute(msg, msg.args, {
-					settings,
-				});
+				try {
+					return await msg.command.execute(msg, msg.args, {
+						settings,
+					});
+				} catch (e) {
+					console.error(e);
+
+					// this is where i would attach extra context like user id, args, etc.. to make fixing shit 1,000 times easier
+					// IF I COULD. sentry, in their infinite wisdom, removed any (decent/easy) way to set context
+					// (atleast according to their docs) in the new client. regression ftw
+
+					// mini-rant time
+
+					// the new version of sentry's javascript has gotten worse then the previous version (which is now deprecated)
+					// 	- logging errors once they're sent is gone
+					//  - setting context (previously you could just do add it to captureException or Sentry.context) is gone
+					//  - probably something else im forgetting
+					//
+					// so anywhere we capture exceptions we log it ourselves or have to check sentry
+					// and if we want to recreate something, like a command breaking under certain circumstances
+					//
+					// WHELP YOU'RE FUCKED because there is no (easy) way to attach info anymore
+
+					// to be fair, they do have scopes and hubs, but that's fucked and i can't find a way to only set it for one event
+					// so if i use scopes, every event that isn't a command event will have whichever last error from a command was caught
+
+					// nice
+
+
+					// maybe im just mentally gifted
+
+
+					// /rant
+					this.Atlas.Sentry.captureException(e);
+				}
 			}
 
 			this.Atlas.client.emit('message', msg);
@@ -206,7 +238,7 @@ module.exports = class Ready {
 
 				const profile = await this.Atlas.DB.user(msg.author, msg.guild.id);
 
-				const guild = profile.guilds.find(({ id }) => id === msg.guild.id);
+				const guild = profile.guilds && profile.guilds.find(({ id }) => id === msg.guild.id);
 
 				if (guild) {
 					// update existing guild profile

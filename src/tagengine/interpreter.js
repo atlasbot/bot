@@ -14,7 +14,6 @@ const interp = async (tokens = [], context, functions) => {
 		}
 
 		for (const tkn of tkns) {
-			// this fucking mess parses subtags
 			const ret = await interp(tkn, ctx, functions);
 
 			errors.push(...ret.errors);
@@ -93,14 +92,18 @@ const interp = async (tokens = [], context, functions) => {
 					if (e instanceof TagError) {
 						errors.push(e);
 					} else {
+						Atlas.Sentry.captureException(e);
+
+						if (e instanceof Error) {
+							throw e;
+						}
+
 						throw new Error(e);
 					}
 
 					if (process.env.NODE_ENV === 'development' || process.env.VERBOSE === 'true') {
 						console.warn(e);
 					}
-
-					Atlas.Sentry.captureException(e);
 
 					output.push(`{${thisToken.value}-ERROR${errors.length}-${e.message.split(' ').join('-').toLowerCase().replace(/[^A-z-]/g, '')}}`);
 				}

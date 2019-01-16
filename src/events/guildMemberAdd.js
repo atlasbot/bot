@@ -51,7 +51,7 @@ module.exports = class {
 			const responder = new Responder(null, settings.lang);
 
 			if (gatekeeper.channel.enabled) {
-				if (channel) {
+				if (channel && channel.permissionsOf(guild.me.id).has('sendMessages')) {
 					const parser = new Parser({
 						settings,
 						user: member.user,

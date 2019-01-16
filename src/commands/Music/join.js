@@ -21,6 +21,11 @@ module.exports = class extends Command {
 			return responder.error('general.player.noVoiceChannel').send();
 		}
 
+		const perms = voiceChannel.permissionsOf(guild.me.id);
+		if (!perms.has('voiceConnect') || !perms.has('voiceSpeak')) {
+			return responder.error('play.noPerms').send();
+		}
+
 		const myChannel = channel.guild.channels.get(guild.me.voiceState.channelID);
 
 		if (myChannel && myChannel.voiceMembers.filter(m => !m.bot).length !== 0) {

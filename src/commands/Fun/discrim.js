@@ -55,6 +55,7 @@ module.exports = class extends Command {
 };
 
 module.exports.info = {
+	guildOnly: true,
 	name: 'discrim',
 	aliases: [
 		'discriminator',

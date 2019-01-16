@@ -157,4 +157,5 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	optionalGuild: true,
 };

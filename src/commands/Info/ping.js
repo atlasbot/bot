@@ -23,4 +23,5 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'ping',
+	guildOnly: true,
 };

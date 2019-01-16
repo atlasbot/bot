@@ -95,4 +95,5 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	guildOnly: true,
 };

@@ -80,7 +80,7 @@ module.exports = class extends Command {
 			// gotta do it before so the "Now playing" message is sent after the playlist loaded message or else it looks fucky
 			// also disabling buttons so the "now playing" message has the controls, it just looks nicer + no reason to have double-up
 			await player.responder.embed({
-				url: (isUri && args[0]) || body.playlistInfo.link,
+				url: (isUri && args[0]) || (this.Atlas.lib.utils.isUri(body.playlistInfo.link) && body.playlistInfo.link),
 				thumbnail: {
 					url: body.playlistInfo.image,
 				},

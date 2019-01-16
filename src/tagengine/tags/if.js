@@ -12,56 +12,64 @@ module.exports = async ({
 
 	const { length } = textArgs;
 
-	if (length === 2) {
+	try {
+		if (length === 2) {
 		// {if;condition;then}
-		const [rawCondition, rawThen] = rawArgs;
+			const [rawCondition, rawThen] = rawArgs;
 
-		const needs = await parseArg(rawCondition);
+			const needs = await parseArg(rawCondition);
 
-		if (needs && needs !== 'false') {
-			return parseArg(rawThen);
+			if (needs && needs !== 'false') {
+				return parseArg(rawThen);
+			}
 		}
-	}
 
-	if (length === 3) {
+		if (length === 3) {
 		// {if;condition;then;else}
-		const [rawCond, rawThen, rawElse] = rawArgs;
-		// parse required args
-		const cond = await parseArg(rawCond);
+			const [rawCond, rawThen, rawElse] = rawArgs;
+			// parse required args
+			const cond = await parseArg(rawCond);
 
-		if (cond && cond !== 'false') {
+			if (cond && cond !== 'false') {
 			// then
-			return parseArg(rawThen);
+				return parseArg(rawThen);
+			}
+
+			return parseArg(rawElse);
 		}
 
-		return parseArg(rawElse);
-	}
-
-	if (length === 4) {
+		if (length === 4) {
 		// {if;condition1;operator;condition2;then}
-		const [rawCond1, rawOp, rawCond2, rawThen] = rawArgs;
-		// parse required args
-		const [cond1, op, cond2] = await parseArgs([rawCond1, rawOp, rawCond2]);
+			const [rawCond1, rawOp, rawCond2, rawThen] = rawArgs;
+			// parse required args
+			const [cond1, op, cond2] = await parseArgs([rawCond1, rawOp, rawCond2]);
 
-		if (safeCompare(cond1, op, cond2)) {
+			if (safeCompare(cond1, op, cond2)) {
 			// then
-			return parseArg(rawThen);
+				return parseArg(rawThen);
+			}
 		}
-	}
 
-	if (length === 5) {
+		if (length === 5) {
 		// {if;condition1;operator;condition2;then;else}
-		const [rawCond1, rawOp, rawCond2, rawThen, rawElse] = rawArgs;
-		// parse required args
-		const [cond1, op, cond2] = await parseArgs([rawCond1, rawOp, rawCond2]);
+			const [rawCond1, rawOp, rawCond2, rawThen, rawElse] = rawArgs;
+			// parse required args
+			const [cond1, op, cond2] = await parseArgs([rawCond1, rawOp, rawCond2]);
 
-		if (safeCompare(cond1, op, cond2)) {
+			if (safeCompare(cond1, op, cond2)) {
 			// if
-			return parseArg(rawThen);
+				return parseArg(rawThen);
+			}
+
+			// else
+			return parseArg(rawElse);
+		}
+	} catch (e) {
+		if (e.message.includes('Unknown operator')) {
+			throw new TagError('Unknown operator');
 		}
 
-		// else
-		return parseArg(rawElse);
+		throw e;
 	}
 };
 

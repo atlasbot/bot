@@ -352,6 +352,8 @@ module.exports = class GuildSettings {
 				return parsed;
 			});
 
+			embeds.forEach(responder.validateEmbed);
+
 			try {
 				return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
 					username: this.guild.me.nick || this.guild.me.username,
