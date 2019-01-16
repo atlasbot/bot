@@ -5,9 +5,9 @@
 		"footer": "Don't be afraid to ask for help!"
 	},
 	"help": {
-		"examples": "Examples",
+		"examples": "Beispiele",
 		"aliases": "Aliases",
-		"subcommands": "Subcommands",
+		"subcommands": "Unterbefehle",
 		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
 		"usage": "Usage",
 		"userPerms": "User Permissions",
@@ -77,9 +77,9 @@
 		"trackQueued": "Added `{0}` to the queue. It will play in about {1}.",
 		"npEmbed": {
 			"ttp": "Time Until Playing",
-			"addedBy": "Added By",
+			"addedBy": "Hinzugefügt von",
 			"author": "Author",
-			"duration": "Duration",
+			"duration": "Dauer",
 			"footer": "{0} in queue"
 		},
 		"leaving": "There is nothing left to play, leaving channel...",
@@ -100,7 +100,7 @@
 				"value": "{0}"
 			},
 			"target": {
-				"name": "Target",
+				"name": "Ziel",
 				"value": "{0}"
 			}
 		},
@@ -268,7 +268,7 @@
 				"name": "Moderator"
 			},
 			"duration": {
-				"name": "Duration"
+				"name": "Dauer"
 			},
 			"reason": {
 				"name": "Reason"
@@ -315,11 +315,11 @@
 		},
 		"description": "[{0}]({1})",
 		"duration": {
-			"name": "Duration",
+			"name": "Dauer",
 			"value": "{0}"
 		},
 		"addedBy": {
-			"name": "Added By",
+			"name": "Hinzugefügt von",
 			"value": "{0}"
 		},
 		"author": {
