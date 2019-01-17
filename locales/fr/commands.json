@@ -51,7 +51,8 @@
 	},
 	"needsmorejpeg": {
 		"noArgs": "Veuillez inclure une image en pièce jointe ou une URL d'image.",
-		"invalidUrl": "'{0}' n'est pas un URL valide."
+		"invalidUrl": "'{0}' n'est pas un URL valide.",
+		"notAnImage": "Ceci n'est pas une image :("
 	},
 	"randomcase": {
 		"noArgs": "Veuillez entrer quelque chose à faire."
@@ -459,7 +460,8 @@
 		"invalidType": "Ce type de message ne peut pas être transféré sur un autre canal.",
 		"waiting": "Veuillez ajouter un emoji :package: `:package:` sur le message que vous souhaitez déplacer vers {0}.",
 		"success": "Message déplacé dans {0}.",
-		"noMessageOrPerms": "Vous devez fournir un ID de message ou partager le lien pour déplacer un message sauf si vous avez les autorisations requises pour ajouter des réactions."
+		"noMessageOrPerms": "Vous devez fournir un ID de message ou partager le lien pour déplacer un message sauf si vous avez les autorisations requises pour ajouter des réactions.",
+		"invalidTargetType": "You can't move messages to non-text channels."
 	},
 	"texttoemoji": {
 		"noArgs": "Vous devez inclure du texte à traduire."
