@@ -34,10 +34,10 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Only patrons can use that command. Do `{0}pledge` for more information.",
-		"premiumOnly": "Only premium servers can use that command. ",
-		"guildOnly": "That command can only be used in servers!",
-		"disabled": "The `{0}{1}` command has been disabled by a server administrator.",
+		"patronOnly": "Nur Benutzer können diesen Befehl verwenden. '{0}pledge' für weitere Informationen.",
+		"premiumOnly": "Nur Premium-Server können diesen Befehl verwenden.",
+		"guildOnly": "Dieser Befehl kann nur in Servern verwendet werden!",
+		"disabled": "Der Befehl {0} {1} `wurde von einem Serveradministrator deaktiviert.",
 		"restrictions": {
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that command.",
@@ -50,24 +50,24 @@
 		}
 	},
 	"reminder": {
-		"title": "Reminder",
-		"footer": "Requested"
+		"title": "Erinnerung",
+		"footer": "Angefordet"
 	},
 	"warning": {
-		"title": "Member Warned",
-		"description": "{0} (`{1}`) has been warned by a {2} (`{3}`).",
+		"title": "Crew gewarnt",
+		"description": "{0} (`{1}`) wurde von einem {2} (`{3}`) gewarnt.",
 		"total": {
-			"name": "Total Warnings",
-			"value": "{0} now has {1} total warning(s)."
+			"name": "Gesamtwarnung",
+			"value": "{0} hat jetzt {1} Gesamtwarnung (en)."
 		},
 		"dm": {
-			"name": "Direct Messaged",
-			"true": "The user was direct-messaged.",
-			"false": "The user was not direct-messaged."
+			"name": "Direktnachricht",
+			"true": "Der Spieler wurde benachrichtigt.",
+			"false": "Der Spieler wurde nicht benachrichtigt."
 		},
 		"reason": {
 			"name": "Reason",
-			"value": "No reason specified."
+			"value": "Keine Aktion gefunden!"
 		}
 	},
 	"player": {
@@ -105,7 +105,7 @@
 			}
 		},
 		"guildMemberKick": {
-			"title": "Member Kicked",
+			"title": "Mitglied wurde gekickt",
 			"description": "{0} has been kicked from the server.",
 			"moderator": {
 				"name": "Moderator"
