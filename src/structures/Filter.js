@@ -84,10 +84,12 @@ module.exports = class Filter {
 
 				// special handling for phrases to tell them what they said that got them into the bad boi group
 				if (this.info.settingsKey === 'phrases') {
-					await responder
-						.dm(msg.author)
-						.text(`general.filters.messages.${this.info.settingsKey}.dm`, output, msg.guild.name)
-						.send();
+					try {
+						await responder
+							.dm(msg.author)
+							.text(`general.filters.messages.${this.info.settingsKey}.dm`, output, msg.guild.name)
+							.send();
+					} catch (e) {} // eslint-disable-line no-empty
 				}
 
 				return !!(
