@@ -22,7 +22,7 @@ module.exports = class {
 		// while atlas works fine in dm's and previously supported them
 		// for reasons of not wanting to overcomplicate things, i've disabled it
 		// also basically no one used dm support
-		if (!msg.guild || msg.type !== 0) {
+		if (!msg.guild || msg.type !== 0 || msg.author.id === msg.guild.me.id) {
 			return;
 		}
 
