@@ -49,6 +49,8 @@ class Command {
 
 		const master = path.basename(path.dirname(this.location));
 
+		console.log(master, path.basename(path.dirname(this.location)));
+
 		return this.Atlas.commands.get(master);
 	}
 
@@ -213,7 +215,7 @@ class Command {
 			...this.getInfo(msg.lang),
 		};
 
-		const getDN = ({ info: { master, name } }) => (master ? `${master.info.name} ${name}` : name);
+		const getDN = ({ master, info: { name } }) => (master ? `${master.info.name} ${name}` : name);
 		const displayName = getDN(this);
 
 		const embed = {
