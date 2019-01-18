@@ -114,11 +114,11 @@ module.exports = class extends Command {
 		};
 
 		await this.Atlas.agenda.schedule('unmute', new Date(parsed.absolute), data);
-		await settings.update({
-			$push: {
-				'plugins.moderation.mutes': data,
-			},
-		});
+		// await settings.update({
+		// 	$push: {
+		// 		'plugins.moderation.mutes': data,
+		// 	},
+		// });
 
 		await target.addRole(role.id, `Muted by ${msg.author.tag} ${reason ? ` with reason "${args.join(' ')}"` : ''}`);
 
