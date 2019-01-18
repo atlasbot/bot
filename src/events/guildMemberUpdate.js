@@ -8,6 +8,8 @@ module.exports = class {
 			return;
 		}
 
+		await this.Atlas.util.updateUser(member);
+
 		const settings = await this.Atlas.DB.settings(guild);
 
 		if (!settings.actionLogChannel) {
@@ -85,9 +87,9 @@ module.exports = class {
 			});
 		}
 
-		await this.Atlas.util.updateUser(member);
-
-		if (member.avatarURL !== oldMember.avatarURL) {
+		// old member avatar is sometimes unset even when one did exist
+		// discord being discord idk
+		if (oldMember.avatar && member.avatar !== oldMember.avatar) {
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.avatarChange',
 				thumbnail: {

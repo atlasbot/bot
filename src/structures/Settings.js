@@ -315,33 +315,33 @@ module.exports = class GuildSettings {
 
 	/**
     * Logs a message into the appropriate channel in the guild if enabled
+		*
     * @param {string} type The type of log it is, "action", "error" or "mod"
-    * @param {Object} embed the embed to send to the channel
+    * @param {Object} raw the embed to send to the channel
 		* @param {boolean} retry If a previous log failed, this will force the bot to fetch new webhooks
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
     */
-	async log(type, embed, retry = false) {
+	async log(type, raw, retry = false) {
 		if (!this.guild.me.permission.has('manageWebhooks')) {
 			return;
 		}
 
-		const responder = new this.Atlas.structs.Responder(null, this.lang);
-
-		const embeds = (Array.isArray(embed) ? embed : [embed]).map(e => responder.localiseObject(e, this.lang));
-
-		embeds.forEach(responder.validateEmbed);
-
 		const channel = this[`${type}LogChannel`];
 
 		if (channel) {
-			let webhook;
-			try {
-				webhook = await this.Atlas.util.getWebhook(channel, 'Atlas Action Logging', retry);
-			} catch (e) {
-				return;
+			const responder = new this.Atlas.structs.Responder(null, this.lang);
+
+			const embeds = Array.isArray(raw) ? raw : [raw];
+
+			for (let embed of embeds) {
+				embed = responder.localiseObject(embed);
+
+				responder.validateEmbed(embed);
 			}
 
 			try {
+				const webhook = await this.Atlas.util.getWebhook(channel, `Atlas ${type} log`, retry);
+
 				return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
 					username: this.guild.me.nick || this.guild.me.username,
 					avatarURL: this.Atlas.avatar,
@@ -353,7 +353,7 @@ module.exports = class GuildSettings {
 				}
 
 				if (!retry) {
-					return this.log(type, embeds, true);
+					return this.log(type, raw, true);
 				}
 			}
 		}
