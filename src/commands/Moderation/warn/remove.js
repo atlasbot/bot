@@ -35,25 +35,30 @@ module.exports = class extends Command {
 			return responder.error('general.noUserFound').send();
 		}
 
-		if (args.length) {
-			// remove the warning without doing shitty embed stuff
-
-			const warn = await this.Atlas.DB.get('playlists').findOne({
-				reason: new RegExp(`^${this.Atlas.lib.utils.escapeRegex(query)}$`, 'i'),
-			});
-
-			if (!warn) {
-				return responder.error('warn.remove.notFound').send();
-			}
-
-			await settings.removeInfraction(warn._id);
-
-			return responder.text('warn.remove.successNoMention', warn.reason, target.tag).send();
-		}
-
 		let warnings = await settings.getInfractions(target);
 		if (warnings.length === 0) {
 			return responder.text('warn.remove.noWarns', target.mention).send();
+		}
+
+		if (args.length) {
+			let warning;
+			const index = this.Atlas.lib.utils.parseNumber(query, null, 'strict');
+
+			if (!isNaN(index)) {
+				warning = warnings[index - 1];
+			}
+
+			if (!warning) {
+				warning = this.Atlas.lib.utils.nbsFuzzy(warnings, ['reason'], query);
+			}
+
+			if (!warning) {
+				return responder.error('warn.remove.notFound').send();
+			}
+
+			await settings.removeInfraction(warning._id);
+
+			return responder.text('warn.remove.successNoMention', warning.reason, target.tag).send();
 		}
 
 		const pageN = this.Atlas.lib.utils.parseNumber(args[1], 1);
@@ -84,7 +89,7 @@ module.exports = class extends Command {
 				fields: page.data.map((w, i) => {
 					const moderator = msg.guild.members.get(w.moderator);
 					const name = `${i + 1} • ${moderator ? `${moderator.tag} (${w.moderator})` : w.moderator}`;
-					const value = `${w.reason} • ${new Date(w.createdAt).toLocaleDateString()}`;
+					const value = `${w.reason} • ${w.createdAt ? new Date(w.createdAt).toLocaleDateString() : '???'}`;
 
 					return {
 						name,
@@ -110,6 +115,7 @@ module.exports = class extends Command {
 		await collector
 			.msg(pageMsg)
 			.user(msg.author.id)
+			// .add(true)
 			.remove(true)
 			.emoji(toAdd)
 			.validate((m, emoji) => emoji.name && toAdd.includes(emoji.name))

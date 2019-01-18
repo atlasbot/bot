@@ -3,6 +3,7 @@ const Guild = require('eris/lib/structures/Guild');
 const Cache = require('atlas-lib/lib/structures/Cache');
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
+const monkMiddleware = require('../monkMiddleware');
 const defaultSettings = require('../../data/defaultSettings.json');
 const Settings = require('./Settings');
 
@@ -18,6 +19,8 @@ const CACHE_TIME_SECONDS = 10;
 module.exports = class Database {
 	constructor() {
 		this.db = monk(process.env.MONGO_URI);
+
+		this.db.addMiddleware(monkMiddleware);
 	}
 
 	get(db) {
