@@ -546,6 +546,10 @@ module.exports = class Util {
 			throw new Error('Invalid guild.');
 		}
 
+		if (!guild.me.permission.has('viewAuditLogs')) {
+			return;
+		}
+
 		// if we don't have perms to view audit logs, there is no point in trying
 		if (!guild.me.permission.has('viewAuditLogs')) {
 			return;
@@ -564,7 +568,7 @@ module.exports = class Util {
 		// wait a few seconds to let the audit log catch up, idk why sometimes it takes a bit for logs to show up
 		await new Promise(resolve => setTimeout(resolve, 1000));
 
-		const x = await this.Atlas.client.getGuildAuditLogs(guild.id, 25, null, type);
+		const x = await guild.getAuditLogs(25, null, type);
 		if (x) {
 			const entry = x.entries.find(e => e.targetID === id);
 
