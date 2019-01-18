@@ -78,7 +78,7 @@ class Command {
 		if (settings) {
 			// user is in a guild, run guild-only checks
 
-			const botPerms = msg.channel.permissionsOf(msg.guild.me);
+			const botPerms = msg.channel.permissionsOf(msg.guild.me.id);
 
 			// if we don't have perms to send messages then we can't really do anything anyway
 			if (!botPerms.has('sendMessages')) {

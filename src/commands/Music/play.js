@@ -2,11 +2,11 @@ const Command = require('../../structures/Command.js');
 
 const Collector = require('../../structures/MessageCollector');
 
+const waiting = new Map();
+
 module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
-
-		this.waiting = new Map();
 	}
 
 	async action(msg, args, {
@@ -15,11 +15,11 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		if (this.waiting.has(msg.author.id)) {
+		if (waiting.has(msg.author.id)) {
 			const number = this.Atlas.lib.utils.parseNumber(args.join(' '));
 
 			if (number) {
-				const cb = this.waiting.get(msg.author.id);
+				const cb = waiting.get(msg.author.id);
 
 				return cb(number);
 			}
@@ -141,26 +141,32 @@ module.exports = class extends Command {
 
 	awaitTrackNumber({ author, channel }) {
 		return new Promise(async (resolve) => {
-			const cb = (number) => {
-				if (!this.waiting.has(author.id)) {
+			const { parseNumber } = this.Atlas.lib.utils;
+
+			const filter = msg => msg.channel.id === channel.id && msg.author.id === author.id && parseNumber(msg.content, null, 'strict');
+
+			const collector = new Collector(channel, filter);
+
+			const callback = (number) => {
+				if (!waiting.has(author.id)) {
 					return;
 				}
 
-				this.waiting.delete(author.id);
+				waiting.delete(author.id);
+
+				collector.end();
 
 				return resolve(number - 1);
 			};
 
-			this.waiting.set(author.id, cb);
-
-			const collector = new Collector(channel, msg => msg.channel.id === channel.id && msg.author.id === author.id && this.Atlas.lib.utils.parseNumber(msg.content));
+			waiting.set(author.id, callback);
 
 			collector.listen(25000);
 
 			const message = await collector.await();
 
 			if (message) {
-				return cb(this.Atlas.lib.utils.parseNumber(message.content));
+				return callback(parseNumber(message.content, null, 'strict'));
 			}
 		});
 	}

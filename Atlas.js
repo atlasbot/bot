@@ -128,16 +128,11 @@ module.exports = class Atlas {
 		});
 
 		process.on('unhandledRejection', (reason) => {
-			throw reason;
+			console.warn(reason);
 		});
 
 		process.on('uncaughtException', async (err) => {
 			console.warn(err);
-
-			Sentry.captureException(err);
-
-			// console.error(err);
-			// process.exit(0);
 		});
 
 		const events = await fs.readdir('src/events');
