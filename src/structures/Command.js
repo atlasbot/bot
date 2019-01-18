@@ -80,11 +80,6 @@ class Command {
 
 			const botPerms = msg.channel.permissionsOf(msg.guild.me.id);
 
-			// if we don't have perms to send messages then we can't really do anything anyway
-			if (!botPerms.has('sendMessages')) {
-				return;
-			}
-
 			// permission checking for bot/user
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
 				let permissions = Object.keys(this.info.permissions[permsKey]);

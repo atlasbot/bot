@@ -327,9 +327,9 @@ module.exports = class GuildSettings {
 
 		const responder = new this.Atlas.structs.Responder(null, this.lang);
 
-		const embeds = (Array.isArray(embed) ? embed : [embed])
-			.map(e => responder.localiseObject(e, this.lang))
-			.forEach(responder.validateEmbed);
+		const embeds = (Array.isArray(embed) ? embed : [embed]).map(e => responder.localiseObject(e, this.lang));
+
+		embeds.forEach(responder.validateEmbed);
 
 		const channel = this[`${type}LogChannel`];
 

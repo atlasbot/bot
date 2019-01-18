@@ -69,7 +69,9 @@ module.exports = class Filter {
 							await msg.channel.deleteMessages(output);
 						}
 					} else {
-						await msg.delete();
+						try {
+							await msg.delete();
+						} catch (e) {} // eslint-disable-line no-empty
 					}
 				}
 

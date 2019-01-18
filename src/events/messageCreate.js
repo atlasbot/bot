@@ -123,8 +123,9 @@ module.exports = class {
 			return;
 		}
 
-		if (msg.author.bot) {
+		if (msg.author.bot || !msg.channel.permissionsOf(msg.guild.me.id).has('sendMessages')) {
 			// we don't want to run our commands for bots
+			// we also don't want to do anything if we can't send messages
 			return;
 		}
 
@@ -139,7 +140,7 @@ module.exports = class {
 		if (msg.command) {
 			const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'general.plugin');
 			const plugin = settings.plugin(msg.command.plugin.name);
-			const { subcommands } = msg.command;
+			const { subcommands, subcommandAliases } = msg.command;
 
 			// guild-only checks
 			// handle guild things
@@ -182,7 +183,7 @@ module.exports = class {
 			// we intentionally do this after the above checks because
 			// subcommands inherit restrictions or other settings from their parent
 			if (msg.args[0] && subcommands.size) {
-				const subcommand = subcommands.get(msg.args[0]);
+				const subcommand = subcommands.get(msg.args[0]) || subcommands.get(subcommandAliases.get(msg.args[0]));
 
 				if (subcommand) {
 					// wew we found one, remove the first arg
