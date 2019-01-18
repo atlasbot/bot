@@ -242,6 +242,7 @@
 		}
 	},
 	"uptime": "Ik ben online voor {0}.",
+	"version": "This instance is running Atlas version `{0}`.",
 	"whois": {
 		"noUser": "Je moet me vertellen wie ik moet opzoeken!",
 		"embed": {
