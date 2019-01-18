@@ -65,7 +65,7 @@ module.exports = class Action {
 
 		if (!['interval', 'guildMemberAdd', 'guildMemberRemove'].includes(this.trigger.type)) {
 			const errorKey = this.Atlas.lib.utils.checkRestriction({
-				roles: (msg.member && msg.member.roles) || [],
+				roles: msg.member.roles || [],
 				channel: msg.channel.id,
 			}, this.restrictions);
 

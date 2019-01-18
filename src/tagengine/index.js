@@ -38,6 +38,7 @@ module.exports = class {
 				guild,
 				channel,
 				author: user,
+				member: guild.members.get(user.id),
 				type: 0,
 				timestamp: Date.now(),
 				lang: settings.lang,
