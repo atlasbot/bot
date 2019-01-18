@@ -98,7 +98,7 @@ class Command {
 				}
 
 				for (const perm of permissions) {
-					const perms = permsKey === 'bot' ? botPerms : msg.channel.permissionsOf(msg.member);
+					const perms = permsKey === 'bot' ? botPerms : msg.channel.permissionsOf(msg.member.id);
 
 					if (perms.has(perm) === false) {
 						const missing = responder.format(`permissions.list.${perm}`);
