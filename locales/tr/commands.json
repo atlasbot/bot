@@ -242,6 +242,7 @@
 		}
 	},
 	"uptime": "I have been online for {0}.",
+	"version": "This instance is running Atlas version `{0}`.",
 	"whois": {
 		"noUser": "You have to tell me who to look up!",
 		"embed": {
