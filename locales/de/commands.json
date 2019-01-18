@@ -16,23 +16,23 @@
 		"noArgs": "Bitte füge etwas zum herstellen ein ˢᵐᵒˡ"
 	},
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
+		"noRoles": "Dieser Server hat keine verfügbaren Rollen.",
+		"invalidQuery": "Ich konnte keine \"ich bin\" rollen Übereinstimmung finden `{0}`.",
 		"unassignable": "Mir fehlt die Befugnis dir diese Rolle zuzuweisen.",
-		"removed": "You no longer have the {0} role.",
+		"removed": "Du hast nicht mehr die {0} Rolle.",
 		"added": "Du hast nun die {0} Rolle.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "Verfügbare \"ich bin\" Rollen",
+			"footer": "\"{0}ich bin [role]\" um eine Rolle einzunehmen"
 		}
 	},
 	"convert": {
 		"invalidUnits": "Bitte füge eine korrekte Einheit ein.",
-		"invalidFrom": "Please include a valid input measurement.",
-		"invalidTo": "Please include a valid to measurement.",
+		"invalidFrom": "Bitte verwende eine gültige Eingangs Messung.",
+		"invalidTo": "Bitte verwende eine gültige Messung.",
 		"currency": {
-			"invalidTarget": "Invalid target currency `{0}`",
-			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+			"invalidTarget": "Ungültige Währung `{0}`",
+			"converted": "`{0}` {1} ist *grob* `{2}` {3}."
 		},
 		"other": {
 			"unknownInput": "Unbekanntes Import-Format.",
