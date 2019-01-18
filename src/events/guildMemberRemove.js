@@ -43,7 +43,9 @@ module.exports = class {
 
 					const { output } = await parser.parse(gatekeeper.leave.content);
 
-					await responder.channel(channel).localised(true).text(output).send();
+					if (output) {
+						await responder.channel(channel).localised(true).text(output).send();
+					}
 				}
 			}
 		}

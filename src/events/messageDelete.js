@@ -65,7 +65,9 @@ module.exports = class {
 				}
 
 				// if it was deleted by a moderator it's probably worth while to log it
-				return settings.log(['mod', 'action'], embed);
+				await settings.log('mod', embed);
+
+				return settings.log('action', embed);
 			}
 
 			if (msg.channel.topic && msg.channel.topic.includes('actionlog-ignore')) {

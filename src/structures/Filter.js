@@ -18,15 +18,24 @@ module.exports = class Filter {
 
 		// jesus christ
 		if (
+			// if moderation is disabled
 			(settings.plugin('moderation').state === 'disabled'
-        || filterConfig.action === 0
+			// if the filter is disabled
+				|| filterConfig.action === 0
+				// if the msg author is a bot and we're not meant to sanction them
 				|| (msg.author.bot && filterConfig.sanction.bots !== true))
+				// if the message is from ourselves
 				|| msg.author.id === this.Atlas.client.user.id
+				// if there is no member that sent the message (somethines things fake messages idk man)
 				|| !msg.member
-				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
-        || filterConfig.exempt.channels.includes(msg.channel.id)
-        || filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))
+				// if we aren't allowed to manage messages
 				|| !perms.has('manageMessages')
+				// if the member has manageMessages perms and we aren't allowed to touch them
+				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
+				// if the channel is exempt
+				|| filterConfig.exempt.channels.includes(msg.channel.id)
+				// if the user has an exempt role
+				|| filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))
 				// i'm not 100% sure about this, some people may just do it so the bot is silent
 				// but on the other hand it may confuse people if atlas randomly deletes messages
 				|| !perms.has('sendMessages')
@@ -37,7 +46,7 @@ module.exports = class Filter {
 		// if anyone wants to clean that up then you're more then welcome
 
 		const restrictionError = this.Atlas.lib.utils.checkRestriction({
-			roles: msg.member.roles || [],
+			roles: (msg.member && msg.member.roles) || [],
 			channel: msg.channel.id,
 		}, plugin.restrictions);
 
@@ -75,17 +84,18 @@ module.exports = class Filter {
 
 				// special handling for phrases to tell them what they said that got them into the bad boi group
 				if (this.info.settingsKey === 'phrases') {
-					let channel;
-					try {
-						channel = await msg.author.getDMChannel();
-					} catch (e) {} // eslint-disable-line no-empty
-
-					await responder.channel(channel)
+					await responder
+						.dm(msg.author)
 						.text(`general.filters.messages.${this.info.settingsKey}.dm`, output, msg.guild.name)
 						.send();
 				}
 
-				return !!(await responder.text(`general.filters.messages.${this.info.settingsKey}.message`, msg.author.mention).ttl(5).send());
+				return !!(
+					await responder
+						.text(`general.filters.messages.${this.info.settingsKey}.message`, msg.author.mention)
+						.ttl(5)
+						.send()
+				);
 			}
 		}
 

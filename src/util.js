@@ -812,17 +812,19 @@ module.exports = class Util {
 					return;
 				}
 
-				try {
-					if (notify.dm) {
-						return msg.author.createMessage(msg.channel.id, {
+				if (msg.channel.permissionsOf(member.guild.me.id).has('sendMessages')) {
+					try {
+						if (notify.dm) {
+							return msg.author.createMessage(msg.channel.id, {
+								content: output,
+							});
+						}
+
+						return this.Atlas.client.createMessage(msg.channel.id, {
 							content: output,
 						});
-					}
-
-					return this.Atlas.client.createMessage(msg.channel.id, {
-						content: output,
-					});
-				} catch (e) {} // eslint-disable-line no-empty
+					} catch (e) {} // eslint-disable-line no-empty
+				}
 			}
 		}
 	}

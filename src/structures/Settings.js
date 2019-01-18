@@ -315,7 +315,7 @@ module.exports = class GuildSettings {
 
 	/**
     * Logs a message into the appropriate channel in the guild if enabled
-    * @param {string|array} type The type of log it is, "action", "error" or "mod"
+    * @param {string} type The type of log it is, "action", "error" or "mod"
     * @param {Object} embed the embed to send to the channel
 		* @param {boolean} retry If a previous log failed, this will force the bot to fetch new webhooks
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
@@ -329,12 +329,7 @@ module.exports = class GuildSettings {
 
 		const embeds = (Array.isArray(embed) ? embed : [embed])
 			.map(e => responder.localiseObject(e, this.lang))
-			.map(responder.validateEmbed);
-
-		// if "type" is an array, we're sending to multiple log channels
-		if (Array.isArray(type)) {
-			return Promise.all(type.map(t => this.log(t, embed, retry)));
-		}
+			.forEach(responder.validateEmbed);
 
 		const channel = this[`${type}LogChannel`];
 
@@ -358,7 +353,7 @@ module.exports = class GuildSettings {
 				}
 
 				if (!retry) {
-					return this.log(type, embed, true);
+					return this.log(type, embeds, true);
 				}
 			}
 		}
