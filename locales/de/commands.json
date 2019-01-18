@@ -1,33 +1,33 @@
 {
 	"weather": {
-		"noResults": "I couldn't find any weather information for your search.",
-		"title": "Weather in {0}, {1}",
+		"noResults": "Ich konnte keine Wetterinformationen bezüglich deiner Suche finden.",
+		"title": "Wetter in {0}, {1}",
 		"temperature": {
 			"name": "Temperatur",
 			"value": "{0}°C, min {1}°C, max {2}°C"
 		},
-		"humidity": "Humidity",
+		"humidity": "Luftfeuchtigkeit",
 		"wind": {
 			"name": "Wind",
 			"value": "{0}kph"
 		}
 	},
 	"smalltext": {
-		"noArgs": "Please include something to make ˢᵐᵒˡ"
+		"noArgs": "Bitte füge etwas zum herstellen ein ˢᵐᵒˡ"
 	},
 	"iam": {
 		"noRoles": "This server does not have any available roles.",
 		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
+		"unassignable": "Mir fehlt die Befugnis dir diese Rolle zuzuweisen.",
 		"removed": "You no longer have the {0} role.",
-		"added": "You now have the {0} role.",
+		"added": "Du hast nun die {0} Rolle.",
 		"embed": {
 			"title": "Available \"iam\" Roles​",
 			"footer": "\"{0}iam [role]\" to claim a role"
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
+		"invalidUnits": "Bitte füge eine korrekte Einheit ein.",
 		"invalidFrom": "Please include a valid input measurement.",
 		"invalidTo": "Please include a valid to measurement.",
 		"currency": {
@@ -36,7 +36,7 @@
 		},
 		"other": {
 			"unknownInput": "Unbekanntes Import-Format.",
-			"unknownOutput": "Unknown output format.",
+			"unknownOutput": "Unbekanntes Export-Format.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
@@ -72,30 +72,30 @@
 			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
 		},
 		"list": {
-			"noPlaylists": "You do not have any playlists.",
-			"more": "+ `{0}` more",
-			"description": "{0} total tracks",
+			"noPlaylists": "Du hast keine Playlist.",
+			"more": "+ `{0}` mehr",
+			"description": "{0} Titel insgesamt",
 			"duration": "Dauer",
 			"created": "Created",
 			"updated": "Aktualisiert",
-			"tracks": "Tracks",
+			"tracks": "Titel",
 			"footer": "{0} • Playlist {1}/{2}"
 		},
 		"delete": {
 			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
+			"noPlaylists": "Du hast keine Playlist.",
 			"noneFound": "I could not find a playlist matching `{0}`.",
 			"success": "The `{0}` playlist has been deleted successfully."
 		},
 		"addqueue": {
 			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
+			"noPlaylists": "Du hast keine Playlist.",
 			"noneFound": "I could not find a playlist matching `{0}`.",
 			"success": "Added {0} tracks to the `{1}` playlist."
 		},
 		"removetrack": {
 			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
+			"noPlaylists": "Du hast keine Playlist.",
 			"noneFound": "I could not find a playlist matching `{0}`.",
 			"noQuery": "Please include a track name to search for and remove.",
 			"noTrack": "I could not find a track matching `{0}`.",
@@ -172,8 +172,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "Das ist keine Fernsehsendung! Versuchen Sie es stattdessen mit {0} movie {1} `.",
+		"ratings": "Bewertung"
 	},
 	"funban": {
 		"success": "{0} wurde gebannt!"
@@ -185,8 +185,8 @@
 		"tooLateReason": "{1} wurde schon wegen {0} gebannt.",
 		"tooLate": "{0} ist bereits gebannt.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "Du wurdest kielgeholt von {0} für `{1}` auf {2} ({3}).",
+			"noReason": "Du wurdest kielgeholt von {0} auf {1} ({2})."
 		}
 	},
 	"remindme": {
@@ -217,7 +217,7 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"patreon": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"patreon": "Unterstütze Atlas und bekomme einmalige Vergünstigungen durch Spenden auf <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
@@ -317,7 +317,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "Als nächstes:",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -517,8 +517,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "Du wurdest über die Planke geschickt von {0} für `{1}` auf {2} ({3}).",
+			"noReason": "Du wurdest über die Planke geschickt von {0} auf {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -726,29 +726,29 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Du findest die Server-Bestenliste unter: <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "Ich konnte keinen Benutzer `{0}` finden!",
+		"noProfile": "Oops! Etwas ging schief. Ich konnte kein Profil für den Spieler finden.",
 		"embed": {
-			"rank": "Rank",
+			"rank": "Rang",
 			"level": "Level",
 			"experience": {
 				"name": "Erfahrung",
-				"value": "{0}/{1} • `{0}` total"
+				"value": "{0}/{1} • `{0}` Total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Bitte geben Sie einen Pluginnamen ein.",
+		"noPlugin": "Ich konnte kein Plugin `{0}` finden!",
+		"success": "Das {0} Plugin wird {1}."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Bitte füge den Befehlsnamen ein.",
+		"noCommand": "Der Befehl {0} konnte nicht gefunden werden.",
+		"disabled": "Der Befehl {0} wurde deaktiviert.",
+		"enabled": "Der Befehl {0} wurde aktiviert."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
