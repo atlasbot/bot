@@ -5,8 +5,8 @@ module.exports = async ({ persistent }, [key, value]) => {
 		throw new TagError('Please include a storage key (see docs.atlasbot.xyz)');
 	}
 
-	if (persistent.size > 5000) {
-		throw new TagError('Your persistent storage has exceeded your quota (5000 keys). Contact Atlas Support if you would like these limits raised.');
+	if (persistent.size > 500) {
+		throw new TagError('Your persistent storage has exceeded your quota (500 keys). Contact Atlas Support if you would like these limits raised.');
 	}
 
 	if (!value) {
