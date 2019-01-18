@@ -259,6 +259,7 @@ module.exports = class extends Player {
 
 			await this.Atlas.client.leaveVoiceChannel(this.channelId);
 		}
+
 		this.emit('end', message);
 	}
 };
