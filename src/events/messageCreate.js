@@ -22,7 +22,7 @@ module.exports = class {
 		// while atlas works fine in dm's and previously supported them
 		// for reasons of not wanting to overcomplicate things, i've disabled it
 		// also basically no one used dm support
-		if (!msg.guild || msg.type !== 0 || msg.author.id === msg.guild.me.id) {
+		if (!msg.guild || msg.type !== 0 || msg.author.id === msg.guild.me.id || !msg.member) {
 			return;
 		}
 
@@ -170,7 +170,7 @@ module.exports = class {
 				// checks plugin blacklist/whitelists and returns a locale error key (blacklist.role, whitelist.role)
 				// if the user doesn't have perms
 				const errorKey = this.Atlas.lib.utils.checkRestriction({
-					roles: msg.member.roles || [],
+					roles: (msg.member && msg.member.roles) || [],
 					channel: msg.channel.id,
 				}, plugin.restrictions);
 
@@ -253,7 +253,7 @@ module.exports = class {
 		await ratelimits.set(msg.author.id, Date.now(), 60);
 
 		const restrictionError = this.Atlas.lib.utils.checkRestriction({
-			roles: msg.member.roles || [],
+			roles: (msg.member && msg.member.roles) || [],
 			channel: msg.channel.id,
 		}, plugin.restrictions);
 

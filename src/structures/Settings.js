@@ -317,7 +317,7 @@ module.exports = class GuildSettings {
     * Logs a message into the appropriate channel in the guild if enabled
 		*
     * @param {string} type The type of log it is, "action", "error" or "mod"
-    * @param {Object} raw the embed to send to the channel
+    * @param {Object|array} raw the embed to send to the channel
 		* @param {boolean} retry If a previous log failed, this will force the bot to fetch new webhooks
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
     */

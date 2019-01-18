@@ -46,7 +46,7 @@ module.exports = class Filter {
 		// if anyone wants to clean that up then you're more then welcome
 
 		const restrictionError = this.Atlas.lib.utils.checkRestriction({
-			roles: msg.member.roles || [],
+			roles: (msg.member && msg.member.roles) || [],
 			channel: msg.channel.id,
 		}, plugin.restrictions);
 

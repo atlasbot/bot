@@ -113,7 +113,7 @@ class Command {
 			}
 
 			const errorKey = this.Atlas.lib.utils.checkRestriction({
-				roles: msg.member.roles || [],
+				roles: (msg.member && msg.member.roles) || [],
 				channel: msg.channel.id,
 			}, options.restrictions);
 
