@@ -8,7 +8,7 @@ module.exports = class {
 		if (oldChannel.voiceMembers.has(member.guild.me.id) && oldChannel.voiceMembers.filter(m => !m.bot).length === 0) {
 			const player = await this.Atlas.client.voiceConnections.getPlayer(oldChannel, false);
 
-			if (player) {
+			if (player && !player.paused) {
 				await player.setPause(true);
 
 				if (player.msg) {
