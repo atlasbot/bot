@@ -12,6 +12,15 @@ const addTimestamps = () => next => (args, method) => {
 	}
 
 	if (isUpdate(method)) {
+		const keys = Object.keys(args.update);
+
+		// not an operator
+		const nao = keys.find(k => !k.startsWith('$'));
+		if (nao) {
+			// safety net, otherwise mongodb does weird things
+			throw new Error(`Invalid operator "${nao}"`);
+		}
+
 		if (args.update.$set) {
 			args.update.$set.updatedAt = new Date();
 		} else {
