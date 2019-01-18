@@ -1,20 +1,18 @@
 const parseNumber = require('atlas-lib/lib/utils/parseNumber');
 const TagError = require('./../TagError');
 
-module.exports = (info, [timeout]) => {
-	timeout = info.Atlas.lib.utils.parseNumber(timeout);
+module.exports = async (info, [timeout]) => {
+	timeout = parseNumber(timeout);
 
 	if (isNaN(timeout)) {
-		throw new TagError('"timeout" should be a valid number.');
+		throw new TagError('"timeout" should be a number.');
 	}
 
 	if (timeout > 300) {
 		throw new TagError('You cannot sleep for more than 5 minutes.');
 	}
 
-	timeout = parseNumber(timeout);
-
-	return new Promise(resolve => setTimeout(resolve, timeout * 1000));
+	await new Promise(resolve => setTimeout(resolve, timeout * 1000));
 };
 
 module.exports.info = {

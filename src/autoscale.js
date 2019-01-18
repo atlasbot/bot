@@ -1,10 +1,9 @@
 // for the most part i'm playing with kubernetes for fun, i understand it's overkill
 // from https://github.com/TheSharks/WildBeast/blob/df03e9402d7690cacc9735def80eff2de5263b77/src/internal/k8s-autoscale.js
 const os = require('os');
-// const superagent = require('superagent');
 
-// const prettyMs = require('atlas-lib/lib/utils/prettyMs');
-
+// we don't need statefulsets for kubernetes, but after a significant amount of googling they appear to be the only
+// way to get the ordinal index of each pod (shard), so there isn't really any other way bar something that requires a lot more effort
 module.exports = async () => {
 	if (process.env.AUTOSCALE !== 'true') {
 		return {
@@ -13,15 +12,7 @@ module.exports = async () => {
 		};
 	}
 
-	// FIXME: this could be inaccurate if the values change while we're starting
-	// const { body: { shards, session_start_limit: startLimit } } = await superagent.get('https://discordapp.com/api/gateway/bot')
-	// 	.set('Authorization', `Bot ${process.env.TOKEN}`);
-
-	// if (startLimit.remaining < 1) {
-	// 	console.error(`Reached start limit, resets in ${prettyMs(startLimit.reset_after)}`);
-	// }
-
-	// each pod's hostname matches a known pattern like web-0 or web-1
+	// each pod's hostname matches a known pattern like bot-0 or bot-1 thanks to statefulsets
 	// https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#stable-network-id
 	const match = os.hostname().match(/[\w]+-([\d]+)/);
 

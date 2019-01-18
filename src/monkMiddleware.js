@@ -12,7 +12,13 @@ const addTimestamps = () => next => (args, method) => {
 	}
 
 	if (isUpdate(method)) {
-		args.update.updatedAt = new Date();
+		if (args.update.$set) {
+			args.update.$set.updatedAt = new Date();
+		} else {
+			args.update.$set = {
+				updatedAt: new Date(),
+			};
+		}
 	}
 
 	return next(args, method).then(res => res);
