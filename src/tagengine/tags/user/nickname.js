@@ -1,6 +1,18 @@
 const middleware = require('./middleware');
 
-module.exports = middleware(({ user }) => user.nick || user.username);
+module.exports = middleware(({ user, guild }) => {
+	if (user.nick) {
+		return user.nick;
+	}
+
+	const member = guild.members.get(user.id);
+
+	if (!member) {
+		return user.username;
+	}
+
+	return member.nick || user.username;
+});
 
 module.exports.info = {
 	aliases: ['user.nick'],
