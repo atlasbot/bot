@@ -20,7 +20,7 @@ module.exports = class extends Command {
 			fuzzy: false,
 		});
 
-		if (channel) {
+		if (channel && channel.type === 0) {
 			args.shift();
 
 			responder.channel(channel);

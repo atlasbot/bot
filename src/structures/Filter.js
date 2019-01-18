@@ -21,7 +21,8 @@ module.exports = class Filter {
 			(settings.plugin('moderation').state === 'disabled'
         || filterConfig.action === 0
 				|| (msg.author.bot && filterConfig.sanction.bots !== true))
-        || msg.author.id === this.Atlas.client.user.id
+				|| msg.author.id === this.Atlas.client.user.id
+				|| !msg.member
 				|| (msg.member.permission.has('manageMessages') && !filterConfig.sanction.moderators)
         || filterConfig.exempt.channels.includes(msg.channel.id)
         || filterConfig.exempt.roles.find(r => msg.member.roles && msg.member.roles.includes(r))

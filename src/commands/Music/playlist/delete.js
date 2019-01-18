@@ -32,7 +32,7 @@ module.exports = class extends Command {
 			return responder.error('noneFound', query).send();
 		}
 
-		await this.Atlas.DB.get('playlists').deleteOne({
+		await this.Atlas.DB.get('playlists').remove({
 			author: msg.author.id,
 			_id: playlist._id,
 		});

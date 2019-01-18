@@ -13,7 +13,12 @@ module.exports = class {
 		}
 
 		if (!msg.author) {
-			msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
+			try {
+				msg = await this.Atlas.client.getMessage(msg.channel.id, msg.id);
+			} catch (e) {
+				// if we can't have the full message then we'll be picky and throw our food on the floor
+				return;
+			}
 		}
 
 		if (msg.guild && user) {

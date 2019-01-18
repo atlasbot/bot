@@ -36,7 +36,7 @@ module.exports = middleware(async (context, args) => {
 		if (!(e instanceof TagError)) {
 			console.warn(e);
 
-			throw new Error('User\'s direct-messages are not open.');
+			throw new TagError('User\'s direct-messages are not open.');
 		}
 
 		throw e;
@@ -45,7 +45,7 @@ module.exports = middleware(async (context, args) => {
 
 module.exports.info = {
 	name: 'user.send',
-	description: 'Direct-messages a user a message.',
+	description: 'Direct-messages a user a message. If the user does not allow direct-messages from guild members, this will throw an error.',
 	args: '[message] <user>',
 	examples: [{
 		input: '{user.send;Hello :)}',

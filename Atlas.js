@@ -122,6 +122,9 @@ module.exports = class Atlas {
 			release: require('./package.json').version,
 			environment: process.env.NODE_ENV,
 			maxBreadcrumbs: 5,
+			// discord has "hiccups" where everything breaks and things time out which we can't do shit about
+			// should match "Gateway Time-out on xxx"
+			ignoreErrors: ['Time-out on'],
 		});
 
 		process.on('unhandledRejection', (reason) => {

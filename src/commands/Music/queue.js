@@ -33,7 +33,7 @@ module.exports = class extends Command {
 			paginator.page.total = page.totalPages;
 
 			const length = [player.track, ...queue]
-				.filter(m => m)
+				.filter(m => m && m.info && typeof m.info.length === 'number' && isFinite(m.info.length))
 				.map(m => (m.info ? m.info.length : 0))
 				.reduce((a, b) => a + b, 0) - player.position;
 

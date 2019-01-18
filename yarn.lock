@@ -278,44 +278,44 @@
   dependencies:
     core-js "^2.5.7"
 
-"@sentry/core@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-4.5.1.tgz#bfc98a276974a670e25ca5873ba7ac078bf5410d"
-  integrity sha512-ml4Z1PZ7GjsJip5vYkRMkqCLpK5u3jxUYtECOWVsYHIHgVlvERV+HWCdyH0PoiEwr97ZU+4mjnc9Av8P7a18Mw==
+"@sentry/core@4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-4.5.2.tgz#b103b659857e0fabf7219e9f34c4070bcb2af0c2"
+  integrity sha512-TRUQWQugcn2ut7eII6WxU3wlUs4CSYTUqjUDne8vCMjI4oZhmGEcRUEo03OcetieH8e+oB/a1LbLMg+JI6Nsxg==
   dependencies:
-    "@sentry/hub" "4.5.1"
-    "@sentry/minimal" "4.5.1"
+    "@sentry/hub" "4.5.2"
+    "@sentry/minimal" "4.5.2"
     "@sentry/types" "4.5.0"
-    "@sentry/utils" "4.5.1"
+    "@sentry/utils" "4.5.2"
     tslib "^1.9.3"
 
-"@sentry/hub@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-4.5.1.tgz#979c0a826a9abfa567516b0da0e6f4017130def9"
-  integrity sha512-msftpMDSvWaENdYMHX8GPBQ5jTLxClWCprtAlE0AFZ90WHFrwvA0bHpGLzseFDjYwGUKoG2psxejoSstoBy53A==
+"@sentry/hub@4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-4.5.2.tgz#b1df97dccc8644f6ef9b36e8747fe04342cb92ef"
+  integrity sha512-17mVTzYCPVdVSBOYrpr53tDTfFcSBNb92dIIEvSybZe4IWDuMRe4hhUAy+A35HesEZS68uTQq49Ntspms5B8ow==
   dependencies:
     "@sentry/types" "4.5.0"
-    "@sentry/utils" "4.5.1"
+    "@sentry/utils" "4.5.2"
     tslib "^1.9.3"
 
-"@sentry/minimal@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-4.5.1.tgz#a6128aab2a3967d8eb99afb3029057e1b4d9aaa5"
-  integrity sha512-/PaBrzuGkL6c137KRz5iIpmIfCj1FY/rYOffBAYrZADmmZyVrHfP2cNreneze+9OYy5dCFylBFEQpNOCMDdARw==
+"@sentry/minimal@4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-4.5.2.tgz#c090427f6ac276b4dc449e8be460ca5b35ce4fb3"
+  integrity sha512-HhOw055ZhjUJkJIq3/tBBE3H8tC5J64UKggrzJ1i7GinCecHBbH/RZ55zMqb3ckHPa6aFshq0hJ1+lHxeYz1Rg==
   dependencies:
-    "@sentry/hub" "4.5.1"
+    "@sentry/hub" "4.5.2"
     "@sentry/types" "4.5.0"
     tslib "^1.9.3"
 
 "@sentry/node@^4.4.2":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-4.5.1.tgz#e8218b952695548d276274d2b6cc4f9d0676e063"
-  integrity sha512-qClDjSvRAAKnXkww5uiXQ+TySHjdmjr3c/scp4QxvjR9tNhYhdfimwdr4ZM6K9jhvK35vKVruuTVFzzSDukWHw==
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-4.5.2.tgz#b90747749cf919006ca44fd873da87fd3608f8e0"
+  integrity sha512-6OnVpXNEzPxPrA+zR0bJp0k+cwY6sc5Bt7LwEq5q7vWcvS2pH3adN35wwJ4prYtTF4HOQ2pH7vBGP3K1C0DCYQ==
   dependencies:
-    "@sentry/core" "4.5.1"
-    "@sentry/hub" "4.5.1"
+    "@sentry/core" "4.5.2"
+    "@sentry/hub" "4.5.2"
     "@sentry/types" "4.5.0"
-    "@sentry/utils" "4.5.1"
+    "@sentry/utils" "4.5.2"
     "@types/stack-trace" "0.0.29"
     cookie "0.3.1"
     https-proxy-agent "2.2.1"
@@ -329,10 +329,10 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-4.5.0.tgz#59e2a27d48b01b44e8959aa5c8a30514fe1086a9"
   integrity sha512-IstPjFoebQGrQWdM732D/+S0BTovmDgezyplk4kLEb87+/B+YK0hlhziUa7B2byTFJGgQQKXy7h2sKZBrA3GUA==
 
-"@sentry/utils@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-4.5.1.tgz#23f8a8fbe84e06d2546d3f1a72e30b34cbc2a3d8"
-  integrity sha512-ihzvgKBuvHBjKtbjz3EtuTW0OAJH5nw1L3tNVOCi+fbEdp10DiyL0i3hQKdE87CLoNEAt/SPRmTrG1cP2dNa7Q==
+"@sentry/utils@4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-4.5.2.tgz#0de5bef1c71e0dd800d378c010e5bfad91add91a"
+  integrity sha512-ED4CkT/zmc7LZLW5OuWRkgqcSqwZELh2S0ALJTv/4MhFZYuPWrs4DF/jcJcRkwivSoCUsiWDiESlU0JzYflbcg==
   dependencies:
     "@sentry/types" "4.5.0"
     tslib "^1.9.3"
@@ -444,7 +444,7 @@ asynckit@^0.4.0:
 
 "atlas-lib@https://github.com/get-atlas/lib.git":
   version "0.0.3"
-  resolved "https://github.com/get-atlas/lib.git#2b98da4d62c9a69a4b2e6aa1f1cd5d52259d6753"
+  resolved "https://github.com/get-atlas/lib.git#fe1b98840db5def8597a964d03989c174eca28c9"
   dependencies:
     colors "^1.3.3"
     emojilib "^2.4.0"
@@ -1778,6 +1778,17 @@ mongodb-core@2.1.20:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
+mongodb-core@3.1.11:
+  version "3.1.11"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.1.11.tgz#b253038dbb4d7329f3d1c2ee5400bb0c9221fde5"
+  integrity sha512-rD2US2s5qk/ckbiiGFHeu+yKYDXdJ1G87F6CG3YdaZpzdOm5zpoAZd/EKbPmFO6cQZ+XVXBXBJ660sSI0gc6qg==
+  dependencies:
+    bson "^1.1.0"
+    require_optional "^1.0.1"
+    safe-buffer "^5.1.2"
+  optionalDependencies:
+    saslprep "^1.0.0"
+
 mongodb-core@3.1.9:
   version "3.1.9"
   resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.1.9.tgz#c31ee407bf932b0149eaed775c17ee09974e4ca3"
@@ -1789,7 +1800,7 @@ mongodb-core@3.1.9:
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb@3.1.10, mongodb@~3.1:
+mongodb@3.1.10:
   version "3.1.10"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.10.tgz#45ad9b74ea376f4122d0881b75e5489b9e504ed7"
   integrity sha512-Uml42GeFxhTGQVml1XQ4cD0o/rp7J2ROy0fdYUcVitoE7vFqEhKH4TYVqRDpQr/bXtCJVxJdNQC1ntRxNREkPQ==
@@ -1806,15 +1817,23 @@ mongodb@^2.1.18:
     mongodb-core "2.1.20"
     readable-stream "2.2.7"
 
+mongodb@~3.1:
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.1.12.tgz#8dddb9d8891c34a7437d855e2cb548390082db42"
+  integrity sha512-JJnxDoaObL+U+TLo4A17yGe7vdRK8p8dh1MqxG9V9AFTZz13WoAXSMpT1kELUIyPCNaf0S0gW1EROPhmXVCgwg==
+  dependencies:
+    mongodb-core "3.1.11"
+    safe-buffer "^5.1.2"
+
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
 mongoose@^5.4.2:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.4.3.tgz#9cbc689ca0c529c2d7dd5a84dcfbc9b041084367"
-  integrity sha512-zhfypQm63CPYHi43O/3lTcEPVucY3h6CqONbzreMKZIEXtwgkB9HCm4wn441Z9/CpM94G6/NA3wcaRb0N2kPYQ==
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.4.4.tgz#923923cd39a03b970c269f828322990ea163f9a8"
+  integrity sha512-KoYUFtgrXQ9Sxuf5IEE0Y2LswWGhHiN27bxtObANxMgXbuNLTtLB3xaep8jITUDitG4kkI+FKElUJH4uY8G2Bw==
   dependencies:
     async "2.6.1"
     bson "~1.1.0"
@@ -2042,9 +2061,9 @@ p-try@^1.0.0:
   integrity sha1-y8ec26+P1CKOE/Yh8rGiN8GyB7M=
 
 pako@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.7.tgz#2473439021b57f1516c82f58be7275ad8ef1bb27"
-  integrity sha512-3HNK5tW4x8o5mO8RuHZp3Ydw9icZXx0RANAOMzlMzx7LVXhMJ4mo3MOBpzyd7r/+RUu8BmndP47LXT+vzjtWcQ==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.8.tgz#6844890aab9c635af868ad5fecc62e8acbba3ea4"
+  integrity sha512-6i0HVbUfcKaTv+EG8ZTr75az7GFXcLYk9UyLEg7Notv/Ma+z/UG3TCoz6GiNeOrn1E/e63I0X/Hpw18jHOTUnA==
 
 parent-module@^1.0.0:
   version "1.0.0"
@@ -2584,9 +2603,9 @@ swearjar@^0.2.0:
   integrity sha1-w/Gje/zXye+z1mY8mNTBAqnjyj0=
 
 table@^5.0.2:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/table/-/table-5.2.0.tgz#2e38bd1f16dd3f97085ac80cdc574ad9198af04d"
-  integrity sha512-hAdBBAMCZl4/U3eQhsPN2Z8wRJC98lpRhDW2I86VQbPBqyj4E681VhvUkfb90qUJ4rnRfu8t4/8SGHPsAH1ygg==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/table/-/table-5.2.1.tgz#e78463702b1be9f7131c39860bcfb1b81114c2a1"
+  integrity sha512-qmhNs2GEHNqY5fd2Mo+8N1r2sw/rvTAAvBZTaTx+Y7PHLypqyrxr1MdIu0pLw6Xvl/Gi4ONu/sdceP8vvUjkyA==
   dependencies:
     ajv "^6.6.1"
     lodash "^4.17.11"

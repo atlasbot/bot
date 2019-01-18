@@ -168,7 +168,6 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		query = {},
 	} = {}) {
-		console.warn({ id: this.id, ...query }, settings);
 		const data = await this.Atlas.DB.get('settings')
 			.findOneAndUpdate({ id: this.id, ...query }, settings);
 
@@ -326,6 +325,13 @@ module.exports = class GuildSettings {
 			return;
 		}
 
+		const responder = new this.Atlas.structs.Responder(null, this.lang);
+
+		const embeds = (Array.isArray(embed) ? embed : [embed])
+			.map(e => responder.localiseObject(e, this.lang))
+			.map(responder.validateEmbed);
+
+		// if "type" is an array, we're sending to multiple log channels
 		if (Array.isArray(type)) {
 			return Promise.all(type.map(t => this.log(t, embed, retry)));
 		}
@@ -339,20 +345,6 @@ module.exports = class GuildSettings {
 			} catch (e) {
 				return;
 			}
-
-			// using & abusing the responder to format the embed(s)
-			const responder = new this.Atlas.structs.Responder(null, this.lang);
-
-			// format embeds
-			const embeds = (Array.isArray(embed) ? embed : [embed]).map((e) => {
-				const parsed = responder.localiseObject(e, this.lang);
-				// will throw if it doesn't work correctly
-				responder.validateEmbed(parsed);
-
-				return parsed;
-			});
-
-			embeds.forEach(responder.validateEmbed);
 
 			try {
 				return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {

@@ -57,8 +57,6 @@ module.exports = class extends Command {
 				name: `${new Date().getTime()}.png`,
 			}).send();
 		} catch (e) {
-			console.log(e.message);
-
 			if (e.message.includes('Could not find MIME')) {
 				return responder.text('notAnImage').send();
 			}

@@ -327,8 +327,9 @@ class Responder {
 		if (this.guild) {
 			const channel = this.guild.channels.get(data.channelId);
 
-			if (channel.permissionsOf) {
+			if (channel && channel.permissionsOf) {
 				const perms = channel.permissionsOf(this.Atlas.client.user.id);
+
 				if (!perms.has('sendMessages')) {
 					throw new Error('Missing permissions');
 				}
