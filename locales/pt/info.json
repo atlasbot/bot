@@ -477,6 +477,9 @@
 	"uptime": {
 		"description": "Verifique há quanto tempo o Atlas está on-line."
 	},
+	"version": {
+		"description": "Check which version of Atlas this instance is running."
+	},
 	"whois": {
 		"description": "Obter informações sobre um usuário.",
 		"usage": "<usuário>"
