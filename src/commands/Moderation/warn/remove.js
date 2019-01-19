@@ -115,14 +115,14 @@ module.exports = class extends Command {
 		await collector
 			.msg(pageMsg)
 			.user(msg.author.id)
-			// .add(true)
+			.add(true)
 			.remove(true)
 			.emoji(toAdd)
-			.validate((m, emoji) => emoji.name && toAdd.includes(emoji.name))
-			.exec(async (m, emoji, userID, info) => {
-				const num = emojiNumbers.findIndex(e => e === info.name);
+			.validate((m, emoji) => toAdd.includes(emoji.char || emoji.name))
+			.exec(async (m, emoji) => {
+				const num = emojiNumbers.findIndex(e => e === emoji.meta.name);
 
-				if (isNaN(num) && currPageWarns) {
+				if (!isNaN(num) && currPageWarns) {
 					const warn = currPageWarns[num - 1];
 					if (warn) {
 						await settings.removeInfraction(warn._id);

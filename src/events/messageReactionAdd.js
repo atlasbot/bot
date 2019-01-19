@@ -7,9 +7,17 @@ module.exports = class {
 		const user = this.Atlas.client.users.get(userID);
 		const collectors = this.Atlas.collectors.emojis.get(msg.id) || this.Atlas.collectors.emojis.get(userID);
 
+		const meta = this.Atlas.lib.emoji.get(emoji.name) || {};
+
+		emoji = {
+			...emoji,
+			char: meta.char || emoji.name,
+			meta,
+		};
+
 		// strip emoji skin because it fucks with things
 		// emoji.id is only set for custom emojis, otherwise atlas uses the emoji as the content
-		const emid = this.Atlas.lib.utils.cleanEmoji(emoji.id || emoji.name);
+		const emid = this.Atlas.lib.utils.cleanEmoji(emoji.char || emoji.id || emoji.name);
 
 		if (userID === this.Atlas.client.user.id) {
 			return;
