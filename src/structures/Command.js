@@ -82,6 +82,11 @@ class Command {
 
 			const botPerms = msg.channel.permissionsOf(msg.guild.me.id);
 
+			if (!botPerms.has('sendMessages')) {
+				// no point trying to run if we're gonna get blocked by discord anyway
+				return;
+			}
+
 			// permission checking for bot/user
 			for (const permsKey of Object.keys(this.info.permissions || {})) {
 				let permissions = Object.keys(this.info.permissions[permsKey]);
