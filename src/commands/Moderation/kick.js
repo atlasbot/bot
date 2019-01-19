@@ -32,9 +32,7 @@ module.exports = class extends Command {
 
 		try {
 			// try to tell the user who banned them, why and that they're a bad person
-			const channel = await (target.user || target).getDMChannel();
-
-			responder.channel(channel);
+			responder.dm(target.user || target);
 
 			if (args[0]) {
 				responder.text('kick.dm.reason', msg.guild.name, args.join(' '), msg.author.tag, msg.author.id);

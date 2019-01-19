@@ -230,11 +230,11 @@ module.exports = class GuildSettings {
 				throw new Error('Cannot warn a member not in the guild');
 			}
 
-			const channel = await target.getDMChannel();
-			const responder = new this.Atlas.structs.Responder(channel);
+			// todo: localise
+			const responder = new this.Atlas.structs.Responder(null, process.env.DEFAULT_LANG);
 
 			try {
-				await responder.embed({
+				await responder.dm(target).embed({
 					color: this.Atlas.colors.get('red').decimal,
 					title: 'Warning',
 					description: `You have recieved a warning in ${this.guild.name}. Improve your behaviour or you will be removed from the server.`,

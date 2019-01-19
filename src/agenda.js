@@ -55,9 +55,7 @@ module.exports = class Agenda extends EventEmitter {
 		this.agenda.define('reminder', async (job, done) => {
 			const { user, message, requested, lang } = job.attrs.data;
 			// get the DM channel of the user
-			const channel = await this.Atlas.client.getDMChannel(user);
-
-			const responder = new this.Atlas.structs.Responder(channel, lang || 'en');
+			const responder = new this.Atlas.structs.Responder(null, lang || 'en');
 
 			const embed = {
 				title: 'general.reminder.title',
@@ -67,11 +65,14 @@ module.exports = class Agenda extends EventEmitter {
 					text: 'general.reminder.footer',
 				},
 			};
+
 			try {
-				await responder.embed(embed).send();
+				// try their direct-messages first
+				await responder.dm(user).embed(embed).send();
 
 				return done();
 			} catch (e) {
+				// if their DM's aren't open, fall back to the channel it was created at
 				embed.footer.text = 'Open your direct-message to have this direct-messaged to you - Requested';
 
 				await responder

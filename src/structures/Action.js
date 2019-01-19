@@ -132,9 +132,7 @@ module.exports = class Action {
 
 		if (type === 'dm') {
 			try {
-				const dmChannel = await msg.author.getDMChannel();
-
-				const out = await responder.channel(dmChannel).text(output).send();
+				const out = await responder.dm(msg.author).text(output).send();
 
 				return out;
 			} catch (e) {

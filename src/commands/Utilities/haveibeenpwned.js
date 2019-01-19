@@ -26,9 +26,7 @@ module.exports = class extends Command {
 
 			body.sort((a, b) => b.PwnCount - a.PwnCount);
 
-			const dm = await msg.author.getDMChannel();
-
-			await responder.channel(dm.id).paginate({
+			await responder.dm(msg.author).paginate({
 				user: msg.author.id,
 				total: body.length,
 			}, (paginator) => {
