@@ -3,7 +3,7 @@ const Joi = require('joi');
 module.exports = {
 	color: Joi.number(),
 	title: Joi.string().max(256).allow(null, ''),
-	description: Joi.string().max(2048).allow([true, false, null, '']),
+	description: Joi.string().max(2000).allow([true, false, null, '']),
 	fields: Joi.array().items({
 		name: Joi.string().max(256),
 		value: Joi.alternatives([
