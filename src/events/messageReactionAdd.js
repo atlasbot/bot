@@ -72,7 +72,7 @@ module.exports = class {
 						}
 					}
 
-					if (added.length) {
+					if (roles.options.reaction_dm && added.length) {
 						const responder = new this.Atlas.structs.Responder(msg, settings.lang);
 
 						const raw = emoji.id ? `<:${emoji.name}:${emoji.id}>` : emoji.name;

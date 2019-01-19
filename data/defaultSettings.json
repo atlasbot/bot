@@ -127,7 +127,8 @@
 			"options": {
 				"join": [],
 				"iam": [],
-				"reactions": []
+				"reactions": [],
+				"reaction_dm": true
 			}
 		}
 	}
