@@ -292,7 +292,11 @@ module.exports = class {
 					...payload,
 					guilds: [
 						...guilds,
-						profile,
+						{
+							id: msg.guild.id,
+							messages: 1,
+							xp,
+						},
 					],
 				},
 			});
