@@ -41,27 +41,27 @@
 		}
 	},
 	"haveibeenpwned": {
-		"success": "Success! Check your direct-messages for a list of your breached accounts.",
-		"noBreaches": "Awesome! There are no known breaches for your account.",
-		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
-		"breach": "Breach",
+		"success": "Es hat geklappt! Schau in deine Nachrichten, um eine Liste mit deinen betroffenen (möglicherweise gehackten) Accoutns zu sehen.",
+		"noBreaches": "Sehr gut! Momentan sind keine Probleme mit deinem Account bekannt!",
+		"unknownError": "Da ist etwas schief gegangen. Bitte stelle sicher, dass dich ATLAS direkt kontaktieren kann, wenn du auf einem Server bist.",
+		"breach": "Einschlag",
 		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Compromised Data",
+		"compromisedData": "Beschädigte Datei(en)",
 		"footer": "Breach {0}/{1}"
 	},
 	"needsmorejpeg": {
-		"noArgs": "Please include an image attachment or image URL.",
+		"noArgs": "Bitte füge ein Bild hinzu oder füge einen Link zu dem Bild an.",
 		"invalidUrl": "`{0}` is not a valid URL.",
-		"notAnImage": "That isn't an image :c"
+		"notAnImage": "Das ist leider kein Bild :c"
 	},
 	"randomcase": {
-		"noArgs": "Please include something to raNdomIsE."
+		"noArgs": "Bitte füge etwas hinzu, um es zu RaNdOmIsIeReN."
 	},
-	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
+	"dashboard": "Du kannst deinen Server unter <https://atlasbot.xyz/meera/{0}> bearbeiten.",
 	"resetlevel": {
 		"noArgs": "Please include a user to reset the level of.",
 		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+		"success": "{0} Level wurde auf Null gesetzt."
 	},
 	"playlist": {
 		"create": {
