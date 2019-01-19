@@ -91,31 +91,31 @@
 			"noArgs": "Playlist Namen oder ID hinzufügen!",
 			"noPlaylists": "Du hast keine Playlist.",
 			"noneFound": "Es konnte keine Playlist mit dem Namen {0} gefunden werden.",
-			"success": "Added {0} tracks to the `{1}` playlist."
+			"success": "Es wurden {0} Teile zu der Playlist {1} hinzugefügt."
 		},
 		"removetrack": {
 			"noArgs": "Playlist Namen oder ID hinzufügen!",
 			"noPlaylists": "Du hast keine Playlist.",
 			"noneFound": "Es konnte keine Playlist mit dem Namen {0} gefunden werden.",
-			"noQuery": "Please include a track name to search for and remove.",
+			"noQuery": "Füge einen Namen hinzu, nach dem gesucht werden kann und gelöscht werden kann,.",
 			"noTrack": "I could not find a track matching `{0}`.",
-			"success": "Removed `{0}` from your `{1}` playlist."
+			"success": "{0} wurde von deiner {1} Playlist entfernt."
 		}
 	},
 	"volume": {
-		"noArgs": "Please include a volume number between 1% and 150%.",
-		"tooLow": "The volume cannot go below 1%.",
-		"tooHigh": "The volume cannot go over 150%.",
+		"noArgs": "Gib einen Lautstärkenwert zwischen 1% und 150% ein.",
+		"tooLow": "Die Lautstärke kann nicht unter 1% reduziert werden.",
+		"tooHigh": "Die Lautstärke kann 150% nicht überschreiten.",
 		"success": "Die Lautstärke befindet sich nun auf `{0}%`."
 	},
 	"stop": {
-		"stopped": "The player has been stopped."
+		"stopped": "Der Spieler wurde angehalten."
 	},
 	"seek": {
-		"noArgs": "Please include a position to seek to.",
+		"noArgs": "Gib eine Position an, nach der gesucht werden soll.",
 		"notSeekable": "Dieser Song ist nicht suchbar.",
 		"noTimestamp": "Bitte füge einen gültigen Zeitstempel ein.",
-		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
+		"overTrackLength": "Deine Suche geht zu weit! Die Spur ist nur {0} lang.",
 		"seeked": "Skipped to {0} in."
 	},
 	"resume": {
@@ -123,16 +123,16 @@
 		"resumed": "The player has been resumed."
 	},
 	"repeat": {
-		"enabled": "Repeat has been enabled.",
-		"disabled": "Repeat has been disabled."
+		"enabled": "\"Repeat\" wurde eingeschaltet.",
+		"disabled": "\"Repeat\" wurde ausgeschaltet."
 	},
 	"remove": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
+		"invalidCurrIndex": "Valide Queue Postion eingeben.",
 		"noTrack": "There is no track in the queue at position `{0}`.",
 		"removed": "`{0}` has been removed from the queue."
 	},
 	"shift": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
+		"invalidCurrIndex": "Valide Queue Postion eingeben.",
 		"invalidNewIndex": "Please provide a valid queue position to move the track to.",
 		"noTrack": "There is no track in the queue at position `{0}`.",
 		"moved": "`{0}` has been moved from queue position `{1}` to position `{2}`."
