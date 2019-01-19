@@ -47,7 +47,7 @@
 		"breach": "Einschlag",
 		"pwnedUsers": "Pwned Users",
 		"compromisedData": "Beschädigte Datei(en)",
-		"footer": "Breach {0}/{1}"
+		"footer": "Wurde ich gebrochen {0}{1}"
 	},
 	"needsmorejpeg": {
 		"noArgs": "Bitte füge ein Bild hinzu oder füge einen Link zu dem Bild an.",
@@ -59,17 +59,17 @@
 	},
 	"dashboard": "Du kannst deinen Server unter <https://atlasbot.xyz/meera/{0}> bearbeiten.",
 	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
+		"noArgs": "Bitte wähle eine Nutzer, um den Level zurückzusetzen.",
 		"noUser": "I could not find a user matching `{0}`.",
 		"success": "{0} Level wurde auf Null gesetzt."
 	},
 	"playlist": {
 		"create": {
-			"noArgs": "Please include a name for your new playlist.",
-			"nothingPlaying": "Please add something to your queue before creating a playlist.",
-			"success": "Playlist created! You can do `{0}playlist play {1}` to play your playlist.",
-			"tooLong": "Your playlist name must be under 24 characters long.",
-			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+			"noArgs": "Füge einen Namen für die Playlist ein.",
+			"nothingPlaying": "Füge etwas zu der Playlist hinzu, bevor du sie erstellst.",
+			"success": "Playlist erstellt! Du kannst {0}Spiele Playlist{1} um sie zu spielen.",
+			"tooLong": "Der Name deiner Playlist darf nicht länger als 24 Zeichen sein.",
+			"livestreamFound": "Deine Warteschlange beeinhaltet einen Live-Stream, dieser kann nicht zur Playlist hinzugefügt werden."
 		},
 		"list": {
 			"noPlaylists": "Du hast keine Playlist.",
@@ -82,21 +82,21 @@
 			"footer": "{0} • Playlist {1}/{2}"
 		},
 		"delete": {
-			"noArgs": "Please include a playlist name or ID!",
+			"noArgs": "Playlist Namen oder ID hinzufügen!",
 			"noPlaylists": "Du hast keine Playlist.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "The `{0}` playlist has been deleted successfully."
+			"noneFound": "Es konnte keine Playlist mit dem Namen {0} gefunden werden.",
+			"success": "Die Playlist {0} wurde gelöscht."
 		},
 		"addqueue": {
-			"noArgs": "Please include a playlist name or ID!",
+			"noArgs": "Playlist Namen oder ID hinzufügen!",
 			"noPlaylists": "Du hast keine Playlist.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noneFound": "Es konnte keine Playlist mit dem Namen {0} gefunden werden.",
 			"success": "Added {0} tracks to the `{1}` playlist."
 		},
 		"removetrack": {
-			"noArgs": "Please include a playlist name or ID!",
+			"noArgs": "Playlist Namen oder ID hinzufügen!",
 			"noPlaylists": "Du hast keine Playlist.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
+			"noneFound": "Es konnte keine Playlist mit dem Namen {0} gefunden werden.",
 			"noQuery": "Please include a track name to search for and remove.",
 			"noTrack": "I could not find a track matching `{0}`.",
 			"success": "Removed `{0}` from your `{1}` playlist."
