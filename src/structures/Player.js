@@ -180,7 +180,7 @@ module.exports = class extends Player {
 			description: `[${this.Atlas.lib.utils.filterTrackName(track.info.title)}](${track.info.uri})`,
 			fields: [{
 				name: 'general.player.npEmbed.author',
-				value: track.info.author,
+				value: track.info.author || '???',
 				inline: true,
 			},
 			{
