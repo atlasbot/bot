@@ -777,12 +777,6 @@ module.exports = class Util {
 		previous: { current: { level: previousLevel } },
 		current: { current: { level: currentLevel } },
 	}, msg, settings) {
-		// if server owners want to remove roles, we don't want to fight them honestly
-		// previously atlas would check on every message but there's no point
-		if (previousLevel === currentLevel) {
-			return;
-		}
-
 		const { stack, rewards, notify } = settings.plugin('levels').options;
 
 		let shouldHave;
@@ -792,7 +786,9 @@ module.exports = class Util {
 			shouldHave = rewards
 				.filter(r => r.level <= currentLevel)
 				.map(({ content: roleId }) => msg.guild.roles.get(roleId))
-				.filter(r => r);
+				.filter(r => r)
+				// we ain't adding more then two roles at once
+				.slice(0, 2);
 		} else {
 			// get the reward closest to <= current level
 			shouldHave = [rewards.reduce((prev, curr) => {
@@ -801,7 +797,9 @@ module.exports = class Util {
 				}
 
 				return Math.abs(curr.level - currentLevel) < Math.abs(prev.level - currentLevel) ? curr : prev;
-			})];
+			})]
+				.map(({ content: roleId }) => msg.guild.roles.get(roleId))
+				.filter(r => r);
 		}
 
 		for (const role of shouldHave) {
@@ -813,11 +811,19 @@ module.exports = class Util {
 			await member.addRole(role.id, 'Level-up');
 		}
 
+		// once we've made sure they have their rewards, we don't do shit
+		// if they have higher level rewards we'll turn a blind eye incase an admin is hooking them up or something
+		if (previousLevel === currentLevel) {
+			return;
+		}
+
 		if (!stack && shouldHave.length) {
 			const shouldntHave = rewards
 				.filter(r => r.level < currentLevel)
 				.map(({ content: roleId }) => member.guild.roles.get(roleId))
-				.filter(r => r);
+				.filter(r => r)
+				// we ain't removing more then two roles at once
+				.slice(0, 2);
 
 			for (const role of shouldntHave) {
 				if (!member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
