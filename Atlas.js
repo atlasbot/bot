@@ -123,8 +123,12 @@ module.exports = class Atlas {
 			environment: process.env.NODE_ENV,
 			maxBreadcrumbs: 5,
 			// discord has "hiccups" where everything breaks and things time out which we can't do shit about
+			ignoreErrors: [
 			// should match "Gateway Time-out on xxx"
-			ignoreErrors: ['Time-out on'],
+				'Time-out on',
+				// should match "DiscordHTTPError: 500 INTERNAL SERVER ERROR on POST xxx"
+				'500 INTERNAL SERVER ERROR on',
+			],
 		});
 
 		process.on('unhandledRejection', (reason) => {
