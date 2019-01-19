@@ -779,6 +779,10 @@ module.exports = class Util {
 	}, msg, settings) {
 		const { stack, rewards, notify } = settings.plugin('levels').options;
 
+		if (!rewards.length) {
+			return;
+		}
+
 		let shouldHave;
 
 		if (stack) {
