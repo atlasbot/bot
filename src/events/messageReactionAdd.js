@@ -51,7 +51,7 @@ module.exports = class {
 						return false;
 					}
 
-					return r.emoji === emid;
+					return r.emoji === emid || emoji.name || emoji.meta.char;
 				});
 
 				const member = msg.guild.members.get(userID);
