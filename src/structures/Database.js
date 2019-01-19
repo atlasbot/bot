@@ -1,20 +1,20 @@
 const monk = require('monk');
 const Guild = require('eris/lib/structures/Guild');
-const Cache = require('atlas-lib/lib/structures/Cache');
+// const Cache = require('atlas-lib/lib/structures/Cache');
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
 const monkMiddleware = require('../monkMiddleware');
 const defaultSettings = require('../../data/defaultSettings.json');
 const Settings = require('./Settings');
 
-const cache = {
-	settings: new Cache('settings'),
-	users: new Cache('users'),
-};
+// const cache = {
+// 	settings: new Cache('settings'),
+// 	users: new Cache('users'),
+// };
 
 // how long to cache users and guild settings for in seconds
 // for now this is very low because the dashboard doesn't clear the cache properly on update
-const CACHE_TIME_SECONDS = 10;
+// const CACHE_TIME_SECONDS = 10;
 
 module.exports = class Database {
 	constructor() {
@@ -30,10 +30,10 @@ module.exports = class Database {
 	async settings(guild) {
 		const id = guild.id || guild;
 
-		const cached = await cache.settings.get(id);
-		if (cached) {
-			return new Settings(cached, guild instanceof Guild && guild);
-		}
+		// const cached = await cache.settings.get(id);
+		// if (cached) {
+		// 	return new Settings(cached, guild instanceof Guild && guild);
+		// }
 
 		const db = this.get('settings');
 
@@ -54,7 +54,7 @@ module.exports = class Database {
 		const data = deepMerge(defaultSettings, settings);
 
 		// cache for 120s
-		await cache.settings.set(id, data, CACHE_TIME_SECONDS);
+		// await cache.settings.set(id, data, CACHE_TIME_SECONDS);
 
 		return new Settings(data, guild instanceof Guild && guild);
 	}
@@ -62,10 +62,10 @@ module.exports = class Database {
 	async user(user) {
 		const id = user.id || user;
 
-		const cached = await cache.users.get(id);
-		if (cached) {
-			return cached;
-		}
+		// const cached = await cache.users.get(id);
+		// if (cached) {
+		// 	return cached;
+		// }
 
 		const db = this.get('users');
 
@@ -88,7 +88,7 @@ module.exports = class Database {
 			...profile,
 		};
 
-		await cache.users.set(id, data, CACHE_TIME_SECONDS);
+		// await cache.users.set(id, data, CACHE_TIME_SECONDS);
 
 		return data;
 	}
