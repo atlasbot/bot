@@ -777,59 +777,84 @@ module.exports = class Util {
 		previous: { current: { level: previousLevel } },
 		current: { current: { level: currentLevel } },
 	}, msg, settings) {
+		// if server owners want to remove roles, we don't want to fight them honestly
+		// previously atlas would check on every message but there's no point
+		if (previousLevel === currentLevel) {
+			return;
+		}
+
 		const { stack, rewards, notify } = settings.plugin('levels').options;
 
-		const shouldHave = rewards
-			.filter(r => r.level === currentLevel)
-			.map(({ content: roleId }) => member.guild.roles.get(roleId))
-			.filter(r => r);
+		let shouldHave;
+
+		if (stack) {
+			// get all rewards < current level
+			shouldHave = rewards
+				.filter(r => r.level <= currentLevel)
+				.map(({ content: roleId }) => msg.guild.roles.get(roleId))
+				.filter(r => r);
+		} else {
+			// get the reward closest to <= current level
+			shouldHave = [rewards.reduce((prev, curr) => {
+				if (curr.level > currentLevel) {
+					return prev;
+				}
+
+				return Math.abs(curr.level - currentLevel) < Math.abs(prev.level - currentLevel) ? curr : prev;
+			})];
+		}
 
 		for (const role of shouldHave) {
-			if (!member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
-				await member.addRole(role.id, 'Level-up');
+			if (member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
+				continue;
+			}
+
+			// give them the role
+			await member.addRole(role.id, 'Level-up');
+		}
+
+		if (!stack && shouldHave.length) {
+			const shouldntHave = rewards
+				.filter(r => r.level < currentLevel)
+				.map(({ content: roleId }) => member.guild.roles.get(roleId))
+				.filter(r => r);
+
+			for (const role of shouldntHave) {
+				if (!member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
+					continue;
+				}
+
+				await member.removeRole(role.id, 'Level-up');
 			}
 		}
 
-		if (previousLevel !== currentLevel) {
-			if (!stack) {
-				const shouldntHave = rewards
-					.filter(r => r.level < currentLevel)
-					.map(({ content: roleId }) => member.guild.roles.get(roleId))
-					.filter(r => r);
-
-				for (const role of shouldntHave) {
-					if (member.roles.includes(role.id) && member.guild.me.highestRole.higherThan(role)) {
-						await member.removeRole(role.id, 'Level-up');
-					}
-				}
+		if (notify && notify.enabled && notify.content) {
+			if (!msg.channel.permissionsOf(msg.guild.me.id).has('sendMessages')) {
+				return;
 			}
 
-			if (notify && notify.enabled) {
-				const parser = new Parser({
-					msg,
-					settings,
-				}, false);
+			const parser = new Parser({
+				msg,
+				settings,
+			}, false);
 
-				const { output } = await parser.parse(notify.content);
+			const { output } = await parser.parse(notify.content);
 
-				if (!output) {
-					return;
-				}
-
-				if (msg.channel.permissionsOf(member.guild.me.id).has('sendMessages')) {
-					try {
-						if (notify.dm) {
-							return msg.author.createMessage(msg.channel.id, {
-								content: output,
-							});
-						}
-
-						return this.Atlas.client.createMessage(msg.channel.id, {
-							content: output,
-						});
-					} catch (e) {} // eslint-disable-line no-empty
-				}
+			if (!output) {
+				return;
 			}
+
+			try {
+				if (notify.dm) {
+					return msg.author.createMessage(msg.channel.id, {
+						content: output,
+					});
+				}
+
+				return this.Atlas.client.createMessage(msg.channel.id, {
+					content: output,
+				});
+			} catch (e) {} // eslint-disable-line no-empty
 		}
 	}
 };
