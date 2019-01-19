@@ -173,7 +173,7 @@
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
 		"notASeries": "Das ist keine Fernsehsendung! Versuchen Sie es stattdessen mit {0} movie {1} `.",
-		"ratings": "Bewertung"
+		"ratings": "Bewertungen"
 	},
 	"funban": {
 		"success": "{0} wurde gebannt!"
@@ -185,8 +185,8 @@
 		"tooLateReason": "{1} wurde schon wegen {0} gebannt.",
 		"tooLate": "{0} ist bereits gebannt.",
 		"dm": {
-			"reason": "Du wurdest kielgeholt von {0} für `{1}` auf {2} ({3}).",
-			"noReason": "Du wurdest kielgeholt von {0} auf {1} ({2})."
+			"reason": "Du wurdest von {2} ({3}) aus {0} wegen `{1}`verbannt.",
+			"noReason": "Du wurdest aus {0} von {1} ({2}) verbannt."
 		}
 	},
 	"remindme": {
@@ -212,12 +212,12 @@
 			"Sind wir jetzt da?...",
 			"Please insert quarter...",
 			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
+			"Hast du abgenommen?...",
+			"bin gleich zurück, einen Moment...",
 			"Spinning up the hamster..."
 		]
 	},
-	"patreon": "Unterstütze Atlas und bekomme einmalige Vergünstigungen durch Spenden auf <https://www.patreon.com/NotSylver>.",
+	"patreon": "Unterstütze Atlas und erhalte tolle Vorteile indem Du spendest auf <https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
@@ -518,8 +518,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "Du wurdest über die Planke geschickt von {0} für `{1}` auf {2} ({3}).",
-			"noReason": "Du wurdest über die Planke geschickt von {0} auf {1} ({2})."
+			"reason": "Du wurdest von {2} ({3}) aus {0} wegen `{1}`ausgeschlossen.",
+			"noReason": "Du wurdest aus {0} von {1} ({2}) ausgeschlossen."
 		}
 	},
 	"gotcharacter": {
@@ -730,26 +730,26 @@
 	"leaderboard": "Du findest die Server-Bestenliste unter: <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
 		"invalidUser": "Ich konnte keinen Benutzer `{0}` finden!",
-		"noProfile": "Oops! Etwas ging schief. Ich konnte kein Profil für den Spieler finden.",
+		"noProfile": "Hmm, etwas ging schief. Ich konnte kein Profil für diesen Spieler finden.",
 		"embed": {
 			"rank": "Rang",
-			"level": "Level",
+			"level": "Stufe",
 			"experience": {
 				"name": "Erfahrung",
-				"value": "{0}/{1} • `{0}` Total"
+				"value": "{0}/{1} • `{0}` gesamt"
 			}
 		}
 	},
 	"toggleplugin": {
 		"noArgs": "Bitte geben Sie einen Pluginnamen ein.",
 		"noPlugin": "Ich konnte kein Plugin `{0}` finden!",
-		"success": "Das {0} Plugin wird {1}."
+		"success": "Das {0} Plugin war `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Bitte füge den Befehlsnamen ein.",
+		"noArgs": "Bitte gebe einen Befehlsnamen an.",
 		"noCommand": "Der Befehl {0} konnte nicht gefunden werden.",
-		"disabled": "Der Befehl {0} wurde deaktiviert.",
-		"enabled": "Der Befehl {0} wurde aktiviert."
+		"disabled": "Der Befehl {0} wurde `deaktiviert`.",
+		"enabled": "Der Befehl {0} wurde `aktiviert`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
