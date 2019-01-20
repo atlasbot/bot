@@ -173,6 +173,7 @@
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
 		"notASeries": "זו לא תוכנית טלוויזיה! אולי תנסו את `{0}movie {1}` במקום.",
+		"notFound": "I could not find a movie or TV show matching `{0}`.",
 		"ratings": "דירוגים"
 	},
 	"funban": {
