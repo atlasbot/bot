@@ -34,7 +34,7 @@
 	"command": {
 		"restError": "<:sadpanda:497907940225843220> Something went wrong when contacting an external service, please try again in a few minutes.",
 		"errorExecuting": "An unknown internal error occured executing the command.",
-		"patronOnly": "Nur Benutzer können diesen Befehl verwenden. '{0}pledge' für weitere Informationen.",
+		"patronOnly": "Nur Patrons können diesen Befehl verwenden. '{0}pledge' für weitere Informationen.",
 		"premiumOnly": "Nur Premium-Server können diesen Befehl verwenden.",
 		"guildOnly": "Dieser Befehl kann nur in Servern verwendet werden!",
 		"disabled": "Der Befehl {0} {1} `wurde von einem Serveradministrator deaktiviert.",
@@ -54,16 +54,16 @@
 		"footer": "Angefordet"
 	},
 	"warning": {
-		"title": "Crew gewarnt",
+		"title": "Mitglied gewarnt",
 		"description": "{0} (`{1}`) wurde von einem {2} (`{3}`) gewarnt.",
 		"total": {
-			"name": "Gesamtwarnung",
+			"name": "Warnungen insgesamt",
 			"value": "{0} hat jetzt {1} Gesamtwarnung (en)."
 		},
 		"dm": {
-			"name": "Direktnachricht",
-			"true": "Der Spieler wurde benachrichtigt.",
-			"false": "Der Spieler wurde nicht benachrichtigt."
+			"name": "Direkt gemeldet",
+			"true": "Der Spieler wurde direkt benachrichtigt.",
+			"false": "Der Spieler wurde nicht direkt benachrichtigt."
 		},
 		"reason": {
 			"name": "Reason",
