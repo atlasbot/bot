@@ -1,8 +1,14 @@
 const timeFormat = require('atlas-lib/lib/utils/timeFormat');
+
+const TagError = require('../../TagError');
 const middleware = require('./middleware');
 
 module.exports = middleware(({ user, guild }, [exact]) => {
 	const member = guild.members.get(user.id);
+
+	if (!member) {
+		throw new TagError('Could not resolve user to a server member.');
+	}
 
 	return timeFormat(member.joinedAt, exact === 'true');
 }, 1);
