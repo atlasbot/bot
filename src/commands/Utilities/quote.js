@@ -37,7 +37,11 @@ module.exports = class extends Command {
 		const img = targetMsg.attachments.find(a => a.height);
 
 		if (!targetMsg.content && !img) {
-			return responder.error('quote.invalidMsg');
+			return responder.error('quote.invalidMsg').send();
+		}
+
+		if (!targetMsg.guild) {
+			return responder.error('quote.noGuild').send();
 		}
 
 		return responder.embed({
