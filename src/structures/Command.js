@@ -49,8 +49,6 @@ class Command {
 
 		const master = path.basename(path.dirname(this.location));
 
-		console.log(master, path.basename(path.dirname(this.location)));
-
 		return this.Atlas.commands.get(master);
 	}
 

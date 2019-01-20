@@ -159,7 +159,7 @@ module.exports = class {
 				console.warn(new Error('No source, returning nothing'));
 			}
 
-			return this.replace({
+			return this.format({
 				output: source || '',
 				errors: [],
 			});
@@ -186,7 +186,7 @@ module.exports = class {
 			});
 		}
 
-		return this.replace(data);
+		return this.format(data);
 	}
 
 	/**
@@ -194,12 +194,13 @@ module.exports = class {
 	 * @param {Object} data data
 	 * @returns {Object}
 	 */
-	replace(data) {
+	format(data) {
 		if (!data || !data.output) {
 			return data;
 		}
 
 		data.output = data.output
+			.substring(0, 2000)
 			.replace(/#([a-zA-Z0-9_-]*)/ig, (ignore, match) => {
 				const channels = Array.from(this.context.guild.channels.values());
 				const channel = channels.find(m => m.name.toLowerCase().trim() === match.toLowerCase().trim());
