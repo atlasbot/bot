@@ -9,7 +9,7 @@ module.exports = class extends Command {
 		const responder = new this.Atlas.structs.Responder(msg);
 
 		if (args[0]) {
-			const user = await this.Atlas.util.findMember(msg.guild, args.join(' '), {
+			const user = await this.Atlas.util.findUser(msg.guild, args.join(' '), {
 				percent: 0.60,
 				// memberOnly: true,
 			});

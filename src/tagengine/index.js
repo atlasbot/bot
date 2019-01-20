@@ -101,7 +101,7 @@ module.exports = class {
 								context.channel.guild = context.guild;
 							}
 
-							const member = await settings.findMember(user.id, {
+							const member = await settings.findUser(user.id, {
 								memberOnly: true,
 							});
 
@@ -152,10 +152,10 @@ module.exports = class {
 		const volatile = new Map();
 
 		if (this.context.msg && !this.context.msg.member) {
-			// sometimes atlas can't find the context member properly, settings#findMember will
+			// sometimes atlas can't find the context member properly, settings#findUser will
 			const { user, settings } = this.context;
 
-			this.context.msg.member = await settings.findMember(user.id, {
+			this.context.msg.member = await settings.findUser(user.id, {
 				memberOnly: true,
 			});
 		}

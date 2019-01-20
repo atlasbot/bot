@@ -14,7 +14,7 @@ module.exports = class extends Command {
 			return responder.error('joined.noArgs').send();
 		}
 
-		const user = await settings.findMember(args.join(' '), {
+		const user = await settings.findUser(args.join(' '), {
 			memberOnly: true,
 		});
 

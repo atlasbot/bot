@@ -9,8 +9,8 @@ module.exports = class extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const user1 = await this.Atlas.util.findMember(msg.guild, args[0]);
-		const user2 = await this.Atlas.util.findMember(msg.guild, args[1]) || msg.member;
+		const user1 = await this.Atlas.util.findUser(msg.guild, args[0]);
+		const user2 = await this.Atlas.util.findUser(msg.guild, args[1]) || msg.member;
 
 		if (!user1) {
 			return responder.error('You have to mention atleast one user to ship!').send();

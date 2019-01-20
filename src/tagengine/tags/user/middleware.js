@@ -15,8 +15,8 @@ module.exports = (func, argIndex = 0) => async ({
 		}
 
 		// try and resolve the user cus why not
-		const member = await Atlas.util.findMember(guild, arg, {
-			// why the fuck is it called findMember if it doesn't always return a member? past sylver, explain pls
+		const member = await Atlas.util.findUser(guild, arg, {
+			// why the fuck is it called findUser if it doesn't always return a member? past sylver, explain pls
 			memberOnly: true,
 		});
 

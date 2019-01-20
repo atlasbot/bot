@@ -15,12 +15,12 @@ module.exports = class extends Command {
 		}
 
 		const query = args.shift();
-		let target = await settings.findMember(query);
+		let target = await settings.findUser(query);
 
 		if (!target) {
 			// fixme: this could be an issue on servers with >500 bans, apples to all occurences of it
 			const bans = await msg.guild.getBans();
-			target = await settings.findMember(query, {
+			target = await settings.findUser(query, {
 				members: bans.map(b => b.user),
 			});
 			if (!target) {

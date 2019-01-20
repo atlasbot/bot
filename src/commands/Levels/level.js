@@ -16,7 +16,7 @@ module.exports = class extends Command {
 		if (args[0]) {
 			const query = args.join(' ');
 
-			user = await settings.findMember(query, {
+			user = await settings.findUser(query, {
 				memberOnly: true,
 			});
 
@@ -25,7 +25,7 @@ module.exports = class extends Command {
 			}
 		}
 
-		// findMember should generate the profile if it doesn't exist anyway
+		// DB#user should generate the profile if it doesn't exist anyway
 		const player = await this.Atlas.DB.user(user.id);
 
 		if (!player) {

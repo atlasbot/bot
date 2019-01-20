@@ -29,7 +29,7 @@ module.exports = class extends Command {
 
 		const user = args.shift();
 		const query = args.join(' ');
-		const target = await this.Atlas.util.findMember(msg.guild, user);
+		const target = await this.Atlas.util.findUser(msg.guild, user);
 
 		if (!target) {
 			return responder.error('general.noUserFound').send();

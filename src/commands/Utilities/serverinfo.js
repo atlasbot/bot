@@ -10,7 +10,7 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'serverinfo');
 
-		const owner = await settings.findMember(msg.guild.ownerID);
+		const owner = await settings.findUser(msg.guild.ownerID);
 
 		return responder.embed({
 			thumbnail: {

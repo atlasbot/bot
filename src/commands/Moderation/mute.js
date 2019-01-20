@@ -65,7 +65,7 @@ module.exports = class extends Command {
 		}
 
 		const query = args.shift();
-		const target = await settings.findMember(query, {
+		const target = await settings.findUser(query, {
 			memberOnly: true,
 		});
 

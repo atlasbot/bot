@@ -8,7 +8,7 @@ module.exports = class extends Command {
 	async action(msg, args) {
 		const responder = new this.Atlas.structs.Responder(msg);
 
-		const target = await this.Atlas.util.findMember(msg.guild, args[0]);
+		const target = await this.Atlas.util.findUser(msg.guild, args[0]);
 
 		if (!target) {
 			return responder.error('purge.user.noUser').send();

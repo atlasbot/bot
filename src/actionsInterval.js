@@ -74,7 +74,7 @@ module.exports = class {
 					return;
 				}
 
-				const updatedBy = await this.Atlas.util.findMember(guild, rawAction.updatedBy, {
+				const updatedBy = await this.Atlas.util.findUser(guild, rawAction.updatedBy, {
 					memberOnly: true,
 				});
 

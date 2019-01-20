@@ -278,7 +278,7 @@ module.exports = class Util {
 	 * @param {number} [opts.percent=0.75] the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
 	 * @returns {Promise<Object|Null>} the member or nothing if nothing was found
 	 */
-	async findMember(guild, query, {
+	async findUser(guild, query, {
 		percent = 0.75,
 		memberOnly = false,
 		rest = true,
@@ -298,7 +298,7 @@ module.exports = class Util {
 			members.forEach(m => guildMembers.set(m.id, m));
 		} else {
 			if (!guild.members) {
-				throw new Error('Util#findMember() was given a guild with no "members" array!');
+				throw new Error('Util#findUser() was given a guild with no "members" array!');
 			}
 
 			guildMembers = guild.members; // eslint-disable-line prefer-destructuring

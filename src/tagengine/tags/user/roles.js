@@ -1,7 +1,7 @@
 const middleware = require('./middleware');
 
 module.exports = middleware(async ({ user, settings }) => {
-	const member = await settings.findMember(user.id, {
+	const member = await settings.findUser(user.id, {
 		memberOnly: true,
 	});
 

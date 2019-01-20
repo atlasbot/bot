@@ -2,7 +2,7 @@ const middleware = require('./middleware');
 const TagError = require('../../TagError');
 
 module.exports = middleware(async ({ user, settings, guild, Atlas }, [roleQuery]) => {
-	const member = await settings.findMember(user.id, {
+	const member = await settings.findUser(user.id, {
 		memberOnly: true,
 	});
 

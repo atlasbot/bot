@@ -12,7 +12,7 @@ module.exports = class extends Command {
 
 		let user;
 		if (args[0]) {
-			user = await this.Atlas.util.findMember(msg.guild, args.join(' '));
+			user = await this.Atlas.util.findUser(msg.guild, args.join(' '));
 			if (!user) {
 				return responder.error('general.noUserFound').send();
 			}

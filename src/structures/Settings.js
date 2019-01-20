@@ -112,12 +112,12 @@ module.exports = class GuildSettings {
     * @param {number} opts.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
     * @returns {Promise} the member or nothing if nothing was found
     */
-	findMember(query, {
+	findUser(query, {
 		members,
 		memberOnly = false,
 		percent,
 	} = {}) {
-		return this.Atlas.util.findMember(this.guild, query, {
+		return this.Atlas.util.findUser(this.guild, query, {
 			members,
 			memberOnly,
 			percent,
@@ -372,7 +372,7 @@ module.exports = class GuildSettings {
 		// run those actions
 		if (actions.length) {
 			for (const action of actions.map(a => new Action(this, a))) {
-				const member = await this.findMember(user.id, {
+				const member = await this.findUser(user.id, {
 					memberOnly: true,
 				});
 

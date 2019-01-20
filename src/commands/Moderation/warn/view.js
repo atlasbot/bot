@@ -12,7 +12,7 @@ module.exports = class extends Command {
 	}) {
 		const responder = new this.Atlas.structs.Paginator(msg);
 
-		const target = args[0] ? await this.Atlas.util.findMember(msg.guild, args.join(' ')) : msg.member;
+		const target = args[0] ? await this.Atlas.util.findUser(msg.guild, args.join(' ')) : msg.member;
 
 		if (!target) {
 			return responder.error('general.noUserFound').send();

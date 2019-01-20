@@ -17,7 +17,7 @@ module.exports = class extends Command {
 			return responder.error('botinfo.noArgs').send();
 		}
 
-		let target = await settings.findMember(args.join(' '));
+		let target = await settings.findUser(args.join(' '));
 
 		try {
 			let bot;
@@ -44,7 +44,7 @@ module.exports = class extends Command {
 					return responder.error('botinfo.notFound').send();
 				}
 
-				target = await settings.findMember(bot.id);
+				target = await settings.findUser(bot.id);
 			} else {
 				({ bot } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
 					.set('Authorization', process.env.DBL_KEY)
@@ -62,7 +62,7 @@ module.exports = class extends Command {
 					break;
 				}
 				const owner = bot.owners[i];
-				const member = await settings.findMember(owner);
+				const member = await settings.findUser(owner);
 				if (member) {
 					owners.push(`[${member.tag}](https://discordbots.org/user/${member.id})`);
 				}

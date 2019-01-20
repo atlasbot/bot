@@ -10,7 +10,7 @@ module.exports = class extends Command {
 
 		let target;
 		if (args[0] && msg.guild) {
-			target = await this.Atlas.util.findMember(msg.guild, args.join(' '));
+			target = await this.Atlas.util.findUser(msg.guild, args.join(' '));
 
 			if (!target) {
 				return responder.error('avatar.base.cannotFind', args.join(' ')).send();
