@@ -779,63 +779,61 @@ module.exports = class Util {
 	}, msg, settings) {
 		const { stack, rewards, notify } = settings.plugin('levels').options;
 
-		if (!rewards.length) {
-			return;
-		}
+		if (rewards.length && msg.guild.me.permission.has('manageRoles')) {
+			let shouldHave;
 
-		let shouldHave;
-
-		if (stack) {
+			if (stack) {
 			// get all rewards < current level
-			shouldHave = rewards
-				.filter(r => r.level <= currentLevel)
-				.map(({ content: roleId }) => msg.guild.roles.get(roleId))
-				.filter(r => r)
+				shouldHave = rewards
+					.filter(r => r.level <= currentLevel)
+					.map(({ content: roleId }) => msg.guild.roles.get(roleId))
+					.filter(r => r)
 				// we ain't adding more then two roles at once
-				.slice(0, 2);
-		} else {
+					.slice(0, 2);
+			} else {
 			// get the reward closest to <= current level
-			shouldHave = [rewards.reduce((prev, curr) => {
-				if (curr.level > currentLevel) {
-					return prev;
-				}
+				shouldHave = [rewards.reduce((prev, curr) => {
+					if (curr.level > currentLevel) {
+						return prev;
+					}
 
-				return Math.abs(curr.level - currentLevel) < Math.abs(prev.level - currentLevel) ? curr : prev;
-			})]
-				.map(({ content: roleId }) => msg.guild.roles.get(roleId))
-				.filter(r => r);
-		}
-
-		for (const role of shouldHave) {
-			if (member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
-				continue;
+					return Math.abs(curr.level - currentLevel) < Math.abs(prev.level - currentLevel) ? curr : prev;
+				})]
+					.map(({ content: roleId }) => msg.guild.roles.get(roleId))
+					.filter(r => r);
 			}
 
-			// give them the role
-			await member.addRole(role.id, 'Level-up');
+			for (const role of shouldHave) {
+				if (member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
+					continue;
+				}
+
+				// give them the role
+				await member.addRole(role.id, 'Level-up');
+			}
+
+			if (!stack && shouldHave.length) {
+				const shouldntHave = rewards
+					.filter(r => r.level < currentLevel)
+					.map(({ content: roleId }) => member.guild.roles.get(roleId))
+					.filter(r => r)
+				// we ain't removing more then two roles at once
+					.slice(0, 2);
+
+				for (const role of shouldntHave) {
+					if (!member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
+						continue;
+					}
+
+					await member.removeRole(role.id, 'Level-up');
+				}
+			}
 		}
 
 		// once we've made sure they have their rewards, we don't do shit
 		// if they have higher level rewards we'll turn a blind eye incase an admin is hooking them up or something
 		if (previousLevel === currentLevel) {
 			return;
-		}
-
-		if (!stack && shouldHave.length) {
-			const shouldntHave = rewards
-				.filter(r => r.level < currentLevel)
-				.map(({ content: roleId }) => member.guild.roles.get(roleId))
-				.filter(r => r)
-				// we ain't removing more then two roles at once
-				.slice(0, 2);
-
-			for (const role of shouldntHave) {
-				if (!member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
-					continue;
-				}
-
-				await member.removeRole(role.id, 'Level-up');
-			}
 		}
 
 		if (notify && notify.enabled && notify.content) {
