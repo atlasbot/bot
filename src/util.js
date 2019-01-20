@@ -23,7 +23,6 @@ module.exports = class Util {
 	constructor(Atlas) {
 		this.Atlas = Atlas || require('./../Atlas');
 
-		this.webhookCache = new Cache('webhooks');
 		this.musicCache = new Cache('music');
 	}
 
@@ -59,25 +58,6 @@ module.exports = class Util {
 				length: track.duration_ms,
 			},
 		};
-	}
-
-	/**
-	 * Gets the bot's avatar in base64 format.
-	 * @param {string} [format=png] The format of the avatar.
-	 * @returns {Promise<string>} The base64 string with the avatar
-	 */
-	async avatar64(format = 'png') {
-		if (this._avatar64) {
-			return this._avatar64;
-		}
-
-		const { id, avatar } = this.Atlas.client.user;
-		const { body } = await superagent.get(`https://cdn.discordapp.com/avatars/${id}/${avatar}.${format}?size=128`);
-
-		// converts the format to a base64 encoded image data uri
-		this._avatar64 = `data:image/${format};base64,${body.toString('base64')}`;
-
-		return this._avatar64;
 	}
 
 	/**
@@ -623,52 +603,6 @@ module.exports = class Util {
 				$set: toSave,
 			});
 		}
-	}
-
-	/**
-    * every time, 70% of the time, this will get a valid, working webhook from a guild.
-		* it's also really inefficient so if anyone wants to tame a beast
-		*
-    * @param {Object|string} c the channel to get the webhook for
-    * @param {string} reason The reason to show in the modlog for the webhook
-    * @param {boolean} clearHookCache whether or not to use the webhook cache
-    * @returns {Promise} the webhook
-    * @memberof Guild
-    */
-	async getWebhook(c, reason, clearHookCache = false) {
-		const channelID = c.id || c;
-
-		const existing = await this.webhookCache.get(channelID);
-		if (existing) {
-			if (clearHookCache) {
-				await this.webhookCache.del(channelID);
-			} else {
-				return existing;
-			}
-		}
-
-		const channel = this.Atlas.client.getChannel(channelID);
-
-		if (channel && !channel.permissionsOf(this.Atlas.client.user.id).has('manageWebhooks')) {
-			throw new Error('No permissions to manage webhooks.');
-		}
-
-		let hook = (await this.Atlas.client.getChannelWebhooks(channelID))
-			.find(w => w.channel_id === channelID && w.user.id === this.Atlas.client.user.id);
-
-		const avatar = await this.avatar64();
-
-		if (!hook) {
-			hook = await this.Atlas.client.createChannelWebhook(channelID, {
-				name: this.Atlas.client.user.username,
-				avatar,
-			}, reason);
-		}
-
-		// cache for 10 minutes
-		await this.webhookCache.set(channelID, hook, 600);
-
-		return hook;
 	}
 
 	/**

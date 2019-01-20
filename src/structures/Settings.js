@@ -2,8 +2,11 @@ const prefixes = process.env.PREFIXES
 	? 	process.env.PREFIXES.split(',')
 	: 	['a!', '@mention'];
 
+const Cache = require('atlas-lib/lib/structures/Cache');
 const Action = require('./Action');
 const defaultSettings = require('../../data/defaultSettings.json');
+
+const warnCache = new Cache('log-warn-cache');
 
 module.exports = class GuildSettings {
 	/**
@@ -313,45 +316,28 @@ module.exports = class GuildSettings {
     * Logs a message into the appropriate channel in the guild if enabled
 		*
     * @param {string} type The type of log it is, "action", "error" or "mod"
-    * @param {Object|array} raw the embed to send to the channel
+    * @param {Object} embed the embed to send to the channel
 		* @param {boolean} retry If a previous log failed, this will force the bot to fetch new webhooks
     * @returns {Promise|Void} the message sent, or void if logging is not enabled in the guild
     */
-	async log(type, raw, retry = false) {
-		if (!this.guild.me.permission.has('manageWebhooks')) {
-			return;
-		}
-
+	async log(type, embed) {
 		const channel = this[`${type}LogChannel`];
 
-		if (channel) {
-			const responder = new this.Atlas.structs.Responder(null, this.lang);
+		const perms = channel && channel.permissionsOf(this.guild.me.id);
+		if (channel && perms.has('sendMessages')) {
+			const responder = new this.Atlas.structs.Responder(channel, this.lang);
 
-			const embeds = Array.isArray(raw) ? raw : [raw];
+			if (!perms.has('embedLinks')) {
+				const warned = await warnCache.get(this.id);
 
-			for (let embed of embeds) {
-				embed = responder.localiseObject(embed);
-
-				responder.validateEmbed(embed);
-			}
-
-			try {
-				const webhook = await this.Atlas.util.getWebhook(channel, `Atlas ${type} log`, retry);
-
-				return await this.Atlas.client.executeWebhook(webhook.id, webhook.token, {
-					username: this.guild.me.nick || this.guild.me.username,
-					avatarURL: this.Atlas.avatar,
-					embeds,
-				});
-			} catch (e) {
-				if (e.code !== 10015) {
-					throw e;
+				if (warned) {
+					return;
 				}
 
-				if (!retry) {
-					return this.log(type, raw, true);
-				}
+				return responder.text('general.loggerWarning').send();
 			}
+
+			return responder.embed(embed).send();
 		}
 	}
 
