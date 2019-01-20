@@ -173,6 +173,7 @@
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
 		"notASeries": "Bu bir TV şovu değil! Belki onun yerine `{0} filmi {1}` deneyin.",
+		"notFound": "I could not find a movie or TV show matching `{0}`.",
 		"ratings": "Derecelendirme"
 	},
 	"funban": {
