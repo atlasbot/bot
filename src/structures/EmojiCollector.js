@@ -167,7 +167,7 @@ module.exports = class EmojiCollector {
 				if (!this._validate(msg, emoji)) {
 					return;
 				}
-			} else if (!this._emojis.includes(emoji.char || emoji.name) && !this._emojis.includes(emoji.id)) {
+			} else if (!this._emojis.some(({ name }) => this._Atlas.lib.emoji.compare(emoji.name, name))) {
 				return;
 			}
 		}
