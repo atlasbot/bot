@@ -624,7 +624,8 @@
 		"noArgs": "Please include a message ID or share link.",
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"invalidMsg": "That message does not have any contents or an image attached.",
+		"noGuild": "That message is not from a guild."
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
