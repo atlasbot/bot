@@ -2,7 +2,8 @@
 	"welcome": {
 		"title": "Oh hey!",
 		"description": "Il semble que vous utilisiez pour la première fois Atlas. Pour commencer, utilisez le [dashboard](https://atlasbot.xyz) pour configurer votre serveur.\n\nSi jamais vous avez besoin d’aide, rejoignez notre [serveur de support] (https://atlasbot.xyz/support)",
-		"footer": "Ne soyez pas effrayé pour demander de l'aide!"
+		"footer": "Ne soyez pas effrayé pour demander de l'aide!",
+		"noEmbed": "Oh hey! It looks like you're new to using Atlas. To get started, use the dashboard (<https://atlasbot.xyz>) to set up your server.\n\nIf you ever need help with anything, join our support server (<https://atlasbot.xyz/support>)."
 	},
 	"help": {
 		"examples": "Exemples",
