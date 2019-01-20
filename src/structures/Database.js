@@ -28,7 +28,9 @@ module.exports = class Database {
 	}
 
 	async settings(guild) {
-		const id = guild.id || guild;
+		if (!guild.id || guild.unavailable) {
+			throw new Error('Invalid or unavailable guild.');
+		}
 
 		// const cached = await cache.settings.get(id);
 		// if (cached) {
@@ -37,7 +39,7 @@ module.exports = class Database {
 
 		const db = this.get('settings');
 
-		let settings = await db.findOne({ id });
+		let settings = await db.findOne({ id: guild.id });
 
 		if (!settings) {
 			const data = typeof guild === 'string' ? { id: guild } : {
@@ -52,6 +54,12 @@ module.exports = class Database {
 		settings._id = settings._id.toString();
 
 		const data = deepMerge(defaultSettings, settings);
+
+		if (data.id !== guild.id) {
+			// this may not be what's causing it, but there is some spoopy
+			// behaviour where mongodb might be returning the wrong document for each guild
+			throw new Error('Something spoopy happened.');
+		}
 
 		// cache for 120s
 		// await cache.settings.set(id, data, CACHE_TIME_SECONDS);

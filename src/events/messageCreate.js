@@ -26,7 +26,7 @@ module.exports = class {
 			return;
 		}
 
-		const settings = await this.Atlas.DB.settings(msg.guild.id);
+		const settings = await this.Atlas.DB.settings(msg.guild);
 
 		// chat filters
 		for (const [, filter] of this.Atlas.filters) {
@@ -83,14 +83,14 @@ module.exports = class {
 
 		const runActions = [];
 		for (const rawAction of actions) {
-			const limited = await botlimits.get(msg.guild.id);
-
 			// if it's a keyword and the msg contint doesn't actually include the keyword then skip it
 			if (rawAction.trigger.type === 'keyword' && !msg.content.toLowerCase().includes(rawAction.trigger.content.toLowerCase())) {
 				continue;
 			}
 
 			if (rawAction.trigger.type === 'messageCreate' && msg.author.bot) {
+				const limited = await botlimits.get(msg.guild.id);
+
 				// bots can only trigger messageCreate every 5 minutes to prevent any serious abuse
 				// this could still be used to create loops but every 5m isn't a big deal
 				if (limited) {
