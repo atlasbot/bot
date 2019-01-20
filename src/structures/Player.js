@@ -53,7 +53,7 @@ module.exports = class extends Player {
 	}
 
 	get ttp() {
-		return this.queue.reduce((a, b) => a + b.info.length, 0) + this.timeLeft;
+		return this.queue.reduce((a, b) => a + b.info.length || 0, 0) + this.timeLeft;
 	}
 
 	/**

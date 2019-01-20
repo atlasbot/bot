@@ -55,6 +55,8 @@ module.exports = class Util {
 				title: track.name,
 				uri: track.external_urls.spotify,
 				targetDuration: track.duration_ms,
+				// the player will replace these values but some things break without it
+				length: track.duration_ms,
 			},
 		};
 	}
