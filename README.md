@@ -58,7 +58,7 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 
 3. Run `npm i` to install dependencies
 
-4. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things.
+4. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things. Setting `DEBUG=*` may also help if you dont mind reading logs. `DEBUG=package:*` is also acceptable, e.g `DEBUG=monk:*` to listen to database debug messages.
 
 5. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
 
@@ -70,28 +70,29 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 
 ## Environment Variables
 
-| Name                     | Description                                                                                                                     |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| PREFIXES                 | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention.   |
-| DEFAULT_PREFIX           | The default prefix for Atlas to use. By default, this is "a!"                                                                   |
-| NODE_ENV                 | The environment the bot is in, should be "production" or "development".                                                         |
-| TOKEN                    | The bot token to login with.                                                                                                    |
-| MONGO_URI                | A MongoDB Connection URI.                                                                                                       |
-| VERBOSE                  | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment. |
-| OWNER                    | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**  |
-| DEFAULT_LANG             | The default language to use for everything. Valid languages are in [/locales](/locales)                                         |
-| LAVALINK_NODES           | An array of Lavalink nodes. See example for more info.                                                                          |
-| OMDBAPI_KEY \*           | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key.                                                                               |
-| GOOGLE_CX \*             | A Google CX key for custom searches. Google is your friend.                                                                     |
-| GOOGLE_KEY \*            | A Google key for custom searches. See above.                                                                                    |
-| REDIS_HOST \*            | The host for Redis.                                                                                                             |
-| REDIS_PASS \*            | The password for the Redis server                                                                                               |
-| REDIS_PORT \*            | The port for the Redis server                                                                                                   |
-| DBL_KEY \*               | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵                            |
-| PATREON_KEY \*           | Used to tell who is a patreon and who isn't.                                                                                    |
-| LASTFM_KEY \*            | Used to find related songs for autoplay.                                                                                        |
-| SPOTIFY_CLIENT_ID \*     | Used to hack spotify support into music.                                                                                        |
-| SPOTIFY_CLIENT_SECRET \* | see above                                                                                                                       |
+| Name                     | Description                                                                                                                      |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| PREFIXES                 | A list of all prefixes the bot will listen for by default, split by commas. @mention will be replaced with the bot's mention.    |
+| DEFAULT_PREFIX           | The default prefix for Atlas to use. By default, this is "a!"                                                                    |
+| NODE_ENV                 | The environment the bot is in, should be "production" or "development".                                                          |
+| TOKEN                    | The bot token to login with.                                                                                                     |
+| MONGO_URI                | A MongoDB Connection URI.                                                                                                        |
+| VERBOSE                  | Whether or not to use verbose logging (e.g, logging commands) - you'll probably want this disabled in a production environment.  |
+| OWNER                    | The bot's owner ID. **For security, this should only be set to user ID's that already have direct access to the host server.**   |
+| DEFAULT_LANG             | The default language to use for everything. Valid languages are in [/locales](/locales)                                          |
+| LAVALINK_NODES           | An array of Lavalink nodes. See example for more info.                                                                           |
+| OMDBAPI_KEY \*           | An [OMDBAPI](http://omdbapi.com/apikey.aspx) key.                                                                                |
+| GOOGLE_CX \*             | A Google CX key for custom searches. Google is your friend.                                                                      |
+| GOOGLE_KEY \*            | A Google key for custom searches. See above.                                                                                     |
+| REDIS_HOST \*            | The host for Redis.                                                                                                              |
+| REDIS_PASS \*            | The password for the Redis server                                                                                                |
+| REDIS_PORT \*            | The port for the Redis server                                                                                                    |
+| DBL_KEY \*               | A [discordbots.org](https://discordbots.org/) API Token, used to get information about other bots 🕵                             |
+| PATREON_KEY \*           | Used to tell who is a patreon and who isn't.                                                                                     |
+| LASTFM_KEY \*            | Used to find related songs for autoplay.                                                                                         |
+| SPOTIFY_CLIENT_ID \*     | Used to hack spotify support into music.                                                                                         |
+| SPOTIFY_CLIENT_SECRET \* | see above                                                                                                                        |
+| DEBUG \*                 | A lot of packages come with debugging enabled via the "debug" variable. Set `DEBUG=*` to get debug messages from all the things. |
 
 _\* Optional, but some features may not work without them._
 
