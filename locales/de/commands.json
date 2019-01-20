@@ -218,7 +218,7 @@
 		]
 	},
 	"patreon": "Unterstütze Atlas und erhalte tolle Vorteile indem Du spendest auf <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"invite": "Du kannst Atlas für deinen eigenen Server unter <https://atlasbot.xyz/get> finden.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
 		"footer": "{0} Befehle",
@@ -255,18 +255,18 @@
 				"value": "[Hier klicken]({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
+				"name": "Konto wurde erstellt",
 				"value": "{0}"
 			},
 			"joined": {
-				"name": "Joined",
+				"name": "Beigetreten",
 				"value": "{0}"
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "Spielt grade",
 				"value": {
 					"set": "{0}",
-					"null": "Nothing"
+					"null": "Nichts"
 				}
 			},
 			"status": {
