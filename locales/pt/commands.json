@@ -387,7 +387,7 @@
 		"noArgs": "Por favor inclua um usuário para silenciar!",
 		"success": "{0} foi silenciado para {1}.",
 		"generated": "Eu também gerou automaticamente uma função mudo para esse servidor, o que pode exigir algumas pequenas alterações para que funcione corretamente.",
-		"generatePermError": "Eu preciso de permissões para gerenciar canais para gerar automaticamente um papel mudo.",
+		"generatePermError": "I need permissions to manage channels and roles to automatically generate a mute role.",
 		"alreadyMuted": "Esse usuário já está mudo, você quis dizer `{0} ativar o som?",
 		"invalid": "Por favor inclua uma duração mudo válida.",
 		"setForPast": "Dê-me uma data que seja no futuro.",
