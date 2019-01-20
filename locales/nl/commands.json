@@ -173,6 +173,7 @@
 	"movie": {
 		"notAMovie": "Dat is geen film! Probeer `{0}show {1}`.",
 		"notASeries": "Dat is geen TV serie! Probeer `{0}movie {1}`.",
+		"notFound": "I could not find a movie or TV show matching `{0}`.",
 		"ratings": "Ratings"
 	},
 	"funban": {
