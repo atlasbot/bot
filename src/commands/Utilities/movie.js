@@ -24,13 +24,17 @@ module.exports = class extends Command {
 			.set('User-Agent', this.Atlas.userAgent);
 
 		if (body.Error) {
+			if (body.Error.includes('not found!')) {
+				return responder.error('notFound', args.join(' ')).send();
+			}
+
 			throw new Error(body.Error);
 		}
 
 		if (!override && body.Type !== 'movie') {
-			return responder.error('movie.notAMovie', msg.displayPrefix, args.join(' ')).send();
+			return responder.error('notAMovie', msg.displayPrefix, args.join(' ')).send();
 		} if (override && body.Type !== 'series') {
-			return responder.error('movie.notASeries', msg.displayPrefix, args.join(' ')).send();
+			return responder.error('notASeries', msg.displayPrefix, args.join(' ')).send();
 		}
 
 		const embed = {
