@@ -211,7 +211,7 @@
 			"Error: Zu wenig Verstand...",
 			"Sind wir jetzt da?...",
 			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
+			"Warte einen Moment, es ist hier irgendwo...",
 			"Hast du abgenommen?...",
 			"bin gleich zurück, einen Moment...",
 			"Spinning up the hamster..."
@@ -244,7 +244,7 @@
 	"uptime": "Ich war online für {0}.",
 	"version": "This instance is running Atlas version `{0}`.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "Du musst mir sagen, nach wem ich suchen soll!",
 		"embed": {
 			"tag": {
 				"name": "Tag",
@@ -274,11 +274,11 @@
 				"value": "{0}"
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "Rollen ({0})",
 				"value": {
 					"set": "{0}",
 					"null": "None",
-					"tooMany": "{0} total."
+					"tooMany": "{0} insgesamt."
 				}
 			}
 		}
@@ -624,7 +624,8 @@
 		"noArgs": "Please include a message ID or share link.",
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"invalidMsg": "That message does not have any contents or an image attached.",
+		"noGuild": "That message is not from a guild."
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
