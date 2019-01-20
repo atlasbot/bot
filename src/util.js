@@ -305,14 +305,18 @@ module.exports = class Util {
 		}
 
 		if (id) {
-			const member = guildMembers.get(id);
-
 			if (memberOnly) {
-				if (member) {
-					await this.updateUser(member);
-				}
+				try {
+					const member = guildMembers.get(id) || await this.Atlas.client.getRESTGuildMember(guild.id, id);
 
-				return member;
+					if (member) {
+						await this.updateUser(member);
+					}
+
+					return member;
+				} catch (e) {
+					return;
+				}
 			}
 
 			const result = this.Atlas.client.users.get(id);
