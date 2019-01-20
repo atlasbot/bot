@@ -40,7 +40,10 @@ module.exports = class Filter {
 				// but on the other hand it may confuse people if atlas randomly deletes messages
 				|| !perms.has('sendMessages')
 		) {
-			return false;
+			// in development, doing `Atlas::forceFilter::filter` will forcefully trigger the filter
+			if (process.env.NODE_ENV !== 'development' || !msg.content.includes(`Atlas:forceFilter:${this.info.settingsKey}`)) {
+				return false;
+			}
 		}
 		// here is some eye bleach for that if statement https://i.imgur.com/uJV5MgX.jpg
 		// if anyone wants to clean that up then you're more then welcome

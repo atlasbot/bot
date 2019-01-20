@@ -42,9 +42,9 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 
 3. Open a terminal in the cloned folder
 
-4. Copy `.env.example` to `.env` and fill in the required env variables
+4. Copy `.env.example` to `.env` and fill in the required env variables. See below for what most do. Google is your friend.
 
-5. Start the bot with `docker-compose up -d`
+5. Start the bot with `docker-compose up -d`. If you did everything right, then congratulations - you now have your own instance of Atlas.
 
 ### Development
 
@@ -58,15 +58,15 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 
 3. Run `npm i` to install dependencies
 
-4. Copy `.env.example` to `.env` and fill in the env variables
+4. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things.
 
 5. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
 
    If you are using docker-compose to host these services, you can leave the defaults in `.env.example` for those services and it should be gucci.
 
-6. Start the bot with `npm start`
+6. Start the bot with `npm run dev`
 
-7. Start breaking things
+7. Start breaking things. Once you save a file change, the bot will restart with the changes. Do `npm run start` to start the bot without watching files.
 
 ## Environment Variables
 
@@ -94,6 +94,12 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 | SPOTIFY_CLIENT_SECRET \* | see above                                                                                                                       |
 
 _\* Optional, but some features may not work without them._
+
+## Development "Features"
+
+The `NODE_ENV` environment variable must be set to `development` for these to work.
+
+- To run a filter without it being enabled, include `Atlas:forceFilter:filter` with whatever you want to test. E.g, `Atlas:forceFilter:invites discord.gg/AXXBPM7` will force run the "invites" filter.
 
 ## Disclaimer / Warning
 

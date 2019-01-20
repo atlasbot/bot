@@ -13,12 +13,21 @@ module.exports = class Invites extends Filter {
 		if (match && match[1]) {
 			const [, code] = match;
 
-			const invites = await guild.getInvites();
+			try {
+				// make sure the invite isn't from the guild
+				const invite = await this.Atlas.client.getInvite(code, false);
 
-			const guildInvite = invites.find(i => i.code === code);
+				if (!invite || invite.guild.id !== guild.id) {
+				// yay it's not from the guild, so let's say they're bad
+					return true;
+				}
+			} catch (e) {
+				// 10006 = invalid invite
+				if (e.code === 10006) {
+					return;
+				}
 
-			if (!guildInvite) {
-				return !!match[1];
+				throw e;
 			}
 		}
 	}
