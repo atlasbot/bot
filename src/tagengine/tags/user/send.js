@@ -20,7 +20,6 @@ module.exports = middleware(async (context, args) => {
 		});
 
 		if (!content) {
-			console.log(args);
 			if (args[0]) {
 				// tag was parsed and probably executed correctly
 				return;

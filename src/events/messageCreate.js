@@ -156,6 +156,10 @@ module.exports = class {
 						return responder.error('disabled', msg.command.plugin.name, msg.command.info.name).send();
 					}
 
+					if (!msg.channel.permissionsOf(msg.guild.me.id).has('embedLinks')) {
+						return responder.text('general.welcome.noEmbed').send();
+					}
+
 					// if the command is 'help' and all their plugins are disabled, they're probably new
 					// so show them a friendly message to get them started
 					return responder.embed({

@@ -1,11 +1,13 @@
 const middleware = require('./middleware');
 
-module.exports = middleware(({ user, guild }) => {
+module.exports = middleware(async ({ user, settings }) => {
 	if (user.nick) {
 		return user.nick;
 	}
 
-	const member = guild.members.get(user.id);
+	const member = await settings.findMember(user.id, {
+		memberOnly: true,
+	});
 
 	if (!member) {
 		return user.username;
@@ -23,5 +25,5 @@ module.exports.info = {
 		input: '{user.nickname}',
 		output: 'sylver',
 	}],
-	dependencies: ['user', 'guild'],
+	dependencies: ['user', 'settings'],
 };

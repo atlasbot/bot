@@ -1,8 +1,11 @@
 const roleColor = require('atlas-lib/lib/utils/roleColor');
 const middleware = require('./middleware');
 
-module.exports = middleware(({ user, guild }, [hex = true]) => {
-	const member = guild.members.get(user.id);
+module.exports = middleware(async ({ user, settings }, [hex = true]) => {
+	const member = await settings.findMember(user.id, {
+		memberOnly: true,
+	});
+
 	const role = member.highestRole;
 
 	if (hex === 'true') {
@@ -26,5 +29,5 @@ module.exports.info = {
 		input: '{user.color;true;Atlas}',
 		output: '#03a9f4',
 	}],
-	dependencies: ['user', 'guild'],
+	dependencies: ['user', 'settings'],
 };

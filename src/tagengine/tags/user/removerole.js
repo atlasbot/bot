@@ -1,8 +1,10 @@
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
 
-module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery]) => {
-	const member = guild.members.get(user.id);
+module.exports = middleware(async ({ user, guild, settings, Atlas }, [roleQuery]) => {
+	const member = await settings.findMember(user.id, {
+		memberOnly: true,
+	});
 
 	if (!guild.me.permission.has('manageRoles')) {
 		throw new TagError('Atlas cannot remove roles without the "Manage Roles" permission.');
@@ -40,5 +42,5 @@ module.exports.info = {
 		output: '',
 		note: 'The user would no longer have the role. Returns nothing on success.',
 	}],
-	dependencies: ['user', 'guild'],
+	dependencies: ['user', 'guild', 'settings'],
 };

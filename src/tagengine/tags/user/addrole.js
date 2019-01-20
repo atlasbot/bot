@@ -1,8 +1,10 @@
 const middleware = require('./middleware');
 const TagError = require('../../TagError');
 
-module.exports = middleware(async ({ user, guild, Atlas }, [roleQuery]) => {
-	const member = guild.members.get(user.id);
+module.exports = middleware(async ({ user, settings, guild, Atlas }, [roleQuery]) => {
+	const member = await settings.findMember(user.id, {
+		memberOnly: true,
+	});
 
 	if (!guild.me.permission.has('manageRoles')) {
 		throw new TagError('Atlas cannot assign roles without the "Manage Roles" permission.');
@@ -44,5 +46,5 @@ module.exports.info = {
 		output: '',
 		note: 'Sylver would now have the "Humans" role.',
 	}],
-	dependencies: ['user', 'guild'],
+	dependencies: ['user', 'guild', 'settings'],
 };

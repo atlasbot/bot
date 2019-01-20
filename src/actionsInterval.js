@@ -1,4 +1,5 @@
 // handles running actions that are on an interval
+const sleep = require('atlas-lib/lib/utils/sleep');
 const Settings = require('./structures/Settings');
 const Action = require('./structures/Action');
 
@@ -68,13 +69,16 @@ module.exports = class {
 			try {
 				const guild = this.Atlas.client.guilds.get(rawAction.guild);
 
-				const updatedBy = guild.members.get(rawAction.updatedBy);
-				const validChannel = rawAction.content.find(sa => guild.channels.has(sa.channel));
-
 				// might just be a temporary issue
 				if (!guild) {
 					return;
 				}
+
+				const updatedBy = await this.Atlas.util.findMember(guild, rawAction.updatedBy, {
+					memberOnly: true,
+				});
+
+				const validChannel = rawAction.content.find(sa => guild.channels.has(sa.channel));
 
 				// disable any invalid actions
 				// note: if actions are being randomly disabled, this is probably the cause
@@ -125,6 +129,12 @@ module.exports = class {
 			});
 
 			rawAction.nextRunAt = nextRunAt;
+
+			if (actions.length !== 1) {
+				// sleep for 5s to prevent abuse
+				// could this throw some actions out of sync? yes. do i care? no.
+				await sleep(5000);
+			}
 		}
 	}
 };

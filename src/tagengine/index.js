@@ -38,6 +38,7 @@ module.exports = class {
 				guild,
 				channel,
 				author: user,
+				// if nothing is found, below will resolve it properly
 				member: guild.members.get(user.id),
 				type: 0,
 				timestamp: Date.now(),
@@ -100,7 +101,9 @@ module.exports = class {
 								context.channel.guild = context.guild;
 							}
 
-							const member = guild.members.get(user.id);
+							const member = await settings.findMember(user.id, {
+								memberOnly: true,
+							});
 
 							if (!member) {
 								return;
@@ -147,6 +150,15 @@ module.exports = class {
 
 	async parse(source) {
 		const volatile = new Map();
+
+		if (this.context.msg && !this.context.msg.member) {
+			// sometimes atlas can't find the context member properly, settings#findMember will
+			const { user, settings } = this.context;
+
+			this.context.msg.member = await settings.findMember(user.id, {
+				memberOnly: true,
+			});
+		}
 
 		const persistent = new Map(this.settings.raw.persistent);
 

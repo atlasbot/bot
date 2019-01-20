@@ -3,8 +3,10 @@ const timeFormat = require('atlas-lib/lib/utils/timeFormat');
 const TagError = require('../../TagError');
 const middleware = require('./middleware');
 
-module.exports = middleware(({ user, guild }, [exact]) => {
-	const member = guild.members.get(user.id);
+module.exports = middleware(async ({ user, settings }, [exact]) => {
+	const member = await settings.findMember(user.id, {
+		memberOnly: true,
+	});
 
 	if (!member) {
 		throw new TagError('Could not resolve user to a server member.');
@@ -24,5 +26,5 @@ module.exports.info = {
 		input: '{user.joinedAt;true}',
 		output: 'Jul 28, 2017, 7:56 PM',
 	}],
-	dependencies: ['user', 'guild'],
+	dependencies: ['user', 'settings'],
 };
