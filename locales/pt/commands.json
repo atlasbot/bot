@@ -242,7 +242,7 @@
 		}
 	},
 	"uptime": "Estive online por {0}.",
-	"version": "This instance is running Atlas version `{0}`.",
+	"version": "Esta instância está executando a versão do Atlas `{0}`.",
 	"whois": {
 		"noUser": "Você tem que me dizer quem procurar!",
 		"embed": {
