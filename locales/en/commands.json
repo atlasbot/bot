@@ -172,8 +172,8 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"ratings": "Ratings"
+		"notASeries": "That there ain't a TV show! Ye' should try `{0}movie {1}` instead.",
+		"ratings": "Rating"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -185,7 +185,7 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
+			"reason": "Oy Matey! You'Ve Been Banned From {0} For {1} By The Admiral {2}{3}.",
 			"noReason": "You have been banned from {0} by {1} ({2})."
 		}
 	},
@@ -624,7 +624,8 @@
 		"noArgs": "Please include a message ID or share link.",
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached."
+		"invalidMsg": "That message does not have any contents or an image attached.",
+		"noGuild": "That message is not from a guild."
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
