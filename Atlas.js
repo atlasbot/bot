@@ -31,7 +31,7 @@ module.exports = class Atlas {
 		module.exports = this;
 
 		this.version = version;
-		this.userAgent = `Atlas (https://github.com/get-atlas/bot, ${version})`;
+		this.userAgent = `Atlas (https://github.com/atlasbot/bot, ${version})`;
 
 		this.client = client;
 		this.auditOverrides = [];

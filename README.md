@@ -1,16 +1,16 @@
 # Atlas
 
 <div>
-		<img src="https://img.shields.io/github/license/get-atlas/bot.svg" alt="License">
+		<img src="https://img.shields.io/github/license/atlasbot/bot.svg" alt="License">
 		<!-- for some reason this says "invalid response" even though it was working a few days ago, if anyone wants to fix it pls do -->
-		<!-- <img src="https://img.shields.io/github/package-json/v/get-atlas/bot.svg?maxAge=300&label=version" alt="Version"> -->
+		<!-- <img src="https://img.shields.io/github/package-json/v/atlasbot/bot.svg?maxAge=300&label=version" alt="Version"> -->
 </div>
 
 <div>
     <a href="https://translate.atlasbot.xyz/">
 			<img src="https://d322cqt584bo4o.cloudfront.net/getatlas/localized.svg?maxAge=300" alt="Crowdin Translations">
 		</a>
-    <a href="https://get-atlas.xyz/support">
+    <a href="https://atlasbot.xyz/support">
 			<img src="https://img.shields.io/discord/345177567541723137.svg?maxAge=300" alt="Discord">
 		</a>
     <a href="https://hub.docker.com/r/sylver/bot">
@@ -37,7 +37,7 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 2. Clone this repo
 
    ```bash
-   git clone https://github.com/get-atlas/bot.git
+   git clone https://github.com/atlasbot/bot.git
    ```
 
 3. Open a terminal in the cloned folder
@@ -51,7 +51,7 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 1. Clone this repo
 
    ```bash
-   git clone https://github.com/get-atlas/bot.git
+   git clone https://github.com/atlasbot/bot.git
    ```
 
 2. Open a terminal in the cloned folder

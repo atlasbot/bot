@@ -86,12 +86,7 @@
 					"action": 0,
 					"exempt": { "roles": [], "channels": [] },
 					"sanction": {},
-					"exclusions": [
-						"*get-atlas.xyz*",
-						"*atlasbot.xyz*",
-						"*discordapp.com*",
-						"*discord.gg*"
-					]
+					"exclusions": ["*atlasbot.xyz*", "*discordapp.com*", "*discord.gg*"]
 				},
 				"invites": {
 					"action": 0,
