@@ -126,6 +126,8 @@ module.exports = class Atlas {
 			ignoreErrors: [
 			// should match "Gateway Time-out on xxx"
 				'Time-out on',
+				// should match "Request timed out (>Nms) on METHOD"
+				'Request timed out (',
 				// should match "DiscordHTTPError: 500 INTERNAL SERVER ERROR on POST xxx"
 				'500 INTERNAL SERVER ERROR on',
 			],
