@@ -46,7 +46,7 @@ module.exports = class extends Command {
 			description: ['general.warning.description', target.mention, target.tag, msg.author.mention, msg.author.tag],
 			fields: [{
 				name: 'general.warning.total.name',
-				value: ['general.warning.total.value', target.tag, warnings.length + 1],
+				value: ['general.warning.total.value', target.tag, warnings.length],
 				inline: true,
 			}, {
 				name: 'general.warning.dm.name',

@@ -63,7 +63,7 @@ module.exports = class GuildSettings {
     * @memberof Guild
     */
 	get botPerms() {
-		return this.guild.members.get(this.Atlas.client.user.id).permission;
+		return this.guild.me.permission;
 	}
 
 	/**
@@ -296,16 +296,12 @@ module.exports = class GuildSettings {
     * Gets all warnings for a user
     * @param {string} user the ID of the user
     * @param {Object} opts Options
-    * @param {boolean} opts.all whether or not to return all infractions, including ones that were deleted
     * @returns {Array} An array of objects with infraction info
     */
-	async getInfractions(user, {
-		all = false,
-	} = {}) {
+	async getInfractions(user) {
 		const warnings = await this.Atlas.DB.get('infractions').find({
 			guild: this.id,
 			target: (user.id || user),
-			all: all ? true : undefined,
 		});
 
 		warnings.sort((a, b) => b.date - a.date);
@@ -376,14 +372,18 @@ module.exports = class GuildSettings {
 		// run those actions
 		if (actions.length) {
 			for (const action of actions.map(a => new Action(this, a))) {
+				const member = await this.findMember(user.id, {
+					memberOnly: true,
+				});
+
 				try {
 					// basically immitating a message with the user that added the reaction as the author
 					await action.execute({
 						author: user,
 						guild: msg.guild,
-						member: msg.guild.members.get(user.id),
 						channel: msg.channel,
 						lang: this.raw.lang,
+						member,
 					});
 
 					if (actions.length !== 1) {
