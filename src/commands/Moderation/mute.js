@@ -22,7 +22,9 @@ module.exports = class extends Command {
 			role = msg.guild.roles.find(r => r.name.toLowerCase().includes('muted'));
 
 			if (!role) {
-				if (!msg.guild.me.permission.has('manageChannels')) {
+				const { permission } = msg.guild.me;
+
+				if (!permission.has('manageChannels') || !permission.has('manageRoles')) {
 					return responder.error('mute.generatePermError').send();
 				}
 
@@ -30,13 +32,20 @@ module.exports = class extends Command {
 
 				role = await msg.guild.createRole({
 					name: 'Muted',
-					color: 6316128,
-					mentionable: true,
-					permissions: 104324161,
+					color: 6316143,
 				}, 'Auto-generated to mute users');
 
-				role.editPosition(msg.guild.me.highestRole.position - 1)
-					.catch(() => false);
+				await role.editPosition(msg.guild.me.highestRole.position - 1);
+
+				for (const channel of msg.guild.channels.values()) {
+					try {
+						await channel.editPermission(role.id, 0, 2103360, 'role', 'Mute role setu');
+					} catch (e) {
+						console.warn(e);
+
+						continue;
+					}
+				}
 			}
 
 			await settings.update({
