@@ -173,6 +173,7 @@
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
 		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
+		"notFound": "I could not find a movie or TV show matching `{0}`.",
 		"ratings": "Ratings"
 	},
 	"funban": {
