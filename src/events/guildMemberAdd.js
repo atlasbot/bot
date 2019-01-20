@@ -9,6 +9,24 @@ module.exports = class {
 	async execute(guild, member) {
 		const settings = await this.Atlas.DB.settings(guild);
 
+		const mute = await this.Atlas.DB.get('agendaJobs').findOne({
+			name: 'unmute',
+			'data.target': member.id,
+			nextRunAt: {
+				$ne: null,
+				$gte: new Date(),
+			},
+			lastFinishedAt: null,
+		});
+
+		if (mute) {
+			const role = guild.roles.get(mute.data.role) || settings.muteRole;
+
+			if (role && guild.me.highestRole.higherThan(role) && guild.me.permission.has('manageRoles') && !(member.roles || []).includes(role.id)) {
+				member.addRole(role.id, 'Mute evasion.');
+			}
+		}
+
 		const roles = settings.plugin('roles');
 		const gatekeeper = settings.plugin('gatekeeper');
 

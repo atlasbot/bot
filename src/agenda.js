@@ -84,19 +84,30 @@ module.exports = class Agenda extends EventEmitter {
 			}
 		});
 
-		this.agenda.define('unmute', async (job) => {
-			const { target, role, guild } = job.attrs.data;
-			let member;
-			if (this.Atlas.client.guilds.has(guild)) {
-				const g = this.Atlas.client.guilds.get(guild);
-				if (!g.roles.has(role)) return;
-				member = g.members.get(target);
-			} else {
-				member = await this.Atlas.client.getRESTGuildMember(guild, target);
+		this.agenda.define('unmute', async (job, done) => {
+			const { target: targetID, role: muteRoleID, guild: guildID } = job.attrs.data;
+			const guild = this.Atlas.client.guilds.get(guildID);
+
+			if (!guild || !guild.me.permission.has('manageRoles')) {
+				return;
 			}
-			if (member.roles.includes(role)) {
-				return this.Atlas.client.removeGuildMemberRole(guild, target, role, 'Auto-unmute');
+
+			const muteRole = guild.roles.get(muteRoleID);
+			if (!muteRole) {
+				return;
 			}
+
+			const target = await this.Atlas.util.findUser(guild, targetID, {
+				memberOnly: true,
+			});
+
+			if (!target || !(target.roles || []).includes(muteRole.id)) {
+				return;
+			}
+
+			await this.Atlas.client.removeGuildMemberRole(guildID, targetID, muteRole.id, 'Auto-unmute');
+
+			return done();
 		});
 
 		process.on('SIGTERM', this.graceful);
