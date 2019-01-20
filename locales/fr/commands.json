@@ -624,7 +624,8 @@
 		"noArgs": "Incluez un ID de message ou un lien de partage.",
 		"noMessage": "Je n'ai pas trouvé de message correspondant à ceci :c",
 		"invalidType": "Cette commande prend uniquement en charge les messages textuels.",
-		"invalidMsg": "Ce message n'a pas de contenu ou d'image en pièce jointe."
+		"invalidMsg": "Ce message n'a pas de contenu ou d'image en pièce jointe.",
+		"noGuild": "That message is not from a guild."
 	},
 	"randomcolor": "Votre hex aléatoire est [#{0}] (http://www.color-hex.com/color/{0})",
 	"reddit": {
