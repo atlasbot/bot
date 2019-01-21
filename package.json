@@ -1,6 +1,6 @@
 {
 	"name": "atlas-bot",
-	"version": "8.0.64",
+	"version": "8.0.65",
 	"description": "A Discord bot that does the things",
 	"main": "index.js",
 	"scripts": {
