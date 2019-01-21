@@ -731,7 +731,7 @@ module.exports = class Util {
 				// we ain't adding more then two roles at once
 					.slice(0, 2);
 			} else {
-			// get the reward closest to <= current level
+				// get the reward closest to <= current level
 				shouldHave = [rewards.reduce((prev, curr) => {
 					if (curr.level > currentLevel) {
 						return prev;

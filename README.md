@@ -18,7 +18,7 @@
 		</a>
 </div>
 
-A Discord bot that does ~~all~~ most of the things - [atlasbot.xyz](https://atlasbot.xyz)
+Yet another Discord bot that tries to do everything - [atlasbot.xyz](https://atlasbot.xyz)
 
 This is all the code that runs the bot portion of Atlas. The dashboard, API and other secret sauce will remain closed source for now. Contributions are welcome.
 
@@ -26,27 +26,17 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
 
 - [Docker](https://docker.com/)
 - [docker-compose](https://docs.docker.com/compose/)
-- [Node.js](https://nodejs.org/en/) >=10.0.0 (not required for self-hosting)
+- [Node.js](https://nodejs.org/en/) >=10.0.0 \*
+
+\* Required for development. If you're self-hosting, you can skip these requirements.
 
 ## Installation
 
-### Self-hosting
+Linux is recommended, but Docker means macOS, Windows and more or less anything that runs Docker will work. For development, anything that runs Node.js and Docker will work.
+
+#### Self-hosting
 
 1. Install [Docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/)
-
-2. Clone this repo
-
-   ```bash
-   git clone https://github.com/atlasbot/bot.git
-   ```
-
-3. Open a terminal in the cloned folder
-
-4. Copy `.env.example` to `.env` and fill in the required env variables. See below for what most do. Google is your friend.
-
-5. Start the bot with `docker-compose up -d`. If you did everything right, then congratulations - you now have your own instance of Atlas.
-
-### Development
 
 1. Clone this repo
 
@@ -54,19 +44,35 @@ This is all the code that runs the bot portion of Atlas. The dashboard, API and 
    git clone https://github.com/atlasbot/bot.git
    ```
 
-2. Open a terminal in the cloned folder
+1. Open a terminal in the cloned folder
 
-3. Run `npm i` to install dependencies
+1. Copy `.env.example` to `.env` and fill in the required env variables. See below for what most do. Google is your friend.
 
-4. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things. Setting `DEBUG=*` may also help if you dont mind reading logs. `DEBUG=package:*` is also acceptable, e.g `DEBUG=monk:*` to listen to database debug messages.
+1. Start the bot with `docker-compose up -d`. If you did everything right, then congratulations - you now have your own instance of Atlas.
 
-5. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
+#### Development
+
+1. Install [Docker](https://docs.docker.com/install/), [docker-compose](https://docs.docker.com/compose/install/) and [Node.js](https://nodejs.org/en/)
+
+1. Clone this repo
+
+   ```bash
+   git clone https://github.com/atlasbot/bot.git
+   ```
+
+1. Open a terminal in the cloned folder
+
+1. Run `npm install` to install dependencies
+
+1. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things. Setting `DEBUG=*` may also help if you dont mind reading logs. `DEBUG=package:*` enables debug for specific packages, e.g `DEBUG=monk:*` to listen to database debug messages.
+
+1. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
 
    If you are using docker-compose to host these services, you can leave the defaults in `.env.example` for those services and it should be gucci.
 
-6. Start the bot with `npm run dev`
+1. Start the bot with `npm run dev`
 
-7. Start breaking things. Once you save a file change, the bot will restart with the changes. Do `npm run start` to start the bot without watching files.
+1. Start breaking things. Once you save a file change, the bot will restart with the changes. Do `npm run start` to start the bot without watching files.
 
 ## Environment Variables
 
@@ -100,11 +106,11 @@ _\* Optional, but some features may not work without them._
 
 The `NODE_ENV` environment variable must be set to `development` for these to work.
 
-- To run a filter without it being enabled, include `Atlas:forceFilter:filter` with whatever you want to test. E.g, `Atlas:forceFilter:invites discord.gg/AXXBPM7` will force run the "invites" filter.
+- To run a filter without it being enabled, include `Atlas:forceFilter:filter` with whatever you want to test. E.g, `Atlas:forceFilter:invites discord.gg/AXXBPM7` will the "invites" filter to execute even when it's action type is `0`.
 
 ## Disclaimer / Warning
 
-At the time of writing this, there will be no support if you break anything. We are not responsible for anything you break, and won't help you if you do. If you don't know what you're doing, just use the public instance.
+If you're going to self-host Atlas, you won't get help with setting it up. We may refuse to support you with general issues. You are responsible if you break anything. Seriously, if you don't know what you're doing, just use the public instance.
 
 ## Acknowledgements
 
