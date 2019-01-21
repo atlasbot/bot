@@ -1,4 +1,5 @@
 {
+	"loggerWarning": "I need permission to embed links before sending logs to this channel.",
 	"welcome": {
 		"title": "Oh hey!",
 		"description": "Il semble que vous utilisiez pour la première fois Atlas. Pour commencer, utilisez le [dashboard](https://atlasbot.xyz) pour configurer votre serveur.\n\nSi jamais vous avez besoin d’aide, rejoignez notre [serveur de support] (https://atlasbot.xyz/support)",
