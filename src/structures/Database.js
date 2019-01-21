@@ -1,20 +1,10 @@
 const monk = require('monk');
 const Guild = require('eris/lib/structures/Guild');
-// const Cache = require('atlas-lib/lib/structures/Cache');
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
 
 const monkMiddleware = require('../monkMiddleware');
 const defaultSettings = require('../../data/defaultSettings.json');
 const Settings = require('./Settings');
-
-// const cache = {
-// 	settings: new Cache('settings'),
-// 	users: new Cache('users'),
-// };
-
-// how long to cache users and guild settings for in seconds
-// for now this is very low because the dashboard doesn't clear the cache properly on update
-// const CACHE_TIME_SECONDS = 10;
 
 module.exports = class Database {
 	constructor() {
@@ -31,24 +21,18 @@ module.exports = class Database {
 		if (!guild.id || guild.unavailable) {
 			throw new Error('Invalid or unavailable guild.');
 		}
-
-		// const cached = await cache.settings.get(id);
-		// if (cached) {
-		// 	return new Settings(cached, guild instanceof Guild && guild);
-		// }
-
 		const db = this.get('settings');
 
 		let settings = await db.findOne({ id: guild.id });
 
 		if (!settings) {
-			const data = typeof guild === 'string' ? { id: guild } : {
+			settings = await db.insert({
 				id: guild.id,
-			};
+			});
 
-			const { _id: documentId } = await db.insert(data);
-
-			settings = await db.findOne({ _id: documentId });
+			if (!settings) {
+				throw new Error(`Error generating settings for ${guild.id}`);
+			}
 		}
 
 		settings._id = settings._id.toString();
@@ -68,19 +52,16 @@ module.exports = class Database {
 	}
 
 	async user(user) {
-		const id = user.id || user;
-
-		// const cached = await cache.users.get(id);
-		// if (cached) {
-		// 	return cached;
-		// }
+		if (!user.id) {
+			throw new Error('Invalid user');
+		}
 
 		const db = this.get('users');
 
-		let profile = await db.findOne({ id });
+		let profile = await db.findOne({ id: user.id });
 
 		if (!profile) {
-			const data = typeof user === 'string' ? { id: user } : {
+			const data = {
 				id: user.id,
 				username: user.username,
 				avatar: user.avatar,

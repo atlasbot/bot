@@ -586,7 +586,7 @@ module.exports = class Util {
 			author = author.user;
 		}
 
-		// user will find or create one and cache it.
+		// user will find or create the profile.
 		const profile = await this.Atlas.DB.user(author);
 
 		const toSave = this.profileSchema(author);
@@ -598,7 +598,6 @@ module.exports = class Util {
 				...toSave,
 			}, profile);
 		} catch (e) {
-			// remove any existing cached objects because we're updating it
 			return this.Atlas.DB.get('users').update({ id: profile.id }, {
 				$set: toSave,
 			});

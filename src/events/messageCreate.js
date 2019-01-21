@@ -275,7 +275,7 @@ module.exports = class {
 		// the amount of xp to reward them with
 		const xp = this.Atlas.lib.xputil.calcXP(msg.content);
 
-		const profile = await this.Atlas.DB.user(msg.author, msg.guild.id);
+		const profile = await this.Atlas.DB.user(msg.author);
 
 		const guild = (profile.guilds || []).find(({ id }) => id === msg.guild.id);
 

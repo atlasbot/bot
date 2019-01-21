@@ -6,7 +6,7 @@ module.exports = middleware(async ({ user, guild, Atlas }) => {
 		throw new Error('Bots cannot have XP profiles.');
 	}
 
-	const profile = await Atlas.DB.user(user.id);
+	const profile = await Atlas.DB.user(user);
 
 	const guildProfile = profile.guilds.find(({ id }) => id === guild.id);
 	const xp = guildProfile ? guildProfile.xp : 0;

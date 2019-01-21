@@ -26,7 +26,7 @@ module.exports = class extends Command {
 		}
 
 		// DB#user should generate the profile if it doesn't exist anyway
-		const player = await this.Atlas.DB.user(user.id);
+		const player = await this.Atlas.DB.user(user);
 
 		if (!player) {
 			return responder.error('noProfile').send();
