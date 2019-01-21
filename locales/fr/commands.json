@@ -387,7 +387,7 @@
 		"noArgs": "Veuillez inclure un utilisateur à mute!",
 		"success": "{0} a été mute pour {1}.",
 		"generated": " J’ai également généré automatiquement un rôle muet pour ce serveur, ce qui peut nécessiter des modifications mineures à faire fonctionner correctement.",
-		"generatePermError": "J’ai besoin d’autorisations pour gérer les canaux, et ensuite générer automatiquement un rôle muet.",
+		"generatePermError": "I need permissions to manage channels and roles to automatically generate a mute role.",
 		"alreadyMuted": "Cet utilisateur est déjà muet, dire `{0}unmute`?",
 		"invalid": "Veuillez inclure une durée de mute valide.",
 		"setForPast": "S'il vous plaît donnez moi une date qui est plus tard.",
