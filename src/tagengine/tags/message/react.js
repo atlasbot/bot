@@ -6,6 +6,10 @@ module.exports = middleware(async ({ guild, msg, channel, Atlas }, [emojiName]) 
 		throw new TagError('Missing permissions');
 	}
 
+	if (!msg.addReaction) {
+		throw new TagError('I can\'t add reactions to that message.');
+	}
+
 	if (!emojiName.trim()) {
 		throw new TagError('[emoji] is required.');
 	}
