@@ -716,7 +716,11 @@ module.exports = class Util {
 		previous: { current: { level: previousLevel } },
 		current: { current: { level: currentLevel } },
 	}, msg, settings) {
-		const { stack, rewards, notify } = settings.plugin('levels').options;
+		const { options: { stack, rewards, notify }, state } = settings.plugin('levels');
+
+		if (state !== 'enabled') {
+			return;
+		}
 
 		if (rewards.length && msg.guild.me.permission.has('manageRoles')) {
 			let shouldHave;
@@ -753,7 +757,7 @@ module.exports = class Util {
 
 			if (!stack && shouldHave.length) {
 				const shouldntHave = rewards
-					.filter(r => r.level < currentLevel)
+					.filter(r => r.level < currentLevel && !shouldHave.some(sr => sr.id === r.content))
 					.map(({ content: roleId }) => member.guild.roles.get(roleId))
 					.filter(r => r)
 				// we ain't removing more then two roles at once
