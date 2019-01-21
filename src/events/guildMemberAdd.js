@@ -27,6 +27,28 @@ module.exports = class {
 			}
 		}
 
+		const levels = settings.plugin('levels');
+
+		if (levels.state === 'enabled') {
+			const profile = await this.Atlas.DB.user(member);
+			const guildProfile = profile.guilds.find(p => p.id === guild.id);
+
+			if (guildProfile) {
+				const level = this.Atlas.lib.xputil.getLevelFromXP(guildProfile.xp);
+
+				const shouldHave = this.Atlas.util.getLevelRoles(levels.options, level, guild);
+
+				for (const role of shouldHave) {
+					if (member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
+						continue;
+					}
+
+					// give them the role
+					await member.addRole(role.id, 'Rewards from an existing level on join');
+				}
+			}
+		}
+
 		const roles = settings.plugin('roles');
 		const gatekeeper = settings.plugin('gatekeeper');
 

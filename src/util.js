@@ -702,6 +702,42 @@ module.exports = class Util {
 	}
 
 	/**
+	 * Gets roles for the users level.
+	 * @param {Object} options options
+	 * @param {boolean} options.stack Whether the roles should stack
+	 * @param {array<Object>} options.rewards A list of rewards
+	 * @param {number} level The user's current level to get levels for
+	 * @param {Guild} guild The guild the user is in
+	 * @returns {Array<Role>}
+	 */
+	getLevelRoles({ stack, rewards }, level, guild) {
+		let shouldHave;
+
+		if (stack) {
+			// get all rewards < current level
+			shouldHave = rewards
+				.filter(r => r.level <= level)
+				// we ain't adding more then two roles at once
+				.slice(0, 2)
+				.map(r => guild.roles.get(r.content))
+				.filter(r => r);
+		} else {
+			// get the reward closest to <= current level
+			shouldHave = [rewards.reduce((prev, curr) => {
+				if (curr.level > level) {
+					return prev;
+				}
+
+				return Math.abs(curr.level - level) < Math.abs(prev.level - level) ? curr : prev;
+			})]
+				.map(({ content: roleId }) => guild.roles.get(roleId))
+				.filter(r => r);
+		}
+
+		return shouldHave;
+	}
+
+	/**
 	 * Announces user level ups if their previous level !== current level
 	 *
 	 * @param {Member} member The member that got XP
@@ -716,35 +752,14 @@ module.exports = class Util {
 		previous: { current: { level: previousLevel } },
 		current: { current: { level: currentLevel } },
 	}, msg, settings) {
-		const { options: { stack, rewards, notify }, state } = settings.plugin('levels');
+		const { options, options: { stack, rewards, notify }, state } = settings.plugin('levels');
 
 		if (state !== 'enabled') {
 			return;
 		}
 
 		if (rewards.length && msg.guild.me.permission.has('manageRoles')) {
-			let shouldHave;
-
-			if (stack) {
-			// get all rewards < current level
-				shouldHave = rewards
-					.filter(r => r.level <= currentLevel)
-					.map(({ content: roleId }) => msg.guild.roles.get(roleId))
-					.filter(r => r)
-				// we ain't adding more then two roles at once
-					.slice(0, 2);
-			} else {
-				// get the reward closest to <= current level
-				shouldHave = [rewards.reduce((prev, curr) => {
-					if (curr.level > currentLevel) {
-						return prev;
-					}
-
-					return Math.abs(curr.level - currentLevel) < Math.abs(prev.level - currentLevel) ? curr : prev;
-				})]
-					.map(({ content: roleId }) => msg.guild.roles.get(roleId))
-					.filter(r => r);
-			}
+			const shouldHave = this.getLevelRoles(options, currentLevel, msg.guild);
 
 			for (const role of shouldHave) {
 				if (member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
@@ -758,10 +773,10 @@ module.exports = class Util {
 			if (!stack && shouldHave.length) {
 				const shouldntHave = rewards
 					.filter(r => r.level < currentLevel && !shouldHave.some(sr => sr.id === r.content))
-					.map(({ content: roleId }) => member.guild.roles.get(roleId))
-					.filter(r => r)
 				// we ain't removing more then two roles at once
-					.slice(0, 2);
+					.slice(0, 2)
+					.map(r => msg.guild.roles.get(r.content))
+					.filter(r => r);
 
 				for (const role of shouldntHave) {
 					if (!member.roles.includes(role.id) || !member.guild.me.highestRole.higherThan(role)) {
