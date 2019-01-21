@@ -4,11 +4,11 @@
 	"plugins": {
 		"info": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] }
 		},
 		"music": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] },
 			"options": {
 				"small_msgs": true,
 				"show_results": false,
@@ -17,12 +17,12 @@
 		},
 		"fun": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] }
 		},
 		"levels": {
 			"state": "disabled",
 			"restrictions": {
-				"mode": "whitelist",
+				"mode": "blacklist",
 				"roles": [],
 				"channels": []
 			},
@@ -38,9 +38,8 @@
 		},
 		"moderation": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] },
 			"logs": {},
-			"mutes": [],
 			"mute_role": null,
 			"filters": {
 				"capitalization": {
@@ -103,19 +102,19 @@
 		},
 		"gatekeeper": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] },
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] },
 			"leave": {},
 			"dm": {},
 			"channel": {}
 		},
 		"utilities": {
 			"state": "disabled",
-			"restrictions": { "mode": "whitelist", "roles": [], "channels": [] }
+			"restrictions": { "mode": "blacklist", "roles": [], "channels": [] }
 		},
 		"roles": {
 			"state": "disabled",
 			"restrictions": {
-				"mode": "whitelist",
+				"mode": "blacklist",
 				"roles": [],
 				"channels": []
 			},
