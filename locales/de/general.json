@@ -1,10 +1,10 @@
 {
-	"loggerWarning": "I need permission to embed links before sending logs to this channel.",
+	"loggerWarning": "Ich brauche die Erlaubnis Links einzubetten, bevor Protokolle in diesem Kanal gesendet werden können.",
 	"welcome": {
 		"title": "Oh hey!",
 		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
 		"footer": "Don't be afraid to ask for help!",
-		"noEmbed": "Oh hey! It looks like you're new to using Atlas. To get started, use the dashboard (<https://atlasbot.xyz>) to set up your server.\n\nIf you ever need help with anything, join our support server (<https://atlasbot.xyz/support>)."
+		"noEmbed": "Oh hallo! Es sieht so aus, als ob Du Atlas noch nicht kennst. Verwende zunächst das Dashboard (<https://atlasbot.xyz>), um Deinen Server einzurichten.\n\nWenn Du Hilfe benötigst, besuche unseren Support-Server (<https://atlasbot.xyz/support>)."
 	},
 	"help": {
 		"examples": "Beispiele",
