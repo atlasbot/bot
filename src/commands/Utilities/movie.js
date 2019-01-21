@@ -40,7 +40,7 @@ module.exports = class extends Command {
 		const embed = {
 			title: body.Title,
 			description: [body.Plot, body.Awards].filter(x => x).join('\n') || null,
-			url: body.Website !== 'N/A' ? body.Website : null,
+			url: body.Website !== 'N/A' && body.Website,
 			fields: [
 				{
 					name: 'ratings',
@@ -59,10 +59,6 @@ module.exports = class extends Command {
 					value: body.Genre,
 					inline: true,
 				}, {
-					name: 'Released',
-					value: (new Date(body.Released)).toLocaleDateString(),
-					inline: true,
-				}, {
 					name: 'Runtime',
 					value: body.Runtime,
 					inline: true,
@@ -75,11 +71,16 @@ module.exports = class extends Command {
 					value: body.Rated,
 					inline: true,
 				},
-			],
+				// omdb doesn't use null or even booleans
+				// nice
+			].filter(f => f.value !== 'N/A'),
 			thumbnail: {
-				url: body.Poster,
+				url: this.Atlas.lib.utils.isUri(body.Poster) && body.Poster,
 			},
-			timestamp: new Date(),
+			footer: {
+				text: 'Released',
+			},
+			timestamp: new Date(body.Released),
 		};
 
 		return responder.embed(embed).send();
