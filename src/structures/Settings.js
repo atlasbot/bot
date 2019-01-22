@@ -323,8 +323,13 @@ module.exports = class GuildSettings {
 	async log(type, embed) {
 		const channel = this[`${type}LogChannel`];
 
-		const perms = channel && channel.permissionsOf(this.guild.me.id);
-		if (channel && perms.has('sendMessages')) {
+		if (channel) {
+			const perms = channel.permissionsOf(this.guild.me.id);
+
+			if (!perms.has('sendMessages')) {
+				return;
+			}
+
 			const responder = new this.Atlas.structs.Responder(channel, this.lang);
 
 			if (!perms.has('embedLinks')) {
