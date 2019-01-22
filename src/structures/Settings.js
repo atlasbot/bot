@@ -353,6 +353,10 @@ module.exports = class GuildSettings {
 		msg,
 		user = msg.author,
 	}) {
+		if (!query['flags.enabled']) {
+			query['flags.enabled'] = true;
+		}
+
 		const actions = await this.Atlas.DB.get('actions').find(query);
 
 		// run those actions
@@ -390,6 +394,7 @@ module.exports = class GuildSettings {
 	async getTriggers() {
 		return this.Atlas.DB.get('actions').find({
 			guild: this.id,
+			'flags.enabled': true,
 		}, 'trigger');
 	}
 
@@ -399,6 +404,7 @@ module.exports = class GuildSettings {
 			.findOne({
 				_id: id,
 				guild: this.id,
+				'flags.enabled': true,
 			});
 
 		if (action) {

@@ -16,6 +16,7 @@ module.exports = class {
 		await settings.runActions({
 			guild: guild.id,
 			'trigger.type': 'guildMemberRemove',
+			'flags.enabled': true,
 		}, {
 			msg: {
 				member,

@@ -713,6 +713,10 @@ module.exports = class Util {
 	getLevelRoles({ stack, rewards }, level, guild) {
 		let shouldHave;
 
+		if (!rewards.length) {
+			return [];
+		}
+
 		if (stack) {
 			// get all rewards < current level
 			shouldHave = rewards

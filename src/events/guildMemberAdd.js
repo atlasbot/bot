@@ -75,6 +75,7 @@ module.exports = class {
 		await settings.runActions({
 			guild: guild.id,
 			'trigger.type': 'guildMemberAdd',
+			'flags.enabled': true,
 		}, {
 			msg: {
 				guild,

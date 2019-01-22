@@ -59,6 +59,7 @@ module.exports = class {
 		const actions = await this.Atlas.DB.get('actions').find({
 			// where the action's guild is this guild
 			guild: msg.guild.id,
+			'flags.enabled': true,
 			$or: [{
 				// get "messageCreate" actions with the channel set to anything/channel set to the msg's channel
 				'trigger.type': 'messageCreate',

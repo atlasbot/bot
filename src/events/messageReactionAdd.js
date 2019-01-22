@@ -89,6 +89,7 @@ module.exports = class {
 				guild: msg.guild.id,
 				'trigger.type': 'reactionAdd',
 				'trigger.content': emid,
+				'flags.enabled': true,
 			}, {
 				msg,
 				user,

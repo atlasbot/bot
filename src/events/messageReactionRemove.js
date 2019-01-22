@@ -77,6 +77,7 @@ module.exports = class {
 				'trigger.type': 'reactionRemove',
 				// emoji.id is only set for custom emojis, otherwise atlas uses the emoji as the content
 				'trigger.content': emid,
+				'flags.enabled': true,
 			}, {
 				msg,
 				user,
