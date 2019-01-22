@@ -1,6 +1,8 @@
 const url = require('url');
 const Filter = require('./../structures/Filter');
 
+const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/;
+
 module.exports = class Links extends Filter {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -10,13 +12,13 @@ module.exports = class Links extends Filter {
 	execute(str, msg, {
 		filterConfig: { exclusions },
 	}) {
-		const uri = this.Atlas.lib.utils.isUri(str);
+		const match = URL_REGEX.exec(str);
 
-		if (uri) {
-			const { hostname } = url.parse(uri);
+		if (match) {
+			const { hostname } = url.parse(match[0]);
 
-			if (!exclusions.includes(hostname)) {
-				return uri;
+			if (!exclusions.some(e => this.Atlas.lib.utils.wildcard.match(e, hostname))) {
+				return hostname;
 			}
 		}
 	}
