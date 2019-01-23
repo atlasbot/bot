@@ -1,4 +1,14 @@
 {
+	"togglementionable": {
+		"perms": {
+			"bot": "I do not have permissions to manage that role.",
+			"user": "You do not have permissions to manage that role."
+		},
+		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
+		"mentionable": "You can now mention `@{0}`. ",
+		"unmentionable": "You can no longer mention `@{0}`.",
+		"autoToggle": "Once you mention the role, I'll disable mentions for it."
+	},
 	"weather": {
 		"noResults": "I couldn't find any weather information for your search.",
 		"title": "Weather in {0}, {1}",
