@@ -16,6 +16,7 @@ module.exports = middleware(async ({ user, guild, settings, Atlas }, [roleQuery]
 
 	const role = await Atlas.util.findRoleOrChannel(guild, roleQuery, {
 		type: 'role',
+		percent: 0.90,
 	});
 
 	if (!role) {
