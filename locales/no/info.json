@@ -1,4 +1,8 @@
 {
+	"togglementionable": {
+		"description": "Toggle role mentionability. If autoToggle is true, once you mention the role it will be set to unmentionable.",
+		"usage": "[role] <autoToggle=false>"
+	},
 	"lmgtfy": {
 		"description": "Let me google that for you :^)",
 		"usage": "<search>"
