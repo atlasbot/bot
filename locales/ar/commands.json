@@ -1,4 +1,8 @@
 {
+	"xkcd": {
+		"invalidNumber": "The comic number you provided is invalid. It must be between `1` and `{0}`.",
+		"footer": "Comic {0} via xkcd.com"
+	},
 	"togglementionable": {
 		"perms": {
 			"bot": "I do not have permissions to manage that role.",
