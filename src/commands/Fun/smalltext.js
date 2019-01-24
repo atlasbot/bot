@@ -29,4 +29,7 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'smalltext',
 	aliases: ['superscript'],
+	examples: [
+		'oh hey im still a piece of garbage',
+	],
 };

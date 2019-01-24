@@ -151,6 +151,10 @@ module.exports.info = {
 	aliases: [
 		'goth',
 	],
+	examples: [
+		'lannisters',
+		'starks of winterfell',
+	],
 	permissions: {
 		bot: {
 			embedLinks: true,

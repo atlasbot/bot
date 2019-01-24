@@ -80,6 +80,9 @@ module.exports.info = {
 		'tment',
 	],
 	examples: [
+		'@role true',
+		'role',
+		'@role',
 	],
 	permissions: {
 		user: {

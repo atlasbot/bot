@@ -74,4 +74,8 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	examples: [
+		'chungus',
+		'epic',
+	],
 };

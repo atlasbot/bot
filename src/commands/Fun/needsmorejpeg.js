@@ -74,4 +74,7 @@ module.exports.info = {
 			attachFiles: true,
 		},
 	},
+	examples: [
+		'https://i.imgur.com/6zaldnc.jpg',
+	],
 };

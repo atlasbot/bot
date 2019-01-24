@@ -19,6 +19,10 @@ module.exports.info = {
 	aliases: [
 		'filter',
 	],
+	examples: [
+		'list',
+		'action capitalization disabled',
+	],
 	permissions: {
 		user: {
 			manageMessages: true,

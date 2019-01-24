@@ -32,4 +32,7 @@ module.exports.info = {
 		'edgyaesthetic',
 		'aesthetic',
 	],
+	examples: [
+		'now this is epic',
+	],
 };

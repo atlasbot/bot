@@ -73,5 +73,9 @@ module.exports.info = {
 		'levels',
 		'score',
 	],
+	examples: [
+		'@user',
+		'',
+	],
 	guildOnly: true,
 };

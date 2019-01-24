@@ -32,4 +32,7 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	examples: [
+		'insert something funny here',
+	],
 };

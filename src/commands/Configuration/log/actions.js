@@ -45,6 +45,10 @@ module.exports.info = {
 	name: 'actions',
 	guildOnly: true,
 	aliases: ['action'],
+	examples: [
+		'#channel',
+		'off',
+	],
 	permissions: {
 		user: {
 			manageGuild: true,

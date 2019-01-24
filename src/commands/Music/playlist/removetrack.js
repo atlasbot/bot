@@ -63,6 +63,9 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'removetrack',
 	aliases: ['remove', 'deltrack'],
+	examples: [
+		'never gonna give you up',
+	],
 	guildOnly: true,
 	patronOnly: true,
 };

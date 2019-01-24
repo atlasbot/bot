@@ -57,5 +57,11 @@ module.exports.info = {
 			manageGuild: true,
 		},
 	},
+	examples: [
+		'urban',
+		'ping',
+		'needsmorejpeg',
+		'dadjoke',
+	],
 	guildOnly: true,
 };

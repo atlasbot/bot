@@ -33,4 +33,7 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'shorten',
+	examples: [
+		'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	],
 };

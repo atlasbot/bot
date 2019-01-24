@@ -2,5 +2,8 @@
 	"globals": {
 		"describe": true,
 		"it": true
+	},
+	"rules": {
+		"no-loop-func": 0
 	}
 }

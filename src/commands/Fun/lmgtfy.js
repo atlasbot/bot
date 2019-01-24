@@ -21,4 +21,7 @@ module.exports.info = {
 	aliases: [
 		'letmegooglethatforyou',
 	],
+	examples: [
+		'sarcastic search',
+	],
 };

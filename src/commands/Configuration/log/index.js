@@ -17,6 +17,11 @@ module.exports.info = {
 	name: 'log',
 	aliases: ['logs'],
 	guildOnly: true,
+	examples: [
+		'actions #channel',
+		'mod #channel',
+		'mod off',
+	],
 	permissions: {
 		user: {
 			manageGuild: true,

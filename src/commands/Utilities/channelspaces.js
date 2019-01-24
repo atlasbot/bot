@@ -42,6 +42,10 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'channelspaces',
 	aliases: ['channelspace'],
+	examples: [
+		'',
+		'#channel',
+	],
 	permissions: {
 		bot: {
 			manageChannels: true,

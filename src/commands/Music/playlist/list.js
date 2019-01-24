@@ -80,6 +80,9 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'list',
 	aliases: ['view'],
+	examples: [
+		'my epic playlist',
+	],
 	guildOnly: true,
 	patronOnly: true,
 };

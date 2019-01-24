@@ -60,4 +60,10 @@ module.exports.info = {
 	aliases: [
 		'discriminator',
 	],
+	examples: [
+		'',
+		'0001',
+		'1337',
+		'1058',
+	],
 };

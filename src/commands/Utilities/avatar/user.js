@@ -18,4 +18,8 @@ module.exports.info = {
 	aliases: [
 		'member',
 	],
+	examples: [
+		'',
+		'@user',
+	],
 };

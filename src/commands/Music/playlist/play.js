@@ -50,6 +50,10 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'play',
+	examples: [
+		'my epic playlist',
+		'epic songs',
+	],
 	aliases: ['queue', 'p'],
 	guildOnly: true,
 	patronOnly: true,

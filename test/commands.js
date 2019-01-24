@@ -4,6 +4,12 @@ const fs = require('fs');
 
 const loader = require('../src/commands');
 
+const locale = {
+	commands: require('../locales/en/commands.json'),
+	general: require('../locales/en/general.json'),
+	info: require('../locales/en/info.json'),
+};
+
 const raw = loader.load(false);
 
 const loaded = raw.commands.map(f => ({
@@ -32,6 +38,20 @@ describe('Command tests', () => {
 			// some services only grab the file name instead of loading the command to grab it's name
 				it('should have a filename matching it\'s actual name', () => {
 					assert.equal(cmd.diskname, cmd.command.info.name);
+				});
+			}
+
+			const cmdLocale = locale.info[cmd.diskname] || (() => {
+				if (locale.info[cmd.dirname]) {
+					return locale.info[cmd.dirname][cmd.diskname] || locale.info[cmd.dirname].base;
+				}
+			})();
+
+			if (cmdLocale) {
+				it('Has examples when required', () => {
+					if (cmdLocale.usage && (!cmd.command.info.examples || !cmd.command.info.examples.length)) {
+						assert.fail('Usage without examples is a no-no');
+					}
 				});
 			}
 		});

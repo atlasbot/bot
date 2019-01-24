@@ -90,6 +90,10 @@ module.exports = class extends Command {
 module.exports.info = {
 	name: 'locale',
 	aliases: ['translate', 'lang', 'language'],
+	examples: [
+		'english',
+		'pirate english',
+	],
 	permissions: {
 		bot: {
 			embedLinks: true,

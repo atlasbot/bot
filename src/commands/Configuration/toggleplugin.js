@@ -55,5 +55,9 @@ module.exports.info = {
 			manageGuild: true,
 		},
 	},
+	examples: [
+		'fun',
+		'configuration',
+	],
 	guildOnly: true,
 };

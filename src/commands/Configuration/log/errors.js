@@ -45,6 +45,10 @@ module.exports.info = {
 	name: 'errors',
 	guildOnly: true,
 	aliases: ['error'],
+	examples: [
+		'#channel',
+		'off',
+	],
 	permissions: {
 		user: {
 			manageGuild: true,

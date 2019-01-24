@@ -8,14 +8,16 @@ module.exports = class extends Command {
 	}
 
 	async action(msg, args) {
-		const responder = new this.Atlas.structs.Responder(msg);
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'xkcd');
 
-		let comicNum = this.Atlas.lib.utils.parseNumber(args.join(' '));
-		if (isNaN(comicNum)) {
-			const { num } = (await superagent.get('https://xkcd.com/info.0.json')
-				.set('User-Agent', this.Atlas.userAgent)).body;
+		const min = 1;
+		const { body: { num } } = await superagent.get('https://xkcd.com/info.0.json')
+			.set('User-Agent', this.Atlas.userAgent);
 
-			comicNum = (Math.floor(Math.random() * num) + 1);
+		const comicNum = this.Atlas.lib.utils.parseNumber(args.join(' '), (Math.floor(Math.random() * num) + 1));
+
+		if (comicNum < min || comicNum > num) {
+			return responder.error('invalidNumber', num).send();
 		}
 
 
@@ -31,7 +33,7 @@ module.exports = class extends Command {
 			},
 			timestamp: new Date(body.year, body.month, body.day),
 			footer: {
-				text: `Comic ${comicNum.toLocaleString()} via xkcd.com`,
+				text: ['footer', comicNum.toLocaleString()],
 			},
 		}).send();
 	}
@@ -44,4 +46,8 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	examples: [
+		'',
+		'23',
+	],
 };

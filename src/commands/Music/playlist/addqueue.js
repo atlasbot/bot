@@ -65,6 +65,9 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'addqueue',
+	examples: [
+		'my epic playlist',
+	],
 	aliases: ['add'],
 	guildOnly: true,
 	patronOnly: true,

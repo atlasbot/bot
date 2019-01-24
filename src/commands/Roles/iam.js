@@ -102,6 +102,10 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'iam',
+	examples: [
+		'',
+		'@role',
+	],
 	aliases: ['giveme', 'roleme', 'iamnot'],
 	guildOnly: true,
 };

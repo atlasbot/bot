@@ -37,6 +37,10 @@ module.exports.info = {
 	aliases: [
 		'icon',
 	],
+	examples: [
+		'',
+		'@user',
+	],
 	permissions: {
 		bot: {
 			embedLinks: true,

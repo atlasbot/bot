@@ -45,6 +45,10 @@ module.exports.info = {
 	name: 'moderation',
 	guildOnly: true,
 	aliases: ['mod', 'mods', 'moderations'],
+	examples: [
+		'#channel',
+		'off',
+	],
 	permissions: {
 		user: {
 			manageGuild: true,

@@ -43,6 +43,9 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'delete',
+	examples: [
+		'my not so epic playlist',
+	],
 	aliases: ['gtfo'],
 	guildOnly: true,
 	patronOnly: true,

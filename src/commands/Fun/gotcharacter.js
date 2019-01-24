@@ -160,4 +160,8 @@ module.exports.info = {
 			embedLinks: true,
 		},
 	},
+	examples: [
+		'jon snow',
+		'patchface',
+	],
 };
