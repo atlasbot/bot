@@ -1,10 +1,13 @@
 const monk = require('monk');
-const Guild = require('eris/lib/structures/Guild');
 const deepMerge = require('atlas-lib/lib/utils/deepMerge');
+
+const cache = require('../cache');
 
 const monkMiddleware = require('../monkMiddleware');
 const defaultSettings = require('../../data/defaultSettings.json');
 const Settings = require('./Settings');
+
+const CACHE_TIME_SECONDS = 300;
 
 module.exports = class Database {
 	constructor() {
@@ -21,6 +24,12 @@ module.exports = class Database {
 		if (!guild.id || guild.unavailable) {
 			throw new Error('Invalid or unavailable guild.');
 		}
+
+		const cached = await cache.settings.get(guild.id);
+		if (cached) {
+			return new Settings(cached, guild);
+		}
+
 		const db = this.get('settings');
 
 		let settings = await db.findOne({ id: guild.id });
@@ -45,15 +54,19 @@ module.exports = class Database {
 			throw new Error('Something spoopy happened.');
 		}
 
-		// cache for 120s
-		// await cache.settings.set(id, data, CACHE_TIME_SECONDS);
+		await cache.settings.set(guild.id, data, CACHE_TIME_SECONDS);
 
-		return new Settings(data, guild instanceof Guild && guild);
+		return new Settings(data, guild);
 	}
 
 	async user(user) {
 		if (!user.id) {
 			throw new Error('Invalid user');
+		}
+
+		const cached = await cache.users.get(user.id);
+		if (cached) {
+			return cached;
 		}
 
 		const db = this.get('users');
@@ -77,7 +90,7 @@ module.exports = class Database {
 			...profile,
 		};
 
-		// await cache.users.set(id, data, CACHE_TIME_SECONDS);
+		await cache.users.set(user.id, data, CACHE_TIME_SECONDS);
 
 		return data;
 	}

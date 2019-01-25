@@ -1,13 +1,27 @@
+const cache = require('../cache');
+
 module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
 	}
 
 	async execute(channel) {
+		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		// when they're updated the bot can clear those caches to make update times instant while still
+		// getting the performance boost from caching
+		await cache.channels.del(channel.id);
+
 		const settings = channel.guild && await this.Atlas.DB.settings(channel.guild);
 
 		if (!channel.guild || !settings.actionLogChannel) {
 			return;
+		}
+
+		if (channel.guild) {
+			// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		// when they're updated the bot can clear those caches to make update times instant while still
+		// getting the performance boost from caching
+			await cache.channels.del(channel.guild.id);
 		}
 
 		const type = this.Atlas.lib.utils.getChannelType(channel.type);

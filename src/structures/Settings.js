@@ -3,8 +3,10 @@ const prefixes = process.env.PREFIXES
 	: 	['a!', '@mention'];
 
 const Cache = require('atlas-lib/lib/structures/Cache');
+
 const Action = require('./Action');
 const defaultSettings = require('../../data/defaultSettings.json');
+const cache = require('../cache');
 
 const warnCache = new Cache('log-warn-cache');
 
@@ -22,6 +24,14 @@ module.exports = class GuildSettings {
 		this.Atlas = require('../../Atlas');
 
 		this.guild = guild || this.Atlas.client.guilds.get(settings.id);
+
+		if (!this.raw.bot) {
+			this.update({
+				$set: {
+					bot: true,
+				},
+			});
+		}
 	}
 
 	/**
@@ -171,6 +181,8 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		query = {},
 	} = {}) {
+		await cache.settings.del(this.guild.id);
+
 		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings);
 
 		// https://www.youtube.com/watch?v=R7BVanQH6MwQ

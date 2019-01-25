@@ -1,3 +1,4 @@
+const cache = require('../cache');
 const Parser = require('../tagengine');
 const Responder = require('../structures/Responder');
 
@@ -7,6 +8,12 @@ module.exports = class {
 	}
 
 	async execute(guild, member) {
+		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		// when they're updated the bot can clear those caches to make update times instant while still
+		// getting the performance boost from caching
+		await cache.members.del(`${guild.id}.${member.id}`);
+		await cache.userGuilds.del(member.id);
+
 		const settings = await this.Atlas.DB.settings(guild);
 
 		const mute = await this.Atlas.DB.get('agendaJobs').findOne({

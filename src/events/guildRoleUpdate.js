@@ -1,9 +1,30 @@
+const cache = require('../cache');
+
 module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
 	}
 
 	async execute(guild, role, oldRole) {
+		const oldPerms = Object.keys(oldRole.permissions.json);
+		const newPerms = Object.keys(role.permissions.json);
+
+		const added = newPerms.filter(p => !oldPerms.includes(p));
+		const removed = oldPerms.filter(p => !newPerms.includes(p));
+
+		if (added || removed) {
+			for (const id of guild.members.keys()) {
+				// anyone with the role has had their permissions now changed, so we have to flush
+				// anyone in our cache with those perms so the dashboard doesn't think they have perms they dont have
+				cache.members.del(id);
+			}
+		}
+
+		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		// when they're updated the bot can clear those caches to make update times instant while still
+		// getting the performance boost from caching
+		await cache.guilds.del(guild.id);
+
 		const settings = await this.Atlas.DB.settings(guild);
 
 		if (!settings.actionLogChannel) {
@@ -31,14 +52,6 @@ module.exports = class {
 				inline: true,
 			});
 		}
-
-		const oldPerms = Object.keys(oldRole.permissions.json);
-		const newPerms = Object.keys(role.permissions.json);
-
-		const added = newPerms.filter(p => !oldPerms.includes(p))
-			.map(p => this.Atlas.util.format(settings.lang, `general.permissions.list.${p}`) || p);
-		const removed = oldPerms.filter(p => !newPerms.includes(p))
-			.map(p => this.Atlas.util.format(settings.lang, `general.permissions.list.${p}`) || p);
 
 		if (role.hoist !== oldRole.hoist) {
 			if (role.hoist) {
@@ -75,7 +88,9 @@ module.exports = class {
 		if (added.length) {
 			changes.push({
 				name: 'general.logs.guildRoleUpdate.permAdded.name',
-				value: ['general.logs.guildRoleUpdate.permAdded.value', added.join('`, `')],
+				value: ['general.logs.guildRoleUpdate.permAdded.value', added
+					.map(p => this.Atlas.util.format(settings.lang, `general.permissions.list.${p}`) || p)
+					.join('`, `')],
 				inline: true,
 			});
 		}
@@ -83,7 +98,9 @@ module.exports = class {
 		if (removed.length) {
 			changes.push({
 				name: 'general.logs.guildRoleUpdate.permRemoved.name',
-				value: ['general.logs.guildRoleUpdate.permRemoved.value', removed.join('`, `')],
+				value: ['general.logs.guildRoleUpdate.permRemoved.value', removed
+					.map(p => this.Atlas.util.format(settings.lang, `general.permissions.list.${p}`) || p)
+					.join('`, `')],
 				inline: true,
 			});
 		}

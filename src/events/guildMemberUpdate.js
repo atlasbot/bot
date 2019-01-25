@@ -1,3 +1,5 @@
+const cache = require('../cache');
+
 module.exports = class {
 	constructor(Atlas) {
 		this.Atlas = Atlas;
@@ -7,6 +9,11 @@ module.exports = class {
 		if (!member || !oldMember) {
 			return;
 		}
+
+		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		// when they're updated the bot can clear those caches to make update times instant while still
+		// getting the performance boost from caching
+		await cache.members.del(`${guild.id}.${member.id}`);
 
 		await this.Atlas.util.updateUser(member);
 
