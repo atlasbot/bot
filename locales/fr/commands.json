@@ -1,4 +1,18 @@
 {
+	"xkcd": {
+		"invalidNumber": "The comic number you provided is invalid. It must be between `1` and `{0}`.",
+		"footer": "Comic {0} via xkcd.com"
+	},
+	"togglementionable": {
+		"perms": {
+			"bot": "I do not have permissions to manage that role.",
+			"user": "You do not have permissions to manage that role."
+		},
+		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
+		"mentionable": "You can now mention `@{0}`. ",
+		"unmentionable": "You can no longer mention `@{0}`.",
+		"autoToggle": "Once you mention the role, I'll disable mentions for it."
+	},
 	"weather": {
 		"noResults": "Je n'ai trouvé aucune information météorologique pour votre recherche.",
 		"title": "Météo en {0}, {1}",
