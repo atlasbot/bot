@@ -5,8 +5,8 @@
 	},
 	"togglementionable": {
 		"perms": {
-			"bot": "I do not have permissions to manage that role.",
-			"user": "You do not have permissions to manage that role."
+			"bot": "Bu sayfaya erişmek için izniniz yok.",
+			"user": "Bu rolleri değiştirme yetkiniz yok."
 		},
 		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
 		"mentionable": "You can now mention `@{0}`. ",
