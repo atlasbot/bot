@@ -48,7 +48,7 @@ module.exports = class extends Command {
 
 		const tracks = [player.track, ...player.queue];
 
-		await this.Atlas.DB.get('playlists').update({
+		await this.Atlas.DB.get('playlists').updateOne({
 			author: msg.author.id,
 			_id: playlist._id,
 		}, {

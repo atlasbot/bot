@@ -11,7 +11,7 @@ module.exports = class {
 		// getting the performance boost from caching
 		await cache.channels.del(channel.id);
 
-		const settings = channel.guild && await this.Atlas.DB.settings(channel.guild);
+		const settings = channel.guild && await this.Atlas.DB.getGuild(channel.guild);
 
 		if (!channel.guild || !settings.actionLogChannel) {
 			return;

@@ -7,6 +7,8 @@ module.exports = class {
 
 	async execute(guild) {
 		await this.Atlas.DB.get('settings').updateOne({
+			id: guild.id,
+		}, {
 			bot: true,
 		});
 

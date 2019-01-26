@@ -181,9 +181,9 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		query = {},
 	} = {}) {
-		await cache.settings.del(this.guild.id);
+		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings).lean();
 
-		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings);
+		await cache.settings.del(this.guild.id);
 
 		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
 		this.raw = this.Atlas.lib.utils.deepMerge(defaultSettings, data);
@@ -232,7 +232,7 @@ module.exports = class GuildSettings {
     * @returns {Promise} The data, data.notify is whether or not the user was notified, data.info is from mongodb.
      */
 	async addInfraction({ target, moderator, reason }) {
-		const d = await this.Atlas.DB.get('infractions').insert({
+		const d = await this.Atlas.DB.get('infractions').create({
 			reason,
 			target: target.id,
 			moderator: moderator.id,

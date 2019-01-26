@@ -16,7 +16,7 @@ module.exports = class {
 			this.Atlas.client.deleteMessage(x.channel, x.msg).catch(console.error);
 		}
 
-		const settings = await this.Atlas.DB.settings(msg.guild);
+		const settings = await this.Atlas.DB.getGuild(msg.guild);
 
 		if (!settings.actionLogChannel) {
 			return;

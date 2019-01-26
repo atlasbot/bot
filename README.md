@@ -64,7 +64,7 @@ Linux is recommended, but Docker means macOS, Windows and more or less anything 
 
 1. Run `npm install` to install dependencies
 
-1. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things. Setting `DEBUG=*` may also help if you dont mind reading logs. `DEBUG=package:*` enables debug for specific packages, e.g `DEBUG=monk:*` to listen to database debug messages.
+1. Copy `.env.example` to `.env` and replace any variables you would like. Setting `NODE_ENV` to `development` will enable extra features and help debugging things.
 
 1. Start Lavalink, Redis and Mongo via `docker-compose up -d mongo lavalink redis`
 

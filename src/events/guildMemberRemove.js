@@ -14,7 +14,7 @@ module.exports = class {
 		await cache.members.del(`${guild.id}.${member.id}`);
 		await cache.userGuilds.del(member.id);
 
-		const settings = await this.Atlas.DB.settings(guild);
+		const settings = await this.Atlas.DB.getGuild(guild);
 
 		const gatekeeper = settings.plugin('gatekeeper');
 

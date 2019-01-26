@@ -37,7 +37,7 @@ module.exports = class {
 		}
 
 		if (msg.guild && user) {
-			const settings = await this.Atlas.DB.settings(msg.guild);
+			const settings = await this.Atlas.DB.getGuild(msg.guild);
 
 			const roles = settings.plugin('roles');
 

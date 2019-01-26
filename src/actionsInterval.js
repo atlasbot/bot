@@ -85,7 +85,7 @@ module.exports = class {
 				if (isNaN(rawAction.trigger.content) || !updatedBy || !validChannel) {
 					rawAction.enabled = false;
 
-					await this.Atlas.DB.get('actions').update({
+					await this.Atlas.DB.get('actions').updateOne({
 						_id: rawAction._id,
 					}, {
 						$set: {
@@ -120,7 +120,7 @@ module.exports = class {
 
 			const nextRunAt = +rawAction.trigger.content + Date.now();
 
-			await this.Atlas.DB.get('actions').update({
+			await this.Atlas.DB.get('actions').updateOne({
 				_id: rawAction._id,
 			}, {
 				$set: {

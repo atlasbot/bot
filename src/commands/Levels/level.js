@@ -26,14 +26,13 @@ module.exports = class extends Command {
 		}
 
 		// DB#user should generate the profile if it doesn't exist anyway
-		const player = await this.Atlas.DB.user(user);
+		const player = await this.Atlas.DB.getUser(user);
 
 		if (!player) {
 			return responder.error('noProfile').send();
 		}
 
-		const guildProfile = player.guilds.find(g => g.id === msg.guild.id);
-		const xp = guildProfile ? guildProfile.xp : 0;
+		const { xp } = player.guildProfile(msg.guild.id);
 
 		const rank = xp === 0 ? msg.guild.memberCount : (await this.Atlas.DB.get('users').count({
 			'guilds.id': msg.guild.id,

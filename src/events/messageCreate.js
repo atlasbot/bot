@@ -26,7 +26,7 @@ module.exports = class {
 			return;
 		}
 
-		const settings = await this.Atlas.DB.settings(msg.guild);
+		const settings = await this.Atlas.DB.getGuild(msg.guild);
 
 		// chat filters
 		for (const [, filter] of this.Atlas.filters) {
@@ -135,7 +135,7 @@ module.exports = class {
 		if (levels.state === 'enabled' && !msg.label) {
 			this.updateProfile(msg, settings);
 		} else {
-			this.Atlas.util.updateUser(msg.author);
+			await this.Atlas.DB.syncUser(msg.author);
 		}
 
 		if (msg.command) {
@@ -276,33 +276,25 @@ module.exports = class {
 		// the amount of xp to reward them with
 		const xp = this.Atlas.lib.xputil.calcXP(msg.content);
 
-		const profile = await this.Atlas.DB.user(msg.author);
+		const profile = await this.Atlas.DB.getUser(msg.author);
 
-		const guild = (profile.guilds || []).find(({ id }) => id === msg.guild.id);
+		const guild = profile.guildProfile(msg.guild.id, false);
 
 		if (guild) {
 			// update existing guild profile
-			await this.Atlas.DB.get('users').update({ id: profile.id, 'guilds._id': guild._id }, {
+			await profile.update({
 				$set: payload,
 				$inc: {
 					'guilds.$.xp': xp,
 					'guilds.$.messages': 1,
 				},
-			});
+			}, { id: profile.id, 'guilds._id': guild._id });
 		} else {
-			const guilds = (profile.guilds || []).filter(g => g.id !== msg.guild.id);
-
-			await this.Atlas.DB.get('users').update({ id: profile.id }, {
-				$set: {
-					...payload,
-					guilds: [
-						...guilds,
-						{
-							id: msg.guild.id,
-							messages: 1,
-							xp,
-						},
-					],
+			await profile.update({
+				$set: payload,
+				$push: {
+					// profile.guildprofile returns a pseudo-profile with defaults so we can use it here
+					guilds: profile.guildProfile(msg.guild.id),
 				},
 			});
 		}

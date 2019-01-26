@@ -14,9 +14,9 @@ module.exports = class {
 		await cache.members.del(`${guild.id}.${member.id}`);
 		await cache.userGuilds.del(member.id);
 
-		const settings = await this.Atlas.DB.settings(guild);
+		const settings = await this.Atlas.DB.getGuild(guild);
 
-		const mute = await this.Atlas.DB.get('agendaJobs').findOne({
+		const mutes = await this.Atlas.agenda.agenda.jobs({
 			name: 'unmute',
 			'data.target': member.id,
 			nextRunAt: {
@@ -26,7 +26,8 @@ module.exports = class {
 			lastFinishedAt: null,
 		});
 
-		if (mute) {
+		if (mutes.length) {
+			const mute = mutes[0].attrs;
 			const role = guild.roles.get(mute.data.role) || settings.muteRole;
 
 			if (role && guild.me.highestRole.higherThan(role) && guild.me.permission.has('manageRoles') && !(member.roles || []).includes(role.id)) {
@@ -37,8 +38,8 @@ module.exports = class {
 		const levels = settings.plugin('levels');
 
 		if (levels.state === 'enabled') {
-			const profile = await this.Atlas.DB.user(member);
-			const guildProfile = profile.guilds.find(p => p.id === guild.id);
+			const profile = await this.Atlas.DB.getUser(member);
+			const guildProfile = profile.guildProfile(guild.id, false);
 
 			if (guildProfile) {
 				const level = this.Atlas.lib.xputil.getLevelFromXP(guildProfile.xp);

@@ -1,6 +1,6 @@
 {
 	"name": "atlas-bot",
-	"version": "8.0.68",
+	"version": "8.0.69",
 	"description": "A Discord bot that does the things",
 	"main": "index.js",
 	"scripts": {
@@ -42,7 +42,7 @@
 		"flat": "^4.1.0",
 		"jimp": "^0.6.0",
 		"joi": "^14.3.1",
-		"monk": "^6.0.6",
+		"mongoose": "^5.4.6",
 		"parse-color": "^1.0.0",
 		"safe-regex": "^2.0.1",
 		"superagent": "^4.1.0",

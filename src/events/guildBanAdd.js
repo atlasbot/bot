@@ -4,7 +4,7 @@ module.exports = class {
 	}
 
 	async execute(guild, member) {
-		const settings = await this.Atlas.DB.settings(guild);
+		const settings = await this.Atlas.DB.getGuild(guild);
 
 		if (!settings.actionLogChannel) {
 			return;

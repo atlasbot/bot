@@ -16,7 +16,7 @@ module.exports = class extends Command {
 		}
 
 		const player = await this.Atlas.client.voiceConnections.getPlayer(voiceChannel, false);
-		if (!player || !player.isPlaying || !player.track) {
+		if (!player || !player.track) {
 			return responder.error('general.player.none').send();
 		}
 
@@ -28,7 +28,7 @@ module.exports = class extends Command {
 			return responder.error('noArgs').send();
 		}
 
-		if (!player.queue.length || !player.track) {
+		if (!player.queue.length && !player.track) {
 			return responder.error('nothingPlaying').send();
 		}
 
@@ -47,7 +47,7 @@ module.exports = class extends Command {
 			return responder.error('livestreamFound').send();
 		}
 
-		await this.Atlas.DB.get('playlists').insert({
+		await this.Atlas.DB.get('playlists').create({
 			author: msg.author.id,
 			name,
 			tracks,

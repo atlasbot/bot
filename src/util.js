@@ -1,6 +1,5 @@
 const superagent = require('superagent');
 const { unflatten } = require('flat');
-const assert = require('assert');
 const url = require('url');
 
 const lib = require('atlas-lib');
@@ -24,20 +23,6 @@ module.exports = class Util {
 		this.Atlas = Atlas || require('./../Atlas');
 
 		this.musicCache = new Cache('music');
-	}
-
-	/**
-	 * Formats a user into a savable profile
-	 * @param {Object|User} user The user/user's info to format
-	 * @returns {Object} The profile that should be up to date
-	 */
-	profileSchema(user) {
-		return {
-			id: user.id,
-			avatar: user.avatar,
-			username: user.username,
-			discriminator: user.discriminator,
-		};
 	}
 
 	/**
@@ -292,7 +277,7 @@ module.exports = class Util {
 					const member = guildMembers.get(id) || await this.Atlas.client.getRESTGuildMember(guild.id, id);
 
 					if (member) {
-						await this.updateUser(member);
+						await this.Atlas.DB.syncUser(member);
 					}
 
 					return member;
@@ -304,9 +289,7 @@ module.exports = class Util {
 			const result = this.Atlas.client.users.get(id);
 
 			if (result) {
-				if (result) {
-					await this.updateUser(result);
-				}
+				await this.Atlas.DB.syncUser(result);
 
 				return result;
 			}
@@ -316,7 +299,7 @@ module.exports = class Util {
 					try {
 						const user = await this.Atlas.client.getRESTUser(id);
 						if (user) {
-							await this.updateUser(user);
+							await this.Atlas.DB.syncUser(user);
 
 							return user;
 						}
@@ -339,7 +322,7 @@ module.exports = class Util {
 		})).search(query);
 
 		if (member) {
-			await this.updateUser(member);
+			await this.Atlas.DB.syncUser(member);
 		}
 
 		return member;
@@ -572,35 +555,6 @@ module.exports = class Util {
 			}
 
 			return entry;
-		}
-	}
-
-	/**
-	 * update a users interval profile.
-	 *
-	 * @param {Object} author The author or mongodb query
-	 * @returns {Promise}
-	 */
-	async updateUser(author) {
-		if (author.user) {
-			author = author.user;
-		}
-
-		// user will find or create the profile.
-		const profile = await this.Atlas.DB.user(author);
-
-		const toSave = this.profileSchema(author);
-
-		try {
-			// throws if the objects are not the same
-			assert.deepStrictEqual({
-				...profile,
-				...toSave,
-			}, profile);
-		} catch (e) {
-			return this.Atlas.DB.get('users').update({ id: profile.id }, {
-				$set: toSave,
-			});
 		}
 	}
 

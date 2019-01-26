@@ -1,26 +1,64 @@
-const monk = require('monk');
-const deepMerge = require('atlas-lib/lib/utils/deepMerge');
+const mongoose = require('mongoose');
+const assert = require('assert');
 
+// lib stuff
+const capitalize = require('atlas-lib/lib/utils/capitalize');
+
+// mongoose models
+const SettingsSchema = require('atlas-lib/lib/models/Settings');
+const ActionSchema = require('atlas-lib/lib/models/Action');
+const InfractionSchema = require('atlas-lib/lib/models/Infraction');
+const PlaylistSchema = require('atlas-lib/lib/models/Playlist');
+const UserSchema = require('atlas-lib/lib/models/User');
+
+const Settings = require('./Settings');
+const User = require('./User');
 const cache = require('../cache');
 
-const monkMiddleware = require('../monkMiddleware');
-const defaultSettings = require('../../data/defaultSettings.json');
-const Settings = require('./Settings');
+mongoose.set('debug', true);
 
 const CACHE_TIME_SECONDS = 300;
 
+/** database layer */
 module.exports = class Database {
-	constructor() {
-		this.db = monk(process.env.MONGO_URI);
+	/**
+	 * Creates an instance of Database.
+	 * @param {*} [MONGO_URI=process.env.MONGO_URI] A MongoDB connection URI of a database to connect to
+	 */
+	constructor(MONGO_URI = process.env.MONGO_URI) {
+		mongoose.connect(MONGO_URI);
 
-		this.db.addMiddleware(monkMiddleware);
+		this.Settings = mongoose.model('Settings', SettingsSchema);
+		this.Action = mongoose.model('Action', ActionSchema);
+		this.Infraction = mongoose.model('Infraction', InfractionSchema);
+		this.Playlist = mongoose.model('Playlist', PlaylistSchema);
+		this.User = mongoose.model('User', UserSchema);
+
+		this.CACHE_TIME_SECONDS = CACHE_TIME_SECONDS;
+
+		this.Atlas = require('../../Atlas');
 	}
 
-	get(db) {
-		return this.db.get(db);
+	/**
+	 * Get a collection by name
+	 * @param {string} collection The collection name
+	 * @returns {Model} The mongoose model that you can run shit with
+	 * @deprecated
+	 */
+	get(collection) {
+		const name = capitalize(collection);
+		const other = name.substring(0, name.length - 1);
+
+		return this[name] || this[other];
 	}
 
-	async settings(guild) {
+	/**
+	 * Gets a guild's settings
+	 *
+	 * @param {Guild} guild The guild to get the settings for
+	 * @returns {Promise<Settings>} The settings for the guild
+	 */
+	async getGuild(guild) {
 		if (!guild.id || guild.unavailable) {
 			throw new Error('Invalid or unavailable guild.');
 		}
@@ -30,12 +68,10 @@ module.exports = class Database {
 			return new Settings(cached, guild);
 		}
 
-		const db = this.get('settings');
-
-		let settings = await db.findOne({ id: guild.id });
+		let settings = await this.Settings.findOne({ id: guild.id });
 
 		if (!settings) {
-			settings = await db.insert({
+			settings = await this.Settings.create({
 				id: guild.id,
 			});
 
@@ -44,34 +80,41 @@ module.exports = class Database {
 			}
 		}
 
-		settings._id = settings._id.toString();
-
-		const data = deepMerge(defaultSettings, settings);
-
-		if (data.id !== guild.id) {
+		if (settings.id !== guild.id) {
 			// this may not be what's causing it, but there is some spoopy
 			// behaviour where mongodb might be returning the wrong document for each guild
 			throw new Error('Something spoopy happened.');
 		}
 
-		await cache.settings.set(guild.id, data, CACHE_TIME_SECONDS);
+		const ret = settings.toObject ? settings.toObject() : settings;
 
-		return new Settings(data, guild);
+		await cache.settings.set(guild.id, ret, CACHE_TIME_SECONDS);
+
+		return new Settings(ret, guild);
 	}
 
-	async user(user) {
+	/**
+	 * Get a user's profile
+	 *
+	 * @param {User|Object} user The user to get the profile for
+	 * @param {boolean} [raw=false] Whether to return the raw object
+	 * @returns {Promise<User>}
+	 */
+	async getUser(user, raw = false) {
 		if (!user.id) {
 			throw new Error('Invalid user');
 		}
 
 		const cached = await cache.users.get(user.id);
 		if (cached) {
-			return cached;
+			if (raw) {
+				return cached;
+			}
+
+			return new User(User);
 		}
 
-		const db = this.get('users');
-
-		let profile = await db.findOne({ id: user.id });
+		let profile = await this.User.findOne({ id: user.id });
 
 		if (!profile) {
 			const data = {
@@ -82,16 +125,89 @@ module.exports = class Database {
 				guilds: [],
 			};
 
-			profile = await db.insert(data);
+			profile = await this.User.create(data);
 		}
 
-		const data = {
-			guilds: [],
-			...profile,
+		if (profile && profile.toObject) {
+			profile = profile.toObject();
+		}
+
+		await cache.users.set(user.id, profile, CACHE_TIME_SECONDS);
+
+		if (raw) {
+			return profile;
+		}
+
+		return new User(profile);
+	}
+
+	/**
+	 * Update a user
+	 *
+	 * @param {User|Object} user The user to update
+	 * @param {*} payload The payload with mongodb operators or whatever
+	 * @param {Object} [query={ id: user.id }] The optional query
+	 * @returns {Promise<Object>} The updated user
+	 */
+	async updateUser(user, payload, query = { id: user.id }) {
+		if (query.id !== user.id) {
+			throw new Error('Query ID mismatch');
+		}
+
+		let ret = await this.User.findOneAndUpdate(query, payload);
+
+		if (ret && ret.toObject) {
+			ret = ret.toObject();
+		}
+
+		await cache.users.set(user.id, ret, CACHE_TIME_SECONDS);
+
+		return ret;
+	}
+
+	/**
+	 * Sync a user profile with their actual profile
+	 *
+	 * @param {User|Member} author The user to update the profile of
+	 * @param {User} [profile=await this.getUser(author)] The user's profile
+	 */
+	async syncUser(author, profile) {
+		if (author.user) {
+			author = author.user;
+		}
+
+		if (!profile) {
+			profile = await this.getUser(author, true);
+		}
+
+		if (profile.toObject) {
+			profile = profile.toObject();
+		}
+
+		const toSave = this.userSchema(author);
+
+		try {
+			// throws if the objects are not the same
+			assert.deepStrictEqual({
+				...profile,
+				...toSave,
+			}, profile);
+		} catch (e) {
+			this.updateUser(profile, toSave).catch(console.warn);
+		}
+	}
+
+	/**
+	 * Convert a user to a standardised profile
+	 * @param {User|Object} user The user to convert
+	 * @returns {Object} the formatted user
+	 */
+	userSchema(user) {
+		return {
+			id: user.id,
+			avatar: user.avatar,
+			username: user.username,
+			discriminator: user.discriminator,
 		};
-
-		await cache.users.set(user.id, data, CACHE_TIME_SECONDS);
-
-		return data;
 	}
 };

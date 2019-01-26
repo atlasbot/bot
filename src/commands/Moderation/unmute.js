@@ -30,11 +30,13 @@ module.exports = class extends Command {
 		}
 
 		const jobs = await this.Atlas.agenda.agenda.jobs({
-			'data.target': target.id,
 			name: 'unmute',
+			'data.target': target.id,
 			nextRunAt: {
+				$ne: null,
 				$gte: new Date(),
 			},
+			lastFinishedAt: null,
 		});
 
 		if (jobs[0]) {

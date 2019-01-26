@@ -15,9 +15,7 @@ module.exports = class {
 		// getting the performance boost from caching
 		await cache.members.del(`${guild.id}.${member.id}`);
 
-		await this.Atlas.util.updateUser(member);
-
-		const settings = await this.Atlas.DB.settings(guild);
+		const settings = await this.Atlas.DB.getGuild(guild);
 
 		if (!settings.actionLogChannel) {
 			return;
@@ -80,6 +78,8 @@ module.exports = class {
 		const { username } = member;
 
 		if (oldUsername && username && username !== oldUsername) {
+			this.Atlas.DB.syncUser(member);
+
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.usernameChange.title',
 				description: [
@@ -97,6 +97,8 @@ module.exports = class {
 		// old member avatar is sometimes unset even when one did exist
 		// discord being discord idk
 		if (oldMember.avatar && member.avatar !== oldMember.avatar) {
+			this.Atlas.DB.syncUser(member);
+
 			return settings.log('action', {
 				title: 'general.logs.guildMemberUpdate.avatarChange',
 				thumbnail: {
