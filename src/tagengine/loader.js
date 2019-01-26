@@ -19,10 +19,10 @@ module.exports = () => {
 		};
 
 		if (tag.info.aliases) {
-			tag.info.aliases.map(a => tags.set(a, data));
+			tag.info.aliases.map(a => tags.set(a.toLowerCase(), data));
 		}
 
-		tags.set(tag.info.name, data);
+		tags.set(tag.info.name.toLowerCase(), data);
 	}
 
 	console.log(`Loaded ${tags.size} tags`);

@@ -42,7 +42,7 @@ const interp = async (tokens = [], context, functions) => {
 		if (token.type === 'BRACKETGROUP') {
 			const thisToken = token.value.shift();
 
-			const func = functions.get(thisToken.value);
+			const func = functions.get(thisToken.value.toLowerCase());
 
 			let args = token.value;
 			if (func && !func.info.dontParse) {
