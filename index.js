@@ -41,6 +41,13 @@ const autoscale = require('./src/autoscale');
 		lastShardID: mine,
 	});
 
+	const ogEmit = client.emit;
+	client.emit = function emit(evtname, ...args) {
+		console.log(`Event ${evtname}`);
+
+		return ogEmit.call(this, evtname, ...args);
+	};
+
 	const atlas = new Atlas({ client });
 
 	atlas.launch();
