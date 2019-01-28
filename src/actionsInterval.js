@@ -39,12 +39,6 @@ module.exports = class {
 						guild: {
 							$in: this.Atlas.client.guilds.map(g => g.id),
 						},
-						// $or: [
-						// 	{ nextRunAt: null },
-						// 	{ nextRunAt: {
-						// 		$lte: new Date(),
-						// 	} },
-						// ],
 					},
 				},
 				{
