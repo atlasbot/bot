@@ -22,7 +22,8 @@ module.exports = class Action {
 		if (action.content) {
 			this.content = action.content
 				.map(sa => ({
-					...sa,
+					// mongoose doesnt like spread operator on it's fancy/actually the antichrist fake objects that drive me insane
+					...sa.toObject ? sa.toObject() : sa,
 					type: this.trigger.type === 'interval' ? 'channel' : sa.type,
 					channel: this.guild && this.guild.channels.get(sa.channel),
 				}))
