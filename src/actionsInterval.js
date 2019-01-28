@@ -1,5 +1,4 @@
 // handles running actions that are on an interval
-const sleep = require('atlas-lib/lib/utils/sleep');
 const Settings = require('./structures/Settings');
 const Action = require('./structures/Action');
 
@@ -129,12 +128,6 @@ module.exports = class {
 			});
 
 			rawAction.nextRunAt = nextRunAt;
-
-			if (actions.length !== 1) {
-				// sleep for 5s to prevent abuse
-				// could this throw some actions out of sync? yes. do i care? no.
-				await sleep(5000);
-			}
 		}
 	}
 };
