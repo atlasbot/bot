@@ -16,5 +16,6 @@ module.exports = class {
 		// when they're updated the bot can clear those caches to make update times instant while still
 		// getting the performance boost from caching
 		await cache.guilds.del(guild.id);
+		await cache.setting.del(guild.id);
 	}
 };

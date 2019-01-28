@@ -183,7 +183,7 @@ module.exports = class GuildSettings {
 	} = {}) {
 		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings).lean();
 
-		await cache.settings.del(this.guild.id);
+		await cache.settings.set(this.guild.id, data, this.Atlas.DB.CACHE_TIME_SECONDS);
 
 		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
 		this.raw = this.Atlas.lib.utils.deepMerge(defaultSettings, data);

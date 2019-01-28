@@ -15,18 +15,19 @@ const Settings = require('./Settings');
 const User = require('./User');
 const cache = require('../cache');
 
-mongoose.set('debug', true);
-
 const CACHE_TIME_SECONDS = 300;
 
 /** database layer */
 module.exports = class Database {
 	/**
 	 * Creates an instance of Database.
-	 * @param {*} [MONGO_URI=process.env.MONGO_URI] A MongoDB connection URI of a database to connect to
+	 * @param {string} [MONGO_URI=process.env.MONGO_URI] A MongoDB connection URI of a database to connect to
+	 * @param {boolean} debugOverride Overrides setting mongoose debug to true
 	 */
-	constructor(MONGO_URI = process.env.MONGO_URI) {
+	constructor(MONGO_URI = process.env.MONGO_URI, debugOverride) {
 		mongoose.connect(MONGO_URI);
+
+		mongoose.set('debug', typeof debugOverride === 'boolean' ? debugOverride : true);
 
 		this.Settings = mongoose.model('Settings', SettingsSchema);
 		this.Action = mongoose.model('Action', ActionSchema);
@@ -34,7 +35,9 @@ module.exports = class Database {
 		this.Playlist = mongoose.model('Playlist', PlaylistSchema);
 		this.User = mongoose.model('User', UserSchema);
 
-		this.CACHE_TIME_SECONDS = CACHE_TIME_SECONDS;
+		// not just used here
+		// cache for 5m
+		this.CACHE_TIME_SECONDS = 300;
 
 		this.Atlas = require('../../Atlas');
 	}

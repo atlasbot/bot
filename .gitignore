@@ -20,4 +20,4 @@ node_modules/
 bot.yaml
 deploy.sh
 
-*tmp.*
+scripts
