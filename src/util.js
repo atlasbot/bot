@@ -677,7 +677,7 @@ module.exports = class Util {
 				.filter(r => r.level <= level)
 				// we ain't adding more then two roles at once
 				.slice(0, 2)
-				.map(r => guild.roles.get(r.content))
+				.map(({ content: roleId }) => guild.roles.get(roleId))
 				.filter(r => r);
 		} else {
 			// get the reward closest to <= current level

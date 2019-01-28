@@ -22,6 +22,10 @@ module.exports = class {
 			return;
 		}
 
+		if (msg.channel.topic && msg.channel.topic.includes('actionlog-ignore')) {
+			return;
+		}
+
 		const auditEntry = await this.Atlas.util.getGuildAuditEntry(msg.guild, msg.id, 72);
 
 		const embed = {
@@ -71,10 +75,6 @@ module.exports = class {
 			await settings.log('mod', embed);
 
 			return settings.log('action', embed);
-		}
-
-		if (msg.channel.topic && msg.channel.topic.includes('actionlog-ignore')) {
-			return;
 		}
 
 		return settings.log('action', embed);

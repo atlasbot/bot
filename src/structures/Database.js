@@ -114,7 +114,7 @@ module.exports = class Database {
 				return cached;
 			}
 
-			return new User(User);
+			return new User(cached);
 		}
 
 		let profile = await this.User.findOne({ id: user.id });
