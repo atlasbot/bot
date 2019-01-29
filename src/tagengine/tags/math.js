@@ -6,7 +6,11 @@ module.exports = (info, args) => {
 		throw new TagError('This tag requires atleast one argument.');
 	}
 
-	return Parser.evaluate(args.join(' '));
+	try {
+		return Parser.evaluate(args.join(' '));
+	} catch (e) {
+		return new TagError(e.message);
+	}
 };
 
 module.exports.info = {
