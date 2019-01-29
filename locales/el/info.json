@@ -196,8 +196,8 @@
 		"description": "Generates a random colour."
 	},
 	"quote": {
-		"description": "Quote a message by a user.",
-		"usage": "[message id / message share link]"
+		"description": "Quote a message by a user. <channel id> is only required if the message is in another guild or the message isn't in your current channel and isn't cached.",
+		"usage": "[message id / message share link] <channel id>"
 	},
 	"minecraft": {
 		"description": "Checks the status of a Minecraft server.",
