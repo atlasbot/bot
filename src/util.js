@@ -242,11 +242,12 @@ module.exports = class Util {
 	 * @param {Object} opts options
 	 * @param {Array} opts.members An optional members list to use
 	 * @param {boolean} [opts.memberOnly=false] If false, the return value could be a member or a user object
-	 * @param {number} [opts.percent=0.75] the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
+	 * @param {number} opts.percent the percent of sensitivity, on a scale of 0 - 1, e.g 0.60 would require a 60% match
 	 * @returns {Promise<Object|Null>} the member or nothing if nothing was found
 	 */
 	async findUser(guild, query, {
-		percent = 0.75,
+		percent,
+		matchPercent = percent,
 		memberOnly = false,
 		rest = true,
 		members,
@@ -312,14 +313,14 @@ module.exports = class Util {
 			}
 		}
 
-		const member = (new Fuzzy(members || Array.from(guildMembers.values()), {
-			matchPercent: percent,
-			keys: [
-				'username',
-				'nickname',
-				'mention',
-			],
-		})).search(query);
+		const member = this.Atlas.lib.utils.nbsFuzzy(members || guildMembers, [
+			'username',
+			'nickname',
+			'discriminator',
+			'tag',
+		], query, {
+			matchPercent,
+		});
 
 		if (member) {
 			await this.Atlas.DB.syncUser(member);
