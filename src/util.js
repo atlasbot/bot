@@ -59,10 +59,10 @@ module.exports = class Util {
 	 *
 	 * @param {Object} node The lavalink node to search on, should be the same as the node that will be used to prevent youtube restrictions from thinking it's free real-estate
 	 * @param {string} query The search term the user is wanting
-	 * @param {boolean} [isUri=this.Atlas.lib.utils.isUri(query)] Whether the query is a URI or not.
+	 * @param {boolean} [isUrl=this.Atlas.lib.utils.isUri(query)] Whether the query is a URI or not.
 	 * @returns {Object} a Lavalink body containing tracks, etc..
 	 */
-	async trackSearch(node, query, isUri = isUri(query)) {
+	async trackSearch(node, query, isUrl = this.Atlas.lib.utils.isUri(query)) {
 		const existing = await this.musicCache.get(query);
 		if (existing) {
 			return existing;
@@ -118,7 +118,7 @@ module.exports = class Util {
 		// regular lavalink search
 		const { body } = await superagent.get(`http://${node.host}:2333/loadtracks`)
 			.query({
-				identifier: `${!isUri ? 'ytsearch:' : ''}${query}`,
+				identifier: `${!isUrl ? 'ytsearch:' : ''}${query}`,
 			})
 			.set('Authorization', node.password);
 
