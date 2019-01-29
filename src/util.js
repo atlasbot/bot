@@ -11,6 +11,15 @@ const Parser = require('./tagengine');
 
 const spotifyClient = new Spotify();
 
+const {
+	isSnowflake,
+	isUri,
+	spotifyParser,
+	nbsFuzzy,
+	getNested,
+	filterTrackName,
+} = lib.utils;
+
 /**
  * General utilities atlas uses
  */
@@ -53,14 +62,14 @@ module.exports = class Util {
 	 * @param {boolean} [isUri=this.Atlas.lib.utils.isUri(query)] Whether the query is a URI or not.
 	 * @returns {Object} a Lavalink body containing tracks, etc..
 	 */
-	async trackSearch(node, query, isUri = this.Atlas.lib.utils.isUri(query)) {
+	async trackSearch(node, query, isUri = isUri(query)) {
 		const existing = await this.musicCache.get(query);
 		if (existing) {
 			return existing;
 		}
 
 		// parses a spotify uri/url into a { type: 'playlist/track', id: 'spotify id' }
-		const spotify = this.Atlas.lib.utils.spotifyParser(query);
+		const spotify = spotifyParser(query);
 
 		if (spotify) {
 			/*
@@ -127,7 +136,7 @@ module.exports = class Util {
 	 */
 	findIdealTrack(query, results) {
 		// prefer lyric videos because they don't have pauses for scenes in actual videos or sound effects from the video
-		const lyrics = this.Atlas.lib.utils.nbsFuzzy(results, ['info.title'], `${query} lyrics`, {
+		const lyrics = nbsFuzzy(results, ['info.title'], `${query} lyrics`, {
 			matchPercent: 0.65,
 		});
 
@@ -230,7 +239,7 @@ module.exports = class Util {
 					return o;
 				}, {}));
 
-				return replace(this.Atlas.lib.utils.getNested(obj, options.key, false), replacements);
+				return replace(getNested(obj, options.key, false), replacements);
 			}
 		}
 	}
@@ -313,7 +322,7 @@ module.exports = class Util {
 			}
 		}
 
-		const member = this.Atlas.lib.utils.nbsFuzzy(members || guildMembers, [
+		const member = nbsFuzzy(members || guildMembers, [
 			'username',
 			'nickname',
 			'discriminator',
@@ -386,35 +395,82 @@ module.exports = class Util {
 		}
 
 		try {
-			const { pathname } = url.parse(query);
-			const chunks = pathname.split('/');
-			if (chunks.length === 5) {
-				const [,,, channelID, messageID] = chunks;
-				if (channelID && messageID) {
-					const message = await this.Atlas.client.getMessage(channelID, messageID);
+			const match = query.split(/\.| +/g).filter(a => isSnowflake(a));
+
+			if (match && match.length >= 2) {
+			// supports "messageId channelId" matches
+				const [messageId, channelId] = match;
+
+				// wew
+				const message = await this.Atlas.client.getMessage(channelId, messageId);
+
+				if (message) {
+					return message;
+				}
+			}
+
+			let { guild } = channel;
+
+			if (isUri(query)) {
+			// it's probably a share link
+				const { pathname } = url.parse(query);
+
+				const bits = pathname.split('/').filter(r => isSnowflake(r));
+
+				if (bits.length !== 3) {
+				// the share link is malformed or not from a guild, so we can ignore it
+				// also because it's a url we can return because it sure as shit isn't a id that we can resolve
+					return;
+				}
+
+				// 3 bits, first is guild, second is channel, last is message id
+
+				const [guildId, channelId, messageId] = bits;
+
+				if (!guild || guild.id !== guildId) {
+					guild = this.Atlas.client.guilds.get(guildId);
+				}
+
+				if (channel.id !== channelId && guild) {
+					channel = guild.channels.get(channelId);
+				}
+
+				if (channel && channel.type === 0) {
+					const message = channel.messages.get(messageId);
+
 					if (message) {
 						return message;
 					}
 				}
-			}
-		} catch (e) {} // eslint-disable-line no-empty
-		const id = this.cleanID(query);
 
-		if (channel.guild) {
-			const hasChannel = channel.guild.channels.find(c => c.type === 0 && c.messages.has(id));
-			if (hasChannel) {
-				return hasChannel.messages.get(id);
-			}
-		}
+				// we're on our own to try and grab the message now lads
+				const message = await this.Atlas.client.getMessage(channelId, messageId);
 
-		if (id) {
-			try {
+				return message;
+			}
+
+			const id = this.cleanID(query);
+
+			if (channel.guild) {
+				const hasChannel = channel.guild.channels.find(c => c.type === 0 && c.messages.has(id));
+				if (hasChannel) {
+					return hasChannel.messages.get(id);
+				}
+			}
+
+			if (id) {
 				const message = await channel.getMessage(id);
 
 				if (message) {
 					return message;
 				}
-			} catch (e) {} // eslint-disable-line no-empty
+			}
+		} catch (e) {
+			console.warn(e);
+
+			this.Atlas.Sentry.captureException(e);
+
+			// return nothing - the show must go on!
 		}
 	}
 
@@ -547,7 +603,7 @@ module.exports = class Util {
 			}
 
 			if (checkTimestamp) {
-				const time = this.Atlas.lib.utils.isSnowflake.getTime(entry.id);
+				const time = isSnowflake.getTime(entry.id);
 
 				// if the entry is older then 5 seconds it's probably not the one we're after
 				if ((Date.now() - time) > 5000) {
@@ -567,7 +623,7 @@ module.exports = class Util {
 	 * @param {Object} track A track to use
 	 */
 	async relatedTrack(player, { info }) {
-		const parsedTitle = this.Atlas.lib.utils.filterTrackName(info.title);
+		const parsedTitle = filterTrackName(info.title);
 
 		try {
 			const { body: { results: { trackmatches: { track: [track] } } } } = await superagent.get('http://ws.audioscrobbler.com/2.0/?method=track.search')
@@ -613,11 +669,11 @@ module.exports = class Util {
 				if (!played) {
 					// this may get slow for large queues
 					const playedTitles = player.played.map(({ info: { title: trackName } }) => ({
-						title: this.Atlas.lib.utils.filterTrackName(trackName),
+						title: filterTrackName(trackName),
 					}));
 
 					for (const title of [candidate.name, `${candidate.artist.name} - ${candidate.name}`]) {
-						played = this.Atlas.lib.utils.nbsFuzzy(playedTitles, ['title'], title, {
+						played = nbsFuzzy(playedTitles, ['title'], title, {
 							matchPercent: 0.65,
 						});
 
