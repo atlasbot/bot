@@ -14,10 +14,15 @@ module.exports = class extends Command {
 
 		let targetMsg;
 		if (args[0]) {
-			targetMsg = await this.Atlas.util.findMessage(msg.channel, args[0]);
+			targetMsg = await this.Atlas.util.findMessage(msg.channel, args.join(' '));
 		}
 
 		if (!targetMsg) {
+			if (this.Atlas.lib.utils.isSnowflake(args[0])) {
+				// they were probably trying to get a message from another guild/channel that isn't cached
+				return responder.error('quote.notCached').send();
+			}
+
 			targetMsg = await this.Atlas.util.messageQuery({
 				guild: msg.guild,
 				user: msg.author,
@@ -34,14 +39,14 @@ module.exports = class extends Command {
 			return responder.error('quote.invalidType').send();
 		}
 
+		if (!targetMsg.guild) {
+			return responder.error('quote.noGuild').send();
+		}
+
 		const img = targetMsg.attachments.find(a => a.height);
 
 		if (!targetMsg.content && !img) {
 			return responder.error('quote.invalidMsg').send();
-		}
-
-		if (!targetMsg.guild) {
-			return responder.error('quote.noGuild').send();
 		}
 
 		return responder.embed({
@@ -55,7 +60,7 @@ module.exports = class extends Command {
 			},
 			description: targetMsg.content,
 			footer: {
-				text: `in #${targetMsg.channel.name}`,
+				text: `in #${targetMsg.channel.name} ${targetMsg.guild.id !== msg.guild.id ? `in ${targetMsg.guild.name}` : ''}`,
 			},
 			timestamp: new Date(targetMsg.timestamp),
 		}).send();
