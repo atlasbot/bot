@@ -50,7 +50,6 @@ module.exports.info = {
 	],
 	permissions: {
 		user: {
-			embedLinks: true,
 			manageMessages: true,
 		},
 		bot: {
