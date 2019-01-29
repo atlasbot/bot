@@ -32,7 +32,7 @@ module.exports = middleware(async ({ user, guild, settings, Atlas }, [roleQuery]
 	}
 
 	await member.removeRole(role.id);
-}, 2);
+}, 1);
 
 module.exports.info = {
 	name: 'user.removerole',
