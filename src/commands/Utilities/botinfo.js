@@ -46,7 +46,7 @@ module.exports = class extends Command {
 
 				target = await settings.findUser(bot.id);
 			} else {
-				({ bot } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
+				({ body: bot } = await superagent.get(`https://discordbots.org/api/bots/${target.id}`)
 					.set('Authorization', process.env.DBL_KEY)
 					.set('User-Agent', this.Atlas.userAgent));
 			}
