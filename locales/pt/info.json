@@ -196,8 +196,8 @@
 		"description": "Gera uma cor aleatória."
 	},
 	"quote": {
-		"description": "Quote a message by a user. <channel id> is only required if the message is in another guild or the message isn't in your current channel and isn't cached.",
-		"usage": "[message id / message share link] <channel id>"
+		"description": "Cite uma mensagem por um usuário. <ID do canal> é necessário apenas se a mensagem estiver em outra guilda ou se a mensagem não estiver em seu canal atual e não estiver armazenada em cache.",
+		"usage": "[ID da mensagem / link de compartilhamento de mensagem] <ID do canal>\n"
 	},
 	"minecraft": {
 		"description": "Verifica o status de um servidor Minecraft.",
