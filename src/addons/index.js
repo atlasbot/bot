@@ -20,4 +20,7 @@ module.exports = {
 		client: require('./Guild/client'),
 		me: require('./Guild/me'),
 	},
+	Permission: {
+		has: require('./Permission/has'),
+	},
 };

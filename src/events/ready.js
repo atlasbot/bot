@@ -22,9 +22,6 @@ module.exports = class {
 		// start the interval interval loop
 		this.Atlas.actionsInterval.start();
 
-		// get agenda to connect and start
-		this.Atlas.agenda.connect();
-
 		// setup the player
 		this.Atlas.client.voiceConnections = new PlayerManager(this.Atlas.client, JSON.parse(process.env.LAVALINK_NODES), {
 			numShards: this.Atlas.client.options.maxShards,

@@ -28,6 +28,8 @@ module.exports = class Agenda extends EventEmitter {
 				return process.exit(0);
 			}
 		});
+
+		this.connect();
 	}
 
 	/**
