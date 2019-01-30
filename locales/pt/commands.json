@@ -640,7 +640,7 @@
 		"noMessage": "Não encontrei nenhuma mensagem que correspondesse a isso: c",
 		"invalidType": "Este comando suporta apenas mensagens de texto.",
 		"invalidMsg": "Essa mensagem não possui nenhum conteúdo ou uma imagem anexada.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"notCached": "Hmm, não consegui encontrar essa mensagem. Se estiver em outro canal ou guilda, inclua o ID do canal como segundo argumento!"
 	},
 	"randomcolor": "Seu hex aleatório é [# {0}] (http://www.color-hex.com/color/ {0})",
 	"reddit": {
