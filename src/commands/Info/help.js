@@ -77,22 +77,14 @@ module.exports = class extends Command {
 				if (actions.length) {
 					embed.fields.push({
 						name: `Actions • ${actions.length}`,
-						value: `\`${actions.map(a => msg.displayPrefix + a.trigger.content).join('`, `')}\``,
+						value: `\`${actions.map(a => msg.displayPrefix + a.trigger.content).join('`, `')}\``.substring(0, 1024),
 					});
 				}
 			}
 
-			const sentMsg = await responder
+			return responder
 				.embed(embed)
-			// .dm(msg.author.id)
 				.send();
-
-			if (sentMsg.channel.id !== msg.channel.id) {
-				// it was probably dm'd
-				return responder.text('help.sent').send();
-			}
-
-			return sentMsg;
 		}
 
 		// they're looking for a plugin or command
