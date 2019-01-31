@@ -14,7 +14,8 @@
 		"usage": "Utilisation",
 		"userPerms": "Permissions d'un utilisateur",
 		"botPerms": "Permissions d'un robot",
-		"supportedFlags": "Drapeaux supportés"
+		"supportedFlags": "Drapeaux supportés",
+		"plugin": "Plugin"
 	},
 	"roles": {
 		"reactionAdd": "Le(s) rôle(s) `{0}` vous ont été attribués pour réagir avec {1}.",
