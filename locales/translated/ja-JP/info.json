@@ -1,0 +1,539 @@
+{
+	"togglementionable": {
+		"description": "Toggle role mentionability. If autoToggle is true, once you mention the role it will be set to unmentionable.",
+		"usage": "[role] <autoToggle=false>"
+	},
+	"lmgtfy": {
+		"description": "私にググらせてください　( ｀・ω・´)ﾉ",
+		"usage": "<検索>"
+	},
+	"iam": {
+		"description": "サーバ管理者が発行したロールを自分に付与してください。",
+		"usage": "<ロール>"
+	},
+	"purgeban": {
+		"description": "ユーザーの追放と7日以上経過した彼らのメッセージの削除。",
+		"usage": "[user] <reason>"
+	},
+	"convert": {
+		"description": "ほかのものへの変換。通貨と重さ，長さなどをサポート。",
+		"usage": "[単位][から][へ]"
+	},
+	"haveibeenpwned": {
+		"description": "データ侵害の被害にあったアカウントがないか確認してください。**ほかのギルドのメンバーに見せたくない情報を入れてはいけません**",
+		"usage": "[アカウント]"
+	},
+	"isspass": {
+		"description": "国際宇宙ステーション（ISS）が<location>上を通過したときに通知します。",
+		"usage": "[location]"
+	},
+	"fact": {
+		"description": "ランダムになにか面白い話（おそらく事実としては不正確）を取得します。"
+	},
+	"spacex": {
+		"base": {
+			"description": "Information about SpaceX and the cool shit they have."
+		},
+		"launches": {
+			"description": "Gets information on past, present and future SpaceX launches.",
+			"usage": "<launch name>"
+		},
+		"rockets": {
+			"description": "Gets information about SpaceX's rockets.",
+			"usage": "<rocket name>"
+		},
+		"ships": {
+			"description": "Gets information about SpaceX's ships.",
+			"usage": "<ship name>"
+		}
+	},
+	"needsmorejpeg": {
+		"description": "Fucks up your image with JPEG compression. There is no such thing as too much jpeg.",
+		"usage": "<image url> <quality=2.5>"
+	},
+	"randomcase": {
+		"description": "raNdomIsEs uppERcASE aNd lOwerCASe LETTeRS",
+		"usage": "[TeXt]"
+	},
+	"dashboard": {
+		"description": "Get a link to your servers dashboard."
+	},
+	"resetlevel": {
+		"description": "Reset a users level.",
+		"usage": "[user]"
+	},
+	"playlist": {
+		"base": {
+			"description": "Create, manage, delete music playlists."
+		},
+		"create": {
+			"description": "Creates a playlist from the current queue.",
+			"usage": "[name]"
+		},
+		"list": {
+			"description": "Lists all your existing playlists.",
+			"usage": "<playlist name/id>"
+		},
+		"delete": {
+			"description": "Delete one of your existing playlists.",
+			"usage": "[playlist name/id]"
+		},
+		"play": {
+			"description": "Plays a playlist.",
+			"usage": "[playlist name/id]"
+		},
+		"addqueue": {
+			"description": "Adds the current queue to an existing playlist.",
+			"usage": "[playlist name/id]"
+		},
+		"removetrack": {
+			"description": "Remove a track from your playlist.",
+			"usage": "[playlist name/id] [track]"
+		}
+	},
+	"volume": {
+		"description": "Sets the player's volume.",
+		"usage": "[volume %]"
+	},
+	"stop": {
+		"description": "Stops the player and clears the queue, but doesn't leave the channel."
+	},
+	"seek": {
+		"description": "Move the player's position.",
+		"usage": "[position]"
+	},
+	"resume": {
+		"description": "Resumes the player if it is paused."
+	},
+	"repeat": {
+		"description": "Toggles player repeat on/off."
+	},
+	"remove": {
+		"description": "Removes a song from the queue.",
+		"usage": "[queue position]"
+	},
+	"shift": {
+		"description": "Shift a song's position in the queue.",
+		"usage": "[current position] [new position]"
+	},
+	"pause": {
+		"description": "Pauses the player."
+	},
+	"join": {
+		"description": "Make Atlas join your voice channel."
+	},
+	"togglecommand": {
+		"description": "コマンドのon/offを切り替えます。",
+		"usage": "[コマンド]"
+	},
+	"toggleplugin": {
+		"description": "プラグインのon/offを切り替えます。",
+		"usage": "[プラグイン]"
+	},
+	"level": {
+		"description": "あなたもしくは他人のユーザーレベルを取得します。",
+		"usage": "<user>"
+	},
+	"leaderboard": {
+		"description": "レベルごとのリーダーボードへのリンクを取得します。"
+	},
+	"smalltext": {
+		"description": "テキストを小さくします。",
+		"usage": "[text]"
+	},
+	"nodes": {
+		"description": "Gets information/statuses about available voice nodes."
+	},
+	"vaporwave": {
+		"description": "Converts text to ｖａｐｏｒｗａｖｅ",
+		"usage": "[text]"
+	},
+	"channelspaces": {
+		"description": "Replaces hyphens in channel names with real fake spaces! Seriously though, this is more of a hack and could be patched at any time.",
+		"usage": "<channel>"
+	},
+	"autoplay": {
+		"description": "Enable or disable autoplay. When enabled, once at the end of a queue, Atlas will automatically queue related songs."
+	},
+	"shuffle": {
+		"description": "Shuffles the player queue."
+	},
+	"locale": {
+		"description": "Changes what language Atlas uses in your server.",
+		"usage": "[language]"
+	},
+	"time": {
+		"description": "Gets the time for a timezone.",
+		"usage": "[location]"
+	},
+	"shorten": {
+		"description": "Shortens a URL via is.gd.",
+		"usage": "[url]"
+	},
+	"serverinfo": {
+		"description": "Gets information about the server."
+	},
+	"say": {
+		"description": "Makes Atlas say whatever you want.",
+		"usage": "[text]"
+	},
+	"roleinfo": {
+		"description": "Gets information about a server role.",
+		"usage": "[role]"
+	},
+	"id": {
+		"description": "Gets the ID of a channel, role, user, guild, etc...",
+		"usage": "[channel/role/user/\"guild\"]"
+	},
+	"reddit": {
+		"description": "Gets information about a subreddit.",
+		"usage": "[subreddit]"
+	},
+	"someone": {
+		"description": "Mentions a random user."
+	},
+	"randomcolor": {
+		"description": "Generates a random colour."
+	},
+	"quote": {
+		"description": "Quote a message by a user. <channel id> is only required if the message is in another guild or the message isn't in your current channel and isn't cached.",
+		"usage": "[message id / message share link] <channel id>"
+	},
+	"minecraft": {
+		"description": "Checks the status of a Minecraft server.",
+		"usage": "[server ip]"
+	},
+	"membercount": {
+		"description": "サーバのメンバー数に関する情報を取得します。"
+	},
+	"joined": {
+		"description": "Find out when a user joined the server."
+	},
+	"inviteinfo": {
+		"description": "Gets information about an invite.",
+		"usage": "[invite code/link]"
+	},
+	"inrole": {
+		"description": "Lists users in a role.",
+		"usage": "[role]"
+	},
+	"google": {
+		"description": "Searches Google for stuffs.",
+		"usage": "[search]"
+	},
+	"embed": {
+		"description": "Embeds a message. You can use \"advancedembed\" for more options.",
+		"usage": "[text]"
+	},
+	"advancedembed": {
+		"description": "Embeds a message with advanced options.",
+		"usage": "[options]"
+	},
+	"discrim": {
+		"description": "Gets users with a discriminator that matches yours.",
+		"usage": "<discriminator>"
+	},
+	"avatar": {
+		"base": {
+			"description": "Gets (the servers)/(a users) avatar.",
+			"usage": "<mention>"
+		},
+		"user": {
+			"description": "Gets the avatar of a user.",
+			"usage": "<mention>"
+		},
+		"server": {
+			"description": "Gets the avatar of the server."
+		}
+	},
+	"trump": {
+		"description": "Gets something stupid Donald Trump has said."
+	},
+	"urban": {
+		"description": "Gets the definition for a word.",
+		"usage": "[search]"
+	},
+	"randomurban": {
+		"description": "Gets a random definition from Urban Dictionary."
+	},
+	"starterpack": {
+		"description": "Gets a random starterpack."
+	},
+	"genavatar": {
+		"description": "Generates a random avatar."
+	},
+	"gotcharacter": {
+		"description": "Gets information about a Game of Thrones character. Run without args to get a random character.",
+		"usage": "<character name>"
+	},
+	"gothouse": {
+		"description": "Gets information about a Game of Thrones house. Run without args to get a random house.",
+		"usage": "<house name>"
+	},
+	"kick": {
+		"usage": "[user] <reason>",
+		"description": "Removes a member from the server."
+	},
+	"filters": {
+		"base": {
+			"usage": "<subcommand>",
+			"description": "Controls chat filters."
+		},
+		"action": {
+			"usage": "[filter] <action name>",
+			"description": "Used to enable or disable filters, and change their action."
+		},
+		"list": {
+			"description": "Lists filters and their current settings."
+		}
+	},
+	"log": {
+		"base": {
+			"description": "Controls where certain messages are logged in your guild.",
+			"usage": "[subcommand]"
+		},
+		"actions": {
+			"description": "Sets where action logs are logged to. Run with no args to reset.",
+			"usage": "[channel]"
+		}
+	},
+	"purge": {
+		"base": {
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
+		},
+		"any": {
+			"usage": "<amount>",
+			"description": "Purge messages from a channel."
+		},
+		"endswith": {
+			"usage": "[term] <amount>",
+			"description": "Purges messages that end with [term]. Supports wild*cards."
+		},
+		"files": {
+			"usage": "<amount>",
+			"description": "Purges messages with attachments."
+		},
+		"images": {
+			"usage": "<amount>",
+			"description": "Purges messages with images attached."
+		},
+		"invites": {
+			"usage": "<amount>",
+			"description": "Purges messages containing Discord server invite links."
+		},
+		"links": {
+			"usage": "<amount>",
+			"description": "Purges messages containing links."
+		},
+		"includes": {
+			"usage": "[term] <amount>",
+			"description": "Purges messages that includes your term  Supports wild*cards."
+		},
+		"not": {
+			"usage": "[term] <amount>",
+			"description": "Purges messages that do not include your term. Supports wild*cards."
+		},
+		"startswith": {
+			"usage": "[term] <amount>",
+			"description": "Purges messages that start with your term. Supports wild*cards."
+		},
+		"user": {
+			"usage": "[user] <amount>",
+			"description": "Purges messages that are from the user specified."
+		}
+	},
+	"slowmode": {
+		"usage": "[ratelimit in seconds/\"disable\"]",
+		"description": "Enables message rate limiting for the channel. Set to 0 or enter \"disable\" to disable slowmode entirely."
+	},
+	"coinflip": {
+		"description": "Flips a coin that can land heads or tails."
+	},
+	"dadjoke": {
+		"description": "Gets a random dadjoke."
+	},
+	"move": {
+		"description": "Moves a message to another channel.",
+		"usage": "[channel] <message ID or share link>"
+	},
+	"achievement": {
+		"description": "Creates a Minecraft achievement."
+	},
+	"wouldyourather": {
+		"description": "Would you rather?"
+	},
+	"botinfo": {
+		"description": "Gets information about almost any public bot via discordbots.org.",
+		"usage": "[bot mention/query]"
+	},
+	"xkcd": {
+		"description": "Gets a random (or not) XKCD comic.",
+		"usage": "<comic number>"
+	},
+	"leave": {
+		"description": "Leaves the voice channel and dumps the queue."
+	},
+	"unban": {
+		"description": "Unban a user from the guild.",
+		"usage": "[user] <reason>"
+	},
+	"emojify": {
+		"description": "Converts regular sentences to awesome emojified sentences 🎉",
+		"usage": "[text]"
+	},
+	"mute": {
+		"description": "Stops a user sending messages while they're muted.",
+		"usage": "[user] <duration> | <reason>"
+	},
+	"unmute": {
+		"description": "Unmutes a user.",
+		"usage": "[user] <reason>"
+	},
+	"movie": {
+		"description": "Get information about a movie!",
+		"usage": "[movie name]"
+	},
+	"next": {
+		"description": "Goes to the next song in the queue."
+	},
+	"show": {
+		"description": "Search for information about a TV Series.",
+		"usage": "[show name]"
+	},
+	"weather": {
+		"description": "Get weather information from anywhere in the world.",
+		"usage": "[location]"
+	},
+	"catfact": {
+		"description": "Who doesn't like facts about cats?"
+	},
+	"cat": {
+		"description": "Kittens, cats, you name it - we've got it (maybe)."
+	},
+	"texttoemoji": {
+		"description": "Converts text to emoji characters.",
+		"usage": "[text]"
+	},
+	"dog": {
+		"description": "Dogs. Just random pictures of dogs."
+	},
+	"chucknorris": {
+		"description": "Facts about the man himself"
+	},
+	"advice": {
+		"description": "Need quality life advice from a source you can trust? Then this isn't the command for you."
+	},
+	"warn": {
+		"base": {
+			"description": "Manage warnings. Warn users for bad behaviour, edit previous warnings a user has and more."
+		},
+		"add": {
+			"description": "Add a warning to a user.",
+			"usage": "[user] <reason>"
+		},
+		"view": {
+			"description": "View a users warnings.",
+			"usage": "[user] <page=1>"
+		},
+		"remove": {
+			"description": "Remove a users warnings.",
+			"usage": "[user] <warn reason>"
+		}
+	},
+	"warnings": {
+		"description": "Views your/another users warnings.",
+		"usage": "<user>"
+	},
+	"funban": {
+		"description": "Bans a user but it's fun (and slightly spammy)",
+		"usage": "[user] <reason>"
+	},
+	"ban": {
+		"description": "Bans a user, exactly what it says on the tin.",
+		"usage": "[user] <reason>"
+	},
+	"submit": {
+		"description": "Submit suggestions to the suggestion channel."
+	},
+	"patreon": {
+		"description": "Support Atlas on Patreon and get awesome perks!"
+	},
+	"help": {
+		"usage": "<command|plugin>",
+		"description": "View all of Atlas' commands or get help for a specific command or plugin."
+	},
+	"meme": {
+		"description": "dank me-mes"
+	},
+	"yesno": {
+		"description": "Yes or no? Gets a random yes or no randomly."
+	},
+	"info": {
+		"description": "General information about Atlas"
+	},
+	"ping": {
+		"description": "Check the time Atlas takes to reply to you!"
+	},
+	"support": {
+		"description": "Need help with Atlas? Join our Support server!"
+	},
+	"uptime": {
+		"description": "Check how long Atlas has been online for."
+	},
+	"version": {
+		"description": "Check which version of Atlas this instance is running."
+	},
+	"whois": {
+		"description": "Get information about a user.",
+		"usage": "<user>"
+	},
+	"nowplaying": {
+		"description": "Shows information about the song currently playing."
+	},
+	"play": {
+		"description": "Plays a song in your current voice channel, now with built in playlist support!",
+		"usage": "[song name|url]"
+	},
+	"qplaylist": {
+		"description": "Adds songs from a YouTube playlist to the queue.",
+		"usage": "[youtube playlist url]"
+	},
+	"queue": {
+		"description": "Shows upcoming songs in the player queue.",
+		"usage": "<page number>"
+	},
+	"ship": {
+		"description": "Ship two users. ",
+		"usage": "[user1] <user2>"
+	},
+	"trapcard": {
+		"usage": "[user]",
+		"description": "You've triggered my trap card!"
+	},
+	"trumpgen": {
+		"description": "Generate an image of Trump's twitter tweeting something.",
+		"usage": "[text]"
+	},
+	"wiki": {
+		"description": "Search Wikipedia for your search.",
+		"usage": "[query]"
+	},
+	"remindme": {
+		"description": "Set reminders to get notified in the future.",
+		"usage": "[time] <task>"
+	},
+	"captcha": {
+		"description": "Are you a robot? I know I am.",
+		"usage": "<user>"
+	},
+	"invite": {
+		"description": "Get Atlas in your own server by inviting me!"
+	},
+	"neat": {
+		"description": "hey, that's pretty neat"
+	},
+	"8ball": {
+		"description": "Ask the magic eight-ball a question."
+	}
+}
