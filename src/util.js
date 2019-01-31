@@ -175,8 +175,8 @@ module.exports = class Util {
 						return repl[i];
 					}
 
-					return match;
-				});
+					return '';
+				}).trim();
 			}
 
 			return val;

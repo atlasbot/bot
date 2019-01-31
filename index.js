@@ -6,6 +6,8 @@
  */
 
 const logger = require('atlas-lib/lib/logger');
+const superagent = require('superagent');
+const fs = require('fs').promises;
 
 // load environment variables from ./.env
 require('dotenv').config();
@@ -18,6 +20,16 @@ const Atlas = require('./Atlas');
 const autoscale = require('./src/autoscale');
 
 (async () => {
+	// eslint-disable-next-line import/no-unresolved
+	try {
+		await fs.stat('./languagemap.json');
+	} catch (e) {
+		console.log('First-time startup, fetching language map...');
+		const { body } = await superagent.get('https://api.crowdin.com/api/supported-languages?json=1');
+
+		await fs.writeFile('./languagemap.json', JSON.stringify(body));
+	}
+
 	const { total, mine } = await autoscale();
 
 	console.log(`Shard ${mine}, total ${total}`);

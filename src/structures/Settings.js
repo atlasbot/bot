@@ -5,7 +5,6 @@ const prefixes = process.env.PREFIXES
 const Cache = require('atlas-lib/lib/structures/Cache');
 
 const Action = require('./Action');
-const defaultSettings = require('../../data/defaultSettings.json');
 const cache = require('../cache');
 
 const warnCache = new Cache('log-warn-cache');
@@ -181,12 +180,13 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		query = {},
 	} = {}) {
-		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings).lean();
+		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings, {
+			new: true,
+		});
 
 		await cache.settings.set(this.guild.id, data, this.Atlas.DB.CACHE_TIME_SECONDS);
 
-		// https://www.youtube.com/watch?v=R7BVanQH6MwQ
-		this.raw = this.Atlas.lib.utils.deepMerge(defaultSettings, data);
+		this.raw = data.toObject();
 
 		return data;
 	}

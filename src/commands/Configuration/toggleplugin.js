@@ -30,7 +30,7 @@ module.exports = class extends Command {
 			...Array.from(this.Atlas.plugins.values()),
 		], ['name'], query);
 
-		if (!plugin) {
+		if (!plugin || plugin.name === 'Configuration') {
 			return responder.error('noPlugin', query).send();
 		}
 

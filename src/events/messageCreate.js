@@ -147,7 +147,19 @@ module.exports = class {
 			// handle guild things
 
 			if (plugin) {
-				const override = msg.member.permission.has('manageGuild') && ['toggleplugin', 'togglecommand'].includes(msg.command.info.name);
+				const override = msg.member.permission.has('manageGuild') && (() => {
+					// "toggleplugin" has to bypass so users can get the bot up without using the dashboard
+					if (['toggleplugin', 'togglecommand'].includes(msg.command.info.name)) {
+						return true;
+					}
+
+					// configuration is bypassed because it's technically not a plugin
+					if (msg.command.plugin.name === 'Configuration') {
+						return true;
+					}
+
+					return false;
+				})();
 
 				if (plugin.state === 'disabled' && !override) {
 					const showSetup = !Object.values(settings.raw.plugins).some(p => p.state === 'enabled' && msg.member.permission.has('manageGuild'));
@@ -179,8 +191,6 @@ module.exports = class {
 					channel: msg.channel.id,
 					permissions: msg.channel.permissionsOf(msg.member.id),
 				}, plugin.restrictions);
-
-				console.log(plugin.restrictions, errorKey);
 
 				if (errorKey) {
 					return responder.error(`restrictions.${errorKey}`).send();

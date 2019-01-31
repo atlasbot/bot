@@ -331,6 +331,12 @@ class Command {
 			});
 		}
 
+		embed.fields.push({
+			name: 'general.help.plugin',
+			value: this.plugin.name,
+			inline: true,
+		});
+
 		embed.fields.forEach((f) => {
 			// using random names doesn't work anymore because discord won't resolve id's in embeds :c
 			f.value = f.value.replace(/(@sylver|@random|@user)/ig, msg.author.mention);
