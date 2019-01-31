@@ -1,0 +1,445 @@
+{
+	"loggerWarning": "Preciso de permissão para incorporar links antes de enviar logs para este canal.",
+	"welcome": {
+		"title": "Oh, ei!",
+		"description": "Parece que você é novo em usar o Atlas. Para começar, use o [painel] (https://atlasbot.xyz) para configurar seu servidor.\n\n Se você precisar de ajuda com qualquer coisa, junte-se ao nosso [servidor de suporte] (https://atlasbot.xyz/support)",
+		"footer": "Não tenha medo de pedir ajuda!",
+		"noEmbed": "Oh, ei! Parece que você é novo em usar o Atlas. Para começar, use o painel (<https://atlasbot.xyz>) para configurar seu servidor. \n\nSe você precisar de ajuda com qualquer coisa, entre em nosso servidor de suporte (<https://atlasbot.xyz/support>)."
+	},
+	"help": {
+		"examples": "Exemplos",
+		"aliases": "Aliases",
+		"subcommands": "Subcomandos",
+		"footer": "Faça {0} ajudar {1} <subcomando> para visualizar um subcomando.",
+		"usage": "Uso\n",
+		"userPerms": "Permissões do usuário",
+		"botPerms": "Bot Permissions",
+		"supportedFlags": "Bandeiras Suportadas"
+	},
+	"roles": {
+		"reactionAdd": "Você recebeu o (s) papel (ais) para reagir com {1}.",
+		"reactionRemove": "Você não tem mais o (s) papel (ais) {0} porque sua reação foi removida."
+	},
+	"plugin": {
+		"disabled": "Esse plugin foi desativado por um administrador do servidor.",
+		"restrictions": {
+			"whitelist": {
+				"role": "Você não está na lista de permissões para usar esse plug-in.",
+				"channel": "Este canal não está na lista de permissões para usar esse plug-in."
+			},
+			"blacklist": {
+				"role": "Você tem um papel que está na lista negra de usar esse plugin.",
+				"channel": "Você está em um canal que está na lista negra de usar esse plugin."
+			},
+			"permissions": "You are missing the permissions required to use that plugin."
+		}
+	},
+	"command": {
+		"restError": "<: sadpanda: 497907940225843220> Ocorreu um erro ao entrar em contato com um serviço externo. Tente novamente em alguns minutos.",
+		"errorExecuting": "Ocorreu um erro interno desconhecido ao executar o comando.",
+		"patronOnly": "Somente usuários podem usar esse comando. Faça `{0} penhor` para mais informações.\n",
+		"premiumOnly": "Somente servidores premium podem usar esse comando. ",
+		"guildOnly": "Esse comando só pode ser usado em servidores!",
+		"disabled": "O comando `{0} {1}` foi desativado por um administrador do servidor.",
+		"restrictions": {
+			"blacklist": {
+				"role": "Você tem um papel que está na lista negra de usar esse comando.",
+				"channel": "Este canal está na lista negra de usar esse comando."
+			},
+			"whitelist": {
+				"role": "Você não está na lista de permissões para usar esse comando.",
+				"channel": "Este canal não está na lista de permissões para usar esse comando."
+			},
+			"permissions": "You are missing the permissions required to use that command."
+		}
+	},
+	"reminder": {
+		"title": "Lembrete",
+		"footer": "Requeridos"
+	},
+	"warning": {
+		"title": "Membro avisado",
+		"description": "{0} (`{1}`) foi avisado por um {2} (`{3}`).",
+		"total": {
+			"name": "Advertências Totais",
+			"value": "{0} agora tem {1} total de aviso (s)"
+		},
+		"dm": {
+			"name": "Mensagem direta",
+			"true": "O usuário era de mensagens diretas.",
+			"false": "O usuário era de mensagens diretas."
+		},
+		"reason": {
+			"name": "Razão",
+			"value": "Nenhuma razão especificada."
+		}
+	},
+	"player": {
+		"sameVoiceChannel": "Você deve estar no meu canal de voz para fazer isso.",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
+		"none": "Não há nada jogando neste servidor.",
+		"trackQueued": "Adicionado `{0}` à fila. Ele vai jogar em cerca de {1}.",
+		"npEmbed": {
+			"ttp": "Tempo até tocar",
+			"addedBy": "Adicionado por",
+			"author": "Autor",
+			"duration": "Duração",
+			"footer": "{0} na fila"
+		},
+		"leaving": "Não há mais nada para jogar, deixando o canal...",
+		"autoplay": {
+			"failed": "Não encontrei nada para jogar em seguida: c. Tente enfileirar outra coisa.",
+			"addedBy": "Reprodução automática"
+		}
+	},
+	"poweredBy": {
+		"nekobot": "Por nekobot.xyz"
+	},
+	"logs": {
+		"levelReset": {
+			"title": "Reset de nível",
+			"description": "{0} teve seu nível redefinido de `{1}` para `0`.",
+			"moderator": {
+				"name": "Administrador",
+				"value": "{0}"
+			},
+			"target": {
+				"name": "Alvo",
+				"value": "{0}"
+			}
+		},
+		"guildMemberKick": {
+			"title": "Membro expulso",
+			"description": "{0} foi expulso do servidor.",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildMemberUpdate": {
+			"roleAdd": {
+				"title": "Membro atualizado - Grupo adicionado",
+				"description": "32/5000\n{0} recebeu o papel de {1}.",
+				"moderator": {
+					"name": "Moderador",
+					"value": "{0} (`{1}`)"
+				},
+				"reason": "Razão"
+			},
+			"roleRemove": {
+				"title": "Membro atualizado - Função removida",
+				"description": "{0} teve o papel {1} tirado deles.",
+				"moderator": {
+					"name": "Moderador",
+					"value": "{0} (`{1}`)"
+				},
+				"reason": "Razão"
+			},
+			"usernameChange": {
+				"title": "Membro Atualizado - Nome de Usuário Alterado",
+				"description": "{0} mudou seu nome de usuário de `{1}` para `{2}`."
+			},
+			"avatarChange": {
+				"title": "Membro Atualizado - Nome de Usuário Alterado",
+				"description": "{0} mudou seu avatar de `{1}` para `{2}`."
+			}
+		},
+		"guildMemberAdd": {
+			"title": "Membro Registrado",
+			"description": "{0} juntou-se ao servidor."
+		},
+		"guildRoleCreate": {
+			"title": "Cargo Criado",
+			"description": "O cargo {0} foi criado.",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildRoleDelete": {
+			"title": "Cargo Deletado",
+			"description": "A função {0} foi eliminada.",
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildRoleUpdate": {
+			"title": "Função Atualizada",
+			"description": "A função {0} foi atualizada.",
+			"colorChange": {
+				"name": "Cor atualizado"
+			},
+			"nameChange": {
+				"name": "Nome atualizado"
+			},
+			"permAdded": {
+				"name": "Permissões Adicionadas",
+				"value": "O papel agora tem as permissões `{0}`."
+			},
+			"permRemoved": {
+				"name": "Permissões revogadas",
+				"value": "O papel não tem mais as permissões `{0}`."
+			},
+			"moderator": {
+				"name": "Moderador"
+			},
+			"hoistTrue": {
+				"name": "Guindaste atualizado",
+				"value": "A função agora exibirá membros separadamente dos membros online."
+			},
+			"hoistFalse": {
+				"name": "Guindaste atualizado",
+				"value": "A função não exibirá mais membros separadamente dos membros on-line."
+			},
+			"mentionableTrue": {
+				"name": "@mention Atualizado",
+				"value": "O papel agora pode ser mencionado."
+			},
+			"mentionableFalse": {
+				"name": "@mention Atualizado",
+				"value": "O papel não pode mais ser mencionado."
+			}
+		},
+		"messageDelete": {
+			"title": "Mensagem Excluída",
+			"description": "Uma mensagem de {0} foi eliminada em {1}.",
+			"content": {
+				"name": "Conteúdo"
+			},
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": "Razão"
+			}
+		},
+		"messageUpdate": {
+			"title": "Mensagem Atualizada",
+			"description": "Uma mensagem por {0} foi atualizada em {1}.",
+			"oldContent": {
+				"name": "Antes"
+			},
+			"newContent": {
+				"name": "Depois"
+			}
+		},
+		"guildMemberRemove": {
+			"title": "Membro Saiu",
+			"description": "{0} saiu do servidor."
+		},
+		"channelCreate": {
+			"title": "Canal criado",
+			"description": "O canal {0} (`{1}`) {2} foi criado.",
+			"category": {
+				"name": "Categoria"
+			},
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"channelDelete": {
+			"title": "Canal excluído",
+			"description": "O canal {0} foi eliminado.",
+			"category": {
+				"name": "Categoria"
+			},
+			"moderator": {
+				"name": "Moderador"
+			}
+		},
+		"guildBanAdd": {
+			"title": "Membro Banido",
+			"description": "{0} foi banido.",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": "Razão"
+			}
+		},
+		"guildBanRemove": {
+			"title": "Membro desbanido",
+			"description": "{0} foi esbanjado.",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"reason": {
+				"name": "Razão"
+			}
+		},
+		"mute": {
+			"title": "Membro silenciado",
+			"description": "{0} foi silenciado.",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"duration": {
+				"name": "Duração"
+			},
+			"reason": {
+				"name": "Razão"
+			},
+			"footer": "Alvo {0} Mod {1}"
+		},
+		"unmute": {
+			"title": "Membro não marcado",
+			"description": "{0} foi silenciado.",
+			"moderator": {
+				"name": "Moderador"
+			},
+			"unmuteReason": {
+				"name": "Razão"
+			}
+		}
+	},
+	"messageQuery": "Por favor, reagir com {0} `: {1}:` para a mensagem que você deseja usar.",
+	"messageQueryLate": "{0}, você demorou muito para adicionar a reação.",
+	"botPermError": "Eu estou perdendo uma ou mais permissões que eu preciso fazer isso.",
+	"noResults": "Não encontrei nada que correspondesse à sua consulta, `{0}`.",
+	"webhookPermError": "ERRO: O Atlas precisa de permissões para gerenciar webhooks para o logging funcionar. Aguarde até cinco minutos após a atualização das permissões para que a alteração entre em vigor.",
+	"noPermission": "Você não tem permissão para acessar esse comando.",
+	"noUserFound": "Não consegui encontrar esse usuário.",
+	"noMorePages": "{0}, não há mais páginas assim.",
+	"notPunishable": "Você está sem a permissão necessária para punir esse usuário.",
+	"lolno": "Não posso punir esse usuário, pois o nível de permissão deles é superior ao meu.",
+	"music": {
+		"trackException": "Ocorreu um erro ao reproduzir a faixa, ignorando ...",
+		"emptyPause": "Todos os usuários deixaram o canal de voz - o player foi pausado.",
+		"playingTrack": "Agora jogando `{0}` ({1})",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso.",
+		"position": {
+			"name": "Posição",
+			"value": "{0}"
+		},
+		"nowPlaying": {
+			"name": "Agora jogando",
+			"value": "[{0}]({1})"
+		},
+		"playlist": {
+			"name": "Playlist em fila",
+			"value": "{0} músicas enfileiradas por {1}"
+		},
+		"description": "[{0}]({1})",
+		"duration": {
+			"name": "Duração",
+			"value": "{0}"
+		},
+		"addedBy": {
+			"name": "Adicionado por",
+			"value": "{0}"
+		},
+		"author": {
+			"name": "Autor",
+			"value": "{0}"
+		},
+		"addedTrack": "Faixa adicionada",
+		"ttp": {
+			"name": "Tempo até tocar",
+			"value": "{0}"
+		},
+		"inQueue": {
+			"name": "Na fila",
+			"value": {
+				"plural": "{0} músicas",
+				"singular": "{0} música"
+			}
+		}
+	},
+	"blacklisted": {
+		"roles": {
+			"plural": "Você tem as funções {0} que estão na lista negra de usar `{1} {2}`.",
+			"singular": "Você tem o papel {0} que está na lista negra de usar `{1} {2}`."
+		},
+		"channel": "Este canal está na lista negra de usar `{1} {2}`."
+	},
+	"permissions": {
+		"list": {
+			"createInstantInvite": "Criar convite",
+			"kickMembers": "Expulsar Membros",
+			"banMembers": "Banir Membros",
+			"administrator": "Administrador",
+			"manageChannels": "Gerenciar Canais",
+			"manageGuild": "Gerenciar a Guilda",
+			"addReactions": "Adicionar Reações",
+			"readMessages": "Mensagens lidas",
+			"sendMessages": "Enviar mensagens",
+			"SendTTSMessages": "Enviar mensagens TTS",
+			"manageMessages": "Gerenciar Mensagens",
+			"embedLinks": "Incorporar Links",
+			"attachFiles": "Incorporar arquivos",
+			"readMessageHistory": "Leia o histórico de mensagens",
+			"mentionEveryone": "Mencione todos",
+			"externalEmojis": "Emojis Externos",
+			"voiceConnect": "Conecte-se a voz",
+			"voiceSpeak": "Falar em voz",
+			"voiceMuteMembers": "Mute Voice Members",
+			"voiceUseVAD": "Use o VAD",
+			"changeNickname": "Alterar apelido",
+			"manageNicknames": "Gerenciar apelidos",
+			"manageRoles": "Gerenciar Funções",
+			"manageWebhooks": "Gerenciar Webhooks",
+			"manageEmojis": "Gerenciar Emojis"
+		},
+		"permError": {
+			"user": "Você precisa das permissões `{0}` para fazer isso.",
+			"bot": "Eu preciso da permissão `{0}` para fazer isso."
+		}
+	},
+	"filters": {
+		"actions": {
+			"disabled": "Desativado",
+			"dtm": "Excluir Mensagem",
+			"wtu": "Avise o usuário",
+			"dtm_wtu": "Excluir mensagem e avisar usuário",
+			"ca": "Ação personalizada"
+		},
+		"messages": {
+			"capitalization": {
+				"warning": "Capitalização excessiva.",
+				"message": "{0}, esfriá-lo com as tampas."
+			},
+			"emoji": {
+				"warning": "Emojis excessivos.",
+				"message": "{0}, por favor, não use tantos emojis."
+			},
+			"cursing": {
+				"warning": "Maldição",
+				"message": "{0}, por favor, evite palavrões aqui."
+			},
+			"invites": {
+				"warning": "Enviando um convite.",
+				"message": "{0}, os links de convites não são permitidos aqui."
+			},
+			"links": {
+				"warning": "Enviando um link.",
+				"message": "{0}, por favor, não compartilhe links aqui."
+			},
+			"mentions": {
+				"warning": "Enviando muitas (`{0}`) menções.",
+				"message": "{0}, por favor, não mencione tantas pessoas ao mesmo tempo."
+			},
+			"phrases": {
+				"warning": "A mensagem continha uma palavra na lista negra.",
+				"message": "{0}, por favor, evite usar essa palavra.",
+				"dm": "Você enviou uma mensagem contendo `{0}` em `{1}`. Essa palavra é contra a lista negra de palavras do servidor, por isso, evite usá-la."
+			},
+			"spam": {
+				"warning": "Chat de inundação.",
+				"message": "{0}, por favor não enche o chat."
+			}
+		}
+	},
+	"action": {
+		"disabled": "Essa ação está desativada.",
+		"noSubActions": "Essa ação não tem sub-ações válidas para ser executada.",
+		"restrictions": {
+			"blacklist": {
+				"role": "Você tem um papel que está na lista negra de usar essa ação.",
+				"channel": "Este canal está na lista negra de usar essa ação."
+			},
+			"whitelist": {
+				"role": "Você não está na lista de permissões para usar essa ação.",
+				"channel": "Este canal não está na lista de permissões para usar essa ação."
+			},
+			"permissions": "You are missing the permissions required to use that action."
+		}
+	}
+}
