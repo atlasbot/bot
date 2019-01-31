@@ -52,12 +52,11 @@ module.exports = class Filter {
 			roles: msg.member.roles,
 			channel: msg.channel.id,
 			permissions: msg.channel.permissionsOf(msg.member.id),
-		// }, {
-		// 	...plugin.restrictions,
-		// 	// we dont want to check for permissions
-		// 	permissions: [],
-		// });
-		}, plugin.restrictions);
+		}, {
+			...plugin.restrictions,
+			// we dont want to check for permissions
+		});
+		// }, plugin.restrictions);
 
 		// dont run filters on users that are blacklisted or whitelisted
 		if (restrictionError) {
