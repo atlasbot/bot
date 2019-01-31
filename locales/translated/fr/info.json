@@ -1,0 +1,539 @@
+{
+	"togglementionable": {
+		"description": "Toggle role mentionability. If autoToggle is true, once you mention the role it will be set to unmentionable.",
+		"usage": "[role] <autoToggle=false>"
+	},
+	"lmgtfy": {
+		"description": "Upcoming v10.0 (Eta: Monday Noon Est : P)\n\n- Claim Flags now allow a \"Neutral Zone\" setting which allows any other tribes to build within them, with the specified tax rate applied to them. You are also able to specify an inclusion or exclusion list to these, to only allow or exclude specific company Id's / player Id's. All claim flags will have this enabled as a default setting when placed, and this will also be a retroactive change. However, it will not function until Wednesday the 9th of January at Noon Est, where we will release another server update to make Neutral Zones active. This means you will have two days, from Monday to Wednesday, to decide and adjust the settings on your claim flag before the change is live.\n- Server performance improvements\n- All Cannons/Turrets can now be pin code protected for lever activation/deactivation\n- There are 4x as many trade ships on the seas, and they now also sell commodity types for gold, as do Npc's at Freeports.\n- Lawless servers can no longer be specified as Homesevers. If your Homeserver was a lawless server, you'll be required to pick a new (Freeport) Homeserver upon respawn.\n- You can now buy a \"Ramshackle Sloop\" from the Npc Shipyardsman at Freeports. The \"Ramshackle Sloop\" is a pre-built sloop which has permanently lower plank Hp, carry weight, and crew limit, but is cheaper and faster to acquire if you want to get into sailing faster.\n- \"Favorites\" server selection drop-down is added for Unofficial\n- Joining through Steam browser server list with password now properly caches the password for Atlas travel\n- Fixed up some temperature scalings and Weather events are now indicated on the Hud\n- Armour effectiveness will be adjusted so that firearms are more useful in Pvp\n- Fixed some bugs related to Sea Claims, Enemy Claim Flags can now be directly pinged to identify any contesting enemies nearby, and the time required to steal an enemy claim now decreases the more Claims that enemy team has.\n- Farming rebalances to be easier; water can now pipe uphill, region requirements for growing crops are more forgiving, and crop growth & yield is much faster and higher. \n- Reduced shovel stamina cost.\n- You can now fill waterskins/jars from ground spouts.\n- Metal Tools can no longer damage the planks of anchored ships.\n- 50 more player levels added, and Skill Points per level increased.\n- Loot stat scaling has been boosted (retroactively) by 60%\n- Sea Monsters' damage has been reduced by 66%\n- Some ship costs have been adjusted, and in some cases reduced by approximately about 50%\n- Animals health regen rebalanced, so they're not regenerating high amounts whilst in combat!\n- Eating poop is now instant-death\n- Fixed an issue where you couldn't kill yourself by exhaustion (for stuck situations)\n\nFurther out\n\n- Updated some undesired movement speed max taming additions within status components, (some already set in CreatureBP), plus some unintentional unrealistic water movement speeds.\n- Adjusted Seagull and Crow aggro speeds (Would previously take a long time to de-aggro). Updated collision to allow player attacks to land more consistently.\n- Improved Tiger so they can walk up slopes better/easier.\n- Razortooth stamina adjustments (Would previously fatigue from running in like 2 seconds)\n- Animation updates for Rabbit and setup for shoulder mounting (Not yet enabled until the ability is final)\n- Updated Vulture Ai to only target sleeping humans if the player is connected.\n- Included foot sockets in Giraffe neck attack to more consistently harvest.\n- Reduced Bee movement to allow player attacks to land. Reduced sting buff duration to better reflect Bee size.\n- Increased harvest amount of fur and milk from Sheep and Cow to incentivise taming and better compete with natural resource gathering amounts. Updated max yield timings to scale with creature level, similar to other creature abilities, instead of food value.\n- Clamped amount of fur gained from harvesting wild sheep, again to incentive taming. Wild sheep will also flee, and may attack players after excessive shearing.\n\nReleased Patches and Verified Notes\n\nCurrent Version: v9.2\n\n- Default resource and taming speeds have been increased to 2x as the baseline.\n- Reduced min damage and min percentage on flame arrow buff by 33%.\n- Reduced max damage done on flame arrow projectile hit to 50.\n- Increased gravity on flame arrows 20% to make it less ranged.\n- Increased firegel cost of flame arrows by 100%.\n- Added durability consumption to flame and stone arrows (1 dura per shot, 40 shots per bow repair).\n- Change bow durability from 50 to 40.\n- Fixed a bug which allowed Mortars to have rapid fire.\n- Fixed an issue where upkeep timer on Pve Claimflags was not correctly updating.\n- Company Member, Company Groups, and Alliance data loss issue should hopefully be resolved.\n- Official Network Companies are now hard limited to 500 members, and this is a current measure until the Company system receives a backend overhaul in the long-term.\n- Fixed inland water buoy's being invisible and fixed buoys, so they no longer prevent resource respawn.\n- Prevent ship collision damage from occurring when caused by other player ships on Pve servers.\n- Fixed sunken-ship area indicator lingering even after a shipwreck has been entirely salvaged.\n- Reduced deepwater aggressive creature frequency and targetting range.\n- Melee weapons are now temporarily ineffective against ship planks. Later this will be changed so that it will only be ineffective against anchored ship planks.\n- Sailing against the wind now provides 30% of with-the-wind sailforce, as opposed to 0%.\n- Also increased the amount of sailforce provided by minimum windspeed conditions by 30%, and the sailforce provided by maximum windspeed conditions by 15%.\n- Every Tame can now get a minimum of 30 tame level-ups put into it, plus however many base levels it had when wild. So for example, a level 5 wild wolf would get 35 tame level-ups to apply, whereas a level 40 wild wolf would get 70 tame level-ups to use. \n- Increased the base carry Weight of all ships by +40%\n\nv8.72\n\n- Fixed some server crashes\n- Slightly improved server performance and reduced server stalls\n- Ended New Year's event (Tophats remain but no longer grant double treasure gold and can no longer be bought at in-game cosmetics Npc traders)\n- Buffed Tamed creatures Hp and Damage globally by 25%\n\nv8.56\n\n- Anyone can now demolish shipwreck structures to regain resources so get your diving suits ready!\n\n- Npc Trading Ships are back and no longer affected by wild creature destruction commands! Reminder for those with deep pockets, the trader ships have an epic Dragon which can be purchased for 50,000 gold coins\n\nv8.35\n\n- Improvements made to joining/rejoining servers, should make it more reliable and eliminate many cases of connection lost/failure to grab server info.\n\nv8.35\n\n- Fixed a bug where Hud may not have shown to players in some cases",
+		"usage": "<search>"
+	},
+	"iam": {
+		"description": "Donnez-vous un rôle que les administrateurs du serveur ont publié.",
+		"usage": "<role>"
+	},
+	"purgeban": {
+		"description": "Banni un utilisateur et purge ses messages des 7 derniers jours.",
+		"usage": "[user] <reason>"
+	},
+	"convert": {
+		"description": "Convertir des valeurs. Supporte la monnaie, le poids, la longueur, etc...",
+		"usage": "[units] [from] [to]"
+	},
+	"haveibeenpwned": {
+		"description": "Vérifiez si votre compte a été compromis par une violation de données. ** N'incluez aucune information que vous ne voulez pas que les autres membres de la guilde voient **.",
+		"usage": "[account]"
+	},
+	"isspass": {
+		"description": "Vous informe quand la station spatial internationale (ISS) va passer à l'endroit <location>.",
+		"usage": "[location]"
+	},
+	"fact": {
+		"description": "Obtenez un fait aléatoire, quelque peu intéressant, voire inexact."
+	},
+	"spacex": {
+		"base": {
+			"description": "Des informations sur SpaceX et de la merde fraîche dont ils disposent."
+		},
+		"launches": {
+			"description": "Obtenez des informations sur les lancements passés, présents et futurs de SpaceX.",
+			"usage": "<launch name>"
+		},
+		"rockets": {
+			"description": "Obtenir des informations sur les fusées de SpaceX.",
+			"usage": "<rocket name>"
+		},
+		"ships": {
+			"description": "Obtenir des informations sur les fusées de SpaceX.",
+			"usage": "<ship name>"
+		}
+	},
+	"needsmorejpeg": {
+		"description": "Va te faire voir avec ton image et la compression JPEG.",
+		"usage": "<image url> <quality=2.5>"
+	},
+	"randomcase": {
+		"description": "LeTTrE MAjusCulE et MinuScuLE alEAtoIremEnt.",
+		"usage": "[TeXt]"
+	},
+	"dashboard": {
+		"description": "Obtenez un lien vers le tableau de bord des serveurs."
+	},
+	"resetlevel": {
+		"description": "Réinitialiser le niveau d'utilisateurs.",
+		"usage": "[user]"
+	},
+	"playlist": {
+		"base": {
+			"description": "Créer, gérer, supprimer des playlists de musique."
+		},
+		"create": {
+			"description": "Créer, gérer, supprimer des liste de lecture de musique.",
+			"usage": "[name]"
+		},
+		"list": {
+			"description": "Afficher toute vos listes de lecture existantes.",
+			"usage": "<playlist name/id>"
+		},
+		"delete": {
+			"description": "Supprimer l'une de vos listes de lecture.",
+			"usage": "[playlist name/id]"
+		},
+		"play": {
+			"description": "Joue une liste de lecture.",
+			"usage": "[playlist name/id]"
+		},
+		"addqueue": {
+			"description": "Ajouter la file d'attente actuelle à une liste de lecture existante.",
+			"usage": "[playlist name/id]"
+		},
+		"removetrack": {
+			"description": "Supprimer une piste de votre liste de lecture.",
+			"usage": "[playlist name/id] [track]"
+		}
+	},
+	"volume": {
+		"description": "Définit le volume du lecteur.",
+		"usage": "[volume %]"
+	},
+	"stop": {
+		"description": "Arrête le lecteur et efface la file d'attente, mais ne quitte pas le canal."
+	},
+	"seek": {
+		"description": "Déplace la position du lecteur.",
+		"usage": "[position]"
+	},
+	"resume": {
+		"description": "Reprend le lecteur s'il est en pause."
+	},
+	"repeat": {
+		"description": "Active ou désactive la répétition du lecteur."
+	},
+	"remove": {
+		"description": "Supprimer toutes les chansons de la file.",
+		"usage": "Position dans la file"
+	},
+	"shift": {
+		"description": "Décale la position d'une chanson dans la file d'attente.",
+		"usage": "[current position] [new position]"
+	},
+	"pause": {
+		"description": "Met le lecteur en pause."
+	},
+	"join": {
+		"description": "Amenez Atlas à rejoindre votre canal vocal."
+	},
+	"togglecommand": {
+		"description": "Active ou désactive une commande.",
+		"usage": "[command]"
+	},
+	"toggleplugin": {
+		"description": "Active ou désactive un plugin.",
+		"usage": "[plugin]"
+	},
+	"level": {
+		"description": "Récupère votre niveau ou celui d'un autre utilisateur.",
+		"usage": "<user>"
+	},
+	"leaderboard": {
+		"description": "Avoir le lien du tableau de bord pour les Niveaux."
+	},
+	"smalltext": {
+		"description": "Rends le texte plus petit.",
+		"usage": "[text]"
+	},
+	"nodes": {
+		"description": "Obtient des informations / états sur les serveurs vocaux disponibles."
+	},
+	"vaporwave": {
+		"description": "Convertit le texte en ｖａｐｏｒｗａｖｅ",
+		"usage": "[text]"
+	},
+	"channelspaces": {
+		"description": "Remplace les tirets dans les noms de canaux par de faux espaces ! Sérieusement, il s'agit plutôt d'un hack et peut être corrigé à tout moment.",
+		"usage": "<channel>"
+	},
+	"autoplay": {
+		"description": "Activer ou désactiver la lecture automatique. Lorsqu'il est activé, une fois à la fin d'une file d'attente, Atlas met automatiquement en file d'attente les chansons associées."
+	},
+	"shuffle": {
+		"description": "Mélange la file d'attente."
+	},
+	"locale": {
+		"description": "Modifie la langue qu'Atlas utilise sur votre serveur.",
+		"usage": "[language]"
+	},
+	"time": {
+		"description": "Obtient l'heure d'un fuseau horaire.",
+		"usage": "[location]"
+	},
+	"shorten": {
+		"description": "Raccourcit une URL via is.gd.",
+		"usage": "[url]"
+	},
+	"serverinfo": {
+		"description": "Obtenir des informations à propos du serveur."
+	},
+	"say": {
+		"description": "Ça fait dire à Atlas ce que tu veux.",
+		"usage": "[text]"
+	},
+	"roleinfo": {
+		"description": "Obtenir des informations à propos d'un rôle.",
+		"usage": "[role]"
+	},
+	"id": {
+		"description": "Avoir l'ID d'un channel, d'un rôle, utilisateur, guilde, etc...",
+		"usage": "[channel/rôle/user/\"guild\"]"
+	},
+	"reddit": {
+		"description": "Obtenir des informations à propos d'un subreddit.",
+		"usage": "[subreddit]"
+	},
+	"someone": {
+		"description": "Mentionne un utilisateur au hasard."
+	},
+	"randomcolor": {
+		"description": "Génère une couleur au hasard."
+	},
+	"quote": {
+		"description": "Quote a message by a user. <channel id> is only required if the message is in another guild or the message isn't in your current channel and isn't cached.",
+		"usage": "[message id / message share link] <channel id>"
+	},
+	"minecraft": {
+		"description": "Voir le statut d'un serveur Minecraft.",
+		"usage": "[server ip]"
+	},
+	"membercount": {
+		"description": "Voir les informations à propos du nombre de membres dans le serveur."
+	},
+	"joined": {
+		"description": "Découvrez quand un utilisateur a rejoint le serveur."
+	},
+	"inviteinfo": {
+		"description": "Avoir des informations à propos d'une invitation.",
+		"usage": "[invite code/link]"
+	},
+	"inrole": {
+		"description": "Liste les utilisateurs dans un rôle.",
+		"usage": "[role]"
+	},
+	"google": {
+		"description": "Cherche des trucs sur Google.",
+		"usage": "[search]"
+	},
+	"embed": {
+		"description": "Intègre un message. Vous pouvez utiliser \"advancedembed\" pour plus d'options.",
+		"usage": "[text]"
+	},
+	"advancedembed": {
+		"description": "Intègre un message avec des options avancées.",
+		"usage": "[options]"
+	},
+	"discrim": {
+		"description": "Trouver les utilisateurs avec un discriminateur correspondant au vôtre.",
+		"usage": "<discriminator>"
+	},
+	"avatar": {
+		"base": {
+			"description": "Avoir (the servers)/(a users) avatar.",
+			"usage": "<mention>"
+		},
+		"user": {
+			"description": "Affiche l'avatar d'un utilisateur.",
+			"usage": "<mention>"
+		},
+		"server": {
+			"description": "Affiche l'avatar d'un serveur."
+		}
+	},
+	"trump": {
+		"description": "Recevoir quelque chose de stupide que Donald Trump a dit."
+	},
+	"urban": {
+		"description": "Recevoir la définition d'un mot.",
+		"usage": "[search]"
+	},
+	"randomurban": {
+		"description": "Avoir une définition aléatoire du Urban Dictionary."
+	},
+	"starterpack": {
+		"description": "Générer un pack de démarrage aléatoire."
+	},
+	"genavatar": {
+		"description": "Générer un avatar au hasard."
+	},
+	"gotcharacter": {
+		"description": "Obtenir des informations sur un personnage de Games of Thrones. Exécutez sans args pour obtenir un caractère aléatoire.",
+		"usage": "<character name>"
+	},
+	"gothouse": {
+		"description": "Obtenir des informations sur la maison de Games of Thrones. Exécutez sans args pour avoir une maison au hasard.",
+		"usage": "<house name>"
+	},
+	"kick": {
+		"usage": "[user] <reason>",
+		"description": "Membre retiré du serveur."
+	},
+	"filters": {
+		"base": {
+			"usage": "<subcommand>",
+			"description": "Contrôle les filtres de chat."
+		},
+		"action": {
+			"usage": "[filter] <action name>",
+			"description": "Permet d'activer ou de désactiver les filtres et de modifier leur action."
+		},
+		"list": {
+			"description": "Liste les filtres et leurs paramètres actuels."
+		}
+	},
+	"log": {
+		"base": {
+			"description": "Contrôle l'endroit où certains messages sont enregistrés dans votre guilde.",
+			"usage": "[subcommand]"
+		},
+		"actions": {
+			"description": "Définit l'endroit où les journaux d'actions sont enregistrés. Fonctionne sans args à réinitialiser.",
+			"usage": "[channel]"
+		}
+	},
+	"purge": {
+		"base": {
+			"usage": "<amount>",
+			"description": "Supprimer les messages d'un canal."
+		},
+		"any": {
+			"usage": "<amount>",
+			"description": "Supprimer les messages d'un canal."
+		},
+		"endswith": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui se terminent par [term]. Supporte les caractères joker*."
+		},
+		"files": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des pièces jointes."
+		},
+		"images": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des images."
+		},
+		"invites": {
+			"usage": "<amount>",
+			"description": "Purge les messages avec des invitations de serveur Discord."
+		},
+		"links": {
+			"usage": "<amount>",
+			"description": "Purge les messages contenant des liens."
+		},
+		"includes": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui incluent votre terme Supporte les caractères joker*."
+		},
+		"not": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui n'incluent pas votre terme. Supporte les caractères joker*."
+		},
+		"startswith": {
+			"usage": "[term] <amount>",
+			"description": "Purge les messages qui commencent par votre terme. Supporte les caractères joker*."
+		},
+		"user": {
+			"usage": "[user] <amount>",
+			"description": "Purge les messages provenant de l'utilisateur spécifié."
+		}
+	},
+	"slowmode": {
+		"usage": "[ratelimit in seconds/\"disable\"]",
+		"description": "Active la limitation du débit de messages pour le canal. Réglez à 0 ou entrez \"disable\" pour désactiver complètement le mode lent."
+	},
+	"coinflip": {
+		"description": "Tire à pile ou face une pièce de monnaie qui peut faire tomber des têtes ou des queues."
+	},
+	"dadjoke": {
+		"description": "Avoir un random dadjoke."
+	},
+	"move": {
+		"description": "Déplacer un message dans un autre canal.",
+		"usage": "[channel] <message ID or share link>"
+	},
+	"achievement": {
+		"description": "Créer un succès Minecraft."
+	},
+	"wouldyourather": {
+		"description": "Tu préfèrerais ?"
+	},
+	"botinfo": {
+		"description": "Obtient des informations sur presque tous les robots publics via discordbots.org.",
+		"usage": "[bot mention/query]"
+	},
+	"xkcd": {
+		"description": "Obtenez une bande dessinée XKCD au hasard (ou pas).",
+		"usage": "<comic number>"
+	},
+	"leave": {
+		"description": "Quitte le canal vocal et décharge la file d'attente."
+	},
+	"unban": {
+		"description": "Débannir un utilisateur d'une guilde.",
+		"usage": "[user] <reason>"
+	},
+	"emojify": {
+		"description": "Convertit des phrases régulières en phrases émojifiées impressionnantes 🎉",
+		"usage": "[text]"
+	},
+	"mute": {
+		"description": "Arrête l'envoi de messages à un utilisateur pendant qu'il est en sourdine.",
+		"usage": "[user] <duration> | <reason>"
+	},
+	"unmute": {
+		"description": "Dé-mute un utilisateur.",
+		"usage": "[user] <reason>"
+	},
+	"movie": {
+		"description": "Avoir des informations à propos d'un film!",
+		"usage": "[movie name]"
+	},
+	"next": {
+		"description": "Passe à la chanson suivante dans la file d'attente."
+	},
+	"show": {
+		"description": "Recherche d'information à propos d'une série TV.",
+		"usage": "[show name]"
+	},
+	"weather": {
+		"description": "Obtenez des informations météorologiques de partout dans le monde.",
+		"usage": "[location]"
+	},
+	"catfact": {
+		"description": "Qui n'aime pas les histoires sur les chats ?"
+	},
+	"cat": {
+		"description": "Chatons, chats, etc. - nous l'avons (peut-être)."
+	},
+	"texttoemoji": {
+		"description": "Convertir le texte en caractère d'emojis.",
+		"usage": "[text]"
+	},
+	"dog": {
+		"description": "Chiens. Juste des photos de chiens au hasard."
+	},
+	"chucknorris": {
+		"description": "Faits concernant l'homme lui-même"
+	},
+	"advice": {
+		"description": "Vous avez besoin de conseils de qualité de vie d'une source digne de confiance ? Alors ce n'est pas la commande qu'il vous faut."
+	},
+	"warn": {
+		"base": {
+			"description": "Gérer les avertissements. Avertir les utilisateurs d'un mauvais comportement, éditer les avertissements précédents d'un utilisateur et plus encore."
+		},
+		"add": {
+			"description": "Ajouter un avertissment à un utilisateur.",
+			"usage": "[user] <reason>"
+		},
+		"view": {
+			"description": "Voir les avertissements d'un utilisateur.",
+			"usage": "[user] <page=1>"
+		},
+		"remove": {
+			"description": "Retirer les avertissmeents d'un utilisateur.",
+			"usage": "[user] <warn reason>"
+		}
+	},
+	"warnings": {
+		"description": "Affiche vos/autres avertissements d'utilisateurs.",
+		"usage": "<user>"
+	},
+	"funban": {
+		"description": "Bannir un utilisateur mais c'est amusant (et légèrement spammé)",
+		"usage": "[user] <reason>"
+	},
+	"ban": {
+		"description": "Banir un utilisateur, exactement ce qui est écrit sur la boîte.",
+		"usage": "[user] <reason>"
+	},
+	"submit": {
+		"description": "Soumettez vos suggestions au canal de suggestions."
+	},
+	"patreon": {
+		"description": "Support Atlas on Patreon and get awesome perks!"
+	},
+	"help": {
+		"usage": "<command|plugin>",
+		"description": "Voir toutes les commandes d'Atlas ou obtenir de l'aide pour une commande ou un plugin spécifique."
+	},
+	"meme": {
+		"description": "dank me-mes"
+	},
+	"yesno": {
+		"description": "Oui ou non? Avoir un oui ou non au hasard."
+	},
+	"info": {
+		"description": "Informations générales concernant Atlas"
+	},
+	"ping": {
+		"description": "Vérifiez le temps qu'Atlas prend pour vous répondre !"
+	},
+	"support": {
+		"description": "Besoin d'aide avec Atlas? Rejoignez notre servuer de support!"
+	},
+	"uptime": {
+		"description": "Vérifiez depuis combien de temps Atlas est en ligne."
+	},
+	"version": {
+		"description": "Check which version of Atlas this instance is running."
+	},
+	"whois": {
+		"description": "Obtenir des renseignements sur un utilisateur.",
+		"usage": "<user>"
+	},
+	"nowplaying": {
+		"description": "Affiche des informations sur la chanson en cours de lecture."
+	},
+	"play": {
+		"description": "Lecture d'une chanson sur votre canal vocal actuel, maintenant avec prise en charge intégrée des listes de lecture !",
+		"usage": "[song name|url]"
+	},
+	"qplaylist": {
+		"description": "Ajout de chansons d'une playlist YouTube dans la file d'attente.",
+		"usage": "[youtube playlist url]"
+	},
+	"queue": {
+		"description": "Affiche les chansons à venir dans la file d'attente du lecteur.",
+		"usage": "<page number>"
+	},
+	"ship": {
+		"description": "Envoyez deux utilisateurs. ",
+		"usage": "[user1] <user2>"
+	},
+	"trapcard": {
+		"usage": "[user]",
+		"description": "Vous avez déclenché ma carte piège !"
+	},
+	"trumpgen": {
+		"description": "Générer une image de Trump sur twitter tweetant quelque chose.",
+		"usage": "[text]"
+	},
+	"wiki": {
+		"description": "Recherchez Wikipedia pour votre recherche.",
+		"usage": "[query]"
+	},
+	"remindme": {
+		"description": "Définissez des rappels pour être averti à l'avenir.",
+		"usage": "[time] <task>"
+	},
+	"captcha": {
+		"description": "Vous êtes un robot ? Je sais que je le suis.",
+		"usage": "<user>"
+	},
+	"invite": {
+		"description": "Obtenez Atlas sur votre propr serveur en m'invitant!"
+	},
+	"neat": {
+		"description": "hé, c'est plutôt chouette"
+	},
+	"8ball": {
+		"description": "Posez une question à la boule magique."
+	}
+}
