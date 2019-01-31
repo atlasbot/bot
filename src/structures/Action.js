@@ -123,11 +123,7 @@ module.exports = class Action {
 
 		const { output } = await parser.parse(message);
 
-		if (!output) {
-			return;
-		}
-
-		if (this.flags.silent) {
+		if (!output || this.flags.silent) {
 			return;
 		}
 
