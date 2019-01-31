@@ -1,211 +1,211 @@
 {
 	"xkcd": {
-		"invalidNumber": "The comic number you provided is invalid. It must be between `1` and `{0}`.",
+		"invalidNumber": "O número de quadrinhos que você forneceu é inválido. Deve estar entre `1 e` {0} `.",
 		"footer": "Comic {0} via xkcd.com"
 	},
 	"togglementionable": {
 		"perms": {
-			"bot": "I do not have permissions to manage that role.",
-			"user": "You do not have permissions to manage that role."
+			"bot": "Eu não tenho permissões para gerenciar essa função.",
+			"user": "Você não tem permissões para gerenciar essa função."
 		},
-		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
-		"mentionable": "You can now mention `@{0}`. ",
-		"unmentionable": "You can no longer mention `@{0}`.",
-		"autoToggle": "Once you mention the role, I'll disable mentions for it."
+		"dm": "O papel `@ {0}` não é mais mencionado porque você o mencionou.",
+		"mentionable": "Você pode agora mencionar `@ {0}`.",
+		"unmentionable": "Você não pode mais mencionar `@ {0}`.",
+		"autoToggle": "Depois de mencionar o papel, desativarei as menções para ele."
 	},
 	"weather": {
-		"noResults": "I couldn't find any weather information for your search.",
-		"title": "Weather in {0}, {1}",
+		"noResults": "Não encontrei nenhuma informação meteorológica para a sua pesquisa.",
+		"title": "Previsão do tempo em {0}, {1}",
 		"temperature": {
-			"name": "Temperature",
-			"value": "{0}°C, min {1}°C, max {2}°C"
+			"name": "Temperatura",
+			"value": "{0} ° C, min {1} ° C, max {2} ° C"
 		},
-		"humidity": "Humidity",
+		"humidity": "Umidade",
 		"wind": {
-			"name": "Wind",
+			"name": "Vento",
 			"value": "{0}kph"
 		}
 	},
 	"smalltext": {
-		"noArgs": "Please include something to make ˢᵐᵒˡ"
+		"noArgs": "Por favor, inclua algo para fazer ˢᵐᵒˡ"
 	},
 	"iam": {
-		"noRoles": "This server does not have any available roles.",
-		"invalidQuery": "I could not find a \"iam\" role matching `{0}`.",
-		"unassignable": "I lack the permissions to assign you that role.",
-		"removed": "You no longer have the {0} role.",
-		"added": "You now have the {0} role.",
+		"noRoles": "Este servidor não possui funções disponíveis.",
+		"invalidQuery": "Eu não consegui encontrar um papel \"iam\" correspondendo a {0} `.",
+		"unassignable": "Eu não tenho as permissões para atribuir-lhe esse papel.\n",
+		"removed": "Você não tem mais o papel {0}.",
+		"added": "Você agora tem o papel {0}.",
 		"embed": {
-			"title": "Available \"iam\" Roles​",
-			"footer": "\"{0}iam [role]\" to claim a role"
+			"title": "Papéis \"iam\" disponíveis",
+			"footer": "\"{0} iam [role]\" para reivindicar um papel"
 		}
 	},
 	"convert": {
-		"invalidUnits": "Please include valid units.",
-		"invalidFrom": "Please include a valid input measurement.",
-		"invalidTo": "Please include a valid to measurement.",
+		"invalidUnits": "Por favor, inclua unidades válidas.",
+		"invalidFrom": "Por favor inclua uma medida de entrada válida.",
+		"invalidTo": "Por favor, inclua um válido para medição.",
 		"currency": {
-			"invalidTarget": "Invalid target currency `{0}`",
-			"converted": "`{0}` {1} is *roughly* `{2}` {3}."
+			"invalidTarget": "Moeda de destino inválida `{0}`",
+			"converted": "`{0}` {1} é * aproximadamente * `{2}` {3}."
 		},
 		"other": {
-			"unknownInput": "Unknown input format.",
-			"unknownOutput": "Unknown output format.",
+			"unknownInput": "Formato de importação desconhecido.",
+			"unknownOutput": "Formato de exportação desconhecido.",
 			"converted": "`{0} {1}` > `{2} {3}`."
 		}
 	},
 	"haveibeenpwned": {
-		"success": "Success! Check your direct-messages for a list of your breached accounts.",
-		"noBreaches": "Awesome! There are no known breaches for your account.",
-		"unknownError": "Something bad happened. Make sure Atlas can direct-message you if you are in a server.",
-		"breach": "Breach",
-		"pwnedUsers": "Pwned Users",
-		"compromisedData": "Compromised Data",
-		"footer": "Breach {0}/{1}"
+		"success": "Sucesso! Verifique suas mensagens diretas para obter uma lista de suas contas violadas.",
+		"noBreaches": "Impressionante! Não há violações conhecidas para sua conta.",
+		"unknownError": "Algo ruím aconteceu. Certifique-se de que o Atlas possa enviar uma mensagem direta se você estiver em um servidor.",
+		"breach": "Violação",
+		"pwnedUsers": "Usuários Pwned",
+		"compromisedData": "Dados comprometidos",
+		"footer": "Violação {0} / {1}"
 	},
 	"needsmorejpeg": {
-		"noArgs": "Please include an image attachment or image URL.",
-		"invalidUrl": "`{0}` is not a valid URL.",
-		"notAnImage": "That isn't an image :c"
+		"noArgs": "Inclua um anexo de imagem ou um URL de imagem.",
+		"invalidUrl": "`{0}` não é um URL válido.",
+		"notAnImage": "Isso não é uma imagem: c"
 	},
 	"randomcase": {
-		"noArgs": "Please include something to raNdomIsE."
+		"noArgs": "Por favor inclua algo para o raNdomIsE."
 	},
-	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
+	"dashboard": "Você pode configurar seu servidor em <https://atlasbot.xyz/meera/ {0}>.",
 	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+		"noArgs": "Por favor, inclua um usuário para redefinir o nível de.",
+		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
+		"success": "{0} teve seu nível redefinido para zero."
 	},
 	"playlist": {
 		"create": {
-			"noArgs": "Please include a name for your new playlist.",
-			"nothingPlaying": "Please add something to your queue before creating a playlist.",
-			"success": "Playlist created! You can do `{0}playlist play {1}` to play your playlist.",
-			"tooLong": "Your playlist name must be under 24 characters long.",
-			"livestreamFound": "Your queue has a live-stream in it, which cannot be added to a playlist."
+			"noArgs": "Por favor, inclua um nome para sua nova lista de reprodução.",
+			"nothingPlaying": "Por favor, adicione algo à sua fila antes de criar uma lista de reprodução.",
+			"success": "Playlist criada! Você pode fazer a reprodução da lista {0} {1} `para reproduzir sua lista de reprodução.",
+			"tooLong": "O nome da sua playlist deve ter menos de 24 caracteres.",
+			"livestreamFound": "Sua fila tem uma transmissão ao vivo, que não pode ser adicionada a uma lista de reprodução."
 		},
 		"list": {
-			"noPlaylists": "You do not have any playlists.",
-			"more": "+ `{0}` more",
-			"description": "{0} total tracks",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"more": "+ `{0}` mais",
+			"description": "{0} total de faixas",
 			"duration": "Duração",
-			"created": "Created",
-			"updated": "Updated",
-			"tracks": "Tracks",
-			"footer": "{0} • Playlist {1}/{2}"
+			"created": "Criado",
+			"updated": "\nAtualizado",
+			"tracks": "Faixas",
+			"footer": "{0} • Lista de reprodução {1} / {2}"
 		},
 		"delete": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "The `{0}` playlist has been deleted successfully."
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
+			"success": "A lista de reprodução `{0}` foi deletada com sucesso."
 		},
 		"addqueue": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"success": "Added {0} tracks to the `{1}` playlist."
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
+			"success": "Adicionado {0} faixas à lista de reprodução `{1}`."
 		},
 		"removetrack": {
-			"noArgs": "Please include a playlist name or ID!",
-			"noPlaylists": "You do not have any playlists.",
-			"noneFound": "I could not find a playlist matching `{0}`.",
-			"noQuery": "Please include a track name to search for and remove.",
-			"noTrack": "I could not find a track matching `{0}`.",
-			"success": "Removed `{0}` from your `{1}` playlist."
+			"noArgs": "Por favor, inclua um nome ou ID da lista de reprodução!",
+			"noPlaylists": "Você não tem listas de reprodução.",
+			"noneFound": "Não consegui encontrar uma lista de reprodução correspondente a {0} `.",
+			"noQuery": "Por favor, inclua um nome de faixa para pesquisar e remover.",
+			"noTrack": "Não consegui encontrar uma faixa que correspondesse `{0}`.",
+			"success": "Removido `{0}` da sua lista de reprodução `{1}`."
 		}
 	},
 	"volume": {
-		"noArgs": "Please include a volume number between 1% and 150%.",
-		"tooLow": "The volume cannot go below 1%.",
-		"tooHigh": "The volume cannot go over 150%.",
-		"success": "The volume is now at `{0}%`."
+		"noArgs": "Por favor, inclua um número de volume entre 1% e 150%.",
+		"tooLow": "O volume não pode ir abaixo de 1%.",
+		"tooHigh": "O volume não pode ultrapassar 150%.",
+		"success": "Agora o volume está em `{0}%`."
 	},
 	"stop": {
-		"stopped": "The player has been stopped."
+		"stopped": "O jogador foi parado."
 	},
 	"seek": {
-		"noArgs": "Please include a position to seek to.",
-		"notSeekable": "This track is not seekable.",
-		"noTimestamp": "Please include a valid timestamp.",
-		"overTrackLength": "You are trying to seek too far, the track is only {0} long.",
-		"seeked": "Skipped to {0} in."
+		"noArgs": "Por favor, inclua a posição para procurar.",
+		"notSeekable": "Esta faixa não é procurada.",
+		"noTimestamp": "Por favor, inclua um timestamp válido.",
+		"overTrackLength": "Você está tentando ir longe demais, a faixa é apenas {0} longa.",
+		"seeked": "Ignorada para {0} em."
 	},
 	"resume": {
-		"notPaused": "The player is not paused.",
-		"resumed": "The player has been resumed."
+		"notPaused": "O jogador não está em pausa.",
+		"resumed": "O jogador foi retomado."
 	},
 	"repeat": {
-		"enabled": "Repeat has been enabled.",
-		"disabled": "Repeat has been disabled."
+		"enabled": "A repetição foi ativada.",
+		"disabled": "A repetição foi desativada."
 	},
 	"remove": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
-		"noTrack": "There is no track in the queue at position `{0}`.",
-		"removed": "`{0}` has been removed from the queue."
+		"invalidCurrIndex": "Por favor, forneça uma posição de fila válida.",
+		"noTrack": "Não há trilha na fila na posição `{0}`.",
+		"removed": "`{0}` foi removido da fila."
 	},
 	"shift": {
-		"invalidCurrIndex": "Please provide a valid queue position.",
-		"invalidNewIndex": "Please provide a valid queue position to move the track to.",
-		"noTrack": "There is no track in the queue at position `{0}`.",
-		"moved": "`{0}` has been moved from queue position `{1}` to position `{2}`."
+		"invalidCurrIndex": "Por favor, forneça uma posição de fila válida.",
+		"invalidNewIndex": "Por favor, forneça uma posição de fila válida para mover a faixa.",
+		"noTrack": "Não há trilha na fila na posição `{0}`.",
+		"moved": "`{0}` foi movido da posição de fila `{1}` para a posição `{2}`."
 	},
 	"pause": {
 		"alreadyPaused": {
-			"button": "The player is already paused.",
-			"label": "The player is already paused. Did you mean `{0}resume`?"
+			"button": "O jogador já está em pausa.",
+			"label": "O jogador já está em pausa. Você quis dizer `{0} resume`?"
 		},
-		"paused": "The player has been paused."
+		"paused": "O jogador foi pausado."
 	},
 	"join": {
-		"alreadyPlaying": "I'm already playing in `{0}`.",
-		"joined": "Joined `{0}`.",
+		"alreadyPlaying": "Eu já estou jogando em `{0}`.",
+		"joined": "Registrado `{0}`.",
 		"switch": {
-			"notPaused": "Switched to `{0}`.",
-			"paused": "Switched to `{0}`. The player is paused, you'll have to resume it to resume playback."
+			"notPaused": "Comutado para `{0}`.",
+			"paused": "Comutado para `{0}`. O player está pausado, você terá que reiniciá-lo para retomar a reprodução."
 		}
 	},
 	"nodes": {
-		"noNodes": "Hmmm, something is wrong. It seems I'm not connected to any voice nodes ._. that's not mean to happen.",
-		"node": "Node",
-		"players": "Players",
-		"events": "Events",
-		"footer": "Atlas' Voice Nodes"
+		"noNodes": "Hmmm, algo está errado. Parece que não estou conectado a nenhum nó de voz. isso não significa que aconteça.",
+		"node": "Nó",
+		"players": "Jogadores",
+		"events": "Eventos",
+		"footer": "Nós de voz do Atlas"
 	},
 	"vaporwave": {
-		"noArgs": "Please include something to convert to ｖａｐｏｒｗａｖｅ"
+		"noArgs": "Por favor, inclua algo para converter para ｖａｐｏｒｗａｖｅ"
 	},
 	"autoplay": {
-		"enabled": "Autoplay has been enabled.",
-		"disabled": "Autoplay has been disabled."
+		"enabled": "Reprodução automática foi habilitada.",
+		"disabled": "Reprodução automática foi desabilitada."
 	},
 	"shuffle": {
-		"tooFew": "There is not enough items in the queue to shuffle.",
-		"success": "Shuffled `{0}` queue items."
+		"tooFew": "Não há itens suficientes na fila para embaralhar.",
+		"success": "`{0}` itens da fila embaralhados."
 	},
 	"movie": {
-		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
-		"notFound": "I could not find a movie or TV show matching `{0}`.",
-		"ratings": "Ratings"
+		"notAMovie": "Isso não é um filme! Talvez tente `{0} show {1}`.",
+		"notASeries": "Isso não é um programa de TV! Tente `{0}movie {1}`.",
+		"notFound": "Não encontrei um filme ou programa de TV que correspondesse `{0}`.",
+		"ratings": "Classificações"
 	},
 	"funban": {
-		"success": "Banned {0}."
+		"success": "Banido {0}."
 	},
 	"ban": {
-		"noArgs": "Please include a user to ban!",
-		"success": "Banned {0}.",
-		"withReason": "Banned {0} for `{1}`.",
-		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
-		"tooLate": "{0} has already been banned.",
+		"noArgs": "Por favor, inclua um usuário para banir!",
+		"success": "Banido {0}.",
+		"withReason": "Banido {0} por `{1}`.",
+		"tooLateReason": "{1} já foi banido com o motivo `{0}`.",
+		"tooLate": "{0} já foi banido.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "Você foi banido do {0} por `{1}` por {2} ({3}).",
+			"noReason": "Você foi banido do {0} por {1}({2})."
 		}
 	},
 	"remindme": {
-		"invalid": "That is not a valid date.",
+		"invalid": "Essa não é uma data válida.",
 		"setForPast": "Dê-me uma data que seja no futuro.",
 		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
 		"youGotIt": "Entendido, irei te relembrar em {0}.",
@@ -213,75 +213,75 @@
 	},
 	"ping": {
 		"start": "<a:typing:426097044625686528> {0}",
-		"server": "I have a `{0}ms/{1}ms` delay to this server.",
+		"server": "Eu tenho um atraso de {0} ms / {1} ms para este servidor.\n",
 		"randoms": [
-			"I'm hungry...",
-			"Shovelling coal into the server...",
-			"In my defense, this is still faster than you could do it...",
-			"Waiting for the stars to align...",
-			"Go ahead, hold your breath...",
-			"Enjoy the elevator music...",
-			"Hello my name is Atlas what would you like today Sir?...",
-			"You were expecting something mildly entertaining, but no...",
-			"Error: out of patience...",
-			"Are we there yet?...",
-			"Please insert quarter...",
-			"Hang on a sec, it's here somewhere...",
-			"Have you lost weight?...",
-			"brb, one sec...",
-			"Spinning up the hamster..."
+			"Eu estou com fome...",
+			"Removendo carvão no servidor ...",
+			"Em minha defesa, isso ainda é mais rápido do que você poderia fazer ...",
+			"Esperando as estrelas se alinharem...",
+			"Vá em frente, prenda a respiração ...",
+			"Aproveite a música do elevador ...",
+			"Olá meu nome é Atlas o que você gostaria hoje senhor? ...",
+			"Você estava esperando algo levemente divertido, mas não ...",
+			"Erro: sem paciência ...",
+			"Já estamos lá?...",
+			"Por favor, insira o trimestre ...",
+			"Espere um segundo, está aqui em algum lugar ...",
+			"Você perdeu peso?...",
+			"brb, um segundo...",
+			"Ficando no hamster ..."
 		]
 	},
-	"patreon": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
-	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
+	"patreon": "Apoie o Atlas e obtenha vantagens incríveis em troca doando em <https://www.patreon.com/NotSylver>.",
+	"invite": "Apoie o Atlas e obtenha vantagens incríveis em troca doando em <https://www.patreon.com/NotSylver>.",
 	"help": {
-		"sent": "Check your direct-messages for help!",
-		"footer": "{0} commands",
+		"sent": "Verifique suas mensagens diretas para obter ajuda!",
+		"footer": "{0} comandos",
 		"disabled": {
-			"plural": " • {0} plugins disabled",
-			"singular": " • {0} plugin disabled"
+			"plural": " {0} plugins desativados",
+			"singular": "{0} plug-in desativado"
 		},
-		"title": "Need some help?",
+		"title": "Precisa de alguma ajuda?",
 		"description": "Podes fazer `{0}<command>` para executar um comando ou `{0}ajuda <command>` para informações sobre um comando específico. Podes fazer `{0}ajuda <command> <subcommand>` para informação sobre subcomandos\n\nComandos marcados com um \\* asterisco têm subcomandos."
 	},
 	"info": {
 		"title": "Atlas",
-		"description": "Atlas is a general-purpose Discord bot that can do everything you need. There are tons of helpful plugins, over {0} high quality commands and much more.",
+		"description": "O Atlas é um bot Discord de uso geral que pode fazer tudo o que você precisa. Existem muitos plugins úteis, mais de {0} comandos de alta qualidade e muito mais.",
 		"support": {
-			"name": "Support",
-			"value": "[Cick here](https://atlasbot.xyz/support)"
+			"name": "Apoio, suporte",
+			"value": "[Cick aqui] (https://atlasbot.xyz/support)"
 		},
 		"website": {
-			"name": "Website",
-			"value": "[Click here](https://atlasbot.xyz/)"
+			"name": "Local na rede Internet",
+			"value": "[Clique aqui] (https://atlasbot.xyz/)"
 		}
 	},
-	"uptime": "I have been online for {0}.",
-	"version": "This instance is running Atlas version `{0}`.",
+	"uptime": "Estive online por {0}.",
+	"version": "Esta instância está executando a versão do Atlas `{0}`.",
 	"whois": {
-		"noUser": "You have to tell me who to look up!",
+		"noUser": "Você tem que me dizer quem procurar!",
 		"embed": {
 			"tag": {
 				"name": "Tag",
 				"value": "{0}"
 			},
 			"avatarURL": {
-				"name": "Avatar URL",
-				"value": "[Click here]({0})"
+				"name": "URL do avatar",
+				"value": "[Clique aqui] ({0})"
 			},
 			"createdAt": {
-				"name": "Account Created",
+				"name": "Conta criada",
 				"value": "{0}"
 			},
 			"joined": {
-				"name": "Joined",
+				"name": "Ingressou",
 				"value": "{0}"
 			},
 			"playing": {
-				"name": "Playing",
+				"name": "Jogando",
 				"value": {
 					"set": "{0}",
-					"null": "Nothing"
+					"null": "Nada"
 				}
 			},
 			"status": {
@@ -289,488 +289,488 @@
 				"value": "{0}"
 			},
 			"roles": {
-				"name": "Roles ({0})",
+				"name": "Funções ({0})",
 				"value": {
 					"set": "{0}",
-					"null": "None",
+					"null": "Nenhum",
 					"tooMany": "{0} total."
 				}
 			}
 		}
 	},
-	"support": "Need help? Join our server at <https://atlasbot.xyz/support>.",
+	"support": "Preciso de ajuda? Junte-se ao nosso servidor em <https://atlasbot.xyz/support>.",
 	"play": {
-		"spotifyLink": "Only patrons can play Spotify links! Do `{0}patreon` for more info.",
-		"noNodes": "There are no free voice nodes to handle your request. Please wait a few minutes and try again.",
-		"noResults": "I could not find any search results matching `{0}`.",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"busy": "I'm already playing in `{0}`.",
-		"noPerms": "I do not have permission to play in that voice channel.",
-		"noArgs": "You have to include a search term or song URL!",
+		"spotifyLink": "Somente usuários podem jogar links do Spotify! Faça `{0} patreon` para mais informações.",
+		"noNodes": "Não há nós de voz livre para lidar com sua solicitação. Por favor, aguarde alguns minutos e tente novamente.",
+		"noResults": "Não consegui encontrar nenhum resultado de pesquisa correspondente a {0} `.",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso!",
+		"busy": "Eu já estou jogando em `{0}`.",
+		"noPerms": "Eu não tenho permissão para jogar nesse canal de voz.",
+		"noArgs": "Você precisa incluir um termo de pesquisa ou um URL de música!",
 		"playlistEmbed": {
-			"title": "Playlist Queued - {0}",
-			"description": "{0} has queued {1} songs from a playlist."
+			"title": "Lista de reprodução na fila - {0}",
+			"description": "{0} colocou {1} músicas na fila de uma lista de reprodução."
 		},
 		"searchQuery": {
-			"outOfTime": "You did not provide a valid track number in time.",
-			"invalidTrack": "`{0}` is not a valid track number."
+			"outOfTime": "Você não forneceu um número de trilha válido no tempo.",
+			"invalidTrack": "`{0}` não é um número de faixa válido."
 		},
 		"searchResults": {
-			"title": "Search Results",
-			"footer": "Say a number or \"{0}play <num>\" to play a result"
+			"title": "Procurar Resultados",
+			"footer": "Diga um número ou \"{0} play <num>\" para reproduzir um resultado"
 		}
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "Duração Total",
 			"value": "{0}"
 		},
 		"inQueue": {
-			"name": "In Queue",
+			"name": "Na fila",
 			"value": {
-				"plural": "{0} songs",
-				"singular": "{0} song"
+				"plural": "{0} músicas",
+				"singular": "{0} música"
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "A Seguir",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
 	"qplaylist": {
-		"noArgs": "You have to include a YouTube playlist URL!",
-		"noVoiceChannel": "You have to be in a voice channel to do that!",
-		"invalidHostname": "You must enter a valid playlist URL!",
-		"youtubeOnly": "This command only works with YouTube playlists.",
-		"noQueryParam": "That link isn't apart of a playlist. "
+		"noArgs": "Você precisa incluir um URL de playlist do YouTube!",
+		"noVoiceChannel": "Você tem que estar em um canal de voz para fazer isso!",
+		"invalidHostname": "Você deve inserir um URL de lista de reprodução válido!",
+		"youtubeOnly": "Este comando só funciona com listas de reprodução do YouTube.",
+		"noQueryParam": "Esse link não é separado de uma lista de reprodução. "
 	},
 	"warn": {
 		"add": {
-			"noReason": "You have to include a reason.",
-			"noArgs": "Please include a user to warn!",
+			"noReason": "Você tem que incluir um motivo.",
+			"noArgs": "Por favor, inclua um usuário para avisar!",
 			"success": {
-				"plural": "Added warning to {0}, they now have {1} warnings.",
-				"singular": "Added warning to {0}, they now have {1} warning."
+				"plural": "Adicionado aviso para {0}, eles agora têm {1} avisos.",
+				"singular": "Adicionado aviso para {0}, eles agora têm {1} aviso."
 			},
-			"tooLong": "The reason you provided is too long, it must be at most 256 characters long."
+			"tooLong": "O motivo que você forneceu é muito longo, deve ter no máximo 256 caracteres."
 		},
 		"view": {
-			"noArgs": "Please include a user!",
-			"noPerms": "You only have permissions to view your own warnings!",
-			"noWarns": "{0} does not have any warnings."
+			"noArgs": "Por favor, inclua um usuário!",
+			"noPerms": "Você só tem permissão para ver seus próprios avisos!",
+			"noWarns": "{0} não tem nenhum aviso."
 		},
 		"remove": {
-			"notFound": "I could not find a warning matching your query.",
-			"noWarns": "{0} does not have any warnings.",
-			"error": "An error occured when adding reactions.",
-			"removedAll": "{0}, you have removed all of {1}'s warnings.",
-			"missingPerms": "I need permissions to add reactions to do that.",
-			"success": "{0}, removed warning `{1}` from {2}.",
-			"successNoMention": "Removed warning `{0}` from {1}."
+			"notFound": "Não consegui encontrar um aviso correspondente à sua consulta.",
+			"noWarns": "{0} não tem nenhum aviso.",
+			"error": "Ocorreu um erro ao adicionar reações.",
+			"removedAll": "{0}, você removeu todos os avisos de {1}.",
+			"missingPerms": "Eu preciso de permissões para adicionar reações para fazer isso.",
+			"success": "{0}, removeu o aviso `{1}` de {2}.",
+			"successNoMention": "Removido o aviso `{0}` de {1}."
 		}
 	},
 	"8ball": {
 		"responses": [
-			"It is certain.",
-			"It is decidedly so.",
-			"Without a doubt.",
-			"Yes definitely.",
-			"You may rely on it.",
-			"As I see it, yes.",
-			"Most likely.",
-			"Outlook good.",
-			"Most definitely.",
-			"Signs point to yes.",
-			"Reply hazy try again.",
-			"Ask again later.",
-			"Better not tell you now.",
-			"Cannot predict now.",
-			"Concentrate and ask again.",
-			"Don't count on it.",
-			"My reply is no.",
-			"My sources say no.",
-			"Outlook not so good.",
-			"Very doubtful."
+			"É certo.",
+			"É decididamente assim.",
+			"Sem dúvida.",
+			"Sim definitivamente.",
+			"Você pode contar com ele.",
+			"Como eu vejo, sim.",
+			"Provavelmente.",
+			"Outlook bom.",
+			"Definitivamente.",
+			"Sinais apontam que sim.",
+			"Resposta hazy tente novamente.",
+			"Pergunte novamente mais tarde.",
+			"Melhor não te dizer agora.",
+			"Não é possível prever agora.",
+			"Concentre-se e pergunte novamente.",
+			"Não conte com isso.",
+			"Minha resposta é não.",
+			"Minhas fontes dizem não.",
+			"Outlook não é tão bom.",
+			"Muito duvidoso."
 		]
 	},
 	"unban": {
-		"noArgs": "Please include a user to unban!",
-		"success": "{0} has been unbanned."
+		"noArgs": "Por favor, inclua um usuário para cancelar a operação!",
+		"success": "{0} foi esbanjado."
 	},
 	"mute": {
-		"noArgs": "Please include a user to mute!",
-		"success": "{0} has been muted for {1}.",
-		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
-		"generatePermError": "I need permissions to manage channels and roles to automatically generate a mute role.",
-		"alreadyMuted": "That user is already muted, did you mean `{0}unmute`?",
-		"invalid": "Please include a valid mute duration.",
+		"noArgs": "Por favor inclua um usuário para silenciar!",
+		"success": "{0} foi silenciado para {1}.",
+		"generated": "Eu também gerou automaticamente uma função mudo para esse servidor, o que pode exigir algumas pequenas alterações para que funcione corretamente.",
+		"generatePermError": "Preciso de permissões para gerenciar canais e funções para gerar automaticamente uma função de mudo.",
+		"alreadyMuted": "Esse usuário já está mudo, você quis dizer `{0} ativar o som?",
+		"invalid": "Por favor inclua uma duração mudo válida.",
 		"setForPast": "Dê-me uma data que seja no futuro.",
 		"furtherPls": "O tempo deve ser 5 ou mais segundos no futuro.",
-		"tooHigh": "The mute role defined for this server is above me in role hierarchy, meaning I cannot add it to the user to mute them."
+		"tooHigh": "A função mudo definida para esse servidor está acima de mim na hierarquia de papéis, o que significa que não posso adicioná-lo ao usuário para silenciá-los."
 	},
 	"unmute": {
-		"success": "{0} has been unmuted.",
-		"notMuted": "That user is not muted!",
-		"tooHigh": "The user is muted with a role that is above my own in role hierarchy, meaning I cannot remove it."
+		"success": "{0} foi silenciado.",
+		"notMuted": "Esse usuário não está mudo!",
+		"tooHigh": "O usuário está mudo com uma função acima da minha na hierarquia de papéis, o que significa que não posso removê-la."
 	},
 	"emojify": {
-		"noArgs": "Please include a sentence to emojify!"
+		"noArgs": "Por favor inclua uma frase para emoji ficar!"
 	},
 	"next": {
-		"success": "Skipped `{0}`.",
-		"nothingNext": "There is nothing in the queue to skip to."
+		"success": "Ignorada `{0}`.",
+		"nothingNext": "Não há nada na fila para pular para."
 	},
 	"botinfo": {
-		"noArgs": "Please mention a bot or include a search term.",
-		"notABot": "Beep boop? That user is not a bot.",
-		"notFound": "That bot is not listed on discordbots.org :c",
+		"noArgs": "Por favor mencione um bot ou inclua um termo de pesquisa.",
+		"notABot": "Beep boop? Esse usuário não é um bot.",
+		"notFound": "Esse bot não está listado em discordbots.org: c",
 		"embed": {
-			"library": "Library",
+			"library": "Biblioteca",
 			"servers": {
-				"name": "Servers",
-				"none": "Unknown"
+				"name": "Servidores",
+				"none": "Desconhecido"
 			},
 			"shards": {
-				"name": "Shards",
-				"none": "Unknown"
+				"name": "Estilhaços",
+				"none": "Desconhecido"
 			},
-			"prefix": "Prefix",
+			"prefix": "Prefixo",
 			"github": {
 				"name": "Github",
-				"none": "None"
+				"none": "Nenhum"
 			},
 			"website": {
-				"name": "Website",
-				"none": "None"
+				"name": "Local na rede Internet",
+				"none": "Nenhum"
 			},
-			"owners": "Owners",
-			"footer": "Approved at",
-			"invite": "Invite Link",
+			"owners": "Os Proprietários",
+			"footer": "Aprovado em",
+			"invite": "Link de convite",
 			"support": {
-				"name": "Support Server",
-				"none": "None"
+				"name": "Servidor de suporte",
+				"none": "Nenhum"
 			}
 		}
 	},
 	"leave": {
-		"recentRestart": "Nothing is playing in this server. Atlas restarted {0} ago, which may have affected your server.",
-		"sameChannel": "You must be in the same voice channel as I am to do that!",
-		"nothingPlaying": "There is nothing playing in this server!",
-		"leftNoChannel": "I have left the voice channel.",
-		"leftChannel": "I have left `{0}`!"
+		"recentRestart": "Nada está jogando neste servidor. Atlas reiniciado {0} atrás, o que pode ter afetado seu servidor.",
+		"sameChannel": "Você deve estar no mesmo canal de voz que eu para fazer isso!",
+		"nothingPlaying": "Não há nada jogando neste servidor!",
+		"leftNoChannel": "Eu deixei o canal de voz.",
+		"leftChannel": "Eu deixei `{0}`!"
 	},
 	"achievement": {
-		"noArgs": "You have to include something to turn into an achievement.",
-		"header": "Achievement Get!"
+		"noArgs": "Você tem que incluir algo para se transformar em uma conquista.",
+		"header": "Conquista realizada!"
 	},
 	"coinflip": {
-		"heads": "I flipped a coin and got heads!",
-		"tails": "I flipped a coin and got tails!"
+		"heads": "Eu joguei uma moeda e peguei cabeças!",
+		"tails": "Eu joguei uma moeda e peguei coroa!"
 	},
 	"move": {
-		"noArgs": "You have to include a channel to move the message to.",
-		"noMessage": "I could not find a message matching `{0}`.",
-		"noChannel": "I could not find a channel matching `{0}`.",
-		"notInTime": "{0}, you did not add a reaction in time.",
-		"sameChannel": "That message is already in {0}.",
-		"invalidType": "That message type cannot be transferred to a different channel.",
-		"waiting": "Please add a :package: `:package:` emoji to the message you want to move to {0}.",
-		"success": "Message moved to {0}.",
-		"noMessageOrPerms": "You have to provide a message ID or share link to move a message unless you have permissions to add reactions.",
-		"invalidTargetType": "You can't move messages to non-text channels."
+		"noArgs": "Você precisa incluir um canal para mover a mensagem.",
+		"noMessage": "Não consegui encontrar uma mensagem correspondente a {0} `.",
+		"noChannel": "Não consegui encontrar um canal correspondente a {0} `.",
+		"notInTime": "{0}, você não adicionou uma reação a tempo.",
+		"sameChannel": "Essa mensagem já está em {0}.",
+		"invalidType": "Esse tipo de mensagem não pode ser transferido para um canal diferente.",
+		"waiting": "Por favor, adicione um pacote: `: package:` emoji à mensagem que você deseja mover para {0}.",
+		"success": "Mensagem movida para {0}.",
+		"noMessageOrPerms": "Você precisa fornecer um ID de mensagem ou link de compartilhamento para mover uma mensagem, a menos que tenha permissões para adicionar reações.",
+		"invalidTargetType": "Você não pode mover mensagens para canais sem texto."
 	},
 	"texttoemoji": {
-		"noArgs": "You have to include some text to convert."
+		"noArgs": "Você tem que incluir algum texto para converter."
 	},
 	"log": {
-		"noResults": "I could not find a channel matching `{0}`.",
+		"noResults": "Não consegui encontrar um canal correspondente a {0} `.",
 		"actions": {
-			"success": "Action logs will now be sent to {0}.",
-			"disabled": "Action logging has been disabled."
+			"success": "Os logs de ação agora serão enviados para {0}.",
+			"disabled": "O log de ações foi desativado."
 		},
 		"moderation": {
-			"success": "Moderation logs will now be sent to {0}.",
-			"disabled": "Moderation logging has been disabled."
+			"success": "Agora, os registros de moderação serão enviados para {0}.",
+			"disabled": "O registro de moderação foi desativado."
 		},
 		"errors": {
-			"success": "Errors will now be sent to {0}.",
-			"disabled": "Error logging has been disabled."
+			"success": "Erros agora serão enviados para {0}.",
+			"disabled": "O registro de erros foi desativado."
 		}
 	},
 	"slowmode": {
-		"noArgs": "You have to include a message interval in seconds.",
-		"invalid": "The slowmode rate must be between 0 and 120.",
-		"success": "Users can now send messages every {0}.",
-		"disabled": "Disabled slowmode for {0}."
+		"noArgs": "Você precisa incluir um intervalo de mensagem em segundos.",
+		"invalid": "A taxa do modo lento deve estar entre 0 e 120.",
+		"success": "Os usuários agora podem enviar mensagens a cada {0}.",
+		"disabled": "Desative o modo lento para {0}."
 	},
 	"purge": {
 		"general": {
-			"tooLow": "The number you provided is too low. It must be one or higher.",
-			"tooHigh": "The number you provided is too high. Atlas can only purge up to 100 messages at once.",
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge, there are no messages that match your filter or the messages are older than 2 weeks.",
-			"success": "{0} has purged `{1}` messages.",
-			"invalidFilter": "You have to include a valid filter."
+			"tooLow": "O número que você forneceu é muito baixo. Deve ser um ou mais alto.",
+			"tooHigh": "O número que você forneceu é muito alto. O Atlas só pode limpar até 100 mensagens de uma só vez.",
+			"nothingPurged": "{0}, hmmm - nada foi removido. Isso significa que não há nada para limpar, não há mensagens que correspondam ao seu filtro ou que as mensagens tenham mais de duas semanas.",
+			"success": "{0} eliminou as mensagens `{1}`.",
+			"invalidFilter": "Você precisa incluir um filtro válido."
 		},
 		"base": {
-			"nothingPurged": "{0}, hmmm - nothing was purged. This means there is nothing to purge or the messages are older than 2 weeks."
+			"nothingPurged": "{0}, hmmm - nada foi removido. Isso significa que não há nada para purgar ou as mensagens têm mais de 2 semanas."
 		},
 		"user": {
-			"noArgs": "Please include a user mention!",
-			"noUser": "I couldn't find a valid user matching your search."
+			"noArgs": "Por favor inclua uma menção de usuário!",
+			"noUser": "Não consegui encontrar um usuário válido que corresponda à sua pesquisa."
 		}
 	},
 	"filters": {
 		"action": {
-			"noAction": "You have to include a valid action. Available actions: `{0}`.",
-			"success": "The {0} filter has been set to `{1}`."
+			"noAction": "Você precisa incluir uma ação válida. Ações disponíveis: `{0}`.",
+			"success": "O filtro {0} foi configurado para `{1}`."
 		},
 		"list": {
-			"title": "Filters"
+			"title": "Filtros"
 		}
 	},
 	"kick": {
-		"noArgs": "Please include a user to kick!",
+		"noArgs": "Filtros Por favor, inclua um usuário para chutar!",
 		"success": "Kicked {0}.",
-		"withReason": "Kicked {0} for `{1}`.",
+		"withReason": "Kicked {0} para `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "Você foi chutado do {0} por `{1}` por {2} ({3}).",
+			"noReason": "Você foi chutado do {0} por {1} ({2})."
 		}
 	},
 	"gotcharacter": {
-		"notFound": "I could not find a Game of Thrones character matching `{0}`."
+		"notFound": "Eu não consegui encontrar um caractere de Game of Thrones correspondente a {0} `."
 	},
 	"genavatar": {
-		"title": "Here you go!",
-		"description": "[Click here]({0}) for a higher quality version.",
+		"title": "Aqui está!",
+		"description": "[Clique aqui] ({0}) para uma versão de maior qualidade.",
 		"footer": "Via adorable.io"
 	},
 	"urban": {
-		"noArgs": "You have to provide a search!",
-		"noResults": "I couldn't find any definition for `{0}`.",
-		"nsfwDef": "The definition for that word is NSFW. Please use a NSFW channel.",
-		"nsfwWord": "That word is NSFW. Please use an NSFW channel.",
-		"author": "Author",
+		"noArgs": "Você tem que fornecer uma pesquisa!",
+		"noResults": "Não encontrei nenhuma definição para `{0}`.",
+		"nsfwDef": "A definição para essa palavra é NSFW. Por favor, use um canal NSFW.",
+		"nsfwWord": "Essa palavra é NSFW. Por favor, use um canal NSFW.",
+		"author": "Autor",
 		"votes": "{0} upvotes, {1} downvotes"
 	},
 	"avatar": {
 		"base": {
-			"cannotFind": "I could not find a user matching `{0}`.",
-			"title": "Here you go!"
+			"cannotFind": "Eu não consegui encontrar um usuário correspondente `{0}`.",
+			"title": "Aqui está!"
 		},
 		"server": {
-			"noIcon": "This server has no icon."
+			"noIcon": "Este servidor não possui ícone."
 		}
 	},
 	"advancedembed": {
-		"unsupportedColor": "`{0}` is not a supported color format.",
-		"error": "Error validating embed: `{0}`.",
-		"invalidEdit": "I could not find a message matching `{0}`.",
-		"cannotEdit": "I cannot edit another users messages."
+		"unsupportedColor": "`{0}` não é um formato de cor suportado.",
+		"error": "Erro ao validar a incorporação: `{0}`.",
+		"invalidEdit": "Não consegui encontrar uma mensagem correspondente a {0} `.",
+		"cannotEdit": "Não consigo editar outras mensagens de usuários."
 	},
 	"discrim": {
-		"title": "Users with a #{0} Discriminator",
-		"invalid": "`{0}` is not a valid discriminator.",
-		"none": "There are no users in this server with that discriminator."
+		"title": "Usuários com um Discriminador # {0}",
+		"invalid": "`{0}` não é um discriminador válido.",
+		"none": "Não há usuários neste servidor com esse discriminador."
 	},
 	"google": {
-		"noArgs": "Please include something to search for.",
-		"noResults": "I couldn't find anything when searching for that."
+		"noArgs": "Por favor inclua algo para procurar.",
+		"noResults": "Eu não consegui encontrar nada ao procurar por isso."
 	},
 	"inrole": {
-		"noArgs": "You have to provide a role name/mention to lookup.",
-		"noRole": "I could not find a role matching `{0}`.",
-		"noOne": "That role does not have any members.",
-		"title": "Members in the {0} Role"
+		"noArgs": "Você tem que fornecer um nome de função / menção à pesquisa.",
+		"noRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
+		"noOne": "Essa função não possui membros.",
+		"title": "Membros no papel {0}"
 	},
 	"inviteinfo": {
-		"invalid": "`{0}` is not a valid invite link or code.",
-		"title": "Invite Info for {0}",
+		"invalid": "`{0}` não é um link ou código de convite válido.",
+		"title": "Convide informações para {0}",
 		"guild": {
-			"name": "Server Name"
+			"name": "Nome do servidor"
 		},
 		"inviter": {
 			"name": "Inviter"
 		},
 		"channel": {
-			"name": "Channel",
+			"name": "Canal",
 			"value": "{0} ({1})"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Proprietário"
 		},
 		"memberCount": {
-			"name": "Member Count",
-			"value": "{0} ({1} online)"
+			"name": "Contagem de membro",
+			"value": "{0} ({1} on-line)"
 		}
 	},
 	"joined": {
-		"noArgs": "Please include a user to check.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"message": "{0} joined {1} at {2}."
+		"noArgs": "Por favor, inclua um usuário para verificar.",
+		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
+		"message": "{0} entrou {1} em {2}."
 	},
 	"membercount": {
 		"total": "Total",
 		"online": "Online",
-		"idle": "Idle",
-		"dnd": "Do not Disturb",
+		"idle": "Ocioso",
+		"dnd": "Não perturbe",
 		"offline": "Offline",
-		"bots": "Bots"
+		"bots": "Robôs"
 	},
 	"minecraft": {
-		"noArgs": "Please include a server IP.",
-		"invalidIP": "`{0}` is not a valid Minecraft IP.",
+		"noArgs": "Por favor, inclua um IP do servidor.",
+		"invalidIP": "`{0}` não é um IP Minecraft válido.",
 		"uptime": {
-			"name": "Uptime"
+			"name": "Tempo de atividade"
 		},
 		"players": {
-			"name": "Players",
+			"name": "Jogadores",
 			"value": "{0}/{1}"
 		},
 		"software": {
-			"name": "Software"
+			"name": "Programas"
 		},
-		"lastChecked": "Via mcapi.us  •  last checked",
+		"lastChecked": "Via mcapi.us • última verificação",
 		"status": "Status",
 		"online": "Online",
 		"offline": "Offline"
 	},
 	"quote": {
-		"noArgs": "Please include a message ID or share link.",
-		"noMessage": "I could not find any message matching that :c",
-		"invalidType": "This command only supports text messages.",
-		"invalidMsg": "That message does not have any contents or an image attached.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"noArgs": "Por favor inclua um ID de mensagem ou link de compartilhamento.",
+		"noMessage": "Não encontrei nenhuma mensagem que correspondesse a isso: c",
+		"invalidType": "Este comando suporta apenas mensagens de texto.",
+		"invalidMsg": "Essa mensagem não possui nenhum conteúdo ou uma imagem anexada.",
+		"notCached": "Hmm, não consegui encontrar essa mensagem. Se estiver em outro canal ou guilda, inclua o ID do canal como segundo argumento!"
 	},
-	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
+	"randomcolor": "Seu hex aleatório é [# {0}] (http://www.color-hex.com/color/ {0})",
 	"reddit": {
-		"noArgs": "Please include a subreddit name.",
-		"over18": "That subreddit is NSFW. Please use an NSFW channel.",
-		"invalid": "I could not find a subreddit with the name `{0}`."
+		"noArgs": "Por favor inclua um nome subreddit.",
+		"over18": "Esse subreddit é o NSFW. Por favor, use um canal NSFW.",
+		"invalid": "Eu não consegui encontrar um subreddit com o nome `{0}`."
 	},
 	"id": {
-		"noArgs": "Please include a role, user or channel.",
-		"noTarget": "I could not resolve `{0}` to a channel, role or user.",
-		"role": "The ID for the `@{0}` role is `{1}`.",
-		"channel": "{0}'s ID is `{1}`.",
-		"memberOrGuild": "{0}'s ID is `{1}`."
+		"noArgs": "Por favor, inclua um papel, usuário ou canal.",
+		"noTarget": "Não consegui resolver `{0}` para um canal, função ou usuário.",
+		"role": "O ID para o papel `@ {0}` é `{1}`.",
+		"channel": "O ID de {0} é `{1}`.",
+		"memberOrGuild": "O ID de {0} é `{1}`."
 	},
 	"roleinfo": {
-		"noArgs": "Please include a role.",
-		"invalidRole": "I could not find a role matching `{0}`.",
+		"noArgs": "Por favor, inclua um papel.",
+		"invalidRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
 		"id": {
 			"name": "ID"
 		},
 		"name": {
-			"name": "Name"
+			"name": "Nome"
 		},
 		"color": {
-			"name": "Color"
+			"name": "Cor"
 		},
 		"mention": {
-			"name": "Mention"
+			"name": "Menção"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membros"
 		},
 		"position": {
-			"name": "Position"
+			"name": "Posição"
 		},
 		"mentionable": {
-			"name": "Mentionable"
+			"name": "Mencionável"
 		},
 		"hoisted": {
-			"name": "Hoisted"
+			"name": "Içado"
 		},
-		"yes": "Yes",
-		"no": "No",
-		"footer": "Created At"
+		"yes": "Sim",
+		"no": "Não",
+		"footer": "Criado em"
 	},
 	"say": {
-		"noArgs": "You have to include something for me to say."
+		"noArgs": "Você tem que incluir algo para eu dizer."
 	},
 	"serverinfo": {
 		"name": {
-			"name": "Name"
+			"name": "Nome"
 		},
 		"textChannels": {
-			"name": "Text Channels"
+			"name": "Canais de texto:"
 		},
 		"voiceChannels": {
-			"name": "Voice Channels"
+			"name": "Canais de voz:"
 		},
 		"verificationLevel": {
-			"name": "Verification Level"
+			"name": "Nível de Verificação"
 		},
 		"region": {
-			"name": "Region"
+			"name": "Região"
 		},
 		"roles": {
-			"name": "Roles"
+			"name": "Papéis"
 		},
 		"members": {
-			"name": "Members"
+			"name": "Membros"
 		},
 		"owner": {
-			"name": "Owner"
+			"name": "Proprietário"
 		},
-		"footer": "Created"
+		"footer": "Criado"
 	},
 	"shorten": {
-		"noArgs": "Please include a URL.",
-		"invalidURI": "`{0}` is not a valid URL."
+		"noArgs": "Por favor, inclua uma URL.",
+		"invalidURI": "`{0}` não é um URL válido."
 	},
 	"time": {
-		"noArgs": "Please include a location to get the time for.",
-		"noTimezone": "I could not find a town or city matching `{0}`.",
-		"success": "It is currently {0} in {1}."
+		"noArgs": "Por favor inclua um local para obter o tempo para.",
+		"noTimezone": "Não consegui encontrar uma cidade ou cidade correspondente a `{0}`.",
+		"success": "Atualmente é {0} em {1}."
 	},
 	"locale": {
-		"success": "The servers language has been set to {0}.",
-		"notFound": "I could not find a locale matching `{0}` :c",
-		"title": "Supported Languages",
-		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz).\n\n{1}"
+		"success": "O idioma dos servidores foi configurado para {0}.",
+		"notFound": "Eu não consegui encontrar um local correspondente `{0}`: c",
+		"title": "Idiomas Suportados",
+		"description": "Para alterar a localidade deste servidor, faça `{0} locale <name>`. Você pode encontrar uma lista de nomes abaixo. Algumas línguas podem ter pouco ou nenhum apoio, caso em que o Atlas preencherá as partes que faltam com o inglês. Ajude a traduzir o Atlas para outros idiomas [aqui] (https://translate.atlasbot.xyz)"
 	},
 	"wiki": {
-		"noArgs": "You have to include a search term!",
-		"tooLong": "Your search term must be under 64 characters!",
-		"noResults": "I could not find any wiki article matching your search term!",
-		"description": "{0} [Wiki Page]({1})",
-		"footer": "Results for \"{0}\""
+		"noArgs": "Você tem que incluir um termo de pesquisa!",
+		"tooLong": "Seu termo de pesquisa deve ter menos de 64 caracteres.",
+		"noResults": "Não encontrei nenhum artigo wiki correspondente ao seu termo de pesquisa!",
+		"description": "{0} [Página do Wiki] ({1})",
+		"footer": "Resultados para \"{0}\""
 	},
 	"channelspaces": {
-		"success": "Hyphens in {0} have been replaced with spaces.",
-		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
-		"noChannel": "I couldn't find a channel matching `{0}`."
+		"success": "Os hífens em {0} foram substituídos por espaços.",
+		"error": "Algo deu errado ao atualizar o nome do canal. Discórdia pode ter consertado os \"espaços\" que usamos, ou algo pode estar temporariamente quebrado.",
+		"noChannel": "Não consegui encontrar um canal correspondente a \"{0}\"."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Você pode ver a classificação dos membros deste servidor em <https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "Não foi possível localizar o usuário`{0}` :c",
+		"noProfile": "Hmm, alguma coisa está errada. Não consegui achar o perfil desse usuário.",
 		"embed": {
 			"rank": "Rank",
-			"level": "Level",
+			"level": "Nível",
 			"experience": {
-				"name": "Experience",
+				"name": "Experiência",
 				"value": "{0}/{1} • `{0}` total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Por favor, inclua o nome do plugin.",
+		"noPlugin": "Não foi possível localizar o plugin `{0}`.",
+		"success": "O {0} plugin foi `{1}`."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Por favor, inclua o nome do plugin.",
+		"noCommand": "Não foi possível localizar o comando `{0}`.",
+		"disabled": "O {0} comando foi `desativado`.",
+		"enabled": "O {0} comando foi `ativado`."
 	},
 	"isspass": {
-		"noResults": "I could not find a location matching `{0}`.",
-		"title": "ISS Passes Over {0}",
-		"format": "• {0} for {1}",
-		"footer": "Times are local to {0}."
+		"noResults": "Não consegui encontrar uma localização correspondente a {0} `.",
+		"title": "ISS passa sobre {0}",
+		"format": "• {0} para {1}",
+		"footer": "Os horários são locais para {0}."
 	}
 }
