@@ -30,7 +30,8 @@
 			"blacklist": {
 				"role": "You have a role that is blacklisted from using that plugin.",
 				"channel": "You are in a channel that is blacklisted from using that plugin."
-			}
+			},
+			"permissions": "You are missing the permissions required to use that plugin."
 		}
 	},
 	"command": {
@@ -48,7 +49,8 @@
 			"whitelist": {
 				"role": "You are not whitelisted to use that command.",
 				"channel": "This channel is not whitelisted to use that command."
-			}
+			},
+			"permissions": "You are missing the permissions required to use that command."
 		}
 	},
 	"reminder": {
@@ -436,7 +438,8 @@
 			"whitelist": {
 				"role": "You are not whitelisted to use that action.",
 				"channel": "This channel is not whitelisted to use that action."
-			}
+			},
+			"permissions": "You are missing the permissions required to use that action."
 		}
 	}
 }
