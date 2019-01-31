@@ -181,54 +181,42 @@ module.exports = class Atlas {
 	}
 
 	async loadLocales() {
-		const locales = await fs.readdir('./locales');
+		const sourceFiles = await fs.readdir('./locales/source');
+		const translatedFiles = await fs.readdir('./locales/translated');
 
-		const english = await this.loadLocale('en');
+		const loadLocale = (dir, files) => {
+			const locale = {};
 
-		this.locales.set('en', {
-			data: english,
-			code: 'en',
-			translated: 1,
-			total: 2,
-		});
+			for (const file of files) {
+				const d = require(`./locales/${dir}/${file}`);
 
-		for (const locale of locales.filter(l => l !== 'en')) {
-			const flat = await this.loadLocale(locale);
-
-			const keys = Object.keys(flat);
-			const total = keys.length;
-
-			let translated = 0;
-			keys.forEach((k) => {
-				if (english[k] !== flat[k]) {
-					translated++;
+				if (d) {
+					locale[path.basename(file).split('.').shift()] = d;
 				}
+			}
+
+			return flatten(locale, {
+				safe: true,
 			});
+		};
+
+		const en = loadLocale('source', sourceFiles);
+
+		for (const locale of translatedFiles) {
+			const flattened = loadLocale(`translated/${locale}`, sourceFiles);
 
 			this.locales.set(locale, {
-				data: flat,
-				total,
-				translated,
+				data: {
+					...en,
+					...flattened,
+				},
 				code: locale,
 			});
 		}
-	}
 
-	async loadLocale(filename) {
-		console.log(`Loading locale "${filename}"`);
-
-		const files = await fs.readdir(path.join('./locales', filename));
-
-		const data = {};
-		files
-			// sometimes weird shit gets in there and idk where it's from but k
-			.filter(f => f.endsWith('.json'))
-			.forEach((f) => {
-				data[f.split('.').shift()] = require(`./locales/${filename}/${f}`);
-			});
-
-		return flatten(data, {
-			safe: true,
+		this.locales.set('en', {
+			data: en,
+			code: 'en',
 		});
 	}
 };
