@@ -30,7 +30,8 @@
 			"blacklist": {
 				"role": "あなたはそのプラグインの使用によりブラックリスト入りしたロールを保持しています。",
 				"channel": "あなたはそのプラグインの使用によりブラックリスト入りしたチャンネルにいます。"
-			}
+			},
+			"permissions": "You are missing the permissions required to use that plugin."
 		}
 	},
 	"command": {
@@ -48,7 +49,8 @@
 			"whitelist": {
 				"role": "あなたはそのコマンドの使用によりホワイトリストに入っていません。",
 				"channel": "このチャンネルはそのコマンドの使用によりホワイトリストに入っていません。"
-			}
+			},
+			"permissions": "You are missing the permissions required to use that command."
 		}
 	},
 	"reminder": {
@@ -436,7 +438,8 @@
 			"whitelist": {
 				"role": "You are not whitelisted to use that action.",
 				"channel": "This channel is not whitelisted to use that action."
-			}
+			},
+			"permissions": "You are missing the permissions required to use that action."
 		}
 	}
 }
