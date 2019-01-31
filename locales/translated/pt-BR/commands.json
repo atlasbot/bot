@@ -726,10 +726,11 @@
 		"success": "Atualmente é {0} em {1}."
 	},
 	"locale": {
-		"success": "O idioma dos servidores foi configurado para {0}.",
+		"success": "The servers language has been set to `{0}`.",
 		"notFound": "Eu não consegui encontrar um local correspondente `{0}`: c",
-		"title": "Idiomas Suportados",
-		"description": "Para alterar a localidade deste servidor, faça `{0} locale <name>`. Você pode encontrar uma lista de nomes abaixo. Algumas línguas podem ter pouco ou nenhum apoio, caso em que o Atlas preencherá as partes que faltam com o inglês. Ajude a traduzir o Atlas para outros idiomas [aqui] (https://translate.atlasbot.xyz)"
+		"title": "Locale",
+		"supported": "Idiomas Suportados",
+		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz)."
 	},
 	"wiki": {
 		"noArgs": "Você tem que incluir um termo de pesquisa!",
