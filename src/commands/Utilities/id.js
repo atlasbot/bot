@@ -1,4 +1,5 @@
-const { Role, Channel } = require('eris');
+const { Role, Message } = require('eris');
+
 const Command = require('../../structures/Command.js');
 
 module.exports = class extends Command {
@@ -19,24 +20,35 @@ module.exports = class extends Command {
 		};
 
 		let target;
-		const query = args.shift().toLowerCase();
+		const query = args.join(' ').toLowerCase();
 		if (replacements[query]) {
 			target = replacements[query];
-		} else {
+		}
+
+		// try grab the id from a mention
+		if (!target) {
 			const id = this.Atlas.util.cleanID(query);
+
 			if (id) {
 				target = msg.guild.roles.get(id) || msg.guild.channels.get(id) || msg.guild.members.get(id);
 			}
+		}
 
-			if (!target) {
-				target = (new this.Atlas.lib.structs.Fuzzy([
-					...msg.guild.channels.values(),
-					...msg.guild.roles.values(),
-					...msg.guild.members.values(),
-				], {
-					keys: ['mention', 'id', 'name', 'tag', 'username', 'nickname'],
-				})).search(query);
-			}
+		// try fuzzy find what they're on aboot
+		if (!target) {
+			target = (new this.Atlas.lib.structs.Fuzzy([
+				...msg.guild.channels.values(),
+				...msg.guild.roles.values(),
+				...msg.guild.members.values(),
+			], {
+				keys: ['mention', 'id', 'name', 'tag', 'username', 'nickname'],
+			})).search(query);
+		}
+
+		// when all our other options fail, look for a message that's "close enough"
+		if (!target) {
+			// search messages for the query
+			target = this.Atlas.lib.utils.nbsFuzzy(msg.channel.messages, ['content'], query);
 		}
 
 		if (target) {
@@ -44,11 +56,11 @@ module.exports = class extends Command {
 				return responder.text('id.role', target.name, target.id).send();
 			}
 
-			if (target instanceof Channel) {
-				return responder.text('id.channel', target.mention, target.id).send();
+			if (target instanceof Message) {
+				return responder.text('id.message', target.author.tag, target.id).send();
 			}
 
-			return responder.text('id.memberOrGuild', target.tag || target.name, target.id).send();
+			return responder.text('id.other', target.tag || target.mention || target.name, target.id).send();
 		}
 
 		return responder.error('id.noTarget', query).send();
