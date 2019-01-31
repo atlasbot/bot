@@ -55,6 +55,7 @@ module.exports = class Filter {
 		}, {
 			...plugin.restrictions,
 			// we dont want to check for permissions
+			permissions: [],
 		});
 		// }, plugin.restrictions);
 
