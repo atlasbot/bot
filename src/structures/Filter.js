@@ -49,8 +49,9 @@ module.exports = class Filter {
 		// if anyone wants to clean that up then you're more then welcome
 
 		const restrictionError = this.Atlas.lib.utils.checkRestriction({
-			roles: (msg.member && msg.member.roles) || [],
+			roles: msg.member.roles,
 			channel: msg.channel.id,
+			permissions: msg.channel.permissionsOf(msg.member.id),
 		}, plugin.restrictions);
 
 		// dont run filters on users that are blacklisted or whitelisted
