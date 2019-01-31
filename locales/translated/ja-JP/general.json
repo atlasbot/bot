@@ -14,7 +14,8 @@
 		"usage": "使用法",
 		"userPerms": "ユーザー権限",
 		"botPerms": "Bot権限",
-		"supportedFlags": "サポート済みフラグ"
+		"supportedFlags": "サポート済みフラグ",
+		"plugin": "Plugin"
 	},
 	"roles": {
 		"reactionAdd": "あなたは{1} に対応するため、{0} ロールを与えられました。",
