@@ -14,7 +14,8 @@
 		"usage": "Kullanım",
 		"userPerms": "Kullanıcı İzinleri",
 		"botPerms": "\nbot İzinleri",
-		"supportedFlags": "Supported Flags"
+		"supportedFlags": "Supported Flags",
+		"plugin": "Plugin"
 	},
 	"roles": {
 		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
