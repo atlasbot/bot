@@ -26,7 +26,33 @@ module.exports = class {
 	 * @returns {Promise<Object>}
 	 */
 	guildProfile(id, createPseudo = true) {
-		const profile = this.guilds.find(g => g.id === id);
+		let profile;
+
+		const profiles = this.guilds.filter(g => g.id === id);
+
+		if (profiles.length > 1) {
+			// AFAIK pre-8.0.69 things didn't play nice and some duplicate profiles were created.
+			// this fixes any that are found and removes duplicate profiles
+			const highest = profiles.reduce((prev, curr) => (prev.xp > curr.xp ? prev : curr), profiles[0]);
+			const xp = profiles.reduce((prev, curr) => prev.xp + curr.xp);
+
+			const others = this.guilds.filter(g => g.id !== id);
+
+			// add up all profiles XP and add them to the "primary" profile so we don't lose any XP
+			highest.xp = xp;
+
+			profile = highest;
+
+			// update the profile with the merged data
+			this.update({
+				guilds: [
+					...others,
+					profile,
+				],
+			});
+		} else {
+			([profile] = profiles);
+		}
 
 		if (profile || !createPseudo) {
 			return profile;

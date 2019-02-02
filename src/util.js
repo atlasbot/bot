@@ -805,7 +805,7 @@ module.exports = class Util {
 
 		// once we've made sure they have their rewards, we don't do shit
 		// if they have higher level rewards we'll turn a blind eye incase an admin is hooking them up or something
-		if (previousLevel === currentLevel) {
+		if (Math.abs(previousLevel) <= Math.abs(currentLevel)) {
 			return;
 		}
 

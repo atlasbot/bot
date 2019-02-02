@@ -157,7 +157,9 @@ module.exports = class Database {
 			throw new Error('Query ID mismatch');
 		}
 
-		let ret = await this.User.findOneAndUpdate(query, payload);
+		let ret = await this.User.findOneAndUpdate(query, payload, {
+			new: true
+		});
 
 		if (ret && ret.toObject) {
 			ret = ret.toObject();
