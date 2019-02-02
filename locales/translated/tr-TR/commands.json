@@ -1,4 +1,8 @@
 {
+	"cowboy": {
+		"noArgs": "gib emoji",
+		"notAnEmoji": "That isn't a valid emoji!"
+	},
 	"channelinfo": {
 		"notFound": "I could not find a channel matching `{0}`.",
 		"name": "İsim",
