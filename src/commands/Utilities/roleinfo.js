@@ -36,7 +36,7 @@ module.exports = class extends Command {
 				inline: true,
 			}, {
 				name: 'id.name',
-				value: role.id,
+				value: `\`${role.id}\``,
 				inline: true,
 			}, {
 				name: 'color.name',

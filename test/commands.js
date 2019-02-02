@@ -20,7 +20,7 @@ const loaded = raw.commands.map(f => ({
 	command: require(f),
 }));
 
-// todo: this doesn't handle subcommands properly
+// TODO: this doesn't handle subcommands properly
 
 describe('Command tests', () => {
 	for (const cmd of loaded) {
@@ -32,6 +32,8 @@ describe('Command tests', () => {
 					assert.equal(cmd.command.info.guildOnly, true);
 				}
 			});
+
+			// TODO: check for embedLinks perms and if the command actually embeds things
 
 			// ignore subcommands
 			if (cmd.diskname !== 'index') {

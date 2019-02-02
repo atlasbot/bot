@@ -14,6 +14,10 @@ module.exports = class extends Command {
 			return responder.error('id.noArgs').send();
 		}
 
+		if (this.Atlas.lib.utils.isSnowflake(args[0])) {
+			return responder.text('id.alreadyASnowflake', msg.displayPrefix, args.shift()).send();
+		}
+
 		const replacements = {
 			guild: msg.guild,
 			me: msg.author,
@@ -75,11 +79,6 @@ module.exports.info = {
 		'guild',
 		'@user',
 	],
-	aliases: ['roleid', 'channelid', 'userid'],
+	aliases: ['roleid', 'channelid', 'userid', 'snowflake'],
 	guildOnly: true,
-	permissions: {
-		bot: {
-			embedLinks: true,
-		},
-	},
 };
