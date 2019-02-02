@@ -258,10 +258,6 @@ class Responder {
      * @returns {Responder} The current responder instance
      */
 	embed(embed, validate = true) {
-		if (!embed.timestamp) {
-			embed.timestamp = new Date();
-		}
-
 		this._data.embed = embed;
 		this._data.validateEmbed = validate;
 
