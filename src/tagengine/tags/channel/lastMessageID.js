@@ -6,7 +6,7 @@ module.exports = middleware(({ channel }) => {
 		throw new TagError('This tag only works for text channels.');
 	}
 
-	return channel.topic;
+	return channel.lastMessageID;
 });
 
 module.exports.info = {
