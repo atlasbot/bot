@@ -779,7 +779,7 @@
 			"level": "Niveau",
 			"experience": {
 				"name": "Expérience",
-				"value": "{0}/{1} • `{0}` au total"
+				"value": "{0}/{1} • `{2}` total"
 			}
 		}
 	},
