@@ -1,4 +1,29 @@
 {
+	"channelinfo": {
+		"notFound": "Je n'ai pas trouvé de canal correspondant à `{0}`.",
+		"name": "Nom",
+		"id": "ID",
+		"type": "Type",
+		"createdAt": "Crée le",
+		"position": "Position",
+		"parent": "Parent",
+		"nsfw": "NSFW",
+		"mention": "Mention",
+		"bitrate": "Bitrate",
+		"userLimit": "User Limit",
+		"voiceMembers": "Voice Members"
+	},
+	"resolveid": {
+		"notASnowflake": "That isn't a Discord snowflake. Did you mean `{0}id {1}`?",
+		"notFound": "I could not find anything matching `{0}`. I tried my best :c",
+		"type": "Type",
+		"guild": "Guild",
+		"name": "Nom",
+		"onlineMembers": {
+			"name": "Online Members",
+			"value": "approx. {0}"
+		}
+	},
 	"xkcd": {
 		"invalidNumber": "The comic number you provided is invalid. It must be between `1` and `{0}`.",
 		"footer": "Comic {0} via xkcd.com"
@@ -653,7 +678,8 @@
 		"noTarget": "I could not resolve `{0}` to a channel, role, message or user.",
 		"role": "L'ID pour le rôle `@{0}` est `{1}`.",
 		"message": "{0}'s message ID is `{1}`.",
-		"other": "l'ID de {0} est `{1}`."
+		"other": "l'ID de {0} est `{1}`.",
+		"alreadyASnowflake": "That's already a Discord snowflake. Did you mean `{0}resolveid {1}`?"
 	},
 	"roleinfo": {
 		"noArgs": "Veuillez indiquer un rôle.",
