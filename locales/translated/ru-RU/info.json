@@ -1,4 +1,8 @@
 {
+	"cowboy": {
+		"description": "Howdy, I'm the cowboy of dead memes",
+		"usage": "<emoji> [town]"
+	},
 	"channelinfo": {
 		"description": "Get information about a specific channel.",
 		"usage": "<query>"
