@@ -1,4 +1,29 @@
 {
+	"channelinfo": {
+		"notFound": "Não consegui encontrar um canal correspondente a {0} `.",
+		"name": "Nome",
+		"id": "ID",
+		"type": "Type",
+		"createdAt": "Criado em",
+		"position": "Posição",
+		"parent": "Parent",
+		"nsfw": "NSFW",
+		"mention": "Menção",
+		"bitrate": "Bitrate",
+		"userLimit": "User Limit",
+		"voiceMembers": "Voice Members"
+	},
+	"resolveid": {
+		"notASnowflake": "That isn't a Discord snowflake. Did you mean `{0}id {1}`?",
+		"notFound": "I could not find anything matching `{0}`. I tried my best :c",
+		"type": "Type",
+		"guild": "Guild",
+		"name": "Nome",
+		"onlineMembers": {
+			"name": "Online Members",
+			"value": "approx. {0}"
+		}
+	},
 	"xkcd": {
 		"invalidNumber": "O número de quadrinhos que você forneceu é inválido. Deve estar entre `1 e` {0} `.",
 		"footer": "Comic {0} via xkcd.com"
@@ -653,7 +678,8 @@
 		"noTarget": "I could not resolve `{0}` to a channel, role, message or user.",
 		"role": "O ID para o papel `@ {0}` é `{1}`.",
 		"message": "{0}'s message ID is `{1}`.",
-		"other": "O ID de {0} é `{1}`."
+		"other": "O ID de {0} é `{1}`.",
+		"alreadyASnowflake": "That's already a Discord snowflake. Did you mean `{0}resolveid {1}`?"
 	},
 	"roleinfo": {
 		"noArgs": "Por favor, inclua um papel.",
