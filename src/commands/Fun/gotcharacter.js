@@ -2,9 +2,9 @@ const superagent = require('superagent');
 
 const Command = require('../../structures/Command.js');
 
-const characters = require('./../../../data/gameOfThrones/characters.json');
-const houses = require('./../../../data/gameOfThrones/houses.json');
-const books = require('./../../../data/gameOfThrones/books.json');
+const characters = require('./../../data/gameOfThrones/characters.json');
+const houses = require('./../../data/gameOfThrones/houses.json');
+const books = require('./../../data/gameOfThrones/books.json');
 
 module.exports = class extends Command {
 	constructor(Atlas) {

@@ -1,4 +1,4 @@
-const discordCodes = require('../../data/discordCodes.json');
+const discordCodes = require('../data/discordCodes.json');
 
 module.exports = class TagError extends Error {
 	constructor(raw, {
