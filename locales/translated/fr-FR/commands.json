@@ -1,4 +1,8 @@
 {
+	"cowboy": {
+		"noArgs": "gib emoji",
+		"notAnEmoji": "That isn't a valid emoji!"
+	},
 	"channelinfo": {
 		"notFound": "Je n'ai pas trouvé de canal correspondant à `{0}`.",
 		"name": "Nom",
