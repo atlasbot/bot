@@ -3,7 +3,7 @@ module.exports = class {
 		if (args[0].includes(process.env.TOKEN)) {
 			return;
 		}
-		
+
 		console.log(...args);
 	}
 };

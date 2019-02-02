@@ -158,7 +158,7 @@ module.exports = class Database {
 		}
 
 		let ret = await this.User.findOneAndUpdate(query, payload, {
-			new: true
+			new: true,
 		});
 
 		if (ret && ret.toObject) {

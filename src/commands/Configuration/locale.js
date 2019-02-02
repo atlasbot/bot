@@ -3,7 +3,7 @@ const lib = require('atlas-lib');
 const Command = require('../../structures/Command.js');
 
 // eslint-disable-next-line import/no-unresolved
-const languageMap = require('../../../languagemap.json');
+const languageMap = require('../../../data/languagemap.json');
 const emojiLocales = require('../../../data/emojiLocales');
 
 module.exports = class extends Command {

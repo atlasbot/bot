@@ -5,9 +5,9 @@ const fs = require('fs');
 const loader = require('../src/commands');
 
 const locale = {
-	commands: require('../locales/en/commands.json'),
-	general: require('../locales/en/general.json'),
-	info: require('../locales/en/info.json'),
+	commands: require('../locales/source/commands.json'),
+	general: require('../locales/source/general.json'),
+	info: require('../locales/source/info.json'),
 };
 
 const raw = loader.load(false);

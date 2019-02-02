@@ -261,7 +261,7 @@ class Responder {
 		if (!embed.timestamp) {
 			embed.timestamp = new Date();
 		}
-		
+
 		this._data.embed = embed;
 		this._data.validateEmbed = validate;
 
