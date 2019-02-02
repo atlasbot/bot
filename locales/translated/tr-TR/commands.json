@@ -779,7 +779,7 @@
 			"level": "Seviye",
 			"experience": {
 				"name": "Puan",
-				"value": "{0} / {1} • toplam {0} `toplam"
+				"value": "{0}/{1} • `{2}` total"
 			}
 		}
 	},
