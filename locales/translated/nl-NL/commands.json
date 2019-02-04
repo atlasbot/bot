@@ -669,7 +669,8 @@
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
 		"invalidMsg": "That message does not have any contents or an image attached.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!",
+		"noGuild": "That message isn't in a guild :c"
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
