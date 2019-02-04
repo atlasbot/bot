@@ -54,7 +54,9 @@ module.exports = class {
 					return r.emoji === emoji.id || this.Atlas.lib.emoji.compare(r.emoji, emid);
 				});
 
-				const member = msg.guild.members.get(userID);
+				const member = await settings.findUser(userID, {
+					memberOnly: true,
+				});
 
 				const toAdd = reactions
 					.map(r => msg.guild.roles.get(r.role))
