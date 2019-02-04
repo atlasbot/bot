@@ -15,9 +15,20 @@ module.exports = class extends Command {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
 
-		const role = await settings.findRoleOrChannel(args[0], {
+		let query;
+		if (args.length >= 2 && args[args.length - 1] === 'true') {
+			query = args.slice(0, args.length - 1).join(' ');
+		} else {
+			query = args.join(' ');
+		}
+
+		const role = await settings.findRoleOrChannel(query, {
 			type: 'role',
 		});
+
+		if (!role) {
+			return responder.error('noRole', query).send();
+		}
 
 		if (!msg.guild.me.highestRole.higherThan(role)) {
 			return responder.error('perms.bot').send();
@@ -27,7 +38,7 @@ module.exports = class extends Command {
 			return responder.error('perms.user').send();
 		}
 
-		const autoToggle = this.Atlas.lib.utils.toggleType(args[1]);
+		const autoToggle = this.Atlas.lib.utils.toggleType(args[args.length - 1]);
 
 		const state = autoToggle ? true : !role.mentionable;
 
@@ -39,7 +50,7 @@ module.exports = class extends Command {
 
 		if (autoToggle) {
 			const filter = sent => sent.author.id === msg.author.id && sent.roleMentions.includes(role.id);
-			const collector = new MessageCollector(msg.channel, filter);
+			const collector = new MessageCollector(null, filter);
 
 			collector.listen();
 

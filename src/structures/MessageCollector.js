@@ -65,7 +65,7 @@ module.exports = class extends EventEmitter {
 	 * @private
 	 */
 	collect(msg) {
-		if (msg.type === 0 && msg.channel.id === this.channel.id && (!this.filter || this.filter(msg))) {
+		if (msg.type === 0 && (!this.channel || msg.channel.id === this.channel.id) && (!this.filter || this.filter(msg))) {
 			this.emit('message', msg);
 		}
 	}
