@@ -37,6 +37,7 @@
 			"bot": "Eu não tenho permissões para gerenciar essa função.",
 			"user": "Você não tem permissões para gerenciar essa função."
 		},
+		"noRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
 		"dm": "O papel `@ {0}` não é mais mencionado porque você o mencionou.",
 		"mentionable": "Você pode agora mencionar `@ {0}`.",
 		"unmentionable": "Você não pode mais mencionar `@ {0}`.",
