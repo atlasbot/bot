@@ -9,7 +9,7 @@ module.exports = class {
 		await this.Atlas.DB.get('settings').updateOne({
 			id: guild.id,
 		}, {
-			bot: true,
+			bot: false,
 		});
 
 		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
