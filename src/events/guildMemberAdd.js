@@ -62,11 +62,15 @@ module.exports = class {
 
 		if (roles.state === 'enabled' && roles.options.join.length) {
 			// add join roles
-			const toAdd = roles.options.join.map(r => guild.roles.get(r)).filter(r => r && !r.higherThan(guild.me.highestRole));
+			const toAdd = roles.options.join
+				.map(r => guild.roles.get(r))
+				// remove deleted roles, roles higher than us (ones we can't assign) or roles the user already somehow has
+				.filter(r => r && !r.higherThan(guild.me.highestRole) && !member.roles.includes(r.id))
+				.slice(0, 5);
 
 			if (toAdd.length) {
 				// 5 roles max
-				for (const role of toAdd.slice(0, 5).filter(r => !member.roles.includes(r.id))) {
+				for (const role of toAdd) {
 					try {
 						await member.addRole(role.id);
 					} catch (e) {
