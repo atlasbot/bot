@@ -39,7 +39,7 @@ module.exports = class extends Command {
 
 				for (const channel of msg.guild.channels.values()) {
 					try {
-						await channel.editPermission(role.id, 0, 2103360, 'role', 'Mute role setu');
+						await channel.editPermission(role.id, 0, 2103360, 'role', 'Mute role setup');
 					} catch (e) {
 						console.warn(e);
 
