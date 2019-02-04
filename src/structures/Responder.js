@@ -331,7 +331,11 @@ class Responder {
 				const perms = channel.permissionsOf(this.Atlas.client.user.id);
 
 				if (!perms.has('sendMessages')) {
-					throw new Error('Missing permissions');
+					throw new Error('Missing "sendMessages" permission');
+				}
+
+				if (embed && !perms.has('embedLinks')) {
+					throw new Error('Missing "embedLinks" permission');
 				}
 			}
 		}
