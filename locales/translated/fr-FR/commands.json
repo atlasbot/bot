@@ -669,7 +669,8 @@
 		"noMessage": "Je n'ai pas trouvé de message correspondant à ceci :c",
 		"invalidType": "Cette commande prend uniquement en charge les messages textuels.",
 		"invalidMsg": "Ce message n'a pas de contenu ou d'image en pièce jointe.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!",
+		"noGuild": "That message isn't in a guild :c"
 	},
 	"randomcolor": "Votre hex aléatoire est [#{0}] (http://www.color-hex.com/color/{0})",
 	"reddit": {
