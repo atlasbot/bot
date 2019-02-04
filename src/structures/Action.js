@@ -115,6 +115,15 @@ module.exports = class Action {
 	}) {
 		const responder = (new this.Atlas.structs.Responder(msg.channel, this.settings.lang)).localised(true);
 
+		if (type !== 'dm') {
+			const target = channel || msg.channel;
+
+			if (!target.permissionsOf(this.Atlas.client.user.id).has('sendMessages')) {
+				// not much we can do if we dont have perms
+				return;
+			}
+		}
+
 		const parser = new Parser({
 			msg,
 			settings: this.settings,
