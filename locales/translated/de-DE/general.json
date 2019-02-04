@@ -3,7 +3,7 @@
 	"welcome": {
 		"title": "Oh hey!",
 		"description": "It looks like you're new to using Atlas. To get started, use the [dashboard](https://atlasbot.xyz) to set up your server. \n\nIf you ever need help with anything, join our [support server](https://atlasbot.xyz/support)",
-		"footer": "Don't be afraid to ask for help!",
+		"footer": "Hab' keine Angst um Hilfe zu bitten!",
 		"noEmbed": "Oh hallo! Es sieht so aus, als ob Du Atlas noch nicht kennst. Verwende zunächst das Dashboard (<https://atlasbot.xyz>), um Deinen Server einzurichten.\n\nWenn Du Hilfe benötigst, besuche unseren Support-Server (<https://atlasbot.xyz/support>)."
 	},
 	"help": {
@@ -12,9 +12,10 @@
 		"subcommands": "Unterbefehle",
 		"footer": "Do {0}help {1} <subcommand> to view a subcommand.",
 		"usage": "Usage",
-		"userPerms": "User Permissions",
-		"botPerms": "Bot Permissions",
-		"supportedFlags": "Supported Flags"
+		"userPerms": "Benutzerrechte",
+		"botPerms": "Bot Rechte",
+		"supportedFlags": "Supported Flags",
+		"plugin": "Plugin"
 	},
 	"roles": {
 		"reactionAdd": "You have been given the `{0}` role(s) for reacting with {1}.",
@@ -70,7 +71,7 @@
 			"false": "Der Spieler wurde nicht direkt benachrichtigt."
 		},
 		"reason": {
-			"name": "Reason",
+			"name": "Grund",
 			"value": "Keine Aktion gefunden!"
 		}
 	},
@@ -89,7 +90,7 @@
 		"leaving": "There is nothing left to play, leaving channel...",
 		"autoplay": {
 			"failed": "I couldn't find anything to play next :c. Try queue something else.",
-			"addedBy": "Autoplay"
+			"addedBy": "Automatische Wiedergabe"
 		}
 	},
 	"poweredBy": {
@@ -123,7 +124,7 @@
 					"name": "Moderator",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Grund"
 			},
 			"roleRemove": {
 				"title": "Member Updated - Role Removed",
@@ -132,7 +133,7 @@
 					"name": "Moderator",
 					"value": "{0} (`{1}`)"
 				},
-				"reason": "Reason"
+				"reason": "Grund"
 			},
 			"usernameChange": {
 				"title": "Member Updated - Username Changed",
@@ -208,7 +209,7 @@
 				"name": "Moderator"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Grund"
 			}
 		},
 		"messageUpdate": {
@@ -252,7 +253,7 @@
 				"name": "Moderator"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Grund"
 			}
 		},
 		"guildBanRemove": {
@@ -262,7 +263,7 @@
 				"name": "Moderator"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Grund"
 			}
 		},
 		"mute": {
@@ -275,7 +276,7 @@
 				"name": "Dauer"
 			},
 			"reason": {
-				"name": "Reason"
+				"name": "Grund"
 			},
 			"footer": "Target {0} Mod {1}"
 		},
@@ -286,7 +287,7 @@
 				"name": "Moderator"
 			},
 			"unmuteReason": {
-				"name": "Reason"
+				"name": "Grund"
 			}
 		}
 	},

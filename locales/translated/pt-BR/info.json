@@ -1,4 +1,16 @@
 {
+	"cowboy": {
+		"description": "Howdy, I'm the cowboy of dead memes",
+		"usage": "<emoji> [town]"
+	},
+	"channelinfo": {
+		"description": "Get information about a specific channel.",
+		"usage": "<query>"
+	},
+	"resolveid": {
+		"description": "Resolve a Discord ID to a role, channel, message, user, etc...",
+		"usage": "[id]"
+	},
 	"togglementionable": {
 		"description": "Alternar a possibilidade de mencionar a função. Se autoToggle for true, quando você mencionar a função, ela será definida como inominável.",
 		"usage": "[role] <autoToggle = false>"

@@ -14,7 +14,8 @@
 		"usage": "Uso\n",
 		"userPerms": "Permissões do usuário",
 		"botPerms": "Bot Permissions",
-		"supportedFlags": "Bandeiras Suportadas"
+		"supportedFlags": "Bandeiras Suportadas",
+		"plugin": "Plugin"
 	},
 	"roles": {
 		"reactionAdd": "Você recebeu o (s) papel (ais) para reagir com {1}.",

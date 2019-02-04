@@ -1,4 +1,16 @@
 {
+	"cowboy": {
+		"description": "Howdy, I'm the cowboy of dead memes",
+		"usage": "<emoji> [town]"
+	},
+	"channelinfo": {
+		"description": "Get information about a specific channel.",
+		"usage": "<query>"
+	},
+	"resolveid": {
+		"description": "Resolve a Discord ID to a role, channel, message, user, etc...",
+		"usage": "[id]"
+	},
 	"togglementionable": {
 		"description": "Toggle role mentionability. If autoToggle is true, once you mention the role it will be set to unmentionable.",
 		"usage": "[role] <autoToggle=false>"

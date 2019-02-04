@@ -1,4 +1,33 @@
 {
+	"cowboy": {
+		"noArgs": "gib emoji",
+		"notAnEmoji": "That isn't a valid emoji!"
+	},
+	"channelinfo": {
+		"notFound": "Não consegui encontrar um canal correspondente a {0} `.",
+		"name": "Nome",
+		"id": "ID",
+		"type": "Type",
+		"createdAt": "Criado em",
+		"position": "Posição",
+		"parent": "Parent",
+		"nsfw": "NSFW",
+		"mention": "Menção",
+		"bitrate": "Bitrate",
+		"userLimit": "User Limit",
+		"voiceMembers": "Voice Members"
+	},
+	"resolveid": {
+		"notASnowflake": "That isn't a Discord snowflake. Did you mean `{0}id {1}`?",
+		"notFound": "I could not find anything matching `{0}`. I tried my best :c",
+		"type": "Type",
+		"guild": "Guild",
+		"name": "Nome",
+		"onlineMembers": {
+			"name": "Online Members",
+			"value": "approx. {0}"
+		}
+	},
 	"xkcd": {
 		"invalidNumber": "O número de quadrinhos que você forneceu é inválido. Deve estar entre `1 e` {0} `.",
 		"footer": "Comic {0} via xkcd.com"
@@ -650,10 +679,11 @@
 	},
 	"id": {
 		"noArgs": "Por favor, inclua um papel, usuário ou canal.",
-		"noTarget": "Não consegui resolver `{0}` para um canal, função ou usuário.",
+		"noTarget": "I could not resolve `{0}` to a channel, role, message or user.",
 		"role": "O ID para o papel `@ {0}` é `{1}`.",
-		"channel": "O ID de {0} é `{1}`.",
-		"memberOrGuild": "O ID de {0} é `{1}`."
+		"message": "{0}'s message ID is `{1}`.",
+		"other": "O ID de {0} é `{1}`.",
+		"alreadyASnowflake": "That's already a Discord snowflake. Did you mean `{0}resolveid {1}`?"
 	},
 	"roleinfo": {
 		"noArgs": "Por favor, inclua um papel.",
@@ -726,10 +756,11 @@
 		"success": "Atualmente é {0} em {1}."
 	},
 	"locale": {
-		"success": "O idioma dos servidores foi configurado para {0}.",
+		"success": "The servers language has been set to `{0}`.",
 		"notFound": "Eu não consegui encontrar um local correspondente `{0}`: c",
-		"title": "Idiomas Suportados",
-		"description": "Para alterar a localidade deste servidor, faça `{0} locale <name>`. Você pode encontrar uma lista de nomes abaixo. Algumas línguas podem ter pouco ou nenhum apoio, caso em que o Atlas preencherá as partes que faltam com o inglês. Ajude a traduzir o Atlas para outros idiomas [aqui] (https://translate.atlasbot.xyz)"
+		"title": "Locale",
+		"supported": "Idiomas Suportados",
+		"description": "To change this server's locale, do `{0}locale <name>`. You can find a list of names below. Some languages may have little to no support, in which case Atlas will fill in the missing pieces with English. \n\nHelp translate Atlas to other languages [here](https://translate.atlasbot.xyz)."
 	},
 	"wiki": {
 		"noArgs": "Você tem que incluir um termo de pesquisa!",
@@ -752,7 +783,7 @@
 			"level": "Nível",
 			"experience": {
 				"name": "Experiência",
-				"value": "{0}/{1} • `{0}` total"
+				"value": "{0}/{1} • `{2}` total"
 			}
 		}
 	},
