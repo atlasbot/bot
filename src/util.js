@@ -572,15 +572,6 @@ module.exports = class Util {
 			throw new Error('Invalid guild.');
 		}
 
-		if (!guild.me.permission.has('viewAuditLogs')) {
-			return;
-		}
-
-		// if we don't have perms to view audit logs, there is no point in trying
-		if (!guild.me.permission.has('viewAuditLogs')) {
-			return;
-		}
-
 		// sometimes something will fake it's own audit log entries to show more accurate data
 		const override = this.Atlas.auditOverrides.find(e => e.guild === guild.id
 				&& e.type === type
@@ -594,9 +585,14 @@ module.exports = class Util {
 		// wait a few seconds to let the audit log catch up, idk why sometimes it takes a bit for logs to show up
 		await new Promise(resolve => setTimeout(resolve, 1000));
 
-		const x = await guild.getAuditLogs(25, null, type);
-		if (x) {
-			const entry = x.entries.find(e => e.targetID === id);
+		// if we don't have perms to view audit logs, there is no point in trying
+		if (!guild.me.permission.has('viewAuditLogs')) {
+			return;
+		}
+
+		const { entries } = await guild.getAuditLogs(25, null, type) || {};
+		if (entries) {
+			const entry = entries.find(e => e.targetID === id);
 
 			if (!entry) {
 				return;
