@@ -37,6 +37,7 @@
 			"bot": "I do not have permissions to manage that role.",
 			"user": "You do not have permissions to manage that role."
 		},
+		"noRole": "I could not find a role matching `{0}`.",
 		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
 		"mentionable": "You can now mention `@{0}`. ",
 		"unmentionable": "You can no longer mention `@{0}`.",
