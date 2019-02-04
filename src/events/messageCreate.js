@@ -224,6 +224,10 @@ module.exports = class {
 				// thanks to the "return await", if it throws an error we'll catch it and report it manually
 				console.error(e);
 
+				if (e.message) {
+					e.message = `${msg.command.info.name}: ${e.message}`;
+				}
+
 				// sentry doesn't have a non-bullshit way to attach extra data anymore (like args used to recreate the error)
 				this.Atlas.Sentry.captureException(e);
 			}
