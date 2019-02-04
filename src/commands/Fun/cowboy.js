@@ -41,8 +41,10 @@ module.exports = class extends Command {
 			};
 		}
 
+		const name = args.shift();
+
 		// :^)
-		const ret = template(args[0], args[1] || emoji.name);
+		const ret = template(name, args.join(' ') || emoji.name);
 
 		return responder.localised().text(ret).send();
 	}
