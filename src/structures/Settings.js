@@ -251,7 +251,7 @@ module.exports = class GuildSettings {
 				await responder.dm(target).embed({
 					color: this.Atlas.colors.get('red').decimal,
 					title: 'Warning',
-					description: `You have recieved a warning in ${this.guild.name}. Improve your behaviour or you will be removed from the server.`,
+					description: `You have received a warning in ${this.guild.name}. Improve your behaviour or you will be removed from the server.`,
 					fields: [{
 						name: 'Warned By',
 						value: `${moderator.mention} (\`${moderator.tag}\`)`,
@@ -263,7 +263,7 @@ module.exports = class GuildSettings {
 					}],
 					timestamp: new Date(),
 					footer: {
-						text: `This message was sent automatically because you recieved a warn in ${this.guild.name}. You can block Atlas if you wish to stop recieving these messages.`,
+						text: `This message was sent automatically because you received a warn in ${this.guild.name}. You can block Atlas if you wish to stop receiving these messages.`,
 					},
 				}).send();
 
