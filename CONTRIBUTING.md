@@ -19,7 +19,7 @@ Before submitting a pull request, please:
 
 ## Important notes
 
-Any contributions you make that are accepted and merged will be covered under the [GNU GPL 3.0 license](https://github.com/atlasbot/bot/blob/master/LICENSE) that the rest of the repo follows. If you feel you have a concern with this please contact Sylver.
+Any contributions you make that are accepted and merged will be covered under the [GNU GPL 3.0 license](https://github.com/atlasbot/bot/blob/master/LICENSE) that the rest of the repo follows. If you feel you have a concern with this, please contact Sylver.
 
 ## Got a suggestion?
 
