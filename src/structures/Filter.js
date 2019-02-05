@@ -65,7 +65,8 @@ module.exports = class Filter {
 		}
 
 		for (const str of [msg.content, msg.cleanContent]) {
-			const output = await this.execute(str, msg, {
+			// strip spoilers
+			const output = await this.execute(str.split('||').join(''), msg, {
 				filterConfig,
 			});
 
