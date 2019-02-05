@@ -241,7 +241,7 @@ module.exports = class GuildSettings {
 
 		try {
 			if (!this.guild.members.has(target.id)) {
-				throw new Error('Cannot warn a member not in the guild');
+				throw new Error('Cannot warn a member currently not in the guild!');
 			}
 
 			// todo: localise
