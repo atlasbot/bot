@@ -428,6 +428,7 @@
 		"success": "{0} foi esbanjado."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Por favor inclua um usuário para silenciar!",
 		"success": "{0} foi silenciado para {1}.",
 		"generated": "Eu também gerou automaticamente uma função mudo para esse servidor, o que pode exigir algumas pequenas alterações para que funcione corretamente.",
