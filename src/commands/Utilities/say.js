@@ -42,6 +42,11 @@ module.exports = class extends Command {
 			});
 		}
 
+		// after cleaning and everything is done, sometimes it's empty. idk
+		if (!text) {
+			return responder.error('noArgs').send();
+		}
+
 		return responder.text(text).send();
 	}
 };

@@ -65,7 +65,7 @@ module.exports = class {
 			const toAdd = roles.options.join
 				.map(r => guild.roles.get(r))
 				// remove deleted roles, roles higher than us (ones we can't assign) or roles the user already somehow has
-				.filter(r => r && !r.higherThan(guild.me.highestRole) && !member.roles.includes(r.id))
+				.filter(r => r && !r.higherThan(guild.me.highestRole) && !(member.roles || []).includes(r.id))
 				.slice(0, 5);
 
 			if (toAdd.length) {

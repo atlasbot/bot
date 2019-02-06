@@ -45,7 +45,7 @@ module.exports = class {
 
 				const toRemove = reactions
 					.map(r => msg.guild.roles.get(r.role))
-					.filter(r => r && !r.higherThan(msg.guild.me.highestRole) && member.roles.includes(r.id));
+					.filter(r => r && !r.higherThan(msg.guild.me.highestRole) && (member.roles || []).includes(r.id));
 
 				if (toRemove.length) {
 					// max 3 roles per reaction

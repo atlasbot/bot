@@ -60,7 +60,7 @@ module.exports = class {
 
 				const toAdd = reactions
 					.map(r => msg.guild.roles.get(r.role))
-					.filter(r => r && !r.higherThan(msg.guild.me.highestRole) && !member.roles.includes(r.id));
+					.filter(r => r && !r.higherThan(msg.guild.me.highestRole) && !(member.roles || []).includes(r.id));
 
 				if (toAdd.length) {
 					const added = [];
