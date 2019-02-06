@@ -289,7 +289,8 @@ class Responder {
 
 		if (data.noDupe && content) {
 			const existing = this.Atlas.sent.find(c => c.channel === data.channelId && c.str === content);
-			if (existing) {
+
+			if (existing && existing.channel.messages.has(existing.id)) {
 				try {
 					if (existing.edited < 4) {
 						await existing.msg.edit(`${existing.msg.content} (x${existing.edited + 1})`);
