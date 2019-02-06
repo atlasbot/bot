@@ -38,7 +38,11 @@ module.exports = class extends Command {
 			return responder.error('perms.user').send();
 		}
 
-		const autoToggle = this.Atlas.lib.utils.toggleType(args[args.length - 1]);
+		let autoToggle = false;
+		try {
+			autoToggle = this.Atlas.lib.utils.toggleType(args[args.length - 1]);
+			// eslint-disable-next-line no-empty
+		} catch (e) {}
 
 		const state = autoToggle ? true : !role.mentionable;
 
