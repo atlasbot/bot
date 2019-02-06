@@ -225,7 +225,11 @@ module.exports = class {
 				console.error(e);
 
 				if (e.message) {
-					e.message = `${msg.command.info.name}: ${e.message}`;
+					// discord rest error messages are read-only
+					try {
+						e.message = `${msg.command.info.name}: ${e.message}`;
+						// eslint-disable-next-line no-empty
+					} catch (x) {}
 				}
 
 				// sentry doesn't have a non-bullshit way to attach extra data anymore (like args used to recreate the error)
