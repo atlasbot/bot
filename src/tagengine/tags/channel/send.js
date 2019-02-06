@@ -43,6 +43,10 @@ module.exports = async (context, args) => {
 		throw new TagError('No content to send.');
 	}
 
+	if (content.length > 2000) {
+		throw new TagError('[content] must be 2000 or fewer in length.');
+	}
+
 	const responder = new Responder(channel, 'en');
 
 	await responder.channel(channel).localised(true).text(content).send();
