@@ -167,7 +167,7 @@ module.exports = class GuildSettings {
 				roles: [],
 				channels: [],
 			},
-			...this.raw.plugins[name.toLowerCase()] || {},
+			...(this.raw.plugins && this.raw.plugins[name.toLowerCase()]) || {},
 		};
 	}
 
