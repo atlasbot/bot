@@ -6,7 +6,7 @@ module.exports = class {
 	async execute(msg, oldMsg) {
 		// according to sentry this can sometimes be null
 		// /shrug
-		if (!oldMsg || msg.content === oldMsg.content) {
+		if (!oldMsg || msg.content === oldMsg.content || msg.type !== 0) {
 			return;
 		}
 
@@ -40,10 +40,10 @@ module.exports = class {
 				description: ['general.logs.messageUpdate.description', msg.author.tag, msg.channel.mention],
 				fields: [{
 					name: 'general.logs.messageUpdate.oldContent.name',
-					value: oldMsg.content.substring(0, 1024),
+					value: oldMsg.content.substring(0, 1024) || '-',
 				}, {
 					name: 'general.logs.messageUpdate.newContent.name',
-					value: msg.content.substring(0, 1024),
+					value: msg.content.substring(0, 1024) || '-',
 				}],
 				thumbnail: {
 					url: msg.author.avatarURL,
