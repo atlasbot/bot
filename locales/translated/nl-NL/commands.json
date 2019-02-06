@@ -428,6 +428,7 @@
 		"success": "{0} is ge unbanned."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Please include a user to mute!",
 		"success": "{0} has been muted for {1}.",
 		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
