@@ -1,6 +1,10 @@
 const parseTime = require('atlas-lib/lib/utils/parseTime');
 const Command = require('../../structures/Command.js');
 
+const ROLE_PERMISSIONS_DENY = 2103360;
+const ROLE_PERMISSIONS_ALLOW = 0;
+const ROLE_COLOR = 6316143;
+
 module.exports = class extends Command {
 	constructor(Atlas) {
 		super(Atlas, module.exports.info);
@@ -32,19 +36,14 @@ module.exports = class extends Command {
 
 				role = await msg.guild.createRole({
 					name: 'Muted',
-					color: 6316143,
+					color: ROLE_COLOR,
 				}, 'Auto-generated to mute users');
 
-				await role.editPosition(msg.guild.me.highestRole.position - 1);
-
-				for (const channel of msg.guild.channels.values()) {
-					try {
-						await channel.editPermission(role.id, 0, 2103360, 'role', 'Mute role setup');
-					} catch (e) {
-						console.warn(e);
-
-						continue;
-					}
+				try {
+					await role.editPosition(msg.guild.me.highestRole.position - 1);
+				} catch (e) {
+					// somehow between creating the role and editing its posiiton it can disappear into thin air
+					return responder.error('mute.weirdError').send();
 				}
 			}
 
@@ -57,17 +56,20 @@ module.exports = class extends Command {
 			role = settings.muteRole;
 		}
 
-		// make sure permission overwrites are set
-		for (const channel of msg.guild.channels.filter(c => (c.type === 0) || (c.type === 2))) {
-			// we don't wanna fuck with permissions in ticket categories
-			if (channel.permissionOverwrites.get(role.id)) {
+		// make sure each channel is setup for the role
+		for (const channel of msg.guild.channels.filter(c => ([0, 2]).includes(c.type))) {
+			if (channel.permissionOverwrites.has(role.id)) {
+				// if permissions are already set we don't want to overwrite them. maybe the server staff changed it?
+				// who knows, we just don't wanna do anything.
 				continue;
 			}
 
 			try {
-				await channel.editPermission(role.id, 0, 2099264, 'role', 'Mute role permissions');
+				await channel.editPermission(role.id, ROLE_PERMISSIONS_ALLOW, ROLE_PERMISSIONS_DENY, 'role', 'Mute role setup');
 			} catch (e) {
-				continue; // eslint-disable-line no-continue
+				console.warn(e);
+
+				continue;
 			}
 		}
 

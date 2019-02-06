@@ -1,10 +1,10 @@
 const Joi = require('joi');
 const embedSchema = require('./../schemas/embed');
 
+// the amount of messages atlas will edit instead of sending new ones before waiting for the send message to expire
+const MAX_ANTI_FLOOD_EDITS = 4;
+
 /** A responder, sends data to channels. */
-
-/* eslint-disable no-case-declarations, no-fall-through */
-
 class Responder {
 	/**
      * Creates a new responder.
@@ -292,10 +292,10 @@ class Responder {
 
 			if (existing && existing.channel.messages.has(existing.id)) {
 				try {
-					if (existing.edited < 4) {
+					if (existing.edited < MAX_ANTI_FLOOD_EDITS) {
 						await existing.msg.edit(`${existing.msg.content} (x${existing.edited + 1})`);
-					} else if (existing.edited === 4) {
-						await existing.msg.edit(`${existing.msg.content} (its time to stop)`);
+					} else if (existing.edited === MAX_ANTI_FLOOD_EDITS) {
+						await existing.msg.edit(`${existing.msg.content} (x?)`);
 					}
 
 					existing.edited++;
