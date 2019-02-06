@@ -428,6 +428,7 @@
 		"success": "{0} a été débanni."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Veuillez inclure un utilisateur à mute!",
 		"success": "{0} a été mute pour {1}.",
 		"generated": " J’ai également généré automatiquement un rôle muet pour ce serveur, ce qui peut nécessiter des modifications mineures à faire fonctionner correctement.",
