@@ -97,16 +97,16 @@
 		"nekobot": "Avec nekoboz.xyz"
 	},
 	"logs": {
-		"levelReset": {
-			"title": "Niveau réinitialisé",
-			"description": "{0} a eu ces niveaux remis a zéro de `{1}` à `0`.",
+		"levelSet": {
+			"title": "Level Set",
+			"description": "Level changed from `{0}` to `{1}`.",
 			"moderator": {
 				"name": "Administrateur",
-				"value": "{0}"
+				"value": "{0}\n{1}"
 			},
 			"target": {
 				"name": "Cible",
-				"value": "{0}"
+				"value": "{0}\n{1}"
 			}
 		},
 		"guildMemberKick": {
