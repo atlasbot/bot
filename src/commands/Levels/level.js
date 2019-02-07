@@ -58,8 +58,8 @@ module.exports = class extends Command {
 				inline: true,
 			}, {
 				name: 'embed.experience.name',
-				value: ['embed.experience.value', next.completed, next.xp, xp]
-					.map(v => (v.toLocaleString ? v.toLocaleString() : v)),
+				value: ['embed.experience.value', next.completed, next.xp - current.xp, xp]
+					.map(v => (typeof v === 'number' ? v.toLocaleString().split('.')[0] : v)),
 				inline: true,
 			}],
 		}).send();

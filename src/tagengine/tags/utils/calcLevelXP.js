@@ -14,7 +14,7 @@ module.exports = async (context, [number]) => {
 module.exports.info = {
 	name: 'utils.calcLevelXP',
 	args: '<number>',
-	description: 'Gets a level from an amount of XP.',
+	description: 'Gets the amount of XP required for a level.',
 	examples: [{
 		input: '{utils.calcLevelXP;1337}',
 		output: '5',
