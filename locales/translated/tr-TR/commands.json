@@ -102,10 +102,12 @@
 		"noArgs": "Lütfen Rastgele bir şey ekle"
 	},
 	"dashboard": "Sunucunuzu <https://atlasbot.xyz/meera/ {0}> adresinde yapılandırabilirsiniz.",
-	"resetlevel": {
-		"noArgs": "Lütfen seviyesini sıfırlamak için bir kullanıcı ekleyin.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} seviyelerini sıfıra getirdi."
+	"setlevel": {
+		"bot": "Bots cannot have levels.",
+		"noUser": "Please tag the user you wish to change the level of.",
+		"invalidUser": "I could not resolve `{0}` to a valid user.",
+		"noLevel": "Please include a valid number between 0-150 to set the users level to.",
+		"success": "{0} is now level `{1}`. The users role rewards (if any) will automatically be updated once they send a message."
 	},
 	"playlist": {
 		"create": {
