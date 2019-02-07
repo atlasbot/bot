@@ -97,16 +97,16 @@
 		"nekobot": "Via nekobot.xyz"
 	},
 	"logs": {
-		"levelReset": {
-			"title": "Level Reset",
-			"description": "{0} has had their level reset from `{1}` to `0`.",
+		"levelSet": {
+			"title": "Level Set",
+			"description": "Level changed from `{0}` to `{1}`.",
 			"moderator": {
 				"name": "Administrator",
-				"value": "{0}"
+				"value": "{0}\n{1}"
 			},
 			"target": {
 				"name": "Ziel",
-				"value": "{0}"
+				"value": "{0}\n{1}"
 			}
 		},
 		"guildMemberKick": {
