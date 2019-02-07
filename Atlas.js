@@ -99,6 +99,9 @@ module.exports = class Atlas {
 		this.lib = lib;
 		this.env = process.env.NODE_ENV || 'development';
 		this.actionsInterval = new ActionsInterval(this);
+
+		// whether this shard is the master shard
+		this.master = client.options.firstShardID === 0;
 	}
 
 	// im lazy

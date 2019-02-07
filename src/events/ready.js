@@ -29,5 +29,10 @@ module.exports = class {
 			defaultRegion: 'us',
 			player: Player,
 		});
+
+		if (this.Atlas.master) {
+			this.Atlas.DB.syncUser(this.Atlas.client.user)
+				.then(() => console.log('Synced self-profile to db'));
+		}
 	}
 };
