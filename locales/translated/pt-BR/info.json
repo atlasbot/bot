@@ -70,9 +70,9 @@
 	"dashboard": {
 		"description": "Obtenha um link para o painel de seus servidores."
 	},
-	"resetlevel": {
-		"description": "Redefinir nível do usuário.",
-		"usage": "[do utilizador]"
+	"setlevel": {
+		"description": "Set a users level.",
+		"usage": "[user] [level]"
 	},
 	"playlist": {
 		"base": {
