@@ -102,10 +102,12 @@
 		"noArgs": "Please include something to raNdomIsE."
 	},
 	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
-	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+	"setlevel": {
+		"bot": "Bots cannot have levels.",
+		"noUser": "Please tag the user you wish to change the level of.",
+		"invalidUser": "I could not resolve `{0}` to a valid user.",
+		"noLevel": "Please include a valid number between 0-150 to set the users level to.",
+		"success": "{0} is now level `{1}`. The users role rewards (if any) will automatically be updated once they send a message."
 	},
 	"playlist": {
 		"create": {
