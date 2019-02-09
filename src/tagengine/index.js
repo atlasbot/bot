@@ -1,4 +1,3 @@
-const Message = require('eris/lib/structures/Message');
 const Permission = require('eris/lib/structures/Permission');
 const { Permissions } = require('eris/lib/Constants');
 
@@ -6,8 +5,7 @@ const tags = require('./loader')();
 const interpreter = require('./interpreter');
 const Parser = require('./Parser');
 const Lexer = require('./lexer');
-
-const RETURN_ID_REGEX = /--?returnId((?:=)?('|")true('|"))?/;
+const commandTag = require('./commandTag');
 
 module.exports = class {
 	/**
@@ -81,64 +79,7 @@ module.exports = class {
 				const command = this.Atlas.commands.get(label);
 
 				if (command) {
-					return {
-						execute: async (context, args = []) => {
-							let returnId = false;
-
-							const argIndex = args.findIndex(a => RETURN_ID_REGEX.test(a));
-
-							if (argIndex !== -1) {
-								args.splice(argIndex, 1);
-
-								returnId = true;
-							}
-
-							if (!context.channel.permissionsOf) {
-								context.channel.permissionsOf = () => new Permission(Permissions.all);
-							}
-
-							if (!context.channel.guild) {
-								context.channel.guild = context.guild;
-							}
-
-							const member = await settings.findUser(user.id, {
-								memberOnly: true,
-							});
-
-							if (!member) {
-								return;
-							}
-
-							const outMsg = await command.execute({
-								...context,
-								type: 0,
-								author: user,
-								member,
-								lang: settings.lang,
-								prefix: settings.prefix,
-								displayPrefix: settings.prefix,
-								content: `${settings.prefix}${label} ${args.join(' ')}`.trim(),
-								timestamp: msg.timestamp || Date.now(),
-							}, args, {
-								tag: true,
-								settings,
-							});
-
-							if (outMsg instanceof Message && returnId) {
-								return outMsg.id;
-							}
-						},
-						info: {
-							name: key,
-							description: `Tag wrapper for "${command.info.name}": ${command.getInfo(settings.lang).description}`,
-							dependencies: ['guild', 'channel', 'user'],
-							examples: [{
-								input: `{${prefix}${label}}`,
-								output: '',
-								note: `The "${label}" command would run and output in a separate message.`,
-							}],
-						},
-					};
+					return commandTag(command, this.context);
 				}
 			}
 

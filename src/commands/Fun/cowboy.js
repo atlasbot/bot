@@ -52,4 +52,8 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'cowboy',
+	examples: [
+		'🕺',
+		'🕺 dancing town',
+	],
 };

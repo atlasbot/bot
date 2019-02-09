@@ -42,6 +42,12 @@ class Command {
 		this.action = this.action.bind(this);
 	}
 
+	get displayName() {
+		const { master, info: { name } } = this;
+
+		return `${master ? `${master.info.name} ${name}` : name}`;
+	}
+
 	get master() {
 		if (!this.isSub) {
 			return;

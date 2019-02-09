@@ -1,4 +1,5 @@
 const TagError = require('./TagError');
+const commandTag = require('./commandTag');
 
 const interp = async (tokens = [], context, functions) => {
 	const output = [];
@@ -42,17 +43,27 @@ const interp = async (tokens = [], context, functions) => {
 		if (token.type === 'BRACKETGROUP') {
 			const thisToken = token.value.shift();
 
-			const func = functions.get(thisToken.value.toLowerCase());
+			let func = functions.get(thisToken.value.toLowerCase(), token.value);
 
 			let args = token.value;
 			if (func && !func.info.dontParse) {
 				args = await parseArgs(token.value);
+
+				if (func.info.command) {
+					// a little hack to get subcommands to work
+					const sub = func.info.command.subcommands.get(args[0]) || func.info.command.subcommands.get(func.info.command.subcommandAliases.get(args[0]));
+
+					if (sub) {
+						func = commandTag(sub, context);
+					}
+				}
 			}
 
 			if (func) {
 				// wew valid tag
-				if (func.info.dependencies && func.info.dependencies.some(k => !context[k])) {
-					output.push(`{${thisToken.value}-MISSINGDEP}`);
+				const missing = func.info.dependencies && func.info.dependencies.some(k => !context[k]);
+				if (missing) {
+					output.push(`{${thisToken.value}-missing-dependency-${missing}}`);
 
 					continue;
 				}
