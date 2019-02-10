@@ -140,7 +140,7 @@
 	},
 	"toggleplugin": {
 		"description": "プラグインのon/offを切り替えます。",
-		"usage": "[プラグイン]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "あなたもしくは他人のユーザーレベルを取得します。",
