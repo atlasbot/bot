@@ -3,8 +3,7 @@ const Command = require('../../structures/Command.js');
 
 /*!
     Note:
-        At the time of writing this command, slowmode is still in beta and can't be toggled through the client or Eris
-        so i've had to call it directly
+        Eris doesn't currently support "rate_limit_per_user" properly, so below we go
 */
 module.exports = class extends Command {
 	constructor(Atlas) {
@@ -17,9 +16,10 @@ module.exports = class extends Command {
 		if (!args.length) {
 			return responder.embed(this.helpEmbed(msg)).send();
 		}
+
 		const num = this.Atlas.lib.utils.parseNumber(args[0]);
 
-		if (this.Atlas.lib.utils.parseBool(args[0]) === false || num === 0) {
+		if (this.Atlas.lib.utils.toggleType(args[0], false) === false || num === 0) {
 			await this.Atlas.client.requestHandler.request('PATCH', Endpoints.CHANNEL(msg.channel.id), true, {
 				rate_limit_per_user: 0,
 			});

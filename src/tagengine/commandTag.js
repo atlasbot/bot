@@ -6,7 +6,8 @@ const RETURN_ID_REGEX = /--?returnId((?:=)?('|")true('|"))?/;
 
 module.exports = (command, rawCtx) => ({
 	execute: async (context, args = []) => {
-		const { settings, user, msg, label = command.info.name } = context;
+		// eslint-disable-next-line prefer-const
+		let { settings, user, msg, member, label = command.info.name } = context;
 
 		let returnId = false;
 
@@ -18,20 +19,23 @@ module.exports = (command, rawCtx) => ({
 			returnId = true;
 		}
 
+		// hack to get tags working in dm's
 		if (!context.channel.permissionsOf) {
 			context.channel.permissionsOf = () => new Permission(Permissions.all);
 		}
 
+		// another hack to get tags working in dm's
 		if (!context.channel.guild) {
 			context.channel.guild = context.guild;
 		}
-
-		const member = await settings.findUser(user.id, {
-			memberOnly: true,
-		});
-
 		if (!member) {
-			return;
+			member = rawCtx.member || await settings.findUser(user.id, {
+				memberOnly: true,
+			});
+
+			if (!member) {
+				return;
+			}
 		}
 
 		const outMsg = await command.execute({
@@ -49,7 +53,7 @@ module.exports = (command, rawCtx) => ({
 			settings,
 		});
 
-		if (outMsg instanceof Message && returnId) {
+		if (returnId && outMsg instanceof Message) {
 			return outMsg.id;
 		}
 	},

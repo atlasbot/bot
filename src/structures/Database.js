@@ -5,10 +5,12 @@ const assert = require('assert');
 const capitalize = require('atlas-lib/lib/utils/capitalize');
 
 // mongoose models
-const SettingsSchema = require('atlas-lib/lib/models/Settings');
-const ActionSchema = require('atlas-lib/lib/models/Action');
 const InfractionSchema = require('atlas-lib/lib/models/Infraction');
+const TranscriptSchema = require('atlas-lib/lib/models/Transcript');
+const SettingsSchema = require('atlas-lib/lib/models/Settings');
 const PlaylistSchema = require('atlas-lib/lib/models/Playlist');
+const ActionSchema = require('atlas-lib/lib/models/Action');
+const TicketSchema = require('atlas-lib/lib/models/Ticket');
 const UserSchema = require('atlas-lib/lib/models/User');
 
 const Settings = require('./Settings');
@@ -29,10 +31,12 @@ module.exports = class Database {
 
 		mongoose.set('debug', typeof debugOverride === 'boolean' ? debugOverride : true);
 
-		this.Settings = mongoose.model('Settings', SettingsSchema);
-		this.Action = mongoose.model('Action', ActionSchema);
 		this.Infraction = mongoose.model('Infraction', InfractionSchema);
+		this.Transcript = mongoose.model('Transcript', TranscriptSchema);
+		this.Settings = mongoose.model('Settings', SettingsSchema);
 		this.Playlist = mongoose.model('Playlist', PlaylistSchema);
+		this.Action = mongoose.model('Action', ActionSchema);
+		this.Ticket = mongoose.model('Ticket', TicketSchema);
 		this.User = mongoose.model('User', UserSchema);
 
 		// not just used here
@@ -214,5 +218,72 @@ module.exports = class Database {
 			username: user.username,
 			discriminator: user.discriminator,
 		};
+	}
+
+	/**
+	 * Get a ticket by a guild and channel
+	 *
+	 * @param {string} guild The guild ID the ticket is in
+	 * @param {string} channelId The channel ID the ticket is binded to
+	 * @returns {Promise<Object>}
+	 */
+	async getTicket(guild, channelId) {
+		const key = `${guild.id}.${channelId}`;
+
+		let ticket = await cache.tickets.get(key);
+
+		if (!ticket) {
+			ticket = await this.Ticket.findOne({ guild: guild.id, channel: channelId });
+
+			ticket = ticket.toObject();
+
+			if (!guild.channels.has(ticket.channel)) {
+				// the tickets channel was deleted, this just cleans things up
+				return this.deleteTicket(guild.id, channelId);
+			}
+
+			await cache.tickets.set(key, ticket, CACHE_TIME_SECONDS);
+		}
+
+		const channel = guild.channels.get(ticket.channel);
+
+		if (!channel) {
+			return this.deleteTicket(guild.id, channelId);
+		}
+
+		return {
+			...ticket,
+			channel,
+		};
+	}
+
+	/**
+	 * Create a brand new ticket
+	 *
+	 * @param {Object} ticket The ticket
+	 * @param {string} ticket.guild The guild the ticket is for
+	 * @param {string} ticket.author The ticket author
+	 * @param {string} ticket.channel The channel the ticket is binded to
+	 * @param {string} [ticket.reason=] The reason for the ticket
+	 * @returns {Promise<Object>} The ticket
+	 */
+	async createTicket(ticket) {
+		const data = await this.Ticket.create(ticket);
+
+		return data;
+	}
+
+	/**
+	 * Delete a ticket
+	 *
+	 * @param {string} guild The guild of the ticket
+	 * @param {string} channel The channel the ticket is binded to
+	 */
+	async deleteTicket(guild, channel) {
+		const key = `${guild}.${channel}`;
+
+		await this.Ticket.deleteOne({ guild, channel });
+
+		await cache.tickets.del(key);
 	}
 };

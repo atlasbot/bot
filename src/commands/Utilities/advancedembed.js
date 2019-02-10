@@ -9,6 +9,7 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		parsedArgs,
 	}) {
+		console.warn('BLAP BLAP');
 		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'advancedembed');
 
 		if (parsedArgs.d && msg.delete) {

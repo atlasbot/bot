@@ -43,10 +43,11 @@ module.exports = class {
 			if (gatekeeper.leave.enabled) {
 				if (channel && channel.permissionsOf(guild.me.id).has('sendMessages')) {
 					const parser = new Parser({
-						channel,
 						settings,
-						user: member,
+						user: member.user,
+						channel,
 						guild,
+						member,
 					}, true);
 
 					const { output } = await parser.parse(gatekeeper.leave.content);

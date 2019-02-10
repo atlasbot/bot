@@ -61,7 +61,7 @@ const interp = async (tokens = [], context, functions) => {
 
 			if (func) {
 				// wew valid tag
-				const missing = func.info.dependencies && func.info.dependencies.some(k => !context[k]);
+				const missing = func.info.dependencies && func.info.dependencies.find(k => !context[k]);
 				if (missing) {
 					output.push(`{${thisToken.value}-missing-dependency-${missing}}`);
 

@@ -15,15 +15,18 @@ module.exports = class {
      * @param {Channel} data.channel The channel to get info from
      * @param {Object} data.action The action that is being processed
      * @param {Object} data.user The user in context or something idk
+		 * @param {Object} data.ticket The ticket in context
 		 * @param {boolean} managed Whether to manage errors and other things.
      */
 	constructor({
 		msg,
-		guild = msg ? msg.guild : undefined,
-		channel = msg ? msg.channel : undefined,
 		settings,
 		action,
+		ticket,
+		guild = msg ? msg.guild : undefined,
+		channel = msg ? msg.channel : undefined,
 		user = msg.author,
+		member = msg.member,
 	}, managed = true) {
 		this.Atlas = require('./../../Atlas');
 
@@ -37,7 +40,7 @@ module.exports = class {
 				channel,
 				author: user,
 				// if nothing is found, below will resolve it properly
-				member: guild.members.get(user.id),
+				member: member || guild.members.get(user.id),
 				type: 0,
 				timestamp: Date.now(),
 				lang: settings.lang,
@@ -54,6 +57,8 @@ module.exports = class {
 			settings,
 			action,
 			user,
+			ticket,
+			member,
 			tag: true,
 			Atlas: this.Atlas,
 		};
@@ -91,6 +96,11 @@ module.exports = class {
 
 	async parse(source) {
 		const volatile = new Map();
+
+		const { guild, channel } = this.context;
+		if (!this.context.ticket) {
+			this.context.ticket = await this.Atlas.DB.getTicket(guild.id, channel.id);
+		}
 
 		if (this.context.msg && !this.context.msg.member) {
 			// sometimes atlas can't find the context member properly, settings#findUser will

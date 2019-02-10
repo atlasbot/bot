@@ -6,18 +6,24 @@ module.exports = class {
 	}
 
 	async execute(channel) {
-		const settings = channel.guild && await this.Atlas.DB.getGuild(channel.guild);
-
-		if (!channel.guild || !settings.actionLogChannel) {
+		if (!channel.guild) {
 			return;
 		}
 
-		if (channel.guild) {
-			// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
+		const settings = await this.Atlas.DB.getGuild(channel.guild);
+
+		if (settings.plugin('tickets').state === 'enabled') {
+			await this.Atlas.DB.deleteTicket(channel.guild.id, channel.id);
+		}
+
+		if (!settings.actionLogChannel) {
+			return;
+		}
+
+		// dashboard has high cache times for settings, channels, guilds, etc... to speed things up
 		// when they're updated the bot can clear those caches to make update times instant while still
 		// getting the performance boost from caching
-			await cache.channels.del(channel.guild.id);
-		}
+		await cache.channels.del(channel.guild.id);
 
 		const type = this.Atlas.lib.utils.getChannelType(channel.type);
 

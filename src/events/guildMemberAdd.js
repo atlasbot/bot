@@ -109,6 +109,7 @@ module.exports = class {
 						user: member.user,
 						channel,
 						guild,
+						member,
 					});
 
 					const { output } = await parser.parse(gatekeeper.channel.content);
@@ -128,6 +129,7 @@ module.exports = class {
 						user: member.user,
 						channel: dmChannel,
 						guild,
+						member,
 					});
 
 					const { output } = await parser.parse(gatekeeper.dm.content);

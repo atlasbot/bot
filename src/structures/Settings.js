@@ -111,6 +111,16 @@ module.exports = class GuildSettings {
 		return channels && this.guild.channels.get(channels.error);
 	}
 
+	/**
+	 * Gets the ticket plugin's support role
+	 *
+	 * @returns {Role}
+	 * @readonly
+	 */
+	get supportRole() {
+		return this.guild.roles.get(this.plugin('tickets').options.support);
+	}
+
 	filter(name) {
 		return this.raw.plugins.moderation.filters[name];
 	}
@@ -180,9 +190,10 @@ module.exports = class GuildSettings {
 	async update(settings, {
 		query = {},
 	} = {}) {
-		const data = await this.Atlas.DB.get('settings').findOneAndUpdate({ id: this.guild.id, ...query }, settings, {
-			new: true,
-		});
+		const data = await this.Atlas.DB.get('settings')
+			.findOneAndUpdate({ id: this.guild.id, ...query }, settings, {
+				new: true,
+			});
 
 		await cache.settings.set(this.guild.id, data, this.Atlas.DB.CACHE_TIME_SECONDS);
 
@@ -407,6 +418,10 @@ module.exports = class GuildSettings {
 		return actions;
 	}
 
+	/**
+	 * Gets all action triggers for the guild.
+	 * @returns {Promise<Array<Object>>} The action triggers
+	 */
 	async getTriggers() {
 		return this.Atlas.DB.get('actions').find({
 			guild: this.id,
@@ -414,6 +429,11 @@ module.exports = class GuildSettings {
 		}, 'trigger');
 	}
 
+	/**
+	 * Gets the action from an ID
+	 * @param {ObjectID|string} id The ID of the action
+	 * @returns {Promisie<Action>} The action
+	 */
 	async getAction(id) {
 		const action = await this.Atlas.DB
 			.get('actions')
@@ -428,6 +448,12 @@ module.exports = class GuildSettings {
 		}
 	}
 
+	/**
+	 * Gets the actions to run for a specific message.
+	 *
+	 * @param {Message} msg The message to check for actions
+	 * @returns {Promise<Array<Action>>}
+	 */
 	async findActions(msg) {
 		const actions = await this.getTriggers();
 
@@ -465,6 +491,12 @@ module.exports = class GuildSettings {
 		return [];
 	}
 
+	/**
+	 * Gets full actions form an array of _id's
+	 *
+	 * @param {Array<ObjectId|string>} ids The ID's of the actions to get
+	 * @returns {Promise<Array<Action>>}
+	 */
 	async getActions(ids) {
 		return (await this.Atlas.DB
 			.get('actions')
@@ -475,5 +507,36 @@ module.exports = class GuildSettings {
 				guild: this.id,
 			}))
 			.map(a => new Action(this, a));
+	}
+
+	/**
+	 * Gets the guild's ticket category, generating one if one doesn't exist.
+	 *
+	 * @returns {Promise<GuildCategory>}
+	 */
+	async getTicketCategory() {
+		const existing = this.guild.channels.get(this.plugin('tickets').options.category);
+
+		if (existing) {
+			return existing;
+		}
+
+		// try find a category in the guild with the name as 'Tickets', only works for english guilds and has drawbacks but like
+		// better then nothing
+		let category = this.guild.channels.find(c => c.type === 4 && c.name.toLowerCase() === 'tickets');
+
+		if (!category) {
+			// create our own when all else fails
+			category = await this.guild.createChannel('Tickets', 4, 'Category for Tickets');
+
+			// guild.id is the @everyone role ID
+			await category.editPermission(this.guild.id, 0, 1024, 'role');
+		}
+
+		await this.update({
+			'plugins.tickets.options.category': category.id,
+		});
+
+		return category;
 	}
 };

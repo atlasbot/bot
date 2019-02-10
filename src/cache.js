@@ -7,4 +7,5 @@ module.exports = {
 	members: new Cache('members'),
 	settings: new Cache('settings'),
 	userGuilds: new Cache('userGuilds'),
+	tickets: new Cache('tickets'),
 };

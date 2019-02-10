@@ -3,7 +3,7 @@ module.exports = (Eris) => {
 
 	Eris.Permission.prototype.has = function has(permission) {
 		// a minor personal fix, but if we can't read messages we also can't send them, so saying we can is stupid.
-		if (permission === 'sendMessages' && !this.has('readMessages')) {
+		if (permission === 'sendMessages' && !this.json.readMessages) {
 			return false;
 		}
 

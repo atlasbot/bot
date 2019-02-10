@@ -1,6 +1,6 @@
 
 const prettyMs = require('atlas-lib/lib/utils/prettyMs');
-const parseBool = require('atlas-lib/lib/utils/parseBool');
+const toggleType = require('atlas-lib/lib/utils/toggleType');
 // parse all the things :D
 const parseNumber = require('atlas-lib/lib/utils/parseNumber');
 const TagError = require('../../TagError');
@@ -13,7 +13,7 @@ module.exports = async (x, [n, verbose = 'true']) => {
 	}
 
 	return prettyMs(ms, {
-		verbose: parseBool(verbose),
+		verbose: toggleType(verbose, false) === true,
 	});
 };
 
