@@ -23,10 +23,10 @@ module.exports = class {
 		settings,
 		action,
 		ticket,
-		guild = msg ? msg.guild : undefined,
-		channel = msg ? msg.channel : undefined,
+		channel = msg.channel,
 		user = msg.author,
 		member = msg.member,
+		guild = msg.guild || channel.guild,
 	}, managed = true) {
 		this.Atlas = require('./../../Atlas');
 
@@ -98,8 +98,10 @@ module.exports = class {
 		const volatile = new Map();
 
 		const { guild, channel } = this.context;
-		if (!this.context.ticket) {
-			this.context.ticket = await this.Atlas.DB.getTicket(guild.id, channel.id);
+
+		// if the source *probably* wants a ticket in context and one isn't provided, find one (if any)
+		if (!this.context.ticket && source.includes('ticket')) {
+			this.context.ticket = await this.Atlas.DB.getTicket(guild, channel.id);
 		}
 
 		if (this.context.msg && !this.context.msg.member) {

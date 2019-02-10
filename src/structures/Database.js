@@ -235,6 +235,10 @@ module.exports = class Database {
 		if (!ticket) {
 			ticket = await this.Ticket.findOne({ guild: guild.id, channel: channelId });
 
+			if (!ticket) {
+				return;
+			}
+
 			ticket = ticket.toObject();
 
 			if (!guild.channels.has(ticket.channel)) {
