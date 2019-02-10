@@ -795,7 +795,8 @@
 	"toggleplugin": {
 		"noArgs": "Please include a plugin name.",
 		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"success": "The {0} plugin has been `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "Please include a command name.",

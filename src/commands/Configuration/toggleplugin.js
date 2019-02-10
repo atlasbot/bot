@@ -19,6 +19,17 @@ module.exports = class extends Command {
 			return responder.error('noArgs').send();
 		}
 
+		if (args[0].toLowerCase() === 'all') {
+			const payload = {};
+			Object.keys(settings.raw.plugins).forEach((k) => {
+				payload[`plugins.${k}.state`] = 'enabled';
+			});
+
+			await settings.update(payload);
+
+			return responder.text('successAll').send();
+		}
+
 		const query = args.join(' ');
 
 		const extra = Object.keys(settings.raw.plugins).map(name => ({
