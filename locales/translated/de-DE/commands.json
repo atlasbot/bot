@@ -1,4 +1,32 @@
 {
+	"ticket": {
+		"base": {
+			"description": "Create tickets, manage existing ones and much more."
+		},
+		"create": {
+			"description": "Create a new ticket",
+			"usage": "<description>"
+		},
+		"close": {
+			"description": "Close a ticket"
+		},
+		"add": {
+			"description": "Add a user to the ticket",
+			"usage": "[user]"
+		},
+		"remove": {
+			"description": "Remove a user from the ticket",
+			"usage": "[user]"
+		},
+		"transcript": {
+			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
+			"usage": "<public=true>"
+		},
+		"suffix": {
+			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
+			"usage": "[suffix]"
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -166,7 +194,7 @@
 	},
 	"resume": {
 		"notPaused": "Der Spieler ist nicht pausiert.",
-		"resumed": "The player has been resumed."
+		"resumed": "Der Spieler ist zurückgekehrt."
 	},
 	"repeat": {
 		"enabled": "\"Repeat\" wurde eingeschaltet.",
@@ -185,7 +213,7 @@
 	},
 	"pause": {
 		"alreadyPaused": {
-			"button": "The player is already paused.",
+			"button": "Der Spieler ist bereits in der Pause.",
 			"label": "The player is already paused. Did you mean `{0}resume`?"
 		},
 		"paused": "The player has been paused."
@@ -200,7 +228,7 @@
 	},
 	"nodes": {
 		"noNodes": "Hmmm, Es ist etwas schief gegangen. Ich kann nicht auf diesen Sprachkanal.",
-		"node": "Node",
+		"node": "Knoten",
 		"players": "Players",
 		"events": "Ereignisse",
 		"footer": "Atlas' Voice Nodes"
@@ -324,7 +352,7 @@
 				"name": "Rollen ({0})",
 				"value": {
 					"set": "{0}",
-					"null": "None",
+					"null": "Keine",
 					"tooMany": "{0} insgesamt."
 				}
 			}
@@ -470,18 +498,18 @@
 			"prefix": "Prefix",
 			"github": {
 				"name": "Github",
-				"none": "None"
+				"none": "Keine"
 			},
 			"website": {
 				"name": "Webseite",
-				"none": "None"
+				"none": "Keine"
 			},
 			"owners": "Owners",
 			"footer": "Approved at",
 			"invite": "Invite Link",
 			"support": {
 				"name": "Support Server",
-				"none": "None"
+				"none": "Keine"
 			}
 		}
 	},
@@ -795,7 +823,8 @@
 	"toggleplugin": {
 		"noArgs": "Bitte geben Sie einen Pluginnamen ein.",
 		"noPlugin": "Ich konnte kein Plugin `{0}` finden!",
-		"success": "Das {0} Plugin war `{1}`."
+		"success": "Das {0} Plugin war `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "Bitte gebe einen Befehlsnamen an.",
