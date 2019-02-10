@@ -38,7 +38,7 @@ module.exports = class extends Command {
 		const category = await settings.getTicketCategory();
 
 		// discord will clean up the name for us anyway
-		const name = `${msg.author.username}-${msg.author.discriminator}-${existing + 1}`;
+		const name = `${msg.author.username}-${msg.author.discriminator}`;
 
 		const channel = await msg.guild.createChannel(name, 0, `Ticket by ${msg.author.username}`, category.id);
 
@@ -56,8 +56,8 @@ module.exports = class extends Command {
 		// stop everyone else from viewing the ticket
 		await channel.editPermission(msg.guild.id, 0, HIDE_PERMS, 'role');
 
-		if (settings.supportRole) {
-			await channel.editPermission(settings.supportRole, VIEW_PERMS, 0, 'role');
+		if (options.support) {
+			await channel.editPermission(options.support, VIEW_PERMS, 0, 'role');
 		}
 
 		if (options.message) {
