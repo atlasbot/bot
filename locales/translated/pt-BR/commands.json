@@ -1,4 +1,32 @@
 {
+	"ticket": {
+		"base": {
+			"description": "Create tickets, manage existing ones and much more."
+		},
+		"create": {
+			"description": "Create a new ticket",
+			"usage": "<description>"
+		},
+		"close": {
+			"description": "Close a ticket"
+		},
+		"add": {
+			"description": "Add a user to the ticket",
+			"usage": "[do utilizador]"
+		},
+		"remove": {
+			"description": "Remove a user from the ticket",
+			"usage": "[do utilizador]"
+		},
+		"transcript": {
+			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
+			"usage": "<public=true>"
+		},
+		"suffix": {
+			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
+			"usage": "[suffix]"
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -795,7 +823,8 @@
 	"toggleplugin": {
 		"noArgs": "Por favor, inclua o nome do plugin.",
 		"noPlugin": "Não foi possível localizar o plugin `{0}`.",
-		"success": "O {0} plugin foi `{1}`."
+		"success": "O {0} plugin foi `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "Por favor, inclua o nome do plugin.",
