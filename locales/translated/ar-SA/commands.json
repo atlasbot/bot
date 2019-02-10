@@ -1,4 +1,32 @@
 {
+	"ticket": {
+		"base": {
+			"description": "Create tickets, manage existing ones and much more."
+		},
+		"create": {
+			"description": "Create a new ticket",
+			"usage": "<description>"
+		},
+		"close": {
+			"description": "Close a ticket"
+		},
+		"add": {
+			"description": "Add a user to the ticket",
+			"usage": "[user]"
+		},
+		"remove": {
+			"description": "Remove a user from the ticket",
+			"usage": "[user]"
+		},
+		"transcript": {
+			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
+			"usage": "<public=true>"
+		},
+		"suffix": {
+			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
+			"usage": "[suffix]"
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -795,7 +823,8 @@
 	"toggleplugin": {
 		"noArgs": "الرجاء إضافة اسم المدخل.",
 		"noPlugin": "لم أستطع إيجاد إضافة بهذا الأسم `{0}`.",
-		"success": "إضافة {0} تمت `{1}`."
+		"success": "إضافة {0} تمت `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "الرجاء كتابة اسم الأمر.",
