@@ -140,7 +140,7 @@
 	},
 	"toggleplugin": {
 		"description": "Bir eklentiyi aç veya kapat.",
-		"usage": "[plugin]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "Sizin veya başka bir kullanıcı seviyenizi alır.",
