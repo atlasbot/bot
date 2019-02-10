@@ -1,4 +1,32 @@
 {
+	"ticket": {
+		"base": {
+			"description": "Create tickets, manage existing ones and much more."
+		},
+		"create": {
+			"description": "Create a new ticket",
+			"usage": "<description>"
+		},
+		"close": {
+			"description": "Close a ticket"
+		},
+		"add": {
+			"description": "Add a user to the ticket",
+			"usage": "[user]"
+		},
+		"remove": {
+			"description": "Remove a user from the ticket",
+			"usage": "[user]"
+		},
+		"transcript": {
+			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
+			"usage": "<public=true>"
+		},
+		"suffix": {
+			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
+			"usage": "[suffix]"
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -795,7 +823,8 @@
 	"toggleplugin": {
 		"noArgs": "プラグイン名を含むようにしてください。",
 		"noPlugin": "`{0}`に該当するプラグインが見つかりません。",
-		"success": "{0} プラグインは`{1}`になりました。"
+		"success": "{0} プラグインは`{1}`になりました。",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "コマンド名を含むようにしてください。",
