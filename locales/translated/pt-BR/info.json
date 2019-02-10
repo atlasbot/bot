@@ -140,7 +140,7 @@
 	},
 	"toggleplugin": {
 		"description": "Ative ou desative um plug-in.",
-		"usage": "[plugar]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "Obtém seu ou outro nível de usuários.",
