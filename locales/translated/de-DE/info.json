@@ -140,7 +140,7 @@
 	},
 	"toggleplugin": {
 		"description": "Schaltet ein Plugin ein oder aus.",
-		"usage": "[Plugin]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "Vergibt dir oder einen anderen Benutzer zusätzlich Level.",
