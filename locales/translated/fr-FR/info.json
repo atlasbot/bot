@@ -140,7 +140,7 @@
 	},
 	"toggleplugin": {
 		"description": "Active ou désactive un plugin.",
-		"usage": "[plugin]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "Récupère votre niveau ou celui d'un autre utilisateur.",
