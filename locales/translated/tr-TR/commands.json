@@ -55,7 +55,7 @@
 		"notASnowflake": "That isn't a Discord snowflake. Did you mean `{0}id {1}`?",
 		"notFound": "I could not find anything matching `{0}`. I tried my best :c",
 		"type": "Cins",
-		"guild": "Topluluk",
+		"guild": "Sunucu",
 		"name": "İsim",
 		"onlineMembers": {
 			"name": "Çevrimiçi Üyeler",
@@ -63,8 +63,8 @@
 		}
 	},
 	"xkcd": {
-		"invalidNumber": "The comic number you provided is invalid. It must be between `1` and `{0}`.",
-		"footer": "Comic {0} via xkcd.com"
+		"invalidNumber": "Belirttiğiniz karikatür numarası geçersiz. `1` ve `{0}` arasındaki sayılar olmalı.",
+		"footer": "xkcd.com'dan, {0}. karikatür"
 	},
 	"togglementionable": {
 		"perms": {
@@ -72,17 +72,17 @@
 			"user": "Bu rolleri değiştirme yetkiniz yok."
 		},
 		"noRole": "I could not find a role matching `{0}`.",
-		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
-		"mentionable": "You can now mention `@{0}`. ",
-		"unmentionable": "You can no longer mention `@{0}`.",
-		"autoToggle": "Once you mention the role, I'll disable mentions for it."
+		"dm": "`@{0}` rolü artık etiketlenemez çünkü etiketlediniz.",
+		"mentionable": "Artık `@{0}` etiketlenebilir. ",
+		"unmentionable": "Artık `@{0}` etiketlenemez.",
+		"autoToggle": "Siz rolü etiketlediğiniz anda, rolün etiketlenebilirliğini kapatacağım."
 	},
 	"weather": {
 		"noResults": "I couldn't find any weather information for your search.",
-		"title": "Weather in {0}, {1}",
+		"title": "{0}, {1} için Hava Durumu",
 		"temperature": {
-			"name": "Temperature",
-			"value": "{0}°C, min {1}°C, max {2}°C"
+			"name": "Sıcaklık",
+			"value": "{0}°C, en az {1}°C, en fazla {2}°C"
 		},
 		"humidity": "Nem",
 		"wind": {
@@ -91,7 +91,7 @@
 		}
 	},
 	"smalltext": {
-		"noArgs": "Please include something to make ˢᵐᵒˡ"
+		"noArgs": "ᴷᵘᶜᵘˡᵗᵐᵉᵏ için bir şey belirtin"
 	},
 	"iam": {
 		"noRoles": "Kullanıcının herhangi bir rolü yok.",
@@ -130,7 +130,7 @@
 	"needsmorejpeg": {
 		"noArgs": "Lütfen bir resim eki veya resim URL'si ekleyin.",
 		"invalidUrl": "`{0}` is not a valid user.",
-		"notAnImage": "That isn't an image :c"
+		"notAnImage": "Bu bir resim değil :c"
 	},
 	"randomcase": {
 		"noArgs": "Lütfen Rastgele bir şey ekle"
@@ -252,7 +252,7 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "Bu bir TV şovu değil! Belki onun yerine `{0} filmi {1}` deneyin.",
+		"notASeries": "Bu bir TV dizisi değil! Belki onun yerine `{0}filmi {1}` deneyin.",
 		"notFound": "I could not find a movie or TV show matching `{0}`.",
 		"ratings": "Derecelendirme"
 	},
@@ -262,12 +262,12 @@
 	"ban": {
 		"noArgs": "Please include a user to ban!",
 		"success": " {0} Banlandı.",
-		"withReason": "Banned {0} for `{1}`.",
+		"withReason": "{0}, `{1}` nedeniyle yasaklandı.",
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} zaten yasaklandı.",
 		"dm": {
-			"reason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından.",
-			"noReason": "{0} 'dan yasaklandınız. {1} ({2}) tarafından."
+			"reason": "{0} sunucusundan `{1}` nedeniyle {2} ({3}) tarafından yasaklandınız.",
+			"noReason": "{0} sunucusundan {1} ({2}) tarafından yasaklandınız."
 		}
 	},
 	"remindme": {
@@ -298,7 +298,7 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"patreon": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"patreon": "Atlas'a Patreon'dan bağış yaparak dönütünde çok kıyak özellikler edinin!\n<https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
@@ -388,7 +388,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Toplam süre",
+			"name": "Toplam Süre",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -600,8 +600,8 @@
 		"success": "{0} atıldı!",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "{0} 'dan atıldınız. {1} ({2}) tarafından.",
-			"noReason": "{0} 'dan atıldınız. {1} ({2}) tarafından."
+			"reason": "{0} sunucusundan `{1}` nedeniyle {2} ({3}) tarafından atıldınız.",
+			"noReason": "{0} sunucusundan {1} ({2}) tarafından atıldınız."
 		}
 	},
 	"gotcharacter": {
@@ -813,10 +813,10 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "Bu sunucunun sıralamasını buradan görüntüleyebilirsiniz <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Bu sunucunun sıralamasını <https://atlasbot.xyz/leaderboard/{0}> adresinden görüntüleyebilirsiniz.",
 	"level": {
-		"invalidUser": "{0} İle eşleşen bir kullanıcı bulamadım: c",
-		"noProfile": "Hmm, bir şeyler ters gitti. Bu kullanıcı için bir profil bulamadım.",
+		"invalidUser": "`{0}` ile eşleşen kullanıcı bulamadım :c",
+		"noProfile": "Hım, bir şeyler ters gitti. Bu kullanıcı için bir profil bulamadım.",
 		"embed": {
 			"rank": "Sıralama",
 			"level": "Seviye",
@@ -827,16 +827,16 @@
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Lütfen bir eklenti adı ekleyin.",
-		"noPlugin": "{0} `ile eşleşen bir eklenti bulamadım.",
-		"success": "{0} eklentisi {1} `idi.",
+		"noArgs": "Lütfen bir eklenti adı bulundurun.",
+		"noPlugin": "`{0}` ile eşleşen bir eklenti bulamadım.",
+		"success": "`{0}` eklentisi `{1}` idi.",
 		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
-		"noArgs": "Lütfen bir komut adı ekleyin.",
-		"noCommand": "{0} `ile eşleşen bir eklenti bulamadım.",
-		"disabled": "{0} komutu `devre dışı bırakıldı '.",
-		"enabled": "{0} komutu `etkin` oldu."
+		"noArgs": "Lütfen bir komut adı bulundurun.",
+		"noCommand": "`{0}` ile eşleşen bir komut bulamadım.",
+		"disabled": "{0} komutu `devre dışı bırakıldı`.",
+		"enabled": "{0} komutu `etkinleştirildi`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
