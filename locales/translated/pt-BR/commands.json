@@ -1,4 +1,38 @@
 {
+	"ticket": {
+		"base": {
+			"notATicket": "This is not a ticket channel.",
+			"noPerms": "You do not have permission to do that.",
+			"userNotFound": "I could not find a member in this guild matching `{0}`."
+		},
+		"add": {
+			"noUser": "Please include a user to add.",
+			"notFound": "I could not find a member in this guild matching `{0}`.",
+			"alreadyAdded": "{0} can already view this ticket.",
+			"added": "{0} can now view this ticket."
+		},
+		"remove": {
+			"noUser": "Please include a user to remove.",
+			"notAdded": "{0} doesnt have access to this ticket.",
+			"removed": "{0} can no longer view this ticket."
+		},
+		"create": {
+			"channelLimit": "Sorry, this server has hit the limit for channels (500). Ask an admin to close other tickets or delete channels to make room.",
+			"maxTickets": "Sorry, you can only have three tickets open at once.",
+			"topic": "Opened by {0} - All messages sent to this channel are being recorded.",
+			"created": "Your ticket has been created - {0}."
+		},
+		"suffix": {
+			"removed": "The suffix for this ticket has been removed.",
+			"set": "This ticket's suffix is now `{0}`.",
+			"noAuthor": "The author of this ticket is no where to be found. The ticket suffix cannot be changed.",
+			"noSuffix": "Please include a suffix. Do `{0}ticket suffix off` to remove the current suffix."
+		},
+		"transcript": {
+			"generating": "Generating transcript - this may take awhile...",
+			"created": "Transcript created - <https://atlasbot.xyz/transcript/{0}>."
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -37,6 +71,7 @@
 			"bot": "Eu não tenho permissões para gerenciar essa função.",
 			"user": "Você não tem permissões para gerenciar essa função."
 		},
+		"noRole": "Não consegui encontrar um papel que correspondesse `{0}`.",
 		"dm": "O papel `@ {0}` não é mais mencionado porque você o mencionou.",
 		"mentionable": "Você pode agora mencionar `@ {0}`.",
 		"unmentionable": "Você não pode mais mencionar `@ {0}`.",
@@ -101,10 +136,12 @@
 		"noArgs": "Por favor inclua algo para o raNdomIsE."
 	},
 	"dashboard": "Você pode configurar seu servidor em <https://atlasbot.xyz/meera/ {0}>.",
-	"resetlevel": {
-		"noArgs": "Por favor, inclua um usuário para redefinir o nível de.",
-		"noUser": "Eu não consegui encontrar um usuário correspondente `{0}`.",
-		"success": "{0} teve seu nível redefinido para zero."
+	"setlevel": {
+		"bot": "Bots cannot have levels.",
+		"noUser": "Please tag the user you wish to change the level of.",
+		"invalidUser": "I could not resolve `{0}` to a valid user.",
+		"noLevel": "Please include a valid number between 0-150 to set the users level to.",
+		"success": "{0} is now level `{1}`. The users role rewards (if any) will automatically be updated once they send a message."
 	},
 	"playlist": {
 		"create": {
@@ -427,6 +464,7 @@
 		"success": "{0} foi esbanjado."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Por favor inclua um usuário para silenciar!",
 		"success": "{0} foi silenciado para {1}.",
 		"generated": "Eu também gerou automaticamente uma função mudo para esse servidor, o que pode exigir algumas pequenas alterações para que funcione corretamente.",
@@ -669,7 +707,8 @@
 		"noMessage": "Não encontrei nenhuma mensagem que correspondesse a isso: c",
 		"invalidType": "Este comando suporta apenas mensagens de texto.",
 		"invalidMsg": "Essa mensagem não possui nenhum conteúdo ou uma imagem anexada.",
-		"notCached": "Hmm, não consegui encontrar essa mensagem. Se estiver em outro canal ou guilda, inclua o ID do canal como segundo argumento!"
+		"notCached": "Hmm, não consegui encontrar essa mensagem. Se estiver em outro canal ou guilda, inclua o ID do canal como segundo argumento!",
+		"noGuild": "That message isn't in a guild :c"
 	},
 	"randomcolor": "Seu hex aleatório é [# {0}] (http://www.color-hex.com/color/ {0})",
 	"reddit": {
@@ -790,7 +829,8 @@
 	"toggleplugin": {
 		"noArgs": "Por favor, inclua o nome do plugin.",
 		"noPlugin": "Não foi possível localizar o plugin `{0}`.",
-		"success": "O {0} plugin foi `{1}`."
+		"success": "O {0} plugin foi `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "Por favor, inclua o nome do plugin.",

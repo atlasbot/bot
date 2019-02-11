@@ -1,4 +1,32 @@
 {
+	"ticket": {
+		"base": {
+			"description": "Create tickets, manage existing ones and much more."
+		},
+		"create": {
+			"description": "Create a new ticket",
+			"usage": "<description>"
+		},
+		"close": {
+			"description": "Close a ticket"
+		},
+		"add": {
+			"description": "Add a user to the ticket",
+			"usage": "[user]"
+		},
+		"remove": {
+			"description": "Remove a user from the ticket",
+			"usage": "[user]"
+		},
+		"transcript": {
+			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
+			"usage": "<public=true>"
+		},
+		"suffix": {
+			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
+			"usage": "[suffix]"
+		}
+	},
 	"cowboy": {
 		"description": "Howdy, I'm the cowboy of dead memes",
 		"usage": "<emoji> [town]"
@@ -70,9 +98,9 @@
 	"dashboard": {
 		"description": "Get a link to your servers dashboard."
 	},
-	"resetlevel": {
-		"description": "Reset a users level.",
-		"usage": "[user]"
+	"setlevel": {
+		"description": "Set a users level.",
+		"usage": "[user] [level]"
 	},
 	"playlist": {
 		"base": {
@@ -140,7 +168,7 @@
 	},
 	"toggleplugin": {
 		"description": "Toggle a plugin on or off.",
-		"usage": "[plugin]"
+		"usage": "[plugin/\"all\"]"
 	},
 	"level": {
 		"description": "Gets your or another users level.",

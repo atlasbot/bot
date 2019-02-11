@@ -1,4 +1,38 @@
 {
+	"ticket": {
+		"base": {
+			"notATicket": "This is not a ticket channel.",
+			"noPerms": "You do not have permission to do that.",
+			"userNotFound": "I could not find a member in this guild matching `{0}`."
+		},
+		"add": {
+			"noUser": "Please include a user to add.",
+			"notFound": "I could not find a member in this guild matching `{0}`.",
+			"alreadyAdded": "{0} can already view this ticket.",
+			"added": "{0} can now view this ticket."
+		},
+		"remove": {
+			"noUser": "Please include a user to remove.",
+			"notAdded": "{0} doesnt have access to this ticket.",
+			"removed": "{0} can no longer view this ticket."
+		},
+		"create": {
+			"channelLimit": "Sorry, this server has hit the limit for channels (500). Ask an admin to close other tickets or delete channels to make room.",
+			"maxTickets": "Sorry, you can only have three tickets open at once.",
+			"topic": "Opened by {0} - All messages sent to this channel are being recorded.",
+			"created": "Your ticket has been created - {0}."
+		},
+		"suffix": {
+			"removed": "The suffix for this ticket has been removed.",
+			"set": "This ticket's suffix is now `{0}`.",
+			"noAuthor": "The author of this ticket is no where to be found. The ticket suffix cannot be changed.",
+			"noSuffix": "Please include a suffix. Do `{0}ticket suffix off` to remove the current suffix."
+		},
+		"transcript": {
+			"generating": "Generating transcript - this may take awhile...",
+			"created": "Transcript created - <https://atlasbot.xyz/transcript/{0}>."
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -37,6 +71,7 @@
 			"bot": "Nie posiadam uprawnienia do zarządzania rolami.",
 			"user": "Nie posiadasz uprawnień do zarządzania rolami."
 		},
+		"noRole": "I could not find a role matching `{0}`.",
 		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
 		"mentionable": "You can now mention `@{0}`. ",
 		"unmentionable": "You can no longer mention `@{0}`.",
@@ -101,10 +136,12 @@
 		"noArgs": "Please include something to raNdomIsE."
 	},
 	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
-	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+	"setlevel": {
+		"bot": "Bots cannot have levels.",
+		"noUser": "Please tag the user you wish to change the level of.",
+		"invalidUser": "I could not resolve `{0}` to a valid user.",
+		"noLevel": "Please include a valid number between 0-150 to set the users level to.",
+		"success": "{0} is now level `{1}`. The users role rewards (if any) will automatically be updated once they send a message."
 	},
 	"playlist": {
 		"create": {
@@ -427,6 +464,7 @@
 		"success": "{0} has been unbanned."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Please include a user to mute!",
 		"success": "{0} has been muted for {1}.",
 		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
@@ -669,7 +707,8 @@
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
 		"invalidMsg": "That message does not have any contents or an image attached.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!",
+		"noGuild": "That message isn't in a guild :c"
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
@@ -790,7 +829,8 @@
 	"toggleplugin": {
 		"noArgs": "Please include a plugin name.",
 		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"success": "The {0} plugin has been `{1}`.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
 		"noArgs": "Please include a command name.",

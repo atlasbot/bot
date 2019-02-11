@@ -1,4 +1,38 @@
 {
+	"ticket": {
+		"base": {
+			"notATicket": "This is not a ticket channel.",
+			"noPerms": "You do not have permission to do that.",
+			"userNotFound": "I could not find a member in this guild matching `{0}`."
+		},
+		"add": {
+			"noUser": "Please include a user to add.",
+			"notFound": "I could not find a member in this guild matching `{0}`.",
+			"alreadyAdded": "{0} can already view this ticket.",
+			"added": "{0} can now view this ticket."
+		},
+		"remove": {
+			"noUser": "Please include a user to remove.",
+			"notAdded": "{0} doesnt have access to this ticket.",
+			"removed": "{0} can no longer view this ticket."
+		},
+		"create": {
+			"channelLimit": "Sorry, this server has hit the limit for channels (500). Ask an admin to close other tickets or delete channels to make room.",
+			"maxTickets": "Sorry, you can only have three tickets open at once.",
+			"topic": "Opened by {0} - All messages sent to this channel are being recorded.",
+			"created": "Your ticket has been created - {0}."
+		},
+		"suffix": {
+			"removed": "The suffix for this ticket has been removed.",
+			"set": "This ticket's suffix is now `{0}`.",
+			"noAuthor": "The author of this ticket is no where to be found. The ticket suffix cannot be changed.",
+			"noSuffix": "Please include a suffix. Do `{0}ticket suffix off` to remove the current suffix."
+		},
+		"transcript": {
+			"generating": "Generating transcript - this may take awhile...",
+			"created": "Transcript created - <https://atlasbot.xyz/transcript/{0}>."
+		}
+	},
 	"cowboy": {
 		"noArgs": "gib emoji",
 		"notAnEmoji": "That isn't a valid emoji!"
@@ -37,6 +71,7 @@
 			"bot": "I do not have permissions to manage that role.",
 			"user": "You do not have permissions to manage that role."
 		},
+		"noRole": "I could not find a role matching `{0}`.",
 		"dm": "The `@{0}` role is no longer mentionable because you mentioned it.",
 		"mentionable": "You can now mention `@{0}`. ",
 		"unmentionable": "You can no longer mention `@{0}`.",
@@ -101,10 +136,12 @@
 		"noArgs": "Please include something to raNdomIsE."
 	},
 	"dashboard": "You can configure your server at <https://atlasbot.xyz/meera/{0}>.",
-	"resetlevel": {
-		"noArgs": "Please include a user to reset the level of.",
-		"noUser": "I could not find a user matching `{0}`.",
-		"success": "{0} has had their level reset to zero."
+	"setlevel": {
+		"bot": "Bots cannot have levels.",
+		"noUser": "Please tag the user you wish to change the level of.",
+		"invalidUser": "I could not resolve `{0}` to a valid user.",
+		"noLevel": "Please include a valid number between 0-150 to set the users level to.",
+		"success": "{0} is now level `{1}`. The users role rewards (if any) will automatically be updated once they send a message."
 	},
 	"playlist": {
 		"create": {
@@ -215,9 +252,9 @@
 	},
 	"movie": {
 		"notAMovie": "That is not a movie! Maybe try `{0}show {1}` instead.",
-		"notASeries": "That is not a TV show! Maybe try `{0}movie {1}` instead.",
+		"notASeries": "Это не телешоу! Возможно, вместо этого попробуйте `{0}фильм {1}`.",
 		"notFound": "I could not find a movie or TV show matching `{0}`.",
-		"ratings": "Ratings"
+		"ratings": "Рейтинг"
 	},
 	"funban": {
 		"success": "Banned {0}."
@@ -229,8 +266,8 @@
 		"tooLateReason": "{1} has already been banned with the reason `{0}`.",
 		"tooLate": "{0} has already been banned.",
 		"dm": {
-			"reason": "You have been banned from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been banned from {0} by {1} ({2})."
+			"reason": "Вы были заблокированы на {0} за `{1}` заблокировал {2} ({3}).",
+			"noReason": "Вы были заблокированы на {0} заблокировал {1} ({2})."
 		}
 	},
 	"remindme": {
@@ -261,7 +298,7 @@
 			"Spinning up the hamster..."
 		]
 	},
-	"patreon": "Support Atlas and get awesome perks in return by donating at <https://www.patreon.com/NotSylver>.",
+	"patreon": "Поддержите Atlas и получите крутые перки за вашу помощь\n<https://www.patreon.com/NotSylver>.",
 	"invite": "You can get Atlas for your own server at <https://atlasbot.xyz/get>.",
 	"help": {
 		"sent": "Check your direct-messages for help!",
@@ -351,7 +388,7 @@
 	},
 	"queue": {
 		"totalDuration": {
-			"name": "Total Duration",
+			"name": "Общая продолжительность",
 			"value": "{0}"
 		},
 		"inQueue": {
@@ -362,7 +399,7 @@
 			}
 		},
 		"upNext": {
-			"value": "Up Next",
+			"value": "Далее",
 			"format": "{0}. [{1}]({2})"
 		}
 	},
@@ -427,6 +464,7 @@
 		"success": "{0} has been unbanned."
 	},
 	"mute": {
+		"weirdError": "Something bad happened editing the generated role position.",
 		"noArgs": "Please include a user to mute!",
 		"success": "{0} has been muted for {1}.",
 		"generated": " I also auto-generated a mute role for this server, which may require some minor changes to get working properly.",
@@ -562,8 +600,8 @@
 		"success": "Kicked {0}.",
 		"withReason": "Kicked {0} for `{1}`.",
 		"dm": {
-			"reason": "You have been kicked from {0} for `{1}` by {2} ({3}).",
-			"noReason": "You have been kicked from {0} by {1} ({2})."
+			"reason": "Вы были выгнаны с {0} за `{1}` выгнал {2} ({3}).",
+			"noReason": "Вы были выгнаны с {0} выгнал {1} ({2})."
 		}
 	},
 	"gotcharacter": {
@@ -669,7 +707,8 @@
 		"noMessage": "I could not find any message matching that :c",
 		"invalidType": "This command only supports text messages.",
 		"invalidMsg": "That message does not have any contents or an image attached.",
-		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!"
+		"notCached": "Hmm, I couldn't find that message. If it's in another channel or guild, include the channel's ID as the second argument!",
+		"noGuild": "That message isn't in a guild :c"
 	},
 	"randomcolor": "Your random hex is [#{0}](http://www.color-hex.com/color/{0})",
 	"reddit": {
@@ -774,29 +813,30 @@
 		"error": "Something went wrong updating the channel name. Discord may have fixed the \"spaces\" we use, or something might just be temporarily broken.",
 		"noChannel": "I couldn't find a channel matching `{0}`."
 	},
-	"leaderboard": "You can view this server's leaderboard at <https://atlasbot.xyz/leaderboard/{0}>.",
+	"leaderboard": "Посмотреть доску лидеров этого сервра можно здесь\n<https://atlasbot.xyz/leaderboard/{0}>.",
 	"level": {
-		"invalidUser": "I could not find a user matching `{0}` :c",
-		"noProfile": "Hmm, something went wrong. I could not find a profile for that user.",
+		"invalidUser": "Я не мог найти подходящего пользователя `{0}` :c",
+		"noProfile": "Хм, что-то пошло не так. Я не могу найти профиль этого пользователя.",
 		"embed": {
-			"rank": "Rank",
-			"level": "Level",
+			"rank": "Ранг",
+			"level": "Уровень",
 			"experience": {
-				"name": "Experience",
+				"name": "Опыт",
 				"value": "{0}/{1} • `{2}` total"
 			}
 		}
 	},
 	"toggleplugin": {
-		"noArgs": "Please include a plugin name.",
-		"noPlugin": "I could not find a plugin matching `{0}`.",
-		"success": "The {0} plugin has been `{1}`."
+		"noArgs": "Пожалуйста, укажите название плагина.",
+		"noPlugin": "Я не смог найти подходящий плагин `{0}`.",
+		"success": "Плагин {0} был {1}.",
+		"successAll": "All plugins have been enabled."
 	},
 	"togglecommand": {
-		"noArgs": "Please include a command name.",
-		"noCommand": "I could not find a command matching `{0}`.",
-		"disabled": "The {0} command has been `disabled`.",
-		"enabled": "The {0} command has been `enabled`."
+		"noArgs": "Пожалуйста, укажите название команды.",
+		"noCommand": "Я не смог найти подходящую команду `{0}`.",
+		"disabled": "Команда {0} была `отключена`.",
+		"enabled": "Команда {0} была `включена`."
 	},
 	"isspass": {
 		"noResults": "I could not find a location matching `{0}`.",
