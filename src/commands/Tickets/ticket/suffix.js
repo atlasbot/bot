@@ -8,28 +8,28 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.close');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.suffix');
 
 		const ticket = await this.Atlas.DB.getTicket(msg.guild, msg.channel.id);
 
 		if (!ticket) {
-			return responder.error('This is not a ticket channel.').send();
+			return responder.error('ticket.general.notATicket').send();
 		}
 
 		const options = settings.plugin('tickets');
 		const authorPerms = msg.channel.permissionsOf(msg.author.id);
 		if (ticket.author !== msg.author.id && !authorPerms.has('manageGuild') && !(msg.member.roles || []).includes(options.support)) {
-			return responder.error('You do not have permission to do that.').send();
+			return responder.error('ticket.general.noPerms').send();
 		}
 
 		if (!args.length) {
-			return responder.error(`Please include a new suffix. Do \`${msg.displayPrefix}ticket suffix off\` to remove the prefix.`).send();
+			return responder.error('noSuffix', msg.displayPrefix).send();
 		}
 
 		const author = await settings.findUser(ticket.author);
 
 		if (!author) {
-			return responder.error('The author of this ticket is no where to be found. The ticket suffix cannot be changed.').send();
+			return responder.error('noAuthor').send();
 		}
 
 		const type = this.Atlas.lib.utils.toggleType(args[0], false);
@@ -41,7 +41,7 @@ module.exports = class extends Command {
 				name,
 			});
 
-			return responder.text('The suffix for this ticket has been removed.').send();
+			return responder.text('removed').send();
 		}
 
 		const suffix = args.join(' ');
@@ -50,7 +50,7 @@ module.exports = class extends Command {
 
 		await msg.channel.edit({ name });
 
-		return responder.text(`The ticket's suffix is now \`${suffix}\``).send();
+		return responder.text('set', suffix).send();
 	}
 };
 

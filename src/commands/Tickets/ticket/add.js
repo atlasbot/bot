@@ -10,22 +10,22 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.close');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.add');
 
 		const ticket = await this.Atlas.DB.getTicket(msg.guild, msg.channel.id);
 
 		if (!ticket) {
-			return responder.error('This is not a ticket channel.').send();
+			return responder.error('ticket.general.notATicket').send();
 		}
 
 		const options = settings.plugin('tickets');
 		const authorPerms = msg.channel.permissionsOf(msg.author.id);
 		if (ticket.author !== msg.author.id && !authorPerms.has('manageGuild') && !(msg.member.roles || []).includes(options.support)) {
-			return responder.error('You do not have permission to do that.').send();
+			return responder.error('ticket.general.noPerms').send();
 		}
 
 		if (!args.length) {
-			return responder.error('Please include a user to add.').send();
+			return responder.error('noUser').send();
 		}
 
 		const member = await settings.findUser(args.join(' '), {
@@ -33,17 +33,17 @@ module.exports = class extends Command {
 		});
 
 		if (!member) {
-			return responder.error('I could not find a member in this guild matching your query').send();
+			return responder.error('tickets.general.userNotFound', args.join(' ')).send();
 		}
 
 		const perms = msg.channel.permissionsOf(member.id);
 		if (perms.has('sendMessages')) {
-			return responder.error(`${member.username} can already view this ticket.`).send();
+			return responder.error('alreadyAdded', member.username).send();
 		}
 
 		await msg.channel.editPermission(member.id, VIEW_PERMS, 0, 'member');
 
-		return responder.text(`${member.mention} can now view this ticket.`).send();
+		return responder.text('added', member.mention).send();
 	}
 };
 

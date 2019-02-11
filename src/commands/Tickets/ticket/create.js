@@ -18,7 +18,7 @@ module.exports = class extends Command {
 
 		if (msg.guild.channels.size >= 500) {
 			return responder
-				.error('Sorry, this server has hit the limit for channels (500). Ask an admin to close other tickets or delete channels to make room.')
+				.error('channelLimit')
 				.send();
 		}
 
@@ -31,7 +31,7 @@ module.exports = class extends Command {
 		});
 
 		if (existing >= 3) {
-			return responder.error('Sorry, you can only have three tickets open at once.').send();
+			return responder.error('maxTickets').send();
 		}
 
 		const { options } = settings.plugin('tickets');
@@ -61,7 +61,7 @@ module.exports = class extends Command {
 		}
 
 		await channel.edit({
-			topic: `Opened by ${msg.author.username} - All messages sent to this channel are being recorded.`,
+			topic: responder.format('topic', msg.author.username),
 		});
 
 		if (options.message) {
@@ -91,7 +91,7 @@ module.exports = class extends Command {
 			}
 		}
 
-		return responder.text(`Your ticket has been created - ${channel.mention}.`).send();
+		return responder.text('created', channel.mention).send();
 	}
 };
 

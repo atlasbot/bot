@@ -10,21 +10,21 @@ module.exports = class extends Command {
 	async action(msg, args, {
 		settings,
 	}) {
-		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.close');
+		const responder = new this.Atlas.structs.Responder(msg, msg.lang, 'ticket.transcript');
 
 		const ticket = await this.Atlas.DB.getTicket(msg.guild, msg.channel.id);
 
 		if (!ticket) {
-			return responder.error('This is not a ticket channel.').send();
+			return responder.error('ticket.general.notATicket').send();
 		}
 
 		const options = settings.plugin('tickets');
 		const authorPerms = msg.channel.permissionsOf(msg.author.id);
 		if (ticket.author !== msg.author.id && !authorPerms.has('manageGuild') && !(msg.member.roles || []).includes(options.support)) {
-			return responder.error('You do not have permission to do that.').send();
+			return responder.error('ticket.general.noPerms').send();
 		}
 
-		const toEdit = await responder.text('Generating transcript - this may take awhile...').send();
+		const toEdit = await responder.text('generating').send();
 		responder.edit(toEdit);
 
 		const raw = await ticket.channel.getMessages(MAX_FETCH);
@@ -47,7 +47,7 @@ module.exports = class extends Command {
 			})),
 		});
 
-		return responder.text(`Transcript created - <https://atlasbot.xyz/transcript/${id}>.`).send();
+		return responder.text('created', id).send();
 	}
 };
 

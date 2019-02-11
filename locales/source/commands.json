@@ -1,30 +1,36 @@
 {
 	"ticket": {
-		"base": {
-			"description": "Create tickets, manage existing ones and much more."
-		},
-		"create": {
-			"description": "Create a new ticket",
-			"usage": "<description>"
-		},
-		"close": {
-			"description": "Close a ticket"
+		"general": {
+			"notATicket": "This is not a ticket channel.",
+			"noPerms": "You do not have permission to do that.",
+			"userNotFound": "I could not find a member in this guild matching `{0}`."
 		},
 		"add": {
-			"description": "Add a user to the ticket",
-			"usage": "[user]"
+			"noUser": "Please include a user to add.",
+			"notFound": "I could not find a member in this guild matching `{0}`.",
+			"alreadyAdded": "{0} can already view this ticket.",
+			"added": "{0} can now view this ticket."
 		},
 		"remove": {
-			"description": "Remove a user from the ticket",
-			"usage": "[user]"
+			"noUser": "Please include a user to remove.",
+			"notAdded": "{0} doesnt have access to this ticket.",
+			"removed": "{0} can no longer view this ticket."
 		},
-		"transcript": {
-			"description": "Generate a transcript of the whole ticket. If public, anyone can view the transcript if they have the right link, when private only server managers and support staff can view it.",
-			"usage": "<public=true>"
+		"create": {
+			"channelLimit": "Sorry, this server has hit the limit for channels (500). Ask an admin to close other tickets or delete channels to make room.",
+			"maxTickets": "Sorry, you can only have three tickets open at once.",
+			"topic": "Opened by {0} - All messages sent to this channel are being recorded.",
+			"created": "Your ticket has been created - {0}."
 		},
 		"suffix": {
-			"description": "Adds a suffix to a ticket, useful for knowing what's happening and organising things.",
-			"usage": "[suffix]"
+			"removed": "The suffix for this ticket has been removed.",
+			"set": "This ticket's suffix is now `{0}`.",
+			"noAuthor": "The author of this ticket is no where to be found. The ticket suffix cannot be changed.",
+			"noSuffix": "Please include a suffix. Do `{0}ticket suffix off` to remove the current suffix."
+		},
+		"transcript": {
+			"generating": "Generating transcript - this may take awhile...",
+			"created": "Transcript created - <https://atlasbot.xyz/transcript/{0}>."
 		}
 	},
 	"cowboy": {
