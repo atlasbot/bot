@@ -30,7 +30,7 @@ module.exports = class extends Command {
 
 		const profile = await this.Atlas.DB.getUser(user);
 		const guildProfile = profile.guildProfile(msg.guild.id, false);
-		const oldLevel = this.Atlas.lib.xputil.getLevelFromXP(guildProfile.xp);
+		const oldLevel = this.Atlas.lib.xputil.getLevelFromXP(guildProfile ? guildProfile.xp : 0);
 
 		const xp = this.Atlas.lib.xputil.getLevelXP(level);
 
