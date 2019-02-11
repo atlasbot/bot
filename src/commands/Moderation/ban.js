@@ -93,6 +93,9 @@ module.exports = class extends Command {
 
 module.exports.info = {
 	name: 'ban',
+	aliases: [
+		'hackban',
+	],
 	examples: [
 		'@random breaking the rulez',
 		'@random not partying hard enough',
