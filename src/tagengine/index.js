@@ -23,10 +23,10 @@ module.exports = class {
 		settings,
 		action,
 		ticket,
-		channel = msg.channel,
-		user = msg.author,
-		member = msg.member,
-		guild = msg.guild || channel.guild,
+		channel = msg && msg.channel,
+		user = msg && msg.author,
+		member = msg && msg.member,
+		guild = (msg && msg.guild) || (channel && channel.guild),
 	}, managed = true) {
 		this.Atlas = require('./../../Atlas');
 
