@@ -15,13 +15,13 @@ module.exports = class extends Command {
 		const ticket = await this.Atlas.DB.getTicket(msg.guild, msg.channel.id);
 
 		if (!ticket) {
-			return responder.error('ticket.general.notATicket').send();
+			return responder.error('commands.ticket.base.notATicket').send();
 		}
 
 		const options = settings.plugin('tickets');
 		const authorPerms = msg.channel.permissionsOf(msg.author.id);
 		if (ticket.author !== msg.author.id && !authorPerms.has('manageGuild') && !(msg.member.roles || []).includes(options.support)) {
-			return responder.error('ticket.general.noPerms').send();
+			return responder.error('commands.ticket.base.noPerms').send();
 		}
 
 		const toEdit = await responder.text('generating').send();

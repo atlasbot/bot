@@ -1,6 +1,6 @@
 {
 	"ticket": {
-		"general": {
+		"base": {
 			"notATicket": "This is not a ticket channel.",
 			"noPerms": "You do not have permission to do that.",
 			"userNotFound": "I could not find a member in this guild matching `{0}`."

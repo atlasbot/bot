@@ -15,13 +15,13 @@ module.exports = class extends Command {
 		const ticket = await this.Atlas.DB.getTicket(msg.guild, msg.channel.id);
 
 		if (!ticket) {
-			return responder.error('ticket.general.notATicket').send();
+			return responder.error('commands.ticket.base.notATicket').send();
 		}
 
 		const options = settings.plugin('tickets');
 		const authorPerms = msg.channel.permissionsOf(msg.author.id);
 		if (ticket.author !== msg.author.id && !authorPerms.has('manageGuild') && !(msg.member.roles || []).includes(options.support)) {
-			return responder.error('ticket.general.noPerms').send();
+			return responder.error('commands.ticket.base.noPerms').send();
 		}
 
 		if (!args.length) {
@@ -33,7 +33,7 @@ module.exports = class extends Command {
 		});
 
 		if (!member) {
-			return responder.error('tickets.general.userNotFound', args.join(' ')).send();
+			return responder.error('commands.ticket.base.userNotFound', args.join(' ')).send();
 		}
 
 		const perms = msg.channel.permissionsOf(member.id);
