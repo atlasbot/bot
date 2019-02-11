@@ -60,6 +60,10 @@ module.exports = class extends Command {
 			await channel.editPermission(options.support, VIEW_PERMS, 0, 'role');
 		}
 
+		await channel.edit({
+			topic: `Opened by ${msg.author.username} - All messages sent to this channel are being recorded.`,
+		});
+
 		if (options.message) {
 			// i don't know why, but directly after the channel is created, eris
 			// thinks we don't have read messages perms when we definitely do.
