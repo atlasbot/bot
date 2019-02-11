@@ -90,27 +90,6 @@ module.exports = class extends Command {
 		// they're looking for a plugin or command
 
 		const query = args[0].replace(/[\W_]+/g, '');
-		const plugin = this.Atlas.lib.utils.nbsFuzzy(this.Atlas.plugins, ['name'], query);
-
-		if (plugin) {
-			let state;
-			if (settings) {
-				const conf = settings.plugin(plugin.name);
-
-				if (conf) {
-					({ state } = conf);
-				}
-			}
-
-			return responder.embed({
-				title: plugin.name,
-				description: formatCommands(plugin.commands),
-				footer: {
-					text: state,
-				},
-				timestamp: new Date(),
-			}).send();
-		}
 
 		const command = this.Atlas.lib.utils.nbsFuzzy(this.Atlas.commands.labels, ['info.name', 'info.aliases'], query);
 
