@@ -1,3 +1,7 @@
+# DEPRECATED
+
+You won't get support, security patches, features or bug fixes if you choose to use this version. If you have questions, join us on Discord - https://atlasbot.xyz/support
+
 # Atlas
 
 <div>
