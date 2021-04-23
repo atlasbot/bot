@@ -42,7 +42,7 @@
 		"flat": "^4.1.0",
 		"jimp": "^0.6.0",
 		"joi": "^14.3.1",
-		"mongoose": "^5.4.6",
+		"mongoose": "^5.7.5",
 		"parse-color": "^1.0.0",
 		"safe-regex": "^2.0.1",
 		"superagent": "^4.1.0",
